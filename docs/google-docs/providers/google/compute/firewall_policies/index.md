@@ -130,32 +130,72 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: associations
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: ruleTupleCount
-      value: '{{ ruleTupleCount }}'
-    - name: shortName
-      value: '{{ shortName }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: parent
-      value: '{{ parent }}'
-    - name: region
-      value: '{{ region }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+rules:
+  - kind: string
+    ruleName: string
+    description: string
+    priority: integer
+    match:
+      srcIpRanges:
+        - type: string
+      destIpRanges:
+        - type: string
+      layer4Configs:
+        - ipProtocol: string
+          ports:
+            - type: string
+      srcSecureTags:
+        - name: string
+          state: string
+      destAddressGroups:
+        - type: string
+      srcAddressGroups:
+        - type: string
+      srcFqdns:
+        - type: string
+      destFqdns:
+        - type: string
+      srcRegionCodes:
+        - type: string
+      destRegionCodes:
+        - type: string
+      destThreatIntelligences:
+        - type: string
+      srcThreatIntelligences:
+        - type: string
+    action: string
+    securityProfileGroup: string
+    tlsInspect: boolean
+    direction: string
+    targetResources:
+      - type: string
+    enableLogging: boolean
+    ruleTupleCount: integer
+    targetServiceAccounts:
+      - type: string
+    targetSecureTags:
+      - name: string
+        state: string
+    disabled: boolean
+fingerprint: string
+selfLink: string
+selfLinkWithId: string
+associations:
+  - name: string
+    attachmentTarget: string
+    firewallPolicyId: string
+    shortName: string
+    displayName: string
+ruleTupleCount: integer
+shortName: string
+displayName: string
+parent: string
+region: string
 
 ```
 </TabItem>

@@ -124,20 +124,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: sourceInstance
-      value: '{{ sourceInstance }}'
-    - name: sourceFileShare
-      value: '{{ sourceFileShare }}'
-    - name: kmsKey
-      value: '{{ kmsKey }}'
-    - name: tags
-      value: '{{ tags }}'
+name: string
+description: string
+state: string
+createTime: string
+labels: object
+capacityGb: string
+storageBytes: string
+sourceInstance: string
+sourceFileShare: string
+sourceInstanceTier: string
+downloadBytes: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
+kmsKey: string
+tags: object
+fileSystemProtocol: string
 
 ```
 </TabItem>

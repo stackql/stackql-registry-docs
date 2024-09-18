@@ -146,30 +146,177 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: skaffoldConfigUri
-      value: '{{ skaffoldConfigUri }}'
-    - name: skaffoldConfigPath
-      value: '{{ skaffoldConfigPath }}'
-    - name: buildArtifacts
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: skaffoldVersion
-      value: '{{ skaffoldVersion }}'
-    - name: deployParameters
-      value: '{{ deployParameters }}'
+name: string
+uid: string
+description: string
+annotations: object
+labels: object
+abandoned: boolean
+createTime: string
+renderStartTime: string
+renderEndTime: string
+skaffoldConfigUri: string
+skaffoldConfigPath: string
+buildArtifacts:
+  - image: string
+    tag: string
+deliveryPipelineSnapshot:
+  name: string
+  uid: string
+  description: string
+  annotations: object
+  labels: object
+  createTime: string
+  updateTime: string
+  serialPipeline:
+    stages:
+      - targetId: string
+        profiles:
+          - type: string
+        strategy:
+          standard:
+            verify: boolean
+            predeploy:
+              actions:
+                - type: string
+            postdeploy:
+              actions:
+                - type: string
+          canary:
+            runtimeConfig:
+              kubernetes:
+                gatewayServiceMesh:
+                  httpRoute: string
+                  service: string
+                  deployment: string
+                  routeUpdateWaitTime: string
+                  stableCutbackDuration: string
+                  podSelectorLabel: string
+                serviceNetworking:
+                  service: string
+                  deployment: string
+                  disablePodOverprovisioning: boolean
+                  podSelectorLabel: string
+              cloudRun:
+                automaticTrafficControl: boolean
+                canaryRevisionTags:
+                  - type: string
+                priorRevisionTags:
+                  - type: string
+                stableRevisionTags:
+                  - type: string
+            canaryDeployment:
+              percentages:
+                - type: string
+                  format: string
+              verify: boolean
+            customCanaryDeployment:
+              phaseConfigs:
+                - phaseId: string
+                  percentage: integer
+                  profiles:
+                    - type: string
+                  verify: boolean
+        deployParameters:
+          - values: object
+            matchTargetLabels: object
+  condition:
+    pipelineReadyCondition:
+      status: boolean
+      updateTime: string
+    targetsPresentCondition:
+      status: boolean
+      missingTargets:
+        - type: string
+      updateTime: string
+    targetsTypeCondition:
+      status: boolean
+      errorDetails: string
+  etag: string
+  suspended: boolean
+targetSnapshots:
+  - name: string
+    targetId: string
+    uid: string
+    description: string
+    annotations: object
+    labels: object
+    requireApproval: boolean
+    createTime: string
+    updateTime: string
+    gke:
+      cluster: string
+      internalIp: boolean
+      proxyUrl: string
+    anthosCluster:
+      membership: string
+    run:
+      location: string
+    multiTarget:
+      targetIds:
+        - type: string
+    customTarget:
+      customTargetType: string
+    etag: string
+    executionConfigs:
+      - usages:
+          - type: string
+            enumDescriptions: string
+            enum: string
+        defaultPool:
+          serviceAccount: string
+          artifactStorage: string
+        privatePool:
+          workerPool: string
+          serviceAccount: string
+          artifactStorage: string
+        workerPool: string
+        serviceAccount: string
+        artifactStorage: string
+        executionTimeout: string
+        verbose: boolean
+    deployParameters: object
+customTargetTypeSnapshots:
+  - name: string
+    customTargetTypeId: string
+    uid: string
+    description: string
+    annotations: object
+    labels: object
+    createTime: string
+    updateTime: string
+    etag: string
+    customActions:
+      renderAction: string
+      deployAction: string
+      includeSkaffoldModules:
+        - configs:
+            - type: string
+          git:
+            repo: string
+            path: string
+            ref: string
+          googleCloudStorage:
+            source: string
+            path: string
+          googleCloudBuildRepo:
+            repository: string
+            path: string
+            ref: string
+renderState: string
+etag: string
+skaffoldVersion: string
+targetArtifacts: object
+targetRenders: object
+condition:
+  releaseReadyCondition:
+    status: boolean
+  skaffoldSupportedCondition:
+    status: boolean
+    skaffoldSupportState: string
+    maintenanceModeTime: string
+    supportExpirationTime: string
+deployParameters: object
 
 ```
 </TabItem>

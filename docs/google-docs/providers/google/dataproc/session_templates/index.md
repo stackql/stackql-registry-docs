@@ -116,78 +116,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: jupyterSession
-      value:
-        - name: kernel
-          value: '{{ kernel }}'
-        - name: displayName
-          value: '{{ displayName }}'
-    - name: sparkConnectSession
-      value: []
-    - name: labels
-      value: '{{ labels }}'
-    - name: runtimeConfig
-      value:
-        - name: version
-          value: '{{ version }}'
-        - name: containerImage
-          value: '{{ containerImage }}'
-        - name: properties
-          value: '{{ properties }}'
-        - name: repositoryConfig
-          value:
-            - name: pypiRepositoryConfig
-              value:
-                - name: pypiRepository
-                  value: '{{ pypiRepository }}'
-        - name: autotuningConfig
-          value:
-            - name: scenarios
-              value:
-                - name: type
-                  value: '{{ type }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-                - name: enum
-                  value: '{{ enum }}'
-        - name: cohort
-          value: '{{ cohort }}'
-    - name: environmentConfig
-      value:
-        - name: executionConfig
-          value:
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: networkUri
-              value: '{{ networkUri }}'
-            - name: subnetworkUri
-              value: '{{ subnetworkUri }}'
-            - name: networkTags
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: kmsKey
-              value: '{{ kmsKey }}'
-            - name: idleTtl
-              value: '{{ idleTtl }}'
-            - name: ttl
-              value: '{{ ttl }}'
-            - name: stagingBucket
-              value: '{{ stagingBucket }}'
-        - name: peripheralsConfig
-          value:
-            - name: metastoreService
-              value: '{{ metastoreService }}'
-            - name: sparkHistoryServerConfig
-              value:
-                - name: dataprocCluster
-                  value: '{{ dataprocCluster }}'
+name: string
+description: string
+createTime: string
+jupyterSession:
+  kernel: string
+  displayName: string
+sparkConnectSession: {}
+creator: string
+labels: object
+runtimeConfig:
+  version: string
+  containerImage: string
+  properties: object
+  repositoryConfig:
+    pypiRepositoryConfig:
+      pypiRepository: string
+  autotuningConfig:
+    scenarios:
+      - type: string
+        enumDescriptions: string
+        enum: string
+  cohort: string
+environmentConfig:
+  executionConfig:
+    serviceAccount: string
+    networkUri: string
+    subnetworkUri: string
+    networkTags:
+      - type: string
+    kmsKey: string
+    idleTtl: string
+    ttl: string
+    stagingBucket: string
+  peripheralsConfig:
+    metastoreService: string
+    sparkHistoryServerConfig:
+      dataprocCluster: string
+updateTime: string
+uuid: string
 
 ```
 </TabItem>

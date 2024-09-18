@@ -72,134 +72,155 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: accountVerification
-      value:
-        - name: username
-          value: '{{ username }}'
-        - name: languageCode
-          value: '{{ languageCode }}'
-        - name: endpoints
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: event
-      value:
-        - name: ja3
-          value: '{{ ja3 }}'
-        - name: expectedAction
-          value: '{{ expectedAction }}'
-        - name: hashedAccountId
-          value: '{{ hashedAccountId }}'
-        - name: fraudPrevention
-          value: '{{ fraudPrevention }}'
-        - name: wafTokenAssessment
-          value: '{{ wafTokenAssessment }}'
-        - name: express
-          value: '{{ express }}'
-        - name: firewallPolicyEvaluation
-          value: '{{ firewallPolicyEvaluation }}'
-        - name: userAgent
-          value: '{{ userAgent }}'
-        - name: transactionData
-          value:
-            - name: value
-              value: '{{ value }}'
-            - name: currencyCode
-              value: '{{ currencyCode }}'
-            - name: merchants
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: transactionId
-              value: '{{ transactionId }}'
-            - name: cardBin
-              value: '{{ cardBin }}'
-            - name: billingAddress
-              value:
-                - name: address
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: administrativeArea
-                  value: '{{ administrativeArea }}'
-                - name: recipient
-                  value: '{{ recipient }}'
-                - name: postalCode
-                  value: '{{ postalCode }}'
-                - name: locality
-                  value: '{{ locality }}'
-                - name: regionCode
-                  value: '{{ regionCode }}'
-            - name: user
-              value:
-                - name: emailVerified
-                  value: '{{ emailVerified }}'
-                - name: phoneNumber
-                  value: '{{ phoneNumber }}'
-                - name: email
-                  value: '{{ email }}'
-                - name: creationMs
-                  value: '{{ creationMs }}'
-                - name: accountId
-                  value: '{{ accountId }}'
-                - name: phoneVerified
-                  value: '{{ phoneVerified }}'
-            - name: paymentMethod
-              value: '{{ paymentMethod }}'
-            - name: cardLastFour
-              value: '{{ cardLastFour }}'
-            - name: items
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: shippingValue
-              value: '{{ shippingValue }}'
-            - name: gatewayInfo
-              value:
-                - name: name
-                  value: '{{ name }}'
-                - name: cvvResponseCode
-                  value: '{{ cvvResponseCode }}'
-                - name: avsResponseCode
-                  value: '{{ avsResponseCode }}'
-                - name: gatewayResponseCode
-                  value: '{{ gatewayResponseCode }}'
-        - name: userInfo
-          value:
-            - name: userIds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: accountId
-              value: '{{ accountId }}'
-            - name: createAccountTime
-              value: '{{ createAccountTime }}'
-        - name: userIpAddress
-          value: '{{ userIpAddress }}'
-        - name: siteKey
-          value: '{{ siteKey }}'
-        - name: token
-          value: '{{ token }}'
-        - name: headers
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: requestedUri
-          value: '{{ requestedUri }}'
-    - name: assessmentEnvironment
-      value:
-        - name: version
-          value: '{{ version }}'
-        - name: client
-          value: '{{ client }}'
-    - name: privatePasswordLeakVerification
-      value:
-        - name: lookupHashPrefix
-          value: '{{ lookupHashPrefix }}'
-        - name: encryptedUserCredentialsHash
-          value: '{{ encryptedUserCredentialsHash }}'
+accountVerification:
+  username: string
+  languageCode: string
+  endpoints:
+    - phoneNumber: string
+      emailAddress: string
+      lastVerificationTime: string
+      requestToken: string
+  latestVerificationResult: string
+event:
+  ja3: string
+  expectedAction: string
+  hashedAccountId: string
+  fraudPrevention: string
+  wafTokenAssessment: boolean
+  express: boolean
+  firewallPolicyEvaluation: boolean
+  userAgent: string
+  transactionData:
+    value: number
+    currencyCode: string
+    merchants:
+      - emailVerified: boolean
+        phoneNumber: string
+        email: string
+        creationMs: string
+        accountId: string
+        phoneVerified: boolean
+    transactionId: string
+    cardBin: string
+    billingAddress:
+      address:
+        - type: string
+      administrativeArea: string
+      recipient: string
+      postalCode: string
+      locality: string
+      regionCode: string
+    user:
+      emailVerified: boolean
+      phoneNumber: string
+      email: string
+      creationMs: string
+      accountId: string
+      phoneVerified: boolean
+    paymentMethod: string
+    cardLastFour: string
+    items:
+      - name: string
+        merchantAccountId: string
+        quantity: string
+        value: number
+    shippingValue: number
+    gatewayInfo:
+      name: string
+      cvvResponseCode: string
+      avsResponseCode: string
+      gatewayResponseCode: string
+  userInfo:
+    userIds:
+      - email: string
+        username: string
+        phoneNumber: string
+    accountId: string
+    createAccountTime: string
+  userIpAddress: string
+  siteKey: string
+  token: string
+  headers:
+    - type: string
+  requestedUri: string
+fraudSignals:
+  cardSignals:
+    cardLabels:
+      - type: string
+        enum: string
+        enumDescriptions: string
+  userSignals:
+    activeDaysLowerBound: integer
+    syntheticRisk: number
+fraudPreventionAssessment:
+  behavioralTrustVerdict:
+    trust: number
+  stolenInstrumentVerdict:
+    risk: number
+  transactionRisk: number
+  cardTestingVerdict:
+    risk: number
+assessmentEnvironment:
+  version: string
+  client: string
+privatePasswordLeakVerification:
+  encryptedLeakMatchPrefixes:
+    - type: string
+      format: string
+  lookupHashPrefix: string
+  reencryptedUserCredentialsHash: string
+  encryptedUserCredentialsHash: string
+accountDefenderAssessment:
+  labels:
+    - type: string
+      enumDescriptions: string
+      enum: string
+firewallPolicyAssessment:
+  error:
+    details:
+      - additionalProperties: any
+        type: string
+    code: integer
+    message: string
+  firewallPolicy:
+    name: string
+    condition: string
+    description: string
+    actions:
+      - redirect: {}
+        allow: {}
+        substitute:
+          path: string
+        includeRecaptchaScript: {}
+        block: {}
+        setHeader:
+          value: string
+          key: string
+    path: string
+tokenProperties:
+  invalidReason: string
+  hostname: string
+  createTime: string
+  valid: boolean
+  iosBundleId: string
+  androidPackageName: string
+  action: string
+phoneFraudAssessment:
+  smsTollFraudVerdict:
+    reasons:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    risk: number
+riskAnalysis:
+  score: number
+  extendedVerdictReasons:
+    - type: string
+  reasons:
+    - type: string
+      enum: string
+      enumDescriptions: string
+name: string
 
 ```
 </TabItem>

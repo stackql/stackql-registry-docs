@@ -100,10 +100,9 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
+name: string
+dataEncryptionState:
+  kmsKeyVersionName: string
 
 ```
 </TabItem>

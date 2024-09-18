@@ -122,52 +122,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: resourceSpec
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: type
-          value: '{{ type }}'
-        - name: readAccessMode
-          value: '{{ readAccessMode }}'
-    - name: discoverySpec
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: includePatterns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: excludePatterns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: csvOptions
-          value:
-            - name: headerRows
-              value: '{{ headerRows }}'
-            - name: delimiter
-              value: '{{ delimiter }}'
-            - name: encoding
-              value: '{{ encoding }}'
-            - name: disableTypeInference
-              value: '{{ disableTypeInference }}'
-        - name: jsonOptions
-          value:
-            - name: encoding
-              value: '{{ encoding }}'
-            - name: disableTypeInference
-              value: '{{ disableTypeInference }}'
-        - name: schedule
-          value: '{{ schedule }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+state: string
+resourceSpec:
+  name: string
+  type: string
+  readAccessMode: string
+resourceStatus:
+  state: string
+  message: string
+  updateTime: string
+  managedAccessIdentity: string
+securityStatus:
+  state: string
+  message: string
+  updateTime: string
+discoverySpec:
+  enabled: boolean
+  includePatterns:
+    - type: string
+  excludePatterns:
+    - type: string
+  csvOptions:
+    headerRows: integer
+    delimiter: string
+    encoding: string
+    disableTypeInference: boolean
+  jsonOptions:
+    encoding: string
+    disableTypeInference: boolean
+  schedule: string
+discoveryStatus:
+  state: string
+  message: string
+  updateTime: string
+  lastRunTime: string
+  stats:
+    dataItems: string
+    dataSize: string
+    tables: string
+    filesets: string
+  lastRunDuration: string
 
 ```
 </TabItem>

@@ -139,66 +139,130 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: userDefinedFields
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: adaptiveProtectionConfig
-      value:
-        - name: layer7DdosDefenseConfig
-          value:
-            - name: enable
-              value: '{{ enable }}'
-            - name: ruleVisibility
-              value: '{{ ruleVisibility }}'
-            - name: thresholdConfigs
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: ddosProtectionConfig
-      value:
-        - name: ddosProtection
-          value: '{{ ddosProtection }}'
-    - name: advancedOptionsConfig
-      value:
-        - name: jsonParsing
-          value: '{{ jsonParsing }}'
-        - name: jsonCustomConfig
-          value:
-            - name: contentTypes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: logLevel
-          value: '{{ logLevel }}'
-        - name: userIpRequestHeaders
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: recaptchaOptionsConfig
-      value:
-        - name: redirectSiteKey
-          value: '{{ redirectSiteKey }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: type
-      value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: region
-      value: '{{ region }}'
+userDefinedFields:
+  - name: string
+    base: string
+    offset: integer
+    size: integer
+    mask: string
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+rules:
+  - kind: string
+    description: string
+    priority: integer
+    match:
+      expr:
+        expression: string
+        title: string
+        description: string
+        location: string
+      exprOptions:
+        recaptchaOptions:
+          actionTokenSiteKeys:
+            - type: string
+          sessionTokenSiteKeys:
+            - type: string
+      versionedExpr: string
+      config:
+        srcIpRanges:
+          - type: string
+    networkMatch:
+      userDefinedFields:
+        - name: string
+          values:
+            - type: string
+      srcIpRanges:
+        - type: string
+      destIpRanges:
+        - type: string
+      ipProtocols:
+        - type: string
+      srcPorts:
+        - type: string
+      destPorts:
+        - type: string
+      srcRegionCodes:
+        - type: string
+      srcAsns:
+        - type: string
+          format: string
+    action: string
+    preview: boolean
+    rateLimitOptions:
+      rateLimitThreshold:
+        count: integer
+        intervalSec: integer
+      conformAction: string
+      exceedAction: string
+      exceedRedirectOptions:
+        type: string
+        target: string
+      enforceOnKey: string
+      enforceOnKeyName: string
+      enforceOnKeyConfigs:
+        - enforceOnKeyType: string
+          enforceOnKeyName: string
+      banDurationSec: integer
+    headerAction:
+      requestHeadersToAdds:
+        - headerName: string
+          headerValue: string
+    preconfiguredWafConfig:
+      exclusions:
+        - targetRuleSet: string
+          targetRuleIds:
+            - type: string
+          requestHeadersToExclude:
+            - val: string
+              op: string
+          requestCookiesToExclude:
+            - val: string
+              op: string
+          requestQueryParamsToExclude:
+            - val: string
+              op: string
+          requestUrisToExclude:
+            - val: string
+              op: string
+adaptiveProtectionConfig:
+  layer7DdosDefenseConfig:
+    enable: boolean
+    ruleVisibility: string
+    thresholdConfigs:
+      - name: string
+        autoDeployLoadThreshold: number
+        autoDeployConfidenceThreshold: number
+        autoDeployImpactedBaselineThreshold: number
+        autoDeployExpirationSec: integer
+        detectionLoadThreshold: number
+        detectionAbsoluteQps: number
+        detectionRelativeToBaselineQps: number
+        trafficGranularityConfigs:
+          - type: string
+            value: string
+            enableEachUniqueValue: boolean
+ddosProtectionConfig:
+  ddosProtection: string
+advancedOptionsConfig:
+  jsonParsing: string
+  jsonCustomConfig:
+    contentTypes:
+      - type: string
+  logLevel: string
+  userIpRequestHeaders:
+    - type: string
+recaptchaOptionsConfig:
+  redirectSiteKey: string
+fingerprint: string
+selfLink: string
+type: string
+labels: object
+labelFingerprint: string
+region: string
 
 ```
 </TabItem>

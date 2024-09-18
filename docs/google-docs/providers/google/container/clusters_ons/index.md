@@ -77,80 +77,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: clusterId
-      value: '{{ clusterId }}'
-    - name: addonsConfig
-      value:
-        - name: httpLoadBalancing
-          value:
-            - name: disabled
-              value: '{{ disabled }}'
-        - name: horizontalPodAutoscaling
-          value:
-            - name: disabled
-              value: '{{ disabled }}'
-        - name: kubernetesDashboard
-          value:
-            - name: disabled
-              value: '{{ disabled }}'
-        - name: networkPolicyConfig
-          value:
-            - name: disabled
-              value: '{{ disabled }}'
-        - name: cloudRunConfig
-          value:
-            - name: disabled
-              value: '{{ disabled }}'
-            - name: loadBalancerType
-              value: '{{ loadBalancerType }}'
-        - name: dnsCacheConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: configConnectorConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: gcePersistentDiskCsiDriverConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: gcpFilestoreCsiDriverConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: gkeBackupAgentConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: gcsFuseCsiDriverConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: statefulHaConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: rayOperatorConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: rayClusterLoggingConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: rayClusterMonitoringConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-    - name: name
-      value: '{{ name }}'
+projectId: string
+zone: string
+clusterId: string
+addonsConfig:
+  httpLoadBalancing:
+    disabled: boolean
+  horizontalPodAutoscaling:
+    disabled: boolean
+  kubernetesDashboard:
+    disabled: boolean
+  networkPolicyConfig:
+    disabled: boolean
+  cloudRunConfig:
+    disabled: boolean
+    loadBalancerType: string
+  dnsCacheConfig:
+    enabled: boolean
+  configConnectorConfig:
+    enabled: boolean
+  gcePersistentDiskCsiDriverConfig:
+    enabled: boolean
+  gcpFilestoreCsiDriverConfig:
+    enabled: boolean
+  gkeBackupAgentConfig:
+    enabled: boolean
+  gcsFuseCsiDriverConfig:
+    enabled: boolean
+  statefulHaConfig:
+    enabled: boolean
+  rayOperatorConfig:
+    enabled: boolean
+    rayClusterLoggingConfig:
+      enabled: boolean
+    rayClusterMonitoringConfig:
+      enabled: boolean
+name: string
 
 ```
 </TabItem>

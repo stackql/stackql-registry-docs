@@ -146,38 +146,25 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: urlMap
-      value: '{{ urlMap }}'
-    - name: sslCertificates
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: certificateMap
-      value: '{{ certificateMap }}'
-    - name: quicOverride
-      value: '{{ quicOverride }}'
-    - name: sslPolicy
-      value: '{{ sslPolicy }}'
-    - name: region
-      value: '{{ region }}'
-    - name: proxyBind
-      value: '{{ proxyBind }}'
-    - name: serverTlsPolicy
-      value: '{{ serverTlsPolicy }}'
-    - name: authorizationPolicy
-      value: '{{ authorizationPolicy }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: httpKeepAliveTimeoutSec
-      value: '{{ httpKeepAliveTimeoutSec }}'
-    - name: tlsEarlyData
-      value: '{{ tlsEarlyData }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+urlMap: string
+sslCertificates:
+  - type: string
+certificateMap: string
+quicOverride: string
+sslPolicy: string
+region: string
+proxyBind: boolean
+serverTlsPolicy: string
+authorizationPolicy: string
+fingerprint: string
+httpKeepAliveTimeoutSec: integer
+tlsEarlyData: string
 
 ```
 </TabItem>

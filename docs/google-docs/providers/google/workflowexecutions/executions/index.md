@@ -125,18 +125,37 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: argument
-      value: '{{ argument }}'
-    - name: callLogLevel
-      value: '{{ callLogLevel }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: disableConcurrencyQuotaOverflowBuffering
-      value: '{{ disableConcurrencyQuotaOverflowBuffering }}'
-    - name: executionHistoryLevel
-      value: '{{ executionHistoryLevel }}'
+name: string
+createTime: string
+startTime: string
+endTime: string
+duration: string
+state: string
+argument: string
+result: string
+error:
+  payload: string
+  context: string
+  stackTrace:
+    elements:
+      - step: string
+        routine: string
+        position:
+          line: string
+          column: string
+          length: string
+workflowRevisionId: string
+callLogLevel: string
+status:
+  currentSteps:
+    - routine: string
+      step: string
+labels: object
+stateError:
+  details: string
+  type: string
+disableConcurrencyQuotaOverflowBuffering: boolean
+executionHistoryLevel: string
 
 ```
 </TabItem>

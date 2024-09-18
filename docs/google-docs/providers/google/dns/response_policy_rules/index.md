@@ -99,20 +99,57 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: ruleName
-      value: '{{ ruleName }}'
-    - name: dnsName
-      value: '{{ dnsName }}'
-    - name: localData
-      value:
-        - name: localDatas
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: behavior
-      value: '{{ behavior }}'
+ruleName: string
+dnsName: string
+localData:
+  localDatas:
+    - name: string
+      type: string
+      ttl: integer
+      rrdatas:
+        - type: string
+      signatureRrdatas:
+        - type: string
+      routingPolicy:
+        geo:
+          items:
+            - location: string
+              rrdatas:
+                - type: string
+              signatureRrdatas:
+                - type: string
+              healthCheckedTargets:
+                internalLoadBalancers:
+                  - loadBalancerType: string
+                    ipAddress: string
+                    port: string
+                    ipProtocol: string
+                    networkUrl: string
+                    project: string
+                    region: string
+                    kind: string
+                externalEndpoints:
+                  - type: string
+              kind: string
+          enableFencing: boolean
+          kind: string
+        wrr:
+          items:
+            - weight: number
+              rrdatas:
+                - type: string
+              signatureRrdatas:
+                - type: string
+              kind: string
+          kind: string
+        primaryBackup:
+          trickleTraffic: number
+          kind: string
+        healthCheck: string
+        kind: string
+      kind: string
+behavior: string
+kind: string
 
 ```
 </TabItem>

@@ -113,26 +113,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: charset
-      value: '{{ charset }}'
-    - name: collation
-      value: '{{ collation }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
-    - name: instance
-      value: '{{ instance }}'
-    - name: project
-      value: '{{ project }}'
-    - name: sqlserverDatabaseDetails
-      value:
-        - name: compatibilityLevel
-          value: '{{ compatibilityLevel }}'
-        - name: recoveryModel
-          value: '{{ recoveryModel }}'
+kind: string
+charset: string
+collation: string
+etag: string
+name: string
+instance: string
+selfLink: string
+project: string
+sqlserverDatabaseDetails:
+  compatibilityLevel: integer
+  recoveryModel: string
 
 ```
 </TabItem>

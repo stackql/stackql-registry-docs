@@ -101,12 +101,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requests
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+requests:
+  - repositoryId: string
+    repository:
+      updateTime: string
+      annotations: object
+      name: string
+      etag: string
+      webhookId: string
+      remoteUri: string
+      createTime: string
+    parent: string
 
 ```
 </TabItem>

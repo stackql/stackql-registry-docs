@@ -115,14 +115,12 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: filter
-      value: '{{ filter }}'
-    - name: disabled
-      value: '{{ disabled }}'
+name: string
+description: string
+filter: string
+disabled: boolean
+createTime: string
+updateTime: string
 
 ```
 </TabItem>

@@ -124,102 +124,72 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: triggerSpec
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: disabled
-          value: '{{ disabled }}'
-        - name: maxRetries
-          value: '{{ maxRetries }}'
-        - name: schedule
-          value: '{{ schedule }}'
-    - name: executionSpec
-      value:
-        - name: args
-          value: '{{ args }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: project
-          value: '{{ project }}'
-        - name: maxJobExecutionLifetime
-          value: '{{ maxJobExecutionLifetime }}'
-        - name: kmsKey
-          value: '{{ kmsKey }}'
-    - name: spark
-      value:
-        - name: mainJarFileUri
-          value: '{{ mainJarFileUri }}'
-        - name: mainClass
-          value: '{{ mainClass }}'
-        - name: pythonScriptFile
-          value: '{{ pythonScriptFile }}'
-        - name: sqlScriptFile
-          value: '{{ sqlScriptFile }}'
-        - name: sqlScript
-          value: '{{ sqlScript }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: infrastructureSpec
-          value:
-            - name: batch
-              value:
-                - name: executorsCount
-                  value: '{{ executorsCount }}'
-                - name: maxExecutorsCount
-                  value: '{{ maxExecutorsCount }}'
-            - name: containerImage
-              value:
-                - name: image
-                  value: '{{ image }}'
-                - name: javaJars
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: pythonPackages
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: properties
-                  value: '{{ properties }}'
-            - name: vpcNetwork
-              value:
-                - name: network
-                  value: '{{ network }}'
-                - name: subNetwork
-                  value: '{{ subNetwork }}'
-                - name: networkTags
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-    - name: notebook
-      value:
-        - name: notebook
-          value: '{{ notebook }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+description: string
+displayName: string
+state: string
+labels: object
+triggerSpec:
+  type: string
+  startTime: string
+  disabled: boolean
+  maxRetries: integer
+  schedule: string
+executionSpec:
+  args: object
+  serviceAccount: string
+  project: string
+  maxJobExecutionLifetime: string
+  kmsKey: string
+executionStatus:
+  updateTime: string
+  latestJob:
+    name: string
+    uid: string
+    startTime: string
+    endTime: string
+    state: string
+    retryCount: integer
+    service: string
+    serviceJob: string
+    message: string
+    labels: object
+    trigger: string
+spark:
+  mainJarFileUri: string
+  mainClass: string
+  pythonScriptFile: string
+  sqlScriptFile: string
+  sqlScript: string
+  fileUris:
+    - type: string
+  archiveUris:
+    - type: string
+  infrastructureSpec:
+    batch:
+      executorsCount: integer
+      maxExecutorsCount: integer
+    containerImage:
+      image: string
+      javaJars:
+        - type: string
+      pythonPackages:
+        - type: string
+      properties: object
+    vpcNetwork:
+      network: string
+      subNetwork: string
+      networkTags:
+        - type: string
+notebook:
+  notebook: string
+  fileUris:
+    - type: string
+  archiveUris:
+    - type: string
 
 ```
 </TabItem>

@@ -123,124 +123,120 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: sourceConfig
-      value:
-        - name: sourceConnectionProfile
-          value: '{{ sourceConnectionProfile }}'
-        - name: oracleSourceConfig
-          value:
-            - name: includeObjects
-              value:
-                - name: oracleSchemas
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: maxConcurrentCdcTasks
-              value: '{{ maxConcurrentCdcTasks }}'
-            - name: maxConcurrentBackfillTasks
-              value: '{{ maxConcurrentBackfillTasks }}'
-            - name: dropLargeObjects
-              value: []
-            - name: streamLargeObjects
-              value: []
-        - name: mysqlSourceConfig
-          value:
-            - name: includeObjects
-              value:
-                - name: mysqlDatabases
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: maxConcurrentCdcTasks
-              value: '{{ maxConcurrentCdcTasks }}'
-            - name: maxConcurrentBackfillTasks
-              value: '{{ maxConcurrentBackfillTasks }}'
-        - name: postgresqlSourceConfig
-          value:
-            - name: includeObjects
-              value:
-                - name: postgresqlSchemas
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: replicationSlot
-              value: '{{ replicationSlot }}'
-            - name: publication
-              value: '{{ publication }}'
-            - name: maxConcurrentBackfillTasks
-              value: '{{ maxConcurrentBackfillTasks }}'
-        - name: sqlServerSourceConfig
-          value:
-            - name: includeObjects
-              value:
-                - name: schemas
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: maxConcurrentCdcTasks
-              value: '{{ maxConcurrentCdcTasks }}'
-            - name: maxConcurrentBackfillTasks
-              value: '{{ maxConcurrentBackfillTasks }}'
-            - name: transactionLogs
-              value: []
-            - name: changeTables
-              value: []
-    - name: destinationConfig
-      value:
-        - name: destinationConnectionProfile
-          value: '{{ destinationConnectionProfile }}'
-        - name: gcsDestinationConfig
-          value:
-            - name: path
-              value: '{{ path }}'
-            - name: fileRotationMb
-              value: '{{ fileRotationMb }}'
-            - name: fileRotationInterval
-              value: '{{ fileRotationInterval }}'
-            - name: avroFileFormat
-              value: []
-            - name: jsonFileFormat
-              value:
-                - name: schemaFileFormat
-                  value: '{{ schemaFileFormat }}'
-                - name: compression
-                  value: '{{ compression }}'
-        - name: bigqueryDestinationConfig
-          value:
-            - name: singleTargetDataset
-              value:
-                - name: datasetId
-                  value: '{{ datasetId }}'
-            - name: sourceHierarchyDatasets
-              value:
-                - name: datasetTemplate
-                  value:
-                    - name: location
-                      value: '{{ location }}'
-                    - name: datasetIdPrefix
-                      value: '{{ datasetIdPrefix }}'
-                    - name: kmsKeyName
-                      value: '{{ kmsKeyName }}'
-            - name: dataFreshness
-              value: '{{ dataFreshness }}'
-            - name: merge
-              value: []
-            - name: appendOnly
-              value: []
-    - name: state
-      value: '{{ state }}'
-    - name: backfillAll
-      value: []
-    - name: backfillNone
-      value: []
-    - name: customerManagedEncryptionKey
-      value: '{{ customerManagedEncryptionKey }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+sourceConfig:
+  sourceConnectionProfile: string
+  oracleSourceConfig:
+    includeObjects:
+      oracleSchemas:
+        - schema: string
+          oracleTables:
+            - table: string
+              oracleColumns:
+                - column: string
+                  dataType: string
+                  length: integer
+                  precision: integer
+                  scale: integer
+                  encoding: string
+                  primaryKey: boolean
+                  nullable: boolean
+                  ordinalPosition: integer
+    maxConcurrentCdcTasks: integer
+    maxConcurrentBackfillTasks: integer
+    dropLargeObjects: {}
+    streamLargeObjects: {}
+  mysqlSourceConfig:
+    includeObjects:
+      mysqlDatabases:
+        - database: string
+          mysqlTables:
+            - table: string
+              mysqlColumns:
+                - column: string
+                  dataType: string
+                  length: integer
+                  collation: string
+                  primaryKey: boolean
+                  nullable: boolean
+                  ordinalPosition: integer
+                  precision: integer
+                  scale: integer
+    maxConcurrentCdcTasks: integer
+    maxConcurrentBackfillTasks: integer
+  postgresqlSourceConfig:
+    includeObjects:
+      postgresqlSchemas:
+        - schema: string
+          postgresqlTables:
+            - table: string
+              postgresqlColumns:
+                - column: string
+                  dataType: string
+                  length: integer
+                  precision: integer
+                  scale: integer
+                  primaryKey: boolean
+                  nullable: boolean
+                  ordinalPosition: integer
+    replicationSlot: string
+    publication: string
+    maxConcurrentBackfillTasks: integer
+  sqlServerSourceConfig:
+    includeObjects:
+      schemas:
+        - schema: string
+          tables:
+            - table: string
+              columns:
+                - column: string
+                  dataType: string
+                  length: integer
+                  precision: integer
+                  scale: integer
+                  primaryKey: boolean
+                  nullable: boolean
+                  ordinalPosition: integer
+    maxConcurrentCdcTasks: integer
+    maxConcurrentBackfillTasks: integer
+    transactionLogs: {}
+    changeTables: {}
+destinationConfig:
+  destinationConnectionProfile: string
+  gcsDestinationConfig:
+    path: string
+    fileRotationMb: integer
+    fileRotationInterval: string
+    avroFileFormat: {}
+    jsonFileFormat:
+      schemaFileFormat: string
+      compression: string
+  bigqueryDestinationConfig:
+    singleTargetDataset:
+      datasetId: string
+    sourceHierarchyDatasets:
+      datasetTemplate:
+        location: string
+        datasetIdPrefix: string
+        kmsKeyName: string
+    dataFreshness: string
+    merge: {}
+    appendOnly: {}
+state: string
+backfillAll: {}
+backfillNone: {}
+errors:
+  - reason: string
+    errorUuid: string
+    message: string
+    errorTime: string
+    details: object
+customerManagedEncryptionKey: string
+lastRecoveryTime: string
 
 ```
 </TabItem>

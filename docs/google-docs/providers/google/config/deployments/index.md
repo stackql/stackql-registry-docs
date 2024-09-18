@@ -151,40 +151,47 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: terraformBlueprint
-      value:
-        - name: gcsSource
-          value: '{{ gcsSource }}'
-        - name: gitSource
-          value:
-            - name: repo
-              value: '{{ repo }}'
-            - name: directory
-              value: '{{ directory }}'
-            - name: ref
-              value: '{{ ref }}'
-        - name: inputValues
-          value: '{{ inputValues }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: artifactsGcsBucket
-      value: '{{ artifactsGcsBucket }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: importExistingResources
-      value: '{{ importExistingResources }}'
-    - name: workerPool
-      value: '{{ workerPool }}'
-    - name: tfVersionConstraint
-      value: '{{ tfVersionConstraint }}'
-    - name: quotaValidation
-      value: '{{ quotaValidation }}'
-    - name: annotations
-      value: '{{ annotations }}'
+terraformBlueprint:
+  gcsSource: string
+  gitSource:
+    repo: string
+    directory: string
+    ref: string
+  inputValues: object
+name: string
+createTime: string
+updateTime: string
+labels: object
+state: string
+latestRevision: string
+stateDetail: string
+errorCode: string
+deleteResults:
+  content: string
+  artifacts: string
+  outputs: object
+deleteBuild: string
+deleteLogs: string
+tfErrors:
+  - resourceAddress: string
+    httpResponseCode: integer
+    errorDescription: string
+    error:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+errorLogs: string
+artifactsGcsBucket: string
+serviceAccount: string
+importExistingResources: boolean
+workerPool: string
+lockState: string
+tfVersionConstraint: string
+tfVersion: string
+quotaValidation: string
+annotations: object
 
 ```
 </TabItem>

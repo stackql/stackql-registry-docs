@@ -240,244 +240,145 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: backends
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: healthChecks
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: timeoutSec
-      value: '{{ timeoutSec }}'
-    - name: port
-      value: '{{ port }}'
-    - name: protocol
-      value: '{{ protocol }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: portName
-      value: '{{ portName }}'
-    - name: enableCDN
-      value: '{{ enableCDN }}'
-    - name: sessionAffinity
-      value: '{{ sessionAffinity }}'
-    - name: affinityCookieTtlSec
-      value: '{{ affinityCookieTtlSec }}'
-    - name: region
-      value: '{{ region }}'
-    - name: failoverPolicy
-      value:
-        - name: disableConnectionDrainOnFailover
-          value: '{{ disableConnectionDrainOnFailover }}'
-        - name: dropTrafficIfUnhealthy
-          value: '{{ dropTrafficIfUnhealthy }}'
-        - name: failoverRatio
-          value: '{{ failoverRatio }}'
-    - name: loadBalancingScheme
-      value: '{{ loadBalancingScheme }}'
-    - name: connectionDraining
-      value:
-        - name: drainingTimeoutSec
-          value: '{{ drainingTimeoutSec }}'
-    - name: iap
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: oauth2ClientId
-          value: '{{ oauth2ClientId }}'
-        - name: oauth2ClientSecret
-          value: '{{ oauth2ClientSecret }}'
-        - name: oauth2ClientSecretSha256
-          value: '{{ oauth2ClientSecretSha256 }}'
-    - name: cdnPolicy
-      value:
-        - name: cacheKeyPolicy
-          value:
-            - name: includeProtocol
-              value: '{{ includeProtocol }}'
-            - name: includeHost
-              value: '{{ includeHost }}'
-            - name: includeQueryString
-              value: '{{ includeQueryString }}'
-            - name: queryStringWhitelist
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: queryStringBlacklist
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: includeHttpHeaders
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: includeNamedCookies
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: signedUrlKeyNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: signedUrlCacheMaxAgeSec
-          value: '{{ signedUrlCacheMaxAgeSec }}'
-        - name: requestCoalescing
-          value: '{{ requestCoalescing }}'
-        - name: cacheMode
-          value: '{{ cacheMode }}'
-        - name: defaultTtl
-          value: '{{ defaultTtl }}'
-        - name: maxTtl
-          value: '{{ maxTtl }}'
-        - name: clientTtl
-          value: '{{ clientTtl }}'
-        - name: negativeCaching
-          value: '{{ negativeCaching }}'
-        - name: negativeCachingPolicy
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: bypassCacheOnRequestHeaders
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: serveWhileStale
-          value: '{{ serveWhileStale }}'
-    - name: customRequestHeaders
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: customResponseHeaders
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: securityPolicy
-      value: '{{ securityPolicy }}'
-    - name: edgeSecurityPolicy
-      value: '{{ edgeSecurityPolicy }}'
-    - name: logConfig
-      value:
-        - name: enable
-          value: '{{ enable }}'
-        - name: sampleRate
-          value: '{{ sampleRate }}'
-        - name: optionalMode
-          value: '{{ optionalMode }}'
-        - name: optionalFields
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: securitySettings
-      value:
-        - name: clientTlsPolicy
-          value: '{{ clientTlsPolicy }}'
-        - name: subjectAltNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: awsV4Authentication
-          value:
-            - name: accessKeyId
-              value: '{{ accessKeyId }}'
-            - name: accessKey
-              value: '{{ accessKey }}'
-            - name: accessKeyVersion
-              value: '{{ accessKeyVersion }}'
-            - name: originRegion
-              value: '{{ originRegion }}'
-    - name: localityLbPolicy
-      value: '{{ localityLbPolicy }}'
-    - name: consistentHash
-      value:
-        - name: httpCookie
-          value:
-            - name: name
-              value: '{{ name }}'
-            - name: path
-              value: '{{ path }}'
-            - name: ttl
-              value:
-                - name: seconds
-                  value: '{{ seconds }}'
-                - name: nanos
-                  value: '{{ nanos }}'
-        - name: httpHeaderName
-          value: '{{ httpHeaderName }}'
-        - name: minimumRingSize
-          value: '{{ minimumRingSize }}'
-    - name: circuitBreakers
-      value:
-        - name: maxRequestsPerConnection
-          value: '{{ maxRequestsPerConnection }}'
-        - name: maxConnections
-          value: '{{ maxConnections }}'
-        - name: maxPendingRequests
-          value: '{{ maxPendingRequests }}'
-        - name: maxRequests
-          value: '{{ maxRequests }}'
-        - name: maxRetries
-          value: '{{ maxRetries }}'
-    - name: outlierDetection
-      value:
-        - name: consecutiveErrors
-          value: '{{ consecutiveErrors }}'
-        - name: maxEjectionPercent
-          value: '{{ maxEjectionPercent }}'
-        - name: enforcingConsecutiveErrors
-          value: '{{ enforcingConsecutiveErrors }}'
-        - name: enforcingSuccessRate
-          value: '{{ enforcingSuccessRate }}'
-        - name: successRateMinimumHosts
-          value: '{{ successRateMinimumHosts }}'
-        - name: successRateRequestVolume
-          value: '{{ successRateRequestVolume }}'
-        - name: successRateStdevFactor
-          value: '{{ successRateStdevFactor }}'
-        - name: consecutiveGatewayFailure
-          value: '{{ consecutiveGatewayFailure }}'
-        - name: enforcingConsecutiveGatewayFailure
-          value: '{{ enforcingConsecutiveGatewayFailure }}'
-    - name: network
-      value: '{{ network }}'
-    - name: subsetting
-      value:
-        - name: policy
-          value: '{{ policy }}'
-    - name: connectionTrackingPolicy
-      value:
-        - name: trackingMode
-          value: '{{ trackingMode }}'
-        - name: connectionPersistenceOnUnhealthyBackends
-          value: '{{ connectionPersistenceOnUnhealthyBackends }}'
-        - name: idleTimeoutSec
-          value: '{{ idleTimeoutSec }}'
-        - name: enableStrongAffinity
-          value: '{{ enableStrongAffinity }}'
-    - name: compressionMode
-      value: '{{ compressionMode }}'
-    - name: serviceLbPolicy
-      value: '{{ serviceLbPolicy }}'
-    - name: serviceBindings
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: localityLbPolicies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: metadatas
-      value: '{{ metadatas }}'
-    - name: usedBy
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+backends:
+  - description: string
+    group: string
+    balancingMode: string
+    maxUtilization: number
+    maxRate: integer
+    maxRatePerInstance: number
+    maxRatePerEndpoint: number
+    maxConnections: integer
+    maxConnectionsPerInstance: integer
+    maxConnectionsPerEndpoint: integer
+    capacityScaler: number
+    failover: boolean
+    preference: string
+healthChecks:
+  - type: string
+timeoutSec: integer
+port: integer
+protocol: string
+fingerprint: string
+portName: string
+enableCDN: boolean
+sessionAffinity: string
+affinityCookieTtlSec: integer
+region: string
+failoverPolicy:
+  disableConnectionDrainOnFailover: boolean
+  dropTrafficIfUnhealthy: boolean
+  failoverRatio: number
+loadBalancingScheme: string
+connectionDraining:
+  drainingTimeoutSec: integer
+iap:
+  enabled: boolean
+  oauth2ClientId: string
+  oauth2ClientSecret: string
+  oauth2ClientSecretSha256: string
+cdnPolicy:
+  cacheKeyPolicy:
+    includeProtocol: boolean
+    includeHost: boolean
+    includeQueryString: boolean
+    queryStringWhitelist:
+      - type: string
+    queryStringBlacklist:
+      - type: string
+    includeHttpHeaders:
+      - type: string
+    includeNamedCookies:
+      - type: string
+  signedUrlKeyNames:
+    - type: string
+  signedUrlCacheMaxAgeSec: string
+  requestCoalescing: boolean
+  cacheMode: string
+  defaultTtl: integer
+  maxTtl: integer
+  clientTtl: integer
+  negativeCaching: boolean
+  negativeCachingPolicy:
+    - code: integer
+      ttl: integer
+  bypassCacheOnRequestHeaders:
+    - headerName: string
+  serveWhileStale: integer
+customRequestHeaders:
+  - type: string
+customResponseHeaders:
+  - type: string
+securityPolicy: string
+edgeSecurityPolicy: string
+logConfig:
+  enable: boolean
+  sampleRate: number
+  optionalMode: string
+  optionalFields:
+    - type: string
+securitySettings:
+  clientTlsPolicy: string
+  subjectAltNames:
+    - type: string
+  awsV4Authentication:
+    accessKeyId: string
+    accessKey: string
+    accessKeyVersion: string
+    originRegion: string
+localityLbPolicy: string
+consistentHash:
+  httpCookie:
+    name: string
+    path: string
+    ttl:
+      seconds: string
+      nanos: integer
+  httpHeaderName: string
+  minimumRingSize: string
+circuitBreakers:
+  maxRequestsPerConnection: integer
+  maxConnections: integer
+  maxPendingRequests: integer
+  maxRequests: integer
+  maxRetries: integer
+outlierDetection:
+  consecutiveErrors: integer
+  maxEjectionPercent: integer
+  enforcingConsecutiveErrors: integer
+  enforcingSuccessRate: integer
+  successRateMinimumHosts: integer
+  successRateRequestVolume: integer
+  successRateStdevFactor: integer
+  consecutiveGatewayFailure: integer
+  enforcingConsecutiveGatewayFailure: integer
+network: string
+subsetting:
+  policy: string
+connectionTrackingPolicy:
+  trackingMode: string
+  connectionPersistenceOnUnhealthyBackends: string
+  idleTimeoutSec: integer
+  enableStrongAffinity: boolean
+compressionMode: string
+serviceLbPolicy: string
+serviceBindings:
+  - type: string
+localityLbPolicies:
+  - policy:
+      name: string
+    customPolicy:
+      name: string
+      data: string
+metadatas: object
+usedBy:
+  - reference: string
 
 ```
 </TabItem>

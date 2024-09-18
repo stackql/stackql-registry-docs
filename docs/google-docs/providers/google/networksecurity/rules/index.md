@@ -119,24 +119,16 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: basicProfile
-      value: '{{ basicProfile }}'
-    - name: name
-      value: '{{ name }}'
-    - name: enabled
-      value: '{{ enabled }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: description
-      value: '{{ description }}'
-    - name: sessionMatcher
-      value: '{{ sessionMatcher }}'
-    - name: applicationMatcher
-      value: '{{ applicationMatcher }}'
-    - name: tlsInspectionEnabled
-      value: '{{ tlsInspectionEnabled }}'
+basicProfile: string
+name: string
+createTime: string
+updateTime: string
+enabled: boolean
+priority: integer
+description: string
+sessionMatcher: string
+applicationMatcher: string
+tlsInspectionEnabled: boolean
 
 ```
 </TabItem>

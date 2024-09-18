@@ -135,42 +135,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: notebookRuntimeTemplateResourceName
-      value: '{{ notebookRuntimeTemplateResourceName }}'
-    - name: executionTimeout
-      value: '{{ executionTimeout }}'
-    - name: gcsOutputUri
-      value: '{{ gcsOutputUri }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: dataformRepositorySource
-      value:
-        - name: commitSha
-          value: '{{ commitSha }}'
-        - name: dataformRepositoryResourceName
-          value: '{{ dataformRepositoryResourceName }}'
-    - name: executionUser
-      value: '{{ executionUser }}'
-    - name: gcsNotebookSource
-      value:
-        - name: generation
-          value: '{{ generation }}'
-        - name: uri
-          value: '{{ uri }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: directNotebookSource
-      value:
-        - name: content
-          value: '{{ content }}'
+updateTime: string
+createTime: string
+notebookRuntimeTemplateResourceName: string
+executionTimeout: string
+gcsOutputUri: string
+serviceAccount: string
+encryptionSpec:
+  kmsKeyName: string
+displayName: string
+dataformRepositorySource:
+  commitSha: string
+  dataformRepositoryResourceName: string
+executionUser: string
+scheduleResourceName: string
+name: string
+gcsNotebookSource:
+  generation: string
+  uri: string
+labels: object
+directNotebookSource:
+  content: string
+status:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+jobState: string
 
 ```
 </TabItem>

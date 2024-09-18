@@ -100,14 +100,9 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: structSchema
-      value: '{{ structSchema }}'
-    - name: jsonSchema
-      value: '{{ jsonSchema }}'
-    - name: name
-      value: '{{ name }}'
+structSchema: object
+jsonSchema: string
+name: string
 
 ```
 </TabItem>

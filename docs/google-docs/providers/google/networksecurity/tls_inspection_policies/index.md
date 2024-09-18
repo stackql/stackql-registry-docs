@@ -116,26 +116,17 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: caPool
-      value: '{{ caPool }}'
-    - name: trustConfig
-      value: '{{ trustConfig }}'
-    - name: excludePublicCaSet
-      value: '{{ excludePublicCaSet }}'
-    - name: minTlsVersion
-      value: '{{ minTlsVersion }}'
-    - name: tlsFeatureProfile
-      value: '{{ tlsFeatureProfile }}'
-    - name: customTlsFeatures
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+description: string
+createTime: string
+updateTime: string
+caPool: string
+trustConfig: string
+excludePublicCaSet: boolean
+minTlsVersion: string
+tlsFeatureProfile: string
+customTlsFeatures:
+  - type: string
 
 ```
 </TabItem>

@@ -144,36 +144,26 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: status
-      value: '{{ status }}'
-    - name: sourceDisk
-      value: '{{ sourceDisk }}'
-    - name: sourceDiskId
-      value: '{{ sourceDiskId }}'
-    - name: diskSizeGb
-      value: '{{ diskSizeGb }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: region
-      value: '{{ region }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: architecture
-      value: '{{ architecture }}'
-    - name: resourceStatus
-      value:
-        - name: storageSizeBytes
-          value: '{{ storageSizeBytes }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+status: string
+sourceDisk: string
+sourceDiskId: string
+diskSizeGb: string
+selfLink: string
+selfLinkWithId: string
+labels: object
+labelFingerprint: string
+zone: string
+region: string
+satisfiesPzs: boolean
+architecture: string
+resourceStatus:
+  storageSizeBytes: string
+satisfiesPzi: boolean
 
 ```
 </TabItem>

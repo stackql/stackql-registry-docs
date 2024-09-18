@@ -87,12 +87,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: supportEmail
-      value: '{{ supportEmail }}'
-    - name: applicationTitle
-      value: '{{ applicationTitle }}'
+name: string
+supportEmail: string
+applicationTitle: string
+orgInternalOnly: boolean
 
 ```
 </TabItem>

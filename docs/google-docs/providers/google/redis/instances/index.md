@@ -205,74 +205,73 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: alternativeLocationId
-      value: '{{ alternativeLocationId }}'
-    - name: redisVersion
-      value: '{{ redisVersion }}'
-    - name: reservedIpRange
-      value: '{{ reservedIpRange }}'
-    - name: secondaryIpRange
-      value: '{{ secondaryIpRange }}'
-    - name: redisConfigs
-      value: '{{ redisConfigs }}'
-    - name: tier
-      value: '{{ tier }}'
-    - name: memorySizeGb
-      value: '{{ memorySizeGb }}'
-    - name: authorizedNetwork
-      value: '{{ authorizedNetwork }}'
-    - name: connectMode
-      value: '{{ connectMode }}'
-    - name: authEnabled
-      value: '{{ authEnabled }}'
-    - name: transitEncryptionMode
-      value: '{{ transitEncryptionMode }}'
-    - name: maintenancePolicy
-      value:
-        - name: description
-          value: '{{ description }}'
-        - name: weeklyMaintenanceWindow
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: replicaCount
-      value: '{{ replicaCount }}'
-    - name: readReplicasMode
-      value: '{{ readReplicasMode }}'
-    - name: customerManagedKey
-      value: '{{ customerManagedKey }}'
-    - name: persistenceConfig
-      value:
-        - name: persistenceMode
-          value: '{{ persistenceMode }}'
-        - name: rdbSnapshotPeriod
-          value: '{{ rdbSnapshotPeriod }}'
-        - name: rdbSnapshotStartTime
-          value: '{{ rdbSnapshotStartTime }}'
-    - name: suspensionReasons
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: maintenanceVersion
-      value: '{{ maintenanceVersion }}'
-    - name: availableMaintenanceVersions
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+displayName: string
+labels: object
+locationId: string
+alternativeLocationId: string
+redisVersion: string
+reservedIpRange: string
+secondaryIpRange: string
+host: string
+port: integer
+currentLocationId: string
+createTime: string
+state: string
+statusMessage: string
+redisConfigs: object
+tier: string
+memorySizeGb: integer
+authorizedNetwork: string
+persistenceIamIdentity: string
+connectMode: string
+authEnabled: boolean
+serverCaCerts:
+  - serialNumber: string
+    cert: string
+    createTime: string
+    expireTime: string
+    sha1Fingerprint: string
+transitEncryptionMode: string
+maintenancePolicy:
+  createTime: string
+  updateTime: string
+  description: string
+  weeklyMaintenanceWindow:
+    - day: string
+      startTime:
+        hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+      duration: string
+maintenanceSchedule:
+  startTime: string
+  endTime: string
+  canReschedule: boolean
+  scheduleDeadlineTime: string
+replicaCount: integer
+nodes:
+  - id: string
+    zone: string
+readEndpoint: string
+readEndpointPort: integer
+readReplicasMode: string
+customerManagedKey: string
+persistenceConfig:
+  persistenceMode: string
+  rdbSnapshotPeriod: string
+  rdbNextSnapshotTime: string
+  rdbSnapshotStartTime: string
+suspensionReasons:
+  - type: string
+    enumDescriptions: string
+    enum: string
+maintenanceVersion: string
+availableMaintenanceVersions:
+  - type: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

@@ -100,18 +100,11 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: isPubliclyReadable
-      value: '{{ isPubliclyReadable }}'
-    - name: fields
-      value: '{{ fields }}'
-    - name: dataplexTransferStatus
-      value: '{{ dataplexTransferStatus }}'
+name: string
+displayName: string
+isPubliclyReadable: boolean
+fields: object
+dataplexTransferStatus: string
 
 ```
 </TabItem>

@@ -104,60 +104,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: storedInfoTypeId
-      value: '{{ storedInfoTypeId }}'
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: config
-      value:
-        - name: dictionary
-          value:
-            - name: cloudStoragePath
-              value:
-                - name: path
-                  value: '{{ path }}'
-            - name: wordList
-              value:
-                - name: words
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-        - name: description
-          value: '{{ description }}'
-        - name: regex
-          value:
-            - name: pattern
-              value: '{{ pattern }}'
-            - name: groupIndexes
-              value:
-                - name: type
-                  value: '{{ type }}'
-                - name: format
-                  value: '{{ format }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: largeCustomDictionary
-          value:
-            - name: cloudStorageFileSet
-              value:
-                - name: url
-                  value: '{{ url }}'
-            - name: bigQueryField
-              value:
-                - name: field
-                  value:
-                    - name: name
-                      value: '{{ name }}'
-                - name: table
-                  value:
-                    - name: tableId
-                      value: '{{ tableId }}'
-                    - name: projectId
-                      value: '{{ projectId }}'
-                    - name: datasetId
-                      value: '{{ datasetId }}'
+storedInfoTypeId: string
+locationId: string
+config:
+  dictionary:
+    cloudStoragePath:
+      path: string
+    wordList:
+      words:
+        - type: string
+  description: string
+  regex:
+    pattern: string
+    groupIndexes:
+      - type: string
+        format: string
+  displayName: string
+  largeCustomDictionary:
+    cloudStorageFileSet:
+      url: string
+    bigQueryField:
+      field:
+        name: string
+      table:
+        tableId: string
+        projectId: string
+        datasetId: string
 
 ```
 </TabItem>

@@ -96,42 +96,66 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: annotatorSelector
-      value:
-        - name: runEntityAnnotator
-          value: '{{ runEntityAnnotator }}'
-        - name: issueModels
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: runIssueModelAnnotator
-          value: '{{ runIssueModelAnnotator }}'
-        - name: runSummarizationAnnotator
-          value: '{{ runSummarizationAnnotator }}'
-        - name: summarizationConfig
-          value:
-            - name: summarizationModel
-              value: '{{ summarizationModel }}'
-            - name: conversationProfile
-              value: '{{ conversationProfile }}'
-        - name: runSentimentAnnotator
-          value: '{{ runSentimentAnnotator }}'
-        - name: runInterruptionAnnotator
-          value: '{{ runInterruptionAnnotator }}'
-        - name: runPhraseMatcherAnnotator
-          value: '{{ runPhraseMatcherAnnotator }}'
-        - name: runIntentAnnotator
-          value: '{{ runIntentAnnotator }}'
-        - name: phraseMatchers
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: runSilenceAnnotator
-          value: '{{ runSilenceAnnotator }}'
+requestTime: string
+name: string
+analysisResult:
+  endTime: string
+  callAnalysisMetadata:
+    issueModelResult:
+      issueModel: string
+      issues:
+        - displayName: string
+          score: number
+          issue: string
+    silence:
+      silenceDuration: string
+      silencePercentage: number
+    sentiments:
+      - channelTag: integer
+        sentimentData:
+          score: number
+          magnitude: number
+    annotations:
+      - issueMatchData:
+          issueAssignment:
+            displayName: string
+            score: number
+            issue: string
+        silenceData: {}
+        channelTag: integer
+        phraseMatchData:
+          displayName: string
+          phraseMatcher: string
+        annotationEndBoundary:
+          wordIndex: integer
+          transcriptIndex: integer
+        entityMentionData:
+          type: string
+          entityUniqueId: string
+        holdData: {}
+        interruptionData: {}
+        intentMatchData:
+          intentUniqueId: string
+    phraseMatchers: object
+    entities: object
+    intents: object
+createTime: string
+annotatorSelector:
+  runEntityAnnotator: boolean
+  issueModels:
+    - type: string
+  runIssueModelAnnotator: boolean
+  runSummarizationAnnotator: boolean
+  summarizationConfig:
+    summarizationModel: string
+    conversationProfile: string
+  runSentimentAnnotator: boolean
+  runInterruptionAnnotator: boolean
+  runPhraseMatcherAnnotator: boolean
+  runIntentAnnotator: boolean
+  phraseMatchers:
+    - type: string
+  runSilenceAnnotator: boolean
 
 ```
 </TabItem>

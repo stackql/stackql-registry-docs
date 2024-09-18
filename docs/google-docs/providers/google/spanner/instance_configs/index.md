@@ -111,32 +111,30 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: instanceConfigId
-      value: '{{ instanceConfigId }}'
-    - name: instanceConfig
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: replicas
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: baseConfig
-          value: '{{ baseConfig }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: etag
-          value: '{{ etag }}'
-        - name: leaderOptions
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: validateOnly
-      value: '{{ validateOnly }}'
+instanceConfigId: string
+instanceConfig:
+  name: string
+  displayName: string
+  configType: string
+  replicas:
+    - location: string
+      type: string
+      defaultLeaderLocation: boolean
+  optionalReplicas:
+    - location: string
+      type: string
+      defaultLeaderLocation: boolean
+  baseConfig: string
+  labels: object
+  etag: string
+  leaderOptions:
+    - type: string
+  reconciling: boolean
+  state: string
+  freeInstanceAvailability: string
+  quorumType: string
+  storageLimitPerProcessingUnit: string
+validateOnly: boolean
 
 ```
 </TabItem>

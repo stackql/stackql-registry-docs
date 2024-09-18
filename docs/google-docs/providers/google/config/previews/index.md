@@ -140,40 +140,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: terraformBlueprint
-      value:
-        - name: gcsSource
-          value: '{{ gcsSource }}'
-        - name: gitSource
-          value:
-            - name: repo
-              value: '{{ repo }}'
-            - name: directory
-              value: '{{ directory }}'
-            - name: ref
-              value: '{{ ref }}'
-        - name: inputValues
-          value: '{{ inputValues }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: deployment
-      value: '{{ deployment }}'
-    - name: previewMode
-      value: '{{ previewMode }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: artifactsGcsBucket
-      value: '{{ artifactsGcsBucket }}'
-    - name: workerPool
-      value: '{{ workerPool }}'
-    - name: tfVersionConstraint
-      value: '{{ tfVersionConstraint }}'
-    - name: annotations
-      value: '{{ annotations }}'
+terraformBlueprint:
+  gcsSource: string
+  gitSource:
+    repo: string
+    directory: string
+    ref: string
+  inputValues: object
+name: string
+createTime: string
+labels: object
+state: string
+deployment: string
+previewMode: string
+serviceAccount: string
+artifactsGcsBucket: string
+workerPool: string
+errorCode: string
+errorStatus:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+build: string
+tfErrors:
+  - resourceAddress: string
+    httpResponseCode: integer
+    errorDescription: string
+errorLogs: string
+previewArtifacts:
+  content: string
+  artifacts: string
+logs: string
+tfVersion: string
+tfVersionConstraint: string
+annotations: object
 
 ```
 </TabItem>

@@ -130,206 +130,131 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: state
-      value: '{{ state }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: mysql
-      value:
-        - name: host
-          value: '{{ host }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: ssl
-          value:
-            - name: clientKey
-              value: '{{ clientKey }}'
-            - name: clientCertificate
-              value: '{{ clientCertificate }}'
-            - name: caCertificate
-              value: '{{ caCertificate }}'
-        - name: cloudSqlId
-          value: '{{ cloudSqlId }}'
-    - name: postgresql
-      value:
-        - name: host
-          value: '{{ host }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: cloudSqlId
-          value: '{{ cloudSqlId }}'
-        - name: alloydbClusterId
-          value: '{{ alloydbClusterId }}'
-        - name: staticIpConnectivity
-          value: []
-        - name: privateServiceConnectConnectivity
-          value:
-            - name: serviceAttachment
-              value: '{{ serviceAttachment }}'
-    - name: sqlserver
-      value:
-        - name: host
-          value: '{{ host }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: cloudSqlId
-          value: '{{ cloudSqlId }}'
-        - name: backups
-          value:
-            - name: gcsBucket
-              value: '{{ gcsBucket }}'
-            - name: gcsPrefix
-              value: '{{ gcsPrefix }}'
-        - name: forwardSshConnectivity
-          value:
-            - name: hostname
-              value: '{{ hostname }}'
-            - name: username
-              value: '{{ username }}'
-            - name: port
-              value: '{{ port }}'
-            - name: password
-              value: '{{ password }}'
-            - name: privateKey
-              value: '{{ privateKey }}'
-        - name: privateConnectivity
-          value:
-            - name: privateConnection
-              value: '{{ privateConnection }}'
-    - name: oracle
-      value:
-        - name: host
-          value: '{{ host }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: databaseService
-          value: '{{ databaseService }}'
-        - name: staticServiceIpConnectivity
-          value: []
-        - name: oracleAsmConfig
-          value:
-            - name: hostname
-              value: '{{ hostname }}'
-            - name: port
-              value: '{{ port }}'
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-            - name: asmService
-              value: '{{ asmService }}'
-    - name: cloudsql
-      value:
-        - name: settings
-          value:
-            - name: databaseVersion
-              value: '{{ databaseVersion }}'
-            - name: userLabels
-              value: '{{ userLabels }}'
-            - name: tier
-              value: '{{ tier }}'
-            - name: storageAutoResizeLimit
-              value: '{{ storageAutoResizeLimit }}'
-            - name: activationPolicy
-              value: '{{ activationPolicy }}'
-            - name: ipConfig
-              value:
-                - name: enableIpv4
-                  value: '{{ enableIpv4 }}'
-                - name: privateNetwork
-                  value: '{{ privateNetwork }}'
-                - name: allocatedIpRange
-                  value: '{{ allocatedIpRange }}'
-                - name: requireSsl
-                  value: '{{ requireSsl }}'
-                - name: authorizedNetworks
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: autoStorageIncrease
-              value: '{{ autoStorageIncrease }}'
-            - name: databaseFlags
-              value: '{{ databaseFlags }}'
-            - name: dataDiskType
-              value: '{{ dataDiskType }}'
-            - name: dataDiskSizeGb
-              value: '{{ dataDiskSizeGb }}'
-            - name: zone
-              value: '{{ zone }}'
-            - name: secondaryZone
-              value: '{{ secondaryZone }}'
-            - name: sourceId
-              value: '{{ sourceId }}'
-            - name: rootPassword
-              value: '{{ rootPassword }}'
-            - name: collation
-              value: '{{ collation }}'
-            - name: cmekKeyName
-              value: '{{ cmekKeyName }}'
-            - name: availabilityType
-              value: '{{ availabilityType }}'
-            - name: edition
-              value: '{{ edition }}'
-            - name: dataCacheConfig
-              value:
-                - name: dataCacheEnabled
-                  value: '{{ dataCacheEnabled }}'
-    - name: alloydb
-      value:
-        - name: clusterId
-          value: '{{ clusterId }}'
-        - name: settings
-          value:
-            - name: initialUser
-              value:
-                - name: user
-                  value: '{{ user }}'
-                - name: password
-                  value: '{{ password }}'
-            - name: vpcNetwork
-              value: '{{ vpcNetwork }}'
-            - name: labels
-              value: '{{ labels }}'
-            - name: primaryInstanceSettings
-              value:
-                - name: machineConfig
-                  value:
-                    - name: cpuCount
-                      value: '{{ cpuCount }}'
-                - name: databaseFlags
-                  value: '{{ databaseFlags }}'
-                - name: labels
-                  value: '{{ labels }}'
-            - name: encryptionConfig
-              value:
-                - name: kmsKeyName
-                  value: '{{ kmsKeyName }}'
-            - name: databaseVersion
-              value: '{{ databaseVersion }}'
-    - name: provider
-      value: '{{ provider }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+state: string
+displayName: string
+mysql:
+  host: string
+  port: integer
+  username: string
+  password: string
+  passwordSet: boolean
+  ssl:
+    type: string
+    clientKey: string
+    clientCertificate: string
+    caCertificate: string
+  cloudSqlId: string
+postgresql:
+  host: string
+  port: integer
+  username: string
+  password: string
+  passwordSet: boolean
+  cloudSqlId: string
+  alloydbClusterId: string
+  networkArchitecture: string
+  staticIpConnectivity: {}
+  privateServiceConnectConnectivity:
+    serviceAttachment: string
+sqlserver:
+  host: string
+  port: integer
+  username: string
+  password: string
+  passwordSet: boolean
+  cloudSqlId: string
+  backups:
+    gcsBucket: string
+    gcsPrefix: string
+  forwardSshConnectivity:
+    hostname: string
+    username: string
+    port: integer
+    password: string
+    privateKey: string
+  privateConnectivity:
+    privateConnection: string
+oracle:
+  host: string
+  port: integer
+  username: string
+  password: string
+  passwordSet: boolean
+  databaseService: string
+  staticServiceIpConnectivity: {}
+  oracleAsmConfig:
+    hostname: string
+    port: integer
+    username: string
+    password: string
+    passwordSet: boolean
+    asmService: string
+cloudsql:
+  cloudSqlId: string
+  settings:
+    databaseVersion: string
+    userLabels: object
+    tier: string
+    storageAutoResizeLimit: string
+    activationPolicy: string
+    ipConfig:
+      enableIpv4: boolean
+      privateNetwork: string
+      allocatedIpRange: string
+      requireSsl: boolean
+      authorizedNetworks:
+        - value: string
+          expireTime: string
+          ttl: string
+          label: string
+    autoStorageIncrease: boolean
+    databaseFlags: object
+    dataDiskType: string
+    dataDiskSizeGb: string
+    zone: string
+    secondaryZone: string
+    sourceId: string
+    rootPassword: string
+    rootPasswordSet: boolean
+    collation: string
+    cmekKeyName: string
+    availabilityType: string
+    edition: string
+    dataCacheConfig:
+      dataCacheEnabled: boolean
+  privateIp: string
+  publicIp: string
+  additionalPublicIp: string
+alloydb:
+  clusterId: string
+  settings:
+    initialUser:
+      user: string
+      password: string
+      passwordSet: boolean
+    vpcNetwork: string
+    labels: object
+    primaryInstanceSettings:
+      id: string
+      machineConfig:
+        cpuCount: integer
+      databaseFlags: object
+      labels: object
+      privateIp: string
+    encryptionConfig:
+      kmsKeyName: string
+    databaseVersion: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+provider: string
 
 ```
 </TabItem>

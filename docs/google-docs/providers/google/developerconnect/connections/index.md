@@ -116,28 +116,27 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: githubConfig
-      value:
-        - name: githubApp
-          value: '{{ githubApp }}'
-        - name: authorizerCredential
-          value:
-            - name: oauthTokenSecretVersion
-              value: '{{ oauthTokenSecretVersion }}'
-        - name: appInstallationId
-          value: '{{ appInstallationId }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: etag
-      value: '{{ etag }}'
+githubConfig:
+  githubApp: string
+  authorizerCredential:
+    oauthTokenSecretVersion: string
+    username: string
+  appInstallationId: string
+  installationUri: string
+name: string
+createTime: string
+updateTime: string
+deleteTime: string
+labels: object
+installationState:
+  stage: string
+  message: string
+  actionUri: string
+disabled: boolean
+reconciling: boolean
+annotations: object
+etag: string
+uid: string
 
 ```
 </TabItem>

@@ -147,12 +147,88 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: jobs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+jobs:
+  - name: string
+    company: string
+    requisitionId: string
+    title: string
+    description: string
+    addresses:
+      - type: string
+    applicationInfo:
+      emails:
+        - type: string
+      instruction: string
+      uris:
+        - type: string
+    jobBenefits:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    compensationInfo:
+      entries:
+        - type: string
+          unit: string
+          amount:
+            currencyCode: string
+            units: string
+            nanos: integer
+          range: {}
+          description: string
+          expectedUnitsPerYear: number
+    customAttributes: object
+    degreeTypes:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    department: string
+    employmentTypes:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    incentives: string
+    languageCode: string
+    jobLevel: string
+    promotionValue: integer
+    qualifications: string
+    responsibilities: string
+    postingRegion: string
+    visibility: string
+    jobStartTime: string
+    jobEndTime: string
+    postingPublishTime: string
+    postingExpireTime: string
+    postingCreateTime: string
+    postingUpdateTime: string
+    companyDisplayName: string
+    derivedInfo:
+      locations:
+        - locationType: string
+          postalAddress:
+            revision: integer
+            regionCode: string
+            languageCode: string
+            postalCode: string
+            sortingCode: string
+            administrativeArea: string
+            locality: string
+            sublocality: string
+            addressLines:
+              - type: string
+            recipients:
+              - type: string
+            organization: string
+          latLng:
+            latitude: number
+            longitude: number
+          radiusMiles: number
+      jobCategories:
+        - type: string
+          enumDescriptions: string
+          enum: string
+    processingOptions:
+      disableStreetAddressResolution: boolean
+      htmlSanitization: string
 
 ```
 </TabItem>

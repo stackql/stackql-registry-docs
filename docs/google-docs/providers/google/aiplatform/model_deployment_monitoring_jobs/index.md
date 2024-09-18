@@ -161,62 +161,78 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: samplePredictInstance
-      value: '{{ samplePredictInstance }}'
-    - name: predictInstanceSchemaUri
-      value: '{{ predictInstanceSchemaUri }}'
-    - name: logTtl
-      value: '{{ logTtl }}'
-    - name: statsAnomaliesBaseDirectory
-      value:
-        - name: outputUriPrefix
-          value: '{{ outputUriPrefix }}'
-    - name: modelDeploymentMonitoringScheduleConfig
-      value:
-        - name: monitorWindow
-          value: '{{ monitorWindow }}'
-        - name: monitorInterval
-          value: '{{ monitorInterval }}'
-    - name: endpoint
-      value: '{{ endpoint }}'
-    - name: modelMonitoringAlertConfig
-      value:
-        - name: enableLogging
-          value: '{{ enableLogging }}'
-        - name: emailAlertConfig
-          value:
-            - name: userEmails
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: notificationChannels
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: analysisInstanceSchemaUri
-      value: '{{ analysisInstanceSchemaUri }}'
-    - name: loggingSamplingStrategy
-      value:
-        - name: randomSampleConfig
-          value:
-            - name: sampleRate
-              value: '{{ sampleRate }}'
-    - name: enableMonitoringPipelineLogs
-      value: '{{ enableMonitoringPipelineLogs }}'
-    - name: modelDeploymentMonitoringObjectiveConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+displayName: string
+samplePredictInstance: any
+bigqueryTables:
+  - requestResponseLoggingSchemaVersion: string
+    bigqueryTablePath: string
+    logType: string
+    logSource: string
+nextScheduleTime: string
+satisfiesPzi: boolean
+scheduleState: string
+predictInstanceSchemaUri: string
+logTtl: string
+satisfiesPzs: boolean
+state: string
+statsAnomaliesBaseDirectory:
+  outputUriPrefix: string
+modelDeploymentMonitoringScheduleConfig:
+  monitorWindow: string
+  monitorInterval: string
+endpoint: string
+modelMonitoringAlertConfig:
+  enableLogging: boolean
+  emailAlertConfig:
+    userEmails:
+      - type: string
+  notificationChannels:
+    - type: string
+latestMonitoringPipelineMetadata:
+  status:
+    message: string
+    code: integer
+    details:
+      - additionalProperties: any
+        type: string
+  runTime: string
+encryptionSpec:
+  kmsKeyName: string
+labels: object
+analysisInstanceSchemaUri: string
+loggingSamplingStrategy:
+  randomSampleConfig:
+    sampleRate: number
+name: string
+enableMonitoringPipelineLogs: boolean
+updateTime: string
+createTime: string
+modelDeploymentMonitoringObjectiveConfigs:
+  - deployedModelId: string
+    objectiveConfig:
+      explanationConfig:
+        explanationBaseline:
+          predictionFormat: string
+          bigquery:
+            outputUri: string
+        enableFeatureAttributes: boolean
+      trainingDataset:
+        dataFormat: string
+        targetField: string
+        gcsSource:
+          uris:
+            - type: string
+        bigquerySource:
+          inputUri: string
+        dataset: string
+      trainingPredictionSkewDetectionConfig:
+        attributionScoreSkewThresholds: object
+        skewThresholds: object
+        defaultSkewThreshold:
+          value: number
+      predictionDriftDetectionConfig:
+        driftThresholds: object
+        attributionScoreDriftThresholds: object
 
 ```
 </TabItem>

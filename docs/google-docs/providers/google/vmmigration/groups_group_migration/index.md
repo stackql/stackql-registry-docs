@@ -70,10 +70,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: migratingVm
-      value: '{{ migratingVm }}'
+migratingVm: string
 
 ```
 </TabItem>

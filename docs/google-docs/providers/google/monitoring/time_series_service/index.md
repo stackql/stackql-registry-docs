@@ -65,12 +65,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: timeSeries
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+timeSeries:
+  - metric:
+      type: string
+      labels: object
+    resource:
+      type: string
+      labels: object
+    metadata:
+      systemLabels: object
+      userLabels: object
+    metricKind: string
+    valueType: string
+    points:
+      - interval:
+          endTime: string
+          startTime: string
+        value:
+          boolValue: boolean
+          int64Value: string
+          doubleValue: number
+          stringValue: string
+          distributionValue:
+            count: string
+            mean: number
+            sumOfSquaredDeviation: number
+            range:
+              min: number
+              max: number
+            bucketOptions:
+              linearBuckets:
+                numFiniteBuckets: integer
+                width: number
+                offset: number
+              exponentialBuckets:
+                numFiniteBuckets: integer
+                growthFactor: number
+                scale: number
+              explicitBuckets:
+                bounds:
+                  - type: string
+                    format: string
+            bucketCounts:
+              - type: string
+                format: string
+            exemplars:
+              - value: number
+                timestamp: string
+                attachments:
+                  - type: string
+                    additionalProperties: any
+    unit: string
+    description: string
 
 ```
 </TabItem>

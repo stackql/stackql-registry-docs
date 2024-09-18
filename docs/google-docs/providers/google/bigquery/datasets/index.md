@@ -175,96 +175,66 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: access
-      value:
-        - name: dataset
-          value:
-            - name: dataset
-              value:
-                - name: datasetId
-                  value: '{{ datasetId }}'
-                - name: projectId
-                  value: '{{ projectId }}'
-            - name: targetTypes
-              value:
-                - name: enum
-                  value: '{{ enum }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-                - name: type
-                  value: '{{ type }}'
-        - name: domain
-          value: '{{ domain }}'
-        - name: groupByEmail
-          value: '{{ groupByEmail }}'
-        - name: iamMember
-          value: '{{ iamMember }}'
-        - name: role
-          value: '{{ role }}'
-        - name: routine
-          value:
-            - name: datasetId
-              value: '{{ datasetId }}'
-            - name: projectId
-              value: '{{ projectId }}'
-            - name: routineId
-              value: '{{ routineId }}'
-        - name: specialGroup
-          value: '{{ specialGroup }}'
-        - name: userByEmail
-          value: '{{ userByEmail }}'
-        - name: view
-          value:
-            - name: datasetId
-              value: '{{ datasetId }}'
-            - name: projectId
-              value: '{{ projectId }}'
-            - name: tableId
-              value: '{{ tableId }}'
-    - name: defaultCollation
-      value: '{{ defaultCollation }}'
-    - name: defaultEncryptionConfiguration
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: defaultPartitionExpirationMs
-      value: '{{ defaultPartitionExpirationMs }}'
-    - name: defaultRoundingMode
-      value: '{{ defaultRoundingMode }}'
-    - name: defaultTableExpirationMs
-      value: '{{ defaultTableExpirationMs }}'
-    - name: description
-      value: '{{ description }}'
-    - name: externalCatalogDatasetOptions
-      value:
-        - name: defaultStorageLocationUri
-          value: '{{ defaultStorageLocationUri }}'
-        - name: parameters
-          value: '{{ parameters }}'
-    - name: externalDatasetReference
-      value:
-        - name: connection
-          value: '{{ connection }}'
-        - name: externalSource
-          value: '{{ externalSource }}'
-    - name: friendlyName
-      value: '{{ friendlyName }}'
-    - name: isCaseInsensitive
-      value: '{{ isCaseInsensitive }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: linkedDatasetSource
-      value: []
-    - name: location
-      value: '{{ location }}'
-    - name: maxTimeTravelHours
-      value: '{{ maxTimeTravelHours }}'
-    - name: resourceTags
-      value: '{{ resourceTags }}'
-    - name: storageBillingModel
-      value: '{{ storageBillingModel }}'
+access:
+  - dataset:
+      dataset:
+        datasetId: string
+        projectId: string
+      targetTypes:
+        - enum: string
+          enumDescriptions: string
+          type: string
+    domain: string
+    groupByEmail: string
+    iamMember: string
+    role: string
+    routine:
+      datasetId: string
+      projectId: string
+      routineId: string
+    specialGroup: string
+    userByEmail: string
+    view:
+      datasetId: string
+      projectId: string
+      tableId: string
+creationTime: string
+defaultCollation: string
+defaultEncryptionConfiguration:
+  kmsKeyName: string
+defaultPartitionExpirationMs: string
+defaultRoundingMode: string
+defaultTableExpirationMs: string
+description: string
+etag: string
+externalCatalogDatasetOptions:
+  defaultStorageLocationUri: string
+  parameters: object
+externalDatasetReference:
+  connection: string
+  externalSource: string
+friendlyName: string
+id: string
+isCaseInsensitive: boolean
+kind: string
+labels: object
+lastModifiedTime: string
+linkedDatasetMetadata:
+  linkState: string
+linkedDatasetSource: {}
+location: string
+maxTimeTravelHours: string
+resourceTags: object
+restrictions:
+  type: string
+satisfiesPzi: boolean
+satisfiesPzs: boolean
+selfLink: string
+storageBillingModel: string
+tags:
+  - tagKey: string
+    tagValue: string
+type: string
 
 ```
 </TabItem>

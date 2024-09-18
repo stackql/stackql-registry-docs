@@ -107,26 +107,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: autoscalingSettings
-      value:
-        - name: autoscalingPolicies
-          value: '{{ autoscalingPolicies }}'
-        - name: minClusterNodeCount
-          value: '{{ minClusterNodeCount }}'
-        - name: maxClusterNodeCount
-          value: '{{ maxClusterNodeCount }}'
-        - name: coolDownPeriod
-          value: '{{ coolDownPeriod }}'
-    - name: nodeTypeConfigs
-      value: '{{ nodeTypeConfigs }}'
-    - name: stretchedClusterConfig
-      value:
-        - name: preferredLocation
-          value: '{{ preferredLocation }}'
-        - name: secondaryLocation
-          value: '{{ secondaryLocation }}'
+name: string
+createTime: string
+updateTime: string
+state: string
+management: boolean
+autoscalingSettings:
+  autoscalingPolicies: object
+  minClusterNodeCount: integer
+  maxClusterNodeCount: integer
+  coolDownPeriod: string
+uid: string
+nodeTypeConfigs: object
+stretchedClusterConfig:
+  preferredLocation: string
+  secondaryLocation: string
 
 ```
 </TabItem>

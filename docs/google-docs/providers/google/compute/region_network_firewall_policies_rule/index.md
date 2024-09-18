@@ -139,90 +139,52 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: ruleName
-      value: '{{ ruleName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: match
-      value:
-        - name: srcIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: layer4Configs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: srcSecureTags
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: destAddressGroups
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcAddressGroups
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcFqdns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destFqdns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcRegionCodes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destRegionCodes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destThreatIntelligences
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcThreatIntelligences
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: action
-      value: '{{ action }}'
-    - name: securityProfileGroup
-      value: '{{ securityProfileGroup }}'
-    - name: tlsInspect
-      value: '{{ tlsInspect }}'
-    - name: direction
-      value: '{{ direction }}'
-    - name: targetResources
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: enableLogging
-      value: '{{ enableLogging }}'
-    - name: ruleTupleCount
-      value: '{{ ruleTupleCount }}'
-    - name: targetServiceAccounts
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: targetSecureTags
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: disabled
-      value: '{{ disabled }}'
+kind: string
+ruleName: string
+description: string
+priority: integer
+match:
+  srcIpRanges:
+    - type: string
+  destIpRanges:
+    - type: string
+  layer4Configs:
+    - ipProtocol: string
+      ports:
+        - type: string
+  srcSecureTags:
+    - name: string
+      state: string
+  destAddressGroups:
+    - type: string
+  srcAddressGroups:
+    - type: string
+  srcFqdns:
+    - type: string
+  destFqdns:
+    - type: string
+  srcRegionCodes:
+    - type: string
+  destRegionCodes:
+    - type: string
+  destThreatIntelligences:
+    - type: string
+  srcThreatIntelligences:
+    - type: string
+action: string
+securityProfileGroup: string
+tlsInspect: boolean
+direction: string
+targetResources:
+  - type: string
+enableLogging: boolean
+ruleTupleCount: integer
+targetServiceAccounts:
+  - type: string
+targetSecureTags:
+  - name: string
+    state: string
+disabled: boolean
 
 ```
 </TabItem>

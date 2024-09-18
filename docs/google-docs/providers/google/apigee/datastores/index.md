@@ -98,24 +98,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: datastoreConfig
-      value:
-        - name: datasetName
-          value: '{{ datasetName }}'
-        - name: tablePrefix
-          value: '{{ tablePrefix }}'
-        - name: path
-          value: '{{ path }}'
-        - name: projectId
-          value: '{{ projectId }}'
-        - name: bucketName
-          value: '{{ bucketName }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: targetType
-      value: '{{ targetType }}'
+datastoreConfig:
+  datasetName: string
+  tablePrefix: string
+  path: string
+  projectId: string
+  bucketName: string
+lastUpdateTime: string
+org: string
+displayName: string
+self: string
+targetType: string
+createTime: string
 
 ```
 </TabItem>

@@ -122,24 +122,26 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: versionColumnName
-      value: '{{ versionColumnName }}'
-    - name: valueType
-      value: '{{ valueType }}'
-    - name: disableMonitoring
-      value: '{{ disableMonitoring }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: pointOfContact
-      value: '{{ pointOfContact }}'
+labels: object
+createTime: string
+versionColumnName: string
+valueType: string
+disableMonitoring: boolean
+etag: string
+description: string
+updateTime: string
+name: string
+monitoringStatsAnomalies:
+  - featureStatsAnomaly:
+      score: number
+      anomalyUri: string
+      anomalyDetectionThreshold: number
+      endTime: string
+      distributionDeviation: number
+      statsUri: string
+      startTime: string
+    objective: string
+pointOfContact: string
 
 ```
 </TabItem>

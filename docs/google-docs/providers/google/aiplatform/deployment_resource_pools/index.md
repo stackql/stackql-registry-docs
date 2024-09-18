@@ -101,54 +101,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: deploymentResourcePoolId
-      value: '{{ deploymentResourcePoolId }}'
-    - name: deploymentResourcePool
-      value:
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: dedicatedResources
-          value:
-            - name: spot
-              value: '{{ spot }}'
-            - name: machineSpec
-              value:
-                - name: acceleratorCount
-                  value: '{{ acceleratorCount }}'
-                - name: reservationAffinity
-                  value:
-                    - name: key
-                      value: '{{ key }}'
-                    - name: reservationAffinityType
-                      value: '{{ reservationAffinityType }}'
-                    - name: values
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                - name: tpuTopology
-                  value: '{{ tpuTopology }}'
-                - name: acceleratorType
-                  value: '{{ acceleratorType }}'
-                - name: machineType
-                  value: '{{ machineType }}'
-            - name: autoscalingMetricSpecs
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minReplicaCount
-              value: '{{ minReplicaCount }}'
-            - name: maxReplicaCount
-              value: '{{ maxReplicaCount }}'
-        - name: disableContainerLogging
-          value: '{{ disableContainerLogging }}'
-        - name: encryptionSpec
-          value:
-            - name: kmsKeyName
-              value: '{{ kmsKeyName }}'
-        - name: name
-          value: '{{ name }}'
+deploymentResourcePoolId: string
+deploymentResourcePool:
+  serviceAccount: string
+  dedicatedResources:
+    spot: boolean
+    machineSpec:
+      acceleratorCount: integer
+      reservationAffinity:
+        key: string
+        reservationAffinityType: string
+        values:
+          - type: string
+      tpuTopology: string
+      acceleratorType: string
+      machineType: string
+    autoscalingMetricSpecs:
+      - metricName: string
+        target: integer
+    minReplicaCount: integer
+    maxReplicaCount: integer
+  disableContainerLogging: boolean
+  encryptionSpec:
+    kmsKeyName: string
+  createTime: string
+  satisfiesPzs: boolean
+  satisfiesPzi: boolean
+  name: string
 
 ```
 </TabItem>

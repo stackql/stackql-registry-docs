@@ -72,12 +72,8 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: childContexts
-      value:
-        - name: type
-          value: '{{ type }}'
+childContexts:
+  - type: string
 
 ```
 </TabItem>

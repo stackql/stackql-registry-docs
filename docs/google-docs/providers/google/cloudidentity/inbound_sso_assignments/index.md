@@ -107,26 +107,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: targetGroup
-      value: '{{ targetGroup }}'
-    - name: targetOrgUnit
-      value: '{{ targetOrgUnit }}'
-    - name: customer
-      value: '{{ customer }}'
-    - name: rank
-      value: '{{ rank }}'
-    - name: ssoMode
-      value: '{{ ssoMode }}'
-    - name: samlSsoInfo
-      value:
-        - name: inboundSamlSsoProfile
-          value: '{{ inboundSamlSsoProfile }}'
-    - name: signInBehavior
-      value:
-        - name: redirectCondition
-          value: '{{ redirectCondition }}'
+targetGroup: string
+targetOrgUnit: string
+name: string
+customer: string
+rank: integer
+ssoMode: string
+samlSsoInfo:
+  inboundSamlSsoProfile: string
+signInBehavior:
+  redirectCondition: string
 
 ```
 </TabItem>

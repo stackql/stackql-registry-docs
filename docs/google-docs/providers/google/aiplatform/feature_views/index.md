@@ -125,60 +125,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: etag
-      value: '{{ etag }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: bigQuerySource
-      value:
-        - name: entityIdColumns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: uri
-          value: '{{ uri }}'
-    - name: name
-      value: '{{ name }}'
-    - name: featureRegistrySource
-      value:
-        - name: featureGroups
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: projectNumber
-          value: '{{ projectNumber }}'
-    - name: indexConfig
-      value:
-        - name: bruteForceConfig
-          value: []
-        - name: embeddingDimension
-          value: '{{ embeddingDimension }}'
-        - name: distanceMeasureType
-          value: '{{ distanceMeasureType }}'
-        - name: crowdingColumn
-          value: '{{ crowdingColumn }}'
-        - name: filterColumns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: treeAhConfig
-          value:
-            - name: leafNodeEmbeddingCount
-              value: '{{ leafNodeEmbeddingCount }}'
-        - name: embeddingColumn
-          value: '{{ embeddingColumn }}'
-    - name: vertexRagSource
-      value:
-        - name: uri
-          value: '{{ uri }}'
-        - name: ragCorpusId
-          value: '{{ ragCorpusId }}'
-    - name: syncConfig
-      value:
-        - name: cron
-          value: '{{ cron }}'
+satisfiesPzs: boolean
+createTime: string
+etag: string
+satisfiesPzi: boolean
+labels: object
+bigQuerySource:
+  entityIdColumns:
+    - type: string
+  uri: string
+name: string
+updateTime: string
+featureRegistrySource:
+  featureGroups:
+    - featureIds:
+        - type: string
+      featureGroupId: string
+  projectNumber: string
+indexConfig:
+  bruteForceConfig: {}
+  embeddingDimension: integer
+  distanceMeasureType: string
+  crowdingColumn: string
+  filterColumns:
+    - type: string
+  treeAhConfig:
+    leafNodeEmbeddingCount: string
+  embeddingColumn: string
+vertexRagSource:
+  uri: string
+  ragCorpusId: string
+syncConfig:
+  cron: string
 
 ```
 </TabItem>

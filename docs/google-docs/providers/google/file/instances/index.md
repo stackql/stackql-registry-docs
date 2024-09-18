@@ -153,52 +153,67 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: tier
-      value: '{{ tier }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: fileShares
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: networks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
-    - name: replication
-      value:
-        - name: role
-          value: '{{ role }}'
-        - name: replicas
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: tags
-      value: '{{ tags }}'
-    - name: protocol
-      value: '{{ protocol }}'
-    - name: performanceConfig
-      value:
-        - name: fixedIops
-          value:
-            - name: maxReadIops
-              value: '{{ maxReadIops }}'
-        - name: iopsPerTb
-          value:
-            - name: maxReadIopsPerTb
-              value: '{{ maxReadIopsPerTb }}'
-    - name: deletionProtectionEnabled
-      value: '{{ deletionProtectionEnabled }}'
-    - name: deletionProtectionReason
-      value: '{{ deletionProtectionReason }}'
+name: string
+description: string
+state: string
+statusMessage: string
+createTime: string
+tier: string
+labels: object
+fileShares:
+  - name: string
+    capacityGb: string
+    sourceBackup: string
+    nfsExportOptions:
+      - ipRanges:
+          - type: string
+        accessMode: string
+        squashMode: string
+        anonUid: string
+        anonGid: string
+networks:
+  - network: string
+    modes:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    reservedIpRange: string
+    ipAddresses:
+      - type: string
+    connectMode: string
+etag: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
+kmsKeyName: string
+suspensionReasons:
+  - type: string
+    enumDescriptions: string
+    enum: string
+replication:
+  role: string
+  replicas:
+    - state: string
+      stateReasons:
+        - type: string
+          enumDescriptions: string
+          enum: string
+      peerInstance: string
+      lastActiveSyncTime: string
+tags: object
+protocol: string
+configurablePerformanceEnabled: boolean
+performanceConfig:
+  fixedIops:
+    maxReadIops: string
+  iopsPerTb:
+    maxReadIopsPerTb: string
+performanceLimits:
+  maxReadIops: string
+  maxWriteIops: string
+  maxReadThroughputBps: string
+  maxWriteThroughputBps: string
+deletionProtectionEnabled: boolean
+deletionProtectionReason: string
 
 ```
 </TabItem>

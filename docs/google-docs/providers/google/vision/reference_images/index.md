@@ -94,16 +94,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: uri
-      value: '{{ uri }}'
-    - name: boundingPolys
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+uri: string
+boundingPolys:
+  - vertices:
+      - x: integer
+        'y': integer
+    normalizedVertices:
+      - x: number
+        'y': number
 
 ```
 </TabItem>

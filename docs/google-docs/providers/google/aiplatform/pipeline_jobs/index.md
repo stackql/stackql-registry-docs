@@ -142,42 +142,89 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: runtimeConfig
-      value:
-        - name: gcsOutputDirectory
-          value: '{{ gcsOutputDirectory }}'
-        - name: parameters
-          value: '{{ parameters }}'
-        - name: inputArtifacts
-          value: '{{ inputArtifacts }}'
-        - name: failurePolicy
-          value: '{{ failurePolicy }}'
-        - name: parameterValues
-          value: '{{ parameterValues }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: templateUri
-      value: '{{ templateUri }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: network
-      value: '{{ network }}'
-    - name: reservedIpRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: pipelineSpec
-      value: '{{ pipelineSpec }}'
-    - name: preflightValidations
-      value: '{{ preflightValidations }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
+runtimeConfig:
+  gcsOutputDirectory: string
+  parameters: object
+  inputArtifacts: object
+  failurePolicy: string
+  parameterValues: object
+labels: object
+templateUri: string
+state: string
+name: string
+displayName: string
+encryptionSpec:
+  kmsKeyName: string
+updateTime: string
+startTime: string
+createTime: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+templateMetadata:
+  version: string
+network: string
+reservedIpRanges:
+  - type: string
+pipelineSpec: object
+preflightValidations: boolean
+serviceAccount: string
+scheduleName: string
+jobDetail:
+  taskDetails:
+    - endTime: string
+      executorDetail:
+        containerDetail:
+          mainJob: string
+          preCachingCheckJob: string
+          failedPreCachingCheckJobs:
+            - type: string
+          failedMainJobs:
+            - type: string
+        customJobDetail:
+          failedJobs:
+            - type: string
+          job: string
+      state: string
+      outputs: object
+      taskName: string
+      inputs: object
+      taskId: string
+      parentTaskId: string
+      startTime: string
+      execution:
+        name: string
+        description: string
+        state: string
+        labels: object
+        createTime: string
+        displayName: string
+        schemaVersion: string
+        schemaTitle: string
+        etag: string
+        updateTime: string
+        metadata: object
+      createTime: string
+      pipelineTaskStatus:
+        - state: string
+          updateTime: string
+  pipelineContext:
+    description: string
+    updateTime: string
+    displayName: string
+    parentContexts:
+      - type: string
+    createTime: string
+    labels: object
+    name: string
+    schemaTitle: string
+    metadata: object
+    etag: string
+    schemaVersion: string
+endTime: string
 
 ```
 </TabItem>

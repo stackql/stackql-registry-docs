@@ -110,140 +110,86 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: maximumLifetime
-      value: '{{ maximumLifetime }}'
-    - name: predefinedValues
-      value:
-        - name: keyUsage
-          value:
-            - name: baseKeyUsage
-              value:
-                - name: digitalSignature
-                  value: '{{ digitalSignature }}'
-                - name: contentCommitment
-                  value: '{{ contentCommitment }}'
-                - name: keyEncipherment
-                  value: '{{ keyEncipherment }}'
-                - name: dataEncipherment
-                  value: '{{ dataEncipherment }}'
-                - name: keyAgreement
-                  value: '{{ keyAgreement }}'
-                - name: certSign
-                  value: '{{ certSign }}'
-                - name: crlSign
-                  value: '{{ crlSign }}'
-                - name: encipherOnly
-                  value: '{{ encipherOnly }}'
-                - name: decipherOnly
-                  value: '{{ decipherOnly }}'
-            - name: extendedKeyUsage
-              value:
-                - name: serverAuth
-                  value: '{{ serverAuth }}'
-                - name: clientAuth
-                  value: '{{ clientAuth }}'
-                - name: codeSigning
-                  value: '{{ codeSigning }}'
-                - name: emailProtection
-                  value: '{{ emailProtection }}'
-                - name: timeStamping
-                  value: '{{ timeStamping }}'
-                - name: ocspSigning
-                  value: '{{ ocspSigning }}'
-            - name: unknownExtendedKeyUsages
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: caOptions
-          value:
-            - name: isCa
-              value: '{{ isCa }}'
-            - name: maxIssuerPathLength
-              value: '{{ maxIssuerPathLength }}'
-        - name: policyIds
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: aiaOcspServers
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: nameConstraints
-          value:
-            - name: critical
-              value: '{{ critical }}'
-            - name: permittedDnsNames
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludedDnsNames
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: permittedIpRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludedIpRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: permittedEmailAddresses
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludedEmailAddresses
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: permittedUris
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludedUris
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: additionalExtensions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: identityConstraints
-      value:
-        - name: celExpression
-          value:
-            - name: expression
-              value: '{{ expression }}'
-            - name: title
-              value: '{{ title }}'
-            - name: description
-              value: '{{ description }}'
-            - name: location
-              value: '{{ location }}'
-        - name: allowSubjectPassthrough
-          value: '{{ allowSubjectPassthrough }}'
-        - name: allowSubjectAltNamesPassthrough
-          value: '{{ allowSubjectAltNamesPassthrough }}'
-    - name: passthroughExtensions
-      value:
-        - name: knownExtensions
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: additionalExtensions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
+name: string
+maximumLifetime: string
+predefinedValues:
+  keyUsage:
+    baseKeyUsage:
+      digitalSignature: boolean
+      contentCommitment: boolean
+      keyEncipherment: boolean
+      dataEncipherment: boolean
+      keyAgreement: boolean
+      certSign: boolean
+      crlSign: boolean
+      encipherOnly: boolean
+      decipherOnly: boolean
+    extendedKeyUsage:
+      serverAuth: boolean
+      clientAuth: boolean
+      codeSigning: boolean
+      emailProtection: boolean
+      timeStamping: boolean
+      ocspSigning: boolean
+    unknownExtendedKeyUsages:
+      - objectIdPath:
+          - type: string
+            format: string
+  caOptions:
+    isCa: boolean
+    maxIssuerPathLength: integer
+  policyIds:
+    - objectIdPath:
+        - type: string
+          format: string
+  aiaOcspServers:
+    - type: string
+  nameConstraints:
+    critical: boolean
+    permittedDnsNames:
+      - type: string
+    excludedDnsNames:
+      - type: string
+    permittedIpRanges:
+      - type: string
+    excludedIpRanges:
+      - type: string
+    permittedEmailAddresses:
+      - type: string
+    excludedEmailAddresses:
+      - type: string
+    permittedUris:
+      - type: string
+    excludedUris:
+      - type: string
+  additionalExtensions:
+    - objectId:
+        objectIdPath:
+          - type: string
+            format: string
+      critical: boolean
+      value: string
+identityConstraints:
+  celExpression:
+    expression: string
+    title: string
+    description: string
+    location: string
+  allowSubjectPassthrough: boolean
+  allowSubjectAltNamesPassthrough: boolean
+passthroughExtensions:
+  knownExtensions:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  additionalExtensions:
+    - objectIdPath:
+        - type: string
+          format: string
+description: string
+createTime: string
+updateTime: string
+labels: object
 
 ```
 </TabItem>

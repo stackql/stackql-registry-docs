@@ -117,28 +117,23 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: trainingPhrases
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: parameters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: isFallback
-      value: '{{ isFallback }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
+name: string
+displayName: string
+trainingPhrases:
+  - id: string
+    parts:
+      - text: string
+        parameterId: string
+    repeatCount: integer
+parameters:
+  - id: string
+    entityType: string
+    isList: boolean
+    redact: boolean
+priority: integer
+isFallback: boolean
+labels: object
+description: string
 
 ```
 </TabItem>

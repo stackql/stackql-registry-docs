@@ -114,28 +114,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: state
-      value: '{{ state }}'
-    - name: parameters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: finalMeasurement
-      value:
-        - name: elapsedTime
-          value: '{{ elapsedTime }}'
-        - name: stepCount
-          value: '{{ stepCount }}'
-        - name: metrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: measurements
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+state: string
+parameters:
+  - parameter: string
+    floatValue: number
+    intValue: string
+    stringValue: string
+finalMeasurement:
+  elapsedTime: string
+  stepCount: string
+  metrics:
+    - metric: string
+      value: number
+measurements:
+  - elapsedTime: string
+    stepCount: string
+    metrics:
+      - metric: string
+        value: number
+startTime: string
+endTime: string
+clientId: string
+trialInfeasible: boolean
+infeasibleReason: string
 
 ```
 </TabItem>

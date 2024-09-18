@@ -112,26 +112,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: forwardingRules
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: extensionChains
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: loadBalancingScheme
-      value: '{{ loadBalancingScheme }}'
-    - name: metadata
-      value: '{{ metadata }}'
+name: string
+createTime: string
+updateTime: string
+description: string
+labels: object
+forwardingRules:
+  - type: string
+extensionChains:
+  - name: string
+    matchCondition:
+      celExpression: string
+    extensions:
+      - name: string
+        authority: string
+        service: string
+        supportedEvents:
+          - type: string
+            enumDescriptions: string
+            enum: string
+        timeout: string
+        failOpen: boolean
+        forwardHeaders:
+          - type: string
+loadBalancingScheme: string
+metadata: object
 
 ```
 </TabItem>

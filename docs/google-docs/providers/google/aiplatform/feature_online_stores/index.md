@@ -118,40 +118,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: dedicatedServingEndpoint
-      value:
-        - name: privateServiceConnectConfig
-          value:
-            - name: enablePrivateServiceConnect
-              value: '{{ enablePrivateServiceConnect }}'
-            - name: projectAllowlist
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: optimized
-      value: []
-    - name: name
-      value: '{{ name }}'
-    - name: bigtable
-      value:
-        - name: autoScaling
-          value:
-            - name: cpuUtilizationTarget
-              value: '{{ cpuUtilizationTarget }}'
-            - name: minNodeCount
-              value: '{{ minNodeCount }}'
-            - name: maxNodeCount
-              value: '{{ maxNodeCount }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+dedicatedServingEndpoint:
+  privateServiceConnectConfig:
+    serviceAttachment: string
+    enablePrivateServiceConnect: boolean
+    projectAllowlist:
+      - type: string
+  publicEndpointDomainName: string
+  serviceAttachment: string
+updateTime: string
+etag: string
+satisfiesPzs: boolean
+labels: object
+createTime: string
+optimized: {}
+name: string
+bigtable:
+  autoScaling:
+    cpuUtilizationTarget: integer
+    minNodeCount: integer
+    maxNodeCount: integer
+state: string
+encryptionSpec:
+  kmsKeyName: string
+satisfiesPzi: boolean
 
 ```
 </TabItem>

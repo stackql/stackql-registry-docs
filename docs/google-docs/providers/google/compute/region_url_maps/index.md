@@ -138,142 +138,133 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: hostRules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: pathMatchers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: tests
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: defaultService
-      value: '{{ defaultService }}'
-    - name: defaultRouteAction
-      value:
-        - name: weightedBackendServices
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: urlRewrite
-          value:
-            - name: pathPrefixRewrite
-              value: '{{ pathPrefixRewrite }}'
-            - name: hostRewrite
-              value: '{{ hostRewrite }}'
-            - name: pathTemplateRewrite
-              value: '{{ pathTemplateRewrite }}'
-        - name: timeout
-          value:
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-        - name: retryPolicy
-          value:
-            - name: retryConditions
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: numRetries
-              value: '{{ numRetries }}'
-        - name: requestMirrorPolicy
-          value:
-            - name: backendService
-              value: '{{ backendService }}'
-        - name: corsPolicy
-          value:
-            - name: allowOrigins
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: allowOriginRegexes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: allowMethods
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: allowHeaders
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: exposeHeaders
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: maxAge
-              value: '{{ maxAge }}'
-            - name: allowCredentials
-              value: '{{ allowCredentials }}'
-            - name: disabled
-              value: '{{ disabled }}'
-        - name: faultInjectionPolicy
-          value:
-            - name: delay
-              value:
-                - name: percentage
-                  value: '{{ percentage }}'
-            - name: abort
-              value:
-                - name: httpStatus
-                  value: '{{ httpStatus }}'
-                - name: percentage
-                  value: '{{ percentage }}'
-    - name: defaultUrlRedirect
-      value:
-        - name: hostRedirect
-          value: '{{ hostRedirect }}'
-        - name: pathRedirect
-          value: '{{ pathRedirect }}'
-        - name: prefixRedirect
-          value: '{{ prefixRedirect }}'
-        - name: redirectResponseCode
-          value: '{{ redirectResponseCode }}'
-        - name: httpsRedirect
-          value: '{{ httpsRedirect }}'
-        - name: stripQuery
-          value: '{{ stripQuery }}'
-    - name: headerAction
-      value:
-        - name: requestHeadersToRemove
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: requestHeadersToAdd
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: responseHeadersToRemove
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: responseHeadersToAdd
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: defaultCustomErrorResponsePolicy
-      value:
-        - name: errorResponseRules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: errorService
-          value: '{{ errorService }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: region
-      value: '{{ region }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+hostRules:
+  - description: string
+    hosts:
+      - type: string
+    pathMatcher: string
+pathMatchers:
+  - name: string
+    description: string
+    defaultService: string
+    defaultRouteAction:
+      weightedBackendServices:
+        - backendService: string
+          weight: integer
+          headerAction:
+            requestHeadersToRemove:
+              - type: string
+            requestHeadersToAdd:
+              - headerName: string
+                headerValue: string
+                replace: boolean
+            responseHeadersToRemove:
+              - type: string
+            responseHeadersToAdd:
+              - headerName: string
+                headerValue: string
+                replace: boolean
+      urlRewrite:
+        pathPrefixRewrite: string
+        hostRewrite: string
+        pathTemplateRewrite: string
+      timeout:
+        seconds: string
+        nanos: integer
+      retryPolicy:
+        retryConditions:
+          - type: string
+        numRetries: integer
+      requestMirrorPolicy:
+        backendService: string
+      corsPolicy:
+        allowOrigins:
+          - type: string
+        allowOriginRegexes:
+          - type: string
+        allowMethods:
+          - type: string
+        allowHeaders:
+          - type: string
+        exposeHeaders:
+          - type: string
+        maxAge: integer
+        allowCredentials: boolean
+        disabled: boolean
+      faultInjectionPolicy:
+        delay:
+          percentage: number
+        abort:
+          httpStatus: integer
+          percentage: number
+    defaultUrlRedirect:
+      hostRedirect: string
+      pathRedirect: string
+      prefixRedirect: string
+      redirectResponseCode: string
+      httpsRedirect: boolean
+      stripQuery: boolean
+    pathRules:
+      - service: string
+        paths:
+          - type: string
+        customErrorResponsePolicy:
+          errorResponseRules:
+            - matchResponseCodes:
+                - type: string
+              path: string
+              overrideResponseCode: integer
+          errorService: string
+    routeRules:
+      - priority: integer
+        description: string
+        matchRules:
+          - prefixMatch: string
+            fullPathMatch: string
+            regexMatch: string
+            ignoreCase: boolean
+            headerMatches:
+              - headerName: string
+                exactMatch: string
+                regexMatch: string
+                rangeMatch:
+                  rangeStart: string
+                  rangeEnd: string
+                presentMatch: boolean
+                prefixMatch: string
+                suffixMatch: string
+                invertMatch: boolean
+            queryParameterMatches:
+              - name: string
+                presentMatch: boolean
+                exactMatch: string
+                regexMatch: string
+            metadataFilters:
+              - filterMatchCriteria: string
+                filterLabels:
+                  - name: string
+                    value: string
+            pathTemplateMatch: string
+        service: string
+tests:
+  - description: string
+    host: string
+    path: string
+    headers:
+      - name: string
+        value: string
+    service: string
+    expectedOutputUrl: string
+    expectedRedirectResponseCode: integer
+defaultService: string
+fingerprint: string
+region: string
 
 ```
 </TabItem>

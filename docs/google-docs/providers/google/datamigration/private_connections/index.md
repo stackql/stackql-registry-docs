@@ -103,20 +103,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: vpcPeeringConfig
-      value:
-        - name: vpcName
-          value: '{{ vpcName }}'
-        - name: subnet
-          value: '{{ subnet }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+state: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+vpcPeeringConfig:
+  vpcName: string
+  subnet: string
 
 ```
 </TabItem>

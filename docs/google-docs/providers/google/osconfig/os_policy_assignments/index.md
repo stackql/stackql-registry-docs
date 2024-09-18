@@ -118,44 +118,103 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: osPolicies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: instanceFilter
-      value:
-        - name: all
-          value: '{{ all }}'
-        - name: inclusionLabels
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: exclusionLabels
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: inventories
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: rollout
-      value:
-        - name: disruptionBudget
-          value:
-            - name: fixed
-              value: '{{ fixed }}'
-            - name: percent
-              value: '{{ percent }}'
-        - name: minWaitDuration
-          value: '{{ minWaitDuration }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+description: string
+osPolicies:
+  - id: string
+    description: string
+    mode: string
+    resourceGroups:
+      - inventoryFilters:
+          - osShortName: string
+            osVersion: string
+        resources:
+          - id: string
+            pkg:
+              desiredState: string
+              apt:
+                name: string
+              deb:
+                source:
+                  remote:
+                    uri: string
+                    sha256Checksum: string
+                  gcs:
+                    bucket: string
+                    object: string
+                    generation: string
+                  localPath: string
+                  allowInsecure: boolean
+                pullDeps: boolean
+              yum:
+                name: string
+              zypper:
+                name: string
+              rpm:
+                pullDeps: boolean
+              googet:
+                name: string
+              msi:
+                properties:
+                  - type: string
+            repository:
+              apt:
+                archiveType: string
+                uri: string
+                distribution: string
+                components:
+                  - type: string
+                gpgKey: string
+              yum:
+                id: string
+                displayName: string
+                baseUrl: string
+                gpgKeys:
+                  - type: string
+              zypper:
+                id: string
+                displayName: string
+                baseUrl: string
+                gpgKeys:
+                  - type: string
+              goo:
+                name: string
+                url: string
+            exec:
+              validate:
+                script: string
+                args:
+                  - type: string
+                interpreter: string
+                outputFilePath: string
+            file:
+              content: string
+              path: string
+              state: string
+              permissions: string
+    allowNoResourceGroupMatch: boolean
+instanceFilter:
+  all: boolean
+  inclusionLabels:
+    - labels: object
+  exclusionLabels:
+    - labels: object
+  inventories:
+    - osShortName: string
+      osVersion: string
+rollout:
+  disruptionBudget:
+    fixed: integer
+    percent: integer
+  minWaitDuration: string
+revisionId: string
+revisionCreateTime: string
+etag: string
+rolloutState: string
+baseline: boolean
+deleted: boolean
+reconciling: boolean
+uid: string
 
 ```
 </TabItem>

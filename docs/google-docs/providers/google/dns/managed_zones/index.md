@@ -142,74 +142,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: dnsName
-      value: '{{ dnsName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: nameServers
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: creationTime
-      value: '{{ creationTime }}'
-    - name: dnssecConfig
-      value:
-        - name: state
-          value: '{{ state }}'
-        - name: defaultKeySpecs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: nonExistence
-          value: '{{ nonExistence }}'
-    - name: nameServerSet
-      value: '{{ nameServerSet }}'
-    - name: visibility
-      value: '{{ visibility }}'
-    - name: privateVisibilityConfig
-      value:
-        - name: networks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: gkeClusters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: forwardingConfig
-      value:
-        - name: targetNameServers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: peeringConfig
-      value:
-        - name: targetNetwork
-          value:
-            - name: networkUrl
-              value: '{{ networkUrl }}'
-            - name: deactivateTime
-              value: '{{ deactivateTime }}'
-    - name: reverseLookupConfig
-      value: []
-    - name: serviceDirectoryConfig
-      value:
-        - name: namespace
-          value:
-            - name: namespaceUrl
-              value: '{{ namespaceUrl }}'
-            - name: deletionTime
-              value: '{{ deletionTime }}'
-    - name: cloudLoggingConfig
-      value:
-        - name: enableLogging
-          value: '{{ enableLogging }}'
+name: string
+dnsName: string
+description: string
+id: string
+nameServers:
+  - type: string
+creationTime: string
+dnssecConfig:
+  state: string
+  defaultKeySpecs:
+    - keyType: string
+      algorithm: string
+      keyLength: integer
+      kind: string
+  nonExistence: string
+  kind: string
+nameServerSet: string
+visibility: string
+privateVisibilityConfig:
+  networks:
+    - networkUrl: string
+      kind: string
+  gkeClusters:
+    - gkeClusterName: string
+      kind: string
+  kind: string
+forwardingConfig:
+  targetNameServers:
+    - ipv4Address: string
+      forwardingPath: string
+      ipv6Address: string
+      kind: string
+  kind: string
+labels: object
+peeringConfig:
+  targetNetwork:
+    networkUrl: string
+    deactivateTime: string
+    kind: string
+  kind: string
+reverseLookupConfig:
+  kind: string
+serviceDirectoryConfig:
+  namespace:
+    namespaceUrl: string
+    deletionTime: string
+    kind: string
+  kind: string
+cloudLoggingConfig:
+  enableLogging: boolean
+  kind: string
+kind: string
 
 ```
 </TabItem>

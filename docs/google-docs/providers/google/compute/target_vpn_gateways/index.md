@@ -124,30 +124,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: network
-      value: '{{ network }}'
-    - name: tunnels
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: status
-      value: '{{ status }}'
-    - name: forwardingRules
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+region: string
+network: string
+tunnels:
+  - type: string
+status: string
+selfLink: string
+forwardingRules:
+  - type: string
+labels: object
+labelFingerprint: string
 
 ```
 </TabItem>

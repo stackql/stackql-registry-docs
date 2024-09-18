@@ -174,100 +174,160 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: client
-      value: '{{ client }}'
-    - name: clientVersion
-      value: '{{ clientVersion }}'
-    - name: ingress
-      value: '{{ ingress }}'
-    - name: launchStage
-      value: '{{ launchStage }}'
-    - name: binaryAuthorization
-      value:
-        - name: useDefault
-          value: '{{ useDefault }}'
-        - name: policy
-          value: '{{ policy }}'
-        - name: breakglassJustification
-          value: '{{ breakglassJustification }}'
-    - name: template
-      value:
-        - name: revision
-          value: '{{ revision }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: annotations
-          value: '{{ annotations }}'
-        - name: scaling
-          value:
-            - name: minInstanceCount
-              value: '{{ minInstanceCount }}'
-            - name: maxInstanceCount
-              value: '{{ maxInstanceCount }}'
-        - name: vpcAccess
-          value:
-            - name: connector
-              value: '{{ connector }}'
-            - name: egress
-              value: '{{ egress }}'
-            - name: networkInterfaces
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: timeout
-          value: '{{ timeout }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: containers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: volumes
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: executionEnvironment
-          value: '{{ executionEnvironment }}'
-        - name: encryptionKey
-          value: '{{ encryptionKey }}'
-        - name: maxInstanceRequestConcurrency
-          value: '{{ maxInstanceRequestConcurrency }}'
-        - name: serviceMesh
-          value:
-            - name: mesh
-              value: '{{ mesh }}'
-        - name: sessionAffinity
-          value: '{{ sessionAffinity }}'
-        - name: healthCheckDisabled
-          value: '{{ healthCheckDisabled }}'
-        - name: nodeSelector
-          value:
-            - name: accelerator
-              value: '{{ accelerator }}'
-    - name: traffic
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: scaling
-      value:
-        - name: minInstanceCount
-          value: '{{ minInstanceCount }}'
-    - name: defaultUriDisabled
-      value: '{{ defaultUriDisabled }}'
-    - name: customAudiences
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+description: string
+uid: string
+generation: string
+labels: object
+annotations: object
+createTime: string
+updateTime: string
+deleteTime: string
+expireTime: string
+creator: string
+lastModifier: string
+client: string
+clientVersion: string
+ingress: string
+launchStage: string
+binaryAuthorization:
+  useDefault: boolean
+  policy: string
+  breakglassJustification: string
+template:
+  revision: string
+  labels: object
+  annotations: object
+  scaling:
+    minInstanceCount: integer
+    maxInstanceCount: integer
+  vpcAccess:
+    connector: string
+    egress: string
+    networkInterfaces:
+      - network: string
+        subnetwork: string
+        tags:
+          - type: string
+  timeout: string
+  serviceAccount: string
+  containers:
+    - name: string
+      image: string
+      command:
+        - type: string
+      args:
+        - type: string
+      env:
+        - name: string
+          value: string
+          valueSource:
+            secretKeyRef:
+              secret: string
+              version: string
+      resources:
+        limits: object
+        cpuIdle: boolean
+        startupCpuBoost: boolean
+      ports:
+        - name: string
+          containerPort: integer
+      volumeMounts:
+        - name: string
+          mountPath: string
+      workingDir: string
+      livenessProbe:
+        initialDelaySeconds: integer
+        timeoutSeconds: integer
+        periodSeconds: integer
+        failureThreshold: integer
+        httpGet:
+          path: string
+          httpHeaders:
+            - name: string
+              value: string
+          port: integer
+        tcpSocket:
+          port: integer
+        grpc:
+          port: integer
+          service: string
+      dependsOn:
+        - type: string
+  volumes:
+    - name: string
+      secret:
+        secret: string
+        items:
+          - path: string
+            version: string
+            mode: integer
+        defaultMode: integer
+      cloudSqlInstance:
+        instances:
+          - type: string
+      emptyDir:
+        medium: string
+        sizeLimit: string
+      nfs:
+        server: string
+        path: string
+        readOnly: boolean
+      gcs:
+        bucket: string
+        readOnly: boolean
+  executionEnvironment: string
+  encryptionKey: string
+  maxInstanceRequestConcurrency: integer
+  serviceMesh:
+    mesh: string
+  sessionAffinity: boolean
+  healthCheckDisabled: boolean
+  nodeSelector:
+    accelerator: string
+traffic:
+  - type: string
+    revision: string
+    percent: integer
+    tag: string
+scaling:
+  minInstanceCount: integer
+defaultUriDisabled: boolean
+urls:
+  - type: string
+customAudiences:
+  - type: string
+observedGeneration: string
+terminalCondition:
+  type: string
+  state: string
+  message: string
+  lastTransitionTime: string
+  severity: string
+  reason: string
+  revisionReason: string
+  executionReason: string
+conditions:
+  - type: string
+    state: string
+    message: string
+    lastTransitionTime: string
+    severity: string
+    reason: string
+    revisionReason: string
+    executionReason: string
+latestReadyRevision: string
+latestCreatedRevision: string
+trafficStatuses:
+  - type: string
+    revision: string
+    percent: integer
+    tag: string
+    uri: string
+uri: string
+satisfiesPzs: boolean
+reconciling: boolean
+etag: string
 
 ```
 </TabItem>

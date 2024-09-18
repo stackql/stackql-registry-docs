@@ -108,50 +108,27 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: sSLInfo
-      value:
-        - name: commonName
-          value:
-            - name: value
-              value: '{{ value }}'
-            - name: wildcardMatch
-              value: '{{ wildcardMatch }}'
-        - name: ciphers
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: clientAuthEnabled
-          value: '{{ clientAuthEnabled }}'
-        - name: ignoreValidationErrors
-          value: '{{ ignoreValidationErrors }}'
-        - name: enforce
-          value: '{{ enforce }}'
-        - name: trustStore
-          value: '{{ trustStore }}'
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: keyAlias
-          value: '{{ keyAlias }}'
-        - name: keyStore
-          value: '{{ keyStore }}'
-        - name: protocols
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: host
-      value: '{{ host }}'
-    - name: name
-      value: '{{ name }}'
-    - name: isEnabled
-      value: '{{ isEnabled }}'
-    - name: port
-      value: '{{ port }}'
-    - name: description
-      value: '{{ description }}'
-    - name: protocol
-      value: '{{ protocol }}'
+sSLInfo:
+  commonName:
+    value: string
+    wildcardMatch: boolean
+  ciphers:
+    - type: string
+  clientAuthEnabled: boolean
+  ignoreValidationErrors: boolean
+  enforce: boolean
+  trustStore: string
+  enabled: boolean
+  keyAlias: string
+  keyStore: string
+  protocols:
+    - type: string
+host: string
+name: string
+isEnabled: boolean
+port: integer
+description: string
+protocol: string
 
 ```
 </TabItem>

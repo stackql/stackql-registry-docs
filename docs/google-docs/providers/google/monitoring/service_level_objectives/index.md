@@ -107,76 +107,40 @@ number,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: serviceLevelIndicator
-      value:
-        - name: basicSli
-          value:
-            - name: method
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: location
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: version
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: availability
-              value: []
-            - name: latency
-              value:
-                - name: threshold
-                  value: '{{ threshold }}'
-        - name: requestBased
-          value:
-            - name: goodTotalRatio
-              value:
-                - name: goodServiceFilter
-                  value: '{{ goodServiceFilter }}'
-                - name: badServiceFilter
-                  value: '{{ badServiceFilter }}'
-                - name: totalServiceFilter
-                  value: '{{ totalServiceFilter }}'
-            - name: distributionCut
-              value:
-                - name: distributionFilter
-                  value: '{{ distributionFilter }}'
-                - name: range
-                  value:
-                    - name: min
-                      value: '{{ min }}'
-                    - name: max
-                      value: '{{ max }}'
-        - name: windowsBased
-          value:
-            - name: goodBadMetricFilter
-              value: '{{ goodBadMetricFilter }}'
-            - name: goodTotalRatioThreshold
-              value:
-                - name: threshold
-                  value: '{{ threshold }}'
-            - name: metricMeanInRange
-              value:
-                - name: timeSeries
-                  value: '{{ timeSeries }}'
-            - name: windowPeriod
-              value: '{{ windowPeriod }}'
-    - name: goal
-      value: '{{ goal }}'
-    - name: rollingPeriod
-      value: '{{ rollingPeriod }}'
-    - name: calendarPeriod
-      value: '{{ calendarPeriod }}'
-    - name: userLabels
-      value: '{{ userLabels }}'
+name: string
+displayName: string
+serviceLevelIndicator:
+  basicSli:
+    method:
+      - type: string
+    location:
+      - type: string
+    version:
+      - type: string
+    availability: {}
+    latency:
+      threshold: string
+  requestBased:
+    goodTotalRatio:
+      goodServiceFilter: string
+      badServiceFilter: string
+      totalServiceFilter: string
+    distributionCut:
+      distributionFilter: string
+      range:
+        min: number
+        max: number
+  windowsBased:
+    goodBadMetricFilter: string
+    goodTotalRatioThreshold:
+      threshold: number
+    metricMeanInRange:
+      timeSeries: string
+    windowPeriod: string
+goal: number
+rollingPeriod: string
+calendarPeriod: string
+userLabels: object
 
 ```
 </TabItem>

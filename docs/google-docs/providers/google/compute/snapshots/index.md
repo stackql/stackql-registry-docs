@@ -211,86 +211,50 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: status
-      value: '{{ status }}'
-    - name: sourceDisk
-      value: '{{ sourceDisk }}'
-    - name: sourceDiskId
-      value: '{{ sourceDiskId }}'
-    - name: diskSizeGb
-      value: '{{ diskSizeGb }}'
-    - name: storageBytes
-      value: '{{ storageBytes }}'
-    - name: storageBytesStatus
-      value: '{{ storageBytesStatus }}'
-    - name: licenses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: snapshotEncryptionKey
-      value:
-        - name: rawKey
-          value: '{{ rawKey }}'
-        - name: rsaEncryptedKey
-          value: '{{ rsaEncryptedKey }}'
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: sha256
-          value: '{{ sha256 }}'
-        - name: kmsKeyServiceAccount
-          value: '{{ kmsKeyServiceAccount }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: licenseCodes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: format
-          value: '{{ format }}'
-    - name: storageLocations
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: autoCreated
-      value: '{{ autoCreated }}'
-    - name: guestOsFeatures
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: downloadBytes
-      value: '{{ downloadBytes }}'
-    - name: chainName
-      value: '{{ chainName }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: locationHint
-      value: '{{ locationHint }}'
-    - name: sourceSnapshotSchedulePolicy
-      value: '{{ sourceSnapshotSchedulePolicy }}'
-    - name: sourceSnapshotSchedulePolicyId
-      value: '{{ sourceSnapshotSchedulePolicyId }}'
-    - name: sourceInstantSnapshot
-      value: '{{ sourceInstantSnapshot }}'
-    - name: sourceInstantSnapshotId
-      value: '{{ sourceInstantSnapshotId }}'
-    - name: architecture
-      value: '{{ architecture }}'
-    - name: snapshotType
-      value: '{{ snapshotType }}'
-    - name: creationSizeBytes
-      value: '{{ creationSizeBytes }}'
-    - name: enableConfidentialCompute
-      value: '{{ enableConfidentialCompute }}'
-    - name: sourceDiskForRecoveryCheckpoint
-      value: '{{ sourceDiskForRecoveryCheckpoint }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+status: string
+sourceDisk: string
+sourceDiskId: string
+diskSizeGb: string
+storageBytes: string
+storageBytesStatus: string
+licenses:
+  - type: string
+snapshotEncryptionKey:
+  rawKey: string
+  rsaEncryptedKey: string
+  kmsKeyName: string
+  sha256: string
+  kmsKeyServiceAccount: string
+selfLink: string
+labels: object
+labelFingerprint: string
+licenseCodes:
+  - type: string
+    format: string
+storageLocations:
+  - type: string
+autoCreated: boolean
+guestOsFeatures:
+  - type: string
+downloadBytes: string
+chainName: string
+satisfiesPzs: boolean
+locationHint: string
+sourceSnapshotSchedulePolicy: string
+sourceSnapshotSchedulePolicyId: string
+sourceInstantSnapshot: string
+sourceInstantSnapshotId: string
+architecture: string
+snapshotType: string
+creationSizeBytes: string
+enableConfidentialCompute: boolean
+sourceDiskForRecoveryCheckpoint: string
+satisfiesPzi: boolean
 
 ```
 </TabItem>

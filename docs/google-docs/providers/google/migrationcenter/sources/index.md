@@ -112,18 +112,17 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: managed
-      value: '{{ managed }}'
+name: string
+createTime: string
+updateTime: string
+displayName: string
+description: string
+type: string
+priority: integer
+managed: boolean
+pendingFrameCount: integer
+errorFrameCount: integer
+state: string
 
 ```
 </TabItem>

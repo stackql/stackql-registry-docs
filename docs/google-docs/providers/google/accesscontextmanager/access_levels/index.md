@@ -98,34 +98,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: title
-      value: '{{ title }}'
-    - name: description
-      value: '{{ description }}'
-    - name: basic
-      value:
-        - name: conditions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: combiningFunction
-          value: '{{ combiningFunction }}'
-    - name: custom
-      value:
-        - name: expr
-          value:
-            - name: expression
-              value: '{{ expression }}'
-            - name: title
-              value: '{{ title }}'
-            - name: description
-              value: '{{ description }}'
-            - name: location
-              value: '{{ location }}'
+name: string
+title: string
+description: string
+basic:
+  conditions:
+    - ipSubnetworks:
+        - type: string
+      devicePolicy:
+        requireScreenlock: boolean
+        allowedEncryptionStatuses:
+          - type: string
+            enumDescriptions: string
+            enum: string
+        osConstraints:
+          - osType: string
+            minimumVersion: string
+            requireVerifiedChromeOs: boolean
+        allowedDeviceManagementLevels:
+          - type: string
+            enumDescriptions: string
+            enum: string
+        requireAdminApproval: boolean
+        requireCorpOwned: boolean
+      requiredAccessLevels:
+        - type: string
+      negate: boolean
+      members:
+        - type: string
+      regions:
+        - type: string
+      vpcNetworkSources:
+        - vpcSubnetwork:
+            network: string
+            vpcIpSubnetworks:
+              - type: string
+  combiningFunction: string
+custom:
+  expr:
+    expression: string
+    title: string
+    description: string
+    location: string
 
 ```
 </TabItem>

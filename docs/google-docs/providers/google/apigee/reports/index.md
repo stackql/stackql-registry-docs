@@ -155,54 +155,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: fromTime
-      value: '{{ fromTime }}'
-    - name: sortByCols
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: offset
-      value: '{{ offset }}'
-    - name: sortOrder
-      value: '{{ sortOrder }}'
-    - name: topk
-      value: '{{ topk }}'
-    - name: name
-      value: '{{ name }}'
-    - name: timeUnit
-      value: '{{ timeUnit }}'
-    - name: chartType
-      value: '{{ chartType }}'
-    - name: metrics
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: filter
-      value: '{{ filter }}'
-    - name: properties
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: toTime
-      value: '{{ toTime }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: comments
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: tags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dimensions
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: limit
-      value: '{{ limit }}'
+fromTime: string
+sortByCols:
+  - type: string
+offset: string
+environment: string
+sortOrder: string
+topk: string
+name: string
+timeUnit: string
+chartType: string
+lastModifiedAt: string
+metrics:
+  - function: string
+    name: string
+filter: string
+createdAt: string
+properties:
+  - value:
+      - value: string
+        name: string
+    property: string
+toTime: string
+displayName: string
+organization: string
+comments:
+  - type: string
+tags:
+  - type: string
+lastViewedAt: string
+dimensions:
+  - type: string
+limit: string
 
 ```
 </TabItem>

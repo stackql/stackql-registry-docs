@@ -93,26 +93,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: topic
-      value: '{{ topic }}'
-    - name: deliveryConfig
-      value:
-        - name: deliveryRequirement
-          value: '{{ deliveryRequirement }}'
-    - name: exportConfig
-      value:
-        - name: desiredState
-          value: '{{ desiredState }}'
-        - name: deadLetterTopic
-          value: '{{ deadLetterTopic }}'
-        - name: pubsubConfig
-          value:
-            - name: topic
-              value: '{{ topic }}'
+name: string
+topic: string
+deliveryConfig:
+  deliveryRequirement: string
+exportConfig:
+  desiredState: string
+  currentState: string
+  deadLetterTopic: string
+  pubsubConfig:
+    topic: string
 
 ```
 </TabItem>

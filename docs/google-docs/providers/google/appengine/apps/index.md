@@ -128,40 +128,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: dispatchRules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: authDomain
-      value: '{{ authDomain }}'
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: defaultCookieExpiration
-      value: '{{ defaultCookieExpiration }}'
-    - name: servingStatus
-      value: '{{ servingStatus }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: iap
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: oauth2ClientId
-          value: '{{ oauth2ClientId }}'
-        - name: oauth2ClientSecret
-          value: '{{ oauth2ClientSecret }}'
-    - name: databaseType
-      value: '{{ databaseType }}'
-    - name: featureSettings
-      value:
-        - name: splitHealthChecks
-          value: '{{ splitHealthChecks }}'
-        - name: useContainerOptimizedOs
-          value: '{{ useContainerOptimizedOs }}'
-    - name: generatedCustomerMetadata
-      value: '{{ generatedCustomerMetadata }}'
+name: string
+id: string
+dispatchRules:
+  - domain: string
+    path: string
+    service: string
+authDomain: string
+locationId: string
+codeBucket: string
+defaultCookieExpiration: string
+servingStatus: string
+defaultHostname: string
+defaultBucket: string
+serviceAccount: string
+iap:
+  enabled: boolean
+  oauth2ClientId: string
+  oauth2ClientSecret: string
+  oauth2ClientSecretSha256: string
+gcrDomain: string
+databaseType: string
+featureSettings:
+  splitHealthChecks: boolean
+  useContainerOptimizedOs: boolean
+generatedCustomerMetadata: object
 
 ```
 </TabItem>

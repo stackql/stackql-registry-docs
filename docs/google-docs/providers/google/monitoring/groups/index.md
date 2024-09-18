@@ -97,18 +97,11 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: parentName
-      value: '{{ parentName }}'
-    - name: filter
-      value: '{{ filter }}'
-    - name: isCluster
-      value: '{{ isCluster }}'
+name: string
+displayName: string
+parentName: string
+filter: string
+isCluster: boolean
 
 ```
 </TabItem>

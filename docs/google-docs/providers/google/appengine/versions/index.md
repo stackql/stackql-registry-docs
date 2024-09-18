@@ -236,272 +236,165 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: automaticScaling
-      value:
-        - name: coolDownPeriod
-          value: '{{ coolDownPeriod }}'
-        - name: cpuUtilization
-          value:
-            - name: aggregationWindowLength
-              value: '{{ aggregationWindowLength }}'
-            - name: targetUtilization
-              value: '{{ targetUtilization }}'
-        - name: maxConcurrentRequests
-          value: '{{ maxConcurrentRequests }}'
-        - name: maxIdleInstances
-          value: '{{ maxIdleInstances }}'
-        - name: maxTotalInstances
-          value: '{{ maxTotalInstances }}'
-        - name: maxPendingLatency
-          value: '{{ maxPendingLatency }}'
-        - name: minIdleInstances
-          value: '{{ minIdleInstances }}'
-        - name: minTotalInstances
-          value: '{{ minTotalInstances }}'
-        - name: minPendingLatency
-          value: '{{ minPendingLatency }}'
-        - name: requestUtilization
-          value:
-            - name: targetRequestCountPerSecond
-              value: '{{ targetRequestCountPerSecond }}'
-            - name: targetConcurrentRequests
-              value: '{{ targetConcurrentRequests }}'
-        - name: diskUtilization
-          value:
-            - name: targetWriteBytesPerSecond
-              value: '{{ targetWriteBytesPerSecond }}'
-            - name: targetWriteOpsPerSecond
-              value: '{{ targetWriteOpsPerSecond }}'
-            - name: targetReadBytesPerSecond
-              value: '{{ targetReadBytesPerSecond }}'
-            - name: targetReadOpsPerSecond
-              value: '{{ targetReadOpsPerSecond }}'
-        - name: networkUtilization
-          value:
-            - name: targetSentBytesPerSecond
-              value: '{{ targetSentBytesPerSecond }}'
-            - name: targetSentPacketsPerSecond
-              value: '{{ targetSentPacketsPerSecond }}'
-            - name: targetReceivedBytesPerSecond
-              value: '{{ targetReceivedBytesPerSecond }}'
-            - name: targetReceivedPacketsPerSecond
-              value: '{{ targetReceivedPacketsPerSecond }}'
-        - name: standardSchedulerSettings
-          value:
-            - name: targetCpuUtilization
-              value: '{{ targetCpuUtilization }}'
-            - name: targetThroughputUtilization
-              value: '{{ targetThroughputUtilization }}'
-            - name: minInstances
-              value: '{{ minInstances }}'
-            - name: maxInstances
-              value: '{{ maxInstances }}'
-    - name: basicScaling
-      value:
-        - name: idleTimeout
-          value: '{{ idleTimeout }}'
-        - name: maxInstances
-          value: '{{ maxInstances }}'
-    - name: manualScaling
-      value:
-        - name: instances
-          value: '{{ instances }}'
-    - name: inboundServices
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: instanceClass
-      value: '{{ instanceClass }}'
-    - name: network
-      value:
-        - name: forwardedPorts
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: instanceTag
-          value: '{{ instanceTag }}'
-        - name: name
-          value: '{{ name }}'
-        - name: subnetworkName
-          value: '{{ subnetworkName }}'
-        - name: sessionAffinity
-          value: '{{ sessionAffinity }}'
-        - name: instanceIpMode
-          value: '{{ instanceIpMode }}'
-    - name: zones
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: resources
-      value:
-        - name: cpu
-          value: '{{ cpu }}'
-        - name: diskGb
-          value: '{{ diskGb }}'
-        - name: memoryGb
-          value: '{{ memoryGb }}'
-        - name: volumes
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: kmsKeyReference
-          value: '{{ kmsKeyReference }}'
-    - name: runtime
-      value: '{{ runtime }}'
-    - name: runtimeChannel
-      value: '{{ runtimeChannel }}'
-    - name: threadsafe
-      value: '{{ threadsafe }}'
-    - name: vm
-      value: '{{ vm }}'
-    - name: flexibleRuntimeSettings
-      value:
-        - name: operatingSystem
-          value: '{{ operatingSystem }}'
-        - name: runtimeVersion
-          value: '{{ runtimeVersion }}'
-    - name: appEngineApis
-      value: '{{ appEngineApis }}'
-    - name: betaSettings
-      value: '{{ betaSettings }}'
-    - name: env
-      value: '{{ env }}'
-    - name: servingStatus
-      value: '{{ servingStatus }}'
-    - name: runtimeApiVersion
-      value: '{{ runtimeApiVersion }}'
-    - name: runtimeMainExecutablePath
-      value: '{{ runtimeMainExecutablePath }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: handlers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: errorHandlers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: libraries
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: apiConfig
-      value:
-        - name: authFailAction
-          value: '{{ authFailAction }}'
-        - name: login
-          value: '{{ login }}'
-        - name: script
-          value: '{{ script }}'
-        - name: securityLevel
-          value: '{{ securityLevel }}'
-        - name: url
-          value: '{{ url }}'
-    - name: envVariables
-      value: '{{ envVariables }}'
-    - name: buildEnvVariables
-      value: '{{ buildEnvVariables }}'
-    - name: defaultExpiration
-      value: '{{ defaultExpiration }}'
-    - name: healthCheck
-      value:
-        - name: disableHealthCheck
-          value: '{{ disableHealthCheck }}'
-        - name: host
-          value: '{{ host }}'
-        - name: healthyThreshold
-          value: '{{ healthyThreshold }}'
-        - name: unhealthyThreshold
-          value: '{{ unhealthyThreshold }}'
-        - name: restartThreshold
-          value: '{{ restartThreshold }}'
-        - name: checkInterval
-          value: '{{ checkInterval }}'
-        - name: timeout
-          value: '{{ timeout }}'
-    - name: readinessCheck
-      value:
-        - name: path
-          value: '{{ path }}'
-        - name: host
-          value: '{{ host }}'
-        - name: failureThreshold
-          value: '{{ failureThreshold }}'
-        - name: successThreshold
-          value: '{{ successThreshold }}'
-        - name: checkInterval
-          value: '{{ checkInterval }}'
-        - name: timeout
-          value: '{{ timeout }}'
-        - name: appStartTimeout
-          value: '{{ appStartTimeout }}'
-    - name: livenessCheck
-      value:
-        - name: path
-          value: '{{ path }}'
-        - name: host
-          value: '{{ host }}'
-        - name: failureThreshold
-          value: '{{ failureThreshold }}'
-        - name: successThreshold
-          value: '{{ successThreshold }}'
-        - name: checkInterval
-          value: '{{ checkInterval }}'
-        - name: timeout
-          value: '{{ timeout }}'
-        - name: initialDelay
-          value: '{{ initialDelay }}'
-    - name: nobuildFilesRegex
-      value: '{{ nobuildFilesRegex }}'
-    - name: deployment
-      value:
-        - name: files
-          value: '{{ files }}'
-        - name: container
-          value:
-            - name: image
-              value: '{{ image }}'
-        - name: zip
-          value:
-            - name: sourceUrl
-              value: '{{ sourceUrl }}'
-            - name: filesCount
-              value: '{{ filesCount }}'
-        - name: cloudBuildOptions
-          value:
-            - name: appYamlPath
-              value: '{{ appYamlPath }}'
-            - name: cloudBuildTimeout
-              value: '{{ cloudBuildTimeout }}'
-    - name: endpointsApiService
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: configId
-          value: '{{ configId }}'
-        - name: rolloutStrategy
-          value: '{{ rolloutStrategy }}'
-        - name: disableTraceSampling
-          value: '{{ disableTraceSampling }}'
-    - name: entrypoint
-      value:
-        - name: shell
-          value: '{{ shell }}'
-    - name: vpcAccessConnector
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: egressSetting
-          value: '{{ egressSetting }}'
-    - name: generatedCustomerMetadata
-      value: '{{ generatedCustomerMetadata }}'
+name: string
+id: string
+automaticScaling:
+  coolDownPeriod: string
+  cpuUtilization:
+    aggregationWindowLength: string
+    targetUtilization: number
+  maxConcurrentRequests: integer
+  maxIdleInstances: integer
+  maxTotalInstances: integer
+  maxPendingLatency: string
+  minIdleInstances: integer
+  minTotalInstances: integer
+  minPendingLatency: string
+  requestUtilization:
+    targetRequestCountPerSecond: integer
+    targetConcurrentRequests: integer
+  diskUtilization:
+    targetWriteBytesPerSecond: integer
+    targetWriteOpsPerSecond: integer
+    targetReadBytesPerSecond: integer
+    targetReadOpsPerSecond: integer
+  networkUtilization:
+    targetSentBytesPerSecond: integer
+    targetSentPacketsPerSecond: integer
+    targetReceivedBytesPerSecond: integer
+    targetReceivedPacketsPerSecond: integer
+  standardSchedulerSettings:
+    targetCpuUtilization: number
+    targetThroughputUtilization: number
+    minInstances: integer
+    maxInstances: integer
+basicScaling:
+  idleTimeout: string
+  maxInstances: integer
+manualScaling:
+  instances: integer
+inboundServices:
+  - type: string
+    enumDescriptions: string
+    enum: string
+instanceClass: string
+network:
+  forwardedPorts:
+    - type: string
+  instanceTag: string
+  name: string
+  subnetworkName: string
+  sessionAffinity: boolean
+  instanceIpMode: string
+zones:
+  - type: string
+resources:
+  cpu: number
+  diskGb: number
+  memoryGb: number
+  volumes:
+    - name: string
+      volumeType: string
+      sizeGb: number
+  kmsKeyReference: string
+runtime: string
+runtimeChannel: string
+threadsafe: boolean
+vm: boolean
+flexibleRuntimeSettings:
+  operatingSystem: string
+  runtimeVersion: string
+appEngineApis: boolean
+betaSettings: object
+env: string
+servingStatus: string
+createdBy: string
+createTime: string
+diskUsageBytes: string
+runtimeApiVersion: string
+runtimeMainExecutablePath: string
+serviceAccount: string
+handlers:
+  - urlRegex: string
+    staticFiles:
+      path: string
+      uploadPathRegex: string
+      httpHeaders: object
+      mimeType: string
+      expiration: string
+      requireMatchingFile: boolean
+      applicationReadable: boolean
+    script:
+      scriptPath: string
+    apiEndpoint:
+      scriptPath: string
+    securityLevel: string
+    login: string
+    authFailAction: string
+    redirectHttpResponseCode: string
+errorHandlers:
+  - errorCode: string
+    staticFile: string
+    mimeType: string
+libraries:
+  - name: string
+    version: string
+apiConfig:
+  authFailAction: string
+  login: string
+  script: string
+  securityLevel: string
+  url: string
+envVariables: object
+buildEnvVariables: object
+defaultExpiration: string
+healthCheck:
+  disableHealthCheck: boolean
+  host: string
+  healthyThreshold: integer
+  unhealthyThreshold: integer
+  restartThreshold: integer
+  checkInterval: string
+  timeout: string
+readinessCheck:
+  path: string
+  host: string
+  failureThreshold: integer
+  successThreshold: integer
+  checkInterval: string
+  timeout: string
+  appStartTimeout: string
+livenessCheck:
+  path: string
+  host: string
+  failureThreshold: integer
+  successThreshold: integer
+  checkInterval: string
+  timeout: string
+  initialDelay: string
+nobuildFilesRegex: string
+deployment:
+  files: object
+  container:
+    image: string
+  zip:
+    sourceUrl: string
+    filesCount: integer
+  cloudBuildOptions:
+    appYamlPath: string
+    cloudBuildTimeout: string
+versionUrl: string
+endpointsApiService:
+  name: string
+  configId: string
+  rolloutStrategy: string
+  disableTraceSampling: boolean
+entrypoint:
+  shell: string
+vpcAccessConnector:
+  name: string
+  egressSetting: string
+generatedCustomerMetadata: object
 
 ```
 </TabItem>

@@ -156,58 +156,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: network
-      value: '{{ network }}'
-    - name: tags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: destRange
-      value: '{{ destRange }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: nextHopInstance
-      value: '{{ nextHopInstance }}'
-    - name: nextHopIp
-      value: '{{ nextHopIp }}'
-    - name: nextHopNetwork
-      value: '{{ nextHopNetwork }}'
-    - name: nextHopGateway
-      value: '{{ nextHopGateway }}'
-    - name: nextHopPeering
-      value: '{{ nextHopPeering }}'
-    - name: nextHopIlb
-      value: '{{ nextHopIlb }}'
-    - name: warnings
-      value:
-        - name: code
-          value: '{{ code }}'
-        - name: message
-          value: '{{ message }}'
-        - name: data
-          value:
-            - name: key
-              value: '{{ key }}'
-            - name: value
-              value: '{{ value }}'
-    - name: nextHopVpnTunnel
-      value: '{{ nextHopVpnTunnel }}'
-    - name: nextHopHub
-      value: '{{ nextHopHub }}'
-    - name: routeType
-      value: '{{ routeType }}'
-    - name: asPaths
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: routeStatus
-      value: '{{ routeStatus }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+network: string
+tags:
+  - type: string
+destRange: string
+priority: integer
+nextHopInstance: string
+nextHopIp: string
+nextHopNetwork: string
+nextHopGateway: string
+nextHopPeering: string
+nextHopIlb: string
+warnings:
+  - code: string
+    message: string
+    data:
+      - key: string
+        value: string
+nextHopVpnTunnel: string
+nextHopHub: string
+selfLink: string
+routeType: string
+asPaths:
+  - pathSegmentType: string
+    asLists:
+      - type: string
+        format: string
+routeStatus: string
 
 ```
 </TabItem>

@@ -119,58 +119,35 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: attributeMapping
-      value: '{{ attributeMapping }}'
-    - name: attributeCondition
-      value: '{{ attributeCondition }}'
-    - name: saml
-      value:
-        - name: idpMetadataXml
-          value: '{{ idpMetadataXml }}'
-    - name: oidc
-      value:
-        - name: issuerUri
-          value: '{{ issuerUri }}'
-        - name: clientId
-          value: '{{ clientId }}'
-        - name: clientSecret
-          value:
-            - name: value
-              value:
-                - name: plainText
-                  value: '{{ plainText }}'
-        - name: webSsoConfig
-          value:
-            - name: responseType
-              value: '{{ responseType }}'
-            - name: assertionClaimsBehavior
-              value: '{{ assertionClaimsBehavior }}'
-            - name: additionalScopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: jwksJson
-          value: '{{ jwksJson }}'
-    - name: extraAttributesOauth2Client
-      value:
-        - name: issuerUri
-          value: '{{ issuerUri }}'
-        - name: clientId
-          value: '{{ clientId }}'
-        - name: attributesType
-          value: '{{ attributesType }}'
-        - name: queryParameters
-          value:
-            - name: filter
-              value: '{{ filter }}'
+name: string
+displayName: string
+description: string
+state: string
+disabled: boolean
+attributeMapping: object
+attributeCondition: string
+saml:
+  idpMetadataXml: string
+oidc:
+  issuerUri: string
+  clientId: string
+  clientSecret:
+    value:
+      plainText: string
+      thumbprint: string
+  webSsoConfig:
+    responseType: string
+    assertionClaimsBehavior: string
+    additionalScopes:
+      - type: string
+  jwksJson: string
+expireTime: string
+extraAttributesOauth2Client:
+  issuerUri: string
+  clientId: string
+  attributesType: string
+  queryParameters:
+    filter: string
 
 ```
 </TabItem>

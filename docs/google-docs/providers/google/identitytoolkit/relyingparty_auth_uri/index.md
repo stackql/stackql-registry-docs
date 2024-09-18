@@ -95,40 +95,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: appId
-      value: '{{ appId }}'
-    - name: authFlowType
-      value: '{{ authFlowType }}'
-    - name: clientId
-      value: '{{ clientId }}'
-    - name: context
-      value: '{{ context }}'
-    - name: continueUri
-      value: '{{ continueUri }}'
-    - name: customParameter
-      value: '{{ customParameter }}'
-    - name: hostedDomain
-      value: '{{ hostedDomain }}'
-    - name: identifier
-      value: '{{ identifier }}'
-    - name: oauthConsumerKey
-      value: '{{ oauthConsumerKey }}'
-    - name: oauthScope
-      value: '{{ oauthScope }}'
-    - name: openidRealm
-      value: '{{ openidRealm }}'
-    - name: otaApp
-      value: '{{ otaApp }}'
-    - name: providerId
-      value: '{{ providerId }}'
-    - name: sessionId
-      value: '{{ sessionId }}'
-    - name: tenantId
-      value: '{{ tenantId }}'
-    - name: tenantProjectNumber
-      value: '{{ tenantProjectNumber }}'
+appId: string
+authFlowType: string
+clientId: string
+context: string
+continueUri: string
+customParameter: object
+hostedDomain: string
+identifier: string
+oauthConsumerKey: string
+oauthScope: string
+openidRealm: string
+otaApp: string
+providerId: string
+sessionId: string
+tenantId: string
+tenantProjectNumber: string
 
 ```
 </TabItem>

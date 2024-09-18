@@ -205,114 +205,67 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: sourceType
-      value: '{{ sourceType }}'
-    - name: rawDisk
-      value:
-        - name: source
-          value: '{{ source }}'
-        - name: sha1Checksum
-          value: '{{ sha1Checksum }}'
-        - name: containerType
-          value: '{{ containerType }}'
-    - name: deprecated
-      value:
-        - name: state
-          value: '{{ state }}'
-        - name: replacement
-          value: '{{ replacement }}'
-        - name: deprecated
-          value: '{{ deprecated }}'
-        - name: obsolete
-          value: '{{ obsolete }}'
-        - name: deleted
-          value: '{{ deleted }}'
-    - name: status
-      value: '{{ status }}'
-    - name: archiveSizeBytes
-      value: '{{ archiveSizeBytes }}'
-    - name: diskSizeGb
-      value: '{{ diskSizeGb }}'
-    - name: sourceDisk
-      value: '{{ sourceDisk }}'
-    - name: sourceDiskId
-      value: '{{ sourceDiskId }}'
-    - name: licenses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: family
-      value: '{{ family }}'
-    - name: imageEncryptionKey
-      value:
-        - name: rawKey
-          value: '{{ rawKey }}'
-        - name: rsaEncryptedKey
-          value: '{{ rsaEncryptedKey }}'
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: sha256
-          value: '{{ sha256 }}'
-        - name: kmsKeyServiceAccount
-          value: '{{ kmsKeyServiceAccount }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: guestOsFeatures
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: licenseCodes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: format
-          value: '{{ format }}'
-    - name: sourceImage
-      value: '{{ sourceImage }}'
-    - name: sourceImageId
-      value: '{{ sourceImageId }}'
-    - name: sourceSnapshot
-      value: '{{ sourceSnapshot }}'
-    - name: sourceSnapshotId
-      value: '{{ sourceSnapshotId }}'
-    - name: storageLocations
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: shieldedInstanceInitialState
-      value:
-        - name: pk
-          value:
-            - name: content
-              value: '{{ content }}'
-            - name: fileType
-              value: '{{ fileType }}'
-        - name: keks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: dbs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: dbxs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: architecture
-      value: '{{ architecture }}'
-    - name: enableConfidentialCompute
-      value: '{{ enableConfidentialCompute }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+sourceType: string
+rawDisk:
+  source: string
+  sha1Checksum: string
+  containerType: string
+deprecated:
+  state: string
+  replacement: string
+  deprecated: string
+  obsolete: string
+  deleted: string
+status: string
+archiveSizeBytes: string
+diskSizeGb: string
+sourceDisk: string
+sourceDiskId: string
+licenses:
+  - type: string
+family: string
+imageEncryptionKey:
+  rawKey: string
+  rsaEncryptedKey: string
+  kmsKeyName: string
+  sha256: string
+  kmsKeyServiceAccount: string
+selfLink: string
+labels: object
+labelFingerprint: string
+guestOsFeatures:
+  - type: string
+licenseCodes:
+  - type: string
+    format: string
+sourceImage: string
+sourceImageId: string
+sourceSnapshot: string
+sourceSnapshotId: string
+storageLocations:
+  - type: string
+shieldedInstanceInitialState:
+  pk:
+    content: string
+    fileType: string
+  keks:
+    - content: string
+      fileType: string
+  dbs:
+    - content: string
+      fileType: string
+  dbxs:
+    - content: string
+      fileType: string
+satisfiesPzs: boolean
+architecture: string
+enableConfidentialCompute: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

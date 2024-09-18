@@ -110,20 +110,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: phraseSetId
-      value: '{{ phraseSetId }}'
-    - name: phraseSet
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: phrases
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: boost
-          value: '{{ boost }}'
+phraseSetId: string
+phraseSet:
+  name: string
+  phrases:
+    - value: string
+      boost: number
+  boost: number
+  kmsKeyName: string
+  kmsKeyVersionName: string
+  uid: string
+  displayName: string
+  state: string
+  deleteTime: string
+  expireTime: string
+  annotations: object
+  etag: string
+  reconciling: boolean
 
 ```
 </TabItem>

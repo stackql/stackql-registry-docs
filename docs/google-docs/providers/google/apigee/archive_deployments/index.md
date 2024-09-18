@@ -100,14 +100,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: gcsUri
-      value: '{{ gcsUri }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
+createdAt: string
+gcsUri: string
+name: string
+operation: string
+updatedAt: string
+labels: object
 
 ```
 </TabItem>

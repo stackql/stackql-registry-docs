@@ -115,26 +115,18 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: autoExpansionMode
-      value: '{{ autoExpansionMode }}'
-    - name: entities
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: excludedPhrases
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: enableFuzzyExtraction
-      value: '{{ enableFuzzyExtraction }}'
-    - name: redact
-      value: '{{ redact }}'
+name: string
+displayName: string
+kind: string
+autoExpansionMode: string
+entities:
+  - value: string
+    synonyms:
+      - type: string
+excludedPhrases:
+  - value: string
+enableFuzzyExtraction: boolean
+redact: boolean
 
 ```
 </TabItem>

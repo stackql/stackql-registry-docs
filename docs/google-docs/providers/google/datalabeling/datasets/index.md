@@ -96,28 +96,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: dataset
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: description
-          value: '{{ description }}'
-        - name: inputConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: blockingResources
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: dataItemCount
-          value: '{{ dataItemCount }}'
-        - name: lastMigrateTime
-          value: '{{ lastMigrateTime }}'
+dataset:
+  name: string
+  displayName: string
+  description: string
+  createTime: string
+  inputConfigs:
+    - textMetadata:
+        languageCode: string
+      gcsSource:
+        inputUri: string
+        mimeType: string
+      bigquerySource:
+        inputUri: string
+      dataType: string
+      annotationType: string
+      classificationMetadata:
+        isMultiLabel: boolean
+  blockingResources:
+    - type: string
+  dataItemCount: string
+  lastMigrateTime: string
 
 ```
 </TabItem>

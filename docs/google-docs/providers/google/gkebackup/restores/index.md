@@ -131,28 +131,86 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: backup
-      value: '{{ backup }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: filter
-      value:
-        - name: inclusionFilters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: exclusionFilters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: volumeDataRestorePolicyOverrides
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+description: string
+backup: string
+cluster: string
+restoreConfig:
+  volumeDataRestorePolicy: string
+  clusterResourceConflictPolicy: string
+  namespacedResourceRestoreMode: string
+  clusterResourceRestoreScope:
+    selectedGroupKinds:
+      - resourceGroup: string
+        resourceKind: string
+    excludedGroupKinds:
+      - resourceGroup: string
+        resourceKind: string
+    allGroupKinds: boolean
+    noGroupKinds: boolean
+  allNamespaces: boolean
+  selectedNamespaces:
+    namespaces:
+      - type: string
+  selectedApplications:
+    namespacedNames:
+      - namespace: string
+        name: string
+  noNamespaces: boolean
+  substitutionRules:
+    - targetNamespaces:
+        - type: string
+      targetGroupKinds:
+        - resourceGroup: string
+          resourceKind: string
+      targetJsonPath: string
+      originalValuePattern: string
+      newValue: string
+  transformationRules:
+    - fieldActions:
+        - op: string
+          fromPath: string
+          path: string
+          value: string
+      resourceFilter:
+        namespaces:
+          - type: string
+        groupKinds:
+          - resourceGroup: string
+            resourceKind: string
+        jsonPath: string
+      description: string
+  volumeDataRestorePolicyBindings:
+    - policy: string
+      volumeType: string
+  restoreOrder:
+    groupKindDependencies:
+      - satisfying:
+          resourceGroup: string
+          resourceKind: string
+labels: object
+state: string
+stateReason: string
+completeTime: string
+resourcesRestoredCount: integer
+resourcesExcludedCount: integer
+resourcesFailedCount: integer
+volumesRestoredCount: integer
+etag: string
+filter:
+  inclusionFilters:
+    - name: string
+      namespace: string
+      labels: object
+  exclusionFilters:
+    - name: string
+      namespace: string
+      labels: object
+volumeDataRestorePolicyOverrides:
+  - policy: string
 
 ```
 </TabItem>

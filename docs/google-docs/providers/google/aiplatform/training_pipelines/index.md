@@ -132,256 +132,176 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: trainingTaskDefinition
-      value: '{{ trainingTaskDefinition }}'
-    - name: inputDataConfig
-      value:
-        - name: stratifiedSplit
-          value:
-            - name: key
-              value: '{{ key }}'
-            - name: trainingFraction
-              value: '{{ trainingFraction }}'
-            - name: testFraction
-              value: '{{ testFraction }}'
-            - name: validationFraction
-              value: '{{ validationFraction }}'
-        - name: timestampSplit
-          value:
-            - name: validationFraction
-              value: '{{ validationFraction }}'
-            - name: key
-              value: '{{ key }}'
-            - name: trainingFraction
-              value: '{{ trainingFraction }}'
-            - name: testFraction
-              value: '{{ testFraction }}'
-        - name: predefinedSplit
-          value:
-            - name: key
-              value: '{{ key }}'
-        - name: gcsDestination
-          value:
-            - name: outputUriPrefix
-              value: '{{ outputUriPrefix }}'
-        - name: datasetId
-          value: '{{ datasetId }}'
-        - name: filterSplit
-          value:
-            - name: validationFilter
-              value: '{{ validationFilter }}'
-            - name: testFilter
-              value: '{{ testFilter }}'
-            - name: trainingFilter
-              value: '{{ trainingFilter }}'
-        - name: annotationsFilter
-          value: '{{ annotationsFilter }}'
-        - name: fractionSplit
-          value:
-            - name: trainingFraction
-              value: '{{ trainingFraction }}'
-            - name: validationFraction
-              value: '{{ validationFraction }}'
-            - name: testFraction
-              value: '{{ testFraction }}'
-        - name: bigqueryDestination
-          value:
-            - name: outputUri
-              value: '{{ outputUri }}'
-        - name: savedQueryId
-          value: '{{ savedQueryId }}'
-        - name: persistMlUseAssignment
-          value: '{{ persistMlUseAssignment }}'
-        - name: annotationSchemaUri
-          value: '{{ annotationSchemaUri }}'
-    - name: parentModel
-      value: '{{ parentModel }}'
-    - name: modelToUpload
-      value:
-        - name: dataStats
-          value:
-            - name: testAnnotationsCount
-              value: '{{ testAnnotationsCount }}'
-            - name: trainingAnnotationsCount
-              value: '{{ trainingAnnotationsCount }}'
-            - name: trainingDataItemsCount
-              value: '{{ trainingDataItemsCount }}'
-            - name: testDataItemsCount
-              value: '{{ testDataItemsCount }}'
-            - name: validationDataItemsCount
-              value: '{{ validationDataItemsCount }}'
-            - name: validationAnnotationsCount
-              value: '{{ validationAnnotationsCount }}'
-        - name: containerSpec
-          value:
-            - name: startupProbe
-              value:
-                - name: timeoutSeconds
-                  value: '{{ timeoutSeconds }}'
-                - name: periodSeconds
-                  value: '{{ periodSeconds }}'
-                - name: exec
-                  value:
-                    - name: command
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-            - name: imageUri
-              value: '{{ imageUri }}'
-            - name: grpcPorts
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: command
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: sharedMemorySizeMb
-              value: '{{ sharedMemorySizeMb }}'
-            - name: deploymentTimeout
-              value: '{{ deploymentTimeout }}'
-            - name: healthRoute
-              value: '{{ healthRoute }}'
-            - name: predictRoute
-              value: '{{ predictRoute }}'
-            - name: args
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: env
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: ports
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: versionAliases
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: baseModelSource
-          value:
-            - name: modelGardenSource
-              value:
-                - name: publicModelName
-                  value: '{{ publicModelName }}'
-            - name: genieSource
-              value:
-                - name: baseModelUri
-                  value: '{{ baseModelUri }}'
-        - name: etag
-          value: '{{ etag }}'
-        - name: predictSchemata
-          value:
-            - name: predictionSchemaUri
-              value: '{{ predictionSchemaUri }}'
-            - name: instanceSchemaUri
-              value: '{{ instanceSchemaUri }}'
-            - name: parametersSchemaUri
-              value: '{{ parametersSchemaUri }}'
-        - name: metadata
-          value: '{{ metadata }}'
-        - name: metadataSchemaUri
-          value: '{{ metadataSchemaUri }}'
-        - name: artifactUri
-          value: '{{ artifactUri }}'
-        - name: explanationSpec
-          value:
-            - name: metadata
-              value:
-                - name: outputs
-                  value: '{{ outputs }}'
-                - name: featureAttributionsSchemaUri
-                  value: '{{ featureAttributionsSchemaUri }}'
-                - name: inputs
-                  value: '{{ inputs }}'
-                - name: latentSpaceSource
-                  value: '{{ latentSpaceSource }}'
-            - name: parameters
-              value:
-                - name: topK
-                  value: '{{ topK }}'
-                - name: examples
-                  value:
-                    - name: nearestNeighborSearchConfig
-                      value: '{{ nearestNeighborSearchConfig }}'
-                    - name: neighborCount
-                      value: '{{ neighborCount }}'
-                    - name: exampleGcsSource
-                      value:
-                        - name: dataFormat
-                          value: '{{ dataFormat }}'
-                        - name: gcsSource
-                          value:
-                            - name: uris
-                              value:
-                                - name: type
-                                  value: '{{ type }}'
-                    - name: presets
-                      value:
-                        - name: modality
-                          value: '{{ modality }}'
-                        - name: query
-                          value: '{{ query }}'
-                - name: sampledShapleyAttribution
-                  value:
-                    - name: pathCount
-                      value: '{{ pathCount }}'
-                - name: xraiAttribution
-                  value:
-                    - name: smoothGradConfig
-                      value:
-                        - name: featureNoiseSigma
-                          value:
-                            - name: noiseSigma
-                              value:
-                                - name: $ref
-                                  value: '{{ $ref }}'
-                        - name: noisySampleCount
-                          value: '{{ noisySampleCount }}'
-                        - name: noiseSigma
-                          value: '{{ noiseSigma }}'
-                    - name: stepCount
-                      value: '{{ stepCount }}'
-                    - name: blurBaselineConfig
-                      value:
-                        - name: maxBlurSigma
-                          value: '{{ maxBlurSigma }}'
-                - name: outputIndices
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: integratedGradientsAttribution
-                  value:
-                    - name: stepCount
-                      value: '{{ stepCount }}'
-        - name: description
-          value: '{{ description }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: versionDescription
-          value: '{{ versionDescription }}'
-        - name: pipelineJob
-          value: '{{ pipelineJob }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: encryptionSpec
-          value:
-            - name: kmsKeyName
-              value: '{{ kmsKeyName }}'
-        - name: name
-          value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: modelId
-      value: '{{ modelId }}'
-    - name: trainingTaskInputs
-      value: '{{ trainingTaskInputs }}'
-    - name: displayName
-      value: '{{ displayName }}'
+createTime: string
+startTime: string
+trainingTaskDefinition: string
+inputDataConfig:
+  stratifiedSplit:
+    key: string
+    trainingFraction: number
+    testFraction: number
+    validationFraction: number
+  timestampSplit:
+    validationFraction: number
+    key: string
+    trainingFraction: number
+    testFraction: number
+  predefinedSplit:
+    key: string
+  gcsDestination:
+    outputUriPrefix: string
+  datasetId: string
+  filterSplit:
+    validationFilter: string
+    testFilter: string
+    trainingFilter: string
+  annotationsFilter: string
+  fractionSplit:
+    trainingFraction: number
+    validationFraction: number
+    testFraction: number
+  bigqueryDestination:
+    outputUri: string
+  savedQueryId: string
+  persistMlUseAssignment: boolean
+  annotationSchemaUri: string
+trainingTaskMetadata: any
+parentModel: string
+endTime: string
+modelToUpload:
+  dataStats:
+    testAnnotationsCount: string
+    trainingAnnotationsCount: string
+    trainingDataItemsCount: string
+    testDataItemsCount: string
+    validationDataItemsCount: string
+    validationAnnotationsCount: string
+  supportedDeploymentResourcesTypes:
+    - enum: string
+      type: string
+      enumDescriptions: string
+  versionId: string
+  createTime: string
+  satisfiesPzi: boolean
+  containerSpec:
+    startupProbe:
+      timeoutSeconds: integer
+      periodSeconds: integer
+      exec:
+        command:
+          - type: string
+    imageUri: string
+    grpcPorts:
+      - containerPort: integer
+    command:
+      - type: string
+    sharedMemorySizeMb: string
+    deploymentTimeout: string
+    healthRoute: string
+    predictRoute: string
+    args:
+      - type: string
+    env:
+      - value: string
+        name: string
+    ports:
+      - containerPort: integer
+  versionAliases:
+    - type: string
+  deployedModels:
+    - deployedModelId: string
+      endpoint: string
+  baseModelSource:
+    modelGardenSource:
+      publicModelName: string
+    genieSource:
+      baseModelUri: string
+  versionCreateTime: string
+  etag: string
+  predictSchemata:
+    predictionSchemaUri: string
+    instanceSchemaUri: string
+    parametersSchemaUri: string
+  modelSourceInfo:
+    sourceType: string
+    copy: boolean
+  supportedOutputStorageFormats:
+    - type: string
+  metadata: any
+  metadataSchemaUri: string
+  supportedExportFormats:
+    - id: string
+      exportableContents:
+        - type: string
+          enum: string
+          enumDescriptions: string
+  artifactUri: string
+  supportedInputStorageFormats:
+    - type: string
+  explanationSpec:
+    metadata:
+      outputs: object
+      featureAttributionsSchemaUri: string
+      inputs: object
+      latentSpaceSource: string
+    parameters:
+      topK: integer
+      examples:
+        nearestNeighborSearchConfig: any
+        neighborCount: integer
+        exampleGcsSource:
+          dataFormat: string
+          gcsSource:
+            uris:
+              - type: string
+        presets:
+          modality: string
+          query: string
+      sampledShapleyAttribution:
+        pathCount: integer
+      xraiAttribution:
+        smoothGradConfig:
+          featureNoiseSigma:
+            noiseSigma:
+              - sigma: number
+                name: string
+          noisySampleCount: integer
+          noiseSigma: number
+        stepCount: integer
+        blurBaselineConfig:
+          maxBlurSigma: number
+      outputIndices:
+        - type: string
+      integratedGradientsAttribution:
+        stepCount: integer
+  satisfiesPzs: boolean
+  versionUpdateTime: string
+  updateTime: string
+  description: string
+  trainingPipeline: string
+  labels: object
+  versionDescription: string
+  metadataArtifact: string
+  pipelineJob: string
+  displayName: string
+  encryptionSpec:
+    kmsKeyName: string
+  name: string
+  originalModelInfo:
+    model: string
+updateTime: string
+labels: object
+modelId: string
+state: string
+trainingTaskInputs: any
+displayName: string
+name: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
 
 ```
 </TabItem>

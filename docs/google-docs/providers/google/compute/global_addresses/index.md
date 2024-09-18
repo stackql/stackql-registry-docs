@@ -150,42 +150,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: address
-      value: '{{ address }}'
-    - name: prefixLength
-      value: '{{ prefixLength }}'
-    - name: status
-      value: '{{ status }}'
-    - name: region
-      value: '{{ region }}'
-    - name: users
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: networkTier
-      value: '{{ networkTier }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: ipVersion
-      value: '{{ ipVersion }}'
-    - name: addressType
-      value: '{{ addressType }}'
-    - name: purpose
-      value: '{{ purpose }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: network
-      value: '{{ network }}'
-    - name: ipv6EndpointType
-      value: '{{ ipv6EndpointType }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+address: string
+prefixLength: integer
+status: string
+region: string
+selfLink: string
+users:
+  - type: string
+networkTier: string
+labels: object
+labelFingerprint: string
+ipVersion: string
+addressType: string
+purpose: string
+subnetwork: string
+network: string
+ipv6EndpointType: string
 
 ```
 </TabItem>

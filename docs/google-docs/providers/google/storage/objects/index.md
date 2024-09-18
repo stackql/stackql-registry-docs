@@ -218,86 +218,62 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: acl
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: bucket
-      value: '{{ bucket }}'
-    - name: cacheControl
-      value: '{{ cacheControl }}'
-    - name: componentCount
-      value: '{{ componentCount }}'
-    - name: contentDisposition
-      value: '{{ contentDisposition }}'
-    - name: contentEncoding
-      value: '{{ contentEncoding }}'
-    - name: contentLanguage
-      value: '{{ contentLanguage }}'
-    - name: contentType
-      value: '{{ contentType }}'
-    - name: crc32c
-      value: '{{ crc32c }}'
-    - name: customTime
-      value: '{{ customTime }}'
-    - name: customerEncryption
-      value:
-        - name: encryptionAlgorithm
-          value: '{{ encryptionAlgorithm }}'
-        - name: keySha256
-          value: '{{ keySha256 }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: eventBasedHold
-      value: '{{ eventBasedHold }}'
-    - name: generation
-      value: '{{ generation }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
-    - name: md5Hash
-      value: '{{ md5Hash }}'
-    - name: mediaLink
-      value: '{{ mediaLink }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: metageneration
-      value: '{{ metageneration }}'
-    - name: name
-      value: '{{ name }}'
-    - name: owner
-      value:
-        - name: entity
-          value: '{{ entity }}'
-        - name: entityId
-          value: '{{ entityId }}'
-    - name: retentionExpirationTime
-      value: '{{ retentionExpirationTime }}'
-    - name: retention
-      value:
-        - name: retainUntilTime
-          value: '{{ retainUntilTime }}'
-        - name: mode
-          value: '{{ mode }}'
-    - name: size
-      value: '{{ size }}'
-    - name: storageClass
-      value: '{{ storageClass }}'
-    - name: temporaryHold
-      value: '{{ temporaryHold }}'
-    - name: timeCreated
-      value: '{{ timeCreated }}'
-    - name: timeDeleted
-      value: '{{ timeDeleted }}'
-    - name: softDeleteTime
-      value: '{{ softDeleteTime }}'
-    - name: hardDeleteTime
-      value: '{{ hardDeleteTime }}'
-    - name: timeStorageClassUpdated
-      value: '{{ timeStorageClassUpdated }}'
-    - name: updated
-      value: '{{ updated }}'
+acl:
+  - bucket: string
+    domain: string
+    email: string
+    entity: string
+    entityId: string
+    etag: string
+    generation: string
+    id: string
+    kind: string
+    object: string
+    projectTeam:
+      projectNumber: string
+      team: string
+    role: string
+    selfLink: string
+bucket: string
+cacheControl: string
+componentCount: integer
+contentDisposition: string
+contentEncoding: string
+contentLanguage: string
+contentType: string
+crc32c: string
+customTime: string
+customerEncryption:
+  encryptionAlgorithm: string
+  keySha256: string
+etag: string
+eventBasedHold: boolean
+generation: string
+id: string
+kind: string
+kmsKeyName: string
+md5Hash: string
+mediaLink: string
+metadata: object
+metageneration: string
+name: string
+owner:
+  entity: string
+  entityId: string
+retentionExpirationTime: string
+retention:
+  retainUntilTime: string
+  mode: string
+selfLink: string
+size: string
+storageClass: string
+temporaryHold: boolean
+timeCreated: string
+timeDeleted: string
+softDeleteTime: string
+hardDeleteTime: string
+timeStorageClassUpdated: string
+updated: string
 
 ```
 </TabItem>

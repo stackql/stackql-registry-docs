@@ -108,26 +108,18 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: parent
-      value: '{{ parent }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: sessionDuration
-      value: '{{ sessionDuration }}'
-    - name: accessRestrictions
-      value:
-        - name: allowedServices
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: disableProgrammaticSignin
-          value: '{{ disableProgrammaticSignin }}'
+name: string
+parent: string
+displayName: string
+description: string
+state: string
+disabled: boolean
+sessionDuration: string
+expireTime: string
+accessRestrictions:
+  allowedServices:
+    - domain: string
+  disableProgrammaticSignin: boolean
 
 ```
 </TabItem>

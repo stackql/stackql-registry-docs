@@ -128,216 +128,113 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: transferSpec
-      value:
-        - name: gcsDataSink
-          value:
-            - name: bucketName
-              value: '{{ bucketName }}'
-            - name: path
-              value: '{{ path }}'
-            - name: managedFolderTransferEnabled
-              value: '{{ managedFolderTransferEnabled }}'
-        - name: posixDataSink
-          value:
-            - name: rootDirectory
-              value: '{{ rootDirectory }}'
-        - name: awsS3DataSource
-          value:
-            - name: bucketName
-              value: '{{ bucketName }}'
-            - name: awsAccessKey
-              value:
-                - name: accessKeyId
-                  value: '{{ accessKeyId }}'
-                - name: secretAccessKey
-                  value: '{{ secretAccessKey }}'
-            - name: path
-              value: '{{ path }}'
-            - name: roleArn
-              value: '{{ roleArn }}'
-            - name: cloudfrontDomain
-              value: '{{ cloudfrontDomain }}'
-            - name: credentialsSecret
-              value: '{{ credentialsSecret }}'
-            - name: managedPrivateNetwork
-              value: '{{ managedPrivateNetwork }}'
-        - name: httpDataSource
-          value:
-            - name: listUrl
-              value: '{{ listUrl }}'
-        - name: azureBlobStorageDataSource
-          value:
-            - name: storageAccount
-              value: '{{ storageAccount }}'
-            - name: azureCredentials
-              value:
-                - name: sasToken
-                  value: '{{ sasToken }}'
-            - name: container
-              value: '{{ container }}'
-            - name: path
-              value: '{{ path }}'
-            - name: credentialsSecret
-              value: '{{ credentialsSecret }}'
-        - name: awsS3CompatibleDataSource
-          value:
-            - name: bucketName
-              value: '{{ bucketName }}'
-            - name: path
-              value: '{{ path }}'
-            - name: endpoint
-              value: '{{ endpoint }}'
-            - name: region
-              value: '{{ region }}'
-            - name: s3Metadata
-              value:
-                - name: authMethod
-                  value: '{{ authMethod }}'
-                - name: requestModel
-                  value: '{{ requestModel }}'
-                - name: protocol
-                  value: '{{ protocol }}'
-                - name: listApi
-                  value: '{{ listApi }}'
-        - name: hdfsDataSource
-          value:
-            - name: path
-              value: '{{ path }}'
-        - name: objectConditions
-          value:
-            - name: minTimeElapsedSinceLastModification
-              value: '{{ minTimeElapsedSinceLastModification }}'
-            - name: maxTimeElapsedSinceLastModification
-              value: '{{ maxTimeElapsedSinceLastModification }}'
-            - name: includePrefixes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludePrefixes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: lastModifiedSince
-              value: '{{ lastModifiedSince }}'
-            - name: lastModifiedBefore
-              value: '{{ lastModifiedBefore }}'
-        - name: transferOptions
-          value:
-            - name: overwriteObjectsAlreadyExistingInSink
-              value: '{{ overwriteObjectsAlreadyExistingInSink }}'
-            - name: deleteObjectsUniqueInSink
-              value: '{{ deleteObjectsUniqueInSink }}'
-            - name: deleteObjectsFromSourceAfterTransfer
-              value: '{{ deleteObjectsFromSourceAfterTransfer }}'
-            - name: overwriteWhen
-              value: '{{ overwriteWhen }}'
-            - name: metadataOptions
-              value:
-                - name: symlink
-                  value: '{{ symlink }}'
-                - name: mode
-                  value: '{{ mode }}'
-                - name: gid
-                  value: '{{ gid }}'
-                - name: uid
-                  value: '{{ uid }}'
-                - name: acl
-                  value: '{{ acl }}'
-                - name: storageClass
-                  value: '{{ storageClass }}'
-                - name: temporaryHold
-                  value: '{{ temporaryHold }}'
-                - name: kmsKey
-                  value: '{{ kmsKey }}'
-                - name: timeCreated
-                  value: '{{ timeCreated }}'
-        - name: transferManifest
-          value:
-            - name: location
-              value: '{{ location }}'
-        - name: sourceAgentPoolName
-          value: '{{ sourceAgentPoolName }}'
-        - name: sinkAgentPoolName
-          value: '{{ sinkAgentPoolName }}'
-    - name: replicationSpec
-      value: []
-    - name: notificationConfig
-      value:
-        - name: pubsubTopic
-          value: '{{ pubsubTopic }}'
-        - name: eventTypes
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: payloadFormat
-          value: '{{ payloadFormat }}'
-    - name: loggingConfig
-      value:
-        - name: logActions
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: logActionStates
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: enableOnpremGcsTransferLogs
-          value: '{{ enableOnpremGcsTransferLogs }}'
-    - name: schedule
-      value:
-        - name: scheduleStartDate
-          value:
-            - name: year
-              value: '{{ year }}'
-            - name: month
-              value: '{{ month }}'
-            - name: day
-              value: '{{ day }}'
-        - name: startTimeOfDay
-          value:
-            - name: hours
-              value: '{{ hours }}'
-            - name: minutes
-              value: '{{ minutes }}'
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-        - name: repeatInterval
-          value: '{{ repeatInterval }}'
-    - name: eventStream
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: eventStreamStartTime
-          value: '{{ eventStreamStartTime }}'
-        - name: eventStreamExpirationTime
-          value: '{{ eventStreamExpirationTime }}'
-    - name: status
-      value: '{{ status }}'
-    - name: latestOperationName
-      value: '{{ latestOperationName }}'
+name: string
+description: string
+projectId: string
+transferSpec:
+  gcsDataSink:
+    bucketName: string
+    path: string
+    managedFolderTransferEnabled: boolean
+  posixDataSink:
+    rootDirectory: string
+  awsS3DataSource:
+    bucketName: string
+    awsAccessKey:
+      accessKeyId: string
+      secretAccessKey: string
+    path: string
+    roleArn: string
+    cloudfrontDomain: string
+    credentialsSecret: string
+    managedPrivateNetwork: boolean
+  httpDataSource:
+    listUrl: string
+  azureBlobStorageDataSource:
+    storageAccount: string
+    azureCredentials:
+      sasToken: string
+    container: string
+    path: string
+    credentialsSecret: string
+  awsS3CompatibleDataSource:
+    bucketName: string
+    path: string
+    endpoint: string
+    region: string
+    s3Metadata:
+      authMethod: string
+      requestModel: string
+      protocol: string
+      listApi: string
+  hdfsDataSource:
+    path: string
+  objectConditions:
+    minTimeElapsedSinceLastModification: string
+    maxTimeElapsedSinceLastModification: string
+    includePrefixes:
+      - type: string
+    excludePrefixes:
+      - type: string
+    lastModifiedSince: string
+    lastModifiedBefore: string
+  transferOptions:
+    overwriteObjectsAlreadyExistingInSink: boolean
+    deleteObjectsUniqueInSink: boolean
+    deleteObjectsFromSourceAfterTransfer: boolean
+    overwriteWhen: string
+    metadataOptions:
+      symlink: string
+      mode: string
+      gid: string
+      uid: string
+      acl: string
+      storageClass: string
+      temporaryHold: string
+      kmsKey: string
+      timeCreated: string
+  transferManifest:
+    location: string
+  sourceAgentPoolName: string
+  sinkAgentPoolName: string
+replicationSpec: {}
+notificationConfig:
+  pubsubTopic: string
+  eventTypes:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  payloadFormat: string
+loggingConfig:
+  logActions:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  logActionStates:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  enableOnpremGcsTransferLogs: boolean
+schedule:
+  scheduleStartDate:
+    year: integer
+    month: integer
+    day: integer
+  startTimeOfDay:
+    hours: integer
+    minutes: integer
+    seconds: integer
+    nanos: integer
+  repeatInterval: string
+eventStream:
+  name: string
+  eventStreamStartTime: string
+  eventStreamExpirationTime: string
+status: string
+creationTime: string
+lastModificationTime: string
+deletionTime: string
+latestOperationName: string
 
 ```
 </TabItem>

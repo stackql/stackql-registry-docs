@@ -165,76 +165,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: modelId
-      value: '{{ modelId }}'
-    - name: priceRerankingLevel
-      value: '{{ priceRerankingLevel }}'
-    - name: facetControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dynamicFacetSpec
-      value:
-        - name: mode
-          value: '{{ mode }}'
-    - name: boostControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: filterControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: redirectControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: twowaySynonymsControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: onewaySynonymsControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: doNotAssociateControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: replacementControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: ignoreControlIds
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: diversityLevel
-      value: '{{ diversityLevel }}'
-    - name: diversityType
-      value: '{{ diversityType }}'
-    - name: enableCategoryFilterLevel
-      value: '{{ enableCategoryFilterLevel }}'
-    - name: ignoreRecsDenylist
-      value: '{{ ignoreRecsDenylist }}'
-    - name: personalizationSpec
-      value:
-        - name: mode
-          value: '{{ mode }}'
-    - name: solutionTypes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
+name: string
+displayName: string
+modelId: string
+priceRerankingLevel: string
+facetControlIds:
+  - type: string
+dynamicFacetSpec:
+  mode: string
+boostControlIds:
+  - type: string
+filterControlIds:
+  - type: string
+redirectControlIds:
+  - type: string
+twowaySynonymsControlIds:
+  - type: string
+onewaySynonymsControlIds:
+  - type: string
+doNotAssociateControlIds:
+  - type: string
+replacementControlIds:
+  - type: string
+ignoreControlIds:
+  - type: string
+diversityLevel: string
+diversityType: string
+enableCategoryFilterLevel: string
+ignoreRecsDenylist: boolean
+personalizationSpec:
+  mode: string
+solutionTypes:
+  - type: string
+    enumDescriptions: string
+    enum: string
 
 ```
 </TabItem>

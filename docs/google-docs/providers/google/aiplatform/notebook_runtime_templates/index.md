@@ -146,78 +146,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: machineSpec
-      value:
-        - name: acceleratorCount
-          value: '{{ acceleratorCount }}'
-        - name: reservationAffinity
-          value:
-            - name: key
-              value: '{{ key }}'
-            - name: reservationAffinityType
-              value: '{{ reservationAffinityType }}'
-            - name: values
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: tpuTopology
-          value: '{{ tpuTopology }}'
-        - name: acceleratorType
-          value: '{{ acceleratorType }}'
-        - name: machineType
-          value: '{{ machineType }}'
-    - name: notebookRuntimeType
-      value: '{{ notebookRuntimeType }}'
-    - name: shieldedVmConfig
-      value:
-        - name: enableSecureBoot
-          value: '{{ enableSecureBoot }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: eucConfig
-      value:
-        - name: eucDisabled
-          value: '{{ eucDisabled }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: networkSpec
-      value:
-        - name: subnetwork
-          value: '{{ subnetwork }}'
-        - name: enableInternetAccess
-          value: '{{ enableInternetAccess }}'
-        - name: network
-          value: '{{ network }}'
-    - name: idleShutdownConfig
-      value:
-        - name: idleTimeout
-          value: '{{ idleTimeout }}'
-        - name: idleShutdownDisabled
-          value: '{{ idleShutdownDisabled }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: dataPersistentDiskSpec
-      value:
-        - name: diskType
-          value: '{{ diskType }}'
-        - name: diskSizeGb
-          value: '{{ diskSizeGb }}'
-    - name: networkTags
-      value:
-        - name: type
-          value: '{{ type }}'
+machineSpec:
+  acceleratorCount: integer
+  reservationAffinity:
+    key: string
+    reservationAffinityType: string
+    values:
+      - type: string
+  tpuTopology: string
+  acceleratorType: string
+  machineType: string
+notebookRuntimeType: string
+shieldedVmConfig:
+  enableSecureBoot: boolean
+name: string
+description: string
+displayName: string
+labels: object
+eucConfig:
+  eucDisabled: boolean
+  bypassActasCheck: boolean
+encryptionSpec:
+  kmsKeyName: string
+isDefault: boolean
+serviceAccount: string
+networkSpec:
+  subnetwork: string
+  enableInternetAccess: boolean
+  network: string
+createTime: string
+idleShutdownConfig:
+  idleTimeout: string
+  idleShutdownDisabled: boolean
+etag: string
+dataPersistentDiskSpec:
+  diskType: string
+  diskSizeGb: string
+updateTime: string
+networkTags:
+  - type: string
 
 ```
 </TabItem>

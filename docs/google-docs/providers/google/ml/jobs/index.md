@@ -125,190 +125,121 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: jobId
-      value: '{{ jobId }}'
-    - name: trainingInput
-      value:
-        - name: scaleTier
-          value: '{{ scaleTier }}'
-        - name: masterType
-          value: '{{ masterType }}'
-        - name: masterConfig
-          value:
-            - name: acceleratorConfig
-              value:
-                - name: count
-                  value: '{{ count }}'
-                - name: type
-                  value: '{{ type }}'
-            - name: imageUri
-              value: '{{ imageUri }}'
-            - name: tpuTfVersion
-              value: '{{ tpuTfVersion }}'
-            - name: diskConfig
-              value:
-                - name: bootDiskType
-                  value: '{{ bootDiskType }}'
-                - name: bootDiskSizeGb
-                  value: '{{ bootDiskSizeGb }}'
-            - name: containerCommand
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: containerArgs
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: workerType
-          value: '{{ workerType }}'
-        - name: parameterServerType
-          value: '{{ parameterServerType }}'
-        - name: evaluatorType
-          value: '{{ evaluatorType }}'
-        - name: workerCount
-          value: '{{ workerCount }}'
-        - name: parameterServerCount
-          value: '{{ parameterServerCount }}'
-        - name: evaluatorCount
-          value: '{{ evaluatorCount }}'
-        - name: packageUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: pythonModule
-          value: '{{ pythonModule }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: hyperparameters
-          value:
-            - name: goal
-              value: '{{ goal }}'
-            - name: params
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: maxTrials
-              value: '{{ maxTrials }}'
-            - name: maxParallelTrials
-              value: '{{ maxParallelTrials }}'
-            - name: maxFailedTrials
-              value: '{{ maxFailedTrials }}'
-            - name: hyperparameterMetricTag
-              value: '{{ hyperparameterMetricTag }}'
-            - name: resumePreviousJobId
-              value: '{{ resumePreviousJobId }}'
-            - name: enableTrialEarlyStopping
-              value: '{{ enableTrialEarlyStopping }}'
-            - name: algorithm
-              value: '{{ algorithm }}'
-        - name: region
-          value: '{{ region }}'
-        - name: jobDir
-          value: '{{ jobDir }}'
-        - name: runtimeVersion
-          value: '{{ runtimeVersion }}'
-        - name: pythonVersion
-          value: '{{ pythonVersion }}'
-        - name: encryptionConfig
-          value:
-            - name: kmsKeyName
-              value: '{{ kmsKeyName }}'
-        - name: scheduling
-          value:
-            - name: maxRunningTime
-              value: '{{ maxRunningTime }}'
-            - name: maxWaitTime
-              value: '{{ maxWaitTime }}'
-            - name: priority
-              value: '{{ priority }}'
-        - name: network
-          value: '{{ network }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: useChiefInTfConfig
-          value: '{{ useChiefInTfConfig }}'
-        - name: enableWebAccess
-          value: '{{ enableWebAccess }}'
-    - name: predictionInput
-      value:
-        - name: modelName
-          value: '{{ modelName }}'
-        - name: versionName
-          value: '{{ versionName }}'
-        - name: uri
-          value: '{{ uri }}'
-        - name: dataFormat
-          value: '{{ dataFormat }}'
-        - name: outputDataFormat
-          value: '{{ outputDataFormat }}'
-        - name: inputPaths
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: outputPath
-          value: '{{ outputPath }}'
-        - name: maxWorkerCount
-          value: '{{ maxWorkerCount }}'
-        - name: region
-          value: '{{ region }}'
-        - name: runtimeVersion
-          value: '{{ runtimeVersion }}'
-        - name: batchSize
-          value: '{{ batchSize }}'
-        - name: signatureName
-          value: '{{ signatureName }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: errorMessage
-      value: '{{ errorMessage }}'
-    - name: trainingOutput
-      value:
-        - name: completedTrialCount
-          value: '{{ completedTrialCount }}'
-        - name: trials
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: consumedMLUnits
-          value: '{{ consumedMLUnits }}'
-        - name: isHyperparameterTuningJob
-          value: '{{ isHyperparameterTuningJob }}'
-        - name: isBuiltInAlgorithmJob
-          value: '{{ isBuiltInAlgorithmJob }}'
-        - name: builtInAlgorithmOutput
-          value:
-            - name: framework
-              value: '{{ framework }}'
-            - name: runtimeVersion
-              value: '{{ runtimeVersion }}'
-            - name: pythonVersion
-              value: '{{ pythonVersion }}'
-            - name: modelPath
-              value: '{{ modelPath }}'
-        - name: hyperparameterMetricTag
-          value: '{{ hyperparameterMetricTag }}'
-    - name: predictionOutput
-      value:
-        - name: outputPath
-          value: '{{ outputPath }}'
-        - name: predictionCount
-          value: '{{ predictionCount }}'
-        - name: errorCount
-          value: '{{ errorCount }}'
-        - name: nodeHours
-          value: '{{ nodeHours }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
+jobId: string
+trainingInput:
+  scaleTier: string
+  masterType: string
+  masterConfig:
+    acceleratorConfig:
+      count: string
+      type: string
+    imageUri: string
+    tpuTfVersion: string
+    diskConfig:
+      bootDiskType: string
+      bootDiskSizeGb: integer
+    containerCommand:
+      - type: string
+    containerArgs:
+      - type: string
+  workerType: string
+  parameterServerType: string
+  evaluatorType: string
+  workerCount: string
+  parameterServerCount: string
+  evaluatorCount: string
+  packageUris:
+    - type: string
+  pythonModule: string
+  args:
+    - type: string
+  hyperparameters:
+    goal: string
+    params:
+      - parameterName: string
+        type: string
+        minValue: number
+        maxValue: number
+        categoricalValues:
+          - type: string
+        discreteValues:
+          - type: string
+            format: string
+        scaleType: string
+    maxTrials: integer
+    maxParallelTrials: integer
+    maxFailedTrials: integer
+    hyperparameterMetricTag: string
+    resumePreviousJobId: string
+    enableTrialEarlyStopping: boolean
+    algorithm: string
+  region: string
+  jobDir: string
+  runtimeVersion: string
+  pythonVersion: string
+  encryptionConfig:
+    kmsKeyName: string
+  scheduling:
+    maxRunningTime: string
+    maxWaitTime: string
+    priority: integer
+  network: string
+  serviceAccount: string
+  useChiefInTfConfig: boolean
+  enableWebAccess: boolean
+predictionInput:
+  modelName: string
+  versionName: string
+  uri: string
+  dataFormat: string
+  outputDataFormat: string
+  inputPaths:
+    - type: string
+  outputPath: string
+  maxWorkerCount: string
+  region: string
+  runtimeVersion: string
+  batchSize: string
+  signatureName: string
+createTime: string
+startTime: string
+endTime: string
+state: string
+errorMessage: string
+trainingOutput:
+  completedTrialCount: string
+  trials:
+    - trialId: string
+      hyperparameters: object
+      startTime: string
+      endTime: string
+      state: string
+      finalMetric:
+        trainingStep: string
+        objectiveValue: number
+      isTrialStoppedEarly: boolean
+      allMetrics:
+        - trainingStep: string
+          objectiveValue: number
+      builtInAlgorithmOutput:
+        framework: string
+        runtimeVersion: string
+        pythonVersion: string
+        modelPath: string
+      webAccessUris: object
+  consumedMLUnits: number
+  isHyperparameterTuningJob: boolean
+  isBuiltInAlgorithmJob: boolean
+  hyperparameterMetricTag: string
+  webAccessUris: object
+predictionOutput:
+  outputPath: string
+  predictionCount: string
+  errorCount: string
+  nodeHours: number
+labels: object
+etag: string
+jobPosition: string
 
 ```
 </TabItem>

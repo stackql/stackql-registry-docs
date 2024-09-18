@@ -138,52 +138,43 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: labelerCount
-      value: '{{ labelerCount }}'
-    - name: annotationLabels
-      value: '{{ annotationLabels }}'
-    - name: inputsSchemaUri
-      value: '{{ inputsSchemaUri }}'
-    - name: inputs
-      value: '{{ inputs }}'
-    - name: datasets
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: activeLearningConfig
-      value:
-        - name: sampleConfig
-          value:
-            - name: sampleStrategy
-              value: '{{ sampleStrategy }}'
-            - name: followingBatchSamplePercentage
-              value: '{{ followingBatchSamplePercentage }}'
-            - name: initialBatchSamplePercentage
-              value: '{{ initialBatchSamplePercentage }}'
-        - name: maxDataItemCount
-          value: '{{ maxDataItemCount }}'
-        - name: trainingConfig
-          value:
-            - name: timeoutTrainingMilliHours
-              value: '{{ timeoutTrainingMilliHours }}'
-        - name: maxDataItemPercentage
-          value: '{{ maxDataItemPercentage }}'
-    - name: instructionUri
-      value: '{{ instructionUri }}'
-    - name: specialistPools
-      value:
-        - name: type
-          value: '{{ type }}'
+createTime: string
+displayName: string
+encryptionSpec:
+  kmsKeyName: string
+labelerCount: integer
+annotationLabels: object
+updateTime: string
+inputsSchemaUri: string
+inputs: any
+datasets:
+  - type: string
+labels: object
+name: string
+state: string
+currentSpend:
+  units: string
+  nanos: integer
+  currencyCode: string
+activeLearningConfig:
+  sampleConfig:
+    sampleStrategy: string
+    followingBatchSamplePercentage: integer
+    initialBatchSamplePercentage: integer
+  maxDataItemCount: string
+  trainingConfig:
+    timeoutTrainingMilliHours: string
+  maxDataItemPercentage: integer
+labelingProgress: integer
+instructionUri: string
+specialistPools:
+  - type: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
 
 ```
 </TabItem>

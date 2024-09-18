@@ -124,40 +124,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: profile
-      value: '{{ profile }}'
-    - name: minTlsVersion
-      value: '{{ minTlsVersion }}'
-    - name: enabledFeatures
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: customFeatures
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: warnings
-      value:
-        - name: code
-          value: '{{ code }}'
-        - name: message
-          value: '{{ message }}'
-        - name: data
-          value:
-            - name: key
-              value: '{{ key }}'
-            - name: value
-              value: '{{ value }}'
-    - name: region
-      value: '{{ region }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+name: string
+description: string
+profile: string
+minTlsVersion: string
+enabledFeatures:
+  - type: string
+customFeatures:
+  - type: string
+fingerprint: string
+warnings:
+  - code: string
+    message: string
+    data:
+      - key: string
+        value: string
+region: string
 
 ```
 </TabItem>

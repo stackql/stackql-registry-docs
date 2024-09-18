@@ -116,18 +116,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: vmwareEngineNetwork
-      value: '{{ vmwareEngineNetwork }}'
-    - name: type
-      value: '{{ type }}'
-    - name: routingMode
-      value: '{{ routingMode }}'
-    - name: serviceNetwork
-      value: '{{ serviceNetwork }}'
+name: string
+createTime: string
+updateTime: string
+description: string
+state: string
+vmwareEngineNetwork: string
+vmwareEngineNetworkCanonical: string
+type: string
+peeringId: string
+routingMode: string
+uid: string
+serviceNetwork: string
+peeringState: string
 
 ```
 </TabItem>

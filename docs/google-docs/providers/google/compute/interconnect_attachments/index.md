@@ -233,100 +233,57 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: interconnect
-      value: '{{ interconnect }}'
-    - name: router
-      value: '{{ router }}'
-    - name: region
-      value: '{{ region }}'
-    - name: googleReferenceId
-      value: '{{ googleReferenceId }}'
-    - name: mtu
-      value: '{{ mtu }}'
-    - name: privateInterconnectInfo
-      value:
-        - name: tag8021q
-          value: '{{ tag8021q }}'
-    - name: operationalStatus
-      value: '{{ operationalStatus }}'
-    - name: cloudRouterIpAddress
-      value: '{{ cloudRouterIpAddress }}'
-    - name: customerRouterIpAddress
-      value: '{{ customerRouterIpAddress }}'
-    - name: type
-      value: '{{ type }}'
-    - name: pairingKey
-      value: '{{ pairingKey }}'
-    - name: adminEnabled
-      value: '{{ adminEnabled }}'
-    - name: vlanTag8021q
-      value: '{{ vlanTag8021q }}'
-    - name: edgeAvailabilityDomain
-      value: '{{ edgeAvailabilityDomain }}'
-    - name: candidateSubnets
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: bandwidth
-      value: '{{ bandwidth }}'
-    - name: partnerMetadata
-      value:
-        - name: partnerName
-          value: '{{ partnerName }}'
-        - name: interconnectName
-          value: '{{ interconnectName }}'
-        - name: portalUrl
-          value: '{{ portalUrl }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: state
-      value: '{{ state }}'
-    - name: partnerAsn
-      value: '{{ partnerAsn }}'
-    - name: encryption
-      value: '{{ encryption }}'
-    - name: ipsecInternalAddresses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dataplaneVersion
-      value: '{{ dataplaneVersion }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: stackType
-      value: '{{ stackType }}'
-    - name: cloudRouterIpv6Address
-      value: '{{ cloudRouterIpv6Address }}'
-    - name: customerRouterIpv6Address
-      value: '{{ customerRouterIpv6Address }}'
-    - name: candidateIpv6Subnets
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: cloudRouterIpv6InterfaceId
-      value: '{{ cloudRouterIpv6InterfaceId }}'
-    - name: customerRouterIpv6InterfaceId
-      value: '{{ customerRouterIpv6InterfaceId }}'
-    - name: subnetLength
-      value: '{{ subnetLength }}'
-    - name: remoteService
-      value: '{{ remoteService }}'
-    - name: configurationConstraints
-      value:
-        - name: bgpMd5
-          value: '{{ bgpMd5 }}'
-        - name: bgpPeerAsnRanges
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+kind: string
+description: string
+selfLink: string
+id: string
+creationTimestamp: string
+name: string
+interconnect: string
+router: string
+region: string
+googleReferenceId: string
+mtu: integer
+privateInterconnectInfo:
+  tag8021q: integer
+operationalStatus: string
+cloudRouterIpAddress: string
+customerRouterIpAddress: string
+type: string
+pairingKey: string
+adminEnabled: boolean
+vlanTag8021q: integer
+edgeAvailabilityDomain: string
+candidateSubnets:
+  - type: string
+bandwidth: string
+partnerMetadata:
+  partnerName: string
+  interconnectName: string
+  portalUrl: string
+labels: object
+labelFingerprint: string
+state: string
+partnerAsn: string
+encryption: string
+ipsecInternalAddresses:
+  - type: string
+dataplaneVersion: integer
+satisfiesPzs: boolean
+stackType: string
+cloudRouterIpv6Address: string
+customerRouterIpv6Address: string
+candidateIpv6Subnets:
+  - type: string
+cloudRouterIpv6InterfaceId: string
+customerRouterIpv6InterfaceId: string
+subnetLength: integer
+remoteService: string
+configurationConstraints:
+  bgpMd5: string
+  bgpPeerAsnRanges:
+    - min: integer
+      max: integer
 
 ```
 </TabItem>

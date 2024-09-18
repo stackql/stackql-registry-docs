@@ -98,16 +98,13 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: retention
-      value: '{{ retention }}'
-    - name: dailyRecurrence
-      value: []
-    - name: weeklyRecurrence
-      value:
-        - name: day
-          value: '{{ day }}'
+name: string
+createTime: string
+updateTime: string
+retention: string
+dailyRecurrence: {}
+weeklyRecurrence:
+  day: string
 
 ```
 </TabItem>

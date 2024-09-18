@@ -99,18 +99,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: dataplexConfig
-      value:
-        - name: enabledPipelinesLineage
-          value: '{{ enabledPipelinesLineage }}'
-    - name: description
-      value: '{{ description }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+dataplexConfig:
+  enabledPipelinesLineage: boolean
+state:
+  diskUtilizationBytes: string
+name: string
+createTime: string
+description: string
+encryptionSpec:
+  kmsKeyName: string
+updateTime: string
 
 ```
 </TabItem>

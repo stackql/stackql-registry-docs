@@ -109,32 +109,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: spec
-      value:
-        - name: cronSpec
-          value:
-            - name: text
-              value: '{{ text }}'
-    - name: retentionDuration
-      value: '{{ retentionDuration }}'
-    - name: encryptionConfig
-      value:
-        - name: encryptionType
-          value: '{{ encryptionType }}'
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: kmsKeyNames
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: fullBackupSpec
-      value: []
-    - name: incrementalBackupSpec
-      value: []
+name: string
+spec:
+  cronSpec:
+    text: string
+    timeZone: string
+    creationWindow: string
+retentionDuration: string
+encryptionConfig:
+  encryptionType: string
+  kmsKeyName: string
+  kmsKeyNames:
+    - type: string
+fullBackupSpec: {}
+incrementalBackupSpec: {}
+updateTime: string
 
 ```
 </TabItem>

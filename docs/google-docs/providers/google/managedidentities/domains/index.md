@@ -128,26 +128,33 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: authorizedNetworks
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: reservedIpRange
-      value: '{{ reservedIpRange }}'
-    - name: locations
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: admin
-      value: '{{ admin }}'
-    - name: auditLogsEnabled
-      value: '{{ auditLogsEnabled }}'
+name: string
+labels: object
+authorizedNetworks:
+  - type: string
+reservedIpRange: string
+locations:
+  - type: string
+admin: string
+fqdn: string
+createTime: string
+updateTime: string
+state: string
+statusMessage: string
+trusts:
+  - targetDomainName: string
+    trustType: string
+    trustDirection: string
+    selectiveAuthentication: boolean
+    targetDnsIpAddresses:
+      - type: string
+    trustHandshakeSecret: string
+    createTime: string
+    updateTime: string
+    state: string
+    stateDescription: string
+    lastTrustHeartbeatTime: string
+auditLogsEnabled: boolean
 
 ```
 </TabItem>

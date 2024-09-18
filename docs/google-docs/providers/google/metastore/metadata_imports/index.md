@@ -102,22 +102,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: databaseDump
-      value:
-        - name: databaseType
-          value: '{{ databaseType }}'
-        - name: gcsUri
-          value: '{{ gcsUri }}'
-        - name: sourceDatabase
-          value: '{{ sourceDatabase }}'
-        - name: type
-          value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
+databaseDump:
+  databaseType: string
+  gcsUri: string
+  sourceDatabase: string
+  type: string
+name: string
+description: string
+createTime: string
+updateTime: string
+endTime: string
+state: string
 
 ```
 </TabItem>

@@ -115,22 +115,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: authConfigId
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: description
-      value: '{{ description }}'
-    - name: serviceAuthority
-      value: '{{ serviceAuthority }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: sfdcOrgId
-      value: '{{ sfdcOrgId }}'
-    - name: name
-      value: '{{ name }}'
+authConfigId:
+  - type: string
+description: string
+serviceAuthority: string
+displayName: string
+sfdcOrgId: string
+deleteTime: string
+name: string
+createTime: string
+updateTime: string
 
 ```
 </TabItem>

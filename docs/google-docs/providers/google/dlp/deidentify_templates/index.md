@@ -110,48 +110,109 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: deidentifyTemplate
-      value:
-        - name: deidentifyConfig
-          value:
-            - name: imageTransformations
-              value:
-                - name: transforms
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: recordTransformations
-              value:
-                - name: fieldTransformations
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: recordSuppressions
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: infoTypeTransformations
-              value:
-                - name: transformations
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: transformationErrorHandling
-              value:
-                - name: leaveUntransformed
-                  value: []
-                - name: throwError
-                  value: []
-        - name: description
-          value: '{{ description }}'
-        - name: displayName
-          value: '{{ displayName }}'
-    - name: templateId
-      value: '{{ templateId }}'
+locationId: string
+deidentifyTemplate:
+  name: string
+  deidentifyConfig:
+    imageTransformations:
+      transforms:
+        - allInfoTypes: {}
+          selectedInfoTypes:
+            infoTypes:
+              - version: string
+                name: string
+                sensitivityScore:
+                  score: string
+          redactionColor:
+            blue: number
+            red: number
+            green: number
+          allText: {}
+    recordTransformations:
+      fieldTransformations:
+        - condition:
+            expressions:
+              logicalOperator: string
+              conditions:
+                conditions:
+                  - operator: string
+                    value:
+                      timestampValue: string
+                      dateValue:
+                        month: integer
+                        year: integer
+                        day: integer
+                      dayOfWeekValue: string
+                      stringValue: string
+                      booleanValue: boolean
+                      timeValue:
+                        nanos: integer
+                        minutes: integer
+                        seconds: integer
+                        hours: integer
+                      floatValue: number
+                      integerValue: string
+                    field:
+                      name: string
+          primitiveTransformation:
+            replaceDictionaryConfig:
+              wordList:
+                words:
+                  - type: string
+            cryptoDeterministicConfig:
+              cryptoKey:
+                unwrapped:
+                  key: string
+                transient:
+                  name: string
+                kmsWrapped:
+                  cryptoKeyName: string
+                  wrappedKey: string
+              surrogateInfoType:
+                version: string
+                name: string
+            bucketingConfig:
+              buckets:
+                - {}
+            replaceWithInfoTypeConfig: {}
+            characterMaskConfig:
+              numberToMask: integer
+              charactersToIgnore:
+                - commonCharactersToIgnore: string
+                  charactersToSkip: string
+              reverseOrder: boolean
+              maskingCharacter: string
+            timePartConfig:
+              partToExtract: string
+            cryptoHashConfig: {}
+            redactConfig: {}
+            dateShiftConfig:
+              lowerBoundDays: integer
+              upperBoundDays: integer
+            fixedSizeBucketingConfig:
+              bucketSize: number
+            replaceConfig: {}
+            cryptoReplaceFfxFpeConfig:
+              commonAlphabet: string
+              customAlphabet: string
+              radix: integer
+          infoTypeTransformations:
+            transformations:
+              - infoTypes:
+                  - version: string
+                    name: string
+          fields:
+            - name: string
+      recordSuppressions:
+        - {}
+    transformationErrorHandling:
+      leaveUntransformed: {}
+      throwError: {}
+  createTime: string
+  description: string
+  updateTime: string
+  displayName: string
+templateId: string
 
 ```
 </TabItem>

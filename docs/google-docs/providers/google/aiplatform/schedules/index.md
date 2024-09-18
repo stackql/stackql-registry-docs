@@ -140,104 +140,136 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: maxRunCount
-      value: '{{ maxRunCount }}'
-    - name: allowQueueing
-      value: '{{ allowQueueing }}'
-    - name: createNotebookExecutionJobRequest
-      value:
-        - name: notebookExecutionJob
-          value:
-            - name: notebookRuntimeTemplateResourceName
-              value: '{{ notebookRuntimeTemplateResourceName }}'
-            - name: executionTimeout
-              value: '{{ executionTimeout }}'
-            - name: gcsOutputUri
-              value: '{{ gcsOutputUri }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: encryptionSpec
-              value:
-                - name: kmsKeyName
-                  value: '{{ kmsKeyName }}'
-            - name: displayName
-              value: '{{ displayName }}'
-            - name: dataformRepositorySource
-              value:
-                - name: commitSha
-                  value: '{{ commitSha }}'
-                - name: dataformRepositoryResourceName
-                  value: '{{ dataformRepositoryResourceName }}'
-            - name: executionUser
-              value: '{{ executionUser }}'
-            - name: gcsNotebookSource
-              value:
-                - name: generation
-                  value: '{{ generation }}'
-                - name: uri
-                  value: '{{ uri }}'
-            - name: labels
-              value: '{{ labels }}'
-            - name: directNotebookSource
-              value:
-                - name: content
-                  value: '{{ content }}'
-        - name: parent
-          value: '{{ parent }}'
-        - name: notebookExecutionJobId
-          value: '{{ notebookExecutionJobId }}'
-    - name: cron
-      value: '{{ cron }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: createPipelineJobRequest
-      value:
-        - name: pipelineJobId
-          value: '{{ pipelineJobId }}'
-        - name: parent
-          value: '{{ parent }}'
-        - name: pipelineJob
-          value:
-            - name: runtimeConfig
-              value:
-                - name: gcsOutputDirectory
-                  value: '{{ gcsOutputDirectory }}'
-                - name: parameters
-                  value: '{{ parameters }}'
-                - name: inputArtifacts
-                  value: '{{ inputArtifacts }}'
-                - name: failurePolicy
-                  value: '{{ failurePolicy }}'
-                - name: parameterValues
-                  value: '{{ parameterValues }}'
-            - name: labels
-              value: '{{ labels }}'
-            - name: templateUri
-              value: '{{ templateUri }}'
-            - name: displayName
-              value: '{{ displayName }}'
-            - name: network
-              value: '{{ network }}'
-            - name: reservedIpRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: pipelineSpec
-              value: '{{ pipelineSpec }}'
-            - name: preflightValidations
-              value: '{{ preflightValidations }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: maxConcurrentRunCount
-      value: '{{ maxConcurrentRunCount }}'
+lastPauseTime: string
+catchUp: boolean
+maxRunCount: string
+allowQueueing: boolean
+createNotebookExecutionJobRequest:
+  notebookExecutionJob:
+    updateTime: string
+    createTime: string
+    notebookRuntimeTemplateResourceName: string
+    executionTimeout: string
+    gcsOutputUri: string
+    serviceAccount: string
+    encryptionSpec:
+      kmsKeyName: string
+    displayName: string
+    dataformRepositorySource:
+      commitSha: string
+      dataformRepositoryResourceName: string
+    executionUser: string
+    scheduleResourceName: string
+    name: string
+    gcsNotebookSource:
+      generation: string
+      uri: string
+    labels: object
+    directNotebookSource:
+      content: string
+    status:
+      message: string
+      code: integer
+      details:
+        - additionalProperties: any
+          type: string
+    jobState: string
+  parent: string
+  notebookExecutionJobId: string
+state: string
+cron: string
+endTime: string
+startTime: string
+createPipelineJobRequest:
+  pipelineJobId: string
+  parent: string
+  pipelineJob:
+    runtimeConfig:
+      gcsOutputDirectory: string
+      parameters: object
+      inputArtifacts: object
+      failurePolicy: string
+      parameterValues: object
+    labels: object
+    templateUri: string
+    state: string
+    name: string
+    displayName: string
+    updateTime: string
+    startTime: string
+    createTime: string
+    templateMetadata:
+      version: string
+    network: string
+    reservedIpRanges:
+      - type: string
+    pipelineSpec: object
+    preflightValidations: boolean
+    serviceAccount: string
+    scheduleName: string
+    jobDetail:
+      taskDetails:
+        - endTime: string
+          executorDetail:
+            containerDetail:
+              mainJob: string
+              preCachingCheckJob: string
+              failedPreCachingCheckJobs:
+                - type: string
+              failedMainJobs:
+                - type: string
+            customJobDetail:
+              failedJobs:
+                - type: string
+              job: string
+          state: string
+          outputs: object
+          taskName: string
+          inputs: object
+          taskId: string
+          parentTaskId: string
+          startTime: string
+          execution:
+            name: string
+            description: string
+            state: string
+            labels: object
+            createTime: string
+            displayName: string
+            schemaVersion: string
+            schemaTitle: string
+            etag: string
+            updateTime: string
+            metadata: object
+          createTime: string
+          pipelineTaskStatus:
+            - state: string
+              updateTime: string
+      pipelineContext:
+        description: string
+        updateTime: string
+        displayName: string
+        parentContexts:
+          - type: string
+        createTime: string
+        labels: object
+        name: string
+        schemaTitle: string
+        metadata: object
+        etag: string
+        schemaVersion: string
+    endTime: string
+name: string
+lastResumeTime: string
+createTime: string
+displayName: string
+updateTime: string
+maxConcurrentRunCount: string
+nextRunTime: string
+lastScheduledRunResponse:
+  scheduledRunTime: string
+  runResponse: string
+startedRunCount: string
 
 ```
 </TabItem>

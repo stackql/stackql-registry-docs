@@ -110,34 +110,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: tableId
-      value: '{{ tableId }}'
-    - name: table
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: columnFamilies
-          value: '{{ columnFamilies }}'
-        - name: granularity
-          value: '{{ granularity }}'
-        - name: changeStreamConfig
-          value:
-            - name: retentionPeriod
-              value: '{{ retentionPeriod }}'
-        - name: deletionProtection
-          value: '{{ deletionProtection }}'
-        - name: automatedBackupPolicy
-          value:
-            - name: retentionPeriod
-              value: '{{ retentionPeriod }}'
-            - name: frequency
-              value: '{{ frequency }}'
-    - name: initialSplits
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+tableId: string
+table:
+  name: string
+  clusterStates: object
+  columnFamilies: object
+  granularity: string
+  restoreInfo:
+    sourceType: string
+    backupInfo:
+      backup: string
+      startTime: string
+      endTime: string
+      sourceTable: string
+      sourceBackup: string
+  changeStreamConfig:
+    retentionPeriod: string
+  deletionProtection: boolean
+  stats:
+    rowCount: string
+    averageColumnsPerRow: number
+    averageCellsPerColumn: number
+    logicalDataBytes: string
+  automatedBackupPolicy:
+    retentionPeriod: string
+    frequency: string
+initialSplits:
+  - key: string
 
 ```
 </TabItem>

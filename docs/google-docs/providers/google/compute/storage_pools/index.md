@@ -146,54 +146,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: poolProvisionedCapacityGb
-      value: '{{ poolProvisionedCapacityGb }}'
-    - name: poolProvisionedIops
-      value: '{{ poolProvisionedIops }}'
-    - name: poolProvisionedThroughput
-      value: '{{ poolProvisionedThroughput }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: state
-      value: '{{ state }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: resourceStatus
-      value:
-        - name: lastResizeTimestamp
-          value: '{{ lastResizeTimestamp }}'
-        - name: diskCount
-          value: '{{ diskCount }}'
-        - name: poolUsedCapacityBytes
-          value: '{{ poolUsedCapacityBytes }}'
-        - name: poolUserWrittenBytes
-          value: '{{ poolUserWrittenBytes }}'
-        - name: totalProvisionedDiskCapacityGb
-          value: '{{ totalProvisionedDiskCapacityGb }}'
-        - name: maxTotalProvisionedDiskCapacityGb
-          value: '{{ maxTotalProvisionedDiskCapacityGb }}'
-        - name: poolUsedIops
-          value: '{{ poolUsedIops }}'
-        - name: totalProvisionedDiskIops
-          value: '{{ totalProvisionedDiskIops }}'
-        - name: poolUsedThroughput
-          value: '{{ poolUsedThroughput }}'
-        - name: totalProvisionedDiskThroughput
-          value: '{{ totalProvisionedDiskThroughput }}'
-    - name: storagePoolType
-      value: '{{ storagePoolType }}'
-    - name: capacityProvisioningType
-      value: '{{ capacityProvisioningType }}'
-    - name: performanceProvisioningType
-      value: '{{ performanceProvisioningType }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+poolProvisionedCapacityGb: string
+poolProvisionedIops: string
+poolProvisionedThroughput: string
+zone: string
+state: string
+selfLink: string
+selfLinkWithId: string
+labels: object
+labelFingerprint: string
+resourceStatus:
+  lastResizeTimestamp: string
+  diskCount: string
+  poolUsedCapacityBytes: string
+  poolUserWrittenBytes: string
+  totalProvisionedDiskCapacityGb: string
+  maxTotalProvisionedDiskCapacityGb: string
+  poolUsedIops: string
+  totalProvisionedDiskIops: string
+  poolUsedThroughput: string
+  totalProvisionedDiskThroughput: string
+storagePoolType: string
+capacityProvisioningType: string
+performanceProvisioningType: string
 
 ```
 </TabItem>

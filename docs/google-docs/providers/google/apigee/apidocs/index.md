@@ -118,38 +118,24 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: graphqlEndpointUrl
-      value: '{{ graphqlEndpointUrl }}'
-    - name: anonAllowed
-      value: '{{ anonAllowed }}'
-    - name: apiProductName
-      value: '{{ apiProductName }}'
-    - name: requireCallbackUrl
-      value: '{{ requireCallbackUrl }}'
-    - name: title
-      value: '{{ title }}'
-    - name: description
-      value: '{{ description }}'
-    - name: graphqlSchema
-      value: '{{ graphqlSchema }}'
-    - name: graphqlSchemaDisplayName
-      value: '{{ graphqlSchemaDisplayName }}'
-    - name: published
-      value: '{{ published }}'
-    - name: imageUrl
-      value: '{{ imageUrl }}'
-    - name: specId
-      value: '{{ specId }}'
-    - name: visibility
-      value: '{{ visibility }}'
-    - name: edgeAPIProductName
-      value: '{{ edgeAPIProductName }}'
-    - name: categoryIds
-      value:
-        - name: type
-          value: '{{ type }}'
+graphqlEndpointUrl: string
+anonAllowed: boolean
+apiProductName: string
+requireCallbackUrl: boolean
+siteId: string
+title: string
+description: string
+graphqlSchema: string
+modified: string
+graphqlSchemaDisplayName: string
+published: boolean
+id: string
+imageUrl: string
+specId: string
+visibility: boolean
+edgeAPIProductName: string
+categoryIds:
+  - type: string
 
 ```
 </TabItem>

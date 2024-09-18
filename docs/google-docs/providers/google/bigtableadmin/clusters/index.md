@@ -107,36 +107,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: location
-      value: '{{ location }}'
-    - name: serveNodes
-      value: '{{ serveNodes }}'
-    - name: clusterConfig
-      value:
-        - name: clusterAutoscalingConfig
-          value:
-            - name: autoscalingLimits
-              value:
-                - name: minServeNodes
-                  value: '{{ minServeNodes }}'
-                - name: maxServeNodes
-                  value: '{{ maxServeNodes }}'
-            - name: autoscalingTargets
-              value:
-                - name: cpuUtilizationPercent
-                  value: '{{ cpuUtilizationPercent }}'
-                - name: storageUtilizationGibPerNode
-                  value: '{{ storageUtilizationGibPerNode }}'
-    - name: defaultStorageType
-      value: '{{ defaultStorageType }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+name: string
+location: string
+state: string
+serveNodes: integer
+clusterConfig:
+  clusterAutoscalingConfig:
+    autoscalingLimits:
+      minServeNodes: integer
+      maxServeNodes: integer
+    autoscalingTargets:
+      cpuUtilizationPercent: integer
+      storageUtilizationGibPerNode: integer
+defaultStorageType: string
+encryptionConfig:
+  kmsKeyName: string
 
 ```
 </TabItem>

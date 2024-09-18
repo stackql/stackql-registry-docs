@@ -146,66 +146,39 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: network
-      value: '{{ network }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: sourceRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: destinationRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: sourceTags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: targetTags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: sourceServiceAccounts
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: targetServiceAccounts
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: allowed
-      value:
-        - name: IPProtocol
-          value: '{{ IPProtocol }}'
-        - name: ports
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: denied
-      value:
-        - name: IPProtocol
-          value: '{{ IPProtocol }}'
-        - name: ports
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: direction
-      value: '{{ direction }}'
-    - name: logConfig
-      value:
-        - name: enable
-          value: '{{ enable }}'
-        - name: metadata
-          value: '{{ metadata }}'
-    - name: disabled
-      value: '{{ disabled }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+network: string
+priority: integer
+sourceRanges:
+  - type: string
+destinationRanges:
+  - type: string
+sourceTags:
+  - type: string
+targetTags:
+  - type: string
+sourceServiceAccounts:
+  - type: string
+targetServiceAccounts:
+  - type: string
+allowed:
+  - IPProtocol: string
+    ports:
+      - type: string
+denied:
+  - IPProtocol: string
+    ports:
+      - type: string
+direction: string
+logConfig:
+  enable: boolean
+  metadata: string
+disabled: boolean
+selfLink: string
 
 ```
 </TabItem>

@@ -97,24 +97,61 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: gkePolicy
-      value:
-        - name: imageAllowlist
-          value:
-            - name: allowPattern
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: checkSets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+description: string
+gkePolicy:
+  imageAllowlist:
+    allowPattern:
+      - type: string
+  checkSets:
+    - displayName: string
+      scope:
+        kubernetesServiceAccount: string
+        kubernetesNamespace: string
+      checks:
+        - displayName: string
+          alwaysDeny: boolean
+          simpleSigningAttestationCheck:
+            attestationAuthenticators:
+              - displayName: string
+                pkixPublicKeySet:
+                  pkixPublicKeys:
+                    - publicKeyPem: string
+                      signatureAlgorithm: string
+                      keyId: string
+            containerAnalysisAttestationProjects:
+              - type: string
+          trustedDirectoryCheck:
+            trustedDirPatterns:
+              - type: string
+          imageFreshnessCheck:
+            maxUploadAgeDays: integer
+          vulnerabilityCheck:
+            allowedCves:
+              - type: string
+            blockedCves:
+              - type: string
+            maximumUnfixableSeverity: string
+            maximumFixableSeverity: string
+            containerAnalysisVulnerabilityProjects:
+              - type: string
+          slsaCheck:
+            rules:
+              - trustedBuilder: string
+                attestationSource:
+                  containerAnalysisAttestationProjects:
+                    - type: string
+                configBasedBuildRequired: boolean
+                trustedSourceRepoPatterns:
+                  - type: string
+          sigstoreSignatureCheck:
+            sigstoreAuthorities:
+              - displayName: string
+                publicKeySet:
+                  publicKeys:
+                    - publicKeyPem: string
+updateTime: string
+etag: string
 
 ```
 </TabItem>

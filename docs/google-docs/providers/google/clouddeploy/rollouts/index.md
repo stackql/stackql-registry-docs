@@ -145,20 +145,73 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: targetId
-      value: '{{ targetId }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+uid: string
+description: string
+annotations: object
+labels: object
+createTime: string
+approveTime: string
+enqueueTime: string
+deployStartTime: string
+deployEndTime: string
+targetId: string
+approvalState: string
+state: string
+failureReason: string
+deployingBuild: string
+etag: string
+deployFailureCause: string
+phases:
+  - id: string
+    state: string
+    skipMessage: string
+    deploymentJobs:
+      deployJob:
+        id: string
+        state: string
+        skipMessage: string
+        jobRun: string
+        deployJob: {}
+        verifyJob: {}
+        predeployJob:
+          actions:
+            - type: string
+        postdeployJob:
+          actions:
+            - type: string
+        createChildRolloutJob: {}
+        advanceChildRolloutJob: {}
+    childRolloutJobs:
+      createRolloutJobs:
+        - id: string
+          state: string
+          skipMessage: string
+          jobRun: string
+      advanceRolloutJobs:
+        - id: string
+          state: string
+          skipMessage: string
+          jobRun: string
+metadata:
+  cloudRun:
+    service: string
+    serviceUrls:
+      - type: string
+    revision: string
+    job: string
+  automation:
+    promoteAutomationRun: string
+    advanceAutomationRuns:
+      - type: string
+    repairAutomationRuns:
+      - type: string
+  custom:
+    values: object
+controllerRollout: string
+rollbackOfRollout: string
+rolledBackByRollouts:
+  - type: string
 
 ```
 </TabItem>

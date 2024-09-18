@@ -119,46 +119,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: resourceFilter
-      value:
-        - name: scopes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: resourceIdPatterns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: inclusionLabels
-          value: '{{ inclusionLabels }}'
-        - name: gceInstanceFilter
-          value:
-            - name: serviceAccounts
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: ruleNames
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: schedule
-      value: '{{ schedule }}'
-    - name: customRulesBucket
-      value: '{{ customRulesBucket }}'
-    - name: bigQueryDestination
-      value:
-        - name: destinationDataset
-          value: '{{ destinationDataset }}'
-        - name: createNewResultsTable
-          value: '{{ createNewResultsTable }}'
+name: string
+description: string
+resourceFilter:
+  scopes:
+    - type: string
+  resourceIdPatterns:
+    - type: string
+  inclusionLabels: object
+  gceInstanceFilter:
+    serviceAccounts:
+      - type: string
+ruleNames:
+  - type: string
+ruleVersions:
+  - type: string
+resourceStatus:
+  rulesNewerVersions:
+    - type: string
+  state: string
+createTime: string
+updateTime: string
+labels: object
+schedule: string
+customRulesBucket: string
+bigQueryDestination:
+  destinationDataset: string
+  createNewResultsTable: boolean
 
 ```
 </TabItem>

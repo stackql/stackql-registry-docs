@@ -188,10 +188,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: sourceConsistencyGroupPolicy
-      value: '{{ sourceConsistencyGroupPolicy }}'
+sourceConsistencyGroupPolicy: string
 
 ```
 </TabItem>

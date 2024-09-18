@@ -108,24 +108,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: loadBalancingAlgorithm
-      value: '{{ loadBalancingAlgorithm }}'
-    - name: autoCapacityDrain
-      value:
-        - name: enable
-          value: '{{ enable }}'
-    - name: failoverConfig
-      value:
-        - name: failoverHealthThreshold
-          value: '{{ failoverHealthThreshold }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+loadBalancingAlgorithm: string
+autoCapacityDrain:
+  enable: boolean
+failoverConfig:
+  failoverHealthThreshold: integer
 
 ```
 </TabItem>

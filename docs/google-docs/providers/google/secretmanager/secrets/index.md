@@ -125,46 +125,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: replication
-      value:
-        - name: automatic
-          value:
-            - name: customerManagedEncryption
-              value:
-                - name: kmsKeyName
-                  value: '{{ kmsKeyName }}'
-        - name: userManaged
-          value:
-            - name: replicas
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: topics
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: rotation
-      value:
-        - name: nextRotationTime
-          value: '{{ nextRotationTime }}'
-        - name: rotationPeriod
-          value: '{{ rotationPeriod }}'
-    - name: versionAliases
-      value: '{{ versionAliases }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: versionDestroyTtl
-      value: '{{ versionDestroyTtl }}'
+name: string
+replication:
+  automatic:
+    customerManagedEncryption:
+      kmsKeyName: string
+  userManaged:
+    replicas:
+      - location: string
+createTime: string
+labels: object
+topics:
+  - name: string
+expireTime: string
+ttl: string
+etag: string
+rotation:
+  nextRotationTime: string
+  rotationPeriod: string
+versionAliases: object
+annotations: object
+versionDestroyTtl: string
 
 ```
 </TabItem>

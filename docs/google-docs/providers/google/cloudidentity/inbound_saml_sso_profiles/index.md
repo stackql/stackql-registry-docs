@@ -95,24 +95,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: customer
-      value: '{{ customer }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: idpConfig
-      value:
-        - name: entityId
-          value: '{{ entityId }}'
-        - name: singleSignOnServiceUri
-          value: '{{ singleSignOnServiceUri }}'
-        - name: logoutRedirectUri
-          value: '{{ logoutRedirectUri }}'
-        - name: changePasswordUri
-          value: '{{ changePasswordUri }}'
-    - name: spConfig
-      value: []
+name: string
+customer: string
+displayName: string
+idpConfig:
+  entityId: string
+  singleSignOnServiceUri: string
+  logoutRedirectUri: string
+  changePasswordUri: string
+spConfig:
+  entityId: string
+  assertionConsumerServiceUri: string
 
 ```
 </TabItem>

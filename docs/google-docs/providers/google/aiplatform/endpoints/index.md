@@ -154,46 +154,105 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: trafficSplit
-      value: '{{ trafficSplit }}'
-    - name: predictRequestResponseLoggingConfig
-      value:
-        - name: samplingRate
-          value: '{{ samplingRate }}'
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: bigqueryDestination
-          value:
-            - name: outputUri
-              value: '{{ outputUri }}'
-    - name: privateServiceConnectConfig
-      value:
-        - name: enablePrivateServiceConnect
-          value: '{{ enablePrivateServiceConnect }}'
-        - name: projectAllowlist
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: enablePrivateServiceConnect
-      value: '{{ enablePrivateServiceConnect }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: network
-      value: '{{ network }}'
-    - name: description
-      value: '{{ description }}'
-    - name: dedicatedEndpointEnabled
-      value: '{{ dedicatedEndpointEnabled }}'
+dedicatedEndpointDns: string
+displayName: string
+trafficSplit: object
+predictRequestResponseLoggingConfig:
+  samplingRate: number
+  enabled: boolean
+  bigqueryDestination:
+    outputUri: string
+updateTime: string
+privateServiceConnectConfig:
+  serviceAttachment: string
+  enablePrivateServiceConnect: boolean
+  projectAllowlist:
+    - type: string
+encryptionSpec:
+  kmsKeyName: string
+etag: string
+name: string
+enablePrivateServiceConnect: boolean
+modelDeploymentMonitoringJob: string
+labels: object
+deployedModels:
+  - createTime: string
+    disableExplanations: boolean
+    displayName: string
+    model: string
+    dedicatedResources:
+      spot: boolean
+      machineSpec:
+        acceleratorCount: integer
+        reservationAffinity:
+          key: string
+          reservationAffinityType: string
+          values:
+            - type: string
+        tpuTopology: string
+        acceleratorType: string
+        machineType: string
+      autoscalingMetricSpecs:
+        - metricName: string
+          target: integer
+      minReplicaCount: integer
+      maxReplicaCount: integer
+    explanationSpec:
+      metadata:
+        outputs: object
+        featureAttributionsSchemaUri: string
+        inputs: object
+        latentSpaceSource: string
+      parameters:
+        topK: integer
+        examples:
+          nearestNeighborSearchConfig: any
+          neighborCount: integer
+          exampleGcsSource:
+            dataFormat: string
+            gcsSource:
+              uris:
+                - type: string
+          presets:
+            modality: string
+            query: string
+        sampledShapleyAttribution:
+          pathCount: integer
+        xraiAttribution:
+          smoothGradConfig:
+            featureNoiseSigma:
+              noiseSigma:
+                - sigma: number
+                  name: string
+            noisySampleCount: integer
+            noiseSigma: number
+          stepCount: integer
+          blurBaselineConfig:
+            maxBlurSigma: number
+        outputIndices:
+          - type: string
+        integratedGradientsAttribution:
+          stepCount: integer
+    id: string
+    enableAccessLogging: boolean
+    sharedResources: string
+    serviceAccount: string
+    modelVersionId: string
+    privateEndpoints:
+      serviceAttachment: string
+      explainHttpUri: string
+      predictHttpUri: string
+      healthHttpUri: string
+    automaticResources:
+      minReplicaCount: integer
+      maxReplicaCount: integer
+    disableContainerLogging: boolean
+satisfiesPzs: boolean
+network: string
+satisfiesPzi: boolean
+description: string
+createTime: string
+dedicatedEndpointEnabled: boolean
 
 ```
 </TabItem>

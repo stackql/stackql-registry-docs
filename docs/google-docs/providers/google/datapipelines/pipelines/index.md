@@ -120,142 +120,77 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: pipelineSources
-      value: '{{ pipelineSources }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: workload
-      value:
-        - name: dataflowFlexTemplateRequest
-          value:
-            - name: projectId
-              value: '{{ projectId }}'
-            - name: location
-              value: '{{ location }}'
-            - name: launchParameter
-              value:
-                - name: transformNameMappings
-                  value: '{{ transformNameMappings }}'
-                - name: environment
-                  value:
-                    - name: kmsKeyName
-                      value: '{{ kmsKeyName }}'
-                    - name: network
-                      value: '{{ network }}'
-                    - name: machineType
-                      value: '{{ machineType }}'
-                    - name: ipConfiguration
-                      value: '{{ ipConfiguration }}'
-                    - name: subnetwork
-                      value: '{{ subnetwork }}'
-                    - name: tempLocation
-                      value: '{{ tempLocation }}'
-                    - name: numWorkers
-                      value: '{{ numWorkers }}'
-                    - name: workerZone
-                      value: '{{ workerZone }}'
-                    - name: additionalUserLabels
-                      value: '{{ additionalUserLabels }}'
-                    - name: flexrsGoal
-                      value: '{{ flexrsGoal }}'
-                    - name: additionalExperiments
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: serviceAccountEmail
-                      value: '{{ serviceAccountEmail }}'
-                    - name: maxWorkers
-                      value: '{{ maxWorkers }}'
-                    - name: workerRegion
-                      value: '{{ workerRegion }}'
-                    - name: enableStreamingEngine
-                      value: '{{ enableStreamingEngine }}'
-                    - name: zone
-                      value: '{{ zone }}'
-                - name: parameters
-                  value: '{{ parameters }}'
-                - name: jobName
-                  value: '{{ jobName }}'
-                - name: launchOptions
-                  value: '{{ launchOptions }}'
-                - name: update
-                  value: '{{ update }}'
-                - name: containerSpecGcsPath
-                  value: '{{ containerSpecGcsPath }}'
-            - name: validateOnly
-              value: '{{ validateOnly }}'
-        - name: dataflowLaunchTemplateRequest
-          value:
-            - name: gcsPath
-              value: '{{ gcsPath }}'
-            - name: validateOnly
-              value: '{{ validateOnly }}'
-            - name: location
-              value: '{{ location }}'
-            - name: projectId
-              value: '{{ projectId }}'
-            - name: launchParameters
-              value:
-                - name: parameters
-                  value: '{{ parameters }}'
-                - name: update
-                  value: '{{ update }}'
-                - name: environment
-                  value:
-                    - name: numWorkers
-                      value: '{{ numWorkers }}'
-                    - name: serviceAccountEmail
-                      value: '{{ serviceAccountEmail }}'
-                    - name: kmsKeyName
-                      value: '{{ kmsKeyName }}'
-                    - name: subnetwork
-                      value: '{{ subnetwork }}'
-                    - name: workerZone
-                      value: '{{ workerZone }}'
-                    - name: additionalExperiments
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: ipConfiguration
-                      value: '{{ ipConfiguration }}'
-                    - name: enableStreamingEngine
-                      value: '{{ enableStreamingEngine }}'
-                    - name: workerRegion
-                      value: '{{ workerRegion }}'
-                    - name: machineType
-                      value: '{{ machineType }}'
-                    - name: zone
-                      value: '{{ zone }}'
-                    - name: maxWorkers
-                      value: '{{ maxWorkers }}'
-                    - name: tempLocation
-                      value: '{{ tempLocation }}'
-                    - name: network
-                      value: '{{ network }}'
-                    - name: additionalUserLabels
-                      value: '{{ additionalUserLabels }}'
-                    - name: bypassTempDirValidation
-                      value: '{{ bypassTempDirValidation }}'
-                - name: transformNameMapping
-                  value: '{{ transformNameMapping }}'
-                - name: jobName
-                  value: '{{ jobName }}'
-    - name: type
-      value: '{{ type }}'
-    - name: scheduleInfo
-      value:
-        - name: timeZone
-          value: '{{ timeZone }}'
-        - name: schedule
-          value: '{{ schedule }}'
-    - name: schedulerServiceAccountEmail
-      value: '{{ schedulerServiceAccountEmail }}'
-    - name: state
-      value: '{{ state }}'
-    - name: name
-      value: '{{ name }}'
+pipelineSources: object
+createTime: string
+displayName: string
+lastUpdateTime: string
+jobCount: integer
+workload:
+  dataflowFlexTemplateRequest:
+    projectId: string
+    location: string
+    launchParameter:
+      transformNameMappings: object
+      environment:
+        kmsKeyName: string
+        network: string
+        machineType: string
+        ipConfiguration: string
+        subnetwork: string
+        tempLocation: string
+        numWorkers: integer
+        workerZone: string
+        additionalUserLabels: object
+        flexrsGoal: string
+        additionalExperiments:
+          - type: string
+        serviceAccountEmail: string
+        maxWorkers: integer
+        workerRegion: string
+        enableStreamingEngine: boolean
+        zone: string
+      parameters: object
+      jobName: string
+      launchOptions: object
+      update: boolean
+      containerSpecGcsPath: string
+    validateOnly: boolean
+  dataflowLaunchTemplateRequest:
+    gcsPath: string
+    validateOnly: boolean
+    location: string
+    projectId: string
+    launchParameters:
+      parameters: object
+      update: boolean
+      environment:
+        numWorkers: integer
+        serviceAccountEmail: string
+        kmsKeyName: string
+        subnetwork: string
+        workerZone: string
+        additionalExperiments:
+          - type: string
+        ipConfiguration: string
+        enableStreamingEngine: boolean
+        workerRegion: string
+        machineType: string
+        zone: string
+        maxWorkers: integer
+        tempLocation: string
+        network: string
+        additionalUserLabels: object
+        bypassTempDirValidation: boolean
+      transformNameMapping: object
+      jobName: string
+type: string
+scheduleInfo:
+  timeZone: string
+  nextJobTime: string
+  schedule: string
+schedulerServiceAccountEmail: string
+state: string
+name: string
 
 ```
 </TabItem>

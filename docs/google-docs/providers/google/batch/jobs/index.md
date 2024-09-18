@@ -113,68 +113,143 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: priority
-      value: '{{ priority }}'
-    - name: taskGroups
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: allocationPolicy
-      value:
-        - name: location
-          value:
-            - name: allowedLocations
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: instances
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: serviceAccount
-          value:
-            - name: email
-              value: '{{ email }}'
-            - name: scopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: network
-          value:
-            - name: networkInterfaces
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: placement
-          value:
-            - name: collocation
-              value: '{{ collocation }}'
-            - name: maxDistance
-              value: '{{ maxDistance }}'
-        - name: tags
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: logsPolicy
-      value:
-        - name: destination
-          value: '{{ destination }}'
-        - name: logsPath
-          value: '{{ logsPath }}'
-        - name: cloudLoggingOption
-          value:
-            - name: useGenericTaskMonitoredResource
-              value: '{{ useGenericTaskMonitoredResource }}'
-    - name: notifications
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+uid: string
+priority: string
+taskGroups:
+  - name: string
+    taskSpec:
+      runnables:
+        - container:
+            imageUri: string
+            commands:
+              - type: string
+            entrypoint: string
+            volumes:
+              - type: string
+            options: string
+            blockExternalNetwork: boolean
+            username: string
+            password: string
+            enableImageStreaming: boolean
+          script:
+            path: string
+            text: string
+          barrier:
+            name: string
+          displayName: string
+          ignoreExitStatus: boolean
+          background: boolean
+          alwaysRun: boolean
+          environment:
+            variables: object
+            secretVariables: object
+            encryptedVariables:
+              keyName: string
+              cipherText: string
+          timeout: string
+          labels: object
+      computeResource:
+        cpuMilli: string
+        memoryMib: string
+        bootDiskMib: string
+      maxRunDuration: string
+      maxRetryCount: integer
+      lifecyclePolicies:
+        - action: string
+          actionCondition:
+            exitCodes:
+              - type: string
+                format: string
+      environments: object
+      volumes:
+        - nfs:
+            server: string
+            remotePath: string
+          gcs:
+            remotePath: string
+          deviceName: string
+          mountPath: string
+          mountOptions:
+            - type: string
+    taskCount: string
+    parallelism: string
+    schedulingPolicy: string
+    taskEnvironments:
+      - variables: object
+        secretVariables: object
+    taskCountPerNode: string
+    requireHostsFile: boolean
+    permissiveSsh: boolean
+    runAsNonRoot: boolean
+allocationPolicy:
+  location:
+    allowedLocations:
+      - type: string
+  instances:
+    - policy:
+        machineType: string
+        minCpuPlatform: string
+        provisioningModel: string
+        accelerators:
+          - type: string
+            count: string
+            installGpuDrivers: boolean
+            driverVersion: string
+        bootDisk:
+          image: string
+          snapshot: string
+          type: string
+          sizeGb: string
+          diskInterface: string
+        disks:
+          - existingDisk: string
+            deviceName: string
+        reservation: string
+      instanceTemplate: string
+      installGpuDrivers: boolean
+      installOpsAgent: boolean
+      blockProjectSshKeys: boolean
+  serviceAccount:
+    email: string
+    scopes:
+      - type: string
+  labels: object
+  network:
+    networkInterfaces:
+      - network: string
+        subnetwork: string
+        noExternalIpAddress: boolean
+  placement:
+    collocation: string
+    maxDistance: string
+  tags:
+    - type: string
+labels: object
+status:
+  state: string
+  statusEvents:
+    - type: string
+      description: string
+      eventTime: string
+      taskExecution:
+        exitCode: integer
+      taskState: string
+  taskGroups: object
+  runDuration: string
+createTime: string
+updateTime: string
+logsPolicy:
+  destination: string
+  logsPath: string
+  cloudLoggingOption:
+    useGenericTaskMonitoredResource: boolean
+notifications:
+  - pubsubTopic: string
+    message:
+      type: string
+      newJobState: string
+      newTaskState: string
 
 ```
 </TabItem>

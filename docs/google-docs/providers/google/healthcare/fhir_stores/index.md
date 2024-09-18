@@ -135,52 +135,79 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: enableUpdateCreate
-      value: '{{ enableUpdateCreate }}'
-    - name: notificationConfig
-      value:
-        - name: pubsubTopic
-          value: '{{ pubsubTopic }}'
-        - name: sendForBulkImport
-          value: '{{ sendForBulkImport }}'
-    - name: disableReferentialIntegrity
-      value: '{{ disableReferentialIntegrity }}'
-    - name: disableResourceVersioning
-      value: '{{ disableResourceVersioning }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: version
-      value: '{{ version }}'
-    - name: streamConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: validationConfig
-      value:
-        - name: disableProfileValidation
-          value: '{{ disableProfileValidation }}'
-        - name: enabledImplementationGuides
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: disableRequiredFieldValidation
-          value: '{{ disableRequiredFieldValidation }}'
-        - name: disableReferenceTypeValidation
-          value: '{{ disableReferenceTypeValidation }}'
-        - name: disableFhirpathValidation
-          value: '{{ disableFhirpathValidation }}'
-    - name: defaultSearchHandlingStrict
-      value: '{{ defaultSearchHandlingStrict }}'
-    - name: complexDataTypeReferenceParsing
-      value: '{{ complexDataTypeReferenceParsing }}'
-    - name: notificationConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+enableUpdateCreate: boolean
+notificationConfig:
+  pubsubTopic: string
+  sendForBulkImport: boolean
+disableReferentialIntegrity: boolean
+disableResourceVersioning: boolean
+labels: object
+version: string
+streamConfigs:
+  - resourceTypes:
+      - type: string
+    bigqueryDestination:
+      datasetUri: string
+      schemaConfig:
+        schemaType: string
+        recursiveStructureDepth: string
+        lastUpdatedPartitionConfig:
+          type: string
+          expirationMs: string
+      force: boolean
+      writeDisposition: string
+    deidentifiedStoreDestination:
+      store: string
+      config:
+        dicom:
+          skipIdRedaction: boolean
+          keepList:
+            tags:
+              - type: string
+          filterProfile: string
+        fhir:
+          fieldMetadataList:
+            - paths:
+                - type: string
+              action: string
+          defaultKeepExtensions: boolean
+        image:
+          textRedactionMode: string
+        text:
+          transformations:
+            - infoTypes:
+                - type: string
+              redactConfig: {}
+              characterMaskConfig:
+                maskingCharacter: string
+              dateShiftConfig:
+                cryptoKey: string
+                kmsWrapped:
+                  wrappedKey: string
+                  cryptoKey: string
+              cryptoHashConfig:
+                cryptoKey: string
+              replaceWithInfoTypeConfig: {}
+          additionalTransformations:
+            - infoTypes:
+                - type: string
+          excludeInfoTypes:
+            - type: string
+        useRegionalDataProcessing: boolean
+validationConfig:
+  disableProfileValidation: boolean
+  enabledImplementationGuides:
+    - type: string
+  disableRequiredFieldValidation: boolean
+  disableReferenceTypeValidation: boolean
+  disableFhirpathValidation: boolean
+defaultSearchHandlingStrict: boolean
+complexDataTypeReferenceParsing: string
+notificationConfigs:
+  - pubsubTopic: string
+    sendFullResource: boolean
+    sendPreviousResourceOnDelete: boolean
 
 ```
 </TabItem>

@@ -151,66 +151,74 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: replicaCount
-      value: '{{ replicaCount }}'
-    - name: authorizationMode
-      value: '{{ authorizationMode }}'
-    - name: transitEncryptionMode
-      value: '{{ transitEncryptionMode }}'
-    - name: shardCount
-      value: '{{ shardCount }}'
-    - name: pscConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: nodeType
-      value: '{{ nodeType }}'
-    - name: persistenceConfig
-      value:
-        - name: mode
-          value: '{{ mode }}'
-        - name: rdbConfig
-          value:
-            - name: rdbSnapshotPeriod
-              value: '{{ rdbSnapshotPeriod }}'
-            - name: rdbSnapshotStartTime
-              value: '{{ rdbSnapshotStartTime }}'
-        - name: aofConfig
-          value:
-            - name: appendFsync
-              value: '{{ appendFsync }}'
-    - name: redisConfigs
-      value: '{{ redisConfigs }}'
-    - name: zoneDistributionConfig
-      value:
-        - name: mode
-          value: '{{ mode }}'
-        - name: zone
-          value: '{{ zone }}'
-    - name: crossClusterReplicationConfig
-      value:
-        - name: clusterRole
-          value: '{{ clusterRole }}'
-        - name: primaryCluster
-          value:
-            - name: cluster
-              value: '{{ cluster }}'
-        - name: secondaryClusters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: deletionProtectionEnabled
-      value: '{{ deletionProtectionEnabled }}'
-    - name: maintenancePolicy
-      value:
-        - name: weeklyMaintenanceWindow
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+createTime: string
+state: string
+uid: string
+replicaCount: integer
+authorizationMode: string
+transitEncryptionMode: string
+sizeGb: integer
+shardCount: integer
+pscConfigs:
+  - network: string
+discoveryEndpoints:
+  - address: string
+    port: integer
+    pscConfig:
+      network: string
+pscConnections:
+  - pscConnectionId: string
+    address: string
+    forwardingRule: string
+    projectId: string
+    network: string
+stateInfo:
+  updateInfo:
+    targetShardCount: integer
+    targetReplicaCount: integer
+nodeType: string
+persistenceConfig:
+  mode: string
+  rdbConfig:
+    rdbSnapshotPeriod: string
+    rdbSnapshotStartTime: string
+  aofConfig:
+    appendFsync: string
+redisConfigs: object
+preciseSizeGb: number
+zoneDistributionConfig:
+  mode: string
+  zone: string
+crossClusterReplicationConfig:
+  clusterRole: string
+  primaryCluster:
+    cluster: string
+    uid: string
+  secondaryClusters:
+    - cluster: string
+      uid: string
+  updateTime: string
+  membership:
+    secondaryClusters:
+      - cluster: string
+        uid: string
+deletionProtectionEnabled: boolean
+maintenancePolicy:
+  createTime: string
+  updateTime: string
+  weeklyMaintenanceWindow:
+    - day: string
+      startTime:
+        hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+      duration: string
+maintenanceSchedule:
+  startTime: string
+  endTime: string
+  scheduleDeadlineTime: string
 
 ```
 </TabItem>

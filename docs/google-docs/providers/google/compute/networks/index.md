@@ -140,40 +140,38 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: IPv4Range
-      value: '{{ IPv4Range }}'
-    - name: gatewayIPv4
-      value: '{{ gatewayIPv4 }}'
-    - name: autoCreateSubnetworks
-      value: '{{ autoCreateSubnetworks }}'
-    - name: subnetworks
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: peerings
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: routingConfig
-      value:
-        - name: routingMode
-          value: '{{ routingMode }}'
-    - name: mtu
-      value: '{{ mtu }}'
-    - name: firewallPolicy
-      value: '{{ firewallPolicy }}'
-    - name: networkFirewallPolicyEnforcementOrder
-      value: '{{ networkFirewallPolicyEnforcementOrder }}'
-    - name: enableUlaInternalIpv6
-      value: '{{ enableUlaInternalIpv6 }}'
-    - name: internalIpv6Range
-      value: '{{ internalIpv6Range }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+IPv4Range: string
+gatewayIPv4: string
+selfLink: string
+selfLinkWithId: string
+autoCreateSubnetworks: boolean
+subnetworks:
+  - type: string
+peerings:
+  - name: string
+    network: string
+    state: string
+    stateDetails: string
+    autoCreateRoutes: boolean
+    exportCustomRoutes: boolean
+    importCustomRoutes: boolean
+    exchangeSubnetRoutes: boolean
+    exportSubnetRoutesWithPublicIp: boolean
+    importSubnetRoutesWithPublicIp: boolean
+    peerMtu: integer
+    stackType: string
+routingConfig:
+  routingMode: string
+mtu: integer
+firewallPolicy: string
+networkFirewallPolicyEnforcementOrder: string
+enableUlaInternalIpv6: boolean
+internalIpv6Range: string
 
 ```
 </TabItem>

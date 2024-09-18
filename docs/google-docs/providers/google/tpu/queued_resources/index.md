@@ -106,38 +106,94 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: tpu
-      value:
-        - name: nodeSpec
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: spot
-      value: []
-    - name: guaranteed
-      value:
-        - name: minDuration
-          value: '{{ minDuration }}'
-    - name: queueingPolicy
-      value:
-        - name: validUntilDuration
-          value: '{{ validUntilDuration }}'
-        - name: validUntilTime
-          value: '{{ validUntilTime }}'
-        - name: validAfterDuration
-          value: '{{ validAfterDuration }}'
-        - name: validAfterTime
-          value: '{{ validAfterTime }}'
-        - name: validInterval
-          value:
-            - name: startTime
-              value: '{{ startTime }}'
-            - name: endTime
-              value: '{{ endTime }}'
-    - name: reservationName
-      value: '{{ reservationName }}'
+name: string
+createTime: string
+tpu:
+  nodeSpec:
+    - parent: string
+      nodeId: string
+      multisliceParams:
+        nodeCount: integer
+        nodeIdPrefix: string
+      node:
+        name: string
+        description: string
+        acceleratorType: string
+        state: string
+        healthDescription: string
+        runtimeVersion: string
+        networkConfig:
+          network: string
+          subnetwork: string
+          enableExternalIps: boolean
+          canIpForward: boolean
+          queueCount: integer
+        cidrBlock: string
+        serviceAccount:
+          email: string
+          scope:
+            - type: string
+        createTime: string
+        schedulingConfig:
+          preemptible: boolean
+          reserved: boolean
+          spot: boolean
+        networkEndpoints:
+          - ipAddress: string
+            port: integer
+            accessConfig:
+              externalIp: string
+        health: string
+        labels: object
+        metadata: object
+        tags:
+          - type: string
+        id: string
+        dataDisks:
+          - sourceDisk: string
+            mode: string
+        apiVersion: string
+        symptoms:
+          - createTime: string
+            symptomType: string
+            details: string
+            workerId: string
+        shieldedInstanceConfig:
+          enableSecureBoot: boolean
+        acceleratorConfig:
+          type: string
+          topology: string
+        queuedResource: string
+        multisliceNode: boolean
+spot: {}
+guaranteed:
+  minDuration: string
+queueingPolicy:
+  validUntilDuration: string
+  validUntilTime: string
+  validAfterDuration: string
+  validAfterTime: string
+  validInterval:
+    startTime: string
+    endTime: string
+state:
+  state: string
+  creatingData: {}
+  acceptedData: {}
+  provisioningData: {}
+  failedData:
+    error:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+  deletingData: {}
+  activeData: {}
+  suspendingData: {}
+  suspendedData: {}
+  stateInitiator: string
+reservationName: string
 
 ```
 </TabItem>

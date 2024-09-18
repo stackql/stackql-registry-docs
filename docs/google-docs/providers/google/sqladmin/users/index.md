@@ -122,42 +122,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: password
-      value: '{{ password }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
-    - name: host
-      value: '{{ host }}'
-    - name: instance
-      value: '{{ instance }}'
-    - name: project
-      value: '{{ project }}'
-    - name: type
-      value: '{{ type }}'
-    - name: sqlserverUserDetails
-      value:
-        - name: disabled
-          value: '{{ disabled }}'
-        - name: serverRoles
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: passwordPolicy
-      value:
-        - name: allowedFailedAttempts
-          value: '{{ allowedFailedAttempts }}'
-        - name: passwordExpirationDuration
-          value: '{{ passwordExpirationDuration }}'
-        - name: enableFailedAttemptsCheck
-          value: '{{ enableFailedAttemptsCheck }}'
-        - name: enablePasswordVerification
-          value: '{{ enablePasswordVerification }}'
-    - name: dualPasswordType
-      value: '{{ dualPasswordType }}'
+kind: string
+password: string
+etag: string
+name: string
+host: string
+instance: string
+project: string
+type: string
+sqlserverUserDetails:
+  disabled: boolean
+  serverRoles:
+    - type: string
+passwordPolicy:
+  allowedFailedAttempts: integer
+  passwordExpirationDuration: string
+  enableFailedAttemptsCheck: boolean
+  status:
+    locked: boolean
+    passwordExpirationTime: string
+  enablePasswordVerification: boolean
+dualPasswordType: string
 
 ```
 </TabItem>

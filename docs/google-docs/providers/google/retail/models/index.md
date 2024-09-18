@@ -132,28 +132,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: trainingState
-      value: '{{ trainingState }}'
-    - name: type
-      value: '{{ type }}'
-    - name: optimizationObjective
-      value: '{{ optimizationObjective }}'
-    - name: periodicTuningState
-      value: '{{ periodicTuningState }}'
-    - name: filteringOption
-      value: '{{ filteringOption }}'
-    - name: modelFeaturesConfig
-      value:
-        - name: frequentlyBoughtTogetherConfig
-          value:
-            - name: contextProductsType
-              value: '{{ contextProductsType }}'
+name: string
+displayName: string
+trainingState: string
+servingState: string
+createTime: string
+updateTime: string
+type: string
+optimizationObjective: string
+periodicTuningState: string
+lastTuneTime: string
+tuningOperation: string
+dataState: string
+filteringOption: string
+servingConfigLists:
+  - servingConfigIds:
+      - type: string
+modelFeaturesConfig:
+  frequentlyBoughtTogetherConfig:
+    contextProductsType: string
 
 ```
 </TabItem>

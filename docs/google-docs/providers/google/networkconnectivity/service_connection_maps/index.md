@@ -122,28 +122,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: serviceClass
-      value: '{{ serviceClass }}'
-    - name: producerPscConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: consumerPscConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: token
-      value: '{{ token }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+serviceClass: string
+serviceClassUri: string
+infrastructure: string
+producerPscConfigs:
+  - serviceAttachmentUri: string
+consumerPscConfigs:
+  - project: string
+    network: string
+    disableGlobalAccess: boolean
+    state: string
+    producerInstanceId: string
+    serviceAttachmentIpAddressMap: object
+    consumerInstanceProject: string
+consumerPscConnections:
+  - serviceAttachmentUri: string
+    state: string
+    project: string
+    network: string
+    pscConnectionId: string
+    ip: string
+    errorType: string
+    error:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+    gceOperation: string
+    forwardingRule: string
+    errorInfo:
+      reason: string
+      domain: string
+      metadata: object
+    selectedSubnetwork: string
+    producerInstanceId: string
+token: string
+etag: string
 
 ```
 </TabItem>

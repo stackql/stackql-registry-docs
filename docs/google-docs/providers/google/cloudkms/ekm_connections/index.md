@@ -100,18 +100,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: serviceResolvers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: keyManagementMode
-      value: '{{ keyManagementMode }}'
-    - name: cryptoSpacePath
-      value: '{{ cryptoSpacePath }}'
+name: string
+createTime: string
+serviceResolvers:
+  - serviceDirectoryService: string
+    endpointFilter: string
+    hostname: string
+    serverCertificates:
+      - rawDer: string
+        parsed: boolean
+        issuer: string
+        subject: string
+        subjectAlternativeDnsNames:
+          - type: string
+        notBeforeTime: string
+        notAfterTime: string
+        serialNumber: string
+        sha256Fingerprint: string
+etag: string
+keyManagementMode: string
+cryptoSpacePath: string
 
 ```
 </TabItem>

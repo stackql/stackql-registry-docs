@@ -69,20 +69,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: resource
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: labels
-          value: '{{ labels }}'
-    - name: collectdVersion
-      value: '{{ collectdVersion }}'
-    - name: collectdPayloads
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+resource:
+  type: string
+  labels: object
+collectdVersion: string
+collectdPayloads:
+  - values:
+      - dataSourceName: string
+        dataSourceType: string
+        value:
+          boolValue: boolean
+          int64Value: string
+          doubleValue: number
+          stringValue: string
+          distributionValue:
+            count: string
+            mean: number
+            sumOfSquaredDeviation: number
+            range:
+              min: number
+              max: number
+            bucketOptions:
+              linearBuckets:
+                numFiniteBuckets: integer
+                width: number
+                offset: number
+              exponentialBuckets:
+                numFiniteBuckets: integer
+                growthFactor: number
+                scale: number
+              explicitBuckets:
+                bounds:
+                  - type: string
+                    format: string
+            bucketCounts:
+              - type: string
+                format: string
+            exemplars:
+              - value: number
+                timestamp: string
+                attachments:
+                  - type: string
+                    additionalProperties: any
+    startTime: string
+    endTime: string
+    plugin: string
+    pluginInstance: string
+    type: string
+    typeInstance: string
+    metadata: object
 
 ```
 </TabItem>

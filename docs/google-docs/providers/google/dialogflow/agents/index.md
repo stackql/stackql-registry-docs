@@ -167,116 +167,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: defaultLanguageCode
-      value: '{{ defaultLanguageCode }}'
-    - name: supportedLanguageCodes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: timeZone
-      value: '{{ timeZone }}'
-    - name: description
-      value: '{{ description }}'
-    - name: avatarUri
-      value: '{{ avatarUri }}'
-    - name: speechToTextSettings
-      value:
-        - name: enableSpeechAdaptation
-          value: '{{ enableSpeechAdaptation }}'
-    - name: startFlow
-      value: '{{ startFlow }}'
-    - name: securitySettings
-      value: '{{ securitySettings }}'
-    - name: enableStackdriverLogging
-      value: '{{ enableStackdriverLogging }}'
-    - name: enableSpellCorrection
-      value: '{{ enableSpellCorrection }}'
-    - name: enableMultiLanguageTraining
-      value: '{{ enableMultiLanguageTraining }}'
-    - name: locked
-      value: '{{ locked }}'
-    - name: advancedSettings
-      value:
-        - name: audioExportGcsDestination
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: speechSettings
-          value:
-            - name: endpointerSensitivity
-              value: '{{ endpointerSensitivity }}'
-            - name: noSpeechTimeout
-              value: '{{ noSpeechTimeout }}'
-            - name: useTimeoutBasedEndpointing
-              value: '{{ useTimeoutBasedEndpointing }}'
-            - name: models
-              value: '{{ models }}'
-        - name: dtmfSettings
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: maxDigits
-              value: '{{ maxDigits }}'
-            - name: finishDigit
-              value: '{{ finishDigit }}'
-            - name: interdigitTimeoutDuration
-              value: '{{ interdigitTimeoutDuration }}'
-            - name: endpointingTimeoutDuration
-              value: '{{ endpointingTimeoutDuration }}'
-        - name: loggingSettings
-          value:
-            - name: enableStackdriverLogging
-              value: '{{ enableStackdriverLogging }}'
-            - name: enableInteractionLogging
-              value: '{{ enableInteractionLogging }}'
-            - name: enableConsentBasedRedaction
-              value: '{{ enableConsentBasedRedaction }}'
-    - name: gitIntegrationSettings
-      value:
-        - name: githubSettings
-          value:
-            - name: displayName
-              value: '{{ displayName }}'
-            - name: repositoryUri
-              value: '{{ repositoryUri }}'
-            - name: trackingBranch
-              value: '{{ trackingBranch }}'
-            - name: accessToken
-              value: '{{ accessToken }}'
-            - name: branches
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: textToSpeechSettings
-      value:
-        - name: synthesizeSpeechConfigs
-          value: '{{ synthesizeSpeechConfigs }}'
-    - name: genAppBuilderSettings
-      value:
-        - name: engine
-          value: '{{ engine }}'
-    - name: answerFeedbackSettings
-      value:
-        - name: enableAnswerFeedback
-          value: '{{ enableAnswerFeedback }}'
-    - name: personalizationSettings
-      value:
-        - name: defaultEndUserMetadata
-          value: '{{ defaultEndUserMetadata }}'
-    - name: clientCertificateSettings
-      value:
-        - name: sslCertificate
-          value: '{{ sslCertificate }}'
-        - name: privateKey
-          value: '{{ privateKey }}'
-        - name: passphrase
-          value: '{{ passphrase }}'
+name: string
+displayName: string
+defaultLanguageCode: string
+supportedLanguageCodes:
+  - type: string
+timeZone: string
+description: string
+avatarUri: string
+speechToTextSettings:
+  enableSpeechAdaptation: boolean
+startFlow: string
+securitySettings: string
+enableStackdriverLogging: boolean
+enableSpellCorrection: boolean
+enableMultiLanguageTraining: boolean
+locked: boolean
+advancedSettings:
+  audioExportGcsDestination:
+    uri: string
+  speechSettings:
+    endpointerSensitivity: integer
+    noSpeechTimeout: string
+    useTimeoutBasedEndpointing: boolean
+    models: object
+  dtmfSettings:
+    enabled: boolean
+    maxDigits: integer
+    finishDigit: string
+    interdigitTimeoutDuration: string
+    endpointingTimeoutDuration: string
+  loggingSettings:
+    enableStackdriverLogging: boolean
+    enableInteractionLogging: boolean
+    enableConsentBasedRedaction: boolean
+gitIntegrationSettings:
+  githubSettings:
+    displayName: string
+    repositoryUri: string
+    trackingBranch: string
+    accessToken: string
+    branches:
+      - type: string
+textToSpeechSettings:
+  synthesizeSpeechConfigs: object
+genAppBuilderSettings:
+  engine: string
+answerFeedbackSettings:
+  enableAnswerFeedback: boolean
+personalizationSettings:
+  defaultEndUserMetadata: object
+clientCertificateSettings:
+  sslCertificate: string
+  privateKey: string
+  passphrase: string
 
 ```
 </TabItem>

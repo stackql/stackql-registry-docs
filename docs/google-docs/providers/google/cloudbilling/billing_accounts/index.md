@@ -91,12 +91,11 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: masterBillingAccount
-      value: '{{ masterBillingAccount }}'
+name: string
+open: boolean
+displayName: string
+masterBillingAccount: string
+parent: string
 
 ```
 </TabItem>

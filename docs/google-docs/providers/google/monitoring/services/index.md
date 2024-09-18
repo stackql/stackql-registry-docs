@@ -137,96 +137,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: custom
-      value: []
-    - name: appEngine
-      value:
-        - name: moduleId
-          value: '{{ moduleId }}'
-    - name: cloudEndpoints
-      value:
-        - name: service
-          value: '{{ service }}'
-    - name: clusterIstio
-      value:
-        - name: location
-          value: '{{ location }}'
-        - name: clusterName
-          value: '{{ clusterName }}'
-        - name: serviceNamespace
-          value: '{{ serviceNamespace }}'
-        - name: serviceName
-          value: '{{ serviceName }}'
-    - name: meshIstio
-      value:
-        - name: meshUid
-          value: '{{ meshUid }}'
-        - name: serviceNamespace
-          value: '{{ serviceNamespace }}'
-        - name: serviceName
-          value: '{{ serviceName }}'
-    - name: istioCanonicalService
-      value:
-        - name: meshUid
-          value: '{{ meshUid }}'
-        - name: canonicalServiceNamespace
-          value: '{{ canonicalServiceNamespace }}'
-        - name: canonicalService
-          value: '{{ canonicalService }}'
-    - name: cloudRun
-      value:
-        - name: serviceName
-          value: '{{ serviceName }}'
-        - name: location
-          value: '{{ location }}'
-    - name: gkeNamespace
-      value:
-        - name: location
-          value: '{{ location }}'
-        - name: clusterName
-          value: '{{ clusterName }}'
-        - name: namespaceName
-          value: '{{ namespaceName }}'
-    - name: gkeWorkload
-      value:
-        - name: location
-          value: '{{ location }}'
-        - name: clusterName
-          value: '{{ clusterName }}'
-        - name: namespaceName
-          value: '{{ namespaceName }}'
-        - name: topLevelControllerType
-          value: '{{ topLevelControllerType }}'
-        - name: topLevelControllerName
-          value: '{{ topLevelControllerName }}'
-    - name: gkeService
-      value:
-        - name: location
-          value: '{{ location }}'
-        - name: clusterName
-          value: '{{ clusterName }}'
-        - name: namespaceName
-          value: '{{ namespaceName }}'
-        - name: serviceName
-          value: '{{ serviceName }}'
-    - name: basicService
-      value:
-        - name: serviceType
-          value: '{{ serviceType }}'
-        - name: serviceLabels
-          value: '{{ serviceLabels }}'
-    - name: telemetry
-      value:
-        - name: resourceName
-          value: '{{ resourceName }}'
-    - name: userLabels
-      value: '{{ userLabels }}'
+name: string
+displayName: string
+custom: {}
+appEngine:
+  moduleId: string
+cloudEndpoints:
+  service: string
+clusterIstio:
+  location: string
+  clusterName: string
+  serviceNamespace: string
+  serviceName: string
+meshIstio:
+  meshUid: string
+  serviceNamespace: string
+  serviceName: string
+istioCanonicalService:
+  meshUid: string
+  canonicalServiceNamespace: string
+  canonicalService: string
+cloudRun:
+  serviceName: string
+  location: string
+gkeNamespace:
+  projectId: string
+  location: string
+  clusterName: string
+  namespaceName: string
+gkeWorkload:
+  projectId: string
+  location: string
+  clusterName: string
+  namespaceName: string
+  topLevelControllerType: string
+  topLevelControllerName: string
+gkeService:
+  projectId: string
+  location: string
+  clusterName: string
+  namespaceName: string
+  serviceName: string
+basicService:
+  serviceType: string
+  serviceLabels: object
+telemetry:
+  resourceName: string
+userLabels: object
 
 ```
 </TabItem>

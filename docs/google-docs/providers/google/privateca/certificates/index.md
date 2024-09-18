@@ -123,168 +123,121 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: pemCsr
-      value: '{{ pemCsr }}'
-    - name: config
-      value:
-        - name: subjectConfig
-          value:
-            - name: subject
-              value:
-                - name: commonName
-                  value: '{{ commonName }}'
-                - name: countryCode
-                  value: '{{ countryCode }}'
-                - name: organization
-                  value: '{{ organization }}'
-                - name: organizationalUnit
-                  value: '{{ organizationalUnit }}'
-                - name: locality
-                  value: '{{ locality }}'
-                - name: province
-                  value: '{{ province }}'
-                - name: streetAddress
-                  value: '{{ streetAddress }}'
-                - name: postalCode
-                  value: '{{ postalCode }}'
-            - name: subjectAltName
-              value:
-                - name: dnsNames
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: uris
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: emailAddresses
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: ipAddresses
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: customSans
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-        - name: x509Config
-          value:
-            - name: keyUsage
-              value:
-                - name: baseKeyUsage
-                  value:
-                    - name: digitalSignature
-                      value: '{{ digitalSignature }}'
-                    - name: contentCommitment
-                      value: '{{ contentCommitment }}'
-                    - name: keyEncipherment
-                      value: '{{ keyEncipherment }}'
-                    - name: dataEncipherment
-                      value: '{{ dataEncipherment }}'
-                    - name: keyAgreement
-                      value: '{{ keyAgreement }}'
-                    - name: certSign
-                      value: '{{ certSign }}'
-                    - name: crlSign
-                      value: '{{ crlSign }}'
-                    - name: encipherOnly
-                      value: '{{ encipherOnly }}'
-                    - name: decipherOnly
-                      value: '{{ decipherOnly }}'
-                - name: extendedKeyUsage
-                  value:
-                    - name: serverAuth
-                      value: '{{ serverAuth }}'
-                    - name: clientAuth
-                      value: '{{ clientAuth }}'
-                    - name: codeSigning
-                      value: '{{ codeSigning }}'
-                    - name: emailProtection
-                      value: '{{ emailProtection }}'
-                    - name: timeStamping
-                      value: '{{ timeStamping }}'
-                    - name: ocspSigning
-                      value: '{{ ocspSigning }}'
-                - name: unknownExtendedKeyUsages
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: caOptions
-              value:
-                - name: isCa
-                  value: '{{ isCa }}'
-                - name: maxIssuerPathLength
-                  value: '{{ maxIssuerPathLength }}'
-            - name: policyIds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: aiaOcspServers
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: nameConstraints
-              value:
-                - name: critical
-                  value: '{{ critical }}'
-                - name: permittedDnsNames
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: excludedDnsNames
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: permittedIpRanges
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: excludedIpRanges
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: permittedEmailAddresses
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: excludedEmailAddresses
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: permittedUris
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: excludedUris
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: additionalExtensions
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: publicKey
-          value:
-            - name: key
-              value: '{{ key }}'
-            - name: format
-              value: '{{ format }}'
-        - name: subjectKeyId
-          value:
-            - name: keyId
-              value: '{{ keyId }}'
-    - name: lifetime
-      value: '{{ lifetime }}'
-    - name: certificateTemplate
-      value: '{{ certificateTemplate }}'
-    - name: subjectMode
-      value: '{{ subjectMode }}'
-    - name: labels
-      value: '{{ labels }}'
+name: string
+pemCsr: string
+config:
+  subjectConfig:
+    subject:
+      commonName: string
+      countryCode: string
+      organization: string
+      organizationalUnit: string
+      locality: string
+      province: string
+      streetAddress: string
+      postalCode: string
+    subjectAltName:
+      dnsNames:
+        - type: string
+      uris:
+        - type: string
+      emailAddresses:
+        - type: string
+      ipAddresses:
+        - type: string
+      customSans:
+        - objectId:
+            objectIdPath:
+              - type: string
+                format: string
+          critical: boolean
+          value: string
+  x509Config:
+    keyUsage:
+      baseKeyUsage:
+        digitalSignature: boolean
+        contentCommitment: boolean
+        keyEncipherment: boolean
+        dataEncipherment: boolean
+        keyAgreement: boolean
+        certSign: boolean
+        crlSign: boolean
+        encipherOnly: boolean
+        decipherOnly: boolean
+      extendedKeyUsage:
+        serverAuth: boolean
+        clientAuth: boolean
+        codeSigning: boolean
+        emailProtection: boolean
+        timeStamping: boolean
+        ocspSigning: boolean
+      unknownExtendedKeyUsages:
+        - objectIdPath:
+            - type: string
+              format: string
+    caOptions:
+      isCa: boolean
+      maxIssuerPathLength: integer
+    policyIds:
+      - objectIdPath:
+          - type: string
+            format: string
+    aiaOcspServers:
+      - type: string
+    nameConstraints:
+      critical: boolean
+      permittedDnsNames:
+        - type: string
+      excludedDnsNames:
+        - type: string
+      permittedIpRanges:
+        - type: string
+      excludedIpRanges:
+        - type: string
+      permittedEmailAddresses:
+        - type: string
+      excludedEmailAddresses:
+        - type: string
+      permittedUris:
+        - type: string
+      excludedUris:
+        - type: string
+    additionalExtensions:
+      - critical: boolean
+        value: string
+  publicKey:
+    key: string
+    format: string
+  subjectKeyId:
+    keyId: string
+issuerCertificateAuthority: string
+lifetime: string
+certificateTemplate: string
+subjectMode: string
+revocationDetails:
+  revocationState: string
+  revocationTime: string
+pemCertificate: string
+certificateDescription:
+  subjectDescription:
+    hexSerialNumber: string
+    lifetime: string
+    notBeforeTime: string
+    notAfterTime: string
+  subjectKeyId:
+    keyId: string
+  crlDistributionPoints:
+    - type: string
+  aiaIssuingCertificateUrls:
+    - type: string
+  certFingerprint:
+    sha256Hash: string
+  tbsCertificateDigest: string
+pemCertificateChain:
+  - type: string
+createTime: string
+updateTime: string
+labels: object
 
 ```
 </TabItem>

@@ -129,72 +129,225 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: inputUri
-      value: '{{ inputUri }}'
-    - name: outputUri
-      value: '{{ outputUri }}'
-    - name: templateId
-      value: '{{ templateId }}'
-    - name: config
-      value:
-        - name: inputs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: editList
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: elementaryStreams
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: muxStreams
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: manifests
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: output
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: adBreaks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: pubsubDestination
-          value:
-            - name: topic
-              value: '{{ topic }}'
-        - name: spriteSheets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: overlays
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: encryptions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: ttlAfterCompletionDays
-      value: '{{ ttlAfterCompletionDays }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: mode
-      value: '{{ mode }}'
-    - name: batchModePriority
-      value: '{{ batchModePriority }}'
-    - name: optimization
-      value: '{{ optimization }}'
+name: string
+inputUri: string
+outputUri: string
+templateId: string
+config:
+  inputs:
+    - key: string
+      uri: string
+      preprocessingConfig:
+        color:
+          saturation: number
+          contrast: number
+          brightness: number
+        denoise:
+          strength: number
+          tune: string
+        deblock:
+          strength: number
+          enabled: boolean
+        audio:
+          lufs: number
+          highBoost: boolean
+          lowBoost: boolean
+        crop:
+          topPixels: integer
+          bottomPixels: integer
+          leftPixels: integer
+          rightPixels: integer
+        pad:
+          topPixels: integer
+          bottomPixels: integer
+          leftPixels: integer
+          rightPixels: integer
+        deinterlace:
+          yadif:
+            mode: string
+            disableSpatialInterlacing: boolean
+            parity: string
+            deinterlaceAllFrames: boolean
+          bwdif:
+            mode: string
+            parity: string
+            deinterlaceAllFrames: boolean
+  editList:
+    - key: string
+      inputs:
+        - type: string
+      endTimeOffset: string
+      startTimeOffset: string
+  elementaryStreams:
+    - key: string
+      videoStream:
+        h264:
+          widthPixels: integer
+          heightPixels: integer
+          frameRate: number
+          frameRateConversionStrategy: string
+          bitrateBps: integer
+          pixelFormat: string
+          rateControlMode: string
+          crfLevel: integer
+          allowOpenGop: boolean
+          gopFrameCount: integer
+          gopDuration: string
+          enableTwoPass: boolean
+          vbvSizeBits: integer
+          vbvFullnessBits: integer
+          entropyCoder: string
+          bPyramid: boolean
+          bFrameCount: integer
+          aqStrength: number
+          profile: string
+          tune: string
+          preset: string
+          sdr: {}
+          hlg: {}
+        h265:
+          widthPixels: integer
+          heightPixels: integer
+          frameRate: number
+          frameRateConversionStrategy: string
+          bitrateBps: integer
+          pixelFormat: string
+          rateControlMode: string
+          crfLevel: integer
+          allowOpenGop: boolean
+          gopFrameCount: integer
+          gopDuration: string
+          enableTwoPass: boolean
+          vbvSizeBits: integer
+          vbvFullnessBits: integer
+          bPyramid: boolean
+          bFrameCount: integer
+          aqStrength: number
+          profile: string
+          tune: string
+          preset: string
+          sdr: {}
+          hlg: {}
+          hdr10: {}
+        vp9:
+          widthPixels: integer
+          heightPixels: integer
+          frameRate: number
+          frameRateConversionStrategy: string
+          bitrateBps: integer
+          pixelFormat: string
+          rateControlMode: string
+          crfLevel: integer
+          gopFrameCount: integer
+          gopDuration: string
+          profile: string
+          sdr: {}
+          hlg: {}
+      audioStream:
+        codec: string
+        bitrateBps: integer
+        channelCount: integer
+        channelLayout:
+          - type: string
+        mapping:
+          - atomKey: string
+            inputKey: string
+            inputTrack: integer
+            inputChannel: integer
+            outputChannel: integer
+            gainDb: number
+        sampleRateHertz: integer
+        languageCode: string
+        displayName: string
+      textStream:
+        codec: string
+        languageCode: string
+        mapping:
+          - atomKey: string
+            inputKey: string
+            inputTrack: integer
+        displayName: string
+  muxStreams:
+    - key: string
+      fileName: string
+      container: string
+      elementaryStreams:
+        - type: string
+      segmentSettings:
+        segmentDuration: string
+        individualSegments: boolean
+      encryptionId: string
+      fmp4:
+        codecTag: string
+  manifests:
+    - fileName: string
+      type: string
+      muxStreams:
+        - type: string
+      dash:
+        segmentReferenceScheme: string
+  output:
+    uri: string
+  adBreaks:
+    - startTimeOffset: string
+  pubsubDestination:
+    topic: string
+  spriteSheets:
+    - format: string
+      filePrefix: string
+      spriteWidthPixels: integer
+      spriteHeightPixels: integer
+      columnCount: integer
+      rowCount: integer
+      startTimeOffset: string
+      endTimeOffset: string
+      totalCount: integer
+      interval: string
+      quality: integer
+  overlays:
+    - image:
+        uri: string
+        resolution:
+          x: number
+          'y': number
+        alpha: number
+      animations:
+        - animationStatic:
+            startTimeOffset: string
+          animationFade:
+            fadeType: string
+            startTimeOffset: string
+            endTimeOffset: string
+          animationEnd:
+            startTimeOffset: string
+  encryptions:
+    - id: string
+      aes128: {}
+      sampleAes: {}
+      mpegCenc:
+        scheme: string
+      secretManagerKeySource:
+        secretVersion: string
+      drmSystems:
+        widevine: {}
+        fairplay: {}
+        playready: {}
+        clearkey: {}
+state: string
+createTime: string
+startTime: string
+endTime: string
+ttlAfterCompletionDays: integer
+labels: object
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+mode: string
+batchModePriority: integer
+optimization: string
 
 ```
 </TabItem>

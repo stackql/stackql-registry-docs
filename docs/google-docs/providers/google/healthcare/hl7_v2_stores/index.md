@@ -106,42 +106,38 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: parserConfig
-      value:
-        - name: allowNullHeader
-          value: '{{ allowNullHeader }}'
-        - name: segmentTerminator
-          value: '{{ segmentTerminator }}'
-        - name: schema
-          value:
-            - name: schematizedParsingType
-              value: '{{ schematizedParsingType }}'
-            - name: schemas
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: types
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: ignoreMinOccurs
-              value: '{{ ignoreMinOccurs }}'
-            - name: unexpectedSegmentHandling
-              value: '{{ unexpectedSegmentHandling }}'
-        - name: version
-          value: '{{ version }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: notificationConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: rejectDuplicateMessage
-      value: '{{ rejectDuplicateMessage }}'
+name: string
+parserConfig:
+  allowNullHeader: boolean
+  segmentTerminator: string
+  schema:
+    schematizedParsingType: string
+    schemas:
+      - version:
+          - mshField: string
+            value: string
+        messageSchemaConfigs: object
+    types:
+      - version:
+          - mshField: string
+            value: string
+        type:
+          - name: string
+            primitive: string
+            fields:
+              - name: string
+                type: string
+                table: string
+                minOccurs: integer
+                maxOccurs: integer
+    ignoreMinOccurs: boolean
+    unexpectedSegmentHandling: string
+  version: string
+labels: object
+notificationConfigs:
+  - pubsubTopic: string
+    filter: string
+rejectDuplicateMessage: boolean
 
 ```
 </TabItem>

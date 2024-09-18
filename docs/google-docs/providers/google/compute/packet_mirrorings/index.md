@@ -124,56 +124,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: network
-      value:
-        - name: url
-          value: '{{ url }}'
-        - name: canonicalUrl
-          value: '{{ canonicalUrl }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: collectorIlb
-      value:
-        - name: url
-          value: '{{ url }}'
-        - name: canonicalUrl
-          value: '{{ canonicalUrl }}'
-    - name: mirroredResources
-      value:
-        - name: subnetworks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: instances
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: tags
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: filter
-      value:
-        - name: cidrRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: IPProtocols
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: direction
-          value: '{{ direction }}'
-    - name: enable
-      value: '{{ enable }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+name: string
+description: string
+region: string
+network:
+  url: string
+  canonicalUrl: string
+priority: integer
+collectorIlb:
+  url: string
+  canonicalUrl: string
+mirroredResources:
+  subnetworks:
+    - url: string
+      canonicalUrl: string
+  instances:
+    - url: string
+      canonicalUrl: string
+  tags:
+    - type: string
+filter:
+  cidrRanges:
+    - type: string
+  IPProtocols:
+    - type: string
+  direction: string
+enable: string
 
 ```
 </TabItem>

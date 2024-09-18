@@ -123,46 +123,47 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: nodePoolConfig
-      value:
-        - name: nodeConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: operatingSystem
-          value: '{{ operatingSystem }}'
-        - name: taints
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: kubeletConfig
-          value:
-            - name: registryPullQps
-              value: '{{ registryPullQps }}'
-            - name: registryBurst
-              value: '{{ registryBurst }}'
-            - name: serializeImagePullsDisabled
-              value: '{{ serializeImagePullsDisabled }}'
-    - name: upgradePolicy
-      value:
-        - name: parallelUpgradeConfig
-          value:
-            - name: concurrentNodes
-              value: '{{ concurrentNodes }}'
-            - name: minimumAvailableNodes
-              value: '{{ minimumAvailableNodes }}'
+name: string
+displayName: string
+uid: string
+state: string
+reconciling: boolean
+createTime: string
+updateTime: string
+deleteTime: string
+etag: string
+annotations: object
+nodePoolConfig:
+  nodeConfigs:
+    - nodeIp: string
+      labels: object
+  operatingSystem: string
+  taints:
+    - key: string
+      value: string
+      effect: string
+  labels: object
+  kubeletConfig:
+    registryPullQps: integer
+    registryBurst: integer
+    serializeImagePullsDisabled: boolean
+status:
+  errorMessage: string
+  conditions:
+    - type: string
+      reason: string
+      message: string
+      lastTransitionTime: string
+      state: string
+  version: string
+  versions:
+    versions:
+      - version: string
+        count: string
+upgradePolicy:
+  parallelUpgradeConfig:
+    concurrentNodes: integer
+    minimumAvailableNodes: integer
 
 ```
 </TabItem>

@@ -92,14 +92,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: config
-      value:
-        - name: policyOverlay
-          value: '{{ policyOverlay }}'
-        - name: logSource
-          value: '{{ logSource }}'
+name: string
+config:
+  policyOverlay: object
+  logSource: string
+state: string
+resultsSummary:
+  unchangedCount: integer
+  newestDate:
+    day: integer
+    year: integer
+    month: integer
+  differenceCount: integer
+  logCount: integer
+  errorCount: integer
 
 ```
 </TabItem>

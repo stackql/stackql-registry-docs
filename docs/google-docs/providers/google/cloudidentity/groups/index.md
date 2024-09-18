@@ -111,26 +111,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: groupKey
-      value:
-        - name: namespace
-          value: '{{ namespace }}'
-    - name: parent
-      value: '{{ parent }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: dynamicGroupMetadata
-      value:
-        - name: queries
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+groupKey:
+  id: string
+  namespace: string
+additionalGroupKeys:
+  - id: string
+    namespace: string
+parent: string
+displayName: string
+description: string
+createTime: string
+updateTime: string
+labels: object
+dynamicGroupMetadata:
+  queries:
+    - resourceType: string
+      query: string
+  status:
+    status: string
+    statusTime: string
 
 ```
 </TabItem>

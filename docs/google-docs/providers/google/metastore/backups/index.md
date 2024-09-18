@@ -100,12 +100,89 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
+name: string
+createTime: string
+endTime: string
+state: string
+serviceRevision:
+  hiveMetastoreConfig:
+    version: string
+    configOverrides: object
+    kerberosConfig:
+      keytab:
+        cloudSecret: string
+      principal: string
+      krb5ConfigGcsUri: string
+    endpointProtocol: string
+    auxiliaryVersions: object
+  name: string
+  createTime: string
+  updateTime: string
+  labels: object
+  network: string
+  endpointUri: string
+  port: integer
+  state: string
+  stateMessage: string
+  artifactGcsUri: string
+  tier: string
+  metadataIntegration:
+    dataCatalogConfig:
+      enabled: boolean
+  maintenanceWindow:
+    hourOfDay: integer
+    dayOfWeek: string
+  uid: string
+  metadataManagementActivity:
+    metadataExports:
+      - destinationGcsUri: string
+        startTime: string
+        endTime: string
+        state: string
+        databaseDumpType: string
+    restores:
+      - startTime: string
+        endTime: string
+        state: string
+        backup: string
+        type: string
+        details: string
+        backupLocation: string
+  releaseChannel: string
+  encryptionConfig:
+    kmsKey: string
+  networkConfig:
+    consumers:
+      - subnetwork: string
+        endpointUri: string
+        endpointLocation: string
+  databaseType: string
+  telemetryConfig:
+    logFormat: string
+  scalingConfig:
+    instanceSize: string
+    scalingFactor: number
+    autoscalingConfig:
+      autoscalingFactor: number
+      autoscalingEnabled: boolean
+      limitConfig:
+        maxScalingFactor: number
+        minScalingFactor: number
+  scheduledBackup:
+    enabled: boolean
+    cronSchedule: string
+    timeZone: string
+    nextScheduledTime: string
+    backupLocation: string
+    latestBackup:
+      backupId: string
+      startTime: string
+      state: string
+      duration: string
+  deletionProtection: boolean
+description: string
+restoringServices:
+  - type: string
 
 ```
 </TabItem>

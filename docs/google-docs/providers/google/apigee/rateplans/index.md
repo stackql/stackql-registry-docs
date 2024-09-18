@@ -150,48 +150,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: consumptionPricingRates
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: billingPeriod
-      value: '{{ billingPeriod }}'
-    - name: revenueShareRates
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: fixedRecurringFee
-      value:
-        - name: nanos
-          value: '{{ nanos }}'
-        - name: currencyCode
-          value: '{{ currencyCode }}'
-        - name: units
-          value: '{{ units }}'
-    - name: state
-      value: '{{ state }}'
-    - name: revenueShareType
-      value: '{{ revenueShareType }}'
-    - name: consumptionPricingType
-      value: '{{ consumptionPricingType }}'
-    - name: currencyCode
-      value: '{{ currencyCode }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: apiproduct
-      value: '{{ apiproduct }}'
-    - name: description
-      value: '{{ description }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: fixedFeeFrequency
-      value: '{{ fixedFeeFrequency }}'
-    - name: paymentFundingModel
-      value: '{{ paymentFundingModel }}'
+consumptionPricingRates:
+  - end: string
+    fee:
+      nanos: integer
+      currencyCode: string
+      units: string
+    start: string
+billingPeriod: string
+revenueShareRates:
+  - start: string
+    sharePercentage: number
+    end: string
+state: string
+revenueShareType: string
+consumptionPricingType: string
+currencyCode: string
+startTime: string
+name: string
+lastModifiedAt: string
+createdAt: string
+displayName: string
+apiproduct: string
+description: string
+endTime: string
+fixedFeeFrequency: integer
+paymentFundingModel: string
 
 ```
 </TabItem>

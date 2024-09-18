@@ -124,90 +124,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: region
-      value: '{{ region }}'
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: snapshotSchedulePolicy
-      value:
-        - name: schedule
-          value:
-            - name: hourlySchedule
-              value:
-                - name: hoursInCycle
-                  value: '{{ hoursInCycle }}'
-                - name: startTime
-                  value: '{{ startTime }}'
-                - name: duration
-                  value: '{{ duration }}'
-            - name: dailySchedule
-              value:
-                - name: daysInCycle
-                  value: '{{ daysInCycle }}'
-                - name: startTime
-                  value: '{{ startTime }}'
-                - name: duration
-                  value: '{{ duration }}'
-            - name: weeklySchedule
-              value:
-                - name: dayOfWeeks
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-        - name: retentionPolicy
-          value:
-            - name: maxRetentionDays
-              value: '{{ maxRetentionDays }}'
-            - name: onSourceDiskDelete
-              value: '{{ onSourceDiskDelete }}'
-        - name: snapshotProperties
-          value:
-            - name: labels
-              value: '{{ labels }}'
-            - name: storageLocations
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: guestFlush
-              value: '{{ guestFlush }}'
-            - name: chainName
-              value: '{{ chainName }}'
-    - name: groupPlacementPolicy
-      value:
-        - name: vmCount
-          value: '{{ vmCount }}'
-        - name: availabilityDomainCount
-          value: '{{ availabilityDomainCount }}'
-        - name: collocation
-          value: '{{ collocation }}'
-    - name: instanceSchedulePolicy
-      value:
-        - name: vmStartSchedule
-          value:
-            - name: schedule
-              value: '{{ schedule }}'
-        - name: timeZone
-          value: '{{ timeZone }}'
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: expirationTime
-          value: '{{ expirationTime }}'
-    - name: diskConsistencyGroupPolicy
-      value: []
-    - name: status
-      value: '{{ status }}'
-    - name: resourceStatus
-      value:
-        - name: instanceSchedulePolicy
-          value:
-            - name: nextRunStartTime
-              value: '{{ nextRunStartTime }}'
-            - name: lastRunStartTime
-              value: '{{ lastRunStartTime }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+region: string
+description: string
+name: string
+snapshotSchedulePolicy:
+  schedule:
+    hourlySchedule:
+      hoursInCycle: integer
+      startTime: string
+      duration: string
+    dailySchedule:
+      daysInCycle: integer
+      startTime: string
+      duration: string
+    weeklySchedule:
+      dayOfWeeks:
+        - day: string
+          startTime: string
+          duration: string
+  retentionPolicy:
+    maxRetentionDays: integer
+    onSourceDiskDelete: string
+  snapshotProperties:
+    labels: object
+    storageLocations:
+      - type: string
+    guestFlush: boolean
+    chainName: string
+groupPlacementPolicy:
+  vmCount: integer
+  availabilityDomainCount: integer
+  collocation: string
+instanceSchedulePolicy:
+  vmStartSchedule:
+    schedule: string
+  timeZone: string
+  startTime: string
+  expirationTime: string
+diskConsistencyGroupPolicy: {}
+status: string
+resourceStatus:
+  instanceSchedulePolicy:
+    nextRunStartTime: string
+    lastRunStartTime: string
 
 ```
 </TabItem>

@@ -133,40 +133,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: timeZone
-      value: '{{ timeZone }}'
-    - name: subscriberEmailAddresses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: creator
-      value:
-        - name: email
-          value: '{{ email }}'
-        - name: displayName
-          value: '{{ displayName }}'
-    - name: name
-      value: '{{ name }}'
-    - name: languageCode
-      value: '{{ languageCode }}'
-    - name: testCase
-      value: '{{ testCase }}'
-    - name: classification
-      value:
-        - name: displayName
-          value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: escalated
-      value: '{{ escalated }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: contactEmail
-      value: '{{ contactEmail }}'
+timeZone: string
+subscriberEmailAddresses:
+  - type: string
+creator:
+  email: string
+  googleSupport: boolean
+  username: string
+  displayName: string
+createTime: string
+name: string
+languageCode: string
+testCase: boolean
+classification:
+  id: string
+  displayName: string
+description: string
+priority: string
+state: string
+escalated: boolean
+displayName: string
+updateTime: string
+contactEmail: string
 
 ```
 </TabItem>

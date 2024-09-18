@@ -101,18 +101,12 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: password
-      value: '{{ password }}'
-    - name: databaseRoles
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: userType
-      value: '{{ userType }}'
-    - name: keepExtraRoles
-      value: '{{ keepExtraRoles }}'
+name: string
+password: string
+databaseRoles:
+  - type: string
+userType: string
+keepExtraRoles: boolean
 
 ```
 </TabItem>

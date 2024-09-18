@@ -103,8 +103,71 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props: []
+computeEngineTargetDetails:
+  vmName: string
+  project: string
+  zone: string
+  machineTypeSeries: string
+  machineType: string
+  networkTags:
+    - type: string
+  networkInterfaces:
+    - network: string
+      subnetwork: string
+      internalIp: string
+      externalIp: string
+      networkTier: string
+  serviceAccount: string
+  diskType: string
+  labels: object
+  licenseType: string
+  appliedLicense:
+    type: string
+    osLicense: string
+  computeScheduling:
+    onHostMaintenance: string
+    restartType: string
+    nodeAffinities:
+      - key: string
+        operator: string
+        values:
+          - type: string
+    minNodeCpus: integer
+  secureBoot: boolean
+  enableVtpm: boolean
+  enableIntegrityMonitoring: boolean
+  bootOption: string
+  metadata: object
+  additionalLicenses:
+    - type: string
+  hostname: string
+  encryption:
+    kmsKey: string
+  bootConversion: string
+computeEngineDisksTargetDetails:
+  disksTargetDetails: {}
+  vmTargetDetails:
+    vmUri: string
+  disks:
+    - sourceDiskNumber: integer
+      diskUri: string
+createTime: string
+endTime: string
+name: string
+state: string
+stateTime: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+steps:
+  - adaptingOs: {}
+    preparingVmDisks: {}
+    instantiatingMigratedVm: {}
+    startTime: string
+    endTime: string
 
 ```
 </TabItem>

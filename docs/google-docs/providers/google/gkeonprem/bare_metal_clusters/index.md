@@ -183,166 +183,143 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: adminClusterMembership
-      value: '{{ adminClusterMembership }}'
-    - name: description
-      value: '{{ description }}'
-    - name: bareMetalVersion
-      value: '{{ bareMetalVersion }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: networkConfig
-      value:
-        - name: islandModeCidr
-          value:
-            - name: serviceAddressCidrBlocks
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: podAddressCidrBlocks
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: advancedNetworking
-          value: '{{ advancedNetworking }}'
-        - name: multipleNetworkInterfacesConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: srIovConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-    - name: controlPlane
-      value:
-        - name: controlPlaneNodePoolConfig
-          value:
-            - name: nodePoolConfig
-              value:
-                - name: nodeConfigs
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: operatingSystem
-                  value: '{{ operatingSystem }}'
-                - name: taints
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: labels
-                  value: '{{ labels }}'
-                - name: kubeletConfig
-                  value:
-                    - name: registryPullQps
-                      value: '{{ registryPullQps }}'
-                    - name: registryBurst
-                      value: '{{ registryBurst }}'
-                    - name: serializeImagePullsDisabled
-                      value: '{{ serializeImagePullsDisabled }}'
-        - name: apiServerArgs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: loadBalancer
-      value:
-        - name: vipConfig
-          value:
-            - name: controlPlaneVip
-              value: '{{ controlPlaneVip }}'
-            - name: ingressVip
-              value: '{{ ingressVip }}'
-        - name: portConfig
-          value:
-            - name: controlPlaneLoadBalancerPort
-              value: '{{ controlPlaneLoadBalancerPort }}'
-        - name: metalLbConfig
-          value:
-            - name: addressPools
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: loadBalancerNodePoolConfig
-              value: []
-        - name: manualLbConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: bgpLbConfig
-          value:
-            - name: asn
-              value: '{{ asn }}'
-            - name: bgpPeerConfigs
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: addressPools
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: storage
-      value:
-        - name: lvpShareConfig
-          value:
-            - name: lvpConfig
-              value:
-                - name: path
-                  value: '{{ path }}'
-                - name: storageClass
-                  value: '{{ storageClass }}'
-            - name: sharedPathPvCount
-              value: '{{ sharedPathPvCount }}'
-    - name: proxy
-      value:
-        - name: uri
-          value: '{{ uri }}'
-        - name: noProxy
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: clusterOperations
-      value:
-        - name: enableApplicationLogs
-          value: '{{ enableApplicationLogs }}'
-    - name: maintenanceConfig
-      value:
-        - name: maintenanceAddressCidrBlocks
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: nodeConfig
-      value:
-        - name: maxPodsPerNode
-          value: '{{ maxPodsPerNode }}'
-        - name: containerRuntime
-          value: '{{ containerRuntime }}'
-    - name: securityConfig
-      value:
-        - name: authorization
-          value:
-            - name: adminUsers
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: nodeAccessConfig
-      value:
-        - name: loginUser
-          value: '{{ loginUser }}'
-    - name: osEnvironmentConfig
-      value:
-        - name: packageRepoExcluded
-          value: '{{ packageRepoExcluded }}'
-    - name: binaryAuthorization
-      value:
-        - name: evaluationMode
-          value: '{{ evaluationMode }}'
-    - name: upgradePolicy
-      value:
-        - name: policy
-          value: '{{ policy }}'
+name: string
+adminClusterMembership: string
+description: string
+bareMetalVersion: string
+uid: string
+state: string
+endpoint: string
+reconciling: boolean
+createTime: string
+updateTime: string
+deleteTime: string
+localName: string
+etag: string
+annotations: object
+networkConfig:
+  islandModeCidr:
+    serviceAddressCidrBlocks:
+      - type: string
+    podAddressCidrBlocks:
+      - type: string
+  advancedNetworking: boolean
+  multipleNetworkInterfacesConfig:
+    enabled: boolean
+  srIovConfig:
+    enabled: boolean
+controlPlane:
+  controlPlaneNodePoolConfig:
+    nodePoolConfig:
+      nodeConfigs:
+        - nodeIp: string
+          labels: object
+      operatingSystem: string
+      taints:
+        - key: string
+          value: string
+          effect: string
+      labels: object
+      kubeletConfig:
+        registryPullQps: integer
+        registryBurst: integer
+        serializeImagePullsDisabled: boolean
+  apiServerArgs:
+    - argument: string
+      value: string
+loadBalancer:
+  vipConfig:
+    controlPlaneVip: string
+    ingressVip: string
+  portConfig:
+    controlPlaneLoadBalancerPort: integer
+  metalLbConfig:
+    addressPools:
+      - pool: string
+        addresses:
+          - type: string
+        avoidBuggyIps: boolean
+        manualAssign: boolean
+    loadBalancerNodePoolConfig: {}
+  manualLbConfig:
+    enabled: boolean
+  bgpLbConfig:
+    asn: string
+    bgpPeerConfigs:
+      - asn: string
+        ipAddress: string
+        controlPlaneNodes:
+          - type: string
+    addressPools:
+      - pool: string
+        addresses:
+          - type: string
+        avoidBuggyIps: boolean
+        manualAssign: boolean
+storage:
+  lvpShareConfig:
+    lvpConfig:
+      path: string
+      storageClass: string
+    sharedPathPvCount: integer
+proxy:
+  uri: string
+  noProxy:
+    - type: string
+clusterOperations:
+  enableApplicationLogs: boolean
+maintenanceConfig:
+  maintenanceAddressCidrBlocks:
+    - type: string
+nodeConfig:
+  maxPodsPerNode: string
+  containerRuntime: string
+fleet:
+  membership: string
+status:
+  errorMessage: string
+  conditions:
+    - type: string
+      reason: string
+      message: string
+      lastTransitionTime: string
+      state: string
+  version: string
+  versions:
+    versions:
+      - version: string
+        count: string
+validationCheck:
+  option: string
+  status:
+    result:
+      - state: string
+        description: string
+        category: string
+        reason: string
+        details: string
+  scenario: string
+securityConfig:
+  authorization:
+    adminUsers:
+      - username: string
+maintenanceStatus:
+  machineDrainStatus:
+    drainingMachines:
+      - nodeIp: string
+        podCount: integer
+    drainedMachines:
+      - nodeIp: string
+adminClusterName: string
+nodeAccessConfig:
+  loginUser: string
+osEnvironmentConfig:
+  packageRepoExcluded: boolean
+binaryAuthorization:
+  evaluationMode: string
+upgradePolicy:
+  policy: string
+  pause: boolean
 
 ```
 </TabItem>

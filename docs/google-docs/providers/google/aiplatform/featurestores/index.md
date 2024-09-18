@@ -114,30 +114,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: onlineStorageTtlDays
-      value: '{{ onlineStorageTtlDays }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: onlineServingConfig
-      value:
-        - name: scaling
-          value:
-            - name: cpuUtilizationTarget
-              value: '{{ cpuUtilizationTarget }}'
-            - name: maxNodeCount
-              value: '{{ maxNodeCount }}'
-            - name: minNodeCount
-              value: '{{ minNodeCount }}'
-        - name: fixedNodeCount
-          value: '{{ fixedNodeCount }}'
+onlineStorageTtlDays: integer
+encryptionSpec:
+  kmsKeyName: string
+name: string
+state: string
+createTime: string
+labels: object
+etag: string
+onlineServingConfig:
+  scaling:
+    cpuUtilizationTarget: integer
+    maxNodeCount: integer
+    minNodeCount: integer
+  fixedNodeCount: integer
+satisfiesPzs: boolean
+updateTime: string
+satisfiesPzi: boolean
 
 ```
 </TabItem>

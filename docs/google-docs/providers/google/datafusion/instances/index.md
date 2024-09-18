@@ -189,76 +189,67 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
-    - name: enableStackdriverLogging
-      value: '{{ enableStackdriverLogging }}'
-    - name: enableStackdriverMonitoring
-      value: '{{ enableStackdriverMonitoring }}'
-    - name: privateInstance
-      value: '{{ privateInstance }}'
-    - name: networkConfig
-      value:
-        - name: network
-          value: '{{ network }}'
-        - name: ipAllocation
-          value: '{{ ipAllocation }}'
-        - name: connectionType
-          value: '{{ connectionType }}'
-        - name: privateServiceConnectConfig
-          value:
-            - name: networkAttachment
-              value: '{{ networkAttachment }}'
-            - name: unreachableCidrBlock
-              value: '{{ unreachableCidrBlock }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: options
-      value: '{{ options }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: version
-      value: '{{ version }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: dataprocServiceAccount
-      value: '{{ dataprocServiceAccount }}'
-    - name: enableRbac
-      value: '{{ enableRbac }}'
-    - name: cryptoKeyConfig
-      value:
-        - name: keyReference
-          value: '{{ keyReference }}'
-    - name: eventPublishConfig
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: topic
-          value: '{{ topic }}'
-    - name: enableZoneSeparation
-      value: '{{ enableZoneSeparation }}'
-    - name: patchRevision
-      value: '{{ patchRevision }}'
-    - name: dataplexDataLineageIntegrationEnabled
-      value: '{{ dataplexDataLineageIntegrationEnabled }}'
-    - name: maintenancePolicy
-      value:
-        - name: maintenanceWindow
-          value:
-            - name: recurringTimeWindow
-              value:
-                - name: window
-                  value:
-                    - name: startTime
-                      value: '{{ startTime }}'
-                    - name: endTime
-                      value: '{{ endTime }}'
-                - name: recurrence
-                  value: '{{ recurrence }}'
+name: string
+description: string
+type: string
+enableStackdriverLogging: boolean
+enableStackdriverMonitoring: boolean
+privateInstance: boolean
+networkConfig:
+  network: string
+  ipAllocation: string
+  connectionType: string
+  privateServiceConnectConfig:
+    networkAttachment: string
+    unreachableCidrBlock: string
+    effectiveUnreachableCidrBlock: string
+labels: object
+options: object
+createTime: string
+updateTime: string
+state: string
+stateMessage: string
+serviceEndpoint: string
+zone: string
+version: string
+serviceAccount: string
+displayName: string
+availableVersion:
+  - versionNumber: string
+    defaultVersion: boolean
+    availableFeatures:
+      - type: string
+    type: string
+apiEndpoint: string
+gcsBucket: string
+accelerators:
+  - acceleratorType: string
+    state: string
+p4ServiceAccount: string
+tenantProjectId: string
+dataprocServiceAccount: string
+enableRbac: boolean
+cryptoKeyConfig:
+  keyReference: string
+disabledReason:
+  - type: string
+    enumDescriptions: string
+    enum: string
+eventPublishConfig:
+  enabled: boolean
+  topic: string
+enableZoneSeparation: boolean
+satisfiesPzs: boolean
+workforceIdentityServiceEndpoint: string
+patchRevision: string
+dataplexDataLineageIntegrationEnabled: boolean
+maintenancePolicy:
+  maintenanceWindow:
+    recurringTimeWindow:
+      window:
+        startTime: string
+        endTime: string
+      recurrence: string
 
 ```
 </TabItem>

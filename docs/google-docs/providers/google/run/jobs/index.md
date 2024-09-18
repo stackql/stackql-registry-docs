@@ -153,72 +153,139 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: client
-      value: '{{ client }}'
-    - name: clientVersion
-      value: '{{ clientVersion }}'
-    - name: launchStage
-      value: '{{ launchStage }}'
-    - name: binaryAuthorization
-      value:
-        - name: useDefault
-          value: '{{ useDefault }}'
-        - name: policy
-          value: '{{ policy }}'
-        - name: breakglassJustification
-          value: '{{ breakglassJustification }}'
-    - name: template
-      value:
-        - name: labels
-          value: '{{ labels }}'
-        - name: annotations
-          value: '{{ annotations }}'
-        - name: parallelism
-          value: '{{ parallelism }}'
-        - name: taskCount
-          value: '{{ taskCount }}'
-        - name: template
-          value:
-            - name: containers
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: volumes
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: maxRetries
-              value: '{{ maxRetries }}'
-            - name: timeout
-              value: '{{ timeout }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: executionEnvironment
-              value: '{{ executionEnvironment }}'
-            - name: encryptionKey
-              value: '{{ encryptionKey }}'
-            - name: vpcAccess
-              value:
-                - name: connector
-                  value: '{{ connector }}'
-                - name: egress
-                  value: '{{ egress }}'
-                - name: networkInterfaces
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-    - name: startExecutionToken
-      value: '{{ startExecutionToken }}'
-    - name: runExecutionToken
-      value: '{{ runExecutionToken }}'
+name: string
+uid: string
+generation: string
+labels: object
+annotations: object
+createTime: string
+updateTime: string
+deleteTime: string
+expireTime: string
+creator: string
+lastModifier: string
+client: string
+clientVersion: string
+launchStage: string
+binaryAuthorization:
+  useDefault: boolean
+  policy: string
+  breakglassJustification: string
+template:
+  labels: object
+  annotations: object
+  parallelism: integer
+  taskCount: integer
+  template:
+    containers:
+      - name: string
+        image: string
+        command:
+          - type: string
+        args:
+          - type: string
+        env:
+          - name: string
+            value: string
+            valueSource:
+              secretKeyRef:
+                secret: string
+                version: string
+        resources:
+          limits: object
+          cpuIdle: boolean
+          startupCpuBoost: boolean
+        ports:
+          - name: string
+            containerPort: integer
+        volumeMounts:
+          - name: string
+            mountPath: string
+        workingDir: string
+        livenessProbe:
+          initialDelaySeconds: integer
+          timeoutSeconds: integer
+          periodSeconds: integer
+          failureThreshold: integer
+          httpGet:
+            path: string
+            httpHeaders:
+              - name: string
+                value: string
+            port: integer
+          tcpSocket:
+            port: integer
+          grpc:
+            port: integer
+            service: string
+        dependsOn:
+          - type: string
+    volumes:
+      - name: string
+        secret:
+          secret: string
+          items:
+            - path: string
+              version: string
+              mode: integer
+          defaultMode: integer
+        cloudSqlInstance:
+          instances:
+            - type: string
+        emptyDir:
+          medium: string
+          sizeLimit: string
+        nfs:
+          server: string
+          path: string
+          readOnly: boolean
+        gcs:
+          bucket: string
+          readOnly: boolean
+    maxRetries: integer
+    timeout: string
+    serviceAccount: string
+    executionEnvironment: string
+    encryptionKey: string
+    vpcAccess:
+      connector: string
+      egress: string
+      networkInterfaces:
+        - network: string
+          subnetwork: string
+          tags:
+            - type: string
+observedGeneration: string
+terminalCondition:
+  type: string
+  state: string
+  message: string
+  lastTransitionTime: string
+  severity: string
+  reason: string
+  revisionReason: string
+  executionReason: string
+conditions:
+  - type: string
+    state: string
+    message: string
+    lastTransitionTime: string
+    severity: string
+    reason: string
+    revisionReason: string
+    executionReason: string
+executionCount: integer
+latestCreatedExecution:
+  name: string
+  createTime: string
+  completionTime: string
+  deleteTime: string
+  completionStatus: string
+reconciling: boolean
+satisfiesPzs: boolean
+startExecutionToken: string
+runExecutionToken: string
+etag: string
 
 ```
 </TabItem>

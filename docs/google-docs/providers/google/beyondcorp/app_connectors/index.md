@@ -71,76 +71,7 @@ FROM google.beyondcorp.app_connectors
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-
-## `INSERT` example
-
-Use the following StackQL query and manifest file to create a new <code>app_connectors</code> resource.
-
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
-```sql
-/*+ create */
-INSERT INTO google.beyondcorp.app_connectors (
-locationsId,
-projectsId,
-name,
-labels,
-displayName,
-principalInfo,
-resourceInfo
-)
-SELECT 
-'{{ locationsId }}',
-'{{ projectsId }}',
-'{{ name }}',
-'{{ labels }}',
-'{{ displayName }}',
-'{{ principalInfo }}',
-'{{ resourceInfo }}'
-;
-```
-</TabItem>
-<TabItem value="manifest">
-
-```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: principalInfo
-      value:
-        - name: serviceAccount
-          value:
-            - name: email
-              value: '{{ email }}'
-    - name: resourceInfo
-      value:
-        - name: status
-          value: '{{ status }}'
-        - name: resource
-          value: '{{ resource }}'
-        - name: time
-          value: '{{ time }}'
-        - name: sub
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-
-```
-</TabItem>
-</Tabs>
-
+undefined
 ## `UPDATE` example
 
 Updates a <code>app_connectors</code> resource.

@@ -115,26 +115,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requestorId
-      value: '{{ requestorId }}'
-    - name: certificateStatus
-      value: '{{ certificateStatus }}'
-    - name: credentialId
-      value: '{{ credentialId }}'
-    - name: rawCertificate
-      value:
-        - name: passphrase
-          value: '{{ passphrase }}'
-        - name: sslCertificate
-          value: '{{ sslCertificate }}'
-        - name: encryptedPrivateKey
-          value: '{{ encryptedPrivateKey }}'
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
+name: string
+validEndTime: string
+requestorId: string
+certificateStatus: string
+credentialId: string
+rawCertificate:
+  passphrase: string
+  sslCertificate: string
+  encryptedPrivateKey: string
+validStartTime: string
+description: string
+displayName: string
 
 ```
 </TabItem>

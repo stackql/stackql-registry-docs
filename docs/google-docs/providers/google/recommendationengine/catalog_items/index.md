@@ -118,58 +118,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: categoryHierarchies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: title
-      value: '{{ title }}'
-    - name: description
-      value: '{{ description }}'
-    - name: itemAttributes
-      value:
-        - name: categoricalFeatures
-          value: '{{ categoricalFeatures }}'
-        - name: numericalFeatures
-          value: '{{ numericalFeatures }}'
-    - name: languageCode
-      value: '{{ languageCode }}'
-    - name: tags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: itemGroupId
-      value: '{{ itemGroupId }}'
-    - name: productMetadata
-      value:
-        - name: exactPrice
-          value:
-            - name: displayPrice
-              value: '{{ displayPrice }}'
-            - name: originalPrice
-              value: '{{ originalPrice }}'
-        - name: priceRange
-          value:
-            - name: min
-              value: '{{ min }}'
-            - name: max
-              value: '{{ max }}'
-        - name: costs
-          value: '{{ costs }}'
-        - name: currencyCode
-          value: '{{ currencyCode }}'
-        - name: stockState
-          value: '{{ stockState }}'
-        - name: availableQuantity
-          value: '{{ availableQuantity }}'
-        - name: canonicalProductUri
-          value: '{{ canonicalProductUri }}'
-        - name: images
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+id: string
+categoryHierarchies:
+  - categories:
+      - type: string
+title: string
+description: string
+itemAttributes:
+  categoricalFeatures: object
+  numericalFeatures: object
+languageCode: string
+tags:
+  - type: string
+itemGroupId: string
+productMetadata:
+  exactPrice:
+    displayPrice: number
+    originalPrice: number
+  priceRange:
+    min: number
+    max: number
+  costs: object
+  currencyCode: string
+  stockState: string
+  availableQuantity: string
+  canonicalProductUri: string
+  images:
+    - uri: string
+      height: integer
+      width: integer
 
 ```
 </TabItem>

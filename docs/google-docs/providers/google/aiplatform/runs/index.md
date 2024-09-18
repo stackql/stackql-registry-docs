@@ -104,12 +104,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requests
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+requests:
+  - tensorboardRun:
+      createTime: string
+      name: string
+      updateTime: string
+      displayName: string
+      etag: string
+      description: string
+      labels: object
+    tensorboardRunId: string
+    parent: string
 
 ```
 </TabItem>

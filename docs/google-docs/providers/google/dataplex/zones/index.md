@@ -119,50 +119,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
-    - name: discoverySpec
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: includePatterns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: excludePatterns
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: csvOptions
-          value:
-            - name: headerRows
-              value: '{{ headerRows }}'
-            - name: delimiter
-              value: '{{ delimiter }}'
-            - name: encoding
-              value: '{{ encoding }}'
-            - name: disableTypeInference
-              value: '{{ disableTypeInference }}'
-        - name: jsonOptions
-          value:
-            - name: encoding
-              value: '{{ encoding }}'
-            - name: disableTypeInference
-              value: '{{ disableTypeInference }}'
-        - name: schedule
-          value: '{{ schedule }}'
-    - name: resourceSpec
-      value:
-        - name: locationType
-          value: '{{ locationType }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+state: string
+type: string
+discoverySpec:
+  enabled: boolean
+  includePatterns:
+    - type: string
+  excludePatterns:
+    - type: string
+  csvOptions:
+    headerRows: integer
+    delimiter: string
+    encoding: string
+    disableTypeInference: boolean
+  jsonOptions:
+    encoding: string
+    disableTypeInference: boolean
+  schedule: string
+resourceSpec:
+  locationType: string
+assetStatus:
+  updateTime: string
+  activeAssets: integer
+  securityPolicyApplyingAssets: integer
 
 ```
 </TabItem>

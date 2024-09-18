@@ -117,26 +117,79 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: serialPipeline
-      value:
-        - name: stages
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: suspended
-      value: '{{ suspended }}'
+name: string
+uid: string
+description: string
+annotations: object
+labels: object
+createTime: string
+updateTime: string
+serialPipeline:
+  stages:
+    - targetId: string
+      profiles:
+        - type: string
+      strategy:
+        standard:
+          verify: boolean
+          predeploy:
+            actions:
+              - type: string
+          postdeploy:
+            actions:
+              - type: string
+        canary:
+          runtimeConfig:
+            kubernetes:
+              gatewayServiceMesh:
+                httpRoute: string
+                service: string
+                deployment: string
+                routeUpdateWaitTime: string
+                stableCutbackDuration: string
+                podSelectorLabel: string
+              serviceNetworking:
+                service: string
+                deployment: string
+                disablePodOverprovisioning: boolean
+                podSelectorLabel: string
+            cloudRun:
+              automaticTrafficControl: boolean
+              canaryRevisionTags:
+                - type: string
+              priorRevisionTags:
+                - type: string
+              stableRevisionTags:
+                - type: string
+          canaryDeployment:
+            percentages:
+              - type: string
+                format: string
+            verify: boolean
+          customCanaryDeployment:
+            phaseConfigs:
+              - phaseId: string
+                percentage: integer
+                profiles:
+                  - type: string
+                verify: boolean
+      deployParameters:
+        - values: object
+          matchTargetLabels: object
+condition:
+  pipelineReadyCondition:
+    status: boolean
+    updateTime: string
+  targetsPresentCondition:
+    status: boolean
+    missingTargets:
+      - type: string
+    updateTime: string
+  targetsTypeCondition:
+    status: boolean
+    errorDetails: string
+etag: string
+suspended: boolean
 
 ```
 </TabItem>

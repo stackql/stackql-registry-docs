@@ -70,12 +70,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: instances
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+instances:
+  - name: string
+    preservedState:
+      disks: object
+      metadata: object
+      internalIPs: object
+      externalIPs: object
+    status: string
+    fingerprint: string
 
 ```
 </TabItem>

@@ -112,12 +112,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requests
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+requests:
+  - parent: string
+    targetSite:
+      name: string
+      providedUriPattern: string
+      type: string
+      exactMatch: boolean
+      generatedUriPattern: string
+      rootDomainUri: string
+      siteVerificationInfo:
+        siteVerificationState: string
+        verifyTime: string
+      indexingStatus: string
+      updateTime: string
+      failureReason:
+        quotaFailure:
+          totalRequiredQuota: string
 
 ```
 </TabItem>

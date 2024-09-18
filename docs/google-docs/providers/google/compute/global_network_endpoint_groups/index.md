@@ -146,62 +146,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: networkEndpointType
-      value: '{{ networkEndpointType }}'
-    - name: size
-      value: '{{ size }}'
-    - name: region
-      value: '{{ region }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: network
-      value: '{{ network }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: defaultPort
-      value: '{{ defaultPort }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: cloudRun
-      value:
-        - name: service
-          value: '{{ service }}'
-        - name: tag
-          value: '{{ tag }}'
-        - name: urlMask
-          value: '{{ urlMask }}'
-    - name: appEngine
-      value:
-        - name: service
-          value: '{{ service }}'
-        - name: version
-          value: '{{ version }}'
-        - name: urlMask
-          value: '{{ urlMask }}'
-    - name: cloudFunction
-      value:
-        - name: function
-          value: '{{ function }}'
-        - name: urlMask
-          value: '{{ urlMask }}'
-    - name: pscTargetService
-      value: '{{ pscTargetService }}'
-    - name: pscData
-      value:
-        - name: consumerPscAddress
-          value: '{{ consumerPscAddress }}'
-        - name: pscConnectionId
-          value: '{{ pscConnectionId }}'
-        - name: pscConnectionStatus
-          value: '{{ pscConnectionStatus }}'
-        - name: producerPort
-          value: '{{ producerPort }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+name: string
+description: string
+networkEndpointType: string
+size: integer
+region: string
+zone: string
+network: string
+subnetwork: string
+defaultPort: integer
+annotations: object
+cloudRun:
+  service: string
+  tag: string
+  urlMask: string
+appEngine:
+  service: string
+  version: string
+  urlMask: string
+cloudFunction:
+  function: string
+  urlMask: string
+pscTargetService: string
+pscData:
+  consumerPscAddress: string
+  pscConnectionId: string
+  pscConnectionStatus: string
+  producerPort: integer
 
 ```
 </TabItem>

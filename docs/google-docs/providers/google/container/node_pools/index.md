@@ -149,292 +149,186 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: clusterId
-      value: '{{ clusterId }}'
-    - name: nodePool
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: config
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-            - name: diskSizeGb
-              value: '{{ diskSizeGb }}'
-            - name: oauthScopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: metadata
-              value: '{{ metadata }}'
-            - name: imageType
-              value: '{{ imageType }}'
-            - name: labels
-              value: '{{ labels }}'
-            - name: localSsdCount
-              value: '{{ localSsdCount }}'
-            - name: tags
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: preemptible
-              value: '{{ preemptible }}'
-            - name: accelerators
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: diskType
-              value: '{{ diskType }}'
-            - name: minCpuPlatform
-              value: '{{ minCpuPlatform }}'
-            - name: workloadMetadataConfig
-              value:
-                - name: mode
-                  value: '{{ mode }}'
-            - name: taints
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: sandboxConfig
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: nodeGroup
-              value: '{{ nodeGroup }}'
-            - name: reservationAffinity
-              value:
-                - name: consumeReservationType
-                  value: '{{ consumeReservationType }}'
-                - name: key
-                  value: '{{ key }}'
-                - name: values
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: shieldedInstanceConfig
-              value:
-                - name: enableSecureBoot
-                  value: '{{ enableSecureBoot }}'
-                - name: enableIntegrityMonitoring
-                  value: '{{ enableIntegrityMonitoring }}'
-            - name: linuxNodeConfig
-              value:
-                - name: sysctls
-                  value: '{{ sysctls }}'
-                - name: cgroupMode
-                  value: '{{ cgroupMode }}'
-                - name: hugepages
-                  value:
-                    - name: hugepageSize2m
-                      value: '{{ hugepageSize2m }}'
-                    - name: hugepageSize1g
-                      value: '{{ hugepageSize1g }}'
-            - name: kubeletConfig
-              value:
-                - name: cpuManagerPolicy
-                  value: '{{ cpuManagerPolicy }}'
-                - name: cpuCfsQuota
-                  value: '{{ cpuCfsQuota }}'
-                - name: cpuCfsQuotaPeriod
-                  value: '{{ cpuCfsQuotaPeriod }}'
-                - name: podPidsLimit
-                  value: '{{ podPidsLimit }}'
-                - name: insecureKubeletReadonlyPortEnabled
-                  value: '{{ insecureKubeletReadonlyPortEnabled }}'
-            - name: bootDiskKmsKey
-              value: '{{ bootDiskKmsKey }}'
-            - name: gcfsConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: advancedMachineFeatures
-              value:
-                - name: threadsPerCore
-                  value: '{{ threadsPerCore }}'
-                - name: enableNestedVirtualization
-                  value: '{{ enableNestedVirtualization }}'
-            - name: gvnic
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: spot
-              value: '{{ spot }}'
-            - name: confidentialNodes
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: fastSocket
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: resourceLabels
-              value: '{{ resourceLabels }}'
-            - name: loggingConfig
-              value:
-                - name: variantConfig
-                  value:
-                    - name: variant
-                      value: '{{ variant }}'
-            - name: windowsNodeConfig
-              value:
-                - name: osVersion
-                  value: '{{ osVersion }}'
-            - name: localNvmeSsdBlockConfig
-              value:
-                - name: localSsdCount
-                  value: '{{ localSsdCount }}'
-            - name: ephemeralStorageLocalSsdConfig
-              value:
-                - name: localSsdCount
-                  value: '{{ localSsdCount }}'
-            - name: soleTenantConfig
-              value:
-                - name: nodeAffinities
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: containerdConfig
-              value:
-                - name: privateRegistryAccessConfig
-                  value:
-                    - name: enabled
-                      value: '{{ enabled }}'
-                    - name: certificateAuthorityDomainConfig
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-            - name: resourceManagerTags
-              value:
-                - name: tags
-                  value: '{{ tags }}'
-            - name: enableConfidentialStorage
-              value: '{{ enableConfidentialStorage }}'
-            - name: secondaryBootDisks
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: storagePools
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: secondaryBootDiskUpdateStrategy
-              value: []
-        - name: initialNodeCount
-          value: '{{ initialNodeCount }}'
-        - name: locations
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: networkConfig
-          value:
-            - name: createPodRange
-              value: '{{ createPodRange }}'
-            - name: podRange
-              value: '{{ podRange }}'
-            - name: podIpv4CidrBlock
-              value: '{{ podIpv4CidrBlock }}'
-            - name: enablePrivateNodes
-              value: '{{ enablePrivateNodes }}'
-            - name: networkPerformanceConfig
-              value:
-                - name: totalEgressBandwidthTier
-                  value: '{{ totalEgressBandwidthTier }}'
-            - name: podCidrOverprovisionConfig
-              value:
-                - name: disable
-                  value: '{{ disable }}'
-            - name: additionalNodeNetworkConfigs
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: additionalPodNetworkConfigs
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: version
-          value: '{{ version }}'
-        - name: autoscaling
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: minNodeCount
-              value: '{{ minNodeCount }}'
-            - name: maxNodeCount
-              value: '{{ maxNodeCount }}'
-            - name: autoprovisioned
-              value: '{{ autoprovisioned }}'
-            - name: locationPolicy
-              value: '{{ locationPolicy }}'
-            - name: totalMinNodeCount
-              value: '{{ totalMinNodeCount }}'
-            - name: totalMaxNodeCount
-              value: '{{ totalMaxNodeCount }}'
-        - name: management
-          value:
-            - name: autoUpgrade
-              value: '{{ autoUpgrade }}'
-            - name: autoRepair
-              value: '{{ autoRepair }}'
-            - name: upgradeOptions
-              value: []
-        - name: maxPodsConstraint
-          value:
-            - name: maxPodsPerNode
-              value: '{{ maxPodsPerNode }}'
-        - name: conditions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: upgradeSettings
-          value:
-            - name: maxSurge
-              value: '{{ maxSurge }}'
-            - name: maxUnavailable
-              value: '{{ maxUnavailable }}'
-            - name: strategy
-              value: '{{ strategy }}'
-            - name: blueGreenSettings
-              value:
-                - name: standardRolloutPolicy
-                  value:
-                    - name: batchPercentage
-                      value: '{{ batchPercentage }}'
-                    - name: batchNodeCount
-                      value: '{{ batchNodeCount }}'
-                    - name: batchSoakDuration
-                      value: '{{ batchSoakDuration }}'
-                - name: nodePoolSoakDuration
-                  value: '{{ nodePoolSoakDuration }}'
-        - name: placementPolicy
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: tpuTopology
-              value: '{{ tpuTopology }}'
-            - name: policyName
-              value: '{{ policyName }}'
-        - name: etag
-          value: '{{ etag }}'
-        - name: queuedProvisioning
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: bestEffortProvisioning
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: minProvisionNodes
-              value: '{{ minProvisionNodes }}'
-    - name: parent
-      value: '{{ parent }}'
+projectId: string
+zone: string
+clusterId: string
+nodePool:
+  name: string
+  config:
+    machineType: string
+    diskSizeGb: integer
+    oauthScopes:
+      - type: string
+    serviceAccount: string
+    metadata: object
+    imageType: string
+    labels: object
+    localSsdCount: integer
+    tags:
+      - type: string
+    preemptible: boolean
+    accelerators:
+      - acceleratorCount: string
+        acceleratorType: string
+        gpuPartitionSize: string
+        gpuSharingConfig:
+          maxSharedClientsPerGpu: string
+          gpuSharingStrategy: string
+        gpuDriverInstallationConfig:
+          gpuDriverVersion: string
+    diskType: string
+    minCpuPlatform: string
+    workloadMetadataConfig:
+      mode: string
+    taints:
+      - key: string
+        value: string
+        effect: string
+    sandboxConfig:
+      type: string
+    nodeGroup: string
+    reservationAffinity:
+      consumeReservationType: string
+      key: string
+      values:
+        - type: string
+    shieldedInstanceConfig:
+      enableSecureBoot: boolean
+      enableIntegrityMonitoring: boolean
+    linuxNodeConfig:
+      sysctls: object
+      cgroupMode: string
+      hugepages:
+        hugepageSize2m: integer
+        hugepageSize1g: integer
+    kubeletConfig:
+      cpuManagerPolicy: string
+      cpuCfsQuota: boolean
+      cpuCfsQuotaPeriod: string
+      podPidsLimit: string
+      insecureKubeletReadonlyPortEnabled: boolean
+    bootDiskKmsKey: string
+    gcfsConfig:
+      enabled: boolean
+    advancedMachineFeatures:
+      threadsPerCore: string
+      enableNestedVirtualization: boolean
+    gvnic:
+      enabled: boolean
+    spot: boolean
+    confidentialNodes:
+      enabled: boolean
+    fastSocket:
+      enabled: boolean
+    resourceLabels: object
+    loggingConfig:
+      variantConfig:
+        variant: string
+    windowsNodeConfig:
+      osVersion: string
+    localNvmeSsdBlockConfig:
+      localSsdCount: integer
+    ephemeralStorageLocalSsdConfig:
+      localSsdCount: integer
+    soleTenantConfig:
+      nodeAffinities:
+        - key: string
+          operator: string
+          values:
+            - type: string
+    containerdConfig:
+      privateRegistryAccessConfig:
+        enabled: boolean
+        certificateAuthorityDomainConfig:
+          - fqdns:
+              - type: string
+            gcpSecretManagerCertificateConfig:
+              secretUri: string
+    resourceManagerTags:
+      tags: object
+    enableConfidentialStorage: boolean
+    secondaryBootDisks:
+      - mode: string
+        diskImage: string
+    storagePools:
+      - type: string
+    secondaryBootDiskUpdateStrategy: {}
+  initialNodeCount: integer
+  locations:
+    - type: string
+  networkConfig:
+    createPodRange: boolean
+    podRange: string
+    podIpv4CidrBlock: string
+    enablePrivateNodes: boolean
+    networkPerformanceConfig:
+      totalEgressBandwidthTier: string
+    podCidrOverprovisionConfig:
+      disable: boolean
+    additionalNodeNetworkConfigs:
+      - network: string
+        subnetwork: string
+    additionalPodNetworkConfigs:
+      - subnetwork: string
+        secondaryPodRange: string
+        maxPodsPerNode:
+          maxPodsPerNode: string
+    podIpv4RangeUtilization: number
+  selfLink: string
+  version: string
+  instanceGroupUrls:
+    - type: string
+  status: string
+  statusMessage: string
+  autoscaling:
+    enabled: boolean
+    minNodeCount: integer
+    maxNodeCount: integer
+    autoprovisioned: boolean
+    locationPolicy: string
+    totalMinNodeCount: integer
+    totalMaxNodeCount: integer
+  management:
+    autoUpgrade: boolean
+    autoRepair: boolean
+    upgradeOptions:
+      autoUpgradeStartTime: string
+      description: string
+  conditions:
+    - code: string
+      message: string
+      canonicalCode: string
+  podIpv4CidrSize: integer
+  upgradeSettings:
+    maxSurge: integer
+    maxUnavailable: integer
+    strategy: string
+    blueGreenSettings:
+      standardRolloutPolicy:
+        batchPercentage: number
+        batchNodeCount: integer
+        batchSoakDuration: string
+      nodePoolSoakDuration: string
+  placementPolicy:
+    type: string
+    tpuTopology: string
+    policyName: string
+  updateInfo:
+    blueGreenInfo:
+      phase: string
+      blueInstanceGroupUrls:
+        - type: string
+      greenInstanceGroupUrls:
+        - type: string
+      bluePoolDeletionStartTime: string
+      greenPoolVersion: string
+  etag: string
+  queuedProvisioning:
+    enabled: boolean
+  bestEffortProvisioning:
+    enabled: boolean
+    minProvisionNodes: integer
+parent: string
 
 ```
 </TabItem>

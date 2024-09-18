@@ -107,8 +107,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props: []
+computeEngineTargetDetails:
+  vmName: string
+  project: string
+  zone: string
+  machineTypeSeries: string
+  machineType: string
+  networkTags:
+    - type: string
+  networkInterfaces:
+    - network: string
+      subnetwork: string
+      internalIp: string
+      externalIp: string
+      networkTier: string
+  serviceAccount: string
+  diskType: string
+  labels: object
+  licenseType: string
+  appliedLicense:
+    type: string
+    osLicense: string
+  computeScheduling:
+    onHostMaintenance: string
+    restartType: string
+    nodeAffinities:
+      - key: string
+        operator: string
+        values:
+          - type: string
+    minNodeCpus: integer
+  secureBoot: boolean
+  enableVtpm: boolean
+  enableIntegrityMonitoring: boolean
+  bootOption: string
+  metadata: object
+  additionalLicenses:
+    - type: string
+  hostname: string
+  encryption:
+    kmsKey: string
+  bootConversion: string
+computeEngineDisksTargetDetails:
+  disksTargetDetails: {}
+  vmTargetDetails:
+    vmUri: string
+  disks:
+    - sourceDiskNumber: integer
+      diskUri: string
+createTime: string
+endTime: string
+name: string
+state: string
+stateTime: string
+progressPercent: integer
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+stateMessage: string
+steps:
+  - previousReplicationCycle:
+      name: string
+      cycleNumber: integer
+      startTime: string
+      endTime: string
+      totalPauseDuration: string
+      progressPercent: integer
+      steps:
+        - initializingReplication: {}
+          replicating:
+            totalBytes: string
+            replicatedBytes: string
+            lastTwoMinutesAverageBytesPerSecond: string
+            lastThirtyMinutesAverageBytesPerSecond: string
+          postProcessing: {}
+          startTime: string
+          endTime: string
+      state: string
+      warnings:
+        - code: string
+          warningMessage:
+            locale: string
+            message: string
+          helpLinks:
+            - description: string
+              url: string
+          warningTime: string
+    shuttingDownSourceVm: {}
+    preparingVmDisks: {}
+    instantiatingMigratedVm: {}
+    startTime: string
+    endTime: string
 
 ```
 </TabItem>

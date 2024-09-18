@@ -132,34 +132,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: network
-      value: '{{ network }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: privateClusterConfig
-      value:
-        - name: enablePrivateEndpoint
-          value: '{{ enablePrivateEndpoint }}'
-        - name: allowedProjects
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: domainConfig
-      value:
-        - name: domain
-          value: '{{ domain }}'
+name: string
+displayName: string
+uid: string
+reconciling: boolean
+annotations: object
+labels: object
+createTime: string
+updateTime: string
+deleteTime: string
+etag: string
+network: string
+subnetwork: string
+controlPlaneIp: string
+privateClusterConfig:
+  enablePrivateEndpoint: boolean
+  clusterHostname: string
+  serviceAttachmentUri: string
+  allowedProjects:
+    - type: string
+domainConfig:
+  domain: string
+degraded: boolean
+conditions:
+  - code: integer
+    message: string
+    details:
+      - type: string
+        additionalProperties: any
 
 ```
 </TabItem>

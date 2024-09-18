@@ -114,30 +114,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: hostnames
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: meshes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: gateways
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+selfLink: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+hostnames:
+  - type: string
+meshes:
+  - type: string
+gateways:
+  - type: string
+rules:
+  - matches:
+      - method:
+          type: string
+          grpcService: string
+          grpcMethod: string
+          caseSensitive: boolean
+        headers:
+          - type: string
+            key: string
+            value: string
+    action:
+      destinations:
+        - serviceName: string
+          weight: integer
+      faultInjectionPolicy:
+        delay:
+          fixedDelay: string
+          percentage: integer
+        abort:
+          httpStatus: integer
+          percentage: integer
+      timeout: string
+      retryPolicy:
+        retryConditions:
+          - type: string
+        numRetries: integer
+      statefulSessionAffinity:
+        cookieTtl: string
+      idleTimeout: string
 
 ```
 </TabItem>

@@ -123,68 +123,41 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: bucketName
-      value: '{{ bucketName }}'
-    - name: enableCdn
-      value: '{{ enableCdn }}'
-    - name: cdnPolicy
-      value:
-        - name: signedUrlKeyNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: signedUrlCacheMaxAgeSec
-          value: '{{ signedUrlCacheMaxAgeSec }}'
-        - name: requestCoalescing
-          value: '{{ requestCoalescing }}'
-        - name: cacheMode
-          value: '{{ cacheMode }}'
-        - name: defaultTtl
-          value: '{{ defaultTtl }}'
-        - name: maxTtl
-          value: '{{ maxTtl }}'
-        - name: clientTtl
-          value: '{{ clientTtl }}'
-        - name: negativeCaching
-          value: '{{ negativeCaching }}'
-        - name: negativeCachingPolicy
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: bypassCacheOnRequestHeaders
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: serveWhileStale
-          value: '{{ serveWhileStale }}'
-        - name: cacheKeyPolicy
-          value:
-            - name: queryStringWhitelist
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: includeHttpHeaders
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: customResponseHeaders
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: edgeSecurityPolicy
-      value: '{{ edgeSecurityPolicy }}'
-    - name: compressionMode
-      value: '{{ compressionMode }}'
-    - name: usedBy
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+bucketName: string
+enableCdn: boolean
+cdnPolicy:
+  signedUrlKeyNames:
+    - type: string
+  signedUrlCacheMaxAgeSec: string
+  requestCoalescing: boolean
+  cacheMode: string
+  defaultTtl: integer
+  maxTtl: integer
+  clientTtl: integer
+  negativeCaching: boolean
+  negativeCachingPolicy:
+    - code: integer
+      ttl: integer
+  bypassCacheOnRequestHeaders:
+    - headerName: string
+  serveWhileStale: integer
+  cacheKeyPolicy:
+    queryStringWhitelist:
+      - type: string
+    includeHttpHeaders:
+      - type: string
+customResponseHeaders:
+  - type: string
+edgeSecurityPolicy: string
+compressionMode: string
+usedBy:
+  - reference: string
 
 ```
 </TabItem>

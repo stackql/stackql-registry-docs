@@ -124,82 +124,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: apiProxies
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: conditionConfig
-      value:
-        - name: asns
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: format
-              value: '{{ format }}'
-        - name: ipAddressRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: botReasons
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: apiKeys
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: httpMethods
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: accessTokens
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: developers
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: regionCodes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: apiProducts
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: developerApps
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: userAgents
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: deny
-      value:
-        - name: responseCode
-          value: '{{ responseCode }}'
-    - name: state
-      value: '{{ state }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: allow
-      value: []
-    - name: flag
-      value:
-        - name: headers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
+apiProxies:
+  - type: string
+createTime: string
+updateTime: string
+name: string
+description: string
+conditionConfig:
+  asns:
+    - type: string
+      format: string
+  ipAddressRanges:
+    - type: string
+  botReasons:
+    - type: string
+  apiKeys:
+    - type: string
+  httpMethods:
+    - type: string
+  accessTokens:
+    - type: string
+  developers:
+    - type: string
+  regionCodes:
+    - type: string
+  apiProducts:
+    - type: string
+  developerApps:
+    - type: string
+  userAgents:
+    - type: string
+deny:
+  responseCode: integer
+state: string
+ttl: string
+allow: {}
+flag:
+  headers:
+    - value: string
+      name: string
+expireTime: string
 
 ```
 </TabItem>

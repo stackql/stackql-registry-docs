@@ -102,20 +102,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: queryScope
-      value: '{{ queryScope }}'
-    - name: apiScope
-      value: '{{ apiScope }}'
-    - name: fields
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: state
-      value: '{{ state }}'
+name: string
+queryScope: string
+apiScope: string
+fields:
+  - fieldPath: string
+    order: string
+    arrayConfig: string
+    vectorConfig:
+      dimension: integer
+      flat: {}
+state: string
 
 ```
 </TabItem>

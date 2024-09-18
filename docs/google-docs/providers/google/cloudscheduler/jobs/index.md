@@ -129,80 +129,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: pubsubTarget
-      value:
-        - name: topicName
-          value: '{{ topicName }}'
-        - name: data
-          value: '{{ data }}'
-        - name: attributes
-          value: '{{ attributes }}'
-    - name: appEngineHttpTarget
-      value:
-        - name: httpMethod
-          value: '{{ httpMethod }}'
-        - name: appEngineRouting
-          value:
-            - name: service
-              value: '{{ service }}'
-            - name: version
-              value: '{{ version }}'
-            - name: instance
-              value: '{{ instance }}'
-            - name: host
-              value: '{{ host }}'
-        - name: relativeUri
-          value: '{{ relativeUri }}'
-        - name: headers
-          value: '{{ headers }}'
-        - name: body
-          value: '{{ body }}'
-    - name: httpTarget
-      value:
-        - name: uri
-          value: '{{ uri }}'
-        - name: httpMethod
-          value: '{{ httpMethod }}'
-        - name: headers
-          value: '{{ headers }}'
-        - name: body
-          value: '{{ body }}'
-        - name: oauthToken
-          value:
-            - name: serviceAccountEmail
-              value: '{{ serviceAccountEmail }}'
-            - name: scope
-              value: '{{ scope }}'
-        - name: oidcToken
-          value:
-            - name: serviceAccountEmail
-              value: '{{ serviceAccountEmail }}'
-            - name: audience
-              value: '{{ audience }}'
-    - name: schedule
-      value: '{{ schedule }}'
-    - name: timeZone
-      value: '{{ timeZone }}'
-    - name: retryConfig
-      value:
-        - name: retryCount
-          value: '{{ retryCount }}'
-        - name: maxRetryDuration
-          value: '{{ maxRetryDuration }}'
-        - name: minBackoffDuration
-          value: '{{ minBackoffDuration }}'
-        - name: maxBackoffDuration
-          value: '{{ maxBackoffDuration }}'
-        - name: maxDoublings
-          value: '{{ maxDoublings }}'
-    - name: attemptDeadline
-      value: '{{ attemptDeadline }}'
+name: string
+description: string
+pubsubTarget:
+  topicName: string
+  data: string
+  attributes: object
+appEngineHttpTarget:
+  httpMethod: string
+  appEngineRouting:
+    service: string
+    version: string
+    instance: string
+    host: string
+  relativeUri: string
+  headers: object
+  body: string
+httpTarget:
+  uri: string
+  httpMethod: string
+  headers: object
+  body: string
+  oauthToken:
+    serviceAccountEmail: string
+    scope: string
+  oidcToken:
+    serviceAccountEmail: string
+    audience: string
+schedule: string
+timeZone: string
+userUpdateTime: string
+state: string
+status:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+scheduleTime: string
+lastAttemptTime: string
+retryConfig:
+  retryCount: integer
+  maxRetryDuration: string
+  minBackoffDuration: string
+  maxBackoffDuration: string
+  maxDoublings: integer
+attemptDeadline: string
 
 ```
 </TabItem>

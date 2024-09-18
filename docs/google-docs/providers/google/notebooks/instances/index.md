@@ -133,86 +133,77 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: gceSetup
-      value:
-        - name: machineType
-          value: '{{ machineType }}'
-        - name: minCpuPlatform
-          value: '{{ minCpuPlatform }}'
-        - name: acceleratorConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: serviceAccounts
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: vmImage
-          value:
-            - name: project
-              value: '{{ project }}'
-            - name: name
-              value: '{{ name }}'
-            - name: family
-              value: '{{ family }}'
-        - name: containerImage
-          value:
-            - name: repository
-              value: '{{ repository }}'
-            - name: tag
-              value: '{{ tag }}'
-        - name: bootDisk
-          value:
-            - name: diskSizeGb
-              value: '{{ diskSizeGb }}'
-            - name: diskType
-              value: '{{ diskType }}'
-            - name: diskEncryption
-              value: '{{ diskEncryption }}'
-            - name: kmsKey
-              value: '{{ kmsKey }}'
-        - name: dataDisks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: shieldedInstanceConfig
-          value:
-            - name: enableSecureBoot
-              value: '{{ enableSecureBoot }}'
-            - name: enableVtpm
-              value: '{{ enableVtpm }}'
-            - name: enableIntegrityMonitoring
-              value: '{{ enableIntegrityMonitoring }}'
-        - name: networkInterfaces
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: disablePublicIp
-          value: '{{ disablePublicIp }}'
-        - name: tags
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: metadata
-          value: '{{ metadata }}'
-        - name: enableIpForwarding
-          value: '{{ enableIpForwarding }}'
-        - name: gpuDriverConfig
-          value:
-            - name: enableGpuDriver
-              value: '{{ enableGpuDriver }}'
-            - name: customGpuDriverPath
-              value: '{{ customGpuDriverPath }}'
-    - name: instanceOwners
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: disableProxyAccess
-      value: '{{ disableProxyAccess }}'
-    - name: labels
-      value: '{{ labels }}'
+name: string
+gceSetup:
+  machineType: string
+  minCpuPlatform: string
+  acceleratorConfigs:
+    - type: string
+      coreCount: string
+  serviceAccounts:
+    - email: string
+      scopes:
+        - type: string
+  vmImage:
+    project: string
+    name: string
+    family: string
+  containerImage:
+    repository: string
+    tag: string
+  bootDisk:
+    diskSizeGb: string
+    diskType: string
+    diskEncryption: string
+    kmsKey: string
+  dataDisks:
+    - diskSizeGb: string
+      diskType: string
+      diskEncryption: string
+      kmsKey: string
+  shieldedInstanceConfig:
+    enableSecureBoot: boolean
+    enableVtpm: boolean
+    enableIntegrityMonitoring: boolean
+  networkInterfaces:
+    - network: string
+      subnet: string
+      nicType: string
+      accessConfigs:
+        - externalIp: string
+  disablePublicIp: boolean
+  tags:
+    - type: string
+  metadata: object
+  enableIpForwarding: boolean
+  gpuDriverConfig:
+    enableGpuDriver: boolean
+    customGpuDriverPath: string
+proxyUri: string
+instanceOwners:
+  - type: string
+creator: string
+state: string
+upgradeHistory:
+  - snapshot: string
+    vmImage: string
+    containerImage: string
+    framework: string
+    version: string
+    state: string
+    createTime: string
+    action: string
+    targetVersion: string
+id: string
+healthState: string
+healthInfo: object
+createTime: string
+updateTime: string
+disableProxyAccess: boolean
+labels: object
+thirdPartyProxyUrl: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

@@ -99,62 +99,51 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: roles
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: nodeGroupConfig
-      value:
-        - name: numInstances
-          value: '{{ numInstances }}'
-        - name: imageUri
-          value: '{{ imageUri }}'
-        - name: machineTypeUri
-          value: '{{ machineTypeUri }}'
-        - name: diskConfig
-          value:
-            - name: bootDiskType
-              value: '{{ bootDiskType }}'
-            - name: bootDiskSizeGb
-              value: '{{ bootDiskSizeGb }}'
-            - name: numLocalSsds
-              value: '{{ numLocalSsds }}'
-            - name: localSsdInterface
-              value: '{{ localSsdInterface }}'
-            - name: bootDiskProvisionedIops
-              value: '{{ bootDiskProvisionedIops }}'
-            - name: bootDiskProvisionedThroughput
-              value: '{{ bootDiskProvisionedThroughput }}'
-        - name: preemptibility
-          value: '{{ preemptibility }}'
-        - name: accelerators
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: minCpuPlatform
-          value: '{{ minCpuPlatform }}'
-        - name: minNumInstances
-          value: '{{ minNumInstances }}'
-        - name: instanceFlexibilityPolicy
-          value:
-            - name: instanceSelectionList
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: startupConfig
-          value:
-            - name: requiredRegistrationFraction
-              value: '{{ requiredRegistrationFraction }}'
-    - name: labels
-      value: '{{ labels }}'
+name: string
+roles:
+  - type: string
+    enumDescriptions: string
+    enum: string
+nodeGroupConfig:
+  numInstances: integer
+  instanceNames:
+    - type: string
+  instanceReferences:
+    - instanceName: string
+      instanceId: string
+      publicKey: string
+      publicEciesKey: string
+  imageUri: string
+  machineTypeUri: string
+  diskConfig:
+    bootDiskType: string
+    bootDiskSizeGb: integer
+    numLocalSsds: integer
+    localSsdInterface: string
+    bootDiskProvisionedIops: string
+    bootDiskProvisionedThroughput: string
+  isPreemptible: boolean
+  preemptibility: string
+  managedGroupConfig:
+    instanceTemplateName: string
+    instanceGroupManagerName: string
+    instanceGroupManagerUri: string
+  accelerators:
+    - acceleratorTypeUri: string
+      acceleratorCount: integer
+  minCpuPlatform: string
+  minNumInstances: integer
+  instanceFlexibilityPolicy:
+    instanceSelectionList:
+      - machineTypes:
+          - type: string
+        rank: integer
+    instanceSelectionResults:
+      - machineType: string
+        vmCount: integer
+  startupConfig:
+    requiredRegistrationFraction: number
+labels: object
 
 ```
 </TabItem>

@@ -127,26 +127,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: indexUpdateMethod
-      value: '{{ indexUpdateMethod }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: metadataSchemaUri
-      value: '{{ metadataSchemaUri }}'
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
+indexStats:
+  vectorsCount: string
+  sparseVectorsCount: string
+  shardsCount: integer
+satisfiesPzi: boolean
+satisfiesPzs: boolean
+name: string
+indexUpdateMethod: string
+encryptionSpec:
+  kmsKeyName: string
+createTime: string
+metadata: any
+metadataSchemaUri: string
+description: string
+deployedIndexes:
+  - deployedIndexId: string
+    displayName: string
+    indexEndpoint: string
+displayName: string
+updateTime: string
+labels: object
+etag: string
 
 ```
 </TabItem>

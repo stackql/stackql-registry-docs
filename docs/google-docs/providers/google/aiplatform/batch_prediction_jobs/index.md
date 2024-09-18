@@ -168,216 +168,144 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: disableContainerLogging
-      value: '{{ disableContainerLogging }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: generateExplanation
-      value: '{{ generateExplanation }}'
-    - name: explanationSpec
-      value:
-        - name: metadata
-          value:
-            - name: outputs
-              value: '{{ outputs }}'
-            - name: featureAttributionsSchemaUri
-              value: '{{ featureAttributionsSchemaUri }}'
-            - name: inputs
-              value: '{{ inputs }}'
-            - name: latentSpaceSource
-              value: '{{ latentSpaceSource }}'
-        - name: parameters
-          value:
-            - name: topK
-              value: '{{ topK }}'
-            - name: examples
-              value:
-                - name: nearestNeighborSearchConfig
-                  value: '{{ nearestNeighborSearchConfig }}'
-                - name: neighborCount
-                  value: '{{ neighborCount }}'
-                - name: exampleGcsSource
-                  value:
-                    - name: dataFormat
-                      value: '{{ dataFormat }}'
-                    - name: gcsSource
-                      value:
-                        - name: uris
-                          value:
-                            - name: type
-                              value: '{{ type }}'
-                - name: presets
-                  value:
-                    - name: modality
-                      value: '{{ modality }}'
-                    - name: query
-                      value: '{{ query }}'
-            - name: sampledShapleyAttribution
-              value:
-                - name: pathCount
-                  value: '{{ pathCount }}'
-            - name: xraiAttribution
-              value:
-                - name: smoothGradConfig
-                  value:
-                    - name: featureNoiseSigma
-                      value:
-                        - name: noiseSigma
-                          value:
-                            - name: $ref
-                              value: '{{ $ref }}'
-                    - name: noisySampleCount
-                      value: '{{ noisySampleCount }}'
-                    - name: noiseSigma
-                      value: '{{ noiseSigma }}'
-                - name: stepCount
-                  value: '{{ stepCount }}'
-                - name: blurBaselineConfig
-                  value:
-                    - name: maxBlurSigma
-                      value: '{{ maxBlurSigma }}'
-            - name: outputIndices
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: integratedGradientsAttribution
-              value:
-                - name: stepCount
-                  value: '{{ stepCount }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: manualBatchTuningParameters
-      value:
-        - name: batchSize
-          value: '{{ batchSize }}'
-    - name: dedicatedResources
-      value:
-        - name: maxReplicaCount
-          value: '{{ maxReplicaCount }}'
-        - name: machineSpec
-          value:
-            - name: acceleratorCount
-              value: '{{ acceleratorCount }}'
-            - name: reservationAffinity
-              value:
-                - name: key
-                  value: '{{ key }}'
-                - name: reservationAffinityType
-                  value: '{{ reservationAffinityType }}'
-                - name: values
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: tpuTopology
-              value: '{{ tpuTopology }}'
-            - name: acceleratorType
-              value: '{{ acceleratorType }}'
-            - name: machineType
-              value: '{{ machineType }}'
-        - name: startingReplicaCount
-          value: '{{ startingReplicaCount }}'
-    - name: model
-      value: '{{ model }}'
-    - name: unmanagedContainerModel
-      value:
-        - name: predictSchemata
-          value:
-            - name: predictionSchemaUri
-              value: '{{ predictionSchemaUri }}'
-            - name: instanceSchemaUri
-              value: '{{ instanceSchemaUri }}'
-            - name: parametersSchemaUri
-              value: '{{ parametersSchemaUri }}'
-        - name: containerSpec
-          value:
-            - name: startupProbe
-              value:
-                - name: timeoutSeconds
-                  value: '{{ timeoutSeconds }}'
-                - name: periodSeconds
-                  value: '{{ periodSeconds }}'
-                - name: exec
-                  value:
-                    - name: command
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-            - name: imageUri
-              value: '{{ imageUri }}'
-            - name: grpcPorts
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: command
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: sharedMemorySizeMb
-              value: '{{ sharedMemorySizeMb }}'
-            - name: deploymentTimeout
-              value: '{{ deploymentTimeout }}'
-            - name: healthRoute
-              value: '{{ healthRoute }}'
-            - name: predictRoute
-              value: '{{ predictRoute }}'
-            - name: args
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: env
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: ports
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: artifactUri
-          value: '{{ artifactUri }}'
-    - name: instanceConfig
-      value:
-        - name: keyField
-          value: '{{ keyField }}'
-        - name: instanceType
-          value: '{{ instanceType }}'
-        - name: excludedFields
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: includedFields
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: outputConfig
-      value:
-        - name: bigqueryDestination
-          value:
-            - name: outputUri
-              value: '{{ outputUri }}'
-        - name: predictionsFormat
-          value: '{{ predictionsFormat }}'
-        - name: gcsDestination
-          value:
-            - name: outputUriPrefix
-              value: '{{ outputUriPrefix }}'
-    - name: inputConfig
-      value:
-        - name: bigquerySource
-          value:
-            - name: inputUri
-              value: '{{ inputUri }}'
-        - name: instancesFormat
-          value: '{{ instancesFormat }}'
-    - name: modelParameters
-      value: '{{ modelParameters }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+createTime: string
+disableContainerLogging: boolean
+completionStats:
+  successfulForecastPointCount: string
+  failedCount: string
+  successfulCount: string
+  incompleteCount: string
+displayName: string
+satisfiesPzs: boolean
+labels: object
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+generateExplanation: boolean
+explanationSpec:
+  metadata:
+    outputs: object
+    featureAttributionsSchemaUri: string
+    inputs: object
+    latentSpaceSource: string
+  parameters:
+    topK: integer
+    examples:
+      nearestNeighborSearchConfig: any
+      neighborCount: integer
+      exampleGcsSource:
+        dataFormat: string
+        gcsSource:
+          uris:
+            - type: string
+      presets:
+        modality: string
+        query: string
+    sampledShapleyAttribution:
+      pathCount: integer
+    xraiAttribution:
+      smoothGradConfig:
+        featureNoiseSigma:
+          noiseSigma:
+            - sigma: number
+              name: string
+        noisySampleCount: integer
+        noiseSigma: number
+      stepCount: integer
+      blurBaselineConfig:
+        maxBlurSigma: number
+    outputIndices:
+      - type: string
+    integratedGradientsAttribution:
+      stepCount: integer
+serviceAccount: string
+manualBatchTuningParameters:
+  batchSize: integer
+dedicatedResources:
+  maxReplicaCount: integer
+  machineSpec:
+    acceleratorCount: integer
+    reservationAffinity:
+      key: string
+      reservationAffinityType: string
+      values:
+        - type: string
+    tpuTopology: string
+    acceleratorType: string
+    machineType: string
+  startingReplicaCount: integer
+resourcesConsumed:
+  replicaHours: number
+name: string
+model: string
+endTime: string
+unmanagedContainerModel:
+  predictSchemata:
+    predictionSchemaUri: string
+    instanceSchemaUri: string
+    parametersSchemaUri: string
+  containerSpec:
+    startupProbe:
+      timeoutSeconds: integer
+      periodSeconds: integer
+      exec:
+        command:
+          - type: string
+    imageUri: string
+    grpcPorts:
+      - containerPort: integer
+    command:
+      - type: string
+    sharedMemorySizeMb: string
+    deploymentTimeout: string
+    healthRoute: string
+    predictRoute: string
+    args:
+      - type: string
+    env:
+      - value: string
+        name: string
+    ports:
+      - containerPort: integer
+  artifactUri: string
+updateTime: string
+instanceConfig:
+  keyField: string
+  instanceType: string
+  excludedFields:
+    - type: string
+  includedFields:
+    - type: string
+outputConfig:
+  bigqueryDestination:
+    outputUri: string
+  predictionsFormat: string
+  gcsDestination:
+    outputUriPrefix: string
+outputInfo:
+  bigqueryOutputDataset: string
+  bigqueryOutputTable: string
+  gcsOutputDirectory: string
+inputConfig:
+  bigquerySource:
+    inputUri: string
+  instancesFormat: string
+modelVersionId: string
+state: string
+satisfiesPzi: boolean
+partialFailures:
+  - message: string
+    code: integer
+    details:
+      - additionalProperties: any
+        type: string
+modelParameters: any
+encryptionSpec:
+  kmsKeyName: string
+startTime: string
 
 ```
 </TabItem>

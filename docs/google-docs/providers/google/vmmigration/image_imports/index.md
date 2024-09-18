@@ -101,86 +101,81 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: cloudStorageUri
-      value: '{{ cloudStorageUri }}'
-    - name: diskImageTargetDefaults
-      value:
-        - name: osAdaptationParameters
-          value:
-            - name: generalize
-              value: '{{ generalize }}'
-            - name: licenseType
-              value: '{{ licenseType }}'
-        - name: dataDiskImageImport
-          value: []
-        - name: imageName
-          value: '{{ imageName }}'
-        - name: targetProject
-          value: '{{ targetProject }}'
-        - name: description
-          value: '{{ description }}'
-        - name: familyName
-          value: '{{ familyName }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: additionalLicenses
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: singleRegionStorage
-          value: '{{ singleRegionStorage }}'
-        - name: encryption
-          value:
-            - name: kmsKey
-              value: '{{ kmsKey }}'
-    - name: machineImageTargetDefaults
-      value:
-        - name: skipOsAdaptation
-          value: []
-        - name: machineImageName
-          value: '{{ machineImageName }}'
-        - name: targetProject
-          value: '{{ targetProject }}'
-        - name: description
-          value: '{{ description }}'
-        - name: singleRegionStorage
-          value: '{{ singleRegionStorage }}'
-        - name: machineImageParametersOverrides
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-        - name: serviceAccount
-          value:
-            - name: email
-              value: '{{ email }}'
-            - name: scopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: additionalLicenses
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: tags
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: shieldedInstanceConfig
-          value:
-            - name: secureBoot
-              value: '{{ secureBoot }}'
-            - name: enableVtpm
-              value: '{{ enableVtpm }}'
-            - name: enableIntegrityMonitoring
-              value: '{{ enableIntegrityMonitoring }}'
-        - name: networkInterfaces
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+cloudStorageUri: string
+diskImageTargetDefaults:
+  osAdaptationParameters:
+    generalize: boolean
+    licenseType: string
+  dataDiskImageImport: {}
+  imageName: string
+  targetProject: string
+  description: string
+  familyName: string
+  labels: object
+  additionalLicenses:
+    - type: string
+  singleRegionStorage: boolean
+  encryption:
+    kmsKey: string
+machineImageTargetDefaults:
+  skipOsAdaptation: {}
+  machineImageName: string
+  targetProject: string
+  description: string
+  singleRegionStorage: boolean
+  machineImageParametersOverrides:
+    machineType: string
+  serviceAccount:
+    email: string
+    scopes:
+      - type: string
+  additionalLicenses:
+    - type: string
+  labels: object
+  tags:
+    - type: string
+  shieldedInstanceConfig:
+    secureBoot: string
+    enableVtpm: boolean
+    enableIntegrityMonitoring: boolean
+  networkInterfaces:
+    - network: string
+      subnetwork: string
+      internalIp: string
+      externalIp: string
+      networkTier: string
+name: string
+createTime: string
+recentImageImportJobs:
+  - cloudStorageUri: string
+    name: string
+    createdResources:
+      - type: string
+    state: string
+    createTime: string
+    endTime: string
+    errors:
+      - code: integer
+        message: string
+        details:
+          - type: string
+            additionalProperties: any
+    warnings:
+      - code: string
+        warningMessage:
+          locale: string
+          message: string
+        helpLinks:
+          - description: string
+            url: string
+        warningTime: string
+    steps:
+      - initializing: {}
+        loadingSourceFiles: {}
+        adaptingOs: {}
+        creatingImage: {}
+        startTime: string
+        endTime: string
 
 ```
 </TabItem>

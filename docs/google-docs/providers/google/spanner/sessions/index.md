@@ -110,18 +110,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: sessionTemplate
-      value:
-        - name: labels
-          value: '{{ labels }}'
-        - name: creatorRole
-          value: '{{ creatorRole }}'
-        - name: multiplexed
-          value: '{{ multiplexed }}'
-    - name: sessionCount
-      value: '{{ sessionCount }}'
+sessionTemplate:
+  name: string
+  labels: object
+  createTime: string
+  approximateLastUseTime: string
+  creatorRole: string
+  multiplexed: boolean
+sessionCount: integer
 
 ```
 </TabItem>

@@ -187,170 +187,223 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: name
-      value: '{{ name }}'
-    - name: type
-      value: '{{ type }}'
-    - name: environment
-      value:
-        - name: tempStoragePrefix
-          value: '{{ tempStoragePrefix }}'
-        - name: clusterManagerApiService
-          value: '{{ clusterManagerApiService }}'
-        - name: experiments
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: serviceOptions
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: serviceKmsKeyName
-          value: '{{ serviceKmsKeyName }}'
-        - name: workerPools
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: userAgent
-          value: '{{ userAgent }}'
-        - name: version
-          value: '{{ version }}'
-        - name: dataset
-          value: '{{ dataset }}'
-        - name: sdkPipelineOptions
-          value: '{{ sdkPipelineOptions }}'
-        - name: internalExperiments
-          value: '{{ internalExperiments }}'
-        - name: serviceAccountEmail
-          value: '{{ serviceAccountEmail }}'
-        - name: flexResourceSchedulingGoal
-          value: '{{ flexResourceSchedulingGoal }}'
-        - name: workerRegion
-          value: '{{ workerRegion }}'
-        - name: workerZone
-          value: '{{ workerZone }}'
-        - name: debugOptions
-          value:
-            - name: enableHotKeyLogging
-              value: '{{ enableHotKeyLogging }}'
-            - name: dataSampling
-              value:
-                - name: behaviors
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                    - name: enumDescriptions
-                      value: '{{ enumDescriptions }}'
-                    - name: enum
-                      value: '{{ enum }}'
-        - name: streamingMode
-          value: '{{ streamingMode }}'
-    - name: steps
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: stepsLocation
-      value: '{{ stepsLocation }}'
-    - name: currentState
-      value: '{{ currentState }}'
-    - name: currentStateTime
-      value: '{{ currentStateTime }}'
-    - name: requestedState
-      value: '{{ requestedState }}'
-    - name: executionInfo
-      value:
-        - name: stages
-          value: '{{ stages }}'
-    - name: replaceJobId
-      value: '{{ replaceJobId }}'
-    - name: transformNameMapping
-      value: '{{ transformNameMapping }}'
-    - name: clientRequestId
-      value: '{{ clientRequestId }}'
-    - name: replacedByJobId
-      value: '{{ replacedByJobId }}'
-    - name: tempFiles
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: location
-      value: '{{ location }}'
-    - name: pipelineDescription
-      value:
-        - name: originalPipelineTransform
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: executionPipelineStage
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: displayData
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: stepNamesHash
-          value: '{{ stepNamesHash }}'
-    - name: stageStates
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: jobMetadata
-      value:
-        - name: sdkVersion
-          value:
-            - name: version
-              value: '{{ version }}'
-            - name: versionDisplayName
-              value: '{{ versionDisplayName }}'
-            - name: sdkSupportStatus
-              value: '{{ sdkSupportStatus }}'
-        - name: spannerDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: bigqueryDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: bigTableDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: pubsubDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: fileDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: datastoreDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: userDisplayProperties
-          value: '{{ userDisplayProperties }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: createdFromSnapshotId
-      value: '{{ createdFromSnapshotId }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: runtimeUpdatableParams
-      value:
-        - name: maxNumWorkers
-          value: '{{ maxNumWorkers }}'
-        - name: minNumWorkers
-          value: '{{ minNumWorkers }}'
-        - name: workerUtilizationHint
-          value: '{{ workerUtilizationHint }}'
+id: string
+projectId: string
+name: string
+type: string
+environment:
+  tempStoragePrefix: string
+  clusterManagerApiService: string
+  experiments:
+    - type: string
+  serviceOptions:
+    - type: string
+  serviceKmsKeyName: string
+  workerPools:
+    - kind: string
+      numWorkers: integer
+      packages:
+        - name: string
+          location: string
+      defaultPackageSet: string
+      machineType: string
+      teardownPolicy: string
+      diskSizeGb: integer
+      diskType: string
+      diskSourceImage: string
+      zone: string
+      taskrunnerSettings:
+        taskUser: string
+        taskGroup: string
+        oauthScopes:
+          - type: string
+        baseUrl: string
+        dataflowApiVersion: string
+        parallelWorkerSettings:
+          baseUrl: string
+          reportingEnabled: boolean
+          servicePath: string
+          shuffleServicePath: string
+          workerId: string
+          tempStoragePrefix: string
+        baseTaskDir: string
+        continueOnException: boolean
+        logToSerialconsole: boolean
+        alsologtostderr: boolean
+        logUploadLocation: string
+        logDir: string
+        tempStoragePrefix: string
+        harnessCommand: string
+        workflowFileName: string
+        commandlinesFileName: string
+        vmId: string
+        languageHint: string
+        streamingWorkerMainClass: string
+      onHostMaintenance: string
+      dataDisks:
+        - sizeGb: integer
+          diskType: string
+          mountPoint: string
+      metadata: object
+      autoscalingSettings:
+        algorithm: string
+        maxNumWorkers: integer
+      poolArgs: object
+      network: string
+      subnetwork: string
+      workerHarnessContainerImage: string
+      numThreadsPerWorker: integer
+      ipConfiguration: string
+      sdkHarnessContainerImages:
+        - containerImage: string
+          useSingleCorePerContainer: boolean
+          environmentId: string
+          capabilities:
+            - type: string
+  userAgent: object
+  version: object
+  dataset: string
+  sdkPipelineOptions: object
+  internalExperiments: object
+  serviceAccountEmail: string
+  flexResourceSchedulingGoal: string
+  workerRegion: string
+  workerZone: string
+  shuffleMode: string
+  debugOptions:
+    enableHotKeyLogging: boolean
+    dataSampling:
+      behaviors:
+        - type: string
+          enumDescriptions: string
+          enum: string
+  useStreamingEngineResourceBasedBilling: boolean
+  streamingMode: string
+steps:
+  - kind: string
+    name: string
+    properties: object
+stepsLocation: string
+currentState: string
+currentStateTime: string
+requestedState: string
+executionInfo:
+  stages: object
+createTime: string
+replaceJobId: string
+transformNameMapping: object
+clientRequestId: string
+replacedByJobId: string
+tempFiles:
+  - type: string
+labels: object
+location: string
+pipelineDescription:
+  originalPipelineTransform:
+    - kind: string
+      id: string
+      name: string
+      displayData:
+        - key: string
+          namespace: string
+          strValue: string
+          int64Value: string
+          floatValue: number
+          javaClassValue: string
+          timestampValue: string
+          durationValue: string
+          boolValue: boolean
+          shortStrValue: string
+          url: string
+          label: string
+      outputCollectionName:
+        - type: string
+      inputCollectionName:
+        - type: string
+  executionPipelineStage:
+    - name: string
+      id: string
+      kind: string
+      inputSource:
+        - userName: string
+          name: string
+          originalTransformOrCollection: string
+          sizeBytes: string
+      outputSource:
+        - userName: string
+          name: string
+          originalTransformOrCollection: string
+          sizeBytes: string
+      prerequisiteStage:
+        - type: string
+      componentTransform:
+        - userName: string
+          name: string
+          originalTransform: string
+      componentSource:
+        - userName: string
+          name: string
+          originalTransformOrCollection: string
+  displayData:
+    - key: string
+      namespace: string
+      strValue: string
+      int64Value: string
+      floatValue: number
+      javaClassValue: string
+      timestampValue: string
+      durationValue: string
+      boolValue: boolean
+      shortStrValue: string
+      url: string
+      label: string
+  stepNamesHash: string
+stageStates:
+  - executionStageName: string
+    executionStageState: string
+    currentStateTime: string
+jobMetadata:
+  sdkVersion:
+    version: string
+    versionDisplayName: string
+    sdkSupportStatus: string
+    bugs:
+      - type: string
+        severity: string
+        uri: string
+  spannerDetails:
+    - projectId: string
+      instanceId: string
+      databaseId: string
+  bigqueryDetails:
+    - table: string
+      dataset: string
+      projectId: string
+      query: string
+  bigTableDetails:
+    - projectId: string
+      instanceId: string
+      tableId: string
+  pubsubDetails:
+    - topic: string
+      subscription: string
+  fileDetails:
+    - filePattern: string
+  datastoreDetails:
+    - namespace: string
+      projectId: string
+  userDisplayProperties: object
+startTime: string
+createdFromSnapshotId: string
+satisfiesPzs: boolean
+runtimeUpdatableParams:
+  maxNumWorkers: integer
+  minNumWorkers: integer
+  workerUtilizationHint: number
+satisfiesPzi: boolean
+serviceResources:
+  zones:
+    - type: string
 
 ```
 </TabItem>

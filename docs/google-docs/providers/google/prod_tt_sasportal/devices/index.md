@@ -141,102 +141,76 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: activeConfig
-      value:
-        - name: state
-          value: '{{ state }}'
-        - name: installationParams
-          value:
-            - name: verticalAccuracy
-              value: '{{ verticalAccuracy }}'
-            - name: antennaAzimuth
-              value: '{{ antennaAzimuth }}'
-            - name: antennaModel
-              value: '{{ antennaModel }}'
-            - name: horizontalAccuracy
-              value: '{{ horizontalAccuracy }}'
-            - name: height
-              value: '{{ height }}'
-            - name: latitude
-              value: '{{ latitude }}'
-            - name: indoorDeployment
-              value: '{{ indoorDeployment }}'
-            - name: longitude
-              value: '{{ longitude }}'
-            - name: heightType
-              value: '{{ heightType }}'
-            - name: cpeCbsdIndication
-              value: '{{ cpeCbsdIndication }}'
-            - name: antennaDowntilt
-              value: '{{ antennaDowntilt }}'
-            - name: eirpCapability
-              value: '{{ eirpCapability }}'
-            - name: antennaGain
-              value: '{{ antennaGain }}'
-            - name: antennaBeamwidth
-              value: '{{ antennaBeamwidth }}'
-        - name: model
-          value:
-            - name: name
-              value: '{{ name }}'
-            - name: hardwareVersion
-              value: '{{ hardwareVersion }}'
-            - name: vendor
-              value: '{{ vendor }}'
-            - name: firmwareVersion
-              value: '{{ firmwareVersion }}'
-            - name: softwareVersion
-              value: '{{ softwareVersion }}'
-        - name: isSigned
-          value: '{{ isSigned }}'
-        - name: airInterface
-          value:
-            - name: radioTechnology
-              value: '{{ radioTechnology }}'
-            - name: supportedSpec
-              value: '{{ supportedSpec }}'
-        - name: measurementCapabilities
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enum
-              value: '{{ enum }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-        - name: userId
-          value: '{{ userId }}'
-        - name: callSign
-          value: '{{ callSign }}'
-        - name: category
-          value: '{{ category }}'
-    - name: deviceMetadata
-      value:
-        - name: antennaModel
-          value: '{{ antennaModel }}'
-        - name: commonChannelGroup
-          value: '{{ commonChannelGroup }}'
-        - name: interferenceCoordinationGroup
-          value: '{{ interferenceCoordinationGroup }}'
-    - name: state
-      value: '{{ state }}'
-    - name: name
-      value: '{{ name }}'
-    - name: fccId
-      value: '{{ fccId }}'
-    - name: grants
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: serialNumber
-      value: '{{ serialNumber }}'
-    - name: grantRangeAllowlists
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+displayName: string
+currentChannels:
+  - score: number
+    frequencyRange:
+      highFrequencyMhz: number
+      lowFrequencyMhz: number
+activeConfig:
+  state: string
+  installationParams:
+    verticalAccuracy: number
+    antennaAzimuth: integer
+    antennaModel: string
+    horizontalAccuracy: number
+    height: number
+    latitude: number
+    indoorDeployment: boolean
+    longitude: number
+    heightType: string
+    cpeCbsdIndication: boolean
+    antennaDowntilt: integer
+    eirpCapability: integer
+    antennaGain: number
+    antennaBeamwidth: integer
+  updateTime: string
+  model:
+    name: string
+    hardwareVersion: string
+    vendor: string
+    firmwareVersion: string
+    softwareVersion: string
+  isSigned: boolean
+  airInterface:
+    radioTechnology: string
+    supportedSpec: string
+  measurementCapabilities:
+    - type: string
+      enum: string
+      enumDescriptions: string
+  userId: string
+  callSign: string
+  category: string
+deviceMetadata:
+  antennaModel: string
+  nrqzValidation:
+    state: string
+    latitude: number
+    caseId: string
+    longitude: number
+    cpiId: string
+  commonChannelGroup: string
+  interferenceCoordinationGroup: string
+  nrqzValidated: boolean
+state: string
+name: string
+fccId: string
+grants:
+  - grantId: string
+    lastHeartbeatTransmitExpireTime: string
+    suspensionReason:
+      - type: string
+    channelType: string
+    state: string
+    expireTime: string
+    maxEirp: number
+    moveList:
+      - dpaId: string
+serialNumber: string
+grantRangeAllowlists:
+  - highFrequencyMhz: number
+    lowFrequencyMhz: number
 
 ```
 </TabItem>

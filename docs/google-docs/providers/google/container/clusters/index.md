@@ -262,676 +262,465 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: projectId
-      value: '{{ projectId }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: cluster
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: description
-          value: '{{ description }}'
-        - name: initialNodeCount
-          value: '{{ initialNodeCount }}'
-        - name: nodeConfig
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-            - name: diskSizeGb
-              value: '{{ diskSizeGb }}'
-            - name: oauthScopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: metadata
-              value: '{{ metadata }}'
-            - name: imageType
-              value: '{{ imageType }}'
-            - name: labels
-              value: '{{ labels }}'
-            - name: localSsdCount
-              value: '{{ localSsdCount }}'
-            - name: tags
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: preemptible
-              value: '{{ preemptible }}'
-            - name: accelerators
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: diskType
-              value: '{{ diskType }}'
-            - name: minCpuPlatform
-              value: '{{ minCpuPlatform }}'
-            - name: workloadMetadataConfig
-              value:
-                - name: mode
-                  value: '{{ mode }}'
-            - name: taints
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: sandboxConfig
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: nodeGroup
-              value: '{{ nodeGroup }}'
-            - name: reservationAffinity
-              value:
-                - name: consumeReservationType
-                  value: '{{ consumeReservationType }}'
-                - name: key
-                  value: '{{ key }}'
-                - name: values
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: shieldedInstanceConfig
-              value:
-                - name: enableSecureBoot
-                  value: '{{ enableSecureBoot }}'
-                - name: enableIntegrityMonitoring
-                  value: '{{ enableIntegrityMonitoring }}'
-            - name: linuxNodeConfig
-              value:
-                - name: sysctls
-                  value: '{{ sysctls }}'
-                - name: cgroupMode
-                  value: '{{ cgroupMode }}'
-                - name: hugepages
-                  value:
-                    - name: hugepageSize2m
-                      value: '{{ hugepageSize2m }}'
-                    - name: hugepageSize1g
-                      value: '{{ hugepageSize1g }}'
-            - name: kubeletConfig
-              value:
-                - name: cpuManagerPolicy
-                  value: '{{ cpuManagerPolicy }}'
-                - name: cpuCfsQuota
-                  value: '{{ cpuCfsQuota }}'
-                - name: cpuCfsQuotaPeriod
-                  value: '{{ cpuCfsQuotaPeriod }}'
-                - name: podPidsLimit
-                  value: '{{ podPidsLimit }}'
-                - name: insecureKubeletReadonlyPortEnabled
-                  value: '{{ insecureKubeletReadonlyPortEnabled }}'
-            - name: bootDiskKmsKey
-              value: '{{ bootDiskKmsKey }}'
-            - name: gcfsConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: advancedMachineFeatures
-              value:
-                - name: threadsPerCore
-                  value: '{{ threadsPerCore }}'
-                - name: enableNestedVirtualization
-                  value: '{{ enableNestedVirtualization }}'
-            - name: gvnic
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: spot
-              value: '{{ spot }}'
-            - name: confidentialNodes
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: fastSocket
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: resourceLabels
-              value: '{{ resourceLabels }}'
-            - name: loggingConfig
-              value:
-                - name: variantConfig
-                  value:
-                    - name: variant
-                      value: '{{ variant }}'
-            - name: windowsNodeConfig
-              value:
-                - name: osVersion
-                  value: '{{ osVersion }}'
-            - name: localNvmeSsdBlockConfig
-              value:
-                - name: localSsdCount
-                  value: '{{ localSsdCount }}'
-            - name: ephemeralStorageLocalSsdConfig
-              value:
-                - name: localSsdCount
-                  value: '{{ localSsdCount }}'
-            - name: soleTenantConfig
-              value:
-                - name: nodeAffinities
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: containerdConfig
-              value:
-                - name: privateRegistryAccessConfig
-                  value:
-                    - name: enabled
-                      value: '{{ enabled }}'
-                    - name: certificateAuthorityDomainConfig
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-            - name: resourceManagerTags
-              value:
-                - name: tags
-                  value: '{{ tags }}'
-            - name: enableConfidentialStorage
-              value: '{{ enableConfidentialStorage }}'
-            - name: secondaryBootDisks
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: storagePools
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: secondaryBootDiskUpdateStrategy
-              value: []
-        - name: masterAuth
-          value:
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-            - name: clientCertificateConfig
-              value:
-                - name: issueClientCertificate
-                  value: '{{ issueClientCertificate }}'
-        - name: loggingService
-          value: '{{ loggingService }}'
-        - name: monitoringService
-          value: '{{ monitoringService }}'
-        - name: network
-          value: '{{ network }}'
-        - name: clusterIpv4Cidr
-          value: '{{ clusterIpv4Cidr }}'
-        - name: addonsConfig
-          value:
-            - name: httpLoadBalancing
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: horizontalPodAutoscaling
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: kubernetesDashboard
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: networkPolicyConfig
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: cloudRunConfig
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-                - name: loadBalancerType
-                  value: '{{ loadBalancerType }}'
-            - name: dnsCacheConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: configConnectorConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: gcePersistentDiskCsiDriverConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: gcpFilestoreCsiDriverConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: gkeBackupAgentConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: gcsFuseCsiDriverConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: statefulHaConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: rayOperatorConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-                - name: rayClusterLoggingConfig
-                  value:
-                    - name: enabled
-                      value: '{{ enabled }}'
-                - name: rayClusterMonitoringConfig
-                  value:
-                    - name: enabled
-                      value: '{{ enabled }}'
-        - name: subnetwork
-          value: '{{ subnetwork }}'
-        - name: nodePools
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: locations
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: enableKubernetesAlpha
-          value: '{{ enableKubernetesAlpha }}'
-        - name: resourceLabels
-          value: '{{ resourceLabels }}'
-        - name: labelFingerprint
-          value: '{{ labelFingerprint }}'
-        - name: legacyAbac
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: networkPolicy
-          value:
-            - name: provider
-              value: '{{ provider }}'
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: ipAllocationPolicy
-          value:
-            - name: useIpAliases
-              value: '{{ useIpAliases }}'
-            - name: createSubnetwork
-              value: '{{ createSubnetwork }}'
-            - name: subnetworkName
-              value: '{{ subnetworkName }}'
-            - name: clusterIpv4Cidr
-              value: '{{ clusterIpv4Cidr }}'
-            - name: nodeIpv4Cidr
-              value: '{{ nodeIpv4Cidr }}'
-            - name: servicesIpv4Cidr
-              value: '{{ servicesIpv4Cidr }}'
-            - name: clusterSecondaryRangeName
-              value: '{{ clusterSecondaryRangeName }}'
-            - name: servicesSecondaryRangeName
-              value: '{{ servicesSecondaryRangeName }}'
-            - name: clusterIpv4CidrBlock
-              value: '{{ clusterIpv4CidrBlock }}'
-            - name: nodeIpv4CidrBlock
-              value: '{{ nodeIpv4CidrBlock }}'
-            - name: servicesIpv4CidrBlock
-              value: '{{ servicesIpv4CidrBlock }}'
-            - name: tpuIpv4CidrBlock
-              value: '{{ tpuIpv4CidrBlock }}'
-            - name: useRoutes
-              value: '{{ useRoutes }}'
-            - name: stackType
-              value: '{{ stackType }}'
-            - name: ipv6AccessType
-              value: '{{ ipv6AccessType }}'
-            - name: podCidrOverprovisionConfig
-              value:
-                - name: disable
-                  value: '{{ disable }}'
-        - name: masterAuthorizedNetworksConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: cidrBlocks
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: gcpPublicCidrsAccessEnabled
-              value: '{{ gcpPublicCidrsAccessEnabled }}'
-        - name: maintenancePolicy
-          value:
-            - name: window
-              value:
-                - name: dailyMaintenanceWindow
-                  value:
-                    - name: startTime
-                      value: '{{ startTime }}'
-                - name: recurringWindow
-                  value:
-                    - name: window
-                      value:
-                        - name: maintenanceExclusionOptions
-                          value:
-                            - name: scope
-                              value: '{{ scope }}'
-                        - name: startTime
-                          value: '{{ startTime }}'
-                        - name: endTime
-                          value: '{{ endTime }}'
-                    - name: recurrence
-                      value: '{{ recurrence }}'
-                - name: maintenanceExclusions
-                  value: '{{ maintenanceExclusions }}'
-            - name: resourceVersion
-              value: '{{ resourceVersion }}'
-        - name: binaryAuthorization
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: evaluationMode
-              value: '{{ evaluationMode }}'
-        - name: autoscaling
-          value:
-            - name: enableNodeAutoprovisioning
-              value: '{{ enableNodeAutoprovisioning }}'
-            - name: resourceLimits
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: autoscalingProfile
-              value: '{{ autoscalingProfile }}'
-            - name: autoprovisioningNodePoolDefaults
-              value:
-                - name: oauthScopes
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: serviceAccount
-                  value: '{{ serviceAccount }}'
-                - name: upgradeSettings
-                  value:
-                    - name: maxSurge
-                      value: '{{ maxSurge }}'
-                    - name: maxUnavailable
-                      value: '{{ maxUnavailable }}'
-                    - name: strategy
-                      value: '{{ strategy }}'
-                    - name: blueGreenSettings
-                      value:
-                        - name: standardRolloutPolicy
-                          value:
-                            - name: batchPercentage
-                              value: '{{ batchPercentage }}'
-                            - name: batchNodeCount
-                              value: '{{ batchNodeCount }}'
-                            - name: batchSoakDuration
-                              value: '{{ batchSoakDuration }}'
-                        - name: nodePoolSoakDuration
-                          value: '{{ nodePoolSoakDuration }}'
-                - name: management
-                  value:
-                    - name: autoUpgrade
-                      value: '{{ autoUpgrade }}'
-                    - name: autoRepair
-                      value: '{{ autoRepair }}'
-                    - name: upgradeOptions
-                      value: []
-                - name: minCpuPlatform
-                  value: '{{ minCpuPlatform }}'
-                - name: diskSizeGb
-                  value: '{{ diskSizeGb }}'
-                - name: diskType
-                  value: '{{ diskType }}'
-                - name: bootDiskKmsKey
-                  value: '{{ bootDiskKmsKey }}'
-                - name: imageType
-                  value: '{{ imageType }}'
-                - name: insecureKubeletReadonlyPortEnabled
-                  value: '{{ insecureKubeletReadonlyPortEnabled }}'
-            - name: autoprovisioningLocations
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: networkConfig
-          value:
-            - name: enableIntraNodeVisibility
-              value: '{{ enableIntraNodeVisibility }}'
-            - name: defaultSnatStatus
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: enableL4ilbSubsetting
-              value: '{{ enableL4ilbSubsetting }}'
-            - name: datapathProvider
-              value: '{{ datapathProvider }}'
-            - name: privateIpv6GoogleAccess
-              value: '{{ privateIpv6GoogleAccess }}'
-            - name: dnsConfig
-              value:
-                - name: clusterDns
-                  value: '{{ clusterDns }}'
-                - name: clusterDnsScope
-                  value: '{{ clusterDnsScope }}'
-                - name: clusterDnsDomain
-                  value: '{{ clusterDnsDomain }}'
-                - name: additiveVpcScopeDnsDomain
-                  value: '{{ additiveVpcScopeDnsDomain }}'
-            - name: serviceExternalIpsConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: gatewayApiConfig
-              value:
-                - name: channel
-                  value: '{{ channel }}'
-            - name: enableMultiNetworking
-              value: '{{ enableMultiNetworking }}'
-            - name: networkPerformanceConfig
-              value:
-                - name: totalEgressBandwidthTier
-                  value: '{{ totalEgressBandwidthTier }}'
-            - name: enableFqdnNetworkPolicy
-              value: '{{ enableFqdnNetworkPolicy }}'
-            - name: inTransitEncryptionConfig
-              value: '{{ inTransitEncryptionConfig }}'
-            - name: enableCiliumClusterwideNetworkPolicy
-              value: '{{ enableCiliumClusterwideNetworkPolicy }}'
-        - name: defaultMaxPodsConstraint
-          value:
-            - name: maxPodsPerNode
-              value: '{{ maxPodsPerNode }}'
-        - name: resourceUsageExportConfig
-          value:
-            - name: bigqueryDestination
-              value:
-                - name: datasetId
-                  value: '{{ datasetId }}'
-            - name: enableNetworkEgressMetering
-              value: '{{ enableNetworkEgressMetering }}'
-            - name: consumptionMeteringConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-        - name: authenticatorGroupsConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: securityGroup
-              value: '{{ securityGroup }}'
-        - name: privateClusterConfig
-          value:
-            - name: enablePrivateNodes
-              value: '{{ enablePrivateNodes }}'
-            - name: enablePrivateEndpoint
-              value: '{{ enablePrivateEndpoint }}'
-            - name: masterIpv4CidrBlock
-              value: '{{ masterIpv4CidrBlock }}'
-            - name: masterGlobalAccessConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: privateEndpointSubnetwork
-              value: '{{ privateEndpointSubnetwork }}'
-        - name: databaseEncryption
-          value:
-            - name: keyName
-              value: '{{ keyName }}'
-            - name: state
-              value: '{{ state }}'
-        - name: verticalPodAutoscaling
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: shieldedNodes
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: releaseChannel
-          value:
-            - name: channel
-              value: '{{ channel }}'
-        - name: workloadIdentityConfig
-          value:
-            - name: workloadPool
-              value: '{{ workloadPool }}'
-        - name: meshCertificates
-          value:
-            - name: enableCertificates
-              value: '{{ enableCertificates }}'
-        - name: costManagementConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: notificationConfig
-          value:
-            - name: pubsub
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-                - name: topic
-                  value: '{{ topic }}'
-                - name: filter
-                  value:
-                    - name: eventType
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                        - name: enumDescriptions
-                          value: '{{ enumDescriptions }}'
-                        - name: enum
-                          value: '{{ enum }}'
-        - name: identityServiceConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: initialClusterVersion
-          value: '{{ initialClusterVersion }}'
-        - name: enableTpu
-          value: '{{ enableTpu }}'
-        - name: conditions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: autopilot
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: workloadPolicyConfig
-              value:
-                - name: allowNetAdmin
-                  value: '{{ allowNetAdmin }}'
-        - name: parentProductConfig
-          value:
-            - name: productName
-              value: '{{ productName }}'
-            - name: labels
-              value: '{{ labels }}'
-        - name: nodePoolDefaults
-          value:
-            - name: nodeConfigDefaults
-              value: []
-        - name: loggingConfig
-          value:
-            - name: componentConfig
-              value:
-                - name: enableComponents
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                    - name: enumDescriptions
-                      value: '{{ enumDescriptions }}'
-                    - name: enum
-                      value: '{{ enum }}'
-        - name: monitoringConfig
-          value:
-            - name: componentConfig
-              value:
-                - name: enableComponents
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                    - name: enumDescriptions
-                      value: '{{ enumDescriptions }}'
-                    - name: enum
-                      value: '{{ enum }}'
-            - name: managedPrometheusConfig
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-            - name: advancedDatapathObservabilityConfig
-              value:
-                - name: enableMetrics
-                  value: '{{ enableMetrics }}'
-                - name: relayMode
-                  value: '{{ relayMode }}'
-                - name: enableRelay
-                  value: '{{ enableRelay }}'
-        - name: nodePoolAutoConfig
-          value:
-            - name: networkTags
-              value:
-                - name: tags
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-        - name: etag
-          value: '{{ etag }}'
-        - name: fleet
-          value:
-            - name: project
-              value: '{{ project }}'
-        - name: securityPostureConfig
-          value:
-            - name: mode
-              value: '{{ mode }}'
-            - name: vulnerabilityMode
-              value: '{{ vulnerabilityMode }}'
-        - name: enableK8sBetaApis
-          value:
-            - name: enabledApis
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: enterpriseConfig
-          value: []
-        - name: secretManagerConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: compliancePostureConfig
-          value:
-            - name: mode
-              value: '{{ mode }}'
-            - name: complianceStandards
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: rbacBindingConfig
-          value:
-            - name: enableInsecureBindingSystemUnauthenticated
-              value: '{{ enableInsecureBindingSystemUnauthenticated }}'
-            - name: enableInsecureBindingSystemAuthenticated
-              value: '{{ enableInsecureBindingSystemAuthenticated }}'
-    - name: parent
-      value: '{{ parent }}'
+projectId: string
+zone: string
+cluster:
+  name: string
+  description: string
+  initialNodeCount: integer
+  nodeConfig:
+    machineType: string
+    diskSizeGb: integer
+    oauthScopes:
+      - type: string
+    serviceAccount: string
+    metadata: object
+    imageType: string
+    labels: object
+    localSsdCount: integer
+    tags:
+      - type: string
+    preemptible: boolean
+    accelerators:
+      - acceleratorCount: string
+        acceleratorType: string
+        gpuPartitionSize: string
+        gpuSharingConfig:
+          maxSharedClientsPerGpu: string
+          gpuSharingStrategy: string
+        gpuDriverInstallationConfig:
+          gpuDriverVersion: string
+    diskType: string
+    minCpuPlatform: string
+    workloadMetadataConfig:
+      mode: string
+    taints:
+      - key: string
+        value: string
+        effect: string
+    sandboxConfig:
+      type: string
+    nodeGroup: string
+    reservationAffinity:
+      consumeReservationType: string
+      key: string
+      values:
+        - type: string
+    shieldedInstanceConfig:
+      enableSecureBoot: boolean
+      enableIntegrityMonitoring: boolean
+    linuxNodeConfig:
+      sysctls: object
+      cgroupMode: string
+      hugepages:
+        hugepageSize2m: integer
+        hugepageSize1g: integer
+    kubeletConfig:
+      cpuManagerPolicy: string
+      cpuCfsQuota: boolean
+      cpuCfsQuotaPeriod: string
+      podPidsLimit: string
+      insecureKubeletReadonlyPortEnabled: boolean
+    bootDiskKmsKey: string
+    gcfsConfig:
+      enabled: boolean
+    advancedMachineFeatures:
+      threadsPerCore: string
+      enableNestedVirtualization: boolean
+    gvnic:
+      enabled: boolean
+    spot: boolean
+    confidentialNodes:
+      enabled: boolean
+    fastSocket:
+      enabled: boolean
+    resourceLabels: object
+    loggingConfig:
+      variantConfig:
+        variant: string
+    windowsNodeConfig:
+      osVersion: string
+    localNvmeSsdBlockConfig:
+      localSsdCount: integer
+    ephemeralStorageLocalSsdConfig:
+      localSsdCount: integer
+    soleTenantConfig:
+      nodeAffinities:
+        - key: string
+          operator: string
+          values:
+            - type: string
+    containerdConfig:
+      privateRegistryAccessConfig:
+        enabled: boolean
+        certificateAuthorityDomainConfig:
+          - fqdns:
+              - type: string
+            gcpSecretManagerCertificateConfig:
+              secretUri: string
+    resourceManagerTags:
+      tags: object
+    enableConfidentialStorage: boolean
+    secondaryBootDisks:
+      - mode: string
+        diskImage: string
+    storagePools:
+      - type: string
+    secondaryBootDiskUpdateStrategy: {}
+  masterAuth:
+    username: string
+    password: string
+    clientCertificateConfig:
+      issueClientCertificate: boolean
+    clusterCaCertificate: string
+    clientCertificate: string
+    clientKey: string
+  loggingService: string
+  monitoringService: string
+  network: string
+  clusterIpv4Cidr: string
+  addonsConfig:
+    httpLoadBalancing:
+      disabled: boolean
+    horizontalPodAutoscaling:
+      disabled: boolean
+    kubernetesDashboard:
+      disabled: boolean
+    networkPolicyConfig:
+      disabled: boolean
+    cloudRunConfig:
+      disabled: boolean
+      loadBalancerType: string
+    dnsCacheConfig:
+      enabled: boolean
+    configConnectorConfig:
+      enabled: boolean
+    gcePersistentDiskCsiDriverConfig:
+      enabled: boolean
+    gcpFilestoreCsiDriverConfig:
+      enabled: boolean
+    gkeBackupAgentConfig:
+      enabled: boolean
+    gcsFuseCsiDriverConfig:
+      enabled: boolean
+    statefulHaConfig:
+      enabled: boolean
+    rayOperatorConfig:
+      enabled: boolean
+      rayClusterLoggingConfig:
+        enabled: boolean
+      rayClusterMonitoringConfig:
+        enabled: boolean
+  subnetwork: string
+  nodePools:
+    - name: string
+      initialNodeCount: integer
+      locations:
+        - type: string
+      networkConfig:
+        createPodRange: boolean
+        podRange: string
+        podIpv4CidrBlock: string
+        enablePrivateNodes: boolean
+        networkPerformanceConfig:
+          totalEgressBandwidthTier: string
+        podCidrOverprovisionConfig:
+          disable: boolean
+        additionalNodeNetworkConfigs:
+          - network: string
+            subnetwork: string
+        additionalPodNetworkConfigs:
+          - subnetwork: string
+            secondaryPodRange: string
+            maxPodsPerNode:
+              maxPodsPerNode: string
+        podIpv4RangeUtilization: number
+      selfLink: string
+      version: string
+      instanceGroupUrls:
+        - type: string
+      status: string
+      statusMessage: string
+      autoscaling:
+        enabled: boolean
+        minNodeCount: integer
+        maxNodeCount: integer
+        autoprovisioned: boolean
+        locationPolicy: string
+        totalMinNodeCount: integer
+        totalMaxNodeCount: integer
+      management:
+        autoUpgrade: boolean
+        autoRepair: boolean
+        upgradeOptions:
+          autoUpgradeStartTime: string
+          description: string
+      conditions:
+        - code: string
+          message: string
+          canonicalCode: string
+      podIpv4CidrSize: integer
+      upgradeSettings:
+        maxSurge: integer
+        maxUnavailable: integer
+        strategy: string
+        blueGreenSettings:
+          standardRolloutPolicy:
+            batchPercentage: number
+            batchNodeCount: integer
+            batchSoakDuration: string
+          nodePoolSoakDuration: string
+      placementPolicy:
+        type: string
+        tpuTopology: string
+        policyName: string
+      updateInfo:
+        blueGreenInfo:
+          phase: string
+          blueInstanceGroupUrls:
+            - type: string
+          greenInstanceGroupUrls:
+            - type: string
+          bluePoolDeletionStartTime: string
+          greenPoolVersion: string
+      etag: string
+      queuedProvisioning:
+        enabled: boolean
+      bestEffortProvisioning:
+        enabled: boolean
+        minProvisionNodes: integer
+  locations:
+    - type: string
+  enableKubernetesAlpha: boolean
+  resourceLabels: object
+  labelFingerprint: string
+  legacyAbac:
+    enabled: boolean
+  networkPolicy:
+    provider: string
+    enabled: boolean
+  ipAllocationPolicy:
+    useIpAliases: boolean
+    createSubnetwork: boolean
+    subnetworkName: string
+    clusterIpv4Cidr: string
+    nodeIpv4Cidr: string
+    servicesIpv4Cidr: string
+    clusterSecondaryRangeName: string
+    servicesSecondaryRangeName: string
+    clusterIpv4CidrBlock: string
+    nodeIpv4CidrBlock: string
+    servicesIpv4CidrBlock: string
+    tpuIpv4CidrBlock: string
+    useRoutes: boolean
+    stackType: string
+    ipv6AccessType: string
+    subnetIpv6CidrBlock: string
+    servicesIpv6CidrBlock: string
+    additionalPodRangesConfig:
+      podRangeNames:
+        - type: string
+      podRangeInfo:
+        - rangeName: string
+          utilization: number
+    defaultPodIpv4RangeUtilization: number
+  masterAuthorizedNetworksConfig:
+    enabled: boolean
+    cidrBlocks:
+      - displayName: string
+        cidrBlock: string
+    gcpPublicCidrsAccessEnabled: boolean
+  maintenancePolicy:
+    window:
+      dailyMaintenanceWindow:
+        startTime: string
+        duration: string
+      recurringWindow:
+        window:
+          maintenanceExclusionOptions:
+            scope: string
+          startTime: string
+          endTime: string
+        recurrence: string
+      maintenanceExclusions: object
+    resourceVersion: string
+  binaryAuthorization:
+    enabled: boolean
+    evaluationMode: string
+  autoscaling:
+    enableNodeAutoprovisioning: boolean
+    resourceLimits:
+      - resourceType: string
+        minimum: string
+        maximum: string
+    autoscalingProfile: string
+    autoprovisioningNodePoolDefaults:
+      oauthScopes:
+        - type: string
+      serviceAccount: string
+      minCpuPlatform: string
+      diskSizeGb: integer
+      diskType: string
+      bootDiskKmsKey: string
+      imageType: string
+      insecureKubeletReadonlyPortEnabled: boolean
+    autoprovisioningLocations:
+      - type: string
+  networkConfig:
+    network: string
+    subnetwork: string
+    enableIntraNodeVisibility: boolean
+    defaultSnatStatus:
+      disabled: boolean
+    enableL4ilbSubsetting: boolean
+    datapathProvider: string
+    privateIpv6GoogleAccess: string
+    dnsConfig:
+      clusterDns: string
+      clusterDnsScope: string
+      clusterDnsDomain: string
+      additiveVpcScopeDnsDomain: string
+    serviceExternalIpsConfig:
+      enabled: boolean
+    gatewayApiConfig:
+      channel: string
+    enableMultiNetworking: boolean
+    networkPerformanceConfig:
+      totalEgressBandwidthTier: string
+    enableFqdnNetworkPolicy: boolean
+    inTransitEncryptionConfig: string
+    enableCiliumClusterwideNetworkPolicy: boolean
+  resourceUsageExportConfig:
+    bigqueryDestination:
+      datasetId: string
+    enableNetworkEgressMetering: boolean
+    consumptionMeteringConfig:
+      enabled: boolean
+  authenticatorGroupsConfig:
+    enabled: boolean
+    securityGroup: string
+  privateClusterConfig:
+    enablePrivateNodes: boolean
+    enablePrivateEndpoint: boolean
+    masterIpv4CidrBlock: string
+    privateEndpoint: string
+    publicEndpoint: string
+    peeringName: string
+    masterGlobalAccessConfig:
+      enabled: boolean
+    privateEndpointSubnetwork: string
+  databaseEncryption:
+    keyName: string
+    state: string
+    currentState: string
+    decryptionKeys:
+      - type: string
+    lastOperationErrors:
+      - keyName: string
+        errorMessage: string
+        timestamp: string
+  verticalPodAutoscaling:
+    enabled: boolean
+  shieldedNodes:
+    enabled: boolean
+  releaseChannel:
+    channel: string
+  workloadIdentityConfig:
+    workloadPool: string
+  meshCertificates:
+    enableCertificates: boolean
+  costManagementConfig:
+    enabled: boolean
+  notificationConfig:
+    pubsub:
+      enabled: boolean
+      topic: string
+      filter:
+        eventType:
+          - type: string
+            enumDescriptions: string
+            enum: string
+  identityServiceConfig:
+    enabled: boolean
+  selfLink: string
+  zone: string
+  endpoint: string
+  initialClusterVersion: string
+  currentMasterVersion: string
+  currentNodeVersion: string
+  createTime: string
+  status: string
+  statusMessage: string
+  nodeIpv4CidrSize: integer
+  servicesIpv4Cidr: string
+  instanceGroupUrls:
+    - type: string
+  currentNodeCount: integer
+  expireTime: string
+  location: string
+  enableTpu: boolean
+  tpuIpv4CidrBlock: string
+  conditions:
+    - code: string
+      message: string
+      canonicalCode: string
+  autopilot:
+    enabled: boolean
+    workloadPolicyConfig:
+      allowNetAdmin: boolean
+  id: string
+  parentProductConfig:
+    productName: string
+    labels: object
+  nodePoolDefaults:
+    nodeConfigDefaults: {}
+  loggingConfig:
+    componentConfig:
+      enableComponents:
+        - type: string
+          enumDescriptions: string
+          enum: string
+  monitoringConfig:
+    componentConfig:
+      enableComponents:
+        - type: string
+          enumDescriptions: string
+          enum: string
+    managedPrometheusConfig:
+      enabled: boolean
+    advancedDatapathObservabilityConfig:
+      enableMetrics: boolean
+      relayMode: string
+      enableRelay: boolean
+  nodePoolAutoConfig:
+    networkTags:
+      tags:
+        - type: string
+  etag: string
+  fleet:
+    project: string
+    membership: string
+    preRegistered: boolean
+  securityPostureConfig:
+    mode: string
+    vulnerabilityMode: string
+  enableK8sBetaApis:
+    enabledApis:
+      - type: string
+  enterpriseConfig:
+    clusterTier: string
+  secretManagerConfig:
+    enabled: boolean
+  compliancePostureConfig:
+    mode: string
+    complianceStandards:
+      - standard: string
+  satisfiesPzs: boolean
+  satisfiesPzi: boolean
+  rbacBindingConfig:
+    enableInsecureBindingSystemUnauthenticated: boolean
+    enableInsecureBindingSystemAuthenticated: boolean
+parent: string
 
 ```
 </TabItem>

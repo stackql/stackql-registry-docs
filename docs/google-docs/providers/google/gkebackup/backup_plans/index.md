@@ -128,64 +128,61 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: cluster
-      value: '{{ cluster }}'
-    - name: retentionPolicy
-      value:
-        - name: backupDeleteLockDays
-          value: '{{ backupDeleteLockDays }}'
-        - name: backupRetainDays
-          value: '{{ backupRetainDays }}'
-        - name: locked
-          value: '{{ locked }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: backupSchedule
-      value:
-        - name: cronSchedule
-          value: '{{ cronSchedule }}'
-        - name: paused
-          value: '{{ paused }}'
-        - name: rpoConfig
-          value:
-            - name: targetRpoMinutes
-              value: '{{ targetRpoMinutes }}'
-            - name: exclusionWindows
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: deactivated
-      value: '{{ deactivated }}'
-    - name: backupConfig
-      value:
-        - name: allNamespaces
-          value: '{{ allNamespaces }}'
-        - name: selectedNamespaces
-          value:
-            - name: namespaces
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: selectedApplications
-          value:
-            - name: namespacedNames
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: includeVolumeData
-          value: '{{ includeVolumeData }}'
-        - name: includeSecrets
-          value: '{{ includeSecrets }}'
-        - name: encryptionKey
-          value:
-            - name: gcpKmsEncryptionKey
-              value: '{{ gcpKmsEncryptionKey }}'
-        - name: permissiveMode
-          value: '{{ permissiveMode }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+description: string
+cluster: string
+retentionPolicy:
+  backupDeleteLockDays: integer
+  backupRetainDays: integer
+  locked: boolean
+labels: object
+backupSchedule:
+  cronSchedule: string
+  paused: boolean
+  rpoConfig:
+    targetRpoMinutes: integer
+    exclusionWindows:
+      - startTime:
+          hours: integer
+          minutes: integer
+          seconds: integer
+          nanos: integer
+        duration: string
+        singleOccurrenceDate:
+          year: integer
+          month: integer
+          day: integer
+        daily: boolean
+        daysOfWeek:
+          daysOfWeek:
+            - type: string
+              enumDescriptions: string
+              enum: string
+  nextScheduledBackupTime: string
+etag: string
+deactivated: boolean
+backupConfig:
+  allNamespaces: boolean
+  selectedNamespaces:
+    namespaces:
+      - type: string
+  selectedApplications:
+    namespacedNames:
+      - namespace: string
+        name: string
+  includeVolumeData: boolean
+  includeSecrets: boolean
+  encryptionKey:
+    gcpKmsEncryptionKey: string
+  permissiveMode: boolean
+protectedPodCount: integer
+state: string
+stateReason: string
+rpoRiskLevel: integer
+rpoRiskReason: string
 
 ```
 </TabItem>

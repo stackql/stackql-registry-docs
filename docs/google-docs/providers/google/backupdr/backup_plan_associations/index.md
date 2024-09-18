@@ -102,12 +102,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: resource
-      value: '{{ resource }}'
-    - name: backupPlan
-      value: '{{ backupPlan }}'
+name: string
+resourceType: string
+resource: string
+backupPlan: string
+createTime: string
+updateTime: string
+state: string
+rulesConfigInfo:
+  - ruleId: string
+    lastBackupState: string
+    lastBackupError:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+    lastSuccessfulBackupConsistencyTime: string
+dataSource: string
 
 ```
 </TabItem>

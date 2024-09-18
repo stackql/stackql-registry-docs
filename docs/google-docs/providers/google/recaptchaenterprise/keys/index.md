@@ -116,68 +116,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: name
-      value: '{{ name }}'
-    - name: webSettings
-      value:
-        - name: challengeSecurityPreference
-          value: '{{ challengeSecurityPreference }}'
-        - name: allowAllDomains
-          value: '{{ allowAllDomains }}'
-        - name: allowAmpTraffic
-          value: '{{ allowAmpTraffic }}'
-        - name: integrationType
-          value: '{{ integrationType }}'
-        - name: allowedDomains
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: wafSettings
-      value:
-        - name: wafFeature
-          value: '{{ wafFeature }}'
-        - name: wafService
-          value: '{{ wafService }}'
-    - name: testingOptions
-      value:
-        - name: testingScore
-          value: '{{ testingScore }}'
-        - name: testingChallenge
-          value: '{{ testingChallenge }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: androidSettings
-      value:
-        - name: supportNonGoogleAppStoreDistribution
-          value: '{{ supportNonGoogleAppStoreDistribution }}'
-        - name: allowedPackageNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: allowAllPackageNames
-          value: '{{ allowAllPackageNames }}'
-    - name: expressSettings
-      value: []
-    - name: iosSettings
-      value:
-        - name: allowedBundleIds
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: allowAllBundleIds
-          value: '{{ allowAllBundleIds }}'
-        - name: appleDeveloperId
-          value:
-            - name: keyId
-              value: '{{ keyId }}'
-            - name: privateKey
-              value: '{{ privateKey }}'
-            - name: teamId
-              value: '{{ teamId }}'
+displayName: string
+name: string
+webSettings:
+  challengeSecurityPreference: string
+  allowAllDomains: boolean
+  allowAmpTraffic: boolean
+  integrationType: string
+  allowedDomains:
+    - type: string
+wafSettings:
+  wafFeature: string
+  wafService: string
+testingOptions:
+  testingScore: number
+  testingChallenge: string
+labels: object
+androidSettings:
+  supportNonGoogleAppStoreDistribution: boolean
+  allowedPackageNames:
+    - type: string
+  allowAllPackageNames: boolean
+expressSettings: {}
+iosSettings:
+  allowedBundleIds:
+    - type: string
+  allowAllBundleIds: boolean
+  appleDeveloperId:
+    keyId: string
+    privateKey: string
+    teamId: string
+createTime: string
 
 ```
 </TabItem>

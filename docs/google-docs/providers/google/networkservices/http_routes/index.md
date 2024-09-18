@@ -114,30 +114,99 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: hostnames
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: meshes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: gateways
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+selfLink: string
+description: string
+createTime: string
+updateTime: string
+hostnames:
+  - type: string
+meshes:
+  - type: string
+gateways:
+  - type: string
+labels: object
+rules:
+  - matches:
+      - fullPathMatch: string
+        prefixMatch: string
+        regexMatch: string
+        ignoreCase: boolean
+        headers:
+          - exactMatch: string
+            regexMatch: string
+            prefixMatch: string
+            presentMatch: boolean
+            suffixMatch: string
+            rangeMatch:
+              start: integer
+              end: integer
+            header: string
+            invertMatch: boolean
+        queryParameters:
+          - exactMatch: string
+            regexMatch: string
+            presentMatch: boolean
+            queryParameter: string
+    action:
+      destinations:
+        - serviceName: string
+          weight: integer
+          requestHeaderModifier:
+            set: object
+            add: object
+            remove:
+              - type: string
+      redirect:
+        hostRedirect: string
+        pathRedirect: string
+        prefixRewrite: string
+        responseCode: string
+        httpsRedirect: boolean
+        stripQuery: boolean
+        portRedirect: integer
+      faultInjectionPolicy:
+        delay:
+          fixedDelay: string
+          percentage: integer
+        abort:
+          httpStatus: integer
+          percentage: integer
+      urlRewrite:
+        pathPrefixRewrite: string
+        hostRewrite: string
+      timeout: string
+      retryPolicy:
+        retryConditions:
+          - type: string
+        numRetries: integer
+        perTryTimeout: string
+      requestMirrorPolicy:
+        destination:
+          serviceName: string
+          weight: integer
+        mirrorPercent: number
+      corsPolicy:
+        allowOrigins:
+          - type: string
+        allowOriginRegexes:
+          - type: string
+        allowMethods:
+          - type: string
+        allowHeaders:
+          - type: string
+        exposeHeaders:
+          - type: string
+        maxAge: string
+        allowCredentials: boolean
+        disabled: boolean
+      statefulSessionAffinity:
+        cookieTtl: string
+      directResponse:
+        stringBody: string
+        bytesBody: string
+        status: integer
+      idleTimeout: string
 
 ```
 </TabItem>

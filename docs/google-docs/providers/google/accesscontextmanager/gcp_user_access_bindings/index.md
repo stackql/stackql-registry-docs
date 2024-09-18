@@ -105,40 +105,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: groupKey
-      value: '{{ groupKey }}'
-    - name: accessLevels
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dryRunAccessLevels
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: reauthSettings
-      value:
-        - name: reauthMethod
-          value: '{{ reauthMethod }}'
-        - name: sessionLength
-          value: '{{ sessionLength }}'
-        - name: maxInactivity
-          value: '{{ maxInactivity }}'
-        - name: useOidcMaxAge
-          value: '{{ useOidcMaxAge }}'
-        - name: sessionLengthEnabled
-          value: '{{ sessionLengthEnabled }}'
-    - name: restrictedClientApplications
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: scopedAccessSettings
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+groupKey: string
+accessLevels:
+  - type: string
+dryRunAccessLevels:
+  - type: string
+reauthSettings:
+  reauthMethod: string
+  sessionLength: string
+  maxInactivity: string
+  useOidcMaxAge: boolean
+  sessionLengthEnabled: boolean
+restrictedClientApplications:
+  - clientId: string
+    name: string
+scopedAccessSettings:
+  - scope:
+      clientScope:
+        restrictedClientApplication:
+          clientId: string
+          name: string
+    activeSettings:
+      accessLevels:
+        - type: string
 
 ```
 </TabItem>

@@ -128,138 +128,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: pysparkBatch
-      value:
-        - name: mainPythonFileUri
-          value: '{{ mainPythonFileUri }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: pythonFileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: jarFileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: sparkBatch
-      value:
-        - name: mainJarFileUri
-          value: '{{ mainJarFileUri }}'
-        - name: mainClass
-          value: '{{ mainClass }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: jarFileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: sparkRBatch
-      value:
-        - name: mainRFileUri
-          value: '{{ mainRFileUri }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: sparkSqlBatch
-      value:
-        - name: queryFileUri
-          value: '{{ queryFileUri }}'
-        - name: queryVariables
-          value: '{{ queryVariables }}'
-        - name: jarFileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: runtimeConfig
-      value:
-        - name: version
-          value: '{{ version }}'
-        - name: containerImage
-          value: '{{ containerImage }}'
-        - name: properties
-          value: '{{ properties }}'
-        - name: repositoryConfig
-          value:
-            - name: pypiRepositoryConfig
-              value:
-                - name: pypiRepository
-                  value: '{{ pypiRepository }}'
-        - name: autotuningConfig
-          value:
-            - name: scenarios
-              value:
-                - name: type
-                  value: '{{ type }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-                - name: enum
-                  value: '{{ enum }}'
-        - name: cohort
-          value: '{{ cohort }}'
-    - name: environmentConfig
-      value:
-        - name: executionConfig
-          value:
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: networkUri
-              value: '{{ networkUri }}'
-            - name: subnetworkUri
-              value: '{{ subnetworkUri }}'
-            - name: networkTags
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: kmsKey
-              value: '{{ kmsKey }}'
-            - name: idleTtl
-              value: '{{ idleTtl }}'
-            - name: ttl
-              value: '{{ ttl }}'
-            - name: stagingBucket
-              value: '{{ stagingBucket }}'
-        - name: peripheralsConfig
-          value:
-            - name: metastoreService
-              value: '{{ metastoreService }}'
-            - name: sparkHistoryServerConfig
-              value:
-                - name: dataprocCluster
-                  value: '{{ dataprocCluster }}'
+name: string
+uuid: string
+createTime: string
+pysparkBatch:
+  mainPythonFileUri: string
+  args:
+    - type: string
+  pythonFileUris:
+    - type: string
+  jarFileUris:
+    - type: string
+  fileUris:
+    - type: string
+  archiveUris:
+    - type: string
+sparkBatch:
+  mainJarFileUri: string
+  mainClass: string
+  args:
+    - type: string
+  jarFileUris:
+    - type: string
+  fileUris:
+    - type: string
+  archiveUris:
+    - type: string
+sparkRBatch:
+  mainRFileUri: string
+  args:
+    - type: string
+  fileUris:
+    - type: string
+  archiveUris:
+    - type: string
+sparkSqlBatch:
+  queryFileUri: string
+  queryVariables: object
+  jarFileUris:
+    - type: string
+runtimeInfo:
+  endpoints: object
+  outputUri: string
+  diagnosticOutputUri: string
+  approximateUsage:
+    milliDcuSeconds: string
+    shuffleStorageGbSeconds: string
+    milliAcceleratorSeconds: string
+    acceleratorType: string
+  currentUsage:
+    milliDcu: string
+    shuffleStorageGb: string
+    milliDcuPremium: string
+    shuffleStorageGbPremium: string
+    milliAccelerator: string
+    acceleratorType: string
+    snapshotTime: string
+state: string
+stateMessage: string
+stateTime: string
+creator: string
+labels: object
+runtimeConfig:
+  version: string
+  containerImage: string
+  properties: object
+  repositoryConfig:
+    pypiRepositoryConfig:
+      pypiRepository: string
+  autotuningConfig:
+    scenarios:
+      - type: string
+        enumDescriptions: string
+        enum: string
+  cohort: string
+environmentConfig:
+  executionConfig:
+    serviceAccount: string
+    networkUri: string
+    subnetworkUri: string
+    networkTags:
+      - type: string
+    kmsKey: string
+    idleTtl: string
+    ttl: string
+    stagingBucket: string
+  peripheralsConfig:
+    metastoreService: string
+    sparkHistoryServerConfig:
+      dataprocCluster: string
+operation: string
+stateHistory:
+  - state: string
+    stateMessage: string
+    stateStartTime: string
 
 ```
 </TabItem>

@@ -126,38 +126,51 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: purpose
-      value: '{{ purpose }}'
-    - name: nextRotationTime
-      value: '{{ nextRotationTime }}'
-    - name: rotationPeriod
-      value: '{{ rotationPeriod }}'
-    - name: versionTemplate
-      value:
-        - name: protectionLevel
-          value: '{{ protectionLevel }}'
-        - name: algorithm
-          value: '{{ algorithm }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: importOnly
-      value: '{{ importOnly }}'
-    - name: destroyScheduledDuration
-      value: '{{ destroyScheduledDuration }}'
-    - name: cryptoKeyBackend
-      value: '{{ cryptoKeyBackend }}'
-    - name: keyAccessJustificationsPolicy
-      value:
-        - name: allowedAccessReasons
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
+name: string
+primary:
+  name: string
+  state: string
+  protectionLevel: string
+  algorithm: string
+  attestation:
+    format: string
+    content: string
+    certChains:
+      caviumCerts:
+        - type: string
+      googleCardCerts:
+        - type: string
+      googlePartitionCerts:
+        - type: string
+  createTime: string
+  generateTime: string
+  destroyTime: string
+  destroyEventTime: string
+  importJob: string
+  importTime: string
+  importFailureReason: string
+  generationFailureReason: string
+  externalDestructionFailureReason: string
+  externalProtectionLevelOptions:
+    externalKeyUri: string
+    ekmConnectionKeyPath: string
+  reimportEligible: boolean
+purpose: string
+createTime: string
+nextRotationTime: string
+rotationPeriod: string
+versionTemplate:
+  protectionLevel: string
+  algorithm: string
+labels: object
+importOnly: boolean
+destroyScheduledDuration: string
+cryptoKeyBackend: string
+keyAccessJustificationsPolicy:
+  allowedAccessReasons:
+    - type: string
+      enumDescriptions: string
+      enum: string
 
 ```
 </TabItem>

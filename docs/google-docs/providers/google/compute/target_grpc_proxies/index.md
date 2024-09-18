@@ -107,18 +107,16 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: urlMap
-      value: '{{ urlMap }}'
-    - name: validateForProxyless
-      value: '{{ validateForProxyless }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+selfLinkWithId: string
+urlMap: string
+validateForProxyless: boolean
+fingerprint: string
 
 ```
 </TabItem>

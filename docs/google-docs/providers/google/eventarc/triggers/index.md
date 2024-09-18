@@ -124,62 +124,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: eventFilters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: destination
-      value:
-        - name: cloudRun
-          value:
-            - name: service
-              value: '{{ service }}'
-            - name: path
-              value: '{{ path }}'
-            - name: region
-              value: '{{ region }}'
-        - name: cloudFunction
-          value: '{{ cloudFunction }}'
-        - name: gke
-          value:
-            - name: cluster
-              value: '{{ cluster }}'
-            - name: location
-              value: '{{ location }}'
-            - name: namespace
-              value: '{{ namespace }}'
-            - name: service
-              value: '{{ service }}'
-            - name: path
-              value: '{{ path }}'
-        - name: workflow
-          value: '{{ workflow }}'
-        - name: httpEndpoint
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: networkConfig
-          value:
-            - name: networkAttachment
-              value: '{{ networkAttachment }}'
-    - name: transport
-      value:
-        - name: pubsub
-          value:
-            - name: topic
-              value: '{{ topic }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: channel
-      value: '{{ channel }}'
-    - name: eventDataContentType
-      value: '{{ eventDataContentType }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+eventFilters:
+  - attribute: string
+    value: string
+    operator: string
+serviceAccount: string
+destination:
+  cloudRun:
+    service: string
+    path: string
+    region: string
+  cloudFunction: string
+  gke:
+    cluster: string
+    location: string
+    namespace: string
+    service: string
+    path: string
+  workflow: string
+  httpEndpoint:
+    uri: string
+  networkConfig:
+    networkAttachment: string
+transport:
+  pubsub:
+    topic: string
+    subscription: string
+labels: object
+channel: string
+conditions: object
+eventDataContentType: string
+satisfiesPzs: boolean
+etag: string
 
 ```
 </TabItem>

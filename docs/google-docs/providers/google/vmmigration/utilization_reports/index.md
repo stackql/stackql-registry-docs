@@ -108,16 +108,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: timeFrame
-      value: '{{ timeFrame }}'
-    - name: vms
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+displayName: string
+state: string
+stateTime: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+createTime: string
+timeFrame: string
+frameEndTime: string
+vmCount: integer
+vms:
+  - vmwareVmDetails:
+      vmId: string
+      datacenterId: string
+      datacenterDescription: string
+      uuid: string
+      displayName: string
+      powerState: string
+      cpuCount: integer
+      memoryMb: integer
+      diskCount: integer
+      committedStorageMb: string
+      guestDescription: string
+      bootOption: string
+    vmId: string
+    utilization:
+      cpuMaxPercent: integer
+      cpuAveragePercent: integer
+      memoryMaxPercent: integer
+      memoryAveragePercent: integer
+      diskIoRateMaxKbps: string
+      diskIoRateAverageKbps: string
+      networkThroughputMaxKbps: string
+      networkThroughputAverageKbps: string
 
 ```
 </TabItem>

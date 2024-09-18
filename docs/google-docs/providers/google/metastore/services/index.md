@@ -169,96 +169,81 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: hiveMetastoreConfig
-      value:
-        - name: version
-          value: '{{ version }}'
-        - name: configOverrides
-          value: '{{ configOverrides }}'
-        - name: kerberosConfig
-          value:
-            - name: keytab
-              value:
-                - name: cloudSecret
-                  value: '{{ cloudSecret }}'
-            - name: principal
-              value: '{{ principal }}'
-            - name: krb5ConfigGcsUri
-              value: '{{ krb5ConfigGcsUri }}'
-        - name: endpointProtocol
-          value: '{{ endpointProtocol }}'
-        - name: auxiliaryVersions
-          value: '{{ auxiliaryVersions }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: network
-      value: '{{ network }}'
-    - name: port
-      value: '{{ port }}'
-    - name: tier
-      value: '{{ tier }}'
-    - name: metadataIntegration
-      value:
-        - name: dataCatalogConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-    - name: maintenanceWindow
-      value:
-        - name: hourOfDay
-          value: '{{ hourOfDay }}'
-        - name: dayOfWeek
-          value: '{{ dayOfWeek }}'
-    - name: releaseChannel
-      value: '{{ releaseChannel }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKey
-          value: '{{ kmsKey }}'
-    - name: networkConfig
-      value:
-        - name: consumers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: databaseType
-      value: '{{ databaseType }}'
-    - name: telemetryConfig
-      value:
-        - name: logFormat
-          value: '{{ logFormat }}'
-    - name: scalingConfig
-      value:
-        - name: instanceSize
-          value: '{{ instanceSize }}'
-        - name: scalingFactor
-          value: '{{ scalingFactor }}'
-        - name: autoscalingConfig
-          value:
-            - name: autoscalingEnabled
-              value: '{{ autoscalingEnabled }}'
-            - name: limitConfig
-              value:
-                - name: maxScalingFactor
-                  value: '{{ maxScalingFactor }}'
-                - name: minScalingFactor
-                  value: '{{ minScalingFactor }}'
-    - name: scheduledBackup
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: cronSchedule
-          value: '{{ cronSchedule }}'
-        - name: timeZone
-          value: '{{ timeZone }}'
-        - name: backupLocation
-          value: '{{ backupLocation }}'
-    - name: deletionProtection
-      value: '{{ deletionProtection }}'
+hiveMetastoreConfig:
+  version: string
+  configOverrides: object
+  kerberosConfig:
+    keytab:
+      cloudSecret: string
+    principal: string
+    krb5ConfigGcsUri: string
+  endpointProtocol: string
+  auxiliaryVersions: object
+name: string
+createTime: string
+updateTime: string
+labels: object
+network: string
+endpointUri: string
+port: integer
+state: string
+stateMessage: string
+artifactGcsUri: string
+tier: string
+metadataIntegration:
+  dataCatalogConfig:
+    enabled: boolean
+maintenanceWindow:
+  hourOfDay: integer
+  dayOfWeek: string
+uid: string
+metadataManagementActivity:
+  metadataExports:
+    - destinationGcsUri: string
+      startTime: string
+      endTime: string
+      state: string
+      databaseDumpType: string
+  restores:
+    - startTime: string
+      endTime: string
+      state: string
+      backup: string
+      type: string
+      details: string
+      backupLocation: string
+releaseChannel: string
+encryptionConfig:
+  kmsKey: string
+networkConfig:
+  consumers:
+    - subnetwork: string
+      endpointUri: string
+      endpointLocation: string
+databaseType: string
+telemetryConfig:
+  logFormat: string
+scalingConfig:
+  instanceSize: string
+  scalingFactor: number
+  autoscalingConfig:
+    autoscalingFactor: number
+    autoscalingEnabled: boolean
+    limitConfig:
+      maxScalingFactor: number
+      minScalingFactor: number
+scheduledBackup:
+  enabled: boolean
+  cronSchedule: string
+  timeZone: string
+  nextScheduledTime: string
+  backupLocation: string
+  latestBackup:
+    backupId: string
+    startTime: string
+    state: string
+    duration: string
+deletionProtection: boolean
 
 ```
 </TabItem>

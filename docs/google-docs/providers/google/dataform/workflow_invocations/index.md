@@ -106,30 +106,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: compilationResult
-      value: '{{ compilationResult }}'
-    - name: workflowConfig
-      value: '{{ workflowConfig }}'
-    - name: invocationConfig
-      value:
-        - name: includedTargets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: includedTags
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: transitiveDependenciesIncluded
-          value: '{{ transitiveDependenciesIncluded }}'
-        - name: transitiveDependentsIncluded
-          value: '{{ transitiveDependentsIncluded }}'
-        - name: fullyRefreshIncrementalTablesEnabled
-          value: '{{ fullyRefreshIncrementalTablesEnabled }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
+compilationResult: string
+workflowConfig: string
+name: string
+invocationConfig:
+  includedTargets:
+    - database: string
+      schema: string
+      name: string
+  includedTags:
+    - type: string
+  transitiveDependenciesIncluded: boolean
+  transitiveDependentsIncluded: boolean
+  fullyRefreshIncrementalTablesEnabled: boolean
+  serviceAccount: string
+state: string
+invocationTiming:
+  startTime: string
+  endTime: string
+resolvedCompilationResult: string
+dataEncryptionState:
+  kmsKeyVersionName: string
 
 ```
 </TabItem>

@@ -70,48 +70,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: catalogAttribute
-      value:
-        - name: key
-          value: '{{ key }}'
-        - name: indexableOption
-          value: '{{ indexableOption }}'
-        - name: dynamicFacetableOption
-          value: '{{ dynamicFacetableOption }}'
-        - name: searchableOption
-          value: '{{ searchableOption }}'
-        - name: exactSearchableOption
-          value: '{{ exactSearchableOption }}'
-        - name: retrievableOption
-          value: '{{ retrievableOption }}'
-        - name: facetConfig
-          value:
-            - name: facetIntervals
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: ignoredFacetValues
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: mergedFacetValues
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: mergedFacet
-              value:
-                - name: mergedFacetKey
-                  value: '{{ mergedFacetKey }}'
-            - name: rerankConfig
-              value:
-                - name: rerankFacet
-                  value: '{{ rerankFacet }}'
-                - name: facetValues
-                  value:
-                    - name: type
-                      value: '{{ type }}'
+catalogAttribute:
+  key: string
+  inUse: boolean
+  type: string
+  indexableOption: string
+  dynamicFacetableOption: string
+  searchableOption: string
+  exactSearchableOption: string
+  retrievableOption: string
+  facetConfig:
+    facetIntervals:
+      - minimum: number
+        exclusiveMinimum: number
+        maximum: number
+        exclusiveMaximum: number
+    ignoredFacetValues:
+      - values:
+          - type: string
+        startTime: string
+        endTime: string
+    mergedFacetValues:
+      - values:
+          - type: string
+        mergedValue: string
+    mergedFacet:
+      mergedFacetKey: string
+    rerankConfig:
+      rerankFacet: boolean
+      facetValues:
+        - type: string
 
 ```
 </TabItem>

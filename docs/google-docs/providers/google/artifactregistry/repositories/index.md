@@ -142,116 +142,67 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: mavenConfig
-      value:
-        - name: allowSnapshotOverwrites
-          value: '{{ allowSnapshotOverwrites }}'
-        - name: versionPolicy
-          value: '{{ versionPolicy }}'
-    - name: dockerConfig
-      value:
-        - name: immutableTags
-          value: '{{ immutableTags }}'
-    - name: virtualRepositoryConfig
-      value:
-        - name: upstreamPolicies
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: remoteRepositoryConfig
-      value:
-        - name: dockerRepository
-          value:
-            - name: publicRepository
-              value: '{{ publicRepository }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: mavenRepository
-          value:
-            - name: publicRepository
-              value: '{{ publicRepository }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: npmRepository
-          value:
-            - name: publicRepository
-              value: '{{ publicRepository }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: pythonRepository
-          value:
-            - name: publicRepository
-              value: '{{ publicRepository }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: aptRepository
-          value:
-            - name: publicRepository
-              value:
-                - name: repositoryBase
-                  value: '{{ repositoryBase }}'
-                - name: repositoryPath
-                  value: '{{ repositoryPath }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: yumRepository
-          value:
-            - name: publicRepository
-              value:
-                - name: repositoryBase
-                  value: '{{ repositoryBase }}'
-                - name: repositoryPath
-                  value: '{{ repositoryPath }}'
-            - name: customRepository
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-        - name: commonRepository
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: description
-          value: '{{ description }}'
-        - name: upstreamCredentials
-          value:
-            - name: usernamePasswordCredentials
-              value:
-                - name: username
-                  value: '{{ username }}'
-                - name: passwordSecretVersion
-                  value: '{{ passwordSecretVersion }}'
-        - name: disableUpstreamValidation
-          value: '{{ disableUpstreamValidation }}'
-    - name: name
-      value: '{{ name }}'
-    - name: format
-      value: '{{ format }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
-    - name: mode
-      value: '{{ mode }}'
-    - name: cleanupPolicies
-      value: '{{ cleanupPolicies }}'
-    - name: cleanupPolicyDryRun
-      value: '{{ cleanupPolicyDryRun }}'
-    - name: disallowUnspecifiedMode
-      value: '{{ disallowUnspecifiedMode }}'
+mavenConfig:
+  allowSnapshotOverwrites: boolean
+  versionPolicy: string
+dockerConfig:
+  immutableTags: boolean
+virtualRepositoryConfig:
+  upstreamPolicies:
+    - id: string
+      repository: string
+      priority: integer
+remoteRepositoryConfig:
+  dockerRepository:
+    publicRepository: string
+    customRepository:
+      uri: string
+  mavenRepository:
+    publicRepository: string
+    customRepository:
+      uri: string
+  npmRepository:
+    publicRepository: string
+    customRepository:
+      uri: string
+  pythonRepository:
+    publicRepository: string
+    customRepository:
+      uri: string
+  aptRepository:
+    publicRepository:
+      repositoryBase: string
+      repositoryPath: string
+    customRepository:
+      uri: string
+  yumRepository:
+    publicRepository:
+      repositoryBase: string
+      repositoryPath: string
+    customRepository:
+      uri: string
+  commonRepository:
+    uri: string
+  description: string
+  upstreamCredentials:
+    usernamePasswordCredentials:
+      username: string
+      passwordSecretVersion: string
+  disableUpstreamValidation: boolean
+name: string
+format: string
+description: string
+labels: object
+createTime: string
+updateTime: string
+kmsKeyName: string
+mode: string
+cleanupPolicies: object
+sizeBytes: string
+satisfiesPzs: boolean
+cleanupPolicyDryRun: boolean
+disallowUnspecifiedMode: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

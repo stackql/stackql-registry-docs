@@ -124,48 +124,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: redactionStrategy
-      value: '{{ redactionStrategy }}'
-    - name: redactionScope
-      value: '{{ redactionScope }}'
-    - name: inspectTemplate
-      value: '{{ inspectTemplate }}'
-    - name: deidentifyTemplate
-      value: '{{ deidentifyTemplate }}'
-    - name: retentionWindowDays
-      value: '{{ retentionWindowDays }}'
-    - name: retentionStrategy
-      value: '{{ retentionStrategy }}'
-    - name: purgeDataTypes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: audioExportSettings
-      value:
-        - name: gcsBucket
-          value: '{{ gcsBucket }}'
-        - name: audioExportPattern
-          value: '{{ audioExportPattern }}'
-        - name: enableAudioRedaction
-          value: '{{ enableAudioRedaction }}'
-        - name: audioFormat
-          value: '{{ audioFormat }}'
-        - name: storeTtsAudio
-          value: '{{ storeTtsAudio }}'
-    - name: insightsExportSettings
-      value:
-        - name: enableInsightsExport
-          value: '{{ enableInsightsExport }}'
+name: string
+displayName: string
+redactionStrategy: string
+redactionScope: string
+inspectTemplate: string
+deidentifyTemplate: string
+retentionWindowDays: integer
+retentionStrategy: string
+purgeDataTypes:
+  - type: string
+    enumDescriptions: string
+    enum: string
+audioExportSettings:
+  gcsBucket: string
+  audioExportPattern: string
+  enableAudioRedaction: boolean
+  audioFormat: string
+  storeTtsAudio: boolean
+insightsExportSettings:
+  enableInsightsExport: boolean
 
 ```
 </TabItem>

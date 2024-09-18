@@ -132,126 +132,178 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: trialJobSpec
-      value:
-        - name: workerPoolSpecs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: tensorboard
-          value: '{{ tensorboard }}'
-        - name: experimentRun
-          value: '{{ experimentRun }}'
-        - name: reservedIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: scheduling
-          value:
-            - name: timeout
-              value: '{{ timeout }}'
-            - name: disableRetries
-              value: '{{ disableRetries }}'
-            - name: strategy
-              value: '{{ strategy }}'
-            - name: restartJobOnWorkerRestart
-              value: '{{ restartJobOnWorkerRestart }}'
-            - name: maxWaitDuration
-              value: '{{ maxWaitDuration }}'
-        - name: protectedArtifactLocationId
-          value: '{{ protectedArtifactLocationId }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: baseOutputDirectory
-          value:
-            - name: outputUriPrefix
-              value: '{{ outputUriPrefix }}'
-        - name: enableWebAccess
-          value: '{{ enableWebAccess }}'
-        - name: experiment
-          value: '{{ experiment }}'
-        - name: models
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: persistentResourceId
-          value: '{{ persistentResourceId }}'
-        - name: network
-          value: '{{ network }}'
-        - name: enableDashboardAccess
-          value: '{{ enableDashboardAccess }}'
-    - name: studySpec
-      value:
-        - name: metrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: observationNoise
-          value: '{{ observationNoise }}'
-        - name: parameters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: decayCurveStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-        - name: convexAutomatedStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-            - name: minStepCount
-              value: '{{ minStepCount }}'
-            - name: maxStepCount
-              value: '{{ maxStepCount }}'
-            - name: learningRateParameterName
-              value: '{{ learningRateParameterName }}'
-            - name: updateAllStoppedTrials
-              value: '{{ updateAllStoppedTrials }}'
-            - name: minMeasurementCount
-              value: '{{ minMeasurementCount }}'
-        - name: algorithm
-          value: '{{ algorithm }}'
-        - name: medianAutomatedStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-        - name: measurementSelectionType
-          value: '{{ measurementSelectionType }}'
-        - name: studyStoppingConfig
-          value:
-            - name: minNumTrials
-              value: '{{ minNumTrials }}'
-            - name: shouldStopAsap
-              value: '{{ shouldStopAsap }}'
-            - name: maxNumTrialsNoProgress
-              value: '{{ maxNumTrialsNoProgress }}'
-            - name: maximumRuntimeConstraint
-              value:
-                - name: maxDuration
-                  value: '{{ maxDuration }}'
-                - name: endTime
-                  value: '{{ endTime }}'
-            - name: maxDurationNoProgress
-              value: '{{ maxDurationNoProgress }}'
-            - name: maxNumTrials
-              value: '{{ maxNumTrials }}'
-    - name: maxTrialCount
-      value: '{{ maxTrialCount }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: maxFailedTrialCount
-      value: '{{ maxFailedTrialCount }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: parallelTrialCount
-      value: '{{ parallelTrialCount }}'
+name: string
+trialJobSpec:
+  workerPoolSpecs:
+    - machineSpec:
+        acceleratorCount: integer
+        reservationAffinity:
+          key: string
+          reservationAffinityType: string
+          values:
+            - type: string
+        tpuTopology: string
+        acceleratorType: string
+        machineType: string
+      nfsMounts:
+        - path: string
+          mountPoint: string
+          server: string
+      diskSpec:
+        bootDiskType: string
+        bootDiskSizeGb: integer
+      replicaCount: string
+      containerSpec:
+        command:
+          - type: string
+        args:
+          - type: string
+        imageUri: string
+        env:
+          - value: string
+            name: string
+      pythonPackageSpec:
+        args:
+          - type: string
+        pythonModule: string
+        env:
+          - value: string
+            name: string
+        executorImageUri: string
+        packageUris:
+          - type: string
+  tensorboard: string
+  experimentRun: string
+  reservedIpRanges:
+    - type: string
+  scheduling:
+    timeout: string
+    disableRetries: boolean
+    strategy: string
+    restartJobOnWorkerRestart: boolean
+    maxWaitDuration: string
+  protectedArtifactLocationId: string
+  serviceAccount: string
+  baseOutputDirectory:
+    outputUriPrefix: string
+  enableWebAccess: boolean
+  experiment: string
+  models:
+    - type: string
+  persistentResourceId: string
+  network: string
+  enableDashboardAccess: boolean
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+studySpec:
+  metrics:
+    - goal: string
+      metricId: string
+      safetyConfig:
+        desiredMinSafeTrialsFraction: number
+        safetyThreshold: number
+  observationNoise: string
+  parameters:
+    - conditionalParameterSpecs:
+        - parentIntValues:
+            values:
+              - format: string
+                type: string
+          parameterSpec:
+            conditionalParameterSpecs:
+              - parentDiscreteValues:
+                  values:
+                    - type: string
+                      format: string
+                parentCategoricalValues:
+                  values:
+                    - type: string
+            integerValueSpec:
+              maxValue: string
+              defaultValue: string
+              minValue: string
+            discreteValueSpec:
+              defaultValue: number
+              values:
+                - format: string
+                  type: string
+            doubleValueSpec:
+              defaultValue: number
+              maxValue: number
+              minValue: number
+            categoricalValueSpec:
+              defaultValue: string
+              values:
+                - type: string
+            parameterId: string
+            scaleType: string
+      parameterId: string
+      scaleType: string
+  decayCurveStoppingSpec:
+    useElapsedDuration: boolean
+  convexAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+    minStepCount: string
+    maxStepCount: string
+    learningRateParameterName: string
+    updateAllStoppedTrials: boolean
+    minMeasurementCount: string
+  algorithm: string
+  medianAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+  measurementSelectionType: string
+  studyStoppingConfig:
+    minNumTrials: integer
+    shouldStopAsap: boolean
+    maxNumTrialsNoProgress: integer
+    maximumRuntimeConstraint:
+      maxDuration: string
+      endTime: string
+    maxDurationNoProgress: string
+    maxNumTrials: integer
+updateTime: string
+createTime: string
+trials:
+  - state: string
+    startTime: string
+    finalMeasurement:
+      stepCount: string
+      metrics:
+        - value: number
+          metricId: string
+      elapsedDuration: string
+    clientId: string
+    id: string
+    measurements:
+      - stepCount: string
+        metrics:
+          - value: number
+            metricId: string
+        elapsedDuration: string
+    webAccessUris: object
+    parameters:
+      - value: any
+        parameterId: string
+    endTime: string
+    infeasibleReason: string
+    name: string
+    customJob: string
+maxTrialCount: integer
+labels: object
+satisfiesPzs: boolean
+state: string
+maxFailedTrialCount: integer
+endTime: string
+satisfiesPzi: boolean
+displayName: string
+encryptionSpec:
+  kmsKeyName: string
+startTime: string
+parallelTrialCount: integer
 
 ```
 </TabItem>

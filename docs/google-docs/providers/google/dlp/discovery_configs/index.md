@@ -111,40 +111,161 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: configId
-      value: '{{ configId }}'
-    - name: discoveryConfig
-      value:
-        - name: targets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: status
-          value: '{{ status }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: inspectTemplates
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: name
-          value: '{{ name }}'
-        - name: actions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: orgConfig
-          value:
-            - name: projectId
-              value: '{{ projectId }}'
-            - name: location
-              value:
-                - name: folderId
-                  value: '{{ folderId }}'
-                - name: organizationId
-                  value: '{{ organizationId }}'
+configId: string
+discoveryConfig:
+  targets:
+    - secretsTarget: {}
+      cloudStorageTarget:
+        conditions:
+          createdAfter: string
+          cloudStorageConditions:
+            includedObjectAttributes:
+              - type: string
+                enum: string
+                enumDescriptions: string
+            includedBucketAttributes:
+              - enum: string
+                enumDescriptions: string
+                type: string
+          minAge: string
+        disabled: {}
+        filter:
+          others: {}
+          collection:
+            includeRegexes:
+              patterns:
+                - cloudStorageRegex:
+                    bucketNameRegex: string
+                    projectIdRegex: string
+          cloudStorageResourceReference:
+            projectId: string
+            bucketName: string
+        generationCadence:
+          refreshFrequency: string
+          inspectTemplateModifiedCadence:
+            frequency: string
+      cloudSqlTarget:
+        filter:
+          collection:
+            includeRegexes:
+              patterns:
+                - instanceRegex: string
+                  databaseRegex: string
+                  projectIdRegex: string
+                  databaseResourceNameRegex: string
+          databaseResourceReference:
+            databaseResource: string
+            projectId: string
+            database: string
+            instance: string
+          others: {}
+        generationCadence:
+          schemaModifiedCadence:
+            types:
+              - enum: string
+                enumDescriptions: string
+                type: string
+            frequency: string
+          refreshFrequency: string
+        conditions:
+          types:
+            - type: string
+              enum: string
+              enumDescriptions: string
+          databaseEngines:
+            - type: string
+              enum: string
+              enumDescriptions: string
+      bigQueryTarget:
+        filter:
+          otherTables: {}
+          tableReference:
+            tableId: string
+            datasetId: string
+          tables:
+            includeRegexes:
+              patterns:
+                - tableIdRegex: string
+                  projectIdRegex: string
+                  datasetIdRegex: string
+        conditions:
+          createdAfter: string
+          orConditions:
+            minRowCount: integer
+            minAge: string
+          typeCollection: string
+          types:
+            types:
+              - enum: string
+                enumDescriptions: string
+                type: string
+        cadence:
+          schemaModifiedCadence:
+            types:
+              - enum: string
+                type: string
+                enumDescriptions: string
+            frequency: string
+          tableModifiedCadence:
+            types:
+              - enum: string
+                enumDescriptions: string
+                type: string
+            frequency: string
+          refreshFrequency: string
+  status: string
+  displayName: string
+  updateTime: string
+  lastRunTime: string
+  inspectTemplates:
+    - type: string
+  createTime: string
+  errors:
+    - details:
+        message: string
+        code: integer
+        details:
+          - additionalProperties: any
+            type: string
+      timestamps:
+        - format: string
+          type: string
+      extraInfo: string
+  name: string
+  actions:
+    - tagResources:
+        lowerDataRiskToLow: boolean
+        tagConditions:
+          - sensitivityScore:
+              score: string
+            tag:
+              namespacedValue: string
+        profileGenerationsToTag:
+          - enumDescriptions: string
+            type: string
+            enum: string
+      pubSubNotification:
+        detailOfMessage: string
+        event: string
+        pubsubCondition:
+          expressions:
+            conditions:
+              - minimumSensitivityScore: string
+                minimumRiskScore: string
+            logicalOperator: string
+        topic: string
+      exportData:
+        profileTable:
+          tableId: string
+          projectId: string
+          datasetId: string
+      publishToScc: {}
+      publishToChronicle: {}
+  orgConfig:
+    projectId: string
+    location:
+      folderId: string
+      organizationId: string
 
 ```
 </TabItem>

@@ -116,64 +116,85 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: jobSpec
-      value:
-        - name: workerPoolSpecs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: tensorboard
-          value: '{{ tensorboard }}'
-        - name: experimentRun
-          value: '{{ experimentRun }}'
-        - name: reservedIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: scheduling
-          value:
-            - name: timeout
-              value: '{{ timeout }}'
-            - name: disableRetries
-              value: '{{ disableRetries }}'
-            - name: strategy
-              value: '{{ strategy }}'
-            - name: restartJobOnWorkerRestart
-              value: '{{ restartJobOnWorkerRestart }}'
-            - name: maxWaitDuration
-              value: '{{ maxWaitDuration }}'
-        - name: protectedArtifactLocationId
-          value: '{{ protectedArtifactLocationId }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: baseOutputDirectory
-          value:
-            - name: outputUriPrefix
-              value: '{{ outputUriPrefix }}'
-        - name: enableWebAccess
-          value: '{{ enableWebAccess }}'
-        - name: experiment
-          value: '{{ experiment }}'
-        - name: models
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: persistentResourceId
-          value: '{{ persistentResourceId }}'
-        - name: network
-          value: '{{ network }}'
-        - name: enableDashboardAccess
-          value: '{{ enableDashboardAccess }}'
+satisfiesPzs: boolean
+displayName: string
+encryptionSpec:
+  kmsKeyName: string
+webAccessUris: object
+updateTime: string
+state: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+satisfiesPzi: boolean
+createTime: string
+labels: object
+name: string
+jobSpec:
+  workerPoolSpecs:
+    - machineSpec:
+        acceleratorCount: integer
+        reservationAffinity:
+          key: string
+          reservationAffinityType: string
+          values:
+            - type: string
+        tpuTopology: string
+        acceleratorType: string
+        machineType: string
+      nfsMounts:
+        - path: string
+          mountPoint: string
+          server: string
+      diskSpec:
+        bootDiskType: string
+        bootDiskSizeGb: integer
+      replicaCount: string
+      containerSpec:
+        command:
+          - type: string
+        args:
+          - type: string
+        imageUri: string
+        env:
+          - value: string
+            name: string
+      pythonPackageSpec:
+        args:
+          - type: string
+        pythonModule: string
+        env:
+          - value: string
+            name: string
+        executorImageUri: string
+        packageUris:
+          - type: string
+  tensorboard: string
+  experimentRun: string
+  reservedIpRanges:
+    - type: string
+  scheduling:
+    timeout: string
+    disableRetries: boolean
+    strategy: string
+    restartJobOnWorkerRestart: boolean
+    maxWaitDuration: string
+  protectedArtifactLocationId: string
+  serviceAccount: string
+  baseOutputDirectory:
+    outputUriPrefix: string
+  enableWebAccess: boolean
+  experiment: string
+  models:
+    - type: string
+  persistentResourceId: string
+  network: string
+  enableDashboardAccess: boolean
+endTime: string
+startTime: string
 
 ```
 </TabItem>

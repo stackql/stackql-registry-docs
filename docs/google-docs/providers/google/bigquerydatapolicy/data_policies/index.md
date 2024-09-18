@@ -99,20 +99,13 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: policyTag
-      value: '{{ policyTag }}'
-    - name: dataMaskingPolicy
-      value:
-        - name: predefinedExpression
-          value: '{{ predefinedExpression }}'
-        - name: routine
-          value: '{{ routine }}'
-    - name: dataPolicyType
-      value: '{{ dataPolicyType }}'
-    - name: dataPolicyId
-      value: '{{ dataPolicyId }}'
+policyTag: string
+dataMaskingPolicy:
+  predefinedExpression: string
+  routine: string
+name: string
+dataPolicyType: string
+dataPolicyId: string
 
 ```
 </TabItem>

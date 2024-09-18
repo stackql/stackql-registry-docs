@@ -102,22 +102,66 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: additions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: deletions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: status
-      value: '{{ status }}'
-    - name: isServing
-      value: '{{ isServing }}'
+additions:
+  - name: string
+    type: string
+    ttl: integer
+    rrdatas:
+      - type: string
+    signatureRrdatas:
+      - type: string
+    routingPolicy:
+      geo:
+        items:
+          - location: string
+            rrdatas:
+              - type: string
+            signatureRrdatas:
+              - type: string
+            healthCheckedTargets:
+              internalLoadBalancers:
+                - loadBalancerType: string
+                  ipAddress: string
+                  port: string
+                  ipProtocol: string
+                  networkUrl: string
+                  project: string
+                  region: string
+                  kind: string
+              externalEndpoints:
+                - type: string
+            kind: string
+        enableFencing: boolean
+        kind: string
+      wrr:
+        items:
+          - weight: number
+            rrdatas:
+              - type: string
+            signatureRrdatas:
+              - type: string
+            kind: string
+        kind: string
+      primaryBackup:
+        trickleTraffic: number
+        kind: string
+      healthCheck: string
+      kind: string
+    kind: string
+deletions:
+  - name: string
+    type: string
+    ttl: integer
+    rrdatas:
+      - type: string
+    signatureRrdatas:
+      - type: string
+    kind: string
+startTime: string
+id: string
+status: string
+isServing: boolean
+kind: string
 
 ```
 </TabItem>

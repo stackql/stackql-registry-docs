@@ -114,16 +114,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: defaultProcessorVersion
-      value: '{{ defaultProcessorVersion }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
-    - name: type
-      value: '{{ type }}'
+state: string
+createTime: string
+defaultProcessorVersion: string
+processorVersionAliases:
+  - processorVersion: string
+    alias: string
+satisfiesPzs: boolean
+displayName: string
+processEndpoint: string
+kmsKeyName: string
+satisfiesPzi: boolean
+name: string
+type: string
 
 ```
 </TabItem>

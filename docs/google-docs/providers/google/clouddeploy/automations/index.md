@@ -123,30 +123,41 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: suspended
-      value: '{{ suspended }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: selector
-      value:
-        - name: targets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+uid: string
+description: string
+createTime: string
+updateTime: string
+annotations: object
+labels: object
+etag: string
+suspended: boolean
+serviceAccount: string
+selector:
+  targets:
+    - id: string
+      labels: object
+rules:
+  - promoteReleaseRule:
+      id: string
+      wait: string
+      destinationTargetId: string
+      condition:
+        targetsPresentCondition:
+          status: boolean
+          missingTargets:
+            - type: string
+          updateTime: string
+      destinationPhase: string
+    advanceRolloutRule:
+      id: string
+      sourcePhases:
+        - type: string
+      wait: string
+    repairRolloutRule:
+      id: string
+      jobs:
+        - type: string
 
 ```
 </TabItem>

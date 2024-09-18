@@ -130,30 +130,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: metadataSchemaUri
-      value: '{{ metadataSchemaUri }}'
-    - name: description
-      value: '{{ description }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: modelReference
-      value: '{{ modelReference }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: savedQueries
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+metadataSchemaUri: string
+updateTime: string
+satisfiesPzi: boolean
+metadataArtifact: string
+description: string
+createTime: string
+satisfiesPzs: boolean
+metadata: any
+etag: string
+displayName: string
+dataItemCount: string
+name: string
+labels: object
+modelReference: string
+encryptionSpec:
+  kmsKeyName: string
+savedQueries:
+  - annotationFilter: string
+    metadata: any
+    annotationSpecCount: integer
+    createTime: string
+    displayName: string
+    problemType: string
+    supportAutomlTraining: boolean
+    updateTime: string
+    name: string
+    etag: string
 
 ```
 </TabItem>

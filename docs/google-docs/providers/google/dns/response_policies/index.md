@@ -102,22 +102,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: responsePolicyName
-      value: '{{ responsePolicyName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: networks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: gkeClusters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
+id: string
+responsePolicyName: string
+description: string
+networks:
+  - networkUrl: string
+    kind: string
+gkeClusters:
+  - gkeClusterName: string
+    kind: string
+labels: object
+kind: string
 
 ```
 </TabItem>

@@ -107,48 +107,56 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: title
-      value: '{{ title }}'
-    - name: description
-      value: '{{ description }}'
-    - name: perimeterType
-      value: '{{ perimeterType }}'
-    - name: status
-      value:
-        - name: resources
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: accessLevels
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: restrictedServices
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: vpcAccessibleServices
-          value:
-            - name: enableRestriction
-              value: '{{ enableRestriction }}'
-            - name: allowedServices
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: ingressPolicies
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: egressPolicies
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: useExplicitDryRunSpec
-      value: '{{ useExplicitDryRunSpec }}'
+name: string
+title: string
+description: string
+perimeterType: string
+status:
+  resources:
+    - type: string
+  accessLevels:
+    - type: string
+  restrictedServices:
+    - type: string
+  vpcAccessibleServices:
+    enableRestriction: boolean
+    allowedServices:
+      - type: string
+  ingressPolicies:
+    - ingressFrom:
+        sources:
+          - accessLevel: string
+            resource: string
+        identities:
+          - type: string
+        identityType: string
+      ingressTo:
+        operations:
+          - serviceName: string
+            methodSelectors:
+              - method: string
+                permission: string
+        resources:
+          - type: string
+  egressPolicies:
+    - egressFrom:
+        identities:
+          - type: string
+        identityType: string
+        sources:
+          - accessLevel: string
+        sourceRestriction: string
+      egressTo:
+        resources:
+          - type: string
+        operations:
+          - serviceName: string
+            methodSelectors:
+              - method: string
+                permission: string
+        externalResources:
+          - type: string
+useExplicitDryRunSpec: boolean
 
 ```
 </TabItem>

@@ -104,34 +104,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: bigQuery
-      value:
-        - name: dense
-          value: '{{ dense }}'
-        - name: bigQuerySource
-          value:
-            - name: inputUri
-              value: '{{ inputUri }}'
-        - name: staticDataSource
-          value: '{{ staticDataSource }}'
-        - name: timeSeries
-          value:
-            - name: timestampColumn
-              value: '{{ timestampColumn }}'
-        - name: entityIdColumns
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
+bigQuery:
+  dense: boolean
+  bigQuerySource:
+    inputUri: string
+  staticDataSource: boolean
+  timeSeries:
+    timestampColumn: string
+  entityIdColumns:
+    - type: string
+updateTime: string
+name: string
+description: string
+labels: object
+createTime: string
+etag: string
 
 ```
 </TabItem>

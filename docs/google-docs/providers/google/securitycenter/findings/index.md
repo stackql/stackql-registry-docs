@@ -190,442 +190,355 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: parent
-      value: '{{ parent }}'
-    - name: resourceName
-      value: '{{ resourceName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: category
-      value: '{{ category }}'
-    - name: externalUri
-      value: '{{ externalUri }}'
-    - name: sourceProperties
-      value: '{{ sourceProperties }}'
-    - name: eventTime
-      value: '{{ eventTime }}'
-    - name: severity
-      value: '{{ severity }}'
-    - name: canonicalName
-      value: '{{ canonicalName }}'
-    - name: mute
-      value: '{{ mute }}'
-    - name: findingClass
-      value: '{{ findingClass }}'
-    - name: indicator
-      value:
-        - name: ipAddresses
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: domains
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: signatures
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: uris
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: vulnerability
-      value:
-        - name: cve
-          value:
-            - name: references
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: cvssv3
-              value:
-                - name: baseScore
-                  value: '{{ baseScore }}'
-                - name: attackVector
-                  value: '{{ attackVector }}'
-                - name: attackComplexity
-                  value: '{{ attackComplexity }}'
-                - name: privilegesRequired
-                  value: '{{ privilegesRequired }}'
-                - name: userInteraction
-                  value: '{{ userInteraction }}'
-                - name: scope
-                  value: '{{ scope }}'
-                - name: confidentialityImpact
-                  value: '{{ confidentialityImpact }}'
-                - name: integrityImpact
-                  value: '{{ integrityImpact }}'
-                - name: availabilityImpact
-                  value: '{{ availabilityImpact }}'
-            - name: upstreamFixAvailable
-              value: '{{ upstreamFixAvailable }}'
-            - name: impact
-              value: '{{ impact }}'
-            - name: exploitationActivity
-              value: '{{ exploitationActivity }}'
-            - name: observedInTheWild
-              value: '{{ observedInTheWild }}'
-            - name: zeroDay
-              value: '{{ zeroDay }}'
-            - name: exploitReleaseDate
-              value: '{{ exploitReleaseDate }}'
-            - name: firstExploitationDate
-              value: '{{ firstExploitationDate }}'
-        - name: offendingPackage
-          value:
-            - name: packageName
-              value: '{{ packageName }}'
-            - name: cpeUri
-              value: '{{ cpeUri }}'
-            - name: packageType
-              value: '{{ packageType }}'
-            - name: packageVersion
-              value: '{{ packageVersion }}'
-        - name: securityBulletin
-          value:
-            - name: bulletinId
-              value: '{{ bulletinId }}'
-            - name: submissionTime
-              value: '{{ submissionTime }}'
-            - name: suggestedUpgradeVersion
-              value: '{{ suggestedUpgradeVersion }}'
-    - name: mitreAttack
-      value:
-        - name: primaryTactic
-          value: '{{ primaryTactic }}'
-        - name: primaryTechniques
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: additionalTactics
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: additionalTechniques
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: version
-          value: '{{ version }}'
-    - name: access
-      value:
-        - name: principalEmail
-          value: '{{ principalEmail }}'
-        - name: callerIp
-          value: '{{ callerIp }}'
-        - name: callerIpGeo
-          value:
-            - name: regionCode
-              value: '{{ regionCode }}'
-        - name: userAgentFamily
-          value: '{{ userAgentFamily }}'
-        - name: userAgent
-          value: '{{ userAgent }}'
-        - name: serviceName
-          value: '{{ serviceName }}'
-        - name: methodName
-          value: '{{ methodName }}'
-        - name: principalSubject
-          value: '{{ principalSubject }}'
-        - name: serviceAccountKeyName
-          value: '{{ serviceAccountKeyName }}'
-        - name: serviceAccountDelegationInfo
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: userName
-          value: '{{ userName }}'
-    - name: connections
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: muteInitiator
-      value: '{{ muteInitiator }}'
-    - name: processes
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: compliances
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: description
-      value: '{{ description }}'
-    - name: exfiltration
-      value:
-        - name: sources
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: targets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: totalExfiltratedBytes
-          value: '{{ totalExfiltratedBytes }}'
-    - name: iamBindings
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: nextSteps
-      value: '{{ nextSteps }}'
-    - name: moduleName
-      value: '{{ moduleName }}'
-    - name: containers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: kubernetes
-      value:
-        - name: pods
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: nodes
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: nodePools
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: roles
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: bindings
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: accessReviews
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: objects
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: database
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: userName
-          value: '{{ userName }}'
-        - name: query
-          value: '{{ query }}'
-        - name: grantees
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: version
-          value: '{{ version }}'
-    - name: attackExposure
-      value:
-        - name: score
-          value: '{{ score }}'
-        - name: latestCalculationTime
-          value: '{{ latestCalculationTime }}'
-        - name: attackExposureResult
-          value: '{{ attackExposureResult }}'
-        - name: state
-          value: '{{ state }}'
-        - name: exposedHighValueResourcesCount
-          value: '{{ exposedHighValueResourcesCount }}'
-        - name: exposedMediumValueResourcesCount
-          value: '{{ exposedMediumValueResourcesCount }}'
-        - name: exposedLowValueResourcesCount
-          value: '{{ exposedLowValueResourcesCount }}'
-    - name: files
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: cloudDlpInspection
-      value:
-        - name: inspectJob
-          value: '{{ inspectJob }}'
-        - name: infoType
-          value: '{{ infoType }}'
-        - name: infoTypeCount
-          value: '{{ infoTypeCount }}'
-        - name: fullScan
-          value: '{{ fullScan }}'
-    - name: cloudDlpDataProfile
-      value:
-        - name: dataProfile
-          value: '{{ dataProfile }}'
-        - name: parentType
-          value: '{{ parentType }}'
-    - name: kernelRootkit
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: unexpectedCodeModification
-          value: '{{ unexpectedCodeModification }}'
-        - name: unexpectedReadOnlyDataModification
-          value: '{{ unexpectedReadOnlyDataModification }}'
-        - name: unexpectedFtraceHandler
-          value: '{{ unexpectedFtraceHandler }}'
-        - name: unexpectedKprobeHandler
-          value: '{{ unexpectedKprobeHandler }}'
-        - name: unexpectedKernelCodePages
-          value: '{{ unexpectedKernelCodePages }}'
-        - name: unexpectedSystemCallHandler
-          value: '{{ unexpectedSystemCallHandler }}'
-        - name: unexpectedInterruptHandler
-          value: '{{ unexpectedInterruptHandler }}'
-        - name: unexpectedProcessesInRunqueue
-          value: '{{ unexpectedProcessesInRunqueue }}'
-    - name: orgPolicies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: application
-      value:
-        - name: baseUri
-          value: '{{ baseUri }}'
-        - name: fullUri
-          value: '{{ fullUri }}'
-    - name: backupDisasterRecovery
-      value:
-        - name: backupTemplate
-          value: '{{ backupTemplate }}'
-        - name: policies
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: host
-          value: '{{ host }}'
-        - name: applications
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: storagePool
-          value: '{{ storagePool }}'
-        - name: policyOptions
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: profile
-          value: '{{ profile }}'
-        - name: appliance
-          value: '{{ appliance }}'
-        - name: backupType
-          value: '{{ backupType }}'
-        - name: backupCreateTime
-          value: '{{ backupCreateTime }}'
-    - name: securityPosture
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: revisionId
-          value: '{{ revisionId }}'
-        - name: postureDeploymentResource
-          value: '{{ postureDeploymentResource }}'
-        - name: postureDeployment
-          value: '{{ postureDeployment }}'
-        - name: changedPolicy
-          value: '{{ changedPolicy }}'
-        - name: policySet
-          value: '{{ policySet }}'
-        - name: policy
-          value: '{{ policy }}'
-        - name: policyDriftDetails
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: logEntries
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: loadBalancers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: cloudArmor
-      value:
-        - name: securityPolicy
-          value:
-            - name: name
-              value: '{{ name }}'
-            - name: type
-              value: '{{ type }}'
-            - name: preview
-              value: '{{ preview }}'
-        - name: requests
-          value:
-            - name: ratio
-              value: '{{ ratio }}'
-            - name: shortTermAllowed
-              value: '{{ shortTermAllowed }}'
-            - name: longTermAllowed
-              value: '{{ longTermAllowed }}'
-            - name: longTermDenied
-              value: '{{ longTermDenied }}'
-        - name: adaptiveProtection
-          value:
-            - name: confidence
-              value: '{{ confidence }}'
-        - name: attack
-          value:
-            - name: volumePps
-              value: '{{ volumePps }}'
-            - name: volumeBps
-              value: '{{ volumeBps }}'
-            - name: classification
-              value: '{{ classification }}'
-        - name: threatVector
-          value: '{{ threatVector }}'
-        - name: duration
-          value: '{{ duration }}'
-    - name: notebook
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: service
-          value: '{{ service }}'
-        - name: lastAuthor
-          value: '{{ lastAuthor }}'
-        - name: notebookUpdateTime
-          value: '{{ notebookUpdateTime }}'
-    - name: toxicCombination
-      value:
-        - name: attackExposureScore
-          value: '{{ attackExposureScore }}'
-        - name: relatedFindings
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: groupMemberships
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: dataAccessEvents
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: dataFlowEvents
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+parent: string
+resourceName: string
+state: string
+category: string
+externalUri: string
+sourceProperties: object
+securityMarks:
+  name: string
+  marks: object
+  canonicalName: string
+eventTime: string
+createTime: string
+severity: string
+canonicalName: string
+mute: string
+findingClass: string
+indicator:
+  ipAddresses:
+    - type: string
+  domains:
+    - type: string
+  signatures:
+    - memoryHashSignature:
+        binaryFamily: string
+        detections:
+          - binary: string
+            percentPagesMatched: number
+      yaraRuleSignature:
+        yaraRule: string
+      signatureType: string
+  uris:
+    - type: string
+vulnerability:
+  cve:
+    id: string
+    references:
+      - source: string
+        uri: string
+    cvssv3:
+      baseScore: number
+      attackVector: string
+      attackComplexity: string
+      privilegesRequired: string
+      userInteraction: string
+      scope: string
+      confidentialityImpact: string
+      integrityImpact: string
+      availabilityImpact: string
+    upstreamFixAvailable: boolean
+    impact: string
+    exploitationActivity: string
+    observedInTheWild: boolean
+    zeroDay: boolean
+    exploitReleaseDate: string
+    firstExploitationDate: string
+  offendingPackage:
+    packageName: string
+    cpeUri: string
+    packageType: string
+    packageVersion: string
+  securityBulletin:
+    bulletinId: string
+    submissionTime: string
+    suggestedUpgradeVersion: string
+muteUpdateTime: string
+externalSystems: object
+mitreAttack:
+  primaryTactic: string
+  primaryTechniques:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  additionalTactics:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  additionalTechniques:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  version: string
+access:
+  principalEmail: string
+  callerIp: string
+  callerIpGeo:
+    regionCode: string
+  userAgentFamily: string
+  userAgent: string
+  serviceName: string
+  methodName: string
+  principalSubject: string
+  serviceAccountKeyName: string
+  serviceAccountDelegationInfo:
+    - principalEmail: string
+      principalSubject: string
+  userName: string
+connections:
+  - destinationIp: string
+    destinationPort: integer
+    sourceIp: string
+    sourcePort: integer
+    protocol: string
+muteInitiator: string
+muteInfo:
+  staticMute:
+    state: string
+    applyTime: string
+  dynamicMuteRecords:
+    - muteConfig: string
+      matchTime: string
+processes:
+  - name: string
+    binary:
+      path: string
+      size: string
+      sha256: string
+      hashedSize: string
+      partiallyHashed: boolean
+      contents: string
+      diskPath:
+        partitionUuid: string
+        relativePath: string
+    libraries:
+      - path: string
+        size: string
+        sha256: string
+        hashedSize: string
+        partiallyHashed: boolean
+        contents: string
+    args:
+      - type: string
+    argumentsTruncated: boolean
+    envVariables:
+      - name: string
+        val: string
+    envVariablesTruncated: boolean
+    pid: string
+    parentPid: string
+contacts: object
+compliances:
+  - standard: string
+    version: string
+    ids:
+      - type: string
+parentDisplayName: string
+description: string
+exfiltration:
+  sources:
+    - name: string
+      components:
+        - type: string
+  targets:
+    - name: string
+      components:
+        - type: string
+  totalExfiltratedBytes: string
+iamBindings:
+  - action: string
+    role: string
+    member: string
+nextSteps: string
+moduleName: string
+containers:
+  - name: string
+    uri: string
+    imageId: string
+    labels:
+      - name: string
+        value: string
+    createTime: string
+kubernetes:
+  pods:
+    - ns: string
+      name: string
+      labels:
+        - name: string
+          value: string
+      containers:
+        - name: string
+          uri: string
+          imageId: string
+          labels:
+            - name: string
+              value: string
+          createTime: string
+  nodes:
+    - name: string
+  nodePools:
+    - name: string
+      nodes:
+        - name: string
+  roles:
+    - kind: string
+      ns: string
+      name: string
+  bindings:
+    - ns: string
+      name: string
+      role:
+        kind: string
+        ns: string
+        name: string
+      subjects:
+        - kind: string
+          ns: string
+          name: string
+  accessReviews:
+    - group: string
+      ns: string
+      name: string
+      resource: string
+      subresource: string
+      verb: string
+      version: string
+  objects:
+    - group: string
+      kind: string
+      ns: string
+      name: string
+      containers:
+        - name: string
+          uri: string
+          imageId: string
+          labels:
+            - name: string
+              value: string
+          createTime: string
+database:
+  name: string
+  displayName: string
+  userName: string
+  query: string
+  grantees:
+    - type: string
+  version: string
+attackExposure:
+  score: number
+  latestCalculationTime: string
+  attackExposureResult: string
+  state: string
+  exposedHighValueResourcesCount: integer
+  exposedMediumValueResourcesCount: integer
+  exposedLowValueResourcesCount: integer
+files:
+  - path: string
+    size: string
+    sha256: string
+    hashedSize: string
+    partiallyHashed: boolean
+    contents: string
+cloudDlpInspection:
+  inspectJob: string
+  infoType: string
+  infoTypeCount: string
+  fullScan: boolean
+cloudDlpDataProfile:
+  dataProfile: string
+  parentType: string
+kernelRootkit:
+  name: string
+  unexpectedCodeModification: boolean
+  unexpectedReadOnlyDataModification: boolean
+  unexpectedFtraceHandler: boolean
+  unexpectedKprobeHandler: boolean
+  unexpectedKernelCodePages: boolean
+  unexpectedSystemCallHandler: boolean
+  unexpectedInterruptHandler: boolean
+  unexpectedProcessesInRunqueue: boolean
+orgPolicies:
+  - name: string
+application:
+  baseUri: string
+  fullUri: string
+backupDisasterRecovery:
+  backupTemplate: string
+  policies:
+    - type: string
+  host: string
+  applications:
+    - type: string
+  storagePool: string
+  policyOptions:
+    - type: string
+  profile: string
+  appliance: string
+  backupType: string
+  backupCreateTime: string
+securityPosture:
+  name: string
+  revisionId: string
+  postureDeploymentResource: string
+  postureDeployment: string
+  changedPolicy: string
+  policySet: string
+  policy: string
+  policyDriftDetails:
+    - field: string
+      expectedValue: string
+      detectedValue: string
+logEntries:
+  - cloudLoggingEntry:
+      insertId: string
+      logId: string
+      resourceContainer: string
+      timestamp: string
+loadBalancers:
+  - name: string
+cloudArmor:
+  securityPolicy:
+    name: string
+    type: string
+    preview: boolean
+  requests:
+    ratio: number
+    shortTermAllowed: integer
+    longTermAllowed: integer
+    longTermDenied: integer
+  adaptiveProtection:
+    confidence: number
+  attack:
+    volumePps: integer
+    volumeBps: integer
+    classification: string
+  threatVector: string
+  duration: string
+notebook:
+  name: string
+  service: string
+  lastAuthor: string
+  notebookUpdateTime: string
+toxicCombination:
+  attackExposureScore: number
+  relatedFindings:
+    - type: string
+groupMemberships:
+  - groupType: string
+    groupId: string
+dataAccessEvents:
+  - eventId: string
+    principalEmail: string
+    operation: string
+    eventTime: string
+dataFlowEvents:
+  - eventId: string
+    principalEmail: string
+    operation: string
+    violatedLocation: string
+    eventTime: string
 
 ```
 </TabItem>

@@ -83,44 +83,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: feedId
-      value: '{{ feedId }}'
-    - name: feed
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: assetNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: assetTypes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: contentType
-          value: '{{ contentType }}'
-        - name: feedOutputConfig
-          value:
-            - name: pubsubDestination
-              value:
-                - name: topic
-                  value: '{{ topic }}'
-        - name: condition
-          value:
-            - name: expression
-              value: '{{ expression }}'
-            - name: title
-              value: '{{ title }}'
-            - name: description
-              value: '{{ description }}'
-            - name: location
-              value: '{{ location }}'
-        - name: relationshipTypes
-          value:
-            - name: type
-              value: '{{ type }}'
+feedId: string
+feed:
+  name: string
+  assetNames:
+    - type: string
+  assetTypes:
+    - type: string
+  contentType: string
+  feedOutputConfig:
+    pubsubDestination:
+      topic: string
+  condition:
+    expression: string
+    title: string
+    description: string
+    location: string
+  relationshipTypes:
+    - type: string
 
 ```
 </TabItem>

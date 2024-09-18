@@ -95,78 +95,51 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: spanId
-      value: '{{ spanId }}'
-    - name: parentSpanId
-      value: '{{ parentSpanId }}'
-    - name: displayName
-      value:
-        - name: value
-          value: '{{ value }}'
-        - name: truncatedByteCount
-          value: '{{ truncatedByteCount }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: attributes
-      value:
-        - name: attributeMap
-          value: '{{ attributeMap }}'
-        - name: droppedAttributesCount
-          value: '{{ droppedAttributesCount }}'
-    - name: stackTrace
-      value:
-        - name: stackFrames
-          value:
-            - name: frame
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: droppedFramesCount
-              value: '{{ droppedFramesCount }}'
-        - name: stackTraceHashId
-          value: '{{ stackTraceHashId }}'
-    - name: timeEvents
-      value:
-        - name: timeEvent
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: droppedAnnotationsCount
-          value: '{{ droppedAnnotationsCount }}'
-        - name: droppedMessageEventsCount
-          value: '{{ droppedMessageEventsCount }}'
-    - name: links
-      value:
-        - name: link
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: droppedLinksCount
-          value: '{{ droppedLinksCount }}'
-    - name: status
-      value:
-        - name: code
-          value: '{{ code }}'
-        - name: message
-          value: '{{ message }}'
-        - name: details
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: additionalProperties
-              value: '{{ additionalProperties }}'
-    - name: sameProcessAsParentSpan
-      value: '{{ sameProcessAsParentSpan }}'
-    - name: childSpanCount
-      value: '{{ childSpanCount }}'
-    - name: spanKind
-      value: '{{ spanKind }}'
+name: string
+spanId: string
+parentSpanId: string
+displayName:
+  value: string
+  truncatedByteCount: integer
+startTime: string
+endTime: string
+attributes:
+  attributeMap: object
+  droppedAttributesCount: integer
+stackTrace:
+  stackFrames:
+    frame:
+      - lineNumber: string
+        columnNumber: string
+        loadModule: {}
+    droppedFramesCount: integer
+  stackTraceHashId: string
+timeEvents:
+  timeEvent:
+    - time: string
+      annotation: {}
+      messageEvent:
+        type: string
+        id: string
+        uncompressedSizeBytes: string
+        compressedSizeBytes: string
+  droppedAnnotationsCount: integer
+  droppedMessageEventsCount: integer
+links:
+  link:
+    - traceId: string
+      spanId: string
+      type: string
+  droppedLinksCount: integer
+status:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+sameProcessAsParentSpan: boolean
+childSpanCount: integer
+spanKind: string
 
 ```
 </TabItem>
