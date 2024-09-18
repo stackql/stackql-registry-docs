@@ -121,20 +121,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: type
-      value: '{{ type }}'
-    - name: networks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+description: string
+labels: object
+createTime: string
+updateTime: string
+type: string
+managementUri:
+  webUi: string
+  api: string
+workforceIdentityBasedManagementUri:
+  firstPartyManagementUri: string
+  thirdPartyManagementUri: string
+state: string
+networks:
+  - network: string
+    peeringMode: string
+etag: string
+oauth2ClientId: string
+workforceIdentityBasedOauth2ClientId:
+  firstPartyOauth2ClientId: string
+  thirdPartyOauth2ClientId: string
+baProxyUri:
+  - type: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

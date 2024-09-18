@@ -108,30 +108,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: sni
-      value: '{{ sni }}'
-    - name: clientCertificate
-      value:
-        - name: grpcEndpoint
-          value:
-            - name: targetUri
-              value: '{{ targetUri }}'
-        - name: certificateProviderInstance
-          value:
-            - name: pluginInstance
-              value: '{{ pluginInstance }}'
-    - name: serverValidationCa
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+description: string
+createTime: string
+updateTime: string
+labels: object
+sni: string
+clientCertificate:
+  grpcEndpoint:
+    targetUri: string
+  certificateProviderInstance:
+    pluginInstance: string
+serverValidationCa:
+  - {}
 
 ```
 </TabItem>

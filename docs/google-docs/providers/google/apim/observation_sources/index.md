@@ -93,16 +93,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: gclbObservationSource
-      value:
-        - name: pscNetworkConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: name
-      value: '{{ name }}'
+gclbObservationSource:
+  pscNetworkConfigs:
+    - network: string
+      subnetwork: string
+name: string
+state: string
+createTime: string
+updateTime: string
 
 ```
 </TabItem>

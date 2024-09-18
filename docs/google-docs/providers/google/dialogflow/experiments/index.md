@@ -146,66 +146,51 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: state
-      value: '{{ state }}'
-    - name: definition
-      value:
-        - name: condition
-          value: '{{ condition }}'
-        - name: versionVariants
-          value:
-            - name: variants
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: rolloutConfig
-      value:
-        - name: rolloutSteps
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: rolloutCondition
-          value: '{{ rolloutCondition }}'
-        - name: failureCondition
-          value: '{{ failureCondition }}'
-    - name: rolloutState
-      value:
-        - name: step
-          value: '{{ step }}'
-        - name: stepIndex
-          value: '{{ stepIndex }}'
-        - name: startTime
-          value: '{{ startTime }}'
-    - name: rolloutFailureReason
-      value: '{{ rolloutFailureReason }}'
-    - name: result
-      value:
-        - name: versionMetrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: lastUpdateTime
-          value: '{{ lastUpdateTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: lastUpdateTime
-      value: '{{ lastUpdateTime }}'
-    - name: experimentLength
-      value: '{{ experimentLength }}'
-    - name: variantsHistory
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+displayName: string
+description: string
+state: string
+definition:
+  condition: string
+  versionVariants:
+    variants:
+      - version: string
+        trafficAllocation: number
+        isControlGroup: boolean
+rolloutConfig:
+  rolloutSteps:
+    - displayName: string
+      trafficPercent: integer
+      minDuration: string
+  rolloutCondition: string
+  failureCondition: string
+rolloutState:
+  step: string
+  stepIndex: integer
+  startTime: string
+rolloutFailureReason: string
+result:
+  versionMetrics:
+    - version: string
+      metrics:
+        - type: string
+          countType: string
+          ratio: number
+          count: number
+          confidenceInterval:
+            confidenceLevel: number
+            ratio: number
+            lowerBound: number
+            upperBound: number
+      sessionCount: integer
+  lastUpdateTime: string
+createTime: string
+startTime: string
+endTime: string
+lastUpdateTime: string
+experimentLength: string
+variantsHistory:
+  - updateTime: string
 
 ```
 </TabItem>

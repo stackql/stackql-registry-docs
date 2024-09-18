@@ -117,22 +117,18 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: bucket
-      value: '{{ bucket }}'
-    - name: anywhereCacheId
-      value: '{{ anywhereCacheId }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: state
-      value: '{{ state }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: admissionPolicy
-      value: '{{ admissionPolicy }}'
-    - name: pendingUpdate
-      value: '{{ pendingUpdate }}'
+kind: string
+id: string
+selfLink: string
+bucket: string
+anywhereCacheId: string
+zone: string
+state: string
+createTime: string
+updateTime: string
+ttl: string
+admissionPolicy: string
+pendingUpdate: boolean
 
 ```
 </TabItem>

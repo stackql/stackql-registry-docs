@@ -103,38 +103,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: type
-      value: '{{ type }}'
-    - name: importSpec
-      value:
-        - name: sourceStorageUri
-          value: '{{ sourceStorageUri }}'
-        - name: sourceCreateTime
-          value: '{{ sourceCreateTime }}'
-        - name: scope
-          value:
-            - name: entryGroups
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: entryTypes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: aspectTypes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: entrySyncMode
-          value: '{{ entrySyncMode }}'
-        - name: aspectSyncMode
-          value: '{{ aspectSyncMode }}'
-        - name: logLevel
-          value: '{{ logLevel }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+labels: object
+type: string
+importSpec:
+  sourceStorageUri: string
+  sourceCreateTime: string
+  scope:
+    entryGroups:
+      - type: string
+    entryTypes:
+      - type: string
+    aspectTypes:
+      - type: string
+  entrySyncMode: string
+  aspectSyncMode: string
+  logLevel: string
+importResult:
+  deletedEntries: string
+  updatedEntries: string
+  createdEntries: string
+  unchangedEntries: string
+  recreatedEntries: string
+  updateTime: string
+status:
+  state: string
+  message: string
+  completionPercent: integer
+  updateTime: string
 
 ```
 </TabItem>

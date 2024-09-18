@@ -167,92 +167,62 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: platformEdition
-      value: '{{ platformEdition }}'
-    - name: publicIpEnabled
-      value: '{{ publicIpEnabled }}'
-    - name: privateIpEnabled
-      value: '{{ privateIpEnabled }}'
-    - name: pscEnabled
-      value: '{{ pscEnabled }}'
-    - name: pscConfig
-      value:
-        - name: allowedVpcs
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: serviceAttachments
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: consumerNetwork
-      value: '{{ consumerNetwork }}'
-    - name: reservedRange
-      value: '{{ reservedRange }}'
-    - name: maintenanceWindow
-      value:
-        - name: dayOfWeek
-          value: '{{ dayOfWeek }}'
-        - name: startTime
-          value:
-            - name: hours
-              value: '{{ hours }}'
-            - name: minutes
-              value: '{{ minutes }}'
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-    - name: denyMaintenancePeriod
-      value:
-        - name: startDate
-          value:
-            - name: year
-              value: '{{ year }}'
-            - name: month
-              value: '{{ month }}'
-            - name: day
-              value: '{{ day }}'
-    - name: maintenanceSchedule
-      value:
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: endTime
-          value: '{{ endTime }}'
-    - name: userMetadata
-      value:
-        - name: additionalViewerUserCount
-          value: '{{ additionalViewerUserCount }}'
-        - name: additionalStandardUserCount
-          value: '{{ additionalStandardUserCount }}'
-        - name: additionalDeveloperUserCount
-          value: '{{ additionalDeveloperUserCount }}'
-    - name: customDomain
-      value:
-        - name: domain
-          value: '{{ domain }}'
-        - name: state
-          value: '{{ state }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: adminSettings
-      value:
-        - name: allowedEmailDomains
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: oauthConfig
-      value:
-        - name: clientId
-          value: '{{ clientId }}'
-        - name: clientSecret
-          value: '{{ clientSecret }}'
-    - name: linkedLspProjectNumber
-      value: '{{ linkedLspProjectNumber }}'
+name: string
+createTime: string
+updateTime: string
+state: string
+platformEdition: string
+publicIpEnabled: boolean
+privateIpEnabled: boolean
+lookerVersion: string
+egressPublicIp: string
+ingressPrivateIp: string
+ingressPublicIp: string
+lookerUri: string
+pscEnabled: boolean
+pscConfig:
+  allowedVpcs:
+    - type: string
+  serviceAttachments:
+    - localFqdn: string
+      targetServiceAttachmentUri: string
+      connectionStatus: string
+  lookerServiceAttachmentUri: string
+consumerNetwork: string
+reservedRange: string
+maintenanceWindow:
+  dayOfWeek: string
+  startTime:
+    hours: integer
+    minutes: integer
+    seconds: integer
+    nanos: integer
+denyMaintenancePeriod:
+  startDate:
+    year: integer
+    month: integer
+    day: integer
+maintenanceSchedule:
+  startTime: string
+  endTime: string
+userMetadata:
+  additionalViewerUserCount: integer
+  additionalStandardUserCount: integer
+  additionalDeveloperUserCount: integer
+customDomain:
+  domain: string
+  state: string
+encryptionConfig:
+  kmsKeyName: string
+  kmsKeyState: string
+  kmsKeyNameVersion: string
+adminSettings:
+  allowedEmailDomains:
+    - type: string
+oauthConfig:
+  clientId: string
+  clientSecret: string
+linkedLspProjectNumber: string
 
 ```
 </TabItem>

@@ -110,86 +110,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: task
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: appEngineHttpRequest
-          value:
-            - name: httpMethod
-              value: '{{ httpMethod }}'
-            - name: appEngineRouting
-              value:
-                - name: service
-                  value: '{{ service }}'
-                - name: version
-                  value: '{{ version }}'
-                - name: instance
-                  value: '{{ instance }}'
-                - name: host
-                  value: '{{ host }}'
-            - name: relativeUri
-              value: '{{ relativeUri }}'
-            - name: headers
-              value: '{{ headers }}'
-            - name: body
-              value: '{{ body }}'
-        - name: httpRequest
-          value:
-            - name: url
-              value: '{{ url }}'
-            - name: httpMethod
-              value: '{{ httpMethod }}'
-            - name: headers
-              value: '{{ headers }}'
-            - name: body
-              value: '{{ body }}'
-            - name: oauthToken
-              value:
-                - name: serviceAccountEmail
-                  value: '{{ serviceAccountEmail }}'
-                - name: scope
-                  value: '{{ scope }}'
-            - name: oidcToken
-              value:
-                - name: serviceAccountEmail
-                  value: '{{ serviceAccountEmail }}'
-                - name: audience
-                  value: '{{ audience }}'
-        - name: scheduleTime
-          value: '{{ scheduleTime }}'
-        - name: dispatchDeadline
-          value: '{{ dispatchDeadline }}'
-        - name: dispatchCount
-          value: '{{ dispatchCount }}'
-        - name: responseCount
-          value: '{{ responseCount }}'
-        - name: firstAttempt
-          value:
-            - name: scheduleTime
-              value: '{{ scheduleTime }}'
-            - name: dispatchTime
-              value: '{{ dispatchTime }}'
-            - name: responseTime
-              value: '{{ responseTime }}'
-            - name: responseStatus
-              value:
-                - name: code
-                  value: '{{ code }}'
-                - name: message
-                  value: '{{ message }}'
-                - name: details
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                    - name: additionalProperties
-                      value: '{{ additionalProperties }}'
-        - name: view
-          value: '{{ view }}'
-    - name: responseView
-      value: '{{ responseView }}'
+task:
+  name: string
+  appEngineHttpRequest:
+    httpMethod: string
+    appEngineRouting:
+      service: string
+      version: string
+      instance: string
+      host: string
+    relativeUri: string
+    headers: object
+    body: string
+  httpRequest:
+    url: string
+    httpMethod: string
+    headers: object
+    body: string
+    oauthToken:
+      serviceAccountEmail: string
+      scope: string
+    oidcToken:
+      serviceAccountEmail: string
+      audience: string
+  scheduleTime: string
+  createTime: string
+  dispatchDeadline: string
+  dispatchCount: integer
+  responseCount: integer
+  firstAttempt:
+    scheduleTime: string
+    dispatchTime: string
+    responseTime: string
+    responseStatus:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+  view: string
+responseView: string
 
 ```
 </TabItem>

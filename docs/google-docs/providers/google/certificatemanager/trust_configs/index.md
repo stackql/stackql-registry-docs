@@ -108,24 +108,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: trustStores
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: allowlistedCertificates
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+etag: string
+trustStores:
+  - trustAnchors:
+      - pemCertificate: string
+    intermediateCas:
+      - pemCertificate: string
+allowlistedCertificates:
+  - pemCertificate: string
 
 ```
 </TabItem>

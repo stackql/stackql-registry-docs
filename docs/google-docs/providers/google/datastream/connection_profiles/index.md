@@ -131,98 +131,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: oracleProfile
-      value:
-        - name: hostname
-          value: '{{ hostname }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: databaseService
-          value: '{{ databaseService }}'
-        - name: connectionAttributes
-          value: '{{ connectionAttributes }}'
-        - name: oracleSslConfig
-          value:
-            - name: caCertificate
-              value: '{{ caCertificate }}'
-    - name: gcsProfile
-      value:
-        - name: bucket
-          value: '{{ bucket }}'
-        - name: rootPath
-          value: '{{ rootPath }}'
-    - name: mysqlProfile
-      value:
-        - name: hostname
-          value: '{{ hostname }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: sslConfig
-          value:
-            - name: clientKey
-              value: '{{ clientKey }}'
-            - name: clientCertificate
-              value: '{{ clientCertificate }}'
-            - name: caCertificate
-              value: '{{ caCertificate }}'
-    - name: bigqueryProfile
-      value: []
-    - name: postgresqlProfile
-      value:
-        - name: hostname
-          value: '{{ hostname }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: database
-          value: '{{ database }}'
-    - name: sqlServerProfile
-      value:
-        - name: hostname
-          value: '{{ hostname }}'
-        - name: port
-          value: '{{ port }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: database
-          value: '{{ database }}'
-    - name: staticServiceIpConnectivity
-      value: []
-    - name: forwardSshConnectivity
-      value:
-        - name: hostname
-          value: '{{ hostname }}'
-        - name: username
-          value: '{{ username }}'
-        - name: port
-          value: '{{ port }}'
-        - name: password
-          value: '{{ password }}'
-        - name: privateKey
-          value: '{{ privateKey }}'
-    - name: privateConnectivity
-      value:
-        - name: privateConnection
-          value: '{{ privateConnection }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+oracleProfile:
+  hostname: string
+  port: integer
+  username: string
+  password: string
+  databaseService: string
+  connectionAttributes: object
+  oracleSslConfig:
+    caCertificate: string
+    caCertificateSet: boolean
+gcsProfile:
+  bucket: string
+  rootPath: string
+mysqlProfile:
+  hostname: string
+  port: integer
+  username: string
+  password: string
+  sslConfig:
+    clientKey: string
+    clientKeySet: boolean
+    clientCertificate: string
+    clientCertificateSet: boolean
+    caCertificate: string
+    caCertificateSet: boolean
+bigqueryProfile: {}
+postgresqlProfile:
+  hostname: string
+  port: integer
+  username: string
+  password: string
+  database: string
+sqlServerProfile:
+  hostname: string
+  port: integer
+  username: string
+  password: string
+  database: string
+staticServiceIpConnectivity: {}
+forwardSshConnectivity:
+  hostname: string
+  username: string
+  port: integer
+  password: string
+  privateKey: string
+privateConnectivity:
+  privateConnection: string
 
 ```
 </TabItem>

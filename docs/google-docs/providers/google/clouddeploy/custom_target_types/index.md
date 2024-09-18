@@ -112,28 +112,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: customActions
-      value:
-        - name: renderAction
-          value: '{{ renderAction }}'
-        - name: deployAction
-          value: '{{ deployAction }}'
-        - name: includeSkaffoldModules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+customTargetTypeId: string
+uid: string
+description: string
+annotations: object
+labels: object
+createTime: string
+updateTime: string
+etag: string
+customActions:
+  renderAction: string
+  deployAction: string
+  includeSkaffoldModules:
+    - configs:
+        - type: string
+      git:
+        repo: string
+        path: string
+        ref: string
+      googleCloudStorage:
+        source: string
+        path: string
+      googleCloudBuildRepo:
+        repository: string
+        path: string
+        ref: string
 
 ```
 </TabItem>

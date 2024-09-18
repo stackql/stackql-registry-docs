@@ -110,36 +110,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: gitCommitish
-      value: '{{ gitCommitish }}'
-    - name: workspace
-      value: '{{ workspace }}'
-    - name: releaseConfig
-      value: '{{ releaseConfig }}'
-    - name: codeCompilationConfig
-      value:
-        - name: defaultDatabase
-          value: '{{ defaultDatabase }}'
-        - name: defaultSchema
-          value: '{{ defaultSchema }}'
-        - name: defaultLocation
-          value: '{{ defaultLocation }}'
-        - name: assertionSchema
-          value: '{{ assertionSchema }}'
-        - name: vars
-          value: '{{ vars }}'
-        - name: databaseSuffix
-          value: '{{ databaseSuffix }}'
-        - name: schemaSuffix
-          value: '{{ schemaSuffix }}'
-        - name: tablePrefix
-          value: '{{ tablePrefix }}'
-        - name: defaultNotebookRuntimeOptions
-          value:
-            - name: gcsOutputBucket
-              value: '{{ gcsOutputBucket }}'
+gitCommitish: string
+workspace: string
+releaseConfig: string
+name: string
+codeCompilationConfig:
+  defaultDatabase: string
+  defaultSchema: string
+  defaultLocation: string
+  assertionSchema: string
+  vars: object
+  databaseSuffix: string
+  schemaSuffix: string
+  tablePrefix: string
+  defaultNotebookRuntimeOptions:
+    gcsOutputBucket: string
+resolvedGitCommitSha: string
+dataformCoreVersion: string
+compilationErrors:
+  - message: string
+    stack: string
+    path: string
+    actionTarget:
+      database: string
+      schema: string
+      name: string
+dataEncryptionState:
+  kmsKeyVersionName: string
+createTime: string
 
 ```
 </TabItem>

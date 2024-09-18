@@ -112,26 +112,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: certificateAuthorityConfig
-      value:
-        - name: certificateAuthorityServiceConfig
-          value:
-            - name: caPool
-              value: '{{ caPool }}'
-    - name: lifetime
-      value: '{{ lifetime }}'
-    - name: rotationWindowPercentage
-      value: '{{ rotationWindowPercentage }}'
-    - name: keyAlgorithm
-      value: '{{ keyAlgorithm }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+certificateAuthorityConfig:
+  certificateAuthorityServiceConfig:
+    caPool: string
+lifetime: string
+rotationWindowPercentage: integer
+keyAlgorithm: string
 
 ```
 </TabItem>

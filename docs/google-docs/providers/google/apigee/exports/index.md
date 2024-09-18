@@ -108,24 +108,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: csvDelimiter
-      value: '{{ csvDelimiter }}'
-    - name: name
-      value: '{{ name }}'
-    - name: outputFormat
-      value: '{{ outputFormat }}'
-    - name: dateRange
-      value:
-        - name: end
-          value: '{{ end }}'
-        - name: start
-          value: '{{ start }}'
-    - name: datastoreName
-      value: '{{ datastoreName }}'
-    - name: description
-      value: '{{ description }}'
+csvDelimiter: string
+name: string
+outputFormat: string
+dateRange:
+  end: string
+  start: string
+datastoreName: string
+description: string
 
 ```
 </TabItem>

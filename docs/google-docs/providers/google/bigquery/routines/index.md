@@ -146,96 +146,56 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: arguments
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: dataGovernanceType
-      value: '{{ dataGovernanceType }}'
-    - name: definitionBody
-      value: '{{ definitionBody }}'
-    - name: description
-      value: '{{ description }}'
-    - name: determinismLevel
-      value: '{{ determinismLevel }}'
-    - name: importedLibraries
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: language
-      value: '{{ language }}'
-    - name: remoteFunctionOptions
-      value:
-        - name: connection
-          value: '{{ connection }}'
-        - name: endpoint
-          value: '{{ endpoint }}'
-        - name: maxBatchingRows
-          value: '{{ maxBatchingRows }}'
-        - name: userDefinedContext
-          value: '{{ userDefinedContext }}'
-    - name: returnTableType
-      value:
-        - name: columns
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: returnType
-      value:
-        - name: structType
-          value:
-            - name: fields
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: typeKind
-          value: '{{ typeKind }}'
-    - name: routineReference
-      value:
-        - name: datasetId
-          value: '{{ datasetId }}'
-        - name: projectId
-          value: '{{ projectId }}'
-        - name: routineId
-          value: '{{ routineId }}'
-    - name: routineType
-      value: '{{ routineType }}'
-    - name: securityMode
-      value: '{{ securityMode }}'
-    - name: sparkOptions
-      value:
-        - name: archiveUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: connection
-          value: '{{ connection }}'
-        - name: containerImage
-          value: '{{ containerImage }}'
-        - name: fileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: jarUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: mainClass
-          value: '{{ mainClass }}'
-        - name: mainFileUri
-          value: '{{ mainFileUri }}'
-        - name: properties
-          value: '{{ properties }}'
-        - name: pyFileUris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: runtimeVersion
-          value: '{{ runtimeVersion }}'
-    - name: strictMode
-      value: '{{ strictMode }}'
+arguments:
+  - argumentKind: string
+    dataType:
+      structType:
+        fields:
+          - name: string
+      typeKind: string
+    isAggregate: boolean
+    mode: string
+    name: string
+creationTime: string
+dataGovernanceType: string
+definitionBody: string
+description: string
+determinismLevel: string
+etag: string
+importedLibraries:
+  - type: string
+language: string
+lastModifiedTime: string
+remoteFunctionOptions:
+  connection: string
+  endpoint: string
+  maxBatchingRows: string
+  userDefinedContext: object
+returnTableType:
+  columns:
+    - name: string
+routineReference:
+  datasetId: string
+  projectId: string
+  routineId: string
+routineType: string
+securityMode: string
+sparkOptions:
+  archiveUris:
+    - type: string
+  connection: string
+  containerImage: string
+  fileUris:
+    - type: string
+  jarUris:
+    - type: string
+  mainClass: string
+  mainFileUri: string
+  properties: object
+  pyFileUris:
+    - type: string
+  runtimeVersion: string
+strictMode: boolean
 
 ```
 </TabItem>

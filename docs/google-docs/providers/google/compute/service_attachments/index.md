@@ -148,52 +148,37 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: producerForwardingRule
-      value: '{{ producerForwardingRule }}'
-    - name: targetService
-      value: '{{ targetService }}'
-    - name: connectionPreference
-      value: '{{ connectionPreference }}'
-    - name: connectedEndpoints
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: natSubnets
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: enableProxyProtocol
-      value: '{{ enableProxyProtocol }}'
-    - name: consumerRejectLists
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: consumerAcceptLists
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: pscServiceAttachmentId
-      value:
-        - name: high
-          value: '{{ high }}'
-        - name: low
-          value: '{{ low }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: domainNames
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: reconcileConnections
-      value: '{{ reconcileConnections }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+region: string
+producerForwardingRule: string
+targetService: string
+connectionPreference: string
+connectedEndpoints:
+  - status: string
+    pscConnectionId: string
+    endpoint: string
+    consumerNetwork: string
+natSubnets:
+  - type: string
+enableProxyProtocol: boolean
+consumerRejectLists:
+  - type: string
+consumerAcceptLists:
+  - projectIdOrNum: string
+    networkUrl: string
+    connectionLimit: integer
+pscServiceAttachmentId:
+  high: string
+  low: string
+fingerprint: string
+domainNames:
+  - type: string
+reconcileConnections: boolean
 
 ```
 </TabItem>

@@ -119,182 +119,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: instanceFilter
-      value:
-        - name: all
-          value: '{{ all }}'
-        - name: groupLabels
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: zones
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: instances
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: instanceNamePrefixes
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: patchConfig
-      value:
-        - name: rebootConfig
-          value: '{{ rebootConfig }}'
-        - name: apt
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: excludes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: exclusivePackages
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: yum
-          value:
-            - name: security
-              value: '{{ security }}'
-            - name: minimal
-              value: '{{ minimal }}'
-            - name: excludes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: exclusivePackages
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: goo
-          value: []
-        - name: zypper
-          value:
-            - name: withOptional
-              value: '{{ withOptional }}'
-            - name: withUpdate
-              value: '{{ withUpdate }}'
-            - name: categories
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: severities
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: excludes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: exclusivePatches
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: windowsUpdate
-          value:
-            - name: classifications
-              value:
-                - name: type
-                  value: '{{ type }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-                - name: enum
-                  value: '{{ enum }}'
-            - name: excludes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: exclusivePatches
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: preStep
-          value:
-            - name: linuxExecStepConfig
-              value:
-                - name: localPath
-                  value: '{{ localPath }}'
-                - name: gcsObject
-                  value:
-                    - name: bucket
-                      value: '{{ bucket }}'
-                    - name: object
-                      value: '{{ object }}'
-                    - name: generationNumber
-                      value: '{{ generationNumber }}'
-                - name: allowedSuccessCodes
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                    - name: format
-                      value: '{{ format }}'
-                - name: interpreter
-                  value: '{{ interpreter }}'
-        - name: migInstancesAllowed
-          value: '{{ migInstancesAllowed }}'
-    - name: duration
-      value: '{{ duration }}'
-    - name: oneTimeSchedule
-      value:
-        - name: executeTime
-          value: '{{ executeTime }}'
-    - name: recurringSchedule
-      value:
-        - name: timeZone
-          value:
-            - name: version
-              value: '{{ version }}'
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: endTime
-          value: '{{ endTime }}'
-        - name: timeOfDay
-          value:
-            - name: hours
-              value: '{{ hours }}'
-            - name: minutes
-              value: '{{ minutes }}'
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-        - name: frequency
-          value: '{{ frequency }}'
-        - name: weekly
-          value:
-            - name: dayOfWeek
-              value: '{{ dayOfWeek }}'
-        - name: monthly
-          value:
-            - name: weekDayOfMonth
-              value:
-                - name: weekOrdinal
-                  value: '{{ weekOrdinal }}'
-                - name: dayOfWeek
-                  value: '{{ dayOfWeek }}'
-                - name: dayOffset
-                  value: '{{ dayOffset }}'
-            - name: monthDay
-              value: '{{ monthDay }}'
-    - name: rollout
-      value:
-        - name: mode
-          value: '{{ mode }}'
-        - name: disruptionBudget
-          value:
-            - name: fixed
-              value: '{{ fixed }}'
-            - name: percent
-              value: '{{ percent }}'
+name: string
+description: string
+instanceFilter:
+  all: boolean
+  groupLabels:
+    - labels: object
+  zones:
+    - type: string
+  instances:
+    - type: string
+  instanceNamePrefixes:
+    - type: string
+patchConfig:
+  rebootConfig: string
+  apt:
+    type: string
+    excludes:
+      - type: string
+    exclusivePackages:
+      - type: string
+  yum:
+    security: boolean
+    minimal: boolean
+    excludes:
+      - type: string
+    exclusivePackages:
+      - type: string
+  goo: {}
+  zypper:
+    withOptional: boolean
+    withUpdate: boolean
+    categories:
+      - type: string
+    severities:
+      - type: string
+    excludes:
+      - type: string
+    exclusivePatches:
+      - type: string
+  windowsUpdate:
+    classifications:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    excludes:
+      - type: string
+    exclusivePatches:
+      - type: string
+  preStep:
+    linuxExecStepConfig:
+      localPath: string
+      gcsObject:
+        bucket: string
+        object: string
+        generationNumber: string
+      allowedSuccessCodes:
+        - type: string
+          format: string
+      interpreter: string
+  migInstancesAllowed: boolean
+duration: string
+oneTimeSchedule:
+  executeTime: string
+recurringSchedule:
+  timeZone:
+    id: string
+    version: string
+  startTime: string
+  endTime: string
+  timeOfDay:
+    hours: integer
+    minutes: integer
+    seconds: integer
+    nanos: integer
+  frequency: string
+  weekly:
+    dayOfWeek: string
+  monthly:
+    weekDayOfMonth:
+      weekOrdinal: integer
+      dayOfWeek: string
+      dayOffset: integer
+    monthDay: integer
+  lastExecuteTime: string
+  nextExecuteTime: string
+createTime: string
+updateTime: string
+lastExecuteTime: string
+rollout:
+  mode: string
+  disruptionBudget:
+    fixed: integer
+    percent: integer
+state: string
 
 ```
 </TabItem>

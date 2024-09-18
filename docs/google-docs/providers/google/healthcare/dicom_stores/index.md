@@ -107,22 +107,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: notificationConfig
-      value:
-        - name: pubsubTopic
-          value: '{{ pubsubTopic }}'
-        - name: sendForBulkImport
-          value: '{{ sendForBulkImport }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: streamConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+notificationConfig:
+  pubsubTopic: string
+  sendForBulkImport: boolean
+labels: object
+streamConfigs:
+  - bigqueryDestination:
+      tableUri: string
+      force: boolean
+      writeDisposition: string
 
 ```
 </TabItem>

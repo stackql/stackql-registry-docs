@@ -128,32 +128,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: externalId
-      value: '{{ externalId }}'
-    - name: size
-      value: '{{ size }}'
-    - name: headquartersAddress
-      value: '{{ headquartersAddress }}'
-    - name: hiringAgency
-      value: '{{ hiringAgency }}'
-    - name: eeoText
-      value: '{{ eeoText }}'
-    - name: websiteUri
-      value: '{{ websiteUri }}'
-    - name: careerSiteUri
-      value: '{{ careerSiteUri }}'
-    - name: imageUri
-      value: '{{ imageUri }}'
-    - name: keywordSearchableJobCustomAttributes
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+displayName: string
+externalId: string
+size: string
+headquartersAddress: string
+hiringAgency: boolean
+eeoText: string
+websiteUri: string
+careerSiteUri: string
+imageUri: string
+keywordSearchableJobCustomAttributes:
+  - type: string
+derivedInfo:
+  headquartersLocation:
+    locationType: string
+    postalAddress:
+      revision: integer
+      regionCode: string
+      languageCode: string
+      postalCode: string
+      sortingCode: string
+      administrativeArea: string
+      locality: string
+      sublocality: string
+      addressLines:
+        - type: string
+      recipients:
+        - type: string
+      organization: string
+    latLng:
+      latitude: number
+      longitude: number
+    radiusMiles: number
+suspended: boolean
 
 ```
 </TabItem>

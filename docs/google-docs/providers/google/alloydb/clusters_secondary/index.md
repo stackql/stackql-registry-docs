@@ -97,96 +97,95 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: databaseVersion
-      value: '{{ databaseVersion }}'
-    - name: networkConfig
-      value:
-        - name: network
-          value: '{{ network }}'
-        - name: allocatedIpRange
-          value: '{{ allocatedIpRange }}'
-    - name: network
-      value: '{{ network }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: initialUser
-      value:
-        - name: user
-          value: '{{ user }}'
-        - name: password
-          value: '{{ password }}'
-    - name: automatedBackupPolicy
-      value:
-        - name: weeklySchedule
-          value:
-            - name: startTimes
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: daysOfWeek
-              value:
-                - name: type
-                  value: '{{ type }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-                - name: enum
-                  value: '{{ enum }}'
-        - name: timeBasedRetention
-          value:
-            - name: retentionPeriod
-              value: '{{ retentionPeriod }}'
-        - name: quantityBasedRetention
-          value:
-            - name: count
-              value: '{{ count }}'
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: backupWindow
-          value: '{{ backupWindow }}'
-        - name: encryptionConfig
-          value:
-            - name: kmsKeyName
-              value: '{{ kmsKeyName }}'
-        - name: location
-          value: '{{ location }}'
-        - name: labels
-          value: '{{ labels }}'
-    - name: sslConfig
-      value:
-        - name: sslMode
-          value: '{{ sslMode }}'
-        - name: caSource
-          value: '{{ caSource }}'
-    - name: continuousBackupConfig
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: recoveryWindowDays
-          value: '{{ recoveryWindowDays }}'
-    - name: secondaryConfig
-      value:
-        - name: primaryClusterName
-          value: '{{ primaryClusterName }}'
-    - name: pscConfig
-      value:
-        - name: pscEnabled
-          value: '{{ pscEnabled }}'
-    - name: maintenanceUpdatePolicy
-      value:
-        - name: maintenanceWindows
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: subscriptionType
-      value: '{{ subscriptionType }}'
+backupSource:
+  backupUid: string
+  backupName: string
+migrationSource:
+  hostPort: string
+  referenceId: string
+  sourceType: string
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+deleteTime: string
+labels: object
+state: string
+clusterType: string
+databaseVersion: string
+networkConfig:
+  network: string
+  allocatedIpRange: string
+network: string
+etag: string
+annotations: object
+reconciling: boolean
+initialUser:
+  user: string
+  password: string
+automatedBackupPolicy:
+  weeklySchedule:
+    startTimes:
+      - hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+    daysOfWeek:
+      - type: string
+        enumDescriptions: string
+        enum: string
+  timeBasedRetention:
+    retentionPeriod: string
+  quantityBasedRetention:
+    count: integer
+  enabled: boolean
+  backupWindow: string
+  encryptionConfig:
+    kmsKeyName: string
+  location: string
+  labels: object
+sslConfig:
+  sslMode: string
+  caSource: string
+encryptionInfo:
+  encryptionType: string
+  kmsKeyVersions:
+    - type: string
+continuousBackupConfig:
+  enabled: boolean
+  recoveryWindowDays: integer
+continuousBackupInfo:
+  enabledTime: string
+  schedule:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  earliestRestorableTime: string
+secondaryConfig:
+  primaryClusterName: string
+primaryConfig:
+  secondaryClusterNames:
+    - type: string
+satisfiesPzs: boolean
+pscConfig:
+  pscEnabled: boolean
+maintenanceUpdatePolicy:
+  maintenanceWindows:
+    - day: string
+      startTime:
+        hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+maintenanceSchedule:
+  startTime: string
+subscriptionType: string
+trialMetadata:
+  startTime: string
+  endTime: string
+  upgradeTime: string
+  graceEndTime: string
 
 ```
 </TabItem>

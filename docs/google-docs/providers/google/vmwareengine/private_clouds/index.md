@@ -121,30 +121,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: networkConfig
-      value:
-        - name: managementCidr
-          value: '{{ managementCidr }}'
-        - name: vmwareEngineNetwork
-          value: '{{ vmwareEngineNetwork }}'
-    - name: managementCluster
-      value:
-        - name: clusterId
-          value: '{{ clusterId }}'
-        - name: nodeTypeConfigs
-          value: '{{ nodeTypeConfigs }}'
-        - name: stretchedClusterConfig
-          value:
-            - name: preferredLocation
-              value: '{{ preferredLocation }}'
-            - name: secondaryLocation
-              value: '{{ secondaryLocation }}'
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
+name: string
+createTime: string
+updateTime: string
+deleteTime: string
+expireTime: string
+state: string
+networkConfig:
+  managementCidr: string
+  vmwareEngineNetwork: string
+  vmwareEngineNetworkCanonical: string
+  managementIpAddressLayoutVersion: integer
+  dnsServerIp: string
+managementCluster:
+  clusterId: string
+  nodeTypeConfigs: object
+  stretchedClusterConfig:
+    preferredLocation: string
+    secondaryLocation: string
+description: string
+hcx:
+  internalIp: string
+  version: string
+  state: string
+  fqdn: string
+nsx:
+  internalIp: string
+  version: string
+  state: string
+  fqdn: string
+vcenter:
+  internalIp: string
+  version: string
+  state: string
+  fqdn: string
+uid: string
+type: string
 
 ```
 </TabItem>

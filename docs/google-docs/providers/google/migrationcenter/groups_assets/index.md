@@ -74,18 +74,11 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requestId
-      value: '{{ requestId }}'
-    - name: assets
-      value:
-        - name: assetIds
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: allowExisting
-      value: '{{ allowExisting }}'
+requestId: string
+assets:
+  assetIds:
+    - type: string
+allowExisting: boolean
 
 ```
 </TabItem>

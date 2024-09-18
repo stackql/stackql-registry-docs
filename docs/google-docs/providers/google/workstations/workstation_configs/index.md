@@ -173,118 +173,88 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: idleTimeout
-      value: '{{ idleTimeout }}'
-    - name: runningTimeout
-      value: '{{ runningTimeout }}'
-    - name: maxUsableWorkstations
-      value: '{{ maxUsableWorkstations }}'
-    - name: host
-      value:
-        - name: gceInstance
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: serviceAccountScopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: tags
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: poolSize
-              value: '{{ poolSize }}'
-            - name: disablePublicIpAddresses
-              value: '{{ disablePublicIpAddresses }}'
-            - name: enableNestedVirtualization
-              value: '{{ enableNestedVirtualization }}'
-            - name: shieldedInstanceConfig
-              value:
-                - name: enableSecureBoot
-                  value: '{{ enableSecureBoot }}'
-                - name: enableVtpm
-                  value: '{{ enableVtpm }}'
-                - name: enableIntegrityMonitoring
-                  value: '{{ enableIntegrityMonitoring }}'
-            - name: confidentialInstanceConfig
-              value:
-                - name: enableConfidentialCompute
-                  value: '{{ enableConfidentialCompute }}'
-            - name: bootDiskSizeGb
-              value: '{{ bootDiskSizeGb }}'
-            - name: accelerators
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: disableSsh
-              value: '{{ disableSsh }}'
-            - name: vmTags
-              value: '{{ vmTags }}'
-    - name: persistentDirectories
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: ephemeralDirectories
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: container
-      value:
-        - name: image
-          value: '{{ image }}'
-        - name: command
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: env
-          value: '{{ env }}'
-        - name: workingDir
-          value: '{{ workingDir }}'
-        - name: runAsUser
-          value: '{{ runAsUser }}'
-    - name: encryptionKey
-      value:
-        - name: kmsKey
-          value: '{{ kmsKey }}'
-        - name: kmsKeyServiceAccount
-          value: '{{ kmsKeyServiceAccount }}'
-    - name: readinessChecks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: replicaZones
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: enableAuditAgent
-      value: '{{ enableAuditAgent }}'
-    - name: disableTcpConnections
-      value: '{{ disableTcpConnections }}'
-    - name: allowedPorts
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: grantWorkstationAdminRoleOnCreate
-      value: '{{ grantWorkstationAdminRoleOnCreate }}'
+name: string
+displayName: string
+uid: string
+reconciling: boolean
+annotations: object
+labels: object
+createTime: string
+updateTime: string
+deleteTime: string
+etag: string
+idleTimeout: string
+runningTimeout: string
+maxUsableWorkstations: integer
+host:
+  gceInstance:
+    machineType: string
+    serviceAccount: string
+    serviceAccountScopes:
+      - type: string
+    tags:
+      - type: string
+    poolSize: integer
+    pooledInstances: integer
+    disablePublicIpAddresses: boolean
+    enableNestedVirtualization: boolean
+    shieldedInstanceConfig:
+      enableSecureBoot: boolean
+      enableVtpm: boolean
+      enableIntegrityMonitoring: boolean
+    confidentialInstanceConfig:
+      enableConfidentialCompute: boolean
+    bootDiskSizeGb: integer
+    accelerators:
+      - type: string
+        count: integer
+    disableSsh: boolean
+    vmTags: object
+persistentDirectories:
+  - gcePd:
+      sizeGb: integer
+      fsType: string
+      diskType: string
+      sourceSnapshot: string
+      reclaimPolicy: string
+    mountPath: string
+ephemeralDirectories:
+  - gcePd:
+      diskType: string
+      sourceSnapshot: string
+      sourceImage: string
+      readOnly: boolean
+    mountPath: string
+container:
+  image: string
+  command:
+    - type: string
+  args:
+    - type: string
+  env: object
+  workingDir: string
+  runAsUser: integer
+encryptionKey:
+  kmsKey: string
+  kmsKeyServiceAccount: string
+readinessChecks:
+  - path: string
+    port: integer
+replicaZones:
+  - type: string
+degraded: boolean
+conditions:
+  - code: integer
+    message: string
+    details:
+      - type: string
+        additionalProperties: any
+enableAuditAgent: boolean
+disableTcpConnections: boolean
+allowedPorts:
+  - first: integer
+    last: integer
+grantWorkstationAdminRoleOnCreate: boolean
 
 ```
 </TabItem>

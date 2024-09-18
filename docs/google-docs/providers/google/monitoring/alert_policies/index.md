@@ -129,70 +129,88 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: documentation
-      value:
-        - name: content
-          value: '{{ content }}'
-        - name: mimeType
-          value: '{{ mimeType }}'
-        - name: subject
-          value: '{{ subject }}'
-        - name: links
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: userLabels
-      value: '{{ userLabels }}'
-    - name: conditions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: combiner
-      value: '{{ combiner }}'
-    - name: enabled
-      value: '{{ enabled }}'
-    - name: validity
-      value:
-        - name: code
-          value: '{{ code }}'
-        - name: message
-          value: '{{ message }}'
-        - name: details
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: additionalProperties
-              value: '{{ additionalProperties }}'
-    - name: notificationChannels
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: creationRecord
-      value:
-        - name: mutateTime
-          value: '{{ mutateTime }}'
-        - name: mutatedBy
-          value: '{{ mutatedBy }}'
-    - name: alertStrategy
-      value:
-        - name: notificationRateLimit
-          value:
-            - name: period
-              value: '{{ period }}'
-        - name: autoClose
-          value: '{{ autoClose }}'
-        - name: notificationChannelStrategy
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: severity
-      value: '{{ severity }}'
+name: string
+displayName: string
+documentation:
+  content: string
+  mimeType: string
+  subject: string
+  links:
+    - displayName: string
+      url: string
+userLabels: object
+conditions:
+  - name: string
+    displayName: string
+    conditionThreshold:
+      filter: string
+      aggregations:
+        - alignmentPeriod: string
+          perSeriesAligner: string
+          crossSeriesReducer: string
+          groupByFields:
+            - type: string
+      denominatorFilter: string
+      denominatorAggregations:
+        - alignmentPeriod: string
+          perSeriesAligner: string
+          crossSeriesReducer: string
+          groupByFields:
+            - type: string
+      forecastOptions:
+        forecastHorizon: string
+      comparison: string
+      thresholdValue: number
+      duration: string
+      trigger:
+        count: integer
+        percent: number
+      evaluationMissingData: string
+    conditionAbsent:
+      filter: string
+      aggregations:
+        - alignmentPeriod: string
+          perSeriesAligner: string
+          crossSeriesReducer: string
+          groupByFields:
+            - type: string
+      duration: string
+    conditionMatchedLog:
+      filter: string
+      labelExtractors: object
+    conditionMonitoringQueryLanguage:
+      query: string
+      duration: string
+      evaluationMissingData: string
+    conditionPrometheusQueryLanguage:
+      query: string
+      duration: string
+      evaluationInterval: string
+      labels: object
+      ruleGroup: string
+      alertRule: string
+combiner: string
+enabled: boolean
+validity:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+notificationChannels:
+  - type: string
+creationRecord:
+  mutateTime: string
+  mutatedBy: string
+alertStrategy:
+  notificationRateLimit:
+    period: string
+  autoClose: string
+  notificationChannelStrategy:
+    - notificationChannelNames:
+        - type: string
+      renotifyInterval: string
+severity: string
 
 ```
 </TabItem>

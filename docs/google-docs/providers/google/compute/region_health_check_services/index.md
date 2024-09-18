@@ -120,30 +120,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: healthStatusAggregationPolicy
-      value: '{{ healthStatusAggregationPolicy }}'
-    - name: healthChecks
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: networkEndpointGroups
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: notificationEndpoints
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+name: string
+description: string
+region: string
+healthStatusAggregationPolicy: string
+healthChecks:
+  - type: string
+networkEndpointGroups:
+  - type: string
+notificationEndpoints:
+  - type: string
+fingerprint: string
 
 ```
 </TabItem>

@@ -154,22 +154,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: lastSyncTime
-      value: '{{ lastSyncTime }}'
-    - name: serialNumber
-      value: '{{ serialNumber }}'
-    - name: assetTag
-      value: '{{ assetTag }}'
-    - name: wifiMacAddresses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: deviceId
-      value: '{{ deviceId }}'
-    - name: hostname
-      value: '{{ hostname }}'
+name: string
+createTime: string
+lastSyncTime: string
+ownerType: string
+model: string
+osVersion: string
+deviceType: string
+serialNumber: string
+assetTag: string
+imei: string
+meid: string
+wifiMacAddresses:
+  - type: string
+networkOperator: string
+manufacturer: string
+releaseVersion: string
+brand: string
+buildNumber: string
+kernelVersion: string
+basebandVersion: string
+enabledDeveloperOptions: boolean
+otherAccounts:
+  - type: string
+enabledUsbDebugging: boolean
+securityPatchTime: string
+bootloaderVersion: string
+encryptionState: string
+androidSpecificAttributes:
+  enabledUnknownSources: boolean
+  supportsWorkProfile: boolean
+  ownerProfileAccount: boolean
+  ownershipPrivilege: string
+  verifiedBoot: boolean
+  ctsProfileMatch: boolean
+  verifyAppsEnabled: boolean
+  hasPotentiallyHarmfulApps: boolean
+managementState: string
+compromisedState: string
+deviceId: string
+unifiedDeviceId: string
+endpointVerificationSpecificAttributes:
+  certificateAttributes:
+    - fingerprint: string
+      thumbprint: string
+      validationState: string
+      serialNumber: string
+      validityStartTime: string
+      validityExpirationTime: string
+      issuer: string
+      subject: string
+      certificateTemplate:
+        id: string
+        majorVersion: integer
+        minorVersion: integer
+  browserAttributes:
+    - lastProfileSyncTime: string
+      chromeBrowserInfo:
+        browserVersion: string
+        browserManagementState: string
+        isFileUploadAnalysisEnabled: boolean
+        isFileDownloadAnalysisEnabled: boolean
+        isBulkDataEntryAnalysisEnabled: boolean
+        isSecurityEventAnalysisEnabled: boolean
+        isRealtimeUrlCheckEnabled: boolean
+        safeBrowsingProtectionLevel: string
+        isSiteIsolationEnabled: boolean
+        isBuiltInDnsClientEnabled: boolean
+        passwordProtectionWarningTrigger: string
+        isChromeRemoteDesktopAppBlocked: boolean
+        isChromeCleanupEnabled: boolean
+        isThirdPartyBlockingEnabled: boolean
+      chromeProfileId: string
+  additionalSignals: object
+hostname: string
 
 ```
 </TabItem>

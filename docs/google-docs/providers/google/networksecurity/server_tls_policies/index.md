@@ -108,36 +108,22 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: allowOpen
-      value: '{{ allowOpen }}'
-    - name: serverCertificate
-      value:
-        - name: grpcEndpoint
-          value:
-            - name: targetUri
-              value: '{{ targetUri }}'
-        - name: certificateProviderInstance
-          value:
-            - name: pluginInstance
-              value: '{{ pluginInstance }}'
-    - name: mtlsPolicy
-      value:
-        - name: clientValidationMode
-          value: '{{ clientValidationMode }}'
-        - name: clientValidationCa
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: clientValidationTrustConfig
-          value: '{{ clientValidationTrustConfig }}'
+name: string
+description: string
+createTime: string
+updateTime: string
+labels: object
+allowOpen: boolean
+serverCertificate:
+  grpcEndpoint:
+    targetUri: string
+  certificateProviderInstance:
+    pluginInstance: string
+mtlsPolicy:
+  clientValidationMode: string
+  clientValidationCa:
+    - {}
+  clientValidationTrustConfig: string
 
 ```
 </TabItem>

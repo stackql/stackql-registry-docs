@@ -128,70 +128,39 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: industryVertical
-      value: '{{ industryVertical }}'
-    - name: solutionTypes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: contentConfig
-      value: '{{ contentConfig }}'
-    - name: workspaceConfig
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: dasherCustomerId
-          value: '{{ dasherCustomerId }}'
-    - name: documentProcessingConfig
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: chunkingConfig
-          value:
-            - name: layoutBasedChunkingConfig
-              value:
-                - name: chunkSize
-                  value: '{{ chunkSize }}'
-                - name: includeAncestorHeadings
-                  value: '{{ includeAncestorHeadings }}'
-        - name: defaultParsingConfig
-          value:
-            - name: digitalParsingConfig
-              value: []
-            - name: ocrParsingConfig
-              value:
-                - name: enhancedDocumentElements
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: useNativeText
-                  value: '{{ useNativeText }}'
-            - name: layoutParsingConfig
-              value: []
-        - name: parsingConfigOverrides
-          value: '{{ parsingConfigOverrides }}'
-    - name: startingSchema
-      value:
-        - name: structSchema
-          value: '{{ structSchema }}'
-        - name: jsonSchema
-          value: '{{ jsonSchema }}'
-        - name: name
-          value: '{{ name }}'
-    - name: servingConfigDataStore
-      value:
-        - name: disabledForServing
-          value: '{{ disabledForServing }}'
+name: string
+displayName: string
+industryVertical: string
+solutionTypes:
+  - type: string
+    enumDescriptions: string
+    enum: string
+defaultSchemaId: string
+contentConfig: string
+createTime: string
+workspaceConfig:
+  type: string
+  dasherCustomerId: string
+documentProcessingConfig:
+  name: string
+  chunkingConfig:
+    layoutBasedChunkingConfig:
+      chunkSize: integer
+      includeAncestorHeadings: boolean
+  defaultParsingConfig:
+    digitalParsingConfig: {}
+    ocrParsingConfig:
+      enhancedDocumentElements:
+        - type: string
+      useNativeText: boolean
+    layoutParsingConfig: {}
+  parsingConfigOverrides: object
+startingSchema:
+  structSchema: object
+  jsonSchema: string
+  name: string
+servingConfigDataStore:
+  disabledForServing: boolean
 
 ```
 </TabItem>

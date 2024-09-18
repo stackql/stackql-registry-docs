@@ -119,34 +119,22 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: clientType
-      value: '{{ clientType }}'
-    - name: allowedGrantTypes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: allowedScopes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: allowedRedirectUris
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+state: string
+disabled: boolean
+clientId: string
+displayName: string
+description: string
+clientType: string
+allowedGrantTypes:
+  - type: string
+    enumDescriptions: string
+    enum: string
+allowedScopes:
+  - type: string
+allowedRedirectUris:
+  - type: string
+expireTime: string
 
 ```
 </TabItem>

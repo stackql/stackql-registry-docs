@@ -101,118 +101,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: job
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: description
-          value: '{{ description }}'
-        - name: state
-          value: '{{ state }}'
-        - name: schedule
-          value: '{{ schedule }}'
-        - name: modelVersion
-          value: '{{ modelVersion }}'
-        - name: evaluationJobConfig
-          value:
-            - name: imageClassificationConfig
-              value:
-                - name: annotationSpecSet
-                  value: '{{ annotationSpecSet }}'
-                - name: allowMultiLabel
-                  value: '{{ allowMultiLabel }}'
-                - name: answerAggregationType
-                  value: '{{ answerAggregationType }}'
-            - name: boundingPolyConfig
-              value:
-                - name: annotationSpecSet
-                  value: '{{ annotationSpecSet }}'
-                - name: instructionMessage
-                  value: '{{ instructionMessage }}'
-            - name: textClassificationConfig
-              value:
-                - name: allowMultiLabel
-                  value: '{{ allowMultiLabel }}'
-                - name: annotationSpecSet
-                  value: '{{ annotationSpecSet }}'
-                - name: sentimentConfig
-                  value:
-                    - name: enableLabelSentimentSelection
-                      value: '{{ enableLabelSentimentSelection }}'
-            - name: inputConfig
-              value:
-                - name: textMetadata
-                  value:
-                    - name: languageCode
-                      value: '{{ languageCode }}'
-                - name: gcsSource
-                  value:
-                    - name: inputUri
-                      value: '{{ inputUri }}'
-                    - name: mimeType
-                      value: '{{ mimeType }}'
-                - name: bigquerySource
-                  value:
-                    - name: inputUri
-                      value: '{{ inputUri }}'
-                - name: dataType
-                  value: '{{ dataType }}'
-                - name: annotationType
-                  value: '{{ annotationType }}'
-                - name: classificationMetadata
-                  value:
-                    - name: isMultiLabel
-                      value: '{{ isMultiLabel }}'
-            - name: evaluationConfig
-              value:
-                - name: boundingBoxEvaluationOptions
-                  value:
-                    - name: iouThreshold
-                      value: '{{ iouThreshold }}'
-            - name: humanAnnotationConfig
-              value:
-                - name: instruction
-                  value: '{{ instruction }}'
-                - name: annotatedDatasetDisplayName
-                  value: '{{ annotatedDatasetDisplayName }}'
-                - name: annotatedDatasetDescription
-                  value: '{{ annotatedDatasetDescription }}'
-                - name: labelGroup
-                  value: '{{ labelGroup }}'
-                - name: languageCode
-                  value: '{{ languageCode }}'
-                - name: replicaCount
-                  value: '{{ replicaCount }}'
-                - name: questionDuration
-                  value: '{{ questionDuration }}'
-                - name: contributorEmails
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: userEmailAddress
-                  value: '{{ userEmailAddress }}'
-            - name: bigqueryImportKeys
-              value: '{{ bigqueryImportKeys }}'
-            - name: exampleCount
-              value: '{{ exampleCount }}'
-            - name: exampleSamplePercentage
-              value: '{{ exampleSamplePercentage }}'
-            - name: evaluationJobAlertConfig
-              value:
-                - name: email
-                  value: '{{ email }}'
-                - name: minAcceptableMeanAveragePrecision
-                  value: '{{ minAcceptableMeanAveragePrecision }}'
-        - name: annotationSpecSet
-          value: '{{ annotationSpecSet }}'
-        - name: labelMissingGroundTruth
-          value: '{{ labelMissingGroundTruth }}'
-        - name: attempts
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+job:
+  name: string
+  description: string
+  state: string
+  schedule: string
+  modelVersion: string
+  evaluationJobConfig:
+    imageClassificationConfig:
+      annotationSpecSet: string
+      allowMultiLabel: boolean
+      answerAggregationType: string
+    boundingPolyConfig:
+      annotationSpecSet: string
+      instructionMessage: string
+    textClassificationConfig:
+      allowMultiLabel: boolean
+      annotationSpecSet: string
+      sentimentConfig:
+        enableLabelSentimentSelection: boolean
+    inputConfig:
+      textMetadata:
+        languageCode: string
+      gcsSource:
+        inputUri: string
+        mimeType: string
+      bigquerySource:
+        inputUri: string
+      dataType: string
+      annotationType: string
+      classificationMetadata:
+        isMultiLabel: boolean
+    evaluationConfig:
+      boundingBoxEvaluationOptions:
+        iouThreshold: number
+    humanAnnotationConfig:
+      instruction: string
+      annotatedDatasetDisplayName: string
+      annotatedDatasetDescription: string
+      labelGroup: string
+      languageCode: string
+      replicaCount: integer
+      questionDuration: string
+      contributorEmails:
+        - type: string
+      userEmailAddress: string
+    bigqueryImportKeys: object
+    exampleCount: integer
+    exampleSamplePercentage: number
+    evaluationJobAlertConfig:
+      email: string
+      minAcceptableMeanAveragePrecision: number
+  annotationSpecSet: string
+  labelMissingGroundTruth: boolean
+  attempts:
+    - attemptTime: string
+      partialFailures:
+        - code: integer
+          message: string
+          details:
+            - type: string
+              additionalProperties: any
+  createTime: string
 
 ```
 </TabItem>

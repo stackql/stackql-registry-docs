@@ -130,62 +130,33 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: staticIpScan
-      value: '{{ staticIpScan }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: userAgent
-      value: '{{ userAgent }}'
-    - name: riskLevel
-      value: '{{ riskLevel }}'
-    - name: blacklistPatterns
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: exportToSecurityCommandCenter
-      value: '{{ exportToSecurityCommandCenter }}'
-    - name: schedule
-      value:
-        - name: scheduleTime
-          value: '{{ scheduleTime }}'
-        - name: intervalDurationDays
-          value: '{{ intervalDurationDays }}'
-    - name: startingUrls
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: maxQps
-      value: '{{ maxQps }}'
-    - name: managedScan
-      value: '{{ managedScan }}'
-    - name: ignoreHttpStatusErrors
-      value: '{{ ignoreHttpStatusErrors }}'
-    - name: name
-      value: '{{ name }}'
-    - name: authentication
-      value:
-        - name: customAccount
-          value:
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-            - name: loginUrl
-              value: '{{ loginUrl }}'
-        - name: googleAccount
-          value:
-            - name: password
-              value: '{{ password }}'
-            - name: username
-              value: '{{ username }}'
-        - name: iapCredential
-          value:
-            - name: iapTestServiceAccountInfo
-              value:
-                - name: targetAudienceClientId
-                  value: '{{ targetAudienceClientId }}'
+staticIpScan: boolean
+displayName: string
+userAgent: string
+riskLevel: string
+blacklistPatterns:
+  - type: string
+exportToSecurityCommandCenter: string
+schedule:
+  scheduleTime: string
+  intervalDurationDays: integer
+startingUrls:
+  - type: string
+maxQps: integer
+managedScan: boolean
+ignoreHttpStatusErrors: boolean
+name: string
+authentication:
+  customAccount:
+    username: string
+    password: string
+    loginUrl: string
+  googleAccount:
+    password: string
+    username: string
+  iapCredential:
+    iapTestServiceAccountInfo:
+      targetAudienceClientId: string
 
 ```
 </TabItem>

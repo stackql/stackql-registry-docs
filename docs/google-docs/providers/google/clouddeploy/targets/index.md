@@ -140,52 +140,47 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: requireApproval
-      value: '{{ requireApproval }}'
-    - name: gke
-      value:
-        - name: cluster
-          value: '{{ cluster }}'
-        - name: internalIp
-          value: '{{ internalIp }}'
-        - name: proxyUrl
-          value: '{{ proxyUrl }}'
-    - name: anthosCluster
-      value:
-        - name: membership
-          value: '{{ membership }}'
-    - name: run
-      value:
-        - name: location
-          value: '{{ location }}'
-    - name: multiTarget
-      value:
-        - name: targetIds
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: customTarget
-      value:
-        - name: customTargetType
-          value: '{{ customTargetType }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: executionConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: deployParameters
-      value: '{{ deployParameters }}'
+name: string
+targetId: string
+uid: string
+description: string
+annotations: object
+labels: object
+requireApproval: boolean
+createTime: string
+updateTime: string
+gke:
+  cluster: string
+  internalIp: boolean
+  proxyUrl: string
+anthosCluster:
+  membership: string
+run:
+  location: string
+multiTarget:
+  targetIds:
+    - type: string
+customTarget:
+  customTargetType: string
+etag: string
+executionConfigs:
+  - usages:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    defaultPool:
+      serviceAccount: string
+      artifactStorage: string
+    privatePool:
+      workerPool: string
+      serviceAccount: string
+      artifactStorage: string
+    workerPool: string
+    serviceAccount: string
+    artifactStorage: string
+    executionTimeout: string
+    verbose: boolean
+deployParameters: object
 
 ```
 </TabItem>

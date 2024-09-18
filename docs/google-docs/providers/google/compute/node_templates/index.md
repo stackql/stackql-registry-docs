@@ -135,44 +135,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: nodeType
-      value: '{{ nodeType }}'
-    - name: nodeAffinityLabels
-      value: '{{ nodeAffinityLabels }}'
-    - name: status
-      value: '{{ status }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
-    - name: region
-      value: '{{ region }}'
-    - name: nodeTypeFlexibility
-      value:
-        - name: cpus
-          value: '{{ cpus }}'
-        - name: memory
-          value: '{{ memory }}'
-        - name: localSsd
-          value: '{{ localSsd }}'
-    - name: serverBinding
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: disks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: accelerators
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: cpuOvercommitType
-      value: '{{ cpuOvercommitType }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+nodeType: string
+nodeAffinityLabels: object
+status: string
+statusMessage: string
+region: string
+selfLink: string
+nodeTypeFlexibility:
+  cpus: string
+  memory: string
+  localSsd: string
+serverBinding:
+  type: string
+disks:
+  - diskType: string
+    diskSizeGb: integer
+    diskCount: integer
+accelerators:
+  - acceleratorType: string
+    acceleratorCount: integer
+cpuOvercommitType: string
 
 ```
 </TabItem>

@@ -153,118 +153,65 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: checkIntervalSec
-      value: '{{ checkIntervalSec }}'
-    - name: timeoutSec
-      value: '{{ timeoutSec }}'
-    - name: unhealthyThreshold
-      value: '{{ unhealthyThreshold }}'
-    - name: healthyThreshold
-      value: '{{ healthyThreshold }}'
-    - name: type
-      value: '{{ type }}'
-    - name: tcpHealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: request
-          value: '{{ request }}'
-        - name: response
-          value: '{{ response }}'
-        - name: proxyHeader
-          value: '{{ proxyHeader }}'
-    - name: sslHealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: request
-          value: '{{ request }}'
-        - name: response
-          value: '{{ response }}'
-        - name: proxyHeader
-          value: '{{ proxyHeader }}'
-    - name: httpHealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: host
-          value: '{{ host }}'
-        - name: requestPath
-          value: '{{ requestPath }}'
-        - name: proxyHeader
-          value: '{{ proxyHeader }}'
-        - name: response
-          value: '{{ response }}'
-    - name: httpsHealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: host
-          value: '{{ host }}'
-        - name: requestPath
-          value: '{{ requestPath }}'
-        - name: proxyHeader
-          value: '{{ proxyHeader }}'
-        - name: response
-          value: '{{ response }}'
-    - name: http2HealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: host
-          value: '{{ host }}'
-        - name: requestPath
-          value: '{{ requestPath }}'
-        - name: proxyHeader
-          value: '{{ proxyHeader }}'
-        - name: response
-          value: '{{ response }}'
-    - name: grpcHealthCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-        - name: portName
-          value: '{{ portName }}'
-        - name: portSpecification
-          value: '{{ portSpecification }}'
-        - name: grpcServiceName
-          value: '{{ grpcServiceName }}'
-    - name: sourceRegions
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: region
-      value: '{{ region }}'
-    - name: logConfig
-      value:
-        - name: enable
-          value: '{{ enable }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+checkIntervalSec: integer
+timeoutSec: integer
+unhealthyThreshold: integer
+healthyThreshold: integer
+type: string
+tcpHealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  request: string
+  response: string
+  proxyHeader: string
+sslHealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  request: string
+  response: string
+  proxyHeader: string
+httpHealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  host: string
+  requestPath: string
+  proxyHeader: string
+  response: string
+httpsHealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  host: string
+  requestPath: string
+  proxyHeader: string
+  response: string
+http2HealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  host: string
+  requestPath: string
+  proxyHeader: string
+  response: string
+grpcHealthCheck:
+  port: integer
+  portName: string
+  portSpecification: string
+  grpcServiceName: string
+sourceRegions:
+  - type: string
+selfLink: string
+region: string
+logConfig:
+  enable: boolean
 
 ```
 </TabItem>

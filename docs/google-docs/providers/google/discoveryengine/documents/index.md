@@ -127,26 +127,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: structData
-      value: '{{ structData }}'
-    - name: jsonData
-      value: '{{ jsonData }}'
-    - name: name
-      value: '{{ name }}'
-    - name: schemaId
-      value: '{{ schemaId }}'
-    - name: content
-      value:
-        - name: rawBytes
-          value: '{{ rawBytes }}'
-        - name: uri
-          value: '{{ uri }}'
-        - name: mimeType
-          value: '{{ mimeType }}'
-    - name: parentDocumentId
-      value: '{{ parentDocumentId }}'
+structData: object
+jsonData: string
+name: string
+id: string
+schemaId: string
+content:
+  rawBytes: string
+  uri: string
+  mimeType: string
+parentDocumentId: string
+derivedStructData: object
+indexTime: string
+indexStatus:
+  indexTime: string
+  errorSamples:
+    - code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
 
 ```
 </TabItem>

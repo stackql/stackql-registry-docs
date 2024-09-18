@@ -72,12 +72,8 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: encrypted
-      value: '{{ encrypted }}'
+name: string
+encrypted: boolean
 
 ```
 </TabItem>

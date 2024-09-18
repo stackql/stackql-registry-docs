@@ -100,32 +100,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: partitionConfig
-      value:
-        - name: count
-          value: '{{ count }}'
-        - name: scale
-          value: '{{ scale }}'
-        - name: capacity
-          value:
-            - name: publishMibPerSec
-              value: '{{ publishMibPerSec }}'
-            - name: subscribeMibPerSec
-              value: '{{ subscribeMibPerSec }}'
-    - name: retentionConfig
-      value:
-        - name: perPartitionBytes
-          value: '{{ perPartitionBytes }}'
-        - name: period
-          value: '{{ period }}'
-    - name: reservationConfig
-      value:
-        - name: throughputReservation
-          value: '{{ throughputReservation }}'
+name: string
+partitionConfig:
+  count: string
+  scale: integer
+  capacity:
+    publishMibPerSec: integer
+    subscribeMibPerSec: integer
+retentionConfig:
+  perPartitionBytes: string
+  period: string
+reservationConfig:
+  throughputReservation: string
 
 ```
 </TabItem>

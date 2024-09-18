@@ -140,26 +140,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: type
-      value: '{{ type }}'
-    - name: description
-      value: '{{ description }}'
-    - name: clusterName
-      value: '{{ clusterName }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: annotations
-      value: '{{ annotations }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+deleteTime: string
+labels: object
+state: string
+type: string
+description: string
+clusterUid: string
+clusterName: string
+reconciling: boolean
+encryptionConfig:
+  kmsKeyName: string
+encryptionInfo:
+  encryptionType: string
+  kmsKeyVersions:
+    - type: string
+etag: string
+annotations: object
+sizeBytes: string
+expiryTime: string
+expiryQuantity:
+  retentionCount: integer
+  totalRetentionCount: integer
+satisfiesPzs: boolean
+databaseVersion: string
 
 ```
 </TabItem>

@@ -118,26 +118,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: createStatement
-      value: '{{ createStatement }}'
-    - name: extraStatements
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: kmsKeyNames
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: databaseDialect
-      value: '{{ databaseDialect }}'
-    - name: protoDescriptors
-      value: '{{ protoDescriptors }}'
+createStatement: string
+extraStatements:
+  - type: string
+encryptionConfig:
+  kmsKeyName: string
+  kmsKeyNames:
+    - type: string
+databaseDialect: string
+protoDescriptors: string
 
 ```
 </TabItem>

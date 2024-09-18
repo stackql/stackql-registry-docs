@@ -106,22 +106,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: custom_attributes
-      value: '{{ custom_attributes }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: event_types
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: object_name_prefix
-      value: '{{ object_name_prefix }}'
-    - name: payload_format
-      value: '{{ payload_format }}'
-    - name: topic
-      value: '{{ topic }}'
+custom_attributes: object
+etag: string
+event_types:
+  - type: string
+id: string
+kind: string
+object_name_prefix: string
+payload_format: string
+selfLink: string
+topic: string
 
 ```
 </TabItem>

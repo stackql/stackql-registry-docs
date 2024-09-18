@@ -109,30 +109,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: hiveOptions
-      value:
-        - name: parameters
-          value: '{{ parameters }}'
-        - name: tableType
-          value: '{{ tableType }}'
-        - name: storageDescriptor
-          value:
-            - name: locationUri
-              value: '{{ locationUri }}'
-            - name: inputFormat
-              value: '{{ inputFormat }}'
-            - name: outputFormat
-              value: '{{ outputFormat }}'
-            - name: serdeInfo
-              value:
-                - name: serializationLib
-                  value: '{{ serializationLib }}'
-    - name: type
-      value: '{{ type }}'
-    - name: etag
-      value: '{{ etag }}'
+hiveOptions:
+  parameters: object
+  tableType: string
+  storageDescriptor:
+    locationUri: string
+    inputFormat: string
+    outputFormat: string
+    serdeInfo:
+      serializationLib: string
+name: string
+createTime: string
+updateTime: string
+deleteTime: string
+expireTime: string
+type: string
+etag: string
 
 ```
 </TabItem>

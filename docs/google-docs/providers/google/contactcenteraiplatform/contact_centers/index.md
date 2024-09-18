@@ -146,78 +146,66 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: customerDomainPrefix
-      value: '{{ customerDomainPrefix }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: instanceConfig
-      value:
-        - name: instanceSize
-          value: '{{ instanceSize }}'
-    - name: samlParams
-      value:
-        - name: ssoUri
-          value: '{{ ssoUri }}'
-        - name: entityId
-          value: '{{ entityId }}'
-        - name: certificate
-          value: '{{ certificate }}'
-        - name: userEmail
-          value: '{{ userEmail }}'
-        - name: emailMapping
-          value: '{{ emailMapping }}'
-        - name: authenticationContexts
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-    - name: userEmail
-      value: '{{ userEmail }}'
-    - name: ccaipManagedUsers
-      value: '{{ ccaipManagedUsers }}'
-    - name: adminUser
-      value:
-        - name: givenName
-          value: '{{ givenName }}'
-        - name: familyName
-          value: '{{ familyName }}'
-    - name: kmsKey
-      value: '{{ kmsKey }}'
-    - name: privateAccess
-      value:
-        - name: ingressSettings
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: egressSettings
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: pscSetting
-          value:
-            - name: allowedConsumerProjectIds
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: early
-      value: []
-    - name: normal
-      value: []
-    - name: critical
-      value:
-        - name: peakHours
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+uris:
+  rootUri: string
+  mediaUri: string
+  virtualAgentStreamingServiceUri: string
+  chatBotUri: string
+state: string
+customerDomainPrefix: string
+displayName: string
+instanceConfig:
+  instanceSize: string
+samlParams:
+  ssoUri: string
+  entityId: string
+  certificate: string
+  userEmail: string
+  emailMapping: string
+  authenticationContexts:
+    - type: string
+      enumDescriptions: string
+      enum: string
+userEmail: string
+ccaipManagedUsers: boolean
+adminUser:
+  givenName: string
+  familyName: string
+kmsKey: string
+privateComponents:
+  - type: string
+privateAccess:
+  ingressSettings:
+    - name: string
+      serviceAttachmentNames:
+        - type: string
+  egressSettings:
+    - name: string
+      serviceAttachmentNames:
+        - type: string
+  pscSetting:
+    allowedConsumerProjectIds:
+      - type: string
+    producerProjectIds:
+      - type: string
+early: {}
+normal: {}
+critical:
+  peakHours:
+    - days:
+        - type: string
+          enumDescriptions: string
+          enum: string
+      startTime:
+        hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+      duration: string
 
 ```
 </TabItem>

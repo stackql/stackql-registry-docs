@@ -138,210 +138,266 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: sourceInstance
-      value: '{{ sourceInstance }}'
-    - name: status
-      value: '{{ status }}'
-    - name: sourceInstanceProperties
-      value:
-        - name: description
-          value: '{{ description }}'
-        - name: tags
-          value:
-            - name: items
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: fingerprint
-              value: '{{ fingerprint }}'
-        - name: machineType
-          value: '{{ machineType }}'
-        - name: canIpForward
-          value: '{{ canIpForward }}'
-        - name: networkInterfaces
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: disks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: metadata
-          value:
-            - name: fingerprint
-              value: '{{ fingerprint }}'
-            - name: items
-              value:
-                - name: key
-                  value: '{{ key }}'
-                - name: value
-                  value: '{{ value }}'
-        - name: serviceAccounts
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: scheduling
-          value:
-            - name: onHostMaintenance
-              value: '{{ onHostMaintenance }}'
-            - name: automaticRestart
-              value: '{{ automaticRestart }}'
-            - name: preemptible
-              value: '{{ preemptible }}'
-            - name: nodeAffinities
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minNodeCpus
-              value: '{{ minNodeCpus }}'
-            - name: locationHint
-              value: '{{ locationHint }}'
-            - name: availabilityDomain
-              value: '{{ availabilityDomain }}'
-            - name: provisioningModel
-              value: '{{ provisioningModel }}'
-            - name: instanceTerminationAction
-              value: '{{ instanceTerminationAction }}'
-            - name: maxRunDuration
-              value:
-                - name: seconds
-                  value: '{{ seconds }}'
-                - name: nanos
-                  value: '{{ nanos }}'
-            - name: terminationTime
-              value: '{{ terminationTime }}'
-            - name: onInstanceStopAction
-              value:
-                - name: discardLocalSsd
-                  value: '{{ discardLocalSsd }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: guestAccelerators
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: minCpuPlatform
-          value: '{{ minCpuPlatform }}'
-        - name: deletionProtection
-          value: '{{ deletionProtection }}'
-        - name: keyRevocationActionType
-          value: '{{ keyRevocationActionType }}'
-    - name: instanceProperties
-      value:
-        - name: description
-          value: '{{ description }}'
-        - name: resourceManagerTags
-          value: '{{ resourceManagerTags }}'
-        - name: machineType
-          value: '{{ machineType }}'
-        - name: canIpForward
-          value: '{{ canIpForward }}'
-        - name: networkInterfaces
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: disks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: serviceAccounts
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: guestAccelerators
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: minCpuPlatform
-          value: '{{ minCpuPlatform }}'
-        - name: reservationAffinity
-          value:
-            - name: consumeReservationType
-              value: '{{ consumeReservationType }}'
-            - name: key
-              value: '{{ key }}'
-            - name: values
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: shieldedInstanceConfig
-          value:
-            - name: enableSecureBoot
-              value: '{{ enableSecureBoot }}'
-            - name: enableVtpm
-              value: '{{ enableVtpm }}'
-            - name: enableIntegrityMonitoring
-              value: '{{ enableIntegrityMonitoring }}'
-        - name: resourcePolicies
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: confidentialInstanceConfig
-          value:
-            - name: enableConfidentialCompute
-              value: '{{ enableConfidentialCompute }}'
-            - name: confidentialInstanceType
-              value: '{{ confidentialInstanceType }}'
-        - name: privateIpv6GoogleAccess
-          value: '{{ privateIpv6GoogleAccess }}'
-        - name: advancedMachineFeatures
-          value:
-            - name: enableNestedVirtualization
-              value: '{{ enableNestedVirtualization }}'
-            - name: threadsPerCore
-              value: '{{ threadsPerCore }}'
-            - name: visibleCoreCount
-              value: '{{ visibleCoreCount }}'
-            - name: enableUefiNetworking
-              value: '{{ enableUefiNetworking }}'
-            - name: performanceMonitoringUnit
-              value: '{{ performanceMonitoringUnit }}'
-            - name: turboMode
-              value: '{{ turboMode }}'
-        - name: networkPerformanceConfig
-          value:
-            - name: totalEgressBandwidthTier
-              value: '{{ totalEgressBandwidthTier }}'
-        - name: keyRevocationActionType
-          value: '{{ keyRevocationActionType }}'
-    - name: savedDisks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: storageLocations
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: machineImageEncryptionKey
-      value:
-        - name: rawKey
-          value: '{{ rawKey }}'
-        - name: rsaEncryptedKey
-          value: '{{ rsaEncryptedKey }}'
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: sha256
-          value: '{{ sha256 }}'
-        - name: kmsKeyServiceAccount
-          value: '{{ kmsKeyServiceAccount }}'
-    - name: guestFlush
-      value: '{{ guestFlush }}'
-    - name: sourceDiskEncryptionKeys
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: totalStorageBytes
-      value: '{{ totalStorageBytes }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+sourceInstance: string
+status: string
+sourceInstanceProperties:
+  description: string
+  tags:
+    items:
+      - type: string
+    fingerprint: string
+  machineType: string
+  canIpForward: boolean
+  networkInterfaces:
+    - kind: string
+      network: string
+      subnetwork: string
+      networkIP: string
+      ipv6Address: string
+      internalIpv6PrefixLength: integer
+      name: string
+      accessConfigs:
+        - kind: string
+          type: string
+          name: string
+          natIP: string
+          externalIpv6: string
+          externalIpv6PrefixLength: integer
+          setPublicPtr: boolean
+          publicPtrDomainName: string
+          networkTier: string
+          securityPolicy: string
+      ipv6AccessConfigs:
+        - kind: string
+          type: string
+          name: string
+          natIP: string
+          externalIpv6: string
+          externalIpv6PrefixLength: integer
+          setPublicPtr: boolean
+          publicPtrDomainName: string
+          networkTier: string
+          securityPolicy: string
+      aliasIpRanges:
+        - ipCidrRange: string
+          subnetworkRangeName: string
+      fingerprint: string
+      stackType: string
+      ipv6AccessType: string
+      queueCount: integer
+      nicType: string
+      networkAttachment: string
+  disks:
+    - kind: string
+      type: string
+      mode: string
+      source: string
+      deviceName: string
+      index: integer
+      boot: boolean
+      autoDelete: boolean
+      licenses:
+        - type: string
+      interface: string
+      guestOsFeatures:
+        - type: string
+      diskEncryptionKey:
+        rawKey: string
+        rsaEncryptedKey: string
+        kmsKeyName: string
+        sha256: string
+        kmsKeyServiceAccount: string
+      diskSizeGb: string
+      storageBytes: string
+      storageBytesStatus: string
+      diskType: string
+  metadata:
+    kind: string
+    fingerprint: string
+    items:
+      - key: string
+        value: string
+  serviceAccounts:
+    - email: string
+      scopes:
+        - type: string
+  scheduling:
+    onHostMaintenance: string
+    automaticRestart: boolean
+    preemptible: boolean
+    nodeAffinities:
+      - key: string
+        operator: string
+        values:
+          - type: string
+    minNodeCpus: integer
+    locationHint: string
+    availabilityDomain: integer
+    provisioningModel: string
+    instanceTerminationAction: string
+    maxRunDuration:
+      seconds: string
+      nanos: integer
+    terminationTime: string
+    onInstanceStopAction:
+      discardLocalSsd: boolean
+  labels: object
+  guestAccelerators:
+    - acceleratorType: string
+      acceleratorCount: integer
+  minCpuPlatform: string
+  deletionProtection: boolean
+  keyRevocationActionType: string
+instanceProperties:
+  description: string
+  resourceManagerTags: object
+  machineType: string
+  canIpForward: boolean
+  networkInterfaces:
+    - kind: string
+      network: string
+      subnetwork: string
+      networkIP: string
+      ipv6Address: string
+      internalIpv6PrefixLength: integer
+      name: string
+      accessConfigs:
+        - kind: string
+          type: string
+          name: string
+          natIP: string
+          externalIpv6: string
+          externalIpv6PrefixLength: integer
+          setPublicPtr: boolean
+          publicPtrDomainName: string
+          networkTier: string
+          securityPolicy: string
+      ipv6AccessConfigs:
+        - kind: string
+          type: string
+          name: string
+          natIP: string
+          externalIpv6: string
+          externalIpv6PrefixLength: integer
+          setPublicPtr: boolean
+          publicPtrDomainName: string
+          networkTier: string
+          securityPolicy: string
+      aliasIpRanges:
+        - ipCidrRange: string
+          subnetworkRangeName: string
+      fingerprint: string
+      stackType: string
+      ipv6AccessType: string
+      queueCount: integer
+      nicType: string
+      networkAttachment: string
+  disks:
+    - kind: string
+      type: string
+      mode: string
+      savedState: string
+      source: string
+      deviceName: string
+      index: integer
+      boot: boolean
+      initializeParams:
+        diskName: string
+        sourceImage: string
+        diskSizeGb: string
+        diskType: string
+        labels: object
+        sourceSnapshot: string
+        description: string
+        replicaZones:
+          - type: string
+        resourcePolicies:
+          - type: string
+        onUpdateAction: string
+        provisionedIops: string
+        licenses:
+          - type: string
+        architecture: string
+        resourceManagerTags: object
+        provisionedThroughput: string
+        enableConfidentialCompute: boolean
+        storagePool: string
+      autoDelete: boolean
+      licenses:
+        - type: string
+      interface: string
+      guestOsFeatures:
+        - type: string
+      diskSizeGb: string
+      shieldedInstanceInitialState:
+        pk:
+          content: string
+          fileType: string
+        keks:
+          - content: string
+            fileType: string
+        dbs:
+          - content: string
+            fileType: string
+        dbxs:
+          - content: string
+            fileType: string
+      forceAttach: boolean
+      architecture: string
+  serviceAccounts:
+    - email: string
+      scopes:
+        - type: string
+  labels: object
+  guestAccelerators:
+    - acceleratorType: string
+      acceleratorCount: integer
+  minCpuPlatform: string
+  reservationAffinity:
+    consumeReservationType: string
+    key: string
+    values:
+      - type: string
+  shieldedInstanceConfig:
+    enableSecureBoot: boolean
+    enableVtpm: boolean
+    enableIntegrityMonitoring: boolean
+  resourcePolicies:
+    - type: string
+  confidentialInstanceConfig:
+    enableConfidentialCompute: boolean
+    confidentialInstanceType: string
+  privateIpv6GoogleAccess: string
+  advancedMachineFeatures:
+    enableNestedVirtualization: boolean
+    threadsPerCore: integer
+    visibleCoreCount: integer
+    enableUefiNetworking: boolean
+    performanceMonitoringUnit: string
+    turboMode: string
+  networkPerformanceConfig:
+    totalEgressBandwidthTier: string
+  keyRevocationActionType: string
+savedDisks:
+  - kind: string
+    sourceDisk: string
+    storageBytes: string
+    storageBytesStatus: string
+    architecture: string
+storageLocations:
+  - type: string
+guestFlush: boolean
+sourceDiskEncryptionKeys:
+  - sourceDisk: string
+totalStorageBytes: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

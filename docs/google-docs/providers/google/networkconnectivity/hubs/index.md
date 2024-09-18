@@ -119,24 +119,31 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: routingVpcs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: policyMode
-      value: '{{ policyMode }}'
-    - name: presetTopology
-      value: '{{ presetTopology }}'
-    - name: exportPsc
-      value: '{{ exportPsc }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+uniqueId: string
+state: string
+routingVpcs:
+  - uri: string
+    requiredForNewSiteToSiteDataTransferSpokes: boolean
+routeTables:
+  - type: string
+spokeSummary:
+  spokeTypeCounts:
+    - spokeType: string
+      count: string
+  spokeStateCounts:
+    - state: string
+      count: string
+  spokeStateReasonCounts:
+    - stateReasonCode: string
+      count: string
+policyMode: string
+presetTopology: string
+exportPsc: boolean
 
 ```
 </TabItem>

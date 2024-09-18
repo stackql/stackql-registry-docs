@@ -103,56 +103,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: content
-      value:
-        - name: iamPolicyAnalysisQuery
-          value:
-            - name: scope
-              value: '{{ scope }}'
-            - name: resourceSelector
-              value:
-                - name: fullResourceName
-                  value: '{{ fullResourceName }}'
-            - name: identitySelector
-              value:
-                - name: identity
-                  value: '{{ identity }}'
-            - name: accessSelector
-              value:
-                - name: roles
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: permissions
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: options
-              value:
-                - name: expandGroups
-                  value: '{{ expandGroups }}'
-                - name: expandRoles
-                  value: '{{ expandRoles }}'
-                - name: expandResources
-                  value: '{{ expandResources }}'
-                - name: outputResourceEdges
-                  value: '{{ outputResourceEdges }}'
-                - name: outputGroupEdges
-                  value: '{{ outputGroupEdges }}'
-                - name: analyzeServiceAccountImpersonation
-                  value: '{{ analyzeServiceAccountImpersonation }}'
-            - name: conditionContext
-              value:
-                - name: accessTime
-                  value: '{{ accessTime }}'
+name: string
+description: string
+createTime: string
+creator: string
+lastUpdateTime: string
+lastUpdater: string
+labels: object
+content:
+  iamPolicyAnalysisQuery:
+    scope: string
+    resourceSelector:
+      fullResourceName: string
+    identitySelector:
+      identity: string
+    accessSelector:
+      roles:
+        - type: string
+      permissions:
+        - type: string
+    options:
+      expandGroups: boolean
+      expandRoles: boolean
+      expandResources: boolean
+      outputResourceEdges: boolean
+      outputGroupEdges: boolean
+      analyzeServiceAccountImpersonation: boolean
+    conditionContext:
+      accessTime: string
 
 ```
 </TabItem>

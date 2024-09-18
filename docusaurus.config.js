@@ -86,7 +86,8 @@ const config = {
     image: '/img/stackql-cover.png',        
     algolia: {
       appId: 'HYO8BM1W1Y',
-      apiKey: 'a67a2d399f2e604202e82f8fd284b103',
+      // apiKey: 'a67a2d399f2e604202e82f8fd284b103',
+      apiKey: '04cd0d2e11a44e792fb41ffb72f8b422',
       indexName: 'stackql',
       // Optional: see doc section below
       contextualSearch: false,

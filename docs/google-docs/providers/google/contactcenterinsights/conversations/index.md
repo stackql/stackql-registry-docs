@@ -155,58 +155,166 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: qualityMetadata
-      value:
-        - name: waitDuration
-          value: '{{ waitDuration }}'
-        - name: agentInfo
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: menuPath
-          value: '{{ menuPath }}'
-        - name: customerSatisfactionRating
-          value: '{{ customerSatisfactionRating }}'
-    - name: dataSource
-      value:
-        - name: dialogflowSource
-          value:
-            - name: audioUri
-              value: '{{ audioUri }}'
-        - name: gcsSource
-          value:
-            - name: audioUri
-              value: '{{ audioUri }}'
-            - name: transcriptUri
-              value: '{{ transcriptUri }}'
-    - name: metadataJson
-      value: '{{ metadataJson }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: callMetadata
-      value:
-        - name: agentChannel
-          value: '{{ agentChannel }}'
-        - name: customerChannel
-          value: '{{ customerChannel }}'
-    - name: obfuscatedUserId
-      value: '{{ obfuscatedUserId }}'
-    - name: medium
-      value: '{{ medium }}'
-    - name: languageCode
-      value: '{{ languageCode }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: agentId
-      value: '{{ agentId }}'
+transcript:
+  transcriptSegments:
+    - words:
+        - confidence: number
+          word: string
+          endOffset: string
+          startOffset: string
+      confidence: number
+      languageCode: string
+      messageTime: string
+      dialogflowSegmentMetadata:
+        smartReplyAllowlistCovered: boolean
+      channelTag: integer
+      segmentParticipant:
+        obfuscatedExternalUserId: string
+        role: string
+        userId: string
+        dialogflowParticipant: string
+        dialogflowParticipantName: string
+      text: string
+      sentiment:
+        score: number
+        magnitude: number
+latestSummary:
+  answerRecord: string
+  textSections: object
+  text: string
+  confidence: number
+  metadata: object
+  conversationModel: string
+expireTime: string
+startTime: string
+updateTime: string
+runtimeAnnotations:
+  - smartReply:
+      queryRecord: string
+      reply: string
+      confidenceScore: number
+      metadata: object
+    userInput:
+      generatorName: string
+      querySource: string
+      query: string
+    createTime: string
+    answerFeedback:
+      correctnessLevel: string
+      clicked: boolean
+      displayed: boolean
+    articleSuggestion:
+      source: string
+      confidenceScore: number
+      queryRecord: string
+      title: string
+      metadata: object
+      uri: string
+    dialogflowInteraction:
+      confidence: number
+      dialogflowIntentId: string
+    faqAnswer:
+      metadata: object
+      queryRecord: string
+      confidenceScore: number
+      answer: string
+      source: string
+      question: string
+    annotationId: string
+    endBoundary:
+      wordIndex: integer
+      transcriptIndex: integer
+    smartComposeSuggestion:
+      suggestion: string
+      queryRecord: string
+      confidenceScore: number
+      metadata: object
+turnCount: integer
+qualityMetadata:
+  waitDuration: string
+  agentInfo:
+    - displayName: string
+      agentId: string
+      team: string
+      dispositionCode: string
+  menuPath: string
+  customerSatisfactionRating: integer
+duration: string
+dataSource:
+  dialogflowSource:
+    audioUri: string
+    dialogflowConversation: string
+  gcsSource:
+    audioUri: string
+    transcriptUri: string
+latestAnalysis:
+  requestTime: string
+  name: string
+  analysisResult:
+    endTime: string
+    callAnalysisMetadata:
+      issueModelResult:
+        issueModel: string
+        issues:
+          - displayName: string
+            score: number
+            issue: string
+      silence:
+        silenceDuration: string
+        silencePercentage: number
+      sentiments:
+        - channelTag: integer
+      annotations:
+        - issueMatchData:
+            issueAssignment:
+              displayName: string
+              score: number
+              issue: string
+          silenceData: {}
+          channelTag: integer
+          phraseMatchData:
+            displayName: string
+            phraseMatcher: string
+          entityMentionData:
+            type: string
+            entityUniqueId: string
+          holdData: {}
+          interruptionData: {}
+          intentMatchData:
+            intentUniqueId: string
+      phraseMatchers: object
+      entities: object
+      intents: object
+  createTime: string
+  annotatorSelector:
+    runEntityAnnotator: boolean
+    issueModels:
+      - type: string
+    runIssueModelAnnotator: boolean
+    runSummarizationAnnotator: boolean
+    summarizationConfig:
+      summarizationModel: string
+      conversationProfile: string
+    runSentimentAnnotator: boolean
+    runInterruptionAnnotator: boolean
+    runPhraseMatcherAnnotator: boolean
+    runIntentAnnotator: boolean
+    phraseMatchers:
+      - type: string
+    runSilenceAnnotator: boolean
+metadataJson: string
+name: string
+labels: object
+createTime: string
+callMetadata:
+  agentChannel: integer
+  customerChannel: integer
+obfuscatedUserId: string
+medium: string
+dialogflowIntents: object
+languageCode: string
+ttl: string
+agentId: string
 
 ```
 </TabItem>

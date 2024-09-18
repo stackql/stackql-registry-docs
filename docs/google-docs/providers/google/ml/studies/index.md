@@ -60,66 +60,7 @@ FROM google.ml.studies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-
-## `INSERT` example
-
-Use the following StackQL query and manifest file to create a new <code>studies</code> resource.
-
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
-```sql
-/*+ create */
-INSERT INTO google.ml.studies (
-locationsId,
-projectsId,
-studyConfig
-)
-SELECT 
-'{{ locationsId }}',
-'{{ projectsId }}',
-'{{ studyConfig }}'
-;
-```
-</TabItem>
-<TabItem value="manifest">
-
-```yaml
-- name: your_resource_model_name
-  props:
-    - name: studyConfig
-      value:
-        - name: metrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: parameters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: algorithm
-          value: '{{ algorithm }}'
-        - name: automatedStoppingConfig
-          value:
-            - name: decayCurveStoppingConfig
-              value:
-                - name: useElapsedTime
-                  value: '{{ useElapsedTime }}'
-            - name: medianAutomatedStoppingConfig
-              value:
-                - name: useElapsedTime
-                  value: '{{ useElapsedTime }}'
-
-```
-</TabItem>
-</Tabs>
-
+undefined
 ## `DELETE` example
 
 Deletes the specified <code>studies</code> resource.

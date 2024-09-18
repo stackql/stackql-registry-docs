@@ -142,72 +142,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: bigqueryDataset
-      value:
-        - name: dataset
-          value: '{{ dataset }}'
-        - name: selectedResources
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: restrictedExportPolicy
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: restrictDirectTableAccess
-              value: '{{ restrictDirectTableAccess }}'
-            - name: restrictQueryResult
-              value: '{{ restrictQueryResult }}'
-    - name: pubsubTopic
-      value:
-        - name: topic
-          value: '{{ topic }}'
-        - name: dataAffinityRegions
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: primaryContact
-      value: '{{ primaryContact }}'
-    - name: documentation
-      value: '{{ documentation }}'
-    - name: icon
-      value: '{{ icon }}'
-    - name: dataProvider
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: primaryContact
-          value: '{{ primaryContact }}'
-    - name: categories
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: publisher
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: primaryContact
-          value: '{{ primaryContact }}'
-    - name: requestAccess
-      value: '{{ requestAccess }}'
-    - name: restrictedExportConfig
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: restrictQueryResult
-          value: '{{ restrictQueryResult }}'
-    - name: discoveryType
-      value: '{{ discoveryType }}'
+bigqueryDataset:
+  dataset: string
+  selectedResources:
+    - table: string
+  restrictedExportPolicy:
+    enabled: boolean
+    restrictDirectTableAccess: boolean
+    restrictQueryResult: boolean
+pubsubTopic:
+  topic: string
+  dataAffinityRegions:
+    - type: string
+name: string
+displayName: string
+description: string
+primaryContact: string
+documentation: string
+state: string
+icon: string
+dataProvider:
+  name: string
+  primaryContact: string
+categories:
+  - type: string
+    enumDescriptions: string
+    enum: string
+publisher:
+  name: string
+  primaryContact: string
+requestAccess: string
+restrictedExportConfig:
+  enabled: boolean
+  restrictDirectTableAccess: boolean
+  restrictQueryResult: boolean
+discoveryType: string
+resourceType: string
 
 ```
 </TabItem>

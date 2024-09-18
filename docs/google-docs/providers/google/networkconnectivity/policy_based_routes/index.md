@@ -126,42 +126,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: virtualMachine
-      value:
-        - name: tags
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: interconnectAttachment
-      value:
-        - name: region
-          value: '{{ region }}'
-    - name: nextHopIlbIp
-      value: '{{ nextHopIlbIp }}'
-    - name: nextHopOtherRoutes
-      value: '{{ nextHopOtherRoutes }}'
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: network
-      value: '{{ network }}'
-    - name: filter
-      value:
-        - name: ipProtocol
-          value: '{{ ipProtocol }}'
-        - name: srcRange
-          value: '{{ srcRange }}'
-        - name: destRange
-          value: '{{ destRange }}'
-        - name: protocolVersion
-          value: '{{ protocolVersion }}'
-    - name: priority
-      value: '{{ priority }}'
+virtualMachine:
+  tags:
+    - type: string
+interconnectAttachment:
+  region: string
+nextHopIlbIp: string
+nextHopOtherRoutes: string
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+network: string
+filter:
+  ipProtocol: string
+  srcRange: string
+  destRange: string
+  protocolVersion: string
+priority: integer
+warnings:
+  - code: string
+    data: object
+    warningMessage: string
+selfLink: string
+kind: string
 
 ```
 </TabItem>

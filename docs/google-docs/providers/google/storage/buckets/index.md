@@ -226,210 +226,136 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: acl
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: billing
-      value:
-        - name: requesterPays
-          value: '{{ requesterPays }}'
-    - name: cors
-      value:
-        - name: maxAgeSeconds
-          value: '{{ maxAgeSeconds }}'
-        - name: method
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: origin
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: responseHeader
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: customPlacementConfig
-      value:
-        - name: dataLocations
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: defaultEventBasedHold
-      value: '{{ defaultEventBasedHold }}'
-    - name: defaultObjectAcl
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: encryption
-      value:
-        - name: defaultKmsKeyName
-          value: '{{ defaultKmsKeyName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: hierarchicalNamespace
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-    - name: iamConfiguration
-      value:
-        - name: bucketPolicyOnly
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: lockedTime
-              value: '{{ lockedTime }}'
-        - name: uniformBucketLevelAccess
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: lockedTime
-              value: '{{ lockedTime }}'
-        - name: publicAccessPrevention
-          value: '{{ publicAccessPrevention }}'
-    - name: ipFilter
-      value:
-        - name: mode
-          value: '{{ mode }}'
-        - name: publicNetworkSource
-          value:
-            - name: allowedIpCidrRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: vpcNetworkSources
-          value:
-            - name: network
-              value: '{{ network }}'
-            - name: allowedIpCidrRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: lifecycle
-      value:
-        - name: rule
-          value:
-            - name: action
-              value:
-                - name: storageClass
-                  value: '{{ storageClass }}'
-                - name: type
-                  value: '{{ type }}'
-            - name: condition
-              value:
-                - name: age
-                  value: '{{ age }}'
-                - name: createdBefore
-                  value: '{{ createdBefore }}'
-                - name: customTimeBefore
-                  value: '{{ customTimeBefore }}'
-                - name: daysSinceCustomTime
-                  value: '{{ daysSinceCustomTime }}'
-                - name: daysSinceNoncurrentTime
-                  value: '{{ daysSinceNoncurrentTime }}'
-                - name: isLive
-                  value: '{{ isLive }}'
-                - name: matchesPattern
-                  value: '{{ matchesPattern }}'
-                - name: matchesPrefix
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: matchesSuffix
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: matchesStorageClass
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: noncurrentTimeBefore
-                  value: '{{ noncurrentTimeBefore }}'
-                - name: numNewerVersions
-                  value: '{{ numNewerVersions }}'
-    - name: autoclass
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: toggleTime
-          value: '{{ toggleTime }}'
-        - name: terminalStorageClass
-          value: '{{ terminalStorageClass }}'
-        - name: terminalStorageClassUpdateTime
-          value: '{{ terminalStorageClassUpdateTime }}'
-    - name: location
-      value: '{{ location }}'
-    - name: locationType
-      value: '{{ locationType }}'
-    - name: logging
-      value:
-        - name: logBucket
-          value: '{{ logBucket }}'
-        - name: logObjectPrefix
-          value: '{{ logObjectPrefix }}'
-    - name: generation
-      value: '{{ generation }}'
-    - name: metageneration
-      value: '{{ metageneration }}'
-    - name: name
-      value: '{{ name }}'
-    - name: owner
-      value:
-        - name: entity
-          value: '{{ entity }}'
-        - name: entityId
-          value: '{{ entityId }}'
-    - name: projectNumber
-      value: '{{ projectNumber }}'
-    - name: retentionPolicy
-      value:
-        - name: effectiveTime
-          value: '{{ effectiveTime }}'
-        - name: isLocked
-          value: '{{ isLocked }}'
-        - name: retentionPeriod
-          value: '{{ retentionPeriod }}'
-    - name: objectRetention
-      value:
-        - name: mode
-          value: '{{ mode }}'
-    - name: rpo
-      value: '{{ rpo }}'
-    - name: softDeletePolicy
-      value:
-        - name: retentionDurationSeconds
-          value: '{{ retentionDurationSeconds }}'
-        - name: effectiveTime
-          value: '{{ effectiveTime }}'
-    - name: storageClass
-      value: '{{ storageClass }}'
-    - name: timeCreated
-      value: '{{ timeCreated }}'
-    - name: updated
-      value: '{{ updated }}'
-    - name: softDeleteTime
-      value: '{{ softDeleteTime }}'
-    - name: hardDeleteTime
-      value: '{{ hardDeleteTime }}'
-    - name: versioning
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-    - name: website
-      value:
-        - name: mainPageSuffix
-          value: '{{ mainPageSuffix }}'
-        - name: notFoundPage
-          value: '{{ notFoundPage }}'
-    - name: satisfiesPZS
-      value: '{{ satisfiesPZS }}'
-    - name: satisfiesPZI
-      value: '{{ satisfiesPZI }}'
+acl:
+  - bucket: string
+    domain: string
+    email: string
+    entity: string
+    entityId: string
+    etag: string
+    id: string
+    kind: string
+    projectTeam:
+      projectNumber: string
+      team: string
+    role: string
+    selfLink: string
+billing:
+  requesterPays: boolean
+cors:
+  - maxAgeSeconds: integer
+    method:
+      - type: string
+    origin:
+      - type: string
+    responseHeader:
+      - type: string
+customPlacementConfig:
+  dataLocations:
+    - type: string
+defaultEventBasedHold: boolean
+defaultObjectAcl:
+  - bucket: string
+    domain: string
+    email: string
+    entity: string
+    entityId: string
+    etag: string
+    generation: string
+    id: string
+    kind: string
+    object: string
+    projectTeam:
+      projectNumber: string
+      team: string
+    role: string
+    selfLink: string
+encryption:
+  defaultKmsKeyName: string
+etag: string
+hierarchicalNamespace:
+  enabled: boolean
+iamConfiguration:
+  bucketPolicyOnly:
+    enabled: boolean
+    lockedTime: string
+  uniformBucketLevelAccess:
+    enabled: boolean
+    lockedTime: string
+  publicAccessPrevention: string
+id: string
+ipFilter:
+  mode: string
+  publicNetworkSource:
+    allowedIpCidrRanges:
+      - type: string
+  vpcNetworkSources:
+    - network: string
+      allowedIpCidrRanges:
+        - type: string
+kind: string
+labels: object
+lifecycle:
+  rule:
+    - action:
+        storageClass: string
+        type: string
+      condition:
+        age: integer
+        createdBefore: string
+        customTimeBefore: string
+        daysSinceCustomTime: integer
+        daysSinceNoncurrentTime: integer
+        isLive: boolean
+        matchesPattern: string
+        matchesPrefix:
+          - type: string
+        matchesSuffix:
+          - type: string
+        matchesStorageClass:
+          - type: string
+        noncurrentTimeBefore: string
+        numNewerVersions: integer
+autoclass:
+  enabled: boolean
+  toggleTime: string
+  terminalStorageClass: string
+  terminalStorageClassUpdateTime: string
+location: string
+locationType: string
+logging:
+  logBucket: string
+  logObjectPrefix: string
+generation: string
+metageneration: string
+name: string
+owner:
+  entity: string
+  entityId: string
+projectNumber: string
+retentionPolicy:
+  effectiveTime: string
+  isLocked: boolean
+  retentionPeriod: string
+objectRetention:
+  mode: string
+rpo: string
+selfLink: string
+softDeletePolicy:
+  retentionDurationSeconds: string
+  effectiveTime: string
+storageClass: string
+timeCreated: string
+updated: string
+softDeleteTime: string
+hardDeleteTime: string
+versioning:
+  enabled: boolean
+website:
+  mainPageSuffix: string
+  notFoundPage: string
+satisfiesPZS: boolean
+satisfiesPZI: boolean
 
 ```
 </TabItem>

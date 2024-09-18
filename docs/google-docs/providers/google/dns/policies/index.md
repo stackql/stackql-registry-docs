@@ -106,26 +106,22 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: enableInboundForwarding
-      value: '{{ enableInboundForwarding }}'
-    - name: description
-      value: '{{ description }}'
-    - name: networks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: alternativeNameServerConfig
-      value:
-        - name: targetNameServers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: enableLogging
-      value: '{{ enableLogging }}'
+id: string
+name: string
+enableInboundForwarding: boolean
+description: string
+networks:
+  - networkUrl: string
+    kind: string
+alternativeNameServerConfig:
+  targetNameServers:
+    - ipv4Address: string
+      forwardingPath: string
+      ipv6Address: string
+      kind: string
+  kind: string
+enableLogging: boolean
+kind: string
 
 ```
 </TabItem>

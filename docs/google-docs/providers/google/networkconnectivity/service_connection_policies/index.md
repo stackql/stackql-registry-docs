@@ -116,34 +116,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: network
-      value: '{{ network }}'
-    - name: serviceClass
-      value: '{{ serviceClass }}'
-    - name: pscConfig
-      value:
-        - name: subnetworks
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: limit
-          value: '{{ limit }}'
-        - name: producerInstanceLocation
-          value: '{{ producerInstanceLocation }}'
-        - name: allowedGoogleProducersResourceHierarchyLevel
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+network: string
+serviceClass: string
+infrastructure: string
+pscConfig:
+  subnetworks:
+    - type: string
+  limit: string
+  producerInstanceLocation: string
+  allowedGoogleProducersResourceHierarchyLevel:
+    - type: string
+pscConnections:
+  - state: string
+    consumerForwardingRule: string
+    consumerAddress: string
+    errorType: string
+    error:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+    gceOperation: string
+    consumerTargetProject: string
+    pscConnectionId: string
+    errorInfo:
+      reason: string
+      domain: string
+      metadata: object
+    selectedSubnetwork: string
+    producerInstanceId: string
+etag: string
 
 ```
 </TabItem>

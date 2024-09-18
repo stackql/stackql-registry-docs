@@ -115,22 +115,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: languageCode
-      value: '{{ languageCode }}'
-    - name: inputDataConfig
-      value:
-        - name: filter
-          value: '{{ filter }}'
-        - name: medium
-          value: '{{ medium }}'
-    - name: name
-      value: '{{ name }}'
-    - name: modelType
-      value: '{{ modelType }}'
-    - name: displayName
-      value: '{{ displayName }}'
+languageCode: string
+createTime: string
+updateTime: string
+inputDataConfig:
+  trainingConversationsCount: string
+  filter: string
+  medium: string
+name: string
+issueCount: string
+state: string
+trainingStats:
+  analyzedConversationsCount: string
+  unclassifiedConversationsCount: string
+  issueStats: object
+modelType: string
+displayName: string
 
 ```
 </TabItem>

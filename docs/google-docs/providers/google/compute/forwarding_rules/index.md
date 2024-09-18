@@ -214,78 +214,50 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: IPAddress
-      value: '{{ IPAddress }}'
-    - name: IPProtocol
-      value: '{{ IPProtocol }}'
-    - name: portRange
-      value: '{{ portRange }}'
-    - name: ports
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: target
-      value: '{{ target }}'
-    - name: loadBalancingScheme
-      value: '{{ loadBalancingScheme }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: network
-      value: '{{ network }}'
-    - name: backendService
-      value: '{{ backendService }}'
-    - name: serviceDirectoryRegistrations
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: serviceLabel
-      value: '{{ serviceLabel }}'
-    - name: serviceName
-      value: '{{ serviceName }}'
-    - name: networkTier
-      value: '{{ networkTier }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: ipVersion
-      value: '{{ ipVersion }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: allPorts
-      value: '{{ allPorts }}'
-    - name: allowGlobalAccess
-      value: '{{ allowGlobalAccess }}'
-    - name: metadataFilters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: isMirroringCollector
-      value: '{{ isMirroringCollector }}'
-    - name: sourceIpRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: pscConnectionId
-      value: '{{ pscConnectionId }}'
-    - name: pscConnectionStatus
-      value: '{{ pscConnectionStatus }}'
-    - name: baseForwardingRule
-      value: '{{ baseForwardingRule }}'
-    - name: allowPscGlobalAccess
-      value: '{{ allowPscGlobalAccess }}'
-    - name: noAutomateDnsZone
-      value: '{{ noAutomateDnsZone }}'
-    - name: ipCollection
-      value: '{{ ipCollection }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+region: string
+IPAddress: string
+IPProtocol: string
+portRange: string
+ports:
+  - type: string
+target: string
+selfLink: string
+loadBalancingScheme: string
+subnetwork: string
+network: string
+backendService: string
+serviceDirectoryRegistrations:
+  - namespace: string
+    service: string
+    serviceDirectoryRegion: string
+serviceLabel: string
+serviceName: string
+networkTier: string
+labels: object
+labelFingerprint: string
+ipVersion: string
+fingerprint: string
+allPorts: boolean
+allowGlobalAccess: boolean
+metadataFilters:
+  - filterMatchCriteria: string
+    filterLabels:
+      - name: string
+        value: string
+isMirroringCollector: boolean
+sourceIpRanges:
+  - type: string
+pscConnectionId: string
+pscConnectionStatus: string
+baseForwardingRule: string
+allowPscGlobalAccess: boolean
+noAutomateDnsZone: boolean
+ipCollection: string
 
 ```
 </TabItem>

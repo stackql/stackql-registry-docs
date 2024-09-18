@@ -107,82 +107,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: ownershipScope
-      value: '{{ ownershipScope }}'
-    - name: thresholdRules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: notificationsRule
-      value:
-        - name: pubsubTopic
-          value: '{{ pubsubTopic }}'
-        - name: disableDefaultIamRecipients
-          value: '{{ disableDefaultIamRecipients }}'
-        - name: enableProjectLevelRecipients
-          value: '{{ enableProjectLevelRecipients }}'
-        - name: schemaVersion
-          value: '{{ schemaVersion }}'
-        - name: monitoringNotificationChannels
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: budgetFilter
-      value:
-        - name: calendarPeriod
-          value: '{{ calendarPeriod }}'
-        - name: projects
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: creditTypesTreatment
-          value: '{{ creditTypesTreatment }}'
-        - name: creditTypes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: resourceAncestors
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: subaccounts
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: services
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: customPeriod
-          value:
-            - name: endDate
-              value:
-                - name: year
-                  value: '{{ year }}'
-                - name: month
-                  value: '{{ month }}'
-                - name: day
-                  value: '{{ day }}'
-    - name: amount
-      value:
-        - name: specifiedAmount
-          value:
-            - name: currencyCode
-              value: '{{ currencyCode }}'
-            - name: nanos
-              value: '{{ nanos }}'
-            - name: units
-              value: '{{ units }}'
-        - name: lastPeriodAmount
-          value: []
-    - name: etag
-      value: '{{ etag }}'
+ownershipScope: string
+thresholdRules:
+  - thresholdPercent: number
+    spendBasis: string
+notificationsRule:
+  pubsubTopic: string
+  disableDefaultIamRecipients: boolean
+  enableProjectLevelRecipients: boolean
+  schemaVersion: string
+  monitoringNotificationChannels:
+    - type: string
+name: string
+displayName: string
+budgetFilter:
+  calendarPeriod: string
+  projects:
+    - type: string
+  labels: object
+  creditTypesTreatment: string
+  creditTypes:
+    - type: string
+  resourceAncestors:
+    - type: string
+  subaccounts:
+    - type: string
+  services:
+    - type: string
+  customPeriod:
+    endDate:
+      year: integer
+      month: integer
+      day: integer
+amount:
+  specifiedAmount:
+    currencyCode: string
+    nanos: integer
+    units: string
+  lastPeriodAmount: {}
+etag: string
 
 ```
 </TabItem>

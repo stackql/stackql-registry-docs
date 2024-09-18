@@ -128,32 +128,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: accessLoggingConfig
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: filter
-          value: '{{ filter }}'
-    - name: ipRange
-      value: '{{ ipRange }}'
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: location
-      value: '{{ location }}'
-    - name: peeringCidrRange
-      value: '{{ peeringCidrRange }}'
-    - name: diskEncryptionKeyName
-      value: '{{ diskEncryptionKeyName }}'
-    - name: consumerAcceptList
-      value:
-        - name: type
-          value: '{{ type }}'
+serviceAttachment: string
+runtimeVersion: string
+accessLoggingConfig:
+  enabled: boolean
+  filter: string
+ipRange: string
+host: string
+lastModifiedAt: string
+name: string
+displayName: string
+description: string
+location: string
+peeringCidrRange: string
+port: string
+diskEncryptionKeyName: string
+state: string
+consumerAcceptList:
+  - type: string
+createdAt: string
 
 ```
 </TabItem>

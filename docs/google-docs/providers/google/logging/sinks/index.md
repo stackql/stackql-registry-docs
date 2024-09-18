@@ -147,30 +147,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: destination
-      value: '{{ destination }}'
-    - name: filter
-      value: '{{ filter }}'
-    - name: description
-      value: '{{ description }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: exclusions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: outputVersionFormat
-      value: '{{ outputVersionFormat }}'
-    - name: includeChildren
-      value: '{{ includeChildren }}'
-    - name: interceptChildren
-      value: '{{ interceptChildren }}'
-    - name: bigqueryOptions
-      value:
-        - name: usePartitionedTables
-          value: '{{ usePartitionedTables }}'
+name: string
+resourceName: string
+destination: string
+filter: string
+description: string
+disabled: boolean
+exclusions:
+  - name: string
+    description: string
+    filter: string
+    disabled: boolean
+    createTime: string
+    updateTime: string
+outputVersionFormat: string
+writerIdentity: string
+includeChildren: boolean
+interceptChildren: boolean
+bigqueryOptions:
+  usePartitionedTables: boolean
+  usesTimestampColumnPartitioning: boolean
+createTime: string
+updateTime: string
 
 ```
 </TabItem>

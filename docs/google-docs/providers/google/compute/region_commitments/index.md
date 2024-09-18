@@ -155,56 +155,77 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: status
-      value: '{{ status }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
-    - name: plan
-      value: '{{ plan }}'
-    - name: startTimestamp
-      value: '{{ startTimestamp }}'
-    - name: endTimestamp
-      value: '{{ endTimestamp }}'
-    - name: resources
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: type
-      value: '{{ type }}'
-    - name: reservations
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: category
-      value: '{{ category }}'
-    - name: licenseResource
-      value:
-        - name: license
-          value: '{{ license }}'
-        - name: amount
-          value: '{{ amount }}'
-        - name: coresPerLicense
-          value: '{{ coresPerLicense }}'
-    - name: autoRenew
-      value: '{{ autoRenew }}'
-    - name: mergeSourceCommitments
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: splitSourceCommitment
-      value: '{{ splitSourceCommitment }}'
-    - name: existingReservations
-      value:
-        - name: type
-          value: '{{ type }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+region: string
+selfLink: string
+status: string
+statusMessage: string
+plan: string
+startTimestamp: string
+endTimestamp: string
+resources:
+  - type: string
+    amount: string
+    acceleratorType: string
+type: string
+reservations:
+  - kind: string
+    id: string
+    creationTimestamp: string
+    selfLink: string
+    zone: string
+    description: string
+    name: string
+    specificReservation:
+      instanceProperties:
+        machineType: string
+        guestAccelerators:
+          - acceleratorType: string
+            acceleratorCount: integer
+        minCpuPlatform: string
+        localSsds:
+          - diskSizeGb: string
+            interface: string
+        locationHint: string
+      count: string
+      inUseCount: string
+      assuredCount: string
+      sourceInstanceTemplate: string
+    aggregateReservation:
+      vmFamily: string
+      reservedResources:
+        - accelerator:
+            acceleratorCount: integer
+            acceleratorType: string
+      inUseResources:
+        - {}
+      workloadType: string
+    commitment: string
+    specificReservationRequired: boolean
+    status: string
+    shareSettings:
+      shareType: string
+      projectMap: object
+    satisfiesPzs: boolean
+    resourcePolicies: object
+    resourceStatus:
+      specificSkuAllocation:
+        sourceInstanceTemplateId: string
+category: string
+licenseResource:
+  license: string
+  amount: string
+  coresPerLicense: string
+autoRenew: boolean
+mergeSourceCommitments:
+  - type: string
+splitSourceCommitment: string
+existingReservations:
+  - type: string
 
 ```
 </TabItem>

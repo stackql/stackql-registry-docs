@@ -132,36 +132,82 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: instances
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: networks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: volumes
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: ticketId
-      value: '{{ ticketId }}'
-    - name: handoverServiceAccount
-      value: '{{ handoverServiceAccount }}'
-    - name: email
-      value: '{{ email }}'
-    - name: location
-      value: '{{ location }}'
-    - name: vpcScEnabled
-      value: '{{ vpcScEnabled }}'
-    - name: statusMessage
-      value: '{{ statusMessage }}'
-    - name: customId
-      value: '{{ customId }}'
-    - name: pod
-      value: '{{ pod }}'
+name: string
+instances:
+  - name: string
+    id: string
+    instanceType: string
+    hyperthreading: boolean
+    osImage: string
+    clientNetwork:
+      networkId: string
+      address: string
+      existingNetworkId: string
+    userNote: string
+    accountNetworksEnabled: boolean
+    networkConfig: string
+    networkTemplate: string
+    logicalInterfaces:
+      - logicalNetworkInterfaces:
+          - network: string
+            ipAddress: string
+            defaultGateway: boolean
+            networkType: string
+            id: string
+        name: string
+        interfaceIndex: integer
+    sshKeyNames:
+      - type: string
+    kmsKeyVersion: string
+networks:
+  - name: string
+    id: string
+    type: string
+    bandwidth: string
+    vlanAttachments:
+      - id: string
+        pairingKey: string
+    vrf: string
+    cidr: string
+    serviceCidr: string
+    userNote: string
+    gcpService: string
+    vlanSameProject: boolean
+    jumboFramesEnabled: boolean
+volumes:
+  - name: string
+    id: string
+    snapshotsEnabled: boolean
+    type: string
+    protocol: string
+    sizeGb: integer
+    lunRanges:
+      - quantity: integer
+        sizeGb: integer
+    machineIds:
+      - type: string
+    nfsExports:
+      - networkId: string
+        machineId: string
+        cidr: string
+        permissions: string
+        noRootSquash: boolean
+        allowSuid: boolean
+        allowDev: boolean
+    userNote: string
+    gcpService: string
+    performanceTier: string
+ticketId: string
+handoverServiceAccount: string
+email: string
+state: string
+location: string
+updateTime: string
+cloudConsoleUri: string
+vpcScEnabled: boolean
+statusMessage: string
+customId: string
+pod: string
 
 ```
 </TabItem>

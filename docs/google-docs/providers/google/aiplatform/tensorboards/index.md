@@ -121,22 +121,20 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: isDefault
-      value: '{{ isDefault }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: labels
-      value: '{{ labels }}'
+runCount: integer
+satisfiesPzi: boolean
+createTime: string
+description: string
+isDefault: boolean
+name: string
+displayName: string
+encryptionSpec:
+  kmsKeyName: string
+blobStoragePathPrefix: string
+etag: string
+updateTime: string
+satisfiesPzs: boolean
+labels: object
 
 ```
 </TabItem>

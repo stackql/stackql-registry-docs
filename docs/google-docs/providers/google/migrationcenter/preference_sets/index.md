@@ -98,60 +98,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: virtualMachinePreferences
-      value:
-        - name: targetProduct
-          value: '{{ targetProduct }}'
-        - name: regionPreferences
-          value:
-            - name: preferredRegions
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: commitmentPlan
-          value: '{{ commitmentPlan }}'
-        - name: sizingOptimizationStrategy
-          value: '{{ sizingOptimizationStrategy }}'
-        - name: computeEnginePreferences
-          value:
-            - name: persistentDiskType
-              value: '{{ persistentDiskType }}'
-            - name: machinePreferences
-              value:
-                - name: allowedMachineSeries
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: licenseType
-              value: '{{ licenseType }}'
-        - name: vmwareEnginePreferences
-          value:
-            - name: cpuOvercommitRatio
-              value: '{{ cpuOvercommitRatio }}'
-            - name: memoryOvercommitRatio
-              value: '{{ memoryOvercommitRatio }}'
-            - name: storageDeduplicationCompressionRatio
-              value: '{{ storageDeduplicationCompressionRatio }}'
-            - name: commitmentPlan
-              value: '{{ commitmentPlan }}'
-        - name: soleTenancyPreferences
-          value:
-            - name: cpuOvercommitRatio
-              value: '{{ cpuOvercommitRatio }}'
-            - name: hostMaintenancePolicy
-              value: '{{ hostMaintenancePolicy }}'
-            - name: commitmentPlan
-              value: '{{ commitmentPlan }}'
-            - name: nodeTypes
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
+name: string
+createTime: string
+updateTime: string
+displayName: string
+description: string
+virtualMachinePreferences:
+  targetProduct: string
+  regionPreferences:
+    preferredRegions:
+      - type: string
+  commitmentPlan: string
+  sizingOptimizationStrategy: string
+  computeEnginePreferences:
+    persistentDiskType: string
+    machinePreferences:
+      allowedMachineSeries:
+        - code: string
+    licenseType: string
+  vmwareEnginePreferences:
+    cpuOvercommitRatio: number
+    memoryOvercommitRatio: number
+    storageDeduplicationCompressionRatio: number
+    commitmentPlan: string
+  soleTenancyPreferences:
+    cpuOvercommitRatio: number
+    hostMaintenancePolicy: string
+    commitmentPlan: string
+    nodeTypes:
+      - nodeName: string
 
 ```
 </TabItem>

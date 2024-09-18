@@ -122,26 +122,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: host
-      value: '{{ host }}'
-    - name: requestPath
-      value: '{{ requestPath }}'
-    - name: port
-      value: '{{ port }}'
-    - name: checkIntervalSec
-      value: '{{ checkIntervalSec }}'
-    - name: timeoutSec
-      value: '{{ timeoutSec }}'
-    - name: unhealthyThreshold
-      value: '{{ unhealthyThreshold }}'
-    - name: healthyThreshold
-      value: '{{ healthyThreshold }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+host: string
+requestPath: string
+port: integer
+checkIntervalSec: integer
+timeoutSec: integer
+unhealthyThreshold: integer
+healthyThreshold: integer
+selfLink: string
 
 ```
 </TabItem>

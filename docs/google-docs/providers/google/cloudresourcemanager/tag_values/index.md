@@ -103,18 +103,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: parent
-      value: '{{ parent }}'
-    - name: shortName
-      value: '{{ shortName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+parent: string
+shortName: string
+namespacedName: string
+description: string
+createTime: string
+updateTime: string
+etag: string
 
 ```
 </TabItem>

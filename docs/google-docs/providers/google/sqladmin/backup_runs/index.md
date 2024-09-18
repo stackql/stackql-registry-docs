@@ -143,44 +143,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: status
-      value: '{{ status }}'
-    - name: enqueuedTime
-      value: '{{ enqueuedTime }}'
-    - name: startTime
-      value: '{{ startTime }}'
-    - name: endTime
-      value: '{{ endTime }}'
-    - name: error
-      value:
-        - name: code
-          value: '{{ code }}'
-        - name: message
-          value: '{{ message }}'
-    - name: type
-      value: '{{ type }}'
-    - name: description
-      value: '{{ description }}'
-    - name: windowStartTime
-      value: '{{ windowStartTime }}'
-    - name: instance
-      value: '{{ instance }}'
-    - name: location
-      value: '{{ location }}'
-    - name: diskEncryptionConfiguration
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: diskEncryptionStatus
-      value:
-        - name: kmsKeyVersionName
-          value: '{{ kmsKeyVersionName }}'
-    - name: backupKind
-      value: '{{ backupKind }}'
-    - name: timeZone
-      value: '{{ timeZone }}'
+kind: string
+status: string
+enqueuedTime: string
+id: string
+startTime: string
+endTime: string
+error:
+  kind: string
+  code: string
+  message: string
+type: string
+description: string
+windowStartTime: string
+instance: string
+selfLink: string
+location: string
+diskEncryptionConfiguration:
+  kmsKeyName: string
+  kind: string
+diskEncryptionStatus:
+  kmsKeyVersionName: string
+  kind: string
+backupKind: string
+timeZone: string
+maxChargeableBytes: string
 
 ```
 </TabItem>

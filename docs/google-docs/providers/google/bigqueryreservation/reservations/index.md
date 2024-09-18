@@ -125,30 +125,20 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: slotCapacity
-      value: '{{ slotCapacity }}'
-    - name: ignoreIdleSlots
-      value: '{{ ignoreIdleSlots }}'
-    - name: autoscale
-      value:
-        - name: maxSlots
-          value: '{{ maxSlots }}'
-    - name: concurrency
-      value: '{{ concurrency }}'
-    - name: multiRegionAuxiliary
-      value: '{{ multiRegionAuxiliary }}'
-    - name: edition
-      value: '{{ edition }}'
-    - name: primaryLocation
-      value: '{{ primaryLocation }}'
-    - name: secondaryLocation
-      value: '{{ secondaryLocation }}'
-    - name: originalPrimaryLocation
-      value: '{{ originalPrimaryLocation }}'
+name: string
+slotCapacity: string
+ignoreIdleSlots: boolean
+autoscale:
+  currentSlots: string
+  maxSlots: string
+concurrency: string
+creationTime: string
+updateTime: string
+multiRegionAuxiliary: boolean
+edition: string
+primaryLocation: string
+secondaryLocation: string
+originalPrimaryLocation: string
 
 ```
 </TabItem>

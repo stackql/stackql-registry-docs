@@ -158,68 +158,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: acceleratorType
-      value: '{{ acceleratorType }}'
-    - name: runtimeVersion
-      value: '{{ runtimeVersion }}'
-    - name: networkConfig
-      value:
-        - name: network
-          value: '{{ network }}'
-        - name: subnetwork
-          value: '{{ subnetwork }}'
-        - name: enableExternalIps
-          value: '{{ enableExternalIps }}'
-        - name: canIpForward
-          value: '{{ canIpForward }}'
-        - name: queueCount
-          value: '{{ queueCount }}'
-    - name: cidrBlock
-      value: '{{ cidrBlock }}'
-    - name: serviceAccount
-      value:
-        - name: email
-          value: '{{ email }}'
-        - name: scope
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: schedulingConfig
-      value:
-        - name: preemptible
-          value: '{{ preemptible }}'
-        - name: reserved
-          value: '{{ reserved }}'
-        - name: spot
-          value: '{{ spot }}'
-    - name: health
-      value: '{{ health }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: metadata
-      value: '{{ metadata }}'
-    - name: tags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dataDisks
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: shieldedInstanceConfig
-      value:
-        - name: enableSecureBoot
-          value: '{{ enableSecureBoot }}'
-    - name: acceleratorConfig
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: topology
-          value: '{{ topology }}'
+name: string
+description: string
+acceleratorType: string
+state: string
+healthDescription: string
+runtimeVersion: string
+networkConfig:
+  network: string
+  subnetwork: string
+  enableExternalIps: boolean
+  canIpForward: boolean
+  queueCount: integer
+cidrBlock: string
+serviceAccount:
+  email: string
+  scope:
+    - type: string
+createTime: string
+schedulingConfig:
+  preemptible: boolean
+  reserved: boolean
+  spot: boolean
+networkEndpoints:
+  - ipAddress: string
+    port: integer
+    accessConfig:
+      externalIp: string
+health: string
+labels: object
+metadata: object
+tags:
+  - type: string
+id: string
+dataDisks:
+  - sourceDisk: string
+    mode: string
+apiVersion: string
+symptoms:
+  - createTime: string
+    symptomType: string
+    details: string
+    workerId: string
+shieldedInstanceConfig:
+  enableSecureBoot: boolean
+acceleratorConfig:
+  type: string
+  topology: string
+queuedResource: string
+multisliceNode: boolean
 
 ```
 </TabItem>

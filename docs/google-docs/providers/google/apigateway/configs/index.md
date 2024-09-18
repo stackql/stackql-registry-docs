@@ -117,26 +117,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: gatewayServiceAccount
-      value: '{{ gatewayServiceAccount }}'
-    - name: openapiDocuments
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: grpcServices
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: managedServiceConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+gatewayServiceAccount: string
+serviceConfigId: string
+state: string
+openapiDocuments:
+  - document:
+      path: string
+      contents: string
+grpcServices:
+  - source:
+      - path: string
+        contents: string
+managedServiceConfigs:
+  - path: string
+    contents: string
 
 ```
 </TabItem>

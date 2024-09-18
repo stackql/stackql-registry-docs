@@ -91,22 +91,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: sslSettings
-      value:
-        - name: certificateId
-          value: '{{ certificateId }}'
-        - name: sslManagementType
-          value: '{{ sslManagementType }}'
-        - name: pendingManagedCertificateId
-          value: '{{ pendingManagedCertificateId }}'
-    - name: resourceRecords
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+id: string
+sslSettings:
+  certificateId: string
+  sslManagementType: string
+  pendingManagedCertificateId: string
+resourceRecords:
+  - name: string
+    rrdata: string
+    type: string
 
 ```
 </TabItem>

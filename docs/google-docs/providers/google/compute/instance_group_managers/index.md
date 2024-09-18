@@ -187,152 +187,85 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: region
-      value: '{{ region }}'
-    - name: distributionPolicy
-      value:
-        - name: zones
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: targetShape
-          value: '{{ targetShape }}'
-    - name: instanceTemplate
-      value: '{{ instanceTemplate }}'
-    - name: versions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: allInstancesConfig
-      value:
-        - name: properties
-          value:
-            - name: metadata
-              value: '{{ metadata }}'
-            - name: labels
-              value: '{{ labels }}'
-    - name: instanceGroup
-      value: '{{ instanceGroup }}'
-    - name: targetPools
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: baseInstanceName
-      value: '{{ baseInstanceName }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: currentActions
-      value:
-        - name: none
-          value: '{{ none }}'
-        - name: creating
-          value: '{{ creating }}'
-        - name: creatingWithoutRetries
-          value: '{{ creatingWithoutRetries }}'
-        - name: verifying
-          value: '{{ verifying }}'
-        - name: recreating
-          value: '{{ recreating }}'
-        - name: deleting
-          value: '{{ deleting }}'
-        - name: abandoning
-          value: '{{ abandoning }}'
-        - name: restarting
-          value: '{{ restarting }}'
-        - name: refreshing
-          value: '{{ refreshing }}'
-        - name: suspending
-          value: '{{ suspending }}'
-        - name: resuming
-          value: '{{ resuming }}'
-        - name: stopping
-          value: '{{ stopping }}'
-        - name: starting
-          value: '{{ starting }}'
-    - name: status
-      value:
-        - name: isStable
-          value: '{{ isStable }}'
-        - name: allInstancesConfig
-          value:
-            - name: effective
-              value: '{{ effective }}'
-            - name: currentRevision
-              value: '{{ currentRevision }}'
-        - name: versionTarget
-          value:
-            - name: isReached
-              value: '{{ isReached }}'
-        - name: stateful
-          value:
-            - name: hasStatefulConfig
-              value: '{{ hasStatefulConfig }}'
-            - name: perInstanceConfigs
-              value:
-                - name: allEffective
-                  value: '{{ allEffective }}'
-        - name: autoscaler
-          value: '{{ autoscaler }}'
-    - name: targetSize
-      value: '{{ targetSize }}'
-    - name: listManagedInstancesResults
-      value: '{{ listManagedInstancesResults }}'
-    - name: autoHealingPolicies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: updatePolicy
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: instanceRedistributionType
-          value: '{{ instanceRedistributionType }}'
-        - name: minimalAction
-          value: '{{ minimalAction }}'
-        - name: mostDisruptiveAllowedAction
-          value: '{{ mostDisruptiveAllowedAction }}'
-        - name: maxSurge
-          value:
-            - name: fixed
-              value: '{{ fixed }}'
-            - name: percent
-              value: '{{ percent }}'
-            - name: calculated
-              value: '{{ calculated }}'
-        - name: replacementMethod
-          value: '{{ replacementMethod }}'
-    - name: namedPorts
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: statefulPolicy
-      value:
-        - name: preservedState
-          value:
-            - name: disks
-              value: '{{ disks }}'
-            - name: internalIPs
-              value: '{{ internalIPs }}'
-            - name: externalIPs
-              value: '{{ externalIPs }}'
-    - name: instanceLifecyclePolicy
-      value:
-        - name: forceUpdateOnRepair
-          value: '{{ forceUpdateOnRepair }}'
-        - name: defaultActionOnFailure
-          value: '{{ defaultActionOnFailure }}'
-    - name: satisfiesPzi
-      value: '{{ satisfiesPzi }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+zone: string
+region: string
+distributionPolicy:
+  zones:
+    - zone: string
+  targetShape: string
+instanceTemplate: string
+versions:
+  - name: string
+    instanceTemplate: string
+    targetSize:
+      fixed: integer
+      percent: integer
+      calculated: integer
+allInstancesConfig:
+  properties:
+    metadata: object
+    labels: object
+instanceGroup: string
+targetPools:
+  - type: string
+baseInstanceName: string
+fingerprint: string
+currentActions:
+  none: integer
+  creating: integer
+  creatingWithoutRetries: integer
+  verifying: integer
+  recreating: integer
+  deleting: integer
+  abandoning: integer
+  restarting: integer
+  refreshing: integer
+  suspending: integer
+  resuming: integer
+  stopping: integer
+  starting: integer
+status:
+  isStable: boolean
+  allInstancesConfig:
+    effective: boolean
+    currentRevision: string
+  versionTarget:
+    isReached: boolean
+  stateful:
+    hasStatefulConfig: boolean
+    perInstanceConfigs:
+      allEffective: boolean
+  autoscaler: string
+targetSize: integer
+listManagedInstancesResults: string
+selfLink: string
+autoHealingPolicies:
+  - healthCheck: string
+    initialDelaySec: integer
+updatePolicy:
+  type: string
+  instanceRedistributionType: string
+  minimalAction: string
+  mostDisruptiveAllowedAction: string
+  replacementMethod: string
+namedPorts:
+  - name: string
+    port: integer
+statefulPolicy:
+  preservedState:
+    disks: object
+    internalIPs: object
+    externalIPs: object
+instanceLifecyclePolicy:
+  forceUpdateOnRepair: string
+  defaultActionOnFailure: string
+satisfiesPzi: boolean
+satisfiesPzs: boolean
 
 ```
 </TabItem>

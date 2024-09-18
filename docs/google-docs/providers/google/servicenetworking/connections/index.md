@@ -81,14 +81,11 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: reservedPeeringRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: network
-      value: '{{ network }}'
+peering: string
+reservedPeeringRanges:
+  - type: string
+service: string
+network: string
 
 ```
 </TabItem>

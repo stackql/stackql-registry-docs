@@ -133,126 +133,94 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: buildConfig
-      value:
-        - name: automaticUpdatePolicy
-          value: []
-        - name: onDeployUpdatePolicy
-          value: []
-        - name: runtime
-          value: '{{ runtime }}'
-        - name: entryPoint
-          value: '{{ entryPoint }}'
-        - name: source
-          value:
-            - name: storageSource
-              value:
-                - name: bucket
-                  value: '{{ bucket }}'
-                - name: object
-                  value: '{{ object }}'
-                - name: generation
-                  value: '{{ generation }}'
-                - name: sourceUploadUrl
-                  value: '{{ sourceUploadUrl }}'
-            - name: repoSource
-              value:
-                - name: branchName
-                  value: '{{ branchName }}'
-                - name: tagName
-                  value: '{{ tagName }}'
-                - name: commitSha
-                  value: '{{ commitSha }}'
-                - name: projectId
-                  value: '{{ projectId }}'
-                - name: repoName
-                  value: '{{ repoName }}'
-                - name: dir
-                  value: '{{ dir }}'
-            - name: gitUri
-              value: '{{ gitUri }}'
-        - name: workerPool
-          value: '{{ workerPool }}'
-        - name: environmentVariables
-          value: '{{ environmentVariables }}'
-        - name: dockerRegistry
-          value: '{{ dockerRegistry }}'
-        - name: dockerRepository
-          value: '{{ dockerRepository }}'
-        - name: serviceAccount
-          value: '{{ serviceAccount }}'
-        - name: sourceToken
-          value: '{{ sourceToken }}'
-    - name: serviceConfig
-      value:
-        - name: timeoutSeconds
-          value: '{{ timeoutSeconds }}'
-        - name: availableMemory
-          value: '{{ availableMemory }}'
-        - name: availableCpu
-          value: '{{ availableCpu }}'
-        - name: environmentVariables
-          value: '{{ environmentVariables }}'
-        - name: maxInstanceCount
-          value: '{{ maxInstanceCount }}'
-        - name: minInstanceCount
-          value: '{{ minInstanceCount }}'
-        - name: vpcConnector
-          value: '{{ vpcConnector }}'
-        - name: vpcConnectorEgressSettings
-          value: '{{ vpcConnectorEgressSettings }}'
-        - name: ingressSettings
-          value: '{{ ingressSettings }}'
-        - name: serviceAccountEmail
-          value: '{{ serviceAccountEmail }}'
-        - name: allTrafficOnLatestRevision
-          value: '{{ allTrafficOnLatestRevision }}'
-        - name: secretEnvironmentVariables
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: secretVolumes
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: maxInstanceRequestConcurrency
-          value: '{{ maxInstanceRequestConcurrency }}'
-        - name: securityLevel
-          value: '{{ securityLevel }}'
-        - name: binaryAuthorizationPolicy
-          value: '{{ binaryAuthorizationPolicy }}'
-    - name: eventTrigger
-      value:
-        - name: triggerRegion
-          value: '{{ triggerRegion }}'
-        - name: eventType
-          value: '{{ eventType }}'
-        - name: eventFilters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: pubsubTopic
-          value: '{{ pubsubTopic }}'
-        - name: serviceAccountEmail
-          value: '{{ serviceAccountEmail }}'
-        - name: retryPolicy
-          value: '{{ retryPolicy }}'
-        - name: channel
-          value: '{{ channel }}'
-        - name: service
-          value: '{{ service }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: environment
-      value: '{{ environment }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
+name: string
+description: string
+buildConfig:
+  automaticUpdatePolicy: {}
+  onDeployUpdatePolicy:
+    runtimeVersion: string
+  build: string
+  runtime: string
+  entryPoint: string
+  source:
+    storageSource:
+      bucket: string
+      object: string
+      generation: string
+      sourceUploadUrl: string
+    repoSource:
+      branchName: string
+      tagName: string
+      commitSha: string
+      projectId: string
+      repoName: string
+      dir: string
+    gitUri: string
+  sourceProvenance:
+    gitUri: string
+  workerPool: string
+  environmentVariables: object
+  dockerRegistry: string
+  dockerRepository: string
+  serviceAccount: string
+  sourceToken: string
+serviceConfig:
+  service: string
+  timeoutSeconds: integer
+  availableMemory: string
+  availableCpu: string
+  environmentVariables: object
+  maxInstanceCount: integer
+  minInstanceCount: integer
+  vpcConnector: string
+  vpcConnectorEgressSettings: string
+  ingressSettings: string
+  uri: string
+  serviceAccountEmail: string
+  allTrafficOnLatestRevision: boolean
+  secretEnvironmentVariables:
+    - key: string
+      projectId: string
+      secret: string
+      version: string
+  secretVolumes:
+    - mountPath: string
+      projectId: string
+      secret: string
+      versions:
+        - version: string
+          path: string
+  revision: string
+  maxInstanceRequestConcurrency: integer
+  securityLevel: string
+  binaryAuthorizationPolicy: string
+eventTrigger:
+  trigger: string
+  triggerRegion: string
+  eventType: string
+  eventFilters:
+    - attribute: string
+      value: string
+      operator: string
+  pubsubTopic: string
+  serviceAccountEmail: string
+  retryPolicy: string
+  channel: string
+  service: string
+state: string
+updateTime: string
+labels: object
+stateMessages:
+  - severity: string
+    type: string
+    message: string
+environment: string
+upgradeInfo:
+  upgradeState: string
+url: string
+kmsKeyName: string
+satisfiesPzs: boolean
+createTime: string
 
 ```
 </TabItem>

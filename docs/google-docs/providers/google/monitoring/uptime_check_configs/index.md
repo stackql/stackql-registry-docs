@@ -137,100 +137,62 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: monitoredResource
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: labels
-          value: '{{ labels }}'
-    - name: resourceGroup
-      value:
-        - name: groupId
-          value: '{{ groupId }}'
-        - name: resourceType
-          value: '{{ resourceType }}'
-    - name: syntheticMonitor
-      value:
-        - name: cloudFunctionV2
-          value:
-            - name: name
-              value: '{{ name }}'
-    - name: httpCheck
-      value:
-        - name: requestMethod
-          value: '{{ requestMethod }}'
-        - name: useSsl
-          value: '{{ useSsl }}'
-        - name: path
-          value: '{{ path }}'
-        - name: port
-          value: '{{ port }}'
-        - name: authInfo
-          value:
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-        - name: maskHeaders
-          value: '{{ maskHeaders }}'
-        - name: headers
-          value: '{{ headers }}'
-        - name: contentType
-          value: '{{ contentType }}'
-        - name: customContentType
-          value: '{{ customContentType }}'
-        - name: validateSsl
-          value: '{{ validateSsl }}'
-        - name: body
-          value: '{{ body }}'
-        - name: acceptedResponseStatusCodes
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: pingConfig
-          value:
-            - name: pingsCount
-              value: '{{ pingsCount }}'
-        - name: serviceAgentAuthentication
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: tcpCheck
-      value:
-        - name: port
-          value: '{{ port }}'
-    - name: period
-      value: '{{ period }}'
-    - name: timeout
-      value: '{{ timeout }}'
-    - name: contentMatchers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: checkerType
-      value: '{{ checkerType }}'
-    - name: selectedRegions
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: isInternal
-      value: '{{ isInternal }}'
-    - name: internalCheckers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: userLabels
-      value: '{{ userLabels }}'
+name: string
+displayName: string
+monitoredResource:
+  type: string
+  labels: object
+resourceGroup:
+  groupId: string
+  resourceType: string
+syntheticMonitor:
+  cloudFunctionV2:
+    name: string
+httpCheck:
+  requestMethod: string
+  useSsl: boolean
+  path: string
+  port: integer
+  authInfo:
+    username: string
+    password: string
+  maskHeaders: boolean
+  headers: object
+  contentType: string
+  customContentType: string
+  validateSsl: boolean
+  body: string
+  acceptedResponseStatusCodes:
+    - statusValue: integer
+      statusClass: string
+  pingConfig:
+    pingsCount: integer
+  serviceAgentAuthentication:
+    type: string
+tcpCheck:
+  port: integer
+period: string
+timeout: string
+contentMatchers:
+  - content: string
+    matcher: string
+    jsonPathMatcher:
+      jsonPath: string
+      jsonMatcher: string
+checkerType: string
+selectedRegions:
+  - type: string
+    enumDescriptions: string
+    enum: string
+isInternal: boolean
+internalCheckers:
+  - name: string
+    displayName: string
+    network: string
+    gcpZone: string
+    peerProjectId: string
+    state: string
+userLabels: object
 
 ```
 </TabItem>

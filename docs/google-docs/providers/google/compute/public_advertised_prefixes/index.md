@@ -127,30 +127,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: ipCidrRange
-      value: '{{ ipCidrRange }}'
-    - name: dnsVerificationIp
-      value: '{{ dnsVerificationIp }}'
-    - name: sharedSecret
-      value: '{{ sharedSecret }}'
-    - name: status
-      value: '{{ status }}'
-    - name: pdpScope
-      value: '{{ pdpScope }}'
-    - name: publicDelegatedPrefixs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: byoipApiVersion
-      value: '{{ byoipApiVersion }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+ipCidrRange: string
+dnsVerificationIp: string
+sharedSecret: string
+status: string
+pdpScope: string
+publicDelegatedPrefixs:
+  - name: string
+    region: string
+    project: string
+    status: string
+    ipRange: string
+fingerprint: string
+byoipApiVersion: string
 
 ```
 </TabItem>

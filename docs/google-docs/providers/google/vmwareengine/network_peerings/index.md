@@ -132,28 +132,22 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: peerNetwork
-      value: '{{ peerNetwork }}'
-    - name: exportCustomRoutes
-      value: '{{ exportCustomRoutes }}'
-    - name: importCustomRoutes
-      value: '{{ importCustomRoutes }}'
-    - name: exchangeSubnetRoutes
-      value: '{{ exchangeSubnetRoutes }}'
-    - name: exportCustomRoutesWithPublicIp
-      value: '{{ exportCustomRoutesWithPublicIp }}'
-    - name: importCustomRoutesWithPublicIp
-      value: '{{ importCustomRoutesWithPublicIp }}'
-    - name: peerMtu
-      value: '{{ peerMtu }}'
-    - name: peerNetworkType
-      value: '{{ peerNetworkType }}'
-    - name: vmwareEngineNetwork
-      value: '{{ vmwareEngineNetwork }}'
-    - name: description
-      value: '{{ description }}'
+name: string
+createTime: string
+updateTime: string
+peerNetwork: string
+exportCustomRoutes: boolean
+importCustomRoutes: boolean
+exchangeSubnetRoutes: boolean
+exportCustomRoutesWithPublicIp: boolean
+importCustomRoutesWithPublicIp: boolean
+state: string
+stateDetails: string
+peerMtu: integer
+peerNetworkType: string
+uid: string
+vmwareEngineNetwork: string
+description: string
 
 ```
 </TabItem>

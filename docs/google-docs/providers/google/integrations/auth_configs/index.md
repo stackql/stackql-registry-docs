@@ -149,150 +149,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: reason
-      value: '{{ reason }}'
-    - name: visibility
-      value: '{{ visibility }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: encryptedCredential
-      value: '{{ encryptedCredential }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: creatorEmail
-      value: '{{ creatorEmail }}'
-    - name: credentialType
-      value: '{{ credentialType }}'
-    - name: validTime
-      value: '{{ validTime }}'
-    - name: state
-      value: '{{ state }}'
-    - name: lastModifierEmail
-      value: '{{ lastModifierEmail }}'
-    - name: overrideValidTime
-      value: '{{ overrideValidTime }}'
-    - name: expiryNotificationDuration
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: format
-          value: '{{ format }}'
-    - name: certificateId
-      value: '{{ certificateId }}'
-    - name: decryptedCredential
-      value:
-        - name: credentialType
-          value: '{{ credentialType }}'
-        - name: serviceAccountCredentials
-          value:
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-            - name: scope
-              value: '{{ scope }}'
-        - name: authToken
-          value:
-            - name: token
-              value: '{{ token }}'
-            - name: type
-              value: '{{ type }}'
-        - name: oauth2ClientCredentials
-          value:
-            - name: accessToken
-              value:
-                - name: accessToken
-                  value: '{{ accessToken }}'
-                - name: refreshTokenExpireTime
-                  value: '{{ refreshTokenExpireTime }}'
-                - name: tokenType
-                  value: '{{ tokenType }}'
-                - name: refreshToken
-                  value: '{{ refreshToken }}'
-                - name: accessTokenExpireTime
-                  value: '{{ accessTokenExpireTime }}'
-            - name: tokenEndpoint
-              value: '{{ tokenEndpoint }}'
-            - name: clientId
-              value: '{{ clientId }}'
-            - name: clientSecret
-              value: '{{ clientSecret }}'
-            - name: tokenParams
-              value:
-                - name: entries
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: keyType
-                  value: '{{ keyType }}'
-                - name: valueType
-                  value: '{{ valueType }}'
-            - name: requestType
-              value: '{{ requestType }}'
-            - name: scope
-              value: '{{ scope }}'
-        - name: oauth2AuthorizationCode
-          value:
-            - name: authCode
-              value: '{{ authCode }}'
-            - name: clientId
-              value: '{{ clientId }}'
-            - name: scope
-              value: '{{ scope }}'
-            - name: clientSecret
-              value: '{{ clientSecret }}'
-            - name: applyReauthPolicy
-              value: '{{ applyReauthPolicy }}'
-            - name: authEndpoint
-              value: '{{ authEndpoint }}'
-            - name: tokenEndpoint
-              value: '{{ tokenEndpoint }}'
-            - name: requestType
-              value: '{{ requestType }}'
-        - name: jwt
-          value:
-            - name: jwtHeader
-              value: '{{ jwtHeader }}'
-            - name: secret
-              value: '{{ secret }}'
-            - name: jwt
-              value: '{{ jwt }}'
-            - name: jwtPayload
-              value: '{{ jwtPayload }}'
-        - name: oidcToken
-          value:
-            - name: tokenExpireTime
-              value: '{{ tokenExpireTime }}'
-            - name: audience
-              value: '{{ audience }}'
-            - name: serviceAccountEmail
-              value: '{{ serviceAccountEmail }}'
-            - name: token
-              value: '{{ token }}'
-        - name: oauth2ResourceOwnerCredentials
-          value:
-            - name: scope
-              value: '{{ scope }}'
-            - name: requestType
-              value: '{{ requestType }}'
-            - name: clientId
-              value: '{{ clientId }}'
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-            - name: clientSecret
-              value: '{{ clientSecret }}'
-            - name: tokenEndpoint
-              value: '{{ tokenEndpoint }}'
-        - name: usernameAndPassword
-          value:
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
+reason: string
+visibility: string
+displayName: string
+encryptedCredential: string
+name: string
+description: string
+creatorEmail: string
+credentialType: string
+validTime: string
+state: string
+lastModifierEmail: string
+overrideValidTime: string
+expiryNotificationDuration:
+  - type: string
+    format: string
+createTime: string
+updateTime: string
+certificateId: string
+decryptedCredential:
+  credentialType: string
+  serviceAccountCredentials:
+    serviceAccount: string
+    scope: string
+  authToken:
+    token: string
+    type: string
+  oauth2ClientCredentials:
+    accessToken:
+      accessToken: string
+      refreshTokenExpireTime: string
+      tokenType: string
+      refreshToken: string
+      accessTokenExpireTime: string
+    tokenEndpoint: string
+    clientId: string
+    clientSecret: string
+    tokenParams:
+      entries:
+        - value:
+            literalValue:
+              stringValue: string
+              doubleValue: number
+              jsonValue: string
+              booleanArray:
+                booleanValues:
+                  - type: string
+              booleanValue: boolean
+              intValue: string
+              stringArray:
+                stringValues:
+                  - type: string
+              intArray:
+                intValues:
+                  - type: string
+                    format: string
+              doubleArray:
+                doubleValues:
+                  - format: string
+                    type: string
+            referenceKey: string
+      keyType: string
+      valueType: string
+    requestType: string
+    scope: string
+  oauth2AuthorizationCode:
+    authCode: string
+    clientId: string
+    scope: string
+    clientSecret: string
+    applyReauthPolicy: boolean
+    authEndpoint: string
+    tokenEndpoint: string
+    requestType: string
+  jwt:
+    jwtHeader: string
+    secret: string
+    jwt: string
+    jwtPayload: string
+  oidcToken:
+    tokenExpireTime: string
+    audience: string
+    serviceAccountEmail: string
+    token: string
+  oauth2ResourceOwnerCredentials:
+    scope: string
+    requestType: string
+    clientId: string
+    username: string
+    password: string
+    clientSecret: string
+    tokenEndpoint: string
+  usernameAndPassword:
+    username: string
+    password: string
 
 ```
 </TabItem>

@@ -106,16 +106,96 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
-    - name: state
-      value: '{{ state }}'
+name: string
+createTime: string
+updateTime: string
+displayName: string
+description: string
+type: string
+state: string
+summary:
+  allAssetsStats:
+    totalMemoryBytes: string
+    totalStorageBytes: string
+    totalCores: string
+    totalAssets: string
+    memoryUtilizationChart:
+      used: string
+      free: string
+    operatingSystem:
+      dataPoints:
+        - label: string
+          value: number
+    coreCountHistogram:
+      buckets:
+        - lowerBound: string
+          upperBound: string
+          count: string
+  groupFindings:
+    - displayName: string
+      description: string
+      overlappingAssetCount: string
+      preferenceSetFindings:
+        - displayName: string
+          description: string
+          machinePreferences:
+            targetProduct: string
+            regionPreferences:
+              preferredRegions:
+                - type: string
+            commitmentPlan: string
+            sizingOptimizationStrategy: string
+            computeEnginePreferences:
+              persistentDiskType: string
+              machinePreferences:
+                allowedMachineSeries:
+                  - code: string
+              licenseType: string
+            vmwareEnginePreferences:
+              cpuOvercommitRatio: number
+              memoryOvercommitRatio: number
+              storageDeduplicationCompressionRatio: number
+              commitmentPlan: string
+            soleTenancyPreferences:
+              cpuOvercommitRatio: number
+              hostMaintenancePolicy: string
+              commitmentPlan: string
+              nodeTypes:
+                - nodeName: string
+          monthlyCostTotal:
+            currencyCode: string
+            units: string
+            nanos: integer
+          computeEngineFinding:
+            allocatedRegions:
+              - type: string
+            allocatedAssetCount: string
+            machineSeriesAllocations:
+              - machineSeries:
+                  code: string
+                allocatedAssetCount: string
+            allocatedDiskTypes:
+              - type: string
+                enumDescriptions: string
+                enum: string
+          vmwareEngineFinding:
+            allocatedRegions:
+              - type: string
+            allocatedAssetCount: string
+            nodeAllocations:
+              - vmwareNode:
+                  code: string
+                nodeCount: string
+                allocatedAssetCount: string
+          soleTenantFinding:
+            allocatedRegions:
+              - type: string
+            allocatedAssetCount: string
+            nodeAllocations:
+              - node:
+                  nodeName: string
+                nodeCount: string
+                allocatedAssetCount: string
 
 ```
 </TabItem>

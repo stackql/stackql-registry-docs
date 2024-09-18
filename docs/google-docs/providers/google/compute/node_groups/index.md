@@ -145,52 +145,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: nodeTemplate
-      value: '{{ nodeTemplate }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: status
-      value: '{{ status }}'
-    - name: size
-      value: '{{ size }}'
-    - name: autoscalingPolicy
-      value:
-        - name: mode
-          value: '{{ mode }}'
-        - name: minNodes
-          value: '{{ minNodes }}'
-        - name: maxNodes
-          value: '{{ maxNodes }}'
-    - name: maintenancePolicy
-      value: '{{ maintenancePolicy }}'
-    - name: locationHint
-      value: '{{ locationHint }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: maintenanceWindow
-      value:
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: maintenanceDuration
-          value:
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-    - name: shareSettings
-      value:
-        - name: shareType
-          value: '{{ shareType }}'
-        - name: projectMap
-          value: '{{ projectMap }}'
-    - name: maintenanceInterval
-      value: '{{ maintenanceInterval }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+nodeTemplate: string
+zone: string
+selfLink: string
+status: string
+size: integer
+autoscalingPolicy:
+  mode: string
+  minNodes: integer
+  maxNodes: integer
+maintenancePolicy: string
+locationHint: string
+fingerprint: string
+maintenanceWindow:
+  startTime: string
+  maintenanceDuration:
+    seconds: string
+    nanos: integer
+shareSettings:
+  shareType: string
+  projectMap: object
+maintenanceInterval: string
 
 ```
 </TabItem>

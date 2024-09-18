@@ -120,38 +120,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: type
-      value: '{{ type }}'
-    - name: authorizationPolicy
-      value: '{{ authorizationPolicy }}'
-    - name: endpointMatcher
-      value:
-        - name: metadataLabelMatcher
-          value:
-            - name: metadataLabelMatchCriteria
-              value: '{{ metadataLabelMatchCriteria }}'
-            - name: metadataLabels
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: trafficPortSelector
-      value:
-        - name: ports
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: description
-      value: '{{ description }}'
-    - name: serverTlsPolicy
-      value: '{{ serverTlsPolicy }}'
-    - name: clientTlsPolicy
-      value: '{{ clientTlsPolicy }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+type: string
+authorizationPolicy: string
+endpointMatcher:
+  metadataLabelMatcher:
+    metadataLabelMatchCriteria: string
+    metadataLabels:
+      - labelName: string
+        labelValue: string
+trafficPortSelector:
+  ports:
+    - type: string
+description: string
+serverTlsPolicy: string
+clientTlsPolicy: string
 
 ```
 </TabItem>

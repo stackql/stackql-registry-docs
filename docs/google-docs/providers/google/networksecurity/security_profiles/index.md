@@ -106,26 +106,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: threatPreventionProfile
-      value:
-        - name: severityOverrides
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: threatOverrides
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: type
-      value: '{{ type }}'
+threatPreventionProfile:
+  severityOverrides:
+    - severity: string
+      action: string
+  threatOverrides:
+    - threatId: string
+      type: string
+      action: string
+name: string
+description: string
+createTime: string
+updateTime: string
+etag: string
+labels: object
+type: string
 
 ```
 </TabItem>

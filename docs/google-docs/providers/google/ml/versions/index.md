@@ -179,108 +179,61 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: isDefault
-      value: '{{ isDefault }}'
-    - name: deploymentUri
-      value: '{{ deploymentUri }}'
-    - name: lastUseTime
-      value: '{{ lastUseTime }}'
-    - name: runtimeVersion
-      value: '{{ runtimeVersion }}'
-    - name: machineType
-      value: '{{ machineType }}'
-    - name: autoScaling
-      value:
-        - name: minNodes
-          value: '{{ minNodes }}'
-        - name: maxNodes
-          value: '{{ maxNodes }}'
-        - name: metrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: manualScaling
-      value:
-        - name: nodes
-          value: '{{ nodes }}'
-    - name: state
-      value: '{{ state }}'
-    - name: errorMessage
-      value: '{{ errorMessage }}'
-    - name: predictionClass
-      value: '{{ predictionClass }}'
-    - name: packageUris
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: framework
-      value: '{{ framework }}'
-    - name: pythonVersion
-      value: '{{ pythonVersion }}'
-    - name: acceleratorConfig
-      value:
-        - name: count
-          value: '{{ count }}'
-        - name: type
-          value: '{{ type }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: requestLoggingConfig
-      value:
-        - name: samplingPercentage
-          value: '{{ samplingPercentage }}'
-        - name: bigqueryTableName
-          value: '{{ bigqueryTableName }}'
-    - name: explanationConfig
-      value:
-        - name: integratedGradientsAttribution
-          value:
-            - name: numIntegralSteps
-              value: '{{ numIntegralSteps }}'
-        - name: sampledShapleyAttribution
-          value:
-            - name: numPaths
-              value: '{{ numPaths }}'
-        - name: xraiAttribution
-          value:
-            - name: numIntegralSteps
-              value: '{{ numIntegralSteps }}'
-    - name: container
-      value:
-        - name: image
-          value: '{{ image }}'
-        - name: command
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: args
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: ports
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: env
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: routes
-      value:
-        - name: predict
-          value: '{{ predict }}'
-        - name: health
-          value: '{{ health }}'
+name: string
+description: string
+isDefault: boolean
+deploymentUri: string
+createTime: string
+lastUseTime: string
+runtimeVersion: string
+machineType: string
+autoScaling:
+  minNodes: integer
+  maxNodes: integer
+  metrics:
+    - name: string
+      target: integer
+manualScaling:
+  nodes: integer
+state: string
+errorMessage: string
+predictionClass: string
+packageUris:
+  - type: string
+labels: object
+etag: string
+framework: string
+pythonVersion: string
+acceleratorConfig:
+  count: string
+  type: string
+serviceAccount: string
+requestLoggingConfig:
+  samplingPercentage: number
+  bigqueryTableName: string
+explanationConfig:
+  integratedGradientsAttribution:
+    numIntegralSteps: integer
+  sampledShapleyAttribution:
+    numPaths: integer
+  xraiAttribution:
+    numIntegralSteps: integer
+container:
+  image: string
+  command:
+    - type: string
+  args:
+    - type: string
+  ports:
+    - containerPort: integer
+  env:
+    - name: string
+      value: string
+routes:
+  predict: string
+  health: string
+lastMigrationTime: string
+lastMigrationModelId: string
 
 ```
 </TabItem>

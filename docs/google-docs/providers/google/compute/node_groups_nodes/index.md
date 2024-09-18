@@ -111,10 +111,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: additionalNodeCount
-      value: '{{ additionalNodeCount }}'
+additionalNodeCount: integer
 
 ```
 </TabItem>

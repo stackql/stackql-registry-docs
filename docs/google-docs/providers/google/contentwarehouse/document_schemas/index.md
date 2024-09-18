@@ -104,20 +104,47 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: propertyDefinitions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: documentIsFolder
-      value: '{{ documentIsFolder }}'
+name: string
+updateTime: string
+description: string
+createTime: string
+propertyDefinitions:
+  - isSearchable: boolean
+    propertyTypeOptions:
+      propertyDefinitions:
+        - isSearchable: boolean
+          schemaSources:
+            - name: string
+              processorType: string
+          floatTypeOptions: {}
+          isRepeatable: boolean
+          isFilterable: boolean
+          retrievalImportance: string
+          isMetadata: boolean
+          enumTypeOptions:
+            possibleValues:
+              - type: string
+            validationCheckDisabled: boolean
+          displayName: string
+          mapTypeOptions: {}
+          textTypeOptions: {}
+          name: string
+          timestampTypeOptions: {}
+          dateTimeTypeOptions: {}
+          isRequired: boolean
+          integerTypeOptions: {}
+    schemaSources:
+      - name: string
+        processorType: string
+    isRepeatable: boolean
+    isFilterable: boolean
+    retrievalImportance: string
+    isMetadata: boolean
+    displayName: string
+    name: string
+    isRequired: boolean
+displayName: string
+documentIsFolder: boolean
 
 ```
 </TabItem>

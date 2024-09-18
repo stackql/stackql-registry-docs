@@ -148,44 +148,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: destinationDatasetId
-      value: '{{ destinationDatasetId }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: dataSourceId
-      value: '{{ dataSourceId }}'
-    - name: params
-      value: '{{ params }}'
-    - name: schedule
-      value: '{{ schedule }}'
-    - name: scheduleOptions
-      value:
-        - name: disableAutoScheduling
-          value: '{{ disableAutoScheduling }}'
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: endTime
-          value: '{{ endTime }}'
-    - name: dataRefreshWindowDays
-      value: '{{ dataRefreshWindowDays }}'
-    - name: disabled
-      value: '{{ disabled }}'
-    - name: userId
-      value: '{{ userId }}'
-    - name: notificationPubsubTopic
-      value: '{{ notificationPubsubTopic }}'
-    - name: emailPreferences
-      value:
-        - name: enableFailureEmail
-          value: '{{ enableFailureEmail }}'
-    - name: encryptionConfiguration
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+name: string
+destinationDatasetId: string
+displayName: string
+dataSourceId: string
+params: object
+schedule: string
+scheduleOptions:
+  disableAutoScheduling: boolean
+  startTime: string
+  endTime: string
+dataRefreshWindowDays: integer
+disabled: boolean
+updateTime: string
+nextRunTime: string
+state: string
+userId: string
+datasetRegion: string
+notificationPubsubTopic: string
+emailPreferences:
+  enableFailureEmail: boolean
+ownerInfo:
+  email: string
+encryptionConfiguration:
+  kmsKeyName: string
 
 ```
 </TabItem>

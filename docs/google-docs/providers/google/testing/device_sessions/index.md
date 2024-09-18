@@ -105,24 +105,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: androidDevice
-      value:
-        - name: androidModelId
-          value: '{{ androidModelId }}'
-        - name: androidVersionId
-          value: '{{ androidVersionId }}'
-        - name: locale
-          value: '{{ locale }}'
-        - name: orientation
-          value: '{{ orientation }}'
+name: string
+displayName: string
+state: string
+stateHistories:
+  - sessionState: string
+    eventTime: string
+    stateMessage: string
+ttl: string
+expireTime: string
+inactivityTimeout: string
+createTime: string
+activeStartTime: string
+androidDevice:
+  androidModelId: string
+  androidVersionId: string
+  locale: string
+  orientation: string
 
 ```
 </TabItem>

@@ -106,14 +106,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: vpcNetwork
-      value: '{{ vpcNetwork }}'
-    - name: vmwareEngineNetwork
-      value: '{{ vmwareEngineNetwork }}'
+name: string
+createTime: string
+updateTime: string
+state: string
+description: string
+vpcNetwork: string
+vmwareEngineNetwork: string
+uid: string
 
 ```
 </TabItem>

@@ -103,30 +103,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: grpcSettings
-      value:
-        - name: endpoint
-          value: '{{ endpoint }}'
-        - name: retryDurationSec
-          value: '{{ retryDurationSec }}'
-        - name: payloadName
-          value: '{{ payloadName }}'
-        - name: authority
-          value: '{{ authority }}'
-        - name: resendInterval
-          value:
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+region: string
+grpcSettings:
+  endpoint: string
+  retryDurationSec: integer
+  payloadName: string
+  authority: string
+  resendInterval:
+    seconds: string
+    nanos: integer
 
 ```
 </TabItem>

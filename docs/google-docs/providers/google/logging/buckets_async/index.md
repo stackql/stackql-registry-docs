@@ -86,28 +86,25 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: retentionDays
-      value: '{{ retentionDays }}'
-    - name: locked
-      value: '{{ locked }}'
-    - name: analyticsEnabled
-      value: '{{ analyticsEnabled }}'
-    - name: restrictedFields
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: indexConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: cmekSettings
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+name: string
+description: string
+createTime: string
+updateTime: string
+retentionDays: integer
+locked: boolean
+lifecycleState: string
+analyticsEnabled: boolean
+restrictedFields:
+  - type: string
+indexConfigs:
+  - fieldPath: string
+    type: string
+    createTime: string
+cmekSettings:
+  name: string
+  kmsKeyName: string
+  kmsKeyVersionName: string
+  serviceAccountId: string
 
 ```
 </TabItem>

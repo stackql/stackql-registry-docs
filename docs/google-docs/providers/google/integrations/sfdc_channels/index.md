@@ -118,20 +118,15 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: lastReplayId
-      value: '{{ lastReplayId }}'
-    - name: channelTopic
-      value: '{{ channelTopic }}'
-    - name: isActive
-      value: '{{ isActive }}'
+name: string
+updateTime: string
+description: string
+deleteTime: string
+displayName: string
+createTime: string
+lastReplayId: string
+channelTopic: string
+isActive: boolean
 
 ```
 </TabItem>

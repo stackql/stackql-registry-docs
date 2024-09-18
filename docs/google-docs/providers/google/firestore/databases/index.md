@@ -135,28 +135,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: type
-      value: '{{ type }}'
-    - name: concurrencyMode
-      value: '{{ concurrencyMode }}'
-    - name: pointInTimeRecoveryEnablement
-      value: '{{ pointInTimeRecoveryEnablement }}'
-    - name: appEngineIntegrationMode
-      value: '{{ appEngineIntegrationMode }}'
-    - name: deleteProtectionState
-      value: '{{ deleteProtectionState }}'
-    - name: cmekConfig
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+deleteTime: string
+locationId: string
+type: string
+concurrencyMode: string
+versionRetentionPeriod: string
+earliestVersionTime: string
+pointInTimeRecoveryEnablement: string
+appEngineIntegrationMode: string
+keyPrefix: string
+deleteProtectionState: string
+cmekConfig:
+  kmsKeyName: string
+  activeKeyVersion:
+    - type: string
+previousId: string
+sourceInfo:
+  backup:
+    backup: string
+  operation: string
+etag: string
 
 ```
 </TabItem>

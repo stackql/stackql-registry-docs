@@ -265,336 +265,216 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: state
-      value: '{{ state }}'
-    - name: databaseVersion
-      value: '{{ databaseVersion }}'
-    - name: settings
-      value:
-        - name: settingsVersion
-          value: '{{ settingsVersion }}'
-        - name: authorizedGaeApplications
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: tier
-          value: '{{ tier }}'
-        - name: userLabels
-          value: '{{ userLabels }}'
-        - name: availabilityType
-          value: '{{ availabilityType }}'
-        - name: pricingPlan
-          value: '{{ pricingPlan }}'
-        - name: replicationType
-          value: '{{ replicationType }}'
-        - name: storageAutoResizeLimit
-          value: '{{ storageAutoResizeLimit }}'
-        - name: activationPolicy
-          value: '{{ activationPolicy }}'
-        - name: ipConfiguration
-          value:
-            - name: ipv4Enabled
-              value: '{{ ipv4Enabled }}'
-            - name: privateNetwork
-              value: '{{ privateNetwork }}'
-            - name: requireSsl
-              value: '{{ requireSsl }}'
-            - name: authorizedNetworks
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: allocatedIpRange
-              value: '{{ allocatedIpRange }}'
-            - name: enablePrivatePathForGoogleCloudServices
-              value: '{{ enablePrivatePathForGoogleCloudServices }}'
-            - name: sslMode
-              value: '{{ sslMode }}'
-            - name: pscConfig
-              value:
-                - name: pscEnabled
-                  value: '{{ pscEnabled }}'
-                - name: allowedConsumerProjects
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: serverCaMode
-              value: '{{ serverCaMode }}'
-        - name: storageAutoResize
-          value: '{{ storageAutoResize }}'
-        - name: locationPreference
-          value:
-            - name: followGaeApplication
-              value: '{{ followGaeApplication }}'
-            - name: zone
-              value: '{{ zone }}'
-            - name: secondaryZone
-              value: '{{ secondaryZone }}'
-        - name: databaseFlags
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: dataDiskType
-          value: '{{ dataDiskType }}'
-        - name: maintenanceWindow
-          value:
-            - name: hour
-              value: '{{ hour }}'
-            - name: day
-              value: '{{ day }}'
-            - name: updateTrack
-              value: '{{ updateTrack }}'
-        - name: backupConfiguration
-          value:
-            - name: startTime
-              value: '{{ startTime }}'
-            - name: enabled
-              value: '{{ enabled }}'
-            - name: binaryLogEnabled
-              value: '{{ binaryLogEnabled }}'
-            - name: replicationLogArchivingEnabled
-              value: '{{ replicationLogArchivingEnabled }}'
-            - name: location
-              value: '{{ location }}'
-            - name: pointInTimeRecoveryEnabled
-              value: '{{ pointInTimeRecoveryEnabled }}'
-            - name: backupRetentionSettings
-              value:
-                - name: retentionUnit
-                  value: '{{ retentionUnit }}'
-                - name: retainedBackups
-                  value: '{{ retainedBackups }}'
-            - name: transactionLogRetentionDays
-              value: '{{ transactionLogRetentionDays }}'
-        - name: databaseReplicationEnabled
-          value: '{{ databaseReplicationEnabled }}'
-        - name: crashSafeReplicationEnabled
-          value: '{{ crashSafeReplicationEnabled }}'
-        - name: dataDiskSizeGb
-          value: '{{ dataDiskSizeGb }}'
-        - name: activeDirectoryConfig
-          value:
-            - name: domain
-              value: '{{ domain }}'
-        - name: collation
-          value: '{{ collation }}'
-        - name: denyMaintenancePeriods
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: insightsConfig
-          value:
-            - name: queryInsightsEnabled
-              value: '{{ queryInsightsEnabled }}'
-            - name: recordClientAddress
-              value: '{{ recordClientAddress }}'
-            - name: recordApplicationTags
-              value: '{{ recordApplicationTags }}'
-            - name: queryStringLength
-              value: '{{ queryStringLength }}'
-            - name: queryPlansPerMinute
-              value: '{{ queryPlansPerMinute }}'
-        - name: passwordValidationPolicy
-          value:
-            - name: minLength
-              value: '{{ minLength }}'
-            - name: complexity
-              value: '{{ complexity }}'
-            - name: reuseInterval
-              value: '{{ reuseInterval }}'
-            - name: disallowUsernameSubstring
-              value: '{{ disallowUsernameSubstring }}'
-            - name: passwordChangeInterval
-              value: '{{ passwordChangeInterval }}'
-            - name: enablePasswordPolicy
-              value: '{{ enablePasswordPolicy }}'
-            - name: disallowCompromisedCredentials
-              value: '{{ disallowCompromisedCredentials }}'
-        - name: sqlServerAuditConfig
-          value:
-            - name: bucket
-              value: '{{ bucket }}'
-            - name: retentionInterval
-              value: '{{ retentionInterval }}'
-            - name: uploadInterval
-              value: '{{ uploadInterval }}'
-        - name: edition
-          value: '{{ edition }}'
-        - name: connectorEnforcement
-          value: '{{ connectorEnforcement }}'
-        - name: deletionProtectionEnabled
-          value: '{{ deletionProtectionEnabled }}'
-        - name: timeZone
-          value: '{{ timeZone }}'
-        - name: advancedMachineFeatures
-          value:
-            - name: threadsPerCore
-              value: '{{ threadsPerCore }}'
-        - name: dataCacheConfig
-          value:
-            - name: dataCacheEnabled
-              value: '{{ dataCacheEnabled }}'
-        - name: enableGoogleMlIntegration
-          value: '{{ enableGoogleMlIntegration }}'
-        - name: enableDataplexIntegration
-          value: '{{ enableDataplexIntegration }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: failoverReplica
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: available
-          value: '{{ available }}'
-    - name: masterInstanceName
-      value: '{{ masterInstanceName }}'
-    - name: replicaNames
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: maxDiskSize
-      value: '{{ maxDiskSize }}'
-    - name: currentDiskSize
-      value: '{{ currentDiskSize }}'
-    - name: ipAddresses
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: serverCaCert
-      value:
-        - name: certSerialNumber
-          value: '{{ certSerialNumber }}'
-        - name: cert
-          value: '{{ cert }}'
-        - name: commonName
-          value: '{{ commonName }}'
-        - name: expirationTime
-          value: '{{ expirationTime }}'
-        - name: sha1Fingerprint
-          value: '{{ sha1Fingerprint }}'
-        - name: instance
-          value: '{{ instance }}'
-    - name: instanceType
-      value: '{{ instanceType }}'
-    - name: project
-      value: '{{ project }}'
-    - name: ipv6Address
-      value: '{{ ipv6Address }}'
-    - name: serviceAccountEmailAddress
-      value: '{{ serviceAccountEmailAddress }}'
-    - name: onPremisesConfiguration
-      value:
-        - name: hostPort
-          value: '{{ hostPort }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: caCertificate
-          value: '{{ caCertificate }}'
-        - name: clientCertificate
-          value: '{{ clientCertificate }}'
-        - name: clientKey
-          value: '{{ clientKey }}'
-        - name: dumpFilePath
-          value: '{{ dumpFilePath }}'
-        - name: sourceInstance
-          value:
-            - name: name
-              value: '{{ name }}'
-            - name: region
-              value: '{{ region }}'
-            - name: project
-              value: '{{ project }}'
-    - name: replicaConfiguration
-      value:
-        - name: mysqlReplicaConfiguration
-          value:
-            - name: dumpFilePath
-              value: '{{ dumpFilePath }}'
-            - name: username
-              value: '{{ username }}'
-            - name: password
-              value: '{{ password }}'
-            - name: connectRetryInterval
-              value: '{{ connectRetryInterval }}'
-            - name: masterHeartbeatPeriod
-              value: '{{ masterHeartbeatPeriod }}'
-            - name: caCertificate
-              value: '{{ caCertificate }}'
-            - name: clientCertificate
-              value: '{{ clientCertificate }}'
-            - name: clientKey
-              value: '{{ clientKey }}'
-            - name: sslCipher
-              value: '{{ sslCipher }}'
-            - name: verifyServerCertificate
-              value: '{{ verifyServerCertificate }}'
-        - name: failoverTarget
-          value: '{{ failoverTarget }}'
-        - name: cascadableReplica
-          value: '{{ cascadableReplica }}'
-    - name: backendType
-      value: '{{ backendType }}'
-    - name: suspensionReason
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: connectionName
-      value: '{{ connectionName }}'
-    - name: name
-      value: '{{ name }}'
-    - name: region
-      value: '{{ region }}'
-    - name: gceZone
-      value: '{{ gceZone }}'
-    - name: secondaryGceZone
-      value: '{{ secondaryGceZone }}'
-    - name: diskEncryptionConfiguration
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: diskEncryptionStatus
-      value:
-        - name: kmsKeyVersionName
-          value: '{{ kmsKeyVersionName }}'
-    - name: rootPassword
-      value: '{{ rootPassword }}'
-    - name: scheduledMaintenance
-      value:
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: canDefer
-          value: '{{ canDefer }}'
-        - name: canReschedule
-          value: '{{ canReschedule }}'
-        - name: scheduleDeadlineTime
-          value: '{{ scheduleDeadlineTime }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: outOfDiskReport
-      value:
-        - name: sqlOutOfDiskState
-          value: '{{ sqlOutOfDiskState }}'
-        - name: sqlMinRecommendedIncreaseSizeGb
-          value: '{{ sqlMinRecommendedIncreaseSizeGb }}'
-    - name: maintenanceVersion
-      value: '{{ maintenanceVersion }}'
-    - name: sqlNetworkArchitecture
-      value: '{{ sqlNetworkArchitecture }}'
-    - name: replicationCluster
-      value:
-        - name: failoverDrReplicaName
-          value: '{{ failoverDrReplicaName }}'
-    - name: geminiConfig
-      value: []
-    - name: switchTransactionLogsToCloudStorageEnabled
-      value: '{{ switchTransactionLogsToCloudStorageEnabled }}'
+kind: string
+state: string
+databaseVersion: string
+settings:
+  settingsVersion: string
+  authorizedGaeApplications:
+    - type: string
+  tier: string
+  kind: string
+  userLabels: object
+  availabilityType: string
+  pricingPlan: string
+  replicationType: string
+  storageAutoResizeLimit: string
+  activationPolicy: string
+  ipConfiguration:
+    ipv4Enabled: boolean
+    privateNetwork: string
+    requireSsl: boolean
+    authorizedNetworks:
+      - value: string
+        expirationTime: string
+        name: string
+        kind: string
+    allocatedIpRange: string
+    enablePrivatePathForGoogleCloudServices: boolean
+    sslMode: string
+    pscConfig:
+      pscEnabled: boolean
+      allowedConsumerProjects:
+        - type: string
+    serverCaMode: string
+  storageAutoResize: boolean
+  locationPreference:
+    followGaeApplication: string
+    zone: string
+    secondaryZone: string
+    kind: string
+  databaseFlags:
+    - name: string
+      value: string
+  dataDiskType: string
+  maintenanceWindow:
+    hour: integer
+    day: integer
+    updateTrack: string
+    kind: string
+  backupConfiguration:
+    startTime: string
+    enabled: boolean
+    kind: string
+    binaryLogEnabled: boolean
+    replicationLogArchivingEnabled: boolean
+    location: string
+    pointInTimeRecoveryEnabled: boolean
+    backupRetentionSettings:
+      retentionUnit: string
+      retainedBackups: integer
+    transactionLogRetentionDays: integer
+    transactionalLogStorageState: string
+  databaseReplicationEnabled: boolean
+  crashSafeReplicationEnabled: boolean
+  dataDiskSizeGb: string
+  activeDirectoryConfig:
+    kind: string
+    domain: string
+  collation: string
+  denyMaintenancePeriods:
+    - startDate: string
+      endDate: string
+      time: string
+  insightsConfig:
+    queryInsightsEnabled: boolean
+    recordClientAddress: boolean
+    recordApplicationTags: boolean
+    queryStringLength: integer
+    queryPlansPerMinute: integer
+  passwordValidationPolicy:
+    minLength: integer
+    complexity: string
+    reuseInterval: integer
+    disallowUsernameSubstring: boolean
+    passwordChangeInterval: string
+    enablePasswordPolicy: boolean
+    disallowCompromisedCredentials: boolean
+  sqlServerAuditConfig:
+    kind: string
+    bucket: string
+    retentionInterval: string
+    uploadInterval: string
+  edition: string
+  connectorEnforcement: string
+  deletionProtectionEnabled: boolean
+  timeZone: string
+  advancedMachineFeatures:
+    threadsPerCore: integer
+  dataCacheConfig:
+    dataCacheEnabled: boolean
+  enableGoogleMlIntegration: boolean
+  enableDataplexIntegration: boolean
+etag: string
+failoverReplica:
+  name: string
+  available: boolean
+masterInstanceName: string
+replicaNames:
+  - type: string
+maxDiskSize: string
+currentDiskSize: string
+ipAddresses:
+  - type: string
+    ipAddress: string
+    timeToRetire: string
+serverCaCert:
+  kind: string
+  certSerialNumber: string
+  cert: string
+  createTime: string
+  commonName: string
+  expirationTime: string
+  sha1Fingerprint: string
+  instance: string
+  selfLink: string
+instanceType: string
+project: string
+ipv6Address: string
+serviceAccountEmailAddress: string
+onPremisesConfiguration:
+  hostPort: string
+  kind: string
+  username: string
+  password: string
+  caCertificate: string
+  clientCertificate: string
+  clientKey: string
+  dumpFilePath: string
+  sourceInstance:
+    name: string
+    region: string
+    project: string
+replicaConfiguration:
+  kind: string
+  mysqlReplicaConfiguration:
+    dumpFilePath: string
+    username: string
+    password: string
+    connectRetryInterval: integer
+    masterHeartbeatPeriod: string
+    caCertificate: string
+    clientCertificate: string
+    clientKey: string
+    sslCipher: string
+    verifyServerCertificate: boolean
+    kind: string
+  failoverTarget: boolean
+  cascadableReplica: boolean
+backendType: string
+selfLink: string
+suspensionReason:
+  - type: string
+    enumDescriptions: string
+    enum: string
+connectionName: string
+name: string
+region: string
+gceZone: string
+secondaryGceZone: string
+diskEncryptionConfiguration:
+  kmsKeyName: string
+  kind: string
+diskEncryptionStatus:
+  kmsKeyVersionName: string
+  kind: string
+rootPassword: string
+scheduledMaintenance:
+  startTime: string
+  canDefer: boolean
+  canReschedule: boolean
+  scheduleDeadlineTime: string
+satisfiesPzs: boolean
+databaseInstalledVersion: string
+outOfDiskReport:
+  sqlOutOfDiskState: string
+  sqlMinRecommendedIncreaseSizeGb: integer
+createTime: string
+availableMaintenanceVersions:
+  - type: string
+maintenanceVersion: string
+upgradableDatabaseVersions:
+  - majorVersion: string
+    name: string
+    displayName: string
+sqlNetworkArchitecture: string
+pscServiceAttachmentLink: string
+dnsName: string
+primaryDnsName: string
+writeEndpoint: string
+replicationCluster:
+  psaWriteEndpoint: string
+  failoverDrReplicaName: string
+  drReplica: boolean
+geminiConfig:
+  entitled: boolean
+  googleVacuumMgmtEnabled: boolean
+  oomSessionCancelEnabled: boolean
+  activeQueryEnabled: boolean
+  indexAdvisorEnabled: boolean
+  flagRecommenderEnabled: boolean
+satisfiesPzi: boolean
+switchTransactionLogsToCloudStorageEnabled: boolean
 
 ```
 </TabItem>

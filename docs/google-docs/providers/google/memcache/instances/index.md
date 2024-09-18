@@ -149,50 +149,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: authorizedNetwork
-      value: '{{ authorizedNetwork }}'
-    - name: zones
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: nodeCount
-      value: '{{ nodeCount }}'
-    - name: nodeConfig
-      value:
-        - name: cpuCount
-          value: '{{ cpuCount }}'
-        - name: memorySizeMb
-          value: '{{ memorySizeMb }}'
-    - name: memcacheVersion
-      value: '{{ memcacheVersion }}'
-    - name: parameters
-      value:
-        - name: params
-          value: '{{ params }}'
-    - name: instanceMessages
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: maintenancePolicy
-      value:
-        - name: description
-          value: '{{ description }}'
-        - name: weeklyMaintenanceWindow
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: reservedIpRangeId
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+displayName: string
+labels: object
+authorizedNetwork: string
+zones:
+  - type: string
+nodeCount: integer
+nodeConfig:
+  cpuCount: integer
+  memorySizeMb: integer
+memcacheVersion: string
+parameters:
+  id: string
+  params: object
+memcacheNodes:
+  - nodeId: string
+    zone: string
+    state: string
+    host: string
+    port: integer
+    memcacheVersion: string
+    memcacheFullVersion: string
+createTime: string
+updateTime: string
+state: string
+memcacheFullVersion: string
+instanceMessages:
+  - code: string
+    message: string
+discoveryEndpoint: string
+maintenancePolicy:
+  createTime: string
+  updateTime: string
+  description: string
+  weeklyMaintenanceWindow:
+    - day: string
+      startTime:
+        hours: integer
+        minutes: integer
+        seconds: integer
+        nanos: integer
+      duration: string
+maintenanceSchedule:
+  startTime: string
+  endTime: string
+  scheduleDeadlineTime: string
+reservedIpRangeId:
+  - type: string
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

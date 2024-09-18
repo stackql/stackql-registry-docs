@@ -100,16 +100,82 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: transitionRoutes
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+name: string
+displayName: string
+transitionRoutes:
+  - name: string
+    description: string
+    intent: string
+    condition: string
+    triggerFulfillment:
+      messages:
+        - text:
+            text:
+              - type: string
+            allowPlaybackInterruption: boolean
+          payload: object
+          conversationSuccess:
+            metadata: object
+          outputAudioText:
+            text: string
+            ssml: string
+            allowPlaybackInterruption: boolean
+          liveAgentHandoff:
+            metadata: object
+          endInteraction: {}
+          playAudio:
+            audioUri: string
+            allowPlaybackInterruption: boolean
+          mixedAudio:
+            segments:
+              - audio: string
+                uri: string
+                allowPlaybackInterruption: boolean
+          telephonyTransferCall:
+            phoneNumber: string
+          knowledgeInfoCard: {}
+          responseType: string
+          channel: string
+      webhook: string
+      returnPartialResponses: boolean
+      tag: string
+      setParameterActions:
+        - parameter: string
+          value: any
+      conditionalCases:
+        - cases:
+            - condition: string
+              caseContent:
+                - message:
+                    payload: object
+                    responseType: string
+                    channel: string
+                  additionalCases:
+                    cases:
+                      - condition: string
+                        caseContent:
+                          - {}
+      advancedSettings:
+        audioExportGcsDestination:
+          uri: string
+        speechSettings:
+          endpointerSensitivity: integer
+          noSpeechTimeout: string
+          useTimeoutBasedEndpointing: boolean
+          models: object
+        dtmfSettings:
+          enabled: boolean
+          maxDigits: integer
+          finishDigit: string
+          interdigitTimeoutDuration: string
+          endpointingTimeoutDuration: string
+        loggingSettings:
+          enableStackdriverLogging: boolean
+          enableInteractionLogging: boolean
+          enableConsentBasedRedaction: boolean
+      enableGenerativeFallback: boolean
+    targetPage: string
+    targetFlow: string
 
 ```
 </TabItem>

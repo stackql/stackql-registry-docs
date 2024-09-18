@@ -106,54 +106,51 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: type
-      value: '{{ type }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: rrdatas
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: signatureRrdatas
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: routingPolicy
-      value:
-        - name: geo
-          value:
-            - name: items
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: enableFencing
-              value: '{{ enableFencing }}'
-        - name: wrr
-          value:
-            - name: items
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: primaryBackup
-          value:
-            - name: primaryTargets
-              value:
-                - name: internalLoadBalancers
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: externalEndpoints
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-            - name: trickleTraffic
-              value: '{{ trickleTraffic }}'
-        - name: healthCheck
-          value: '{{ healthCheck }}'
+name: string
+type: string
+ttl: integer
+rrdatas:
+  - type: string
+signatureRrdatas:
+  - type: string
+routingPolicy:
+  geo:
+    items:
+      - location: string
+        rrdatas:
+          - type: string
+        signatureRrdatas:
+          - type: string
+        healthCheckedTargets:
+          internalLoadBalancers:
+            - loadBalancerType: string
+              ipAddress: string
+              port: string
+              ipProtocol: string
+              networkUrl: string
+              project: string
+              region: string
+              kind: string
+          externalEndpoints:
+            - type: string
+        kind: string
+    enableFencing: boolean
+    kind: string
+  wrr:
+    items:
+      - weight: number
+        rrdatas:
+          - type: string
+        signatureRrdatas:
+          - type: string
+        kind: string
+    kind: string
+  primaryBackup:
+    trickleTraffic: number
+    kind: string
+  healthCheck: string
+  kind: string
+kind: string
 
 ```
 </TabItem>

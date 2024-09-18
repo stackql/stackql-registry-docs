@@ -80,18 +80,27 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: localInventories
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: addMask
-      value: '{{ addMask }}'
-    - name: addTime
-      value: '{{ addTime }}'
-    - name: allowMissing
-      value: '{{ allowMissing }}'
+localInventories:
+  - placeId: string
+    priceInfo:
+      currencyCode: string
+      price: number
+      originalPrice: number
+      cost: number
+      priceEffectiveTime: string
+      priceExpireTime: string
+      priceRange:
+        price:
+          minimum: number
+          exclusiveMinimum: number
+          maximum: number
+          exclusiveMaximum: number
+    attributes: object
+    fulfillmentTypes:
+      - type: string
+addMask: string
+addTime: string
+allowMissing: boolean
 
 ```
 </TabItem>

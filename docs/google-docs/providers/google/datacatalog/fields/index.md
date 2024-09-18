@@ -82,28 +82,16 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: type
-      value:
-        - name: primitiveType
-          value: '{{ primitiveType }}'
-        - name: enumType
-          value:
-            - name: allowedValues
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: isRequired
-      value: '{{ isRequired }}'
-    - name: description
-      value: '{{ description }}'
-    - name: order
-      value: '{{ order }}'
+name: string
+displayName: string
+type:
+  primitiveType: string
+  enumType:
+    allowedValues:
+      - displayName: string
+isRequired: boolean
+description: string
+order: integer
 
 ```
 </TabItem>

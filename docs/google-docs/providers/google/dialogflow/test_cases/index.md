@@ -118,46 +118,197 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: tags
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: notes
-      value: '{{ notes }}'
-    - name: testConfig
-      value:
-        - name: trackingParameters
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: flow
-          value: '{{ flow }}'
-        - name: page
-          value: '{{ page }}'
-    - name: testCaseConversationTurns
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: lastTestResult
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: environment
-          value: '{{ environment }}'
-        - name: conversationTurns
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: testResult
-          value: '{{ testResult }}'
-        - name: testTime
-          value: '{{ testTime }}'
+name: string
+tags:
+  - type: string
+displayName: string
+notes: string
+testConfig:
+  trackingParameters:
+    - type: string
+  flow: string
+  page: string
+testCaseConversationTurns:
+  - userInput:
+      input:
+        text:
+          text: string
+        intent:
+          intent: string
+        audio:
+          config:
+            audioEncoding: string
+            sampleRateHertz: integer
+            enableWordInfo: boolean
+            phraseHints:
+              - type: string
+            model: string
+            modelVariant: string
+            singleUtterance: boolean
+            bargeInConfig:
+              noBargeInDuration: string
+              totalDuration: string
+            optOutConformerModelMigration: boolean
+          audio: string
+        event:
+          event: string
+        dtmf:
+          digits: string
+          finishDigit: string
+        languageCode: string
+      injectedParameters: object
+      isWebhookEnabled: boolean
+      enableSentimentAnalysis: boolean
+    virtualAgentOutput:
+      sessionParameters: object
+      differences:
+        - type: string
+          description: string
+      diagnosticInfo: object
+      triggeredIntent:
+        name: string
+        displayName: string
+        trainingPhrases:
+          - id: string
+            parts:
+              - text: string
+                parameterId: string
+            repeatCount: integer
+        parameters:
+          - id: string
+            entityType: string
+            isList: boolean
+            redact: boolean
+        priority: integer
+        isFallback: boolean
+        labels: object
+        description: string
+      currentPage:
+        name: string
+        displayName: string
+        description: string
+        entryFulfillment:
+          messages:
+            - text:
+                text:
+                  - type: string
+                allowPlaybackInterruption: boolean
+              payload: object
+              conversationSuccess:
+                metadata: object
+              outputAudioText:
+                text: string
+                ssml: string
+                allowPlaybackInterruption: boolean
+              liveAgentHandoff:
+                metadata: object
+              endInteraction: {}
+              playAudio:
+                audioUri: string
+                allowPlaybackInterruption: boolean
+              mixedAudio:
+                segments:
+                  - audio: string
+                    uri: string
+                    allowPlaybackInterruption: boolean
+              telephonyTransferCall:
+                phoneNumber: string
+              knowledgeInfoCard: {}
+              responseType: string
+              channel: string
+          webhook: string
+          returnPartialResponses: boolean
+          tag: string
+          setParameterActions:
+            - parameter: string
+              value: any
+          conditionalCases:
+            - cases:
+                - condition: string
+                  caseContent:
+                    - message:
+                        payload: object
+                        responseType: string
+                        channel: string
+                      additionalCases:
+                        cases:
+                          - condition: string
+                            caseContent:
+                              - {}
+          advancedSettings:
+            audioExportGcsDestination:
+              uri: string
+            speechSettings:
+              endpointerSensitivity: integer
+              noSpeechTimeout: string
+              useTimeoutBasedEndpointing: boolean
+              models: object
+            dtmfSettings:
+              enabled: boolean
+              maxDigits: integer
+              finishDigit: string
+              interdigitTimeoutDuration: string
+              endpointingTimeoutDuration: string
+            loggingSettings:
+              enableStackdriverLogging: boolean
+              enableInteractionLogging: boolean
+              enableConsentBasedRedaction: boolean
+          enableGenerativeFallback: boolean
+        form:
+          parameters:
+            - displayName: string
+              required: boolean
+              entityType: string
+              isList: boolean
+              fillBehavior:
+                repromptEventHandlers:
+                  - name: string
+                    event: string
+                    targetPage: string
+                    targetFlow: string
+                    targetPlaybook: string
+              defaultValue: any
+              redact: boolean
+        transitionRouteGroups:
+          - type: string
+        transitionRoutes:
+          - name: string
+            description: string
+            intent: string
+            condition: string
+            targetPage: string
+            targetFlow: string
+        eventHandlers:
+          - name: string
+            event: string
+            targetPage: string
+            targetFlow: string
+            targetPlaybook: string
+        knowledgeConnectorSettings:
+          enabled: boolean
+          targetPage: string
+          targetFlow: string
+          dataStoreConnections:
+            - dataStoreType: string
+              dataStore: string
+      textResponses:
+        - text:
+            - type: string
+          allowPlaybackInterruption: boolean
+      status:
+        code: integer
+        message: string
+        details:
+          - type: string
+            additionalProperties: any
+creationTime: string
+lastTestResult:
+  name: string
+  environment: string
+  conversationTurns:
+    - {}
+  testResult: string
+  testTime: string
 
 ```
 </TabItem>

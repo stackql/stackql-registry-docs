@@ -129,36 +129,25 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: deploymentType
-      value: '{{ deploymentType }}'
-    - name: forwardProxyUri
-      value: '{{ forwardProxyUri }}'
-    - name: description
-      value: '{{ description }}'
-    - name: nodeConfig
-      value:
-        - name: minNodeCount
-          value: '{{ minNodeCount }}'
-        - name: maxNodeCount
-          value: '{{ maxNodeCount }}'
-    - name: properties
-      value:
-        - name: property
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: name
-      value: '{{ name }}'
-    - name: hasAttachedFlowHooks
-      value: '{{ hasAttachedFlowHooks }}'
-    - name: type
-      value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: apiProxyType
-      value: '{{ apiProxyType }}'
+deploymentType: string
+forwardProxyUri: string
+description: string
+state: string
+nodeConfig:
+  minNodeCount: string
+  maxNodeCount: string
+  currentAggregateNodeCount: string
+properties:
+  property:
+    - value: string
+      name: string
+name: string
+createdAt: string
+hasAttachedFlowHooks: boolean
+lastModifiedAt: string
+type: string
+displayName: string
+apiProxyType: string
 
 ```
 </TabItem>

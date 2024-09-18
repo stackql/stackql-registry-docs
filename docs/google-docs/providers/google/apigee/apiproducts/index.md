@@ -152,70 +152,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: scopes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: apiResources
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: quotaInterval
-      value: '{{ quotaInterval }}'
-    - name: proxies
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: createdAt
-      value: '{{ createdAt }}'
-    - name: approvalType
-      value: '{{ approvalType }}'
-    - name: name
-      value: '{{ name }}'
-    - name: attributes
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: grpcOperationGroup
-      value:
-        - name: operationConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: quotaTimeUnit
-      value: '{{ quotaTimeUnit }}'
-    - name: description
-      value: '{{ description }}'
-    - name: quota
-      value: '{{ quota }}'
-    - name: lastModifiedAt
-      value: '{{ lastModifiedAt }}'
-    - name: environments
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: graphqlOperationGroup
-      value:
-        - name: operationConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: operationConfigType
-          value: '{{ operationConfigType }}'
-    - name: operationGroup
-      value:
-        - name: operationConfigType
-          value: '{{ operationConfigType }}'
-        - name: operationConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: quotaCounterScope
-      value: '{{ quotaCounterScope }}'
+displayName: string
+scopes:
+  - type: string
+apiResources:
+  - type: string
+quotaInterval: string
+proxies:
+  - type: string
+createdAt: string
+approvalType: string
+name: string
+attributes:
+  - value: string
+    name: string
+grpcOperationGroup:
+  operationConfigs:
+    - methods:
+        - type: string
+      apiSource: string
+      quota:
+        interval: string
+        limit: string
+        timeUnit: string
+      attributes:
+        - value: string
+          name: string
+      service: string
+quotaTimeUnit: string
+description: string
+quota: string
+lastModifiedAt: string
+environments:
+  - type: string
+graphqlOperationGroup:
+  operationConfigs:
+    - attributes:
+        - value: string
+          name: string
+      operations:
+        - operation: string
+          operationTypes:
+            - type: string
+      apiSource: string
+  operationConfigType: string
+operationGroup:
+  operationConfigType: string
+  operationConfigs:
+    - operations:
+        - methods:
+            - type: string
+          resource: string
+      apiSource: string
+      attributes:
+        - value: string
+          name: string
+quotaCounterScope: string
 
 ```
 </TabItem>

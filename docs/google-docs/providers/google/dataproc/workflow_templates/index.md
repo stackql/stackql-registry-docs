@@ -125,244 +125,289 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: version
-      value: '{{ version }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: placement
-      value:
-        - name: managedCluster
-          value:
-            - name: clusterName
-              value: '{{ clusterName }}'
-            - name: config
-              value:
-                - name: configBucket
-                  value: '{{ configBucket }}'
-                - name: tempBucket
-                  value: '{{ tempBucket }}'
-                - name: gceClusterConfig
-                  value:
-                    - name: zoneUri
-                      value: '{{ zoneUri }}'
-                    - name: networkUri
-                      value: '{{ networkUri }}'
-                    - name: subnetworkUri
-                      value: '{{ subnetworkUri }}'
-                    - name: internalIpOnly
-                      value: '{{ internalIpOnly }}'
-                    - name: privateIpv6GoogleAccess
-                      value: '{{ privateIpv6GoogleAccess }}'
-                    - name: serviceAccount
-                      value: '{{ serviceAccount }}'
-                    - name: serviceAccountScopes
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: tags
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: metadata
-                      value: '{{ metadata }}'
-                    - name: reservationAffinity
-                      value:
-                        - name: consumeReservationType
-                          value: '{{ consumeReservationType }}'
-                        - name: key
-                          value: '{{ key }}'
-                        - name: values
-                          value:
-                            - name: type
-                              value: '{{ type }}'
-                    - name: nodeGroupAffinity
-                      value:
-                        - name: nodeGroupUri
-                          value: '{{ nodeGroupUri }}'
-                    - name: shieldedInstanceConfig
-                      value:
-                        - name: enableSecureBoot
-                          value: '{{ enableSecureBoot }}'
-                        - name: enableVtpm
-                          value: '{{ enableVtpm }}'
-                        - name: enableIntegrityMonitoring
-                          value: '{{ enableIntegrityMonitoring }}'
-                    - name: confidentialInstanceConfig
-                      value:
-                        - name: enableConfidentialCompute
-                          value: '{{ enableConfidentialCompute }}'
-                - name: masterConfig
-                  value:
-                    - name: numInstances
-                      value: '{{ numInstances }}'
-                    - name: imageUri
-                      value: '{{ imageUri }}'
-                    - name: machineTypeUri
-                      value: '{{ machineTypeUri }}'
-                    - name: diskConfig
-                      value:
-                        - name: bootDiskType
-                          value: '{{ bootDiskType }}'
-                        - name: bootDiskSizeGb
-                          value: '{{ bootDiskSizeGb }}'
-                        - name: numLocalSsds
-                          value: '{{ numLocalSsds }}'
-                        - name: localSsdInterface
-                          value: '{{ localSsdInterface }}'
-                        - name: bootDiskProvisionedIops
-                          value: '{{ bootDiskProvisionedIops }}'
-                        - name: bootDiskProvisionedThroughput
-                          value: '{{ bootDiskProvisionedThroughput }}'
-                    - name: preemptibility
-                      value: '{{ preemptibility }}'
-                    - name: accelerators
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                    - name: minCpuPlatform
-                      value: '{{ minCpuPlatform }}'
-                    - name: minNumInstances
-                      value: '{{ minNumInstances }}'
-                    - name: instanceFlexibilityPolicy
-                      value:
-                        - name: instanceSelectionList
-                          value:
-                            - name: $ref
-                              value: '{{ $ref }}'
-                    - name: startupConfig
-                      value:
-                        - name: requiredRegistrationFraction
-                          value: '{{ requiredRegistrationFraction }}'
-                - name: softwareConfig
-                  value:
-                    - name: imageVersion
-                      value: '{{ imageVersion }}'
-                    - name: properties
-                      value: '{{ properties }}'
-                    - name: optionalComponents
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                        - name: enumDescriptions
-                          value: '{{ enumDescriptions }}'
-                        - name: enum
-                          value: '{{ enum }}'
-                - name: initializationActions
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: encryptionConfig
-                  value:
-                    - name: gcePdKmsKeyName
-                      value: '{{ gcePdKmsKeyName }}'
-                    - name: kmsKey
-                      value: '{{ kmsKey }}'
-                - name: autoscalingConfig
-                  value:
-                    - name: policyUri
-                      value: '{{ policyUri }}'
-                - name: securityConfig
-                  value:
-                    - name: kerberosConfig
-                      value:
-                        - name: enableKerberos
-                          value: '{{ enableKerberos }}'
-                        - name: rootPrincipalPasswordUri
-                          value: '{{ rootPrincipalPasswordUri }}'
-                        - name: kmsKeyUri
-                          value: '{{ kmsKeyUri }}'
-                        - name: keystoreUri
-                          value: '{{ keystoreUri }}'
-                        - name: truststoreUri
-                          value: '{{ truststoreUri }}'
-                        - name: keystorePasswordUri
-                          value: '{{ keystorePasswordUri }}'
-                        - name: keyPasswordUri
-                          value: '{{ keyPasswordUri }}'
-                        - name: truststorePasswordUri
-                          value: '{{ truststorePasswordUri }}'
-                        - name: crossRealmTrustRealm
-                          value: '{{ crossRealmTrustRealm }}'
-                        - name: crossRealmTrustKdc
-                          value: '{{ crossRealmTrustKdc }}'
-                        - name: crossRealmTrustAdminServer
-                          value: '{{ crossRealmTrustAdminServer }}'
-                        - name: crossRealmTrustSharedPasswordUri
-                          value: '{{ crossRealmTrustSharedPasswordUri }}'
-                        - name: kdcDbKeyUri
-                          value: '{{ kdcDbKeyUri }}'
-                        - name: tgtLifetimeHours
-                          value: '{{ tgtLifetimeHours }}'
-                        - name: realm
-                          value: '{{ realm }}'
-                    - name: identityConfig
-                      value:
-                        - name: userServiceAccountMapping
-                          value: '{{ userServiceAccountMapping }}'
-                - name: lifecycleConfig
-                  value:
-                    - name: idleDeleteTtl
-                      value: '{{ idleDeleteTtl }}'
-                    - name: autoDeleteTime
-                      value: '{{ autoDeleteTime }}'
-                    - name: autoDeleteTtl
-                      value: '{{ autoDeleteTtl }}'
-                - name: endpointConfig
-                  value:
-                    - name: enableHttpPortAccess
-                      value: '{{ enableHttpPortAccess }}'
-                - name: metastoreConfig
-                  value:
-                    - name: dataprocMetastoreService
-                      value: '{{ dataprocMetastoreService }}'
-                - name: gkeClusterConfig
-                  value:
-                    - name: namespacedGkeDeploymentTarget
-                      value:
-                        - name: targetGkeCluster
-                          value: '{{ targetGkeCluster }}'
-                        - name: clusterNamespace
-                          value: '{{ clusterNamespace }}'
-                    - name: gkeClusterTarget
-                      value: '{{ gkeClusterTarget }}'
-                    - name: nodePoolTarget
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                - name: dataprocMetricConfig
-                  value:
-                    - name: metrics
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                - name: auxiliaryNodeGroups
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: labels
-              value: '{{ labels }}'
-        - name: clusterSelector
-          value:
-            - name: zone
-              value: '{{ zone }}'
-            - name: clusterLabels
-              value: '{{ clusterLabels }}'
-    - name: jobs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: parameters
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: dagTimeout
-      value: '{{ dagTimeout }}'
-    - name: encryptionConfig
-      value:
-        - name: kmsKey
-          value: '{{ kmsKey }}'
+id: string
+name: string
+version: integer
+createTime: string
+updateTime: string
+labels: object
+placement:
+  managedCluster:
+    clusterName: string
+    config:
+      configBucket: string
+      tempBucket: string
+      gceClusterConfig:
+        zoneUri: string
+        networkUri: string
+        subnetworkUri: string
+        internalIpOnly: boolean
+        privateIpv6GoogleAccess: string
+        serviceAccount: string
+        serviceAccountScopes:
+          - type: string
+        tags:
+          - type: string
+        metadata: object
+        reservationAffinity:
+          consumeReservationType: string
+          key: string
+          values:
+            - type: string
+        nodeGroupAffinity:
+          nodeGroupUri: string
+        shieldedInstanceConfig:
+          enableSecureBoot: boolean
+          enableVtpm: boolean
+          enableIntegrityMonitoring: boolean
+        confidentialInstanceConfig:
+          enableConfidentialCompute: boolean
+      masterConfig:
+        numInstances: integer
+        instanceNames:
+          - type: string
+        instanceReferences:
+          - instanceName: string
+            instanceId: string
+            publicKey: string
+            publicEciesKey: string
+        imageUri: string
+        machineTypeUri: string
+        diskConfig:
+          bootDiskType: string
+          bootDiskSizeGb: integer
+          numLocalSsds: integer
+          localSsdInterface: string
+          bootDiskProvisionedIops: string
+          bootDiskProvisionedThroughput: string
+        isPreemptible: boolean
+        preemptibility: string
+        managedGroupConfig:
+          instanceTemplateName: string
+          instanceGroupManagerName: string
+          instanceGroupManagerUri: string
+        accelerators:
+          - acceleratorTypeUri: string
+            acceleratorCount: integer
+        minCpuPlatform: string
+        minNumInstances: integer
+        instanceFlexibilityPolicy:
+          instanceSelectionList:
+            - machineTypes:
+                - type: string
+              rank: integer
+          instanceSelectionResults:
+            - machineType: string
+              vmCount: integer
+        startupConfig:
+          requiredRegistrationFraction: number
+      softwareConfig:
+        imageVersion: string
+        properties: object
+        optionalComponents:
+          - type: string
+            enumDescriptions: string
+            enum: string
+      initializationActions:
+        - executableFile: string
+          executionTimeout: string
+      encryptionConfig:
+        gcePdKmsKeyName: string
+        kmsKey: string
+      autoscalingConfig:
+        policyUri: string
+      securityConfig:
+        kerberosConfig:
+          enableKerberos: boolean
+          rootPrincipalPasswordUri: string
+          kmsKeyUri: string
+          keystoreUri: string
+          truststoreUri: string
+          keystorePasswordUri: string
+          keyPasswordUri: string
+          truststorePasswordUri: string
+          crossRealmTrustRealm: string
+          crossRealmTrustKdc: string
+          crossRealmTrustAdminServer: string
+          crossRealmTrustSharedPasswordUri: string
+          kdcDbKeyUri: string
+          tgtLifetimeHours: integer
+          realm: string
+        identityConfig:
+          userServiceAccountMapping: object
+      lifecycleConfig:
+        idleDeleteTtl: string
+        autoDeleteTime: string
+        autoDeleteTtl: string
+        idleStartTime: string
+      endpointConfig:
+        httpPorts: object
+        enableHttpPortAccess: boolean
+      metastoreConfig:
+        dataprocMetastoreService: string
+      gkeClusterConfig:
+        namespacedGkeDeploymentTarget:
+          targetGkeCluster: string
+          clusterNamespace: string
+        gkeClusterTarget: string
+        nodePoolTarget:
+          - nodePool: string
+            roles:
+              - type: string
+                enumDescriptions: string
+                enum: string
+            nodePoolConfig:
+              config:
+                machineType: string
+                localSsdCount: integer
+                preemptible: boolean
+                accelerators:
+                  - acceleratorCount: string
+                    acceleratorType: string
+                    gpuPartitionSize: string
+                minCpuPlatform: string
+                bootDiskKmsKey: string
+                spot: boolean
+              locations:
+                - type: string
+              autoscaling:
+                minNodeCount: integer
+                maxNodeCount: integer
+      dataprocMetricConfig:
+        metrics:
+          - metricSource: string
+            metricOverrides:
+              - type: string
+      auxiliaryNodeGroups:
+        - nodeGroup:
+            name: string
+            roles:
+              - type: string
+                enumDescriptions: string
+                enum: string
+            labels: object
+          nodeGroupId: string
+    labels: object
+  clusterSelector:
+    zone: string
+    clusterLabels: object
+jobs:
+  - stepId: string
+    hadoopJob:
+      mainJarFileUri: string
+      mainClass: string
+      args:
+        - type: string
+      jarFileUris:
+        - type: string
+      fileUris:
+        - type: string
+      archiveUris:
+        - type: string
+      properties: object
+      loggingConfig:
+        driverLogLevels: object
+    sparkJob:
+      mainJarFileUri: string
+      mainClass: string
+      args:
+        - type: string
+      jarFileUris:
+        - type: string
+      fileUris:
+        - type: string
+      archiveUris:
+        - type: string
+      properties: object
+    pysparkJob:
+      mainPythonFileUri: string
+      args:
+        - type: string
+      pythonFileUris:
+        - type: string
+      jarFileUris:
+        - type: string
+      fileUris:
+        - type: string
+      archiveUris:
+        - type: string
+      properties: object
+    hiveJob:
+      queryFileUri: string
+      queryList:
+        queries:
+          - type: string
+      continueOnFailure: boolean
+      scriptVariables: object
+      properties: object
+      jarFileUris:
+        - type: string
+    pigJob:
+      queryFileUri: string
+      continueOnFailure: boolean
+      scriptVariables: object
+      properties: object
+      jarFileUris:
+        - type: string
+    sparkRJob:
+      mainRFileUri: string
+      args:
+        - type: string
+      fileUris:
+        - type: string
+      archiveUris:
+        - type: string
+      properties: object
+    sparkSqlJob:
+      queryFileUri: string
+      scriptVariables: object
+      properties: object
+      jarFileUris:
+        - type: string
+    prestoJob:
+      queryFileUri: string
+      continueOnFailure: boolean
+      outputFormat: string
+      clientTags:
+        - type: string
+      properties: object
+    trinoJob:
+      queryFileUri: string
+      continueOnFailure: boolean
+      outputFormat: string
+      clientTags:
+        - type: string
+      properties: object
+    flinkJob:
+      mainJarFileUri: string
+      mainClass: string
+      args:
+        - type: string
+      jarFileUris:
+        - type: string
+      savepointUri: string
+      properties: object
+    labels: object
+    scheduling:
+      maxFailuresPerHour: integer
+      maxFailuresTotal: integer
+    prerequisiteStepIds:
+      - type: string
+parameters:
+  - name: string
+    fields:
+      - type: string
+    description: string
+    validation:
+      regex:
+        regexes:
+          - type: string
+      values:
+        values:
+          - type: string
+dagTimeout: string
+encryptionConfig:
+  kmsKey: string
 
 ```
 </TabItem>

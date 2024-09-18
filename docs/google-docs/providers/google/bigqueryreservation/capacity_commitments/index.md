@@ -114,18 +114,22 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: slotCount
-      value: '{{ slotCount }}'
-    - name: plan
-      value: '{{ plan }}'
-    - name: renewalPlan
-      value: '{{ renewalPlan }}'
-    - name: multiRegionAuxiliary
-      value: '{{ multiRegionAuxiliary }}'
-    - name: edition
-      value: '{{ edition }}'
+name: string
+slotCount: string
+plan: string
+state: string
+commitmentStartTime: string
+commitmentEndTime: string
+failureStatus:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+renewalPlan: string
+multiRegionAuxiliary: boolean
+edition: string
+isFlatRate: boolean
 
 ```
 </TabItem>

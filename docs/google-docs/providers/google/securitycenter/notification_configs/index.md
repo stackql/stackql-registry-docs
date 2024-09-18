@@ -105,18 +105,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: pubsubTopic
-      value: '{{ pubsubTopic }}'
-    - name: streamingConfig
-      value:
-        - name: filter
-          value: '{{ filter }}'
+name: string
+description: string
+pubsubTopic: string
+serviceAccount: string
+streamingConfig:
+  filter: string
 
 ```
 </TabItem>

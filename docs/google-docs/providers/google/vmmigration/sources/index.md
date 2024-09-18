@@ -110,66 +110,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: vmware
-      value:
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: vcenterIp
-          value: '{{ vcenterIp }}'
-        - name: thumbprint
-          value: '{{ thumbprint }}'
-        - name: resolvedVcenterHost
-          value: '{{ resolvedVcenterHost }}'
-    - name: aws
-      value:
-        - name: accessKeyCreds
-          value:
-            - name: accessKeyId
-              value: '{{ accessKeyId }}'
-            - name: secretAccessKey
-              value: '{{ secretAccessKey }}'
-            - name: sessionToken
-              value: '{{ sessionToken }}'
-        - name: awsRegion
-          value: '{{ awsRegion }}'
-        - name: inventoryTagList
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: inventorySecurityGroupNames
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: migrationResourcesUserTags
-          value: '{{ migrationResourcesUserTags }}'
-    - name: azure
-      value:
-        - name: clientSecretCreds
-          value:
-            - name: tenantId
-              value: '{{ tenantId }}'
-            - name: clientId
-              value: '{{ clientId }}'
-            - name: clientSecret
-              value: '{{ clientSecret }}'
-        - name: subscriptionId
-          value: '{{ subscriptionId }}'
-        - name: azureLocation
-          value: '{{ azureLocation }}'
-        - name: migrationResourcesUserTags
-          value: '{{ migrationResourcesUserTags }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: encryption
-      value:
-        - name: kmsKey
-          value: '{{ kmsKey }}'
+vmware:
+  username: string
+  password: string
+  vcenterIp: string
+  thumbprint: string
+  resolvedVcenterHost: string
+aws:
+  accessKeyCreds:
+    accessKeyId: string
+    secretAccessKey: string
+    sessionToken: string
+  awsRegion: string
+  state: string
+  error:
+    code: integer
+    message: string
+    details:
+      - type: string
+        additionalProperties: any
+  inventoryTagList:
+    - key: string
+      value: string
+  inventorySecurityGroupNames:
+    - type: string
+  migrationResourcesUserTags: object
+  publicIp: string
+azure:
+  clientSecretCreds:
+    tenantId: string
+    clientId: string
+    clientSecret: string
+  subscriptionId: string
+  azureLocation: string
+  state: string
+  migrationResourcesUserTags: object
+  resourceGroupId: string
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+encryption:
+  kmsKey: string
 
 ```
 </TabItem>

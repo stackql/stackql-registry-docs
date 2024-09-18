@@ -127,58 +127,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: nodePoolAutoscaling
-      value:
-        - name: minReplicas
-          value: '{{ minReplicas }}'
-        - name: maxReplicas
-          value: '{{ maxReplicas }}'
-    - name: config
-      value:
-        - name: cpus
-          value: '{{ cpus }}'
-        - name: memoryMb
-          value: '{{ memoryMb }}'
-        - name: replicas
-          value: '{{ replicas }}'
-        - name: imageType
-          value: '{{ imageType }}'
-        - name: image
-          value: '{{ image }}'
-        - name: bootDiskSizeGb
-          value: '{{ bootDiskSizeGb }}'
-        - name: taints
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: labels
-          value: '{{ labels }}'
-        - name: vsphereConfig
-          value:
-            - name: datastore
-              value: '{{ datastore }}'
-            - name: tags
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: hostGroups
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: enableLoadBalancer
-          value: '{{ enableLoadBalancer }}'
-    - name: onPremVersion
-      value: '{{ onPremVersion }}'
+name: string
+displayName: string
+uid: string
+state: string
+reconciling: boolean
+createTime: string
+updateTime: string
+deleteTime: string
+etag: string
+annotations: object
+nodePoolAutoscaling:
+  minReplicas: integer
+  maxReplicas: integer
+config:
+  cpus: string
+  memoryMb: string
+  replicas: string
+  imageType: string
+  image: string
+  bootDiskSizeGb: string
+  taints:
+    - key: string
+      value: string
+      effect: string
+  labels: object
+  vsphereConfig:
+    datastore: string
+    tags:
+      - category: string
+        tag: string
+    hostGroups:
+      - type: string
+  enableLoadBalancer: boolean
+status:
+  errorMessage: string
+  conditions:
+    - type: string
+      reason: string
+      message: string
+      lastTransitionTime: string
+      state: string
+  version: string
+  versions:
+    versions:
+      - version: string
+        count: string
+onPremVersion: string
 
 ```
 </TabItem>

@@ -100,22 +100,14 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: ignoreUnknownValues
-      value: '{{ ignoreUnknownValues }}'
-    - name: rows
-      value:
-        - name: insertId
-          value: '{{ insertId }}'
-        - name: json
-          value: []
-    - name: skipInvalidRows
-      value: '{{ skipInvalidRows }}'
-    - name: templateSuffix
-      value: '{{ templateSuffix }}'
-    - name: traceId
-      value: '{{ traceId }}'
+ignoreUnknownValues: boolean
+kind: string
+rows:
+  - insertId: string
+    json: {}
+skipInvalidRows: boolean
+templateSuffix: string
+traceId: string
 
 ```
 </TabItem>

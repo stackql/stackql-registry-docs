@@ -96,66 +96,77 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: studySpec
-      value:
-        - name: metrics
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: observationNoise
-          value: '{{ observationNoise }}'
-        - name: parameters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: decayCurveStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-        - name: convexAutomatedStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-            - name: minStepCount
-              value: '{{ minStepCount }}'
-            - name: maxStepCount
-              value: '{{ maxStepCount }}'
-            - name: learningRateParameterName
-              value: '{{ learningRateParameterName }}'
-            - name: updateAllStoppedTrials
-              value: '{{ updateAllStoppedTrials }}'
-            - name: minMeasurementCount
-              value: '{{ minMeasurementCount }}'
-        - name: algorithm
-          value: '{{ algorithm }}'
-        - name: medianAutomatedStoppingSpec
-          value:
-            - name: useElapsedDuration
-              value: '{{ useElapsedDuration }}'
-        - name: measurementSelectionType
-          value: '{{ measurementSelectionType }}'
-        - name: studyStoppingConfig
-          value:
-            - name: minNumTrials
-              value: '{{ minNumTrials }}'
-            - name: shouldStopAsap
-              value: '{{ shouldStopAsap }}'
-            - name: maxNumTrialsNoProgress
-              value: '{{ maxNumTrialsNoProgress }}'
-            - name: maximumRuntimeConstraint
-              value:
-                - name: maxDuration
-                  value: '{{ maxDuration }}'
-                - name: endTime
-                  value: '{{ endTime }}'
-            - name: maxDurationNoProgress
-              value: '{{ maxDurationNoProgress }}'
-            - name: maxNumTrials
-              value: '{{ maxNumTrials }}'
+name: string
+displayName: string
+createTime: string
+studySpec:
+  metrics:
+    - goal: string
+      metricId: string
+      safetyConfig:
+        desiredMinSafeTrialsFraction: number
+        safetyThreshold: number
+  observationNoise: string
+  parameters:
+    - conditionalParameterSpecs:
+        - parentIntValues:
+            values:
+              - format: string
+                type: string
+          parameterSpec:
+            conditionalParameterSpecs:
+              - parentDiscreteValues:
+                  values:
+                    - type: string
+                      format: string
+                parentCategoricalValues:
+                  values:
+                    - type: string
+            integerValueSpec:
+              maxValue: string
+              defaultValue: string
+              minValue: string
+            discreteValueSpec:
+              defaultValue: number
+              values:
+                - format: string
+                  type: string
+            doubleValueSpec:
+              defaultValue: number
+              maxValue: number
+              minValue: number
+            categoricalValueSpec:
+              defaultValue: string
+              values:
+                - type: string
+            parameterId: string
+            scaleType: string
+      parameterId: string
+      scaleType: string
+  decayCurveStoppingSpec:
+    useElapsedDuration: boolean
+  convexAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+    minStepCount: string
+    maxStepCount: string
+    learningRateParameterName: string
+    updateAllStoppedTrials: boolean
+    minMeasurementCount: string
+  algorithm: string
+  medianAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+  measurementSelectionType: string
+  studyStoppingConfig:
+    minNumTrials: integer
+    shouldStopAsap: boolean
+    maxNumTrialsNoProgress: integer
+    maximumRuntimeConstraint:
+      maxDuration: string
+      endTime: string
+    maxDurationNoProgress: string
+    maxNumTrials: integer
+state: string
+inactiveReason: string
 
 ```
 </TabItem>

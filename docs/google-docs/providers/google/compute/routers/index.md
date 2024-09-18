@@ -130,56 +130,124 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: network
-      value: '{{ network }}'
-    - name: interfaces
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: bgpPeers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: bgp
-      value:
-        - name: asn
-          value: '{{ asn }}'
-        - name: advertiseMode
-          value: '{{ advertiseMode }}'
-        - name: advertisedGroups
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-        - name: advertisedIpRanges
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: keepaliveInterval
-          value: '{{ keepaliveInterval }}'
-        - name: identifierRange
-          value: '{{ identifierRange }}'
-    - name: nats
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: encryptedInterconnectRouter
-      value: '{{ encryptedInterconnectRouter }}'
-    - name: md5AuthenticationKeys
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+region: string
+network: string
+interfaces:
+  - name: string
+    linkedVpnTunnel: string
+    linkedInterconnectAttachment: string
+    ipRange: string
+    managementType: string
+    privateIpAddress: string
+    redundantInterface: string
+    subnetwork: string
+    ipVersion: string
+bgpPeers:
+  - name: string
+    interfaceName: string
+    ipAddress: string
+    peerIpAddress: string
+    peerAsn: integer
+    advertisedRoutePriority: integer
+    advertiseMode: string
+    advertisedGroups:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    advertisedIpRanges:
+      - range: string
+        description: string
+    managementType: string
+    enable: string
+    bfd:
+      sessionInitializationMode: string
+      minTransmitInterval: integer
+      minReceiveInterval: integer
+      multiplier: integer
+    routerApplianceInstance: string
+    enableIpv6: boolean
+    ipv6NexthopAddress: string
+    peerIpv6NexthopAddress: string
+    md5AuthenticationKeyName: string
+    customLearnedRoutePriority: integer
+    customLearnedIpRanges:
+      - range: string
+    enableIpv4: boolean
+    ipv4NexthopAddress: string
+    peerIpv4NexthopAddress: string
+    exportPolicies:
+      - type: string
+    importPolicies:
+      - type: string
+bgp:
+  asn: integer
+  advertiseMode: string
+  advertisedGroups:
+    - type: string
+      enumDescriptions: string
+      enum: string
+  advertisedIpRanges:
+    - range: string
+      description: string
+  keepaliveInterval: integer
+  identifierRange: string
+selfLink: string
+nats:
+  - name: string
+    type: string
+    autoNetworkTier: string
+    endpointTypes:
+      - type: string
+        enumDescriptions: string
+        enum: string
+    sourceSubnetworkIpRangesToNat: string
+    subnetworks:
+      - name: string
+        sourceIpRangesToNat:
+          - type: string
+            enumDescriptions: string
+            enum: string
+        secondaryIpRangeNames:
+          - type: string
+    natIps:
+      - type: string
+    drainNatIps:
+      - type: string
+    natIpAllocateOption: string
+    minPortsPerVm: integer
+    maxPortsPerVm: integer
+    enableDynamicPortAllocation: boolean
+    udpIdleTimeoutSec: integer
+    icmpIdleTimeoutSec: integer
+    tcpEstablishedIdleTimeoutSec: integer
+    tcpTransitoryIdleTimeoutSec: integer
+    tcpTimeWaitTimeoutSec: integer
+    logConfig:
+      enable: boolean
+      filter: string
+    rules:
+      - ruleNumber: integer
+        description: string
+        match: string
+        action:
+          sourceNatActiveIps:
+            - type: string
+          sourceNatDrainIps:
+            - type: string
+          sourceNatActiveRanges:
+            - type: string
+          sourceNatDrainRanges:
+            - type: string
+    enableEndpointIndependentMapping: boolean
+encryptedInterconnectRouter: boolean
+md5AuthenticationKeys:
+  - name: string
+    key: string
 
 ```
 </TabItem>

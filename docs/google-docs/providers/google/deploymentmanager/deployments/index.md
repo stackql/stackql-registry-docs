@@ -122,112 +122,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: operation
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: zone
-          value: '{{ zone }}'
-        - name: clientOperationId
-          value: '{{ clientOperationId }}'
-        - name: operationType
-          value: '{{ operationType }}'
-        - name: targetLink
-          value: '{{ targetLink }}'
-        - name: targetId
-          value: '{{ targetId }}'
-        - name: status
-          value: '{{ status }}'
-        - name: statusMessage
-          value: '{{ statusMessage }}'
-        - name: user
-          value: '{{ user }}'
-        - name: progress
-          value: '{{ progress }}'
-        - name: insertTime
-          value: '{{ insertTime }}'
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: endTime
-          value: '{{ endTime }}'
-        - name: error
-          value:
-            - name: errors
-              value:
-                - name: code
-                  value: '{{ code }}'
-                - name: location
-                  value: '{{ location }}'
-                - name: message
-                  value: '{{ message }}'
-        - name: warnings
-          value:
-            - name: code
-              value: '{{ code }}'
-            - name: message
-              value: '{{ message }}'
-            - name: data
-              value:
-                - name: key
-                  value: '{{ key }}'
-                - name: value
-                  value: '{{ value }}'
-        - name: httpErrorStatusCode
-          value: '{{ httpErrorStatusCode }}'
-        - name: httpErrorMessage
-          value: '{{ httpErrorMessage }}'
-        - name: region
-          value: '{{ region }}'
-        - name: description
-          value: '{{ description }}'
-        - name: operationGroupId
-          value: '{{ operationGroupId }}'
-        - name: setCommonInstanceMetadataOperationMetadata
-          value:
-            - name: clientOperationId
-              value: '{{ clientOperationId }}'
-            - name: perLocationOperations
-              value: '{{ perLocationOperations }}'
-        - name: instancesBulkInsertOperationMetadata
-          value:
-            - name: perLocationStatus
-              value: '{{ perLocationStatus }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: manifest
-      value: '{{ manifest }}'
-    - name: update
-      value:
-        - name: manifest
-          value: '{{ manifest }}'
-        - name: labels
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: description
-          value: '{{ description }}'
-    - name: insertTime
-      value: '{{ insertTime }}'
-    - name: target
-      value:
-        - name: config
-          value:
-            - name: content
-              value: '{{ content }}'
-        - name: imports
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: labels
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+id: string
+name: string
+description: string
+operation:
+  kind: string
+  id: string
+  creationTimestamp: string
+  name: string
+  zone: string
+  clientOperationId: string
+  operationType: string
+  targetLink: string
+  targetId: string
+  status: string
+  statusMessage: string
+  user: string
+  progress: integer
+  insertTime: string
+  startTime: string
+  endTime: string
+  error:
+    errors:
+      - code: string
+        location: string
+        message: string
+  warnings:
+    - code: string
+      message: string
+      data:
+        - key: string
+          value: string
+  httpErrorStatusCode: integer
+  httpErrorMessage: string
+  selfLink: string
+  region: string
+  description: string
+  operationGroupId: string
+  setCommonInstanceMetadataOperationMetadata:
+    clientOperationId: string
+    perLocationOperations: object
+  instancesBulkInsertOperationMetadata:
+    perLocationStatus: object
+fingerprint: string
+manifest: string
+update:
+  manifest: string
+  labels:
+    - key: string
+      value: string
+  description: string
+insertTime: string
+updateTime: string
+target:
+  config:
+    content: string
+  imports:
+    - name: string
+      content: string
+labels:
+  - key: string
+    value: string
+selfLink: string
 
 ```
 </TabItem>

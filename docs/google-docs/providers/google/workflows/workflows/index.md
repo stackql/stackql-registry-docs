@@ -134,26 +134,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: sourceContents
-      value: '{{ sourceContents }}'
-    - name: cryptoKeyName
-      value: '{{ cryptoKeyName }}'
-    - name: callLogLevel
-      value: '{{ callLogLevel }}'
-    - name: userEnvVars
-      value: '{{ userEnvVars }}'
-    - name: executionHistoryLevel
-      value: '{{ executionHistoryLevel }}'
+name: string
+description: string
+state: string
+revisionId: string
+createTime: string
+updateTime: string
+revisionCreateTime: string
+labels: object
+serviceAccount: string
+sourceContents: string
+cryptoKeyName: string
+stateError:
+  details: string
+  type: string
+callLogLevel: string
+userEnvVars: object
+executionHistoryLevel: string
+allKmsKeys:
+  - type: string
+allKmsKeysVersions:
+  - type: string
+cryptoKeyVersion: string
 
 ```
 </TabItem>

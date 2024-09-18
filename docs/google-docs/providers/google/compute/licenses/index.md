@@ -108,24 +108,18 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: chargesUseFee
-      value: '{{ chargesUseFee }}'
-    - name: licenseCode
-      value: '{{ licenseCode }}'
-    - name: description
-      value: '{{ description }}'
-    - name: transferable
-      value: '{{ transferable }}'
-    - name: resourceRequirements
-      value:
-        - name: minGuestCpuCount
-          value: '{{ minGuestCpuCount }}'
-        - name: minMemoryMb
-          value: '{{ minMemoryMb }}'
+kind: string
+name: string
+chargesUseFee: boolean
+id: string
+licenseCode: string
+creationTimestamp: string
+description: string
+transferable: boolean
+selfLink: string
+resourceRequirements:
+  minGuestCpuCount: integer
+  minMemoryMb: integer
 
 ```
 </TabItem>

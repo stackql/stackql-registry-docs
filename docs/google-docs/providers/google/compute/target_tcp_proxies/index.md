@@ -110,20 +110,16 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: service
-      value: '{{ service }}'
-    - name: proxyHeader
-      value: '{{ proxyHeader }}'
-    - name: proxyBind
-      value: '{{ proxyBind }}'
-    - name: region
-      value: '{{ region }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+service: string
+proxyHeader: string
+proxyBind: boolean
+region: string
 
 ```
 </TabItem>

@@ -124,44 +124,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: gitRemoteSettings
-      value:
-        - name: url
-          value: '{{ url }}'
-        - name: defaultBranch
-          value: '{{ defaultBranch }}'
-        - name: authenticationTokenSecretVersion
-          value: '{{ authenticationTokenSecretVersion }}'
-        - name: sshAuthenticationConfig
-          value:
-            - name: userPrivateKeySecretVersion
-              value: '{{ userPrivateKeySecretVersion }}'
-            - name: hostPublicKey
-              value: '{{ hostPublicKey }}'
-    - name: npmrcEnvironmentVariablesSecretVersion
-      value: '{{ npmrcEnvironmentVariablesSecretVersion }}'
-    - name: workspaceCompilationOverrides
-      value:
-        - name: defaultDatabase
-          value: '{{ defaultDatabase }}'
-        - name: schemaSuffix
-          value: '{{ schemaSuffix }}'
-        - name: tablePrefix
-          value: '{{ tablePrefix }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: setAuthenticatedUserAdmin
-      value: '{{ setAuthenticatedUserAdmin }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: kmsKeyName
-      value: '{{ kmsKeyName }}'
+name: string
+createTime: string
+displayName: string
+gitRemoteSettings:
+  url: string
+  defaultBranch: string
+  authenticationTokenSecretVersion: string
+  sshAuthenticationConfig:
+    userPrivateKeySecretVersion: string
+    hostPublicKey: string
+  tokenStatus: string
+npmrcEnvironmentVariablesSecretVersion: string
+workspaceCompilationOverrides:
+  defaultDatabase: string
+  schemaSuffix: string
+  tablePrefix: string
+labels: object
+setAuthenticatedUserAdmin: boolean
+serviceAccount: string
+kmsKeyName: string
+dataEncryptionState:
+  kmsKeyVersionName: string
 
 ```
 </TabItem>

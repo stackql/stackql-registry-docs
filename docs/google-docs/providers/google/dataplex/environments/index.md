@@ -117,44 +117,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: infrastructureSpec
-      value:
-        - name: compute
-          value:
-            - name: diskSizeGb
-              value: '{{ diskSizeGb }}'
-            - name: nodeCount
-              value: '{{ nodeCount }}'
-            - name: maxNodeCount
-              value: '{{ maxNodeCount }}'
-        - name: osImage
-          value:
-            - name: imageVersion
-              value: '{{ imageVersion }}'
-            - name: javaLibraries
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: pythonPackages
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: properties
-              value: '{{ properties }}'
-    - name: sessionSpec
-      value:
-        - name: maxIdleDuration
-          value: '{{ maxIdleDuration }}'
-        - name: enableFastStartup
-          value: '{{ enableFastStartup }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+state: string
+infrastructureSpec:
+  compute:
+    diskSizeGb: integer
+    nodeCount: integer
+    maxNodeCount: integer
+  osImage:
+    imageVersion: string
+    javaLibraries:
+      - type: string
+    pythonPackages:
+      - type: string
+    properties: object
+sessionSpec:
+  maxIdleDuration: string
+  enableFastStartup: boolean
+sessionStatus:
+  active: boolean
+endpoints:
+  notebooks: string
+  sql: string
 
 ```
 </TabItem>

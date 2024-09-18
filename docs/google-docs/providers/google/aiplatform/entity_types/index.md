@@ -120,38 +120,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: etag
-      value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
-    - name: offlineStorageTtlDays
-      value: '{{ offlineStorageTtlDays }}'
-    - name: description
-      value: '{{ description }}'
-    - name: monitoringConfig
-      value:
-        - name: snapshotAnalysis
-          value:
-            - name: stalenessDays
-              value: '{{ stalenessDays }}'
-            - name: disabled
-              value: '{{ disabled }}'
-            - name: monitoringIntervalDays
-              value: '{{ monitoringIntervalDays }}'
-        - name: categoricalThresholdConfig
-          value:
-            - name: value
-              value: '{{ value }}'
-        - name: importFeaturesAnalysis
-          value:
-            - name: anomalyDetectionBaseline
-              value: '{{ anomalyDetectionBaseline }}'
-            - name: state
-              value: '{{ state }}'
-    - name: labels
-      value: '{{ labels }}'
+etag: string
+createTime: string
+name: string
+satisfiesPzi: boolean
+updateTime: string
+offlineStorageTtlDays: integer
+description: string
+satisfiesPzs: boolean
+monitoringConfig:
+  snapshotAnalysis:
+    stalenessDays: integer
+    disabled: boolean
+    monitoringIntervalDays: integer
+  categoricalThresholdConfig:
+    value: number
+  importFeaturesAnalysis:
+    anomalyDetectionBaseline: string
+    state: string
+labels: object
 
 ```
 </TabItem>

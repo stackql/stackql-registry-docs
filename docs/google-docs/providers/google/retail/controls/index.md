@@ -105,120 +105,67 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: rule
-      value:
-        - name: boostAction
-          value:
-            - name: boost
-              value: '{{ boost }}'
-            - name: productsFilter
-              value: '{{ productsFilter }}'
-        - name: redirectAction
-          value:
-            - name: redirectUri
-              value: '{{ redirectUri }}'
-        - name: onewaySynonymsAction
-          value:
-            - name: queryTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: synonyms
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: onewayTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: doNotAssociateAction
-          value:
-            - name: queryTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: doNotAssociateTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: terms
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: replacementAction
-          value:
-            - name: queryTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: replacementTerm
-              value: '{{ replacementTerm }}'
-            - name: term
-              value: '{{ term }}'
-        - name: ignoreAction
-          value:
-            - name: ignoreTerms
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: filterAction
-          value:
-            - name: filter
-              value: '{{ filter }}'
-        - name: twowaySynonymsAction
-          value:
-            - name: synonyms
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: forceReturnFacetAction
-          value:
-            - name: facetPositionAdjustments
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: removeFacetAction
-          value:
-            - name: attributeNames
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: condition
-          value:
-            - name: queryTerms
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: activeTimeRange
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: pageCategories
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: solutionTypes
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: searchSolutionUseCase
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
+rule:
+  boostAction:
+    boost: number
+    productsFilter: string
+  redirectAction:
+    redirectUri: string
+  onewaySynonymsAction:
+    queryTerms:
+      - type: string
+    synonyms:
+      - type: string
+    onewayTerms:
+      - type: string
+  doNotAssociateAction:
+    queryTerms:
+      - type: string
+    doNotAssociateTerms:
+      - type: string
+    terms:
+      - type: string
+  replacementAction:
+    queryTerms:
+      - type: string
+    replacementTerm: string
+    term: string
+  ignoreAction:
+    ignoreTerms:
+      - type: string
+  filterAction:
+    filter: string
+  twowaySynonymsAction:
+    synonyms:
+      - type: string
+  forceReturnFacetAction:
+    facetPositionAdjustments:
+      - attributeName: string
+        position: integer
+  removeFacetAction:
+    attributeNames:
+      - type: string
+  condition:
+    queryTerms:
+      - value: string
+        fullMatch: boolean
+    activeTimeRange:
+      - startTime: string
+        endTime: string
+    pageCategories:
+      - type: string
+name: string
+displayName: string
+associatedServingConfigIds:
+  - type: string
+solutionTypes:
+  - type: string
+    enumDescriptions: string
+    enum: string
+searchSolutionUseCase:
+  - type: string
+    enumDescriptions: string
+    enum: string
 
 ```
 </TabItem>

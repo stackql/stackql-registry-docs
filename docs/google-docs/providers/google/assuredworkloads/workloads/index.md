@@ -156,50 +156,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: resourceSettings
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: partner
-      value: '{{ partner }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: kmsSettings
-      value:
-        - name: nextRotationTime
-          value: '{{ nextRotationTime }}'
-        - name: rotationPeriod
-          value: '{{ rotationPeriod }}'
-    - name: partnerServicesBillingAccount
-      value: '{{ partnerServicesBillingAccount }}'
-    - name: violationNotificationsEnabled
-      value: '{{ violationNotificationsEnabled }}'
-    - name: enableSovereignControls
-      value: '{{ enableSovereignControls }}'
-    - name: billingAccount
-      value: '{{ billingAccount }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: complianceRegime
-      value: '{{ complianceRegime }}'
-    - name: partnerPermissions
-      value:
-        - name: assuredWorkloadsMonitoring
-          value: '{{ assuredWorkloadsMonitoring }}'
-        - name: serviceAccessApprover
-          value: '{{ serviceAccessApprover }}'
-        - name: dataLogsViewer
-          value: '{{ dataLogsViewer }}'
-        - name: accessTransparencyLogsSupportCaseViewer
-          value: '{{ accessTransparencyLogsSupportCaseViewer }}'
-    - name: provisionedResourcesParent
-      value: '{{ provisionedResourcesParent }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: name
-      value: '{{ name }}'
+saaEnrollmentResponse:
+  setupStatus: string
+  setupErrors:
+    - type: string
+      enum: string
+      enumDescriptions: string
+resourceSettings:
+  - resourceId: string
+    displayName: string
+    resourceType: string
+partner: string
+createTime: string
+resources:
+  - resourceId: string
+    resourceType: string
+displayName: string
+kmsSettings:
+  nextRotationTime: string
+  rotationPeriod: string
+partnerServicesBillingAccount: string
+complianceStatus:
+  activeResourceViolationCount: integer
+  acknowledgedViolationCount: integer
+  activeViolationCount: integer
+  acknowledgedResourceViolationCount: integer
+resourceMonitoringEnabled: boolean
+kajEnrollmentState: string
+violationNotificationsEnabled: boolean
+enableSovereignControls: boolean
+billingAccount: string
+etag: string
+complianceRegime: string
+partnerPermissions:
+  assuredWorkloadsMonitoring: boolean
+  serviceAccessApprover: boolean
+  dataLogsViewer: boolean
+  accessTransparencyLogsSupportCaseViewer: boolean
+compliantButDisallowedServices:
+  - type: string
+provisionedResourcesParent: string
+labels: object
+ekmProvisioningResponse:
+  ekmProvisioningErrorMapping: string
+  ekmProvisioningState: string
+  ekmProvisioningErrorDomain: string
+name: string
 
 ```
 </TabItem>

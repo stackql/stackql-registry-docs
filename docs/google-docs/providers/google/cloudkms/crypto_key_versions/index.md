@@ -130,16 +130,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: state
-      value: '{{ state }}'
-    - name: externalProtectionLevelOptions
-      value:
-        - name: externalKeyUri
-          value: '{{ externalKeyUri }}'
-        - name: ekmConnectionKeyPath
-          value: '{{ ekmConnectionKeyPath }}'
+name: string
+state: string
+protectionLevel: string
+algorithm: string
+attestation:
+  format: string
+  content: string
+  certChains:
+    caviumCerts:
+      - type: string
+    googleCardCerts:
+      - type: string
+    googlePartitionCerts:
+      - type: string
+createTime: string
+generateTime: string
+destroyTime: string
+destroyEventTime: string
+importJob: string
+importTime: string
+importFailureReason: string
+generationFailureReason: string
+externalDestructionFailureReason: string
+externalProtectionLevelOptions:
+  externalKeyUri: string
+  ekmConnectionKeyPath: string
+reimportEligible: boolean
 
 ```
 </TabItem>

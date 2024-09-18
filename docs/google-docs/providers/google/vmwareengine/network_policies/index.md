@@ -110,18 +110,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: internetAccess
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-    - name: edgeServicesCidr
-      value: '{{ edgeServicesCidr }}'
-    - name: vmwareEngineNetwork
-      value: '{{ vmwareEngineNetwork }}'
-    - name: description
-      value: '{{ description }}'
+name: string
+createTime: string
+updateTime: string
+internetAccess:
+  enabled: boolean
+  state: string
+edgeServicesCidr: string
+uid: string
+vmwareEngineNetwork: string
+description: string
+vmwareEngineNetworkCanonical: string
 
 ```
 </TabItem>

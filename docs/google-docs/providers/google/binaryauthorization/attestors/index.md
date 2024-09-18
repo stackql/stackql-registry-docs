@@ -96,22 +96,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: userOwnedGrafeasNote
-      value:
-        - name: noteReference
-          value: '{{ noteReference }}'
-        - name: publicKeys
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
+name: string
+description: string
+userOwnedGrafeasNote:
+  noteReference: string
+  publicKeys:
+    - comment: string
+      id: string
+      asciiArmoredPgpPublicKey: string
+      pkixPublicKey:
+        publicKeyPem: string
+        signatureAlgorithm: string
+        keyId: string
+  delegationServiceAccountEmail: string
+updateTime: string
+etag: string
 
 ```
 </TabItem>

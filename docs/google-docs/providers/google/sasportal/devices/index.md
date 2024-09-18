@@ -141,102 +141,76 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: preloadedConfig
-      value:
-        - name: installationParams
-          value:
-            - name: antennaDowntilt
-              value: '{{ antennaDowntilt }}'
-            - name: verticalAccuracy
-              value: '{{ verticalAccuracy }}'
-            - name: heightType
-              value: '{{ heightType }}'
-            - name: antennaGain
-              value: '{{ antennaGain }}'
-            - name: antennaModel
-              value: '{{ antennaModel }}'
-            - name: longitude
-              value: '{{ longitude }}'
-            - name: indoorDeployment
-              value: '{{ indoorDeployment }}'
-            - name: eirpCapability
-              value: '{{ eirpCapability }}'
-            - name: height
-              value: '{{ height }}'
-            - name: horizontalAccuracy
-              value: '{{ horizontalAccuracy }}'
-            - name: antennaAzimuth
-              value: '{{ antennaAzimuth }}'
-            - name: antennaBeamwidth
-              value: '{{ antennaBeamwidth }}'
-            - name: cpeCbsdIndication
-              value: '{{ cpeCbsdIndication }}'
-            - name: latitude
-              value: '{{ latitude }}'
-        - name: userId
-          value: '{{ userId }}'
-        - name: airInterface
-          value:
-            - name: radioTechnology
-              value: '{{ radioTechnology }}'
-            - name: supportedSpec
-              value: '{{ supportedSpec }}'
-        - name: category
-          value: '{{ category }}'
-        - name: measurementCapabilities
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enum
-              value: '{{ enum }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-        - name: isSigned
-          value: '{{ isSigned }}'
-        - name: state
-          value: '{{ state }}'
-        - name: callSign
-          value: '{{ callSign }}'
-        - name: model
-          value:
-            - name: hardwareVersion
-              value: '{{ hardwareVersion }}'
-            - name: vendor
-              value: '{{ vendor }}'
-            - name: firmwareVersion
-              value: '{{ firmwareVersion }}'
-            - name: name
-              value: '{{ name }}'
-            - name: softwareVersion
-              value: '{{ softwareVersion }}'
-    - name: serialNumber
-      value: '{{ serialNumber }}'
-    - name: grants
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: grantRangeAllowlists
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: deviceMetadata
-      value:
-        - name: commonChannelGroup
-          value: '{{ commonChannelGroup }}'
-        - name: interferenceCoordinationGroup
-          value: '{{ interferenceCoordinationGroup }}'
-        - name: antennaModel
-          value: '{{ antennaModel }}'
-    - name: fccId
-      value: '{{ fccId }}'
-    - name: state
-      value: '{{ state }}'
-    - name: name
-      value: '{{ name }}'
+displayName: string
+preloadedConfig:
+  installationParams:
+    antennaDowntilt: integer
+    verticalAccuracy: number
+    heightType: string
+    antennaGain: number
+    antennaModel: string
+    longitude: number
+    indoorDeployment: boolean
+    eirpCapability: integer
+    height: number
+    horizontalAccuracy: number
+    antennaAzimuth: integer
+    antennaBeamwidth: integer
+    cpeCbsdIndication: boolean
+    latitude: number
+  userId: string
+  airInterface:
+    radioTechnology: string
+    supportedSpec: string
+  category: string
+  measurementCapabilities:
+    - type: string
+      enum: string
+      enumDescriptions: string
+  isSigned: boolean
+  state: string
+  callSign: string
+  model:
+    hardwareVersion: string
+    vendor: string
+    firmwareVersion: string
+    name: string
+    softwareVersion: string
+  updateTime: string
+serialNumber: string
+grants:
+  - channelType: string
+    expireTime: string
+    frequencyRange:
+      lowFrequencyMhz: number
+      highFrequencyMhz: number
+    state: string
+    moveList:
+      - dpaId: string
+    lastHeartbeatTransmitExpireTime: string
+    maxEirp: number
+    grantId: string
+    suspensionReason:
+      - type: string
+grantRangeAllowlists:
+  - lowFrequencyMhz: number
+    highFrequencyMhz: number
+deviceMetadata:
+  nrqzValidated: boolean
+  commonChannelGroup: string
+  interferenceCoordinationGroup: string
+  nrqzValidation:
+    longitude: number
+    state: string
+    cpiId: string
+    caseId: string
+    latitude: number
+  antennaModel: string
+currentChannels:
+  - score: number
+fccId: string
+state: string
+name: string
 
 ```
 </TabItem>

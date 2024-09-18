@@ -120,54 +120,275 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: source
-      value:
-        - name: ipAddress
-          value: '{{ ipAddress }}'
-        - name: port
-          value: '{{ port }}'
-        - name: instance
-          value: '{{ instance }}'
-        - name: forwardingRule
-          value: '{{ forwardingRule }}'
-        - name: gkeMasterCluster
-          value: '{{ gkeMasterCluster }}'
-        - name: cloudSqlInstance
-          value: '{{ cloudSqlInstance }}'
-        - name: cloudFunction
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: appEngineVersion
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: cloudRunRevision
-          value:
-            - name: uri
-              value: '{{ uri }}'
-        - name: network
-          value: '{{ network }}'
-        - name: networkType
-          value: '{{ networkType }}'
-        - name: projectId
-          value: '{{ projectId }}'
-    - name: protocol
-      value: '{{ protocol }}'
-    - name: relatedProjects
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: bypassFirewallChecks
-      value: '{{ bypassFirewallChecks }}'
+name: string
+description: string
+source:
+  ipAddress: string
+  port: integer
+  instance: string
+  forwardingRule: string
+  forwardingRuleTarget: string
+  loadBalancerId: string
+  loadBalancerType: string
+  gkeMasterCluster: string
+  cloudSqlInstance: string
+  cloudFunction:
+    uri: string
+  appEngineVersion:
+    uri: string
+  cloudRunRevision:
+    uri: string
+  network: string
+  networkType: string
+  projectId: string
+protocol: string
+relatedProjects:
+  - type: string
+displayName: string
+labels: object
+createTime: string
+updateTime: string
+reachabilityDetails:
+  result: string
+  verifyTime: string
+  error:
+    code: integer
+    message: string
+    details:
+      - type: string
+        additionalProperties: any
+  traces:
+    - endpointInfo:
+        sourceIp: string
+        destinationIp: string
+        protocol: string
+        sourcePort: integer
+        destinationPort: integer
+        sourceNetworkUri: string
+        destinationNetworkUri: string
+        sourceAgentUri: string
+      steps:
+        - description: string
+          state: string
+          causesDrop: boolean
+          projectId: string
+          instance:
+            displayName: string
+            uri: string
+            interface: string
+            networkUri: string
+            internalIp: string
+            externalIp: string
+            networkTags:
+              - type: string
+            serviceAccount: string
+            pscNetworkAttachmentUri: string
+          firewall:
+            displayName: string
+            uri: string
+            direction: string
+            action: string
+            priority: integer
+            networkUri: string
+            targetTags:
+              - type: string
+            targetServiceAccounts:
+              - type: string
+            policy: string
+            policyUri: string
+            firewallRuleType: string
+          route:
+            routeType: string
+            nextHopType: string
+            routeScope: string
+            displayName: string
+            uri: string
+            destIpRange: string
+            nextHop: string
+            networkUri: string
+            priority: integer
+            instanceTags:
+              - type: string
+            srcIpRange: string
+            destPortRanges:
+              - type: string
+            srcPortRanges:
+              - type: string
+            protocols:
+              - type: string
+            nccHubUri: string
+            nccSpokeUri: string
+          googleService:
+            sourceIp: string
+            googleServiceType: string
+          forwardingRule:
+            displayName: string
+            uri: string
+            matchedProtocol: string
+            matchedPortRange: string
+            vip: string
+            target: string
+            networkUri: string
+            region: string
+            loadBalancerName: string
+            pscServiceAttachmentUri: string
+            pscGoogleApiTarget: string
+          vpnGateway:
+            displayName: string
+            uri: string
+            networkUri: string
+            ipAddress: string
+            vpnTunnelUri: string
+            region: string
+          vpnTunnel:
+            displayName: string
+            uri: string
+            sourceGateway: string
+            remoteGateway: string
+            remoteGatewayIp: string
+            sourceGatewayIp: string
+            networkUri: string
+            region: string
+            routingType: string
+          vpcConnector:
+            displayName: string
+            uri: string
+            location: string
+          deliver:
+            target: string
+            resourceUri: string
+            ipAddress: string
+            storageBucket: string
+            pscGoogleApiTarget: string
+          forward:
+            target: string
+            resourceUri: string
+            ipAddress: string
+          abort:
+            cause: string
+            resourceUri: string
+            ipAddress: string
+            projectsMissingPermission:
+              - type: string
+          drop:
+            cause: string
+            resourceUri: string
+            sourceIp: string
+            destinationIp: string
+            region: string
+          loadBalancer:
+            loadBalancerType: string
+            healthCheckUri: string
+            backends:
+              - displayName: string
+                uri: string
+                healthCheckFirewallState: string
+                healthCheckAllowingFirewallRules:
+                  - type: string
+                healthCheckBlockingFirewallRules:
+                  - type: string
+            backendType: string
+            backendUri: string
+          network:
+            displayName: string
+            uri: string
+            matchedIpRange: string
+          gkeMaster:
+            clusterUri: string
+            clusterNetworkUri: string
+            internalIp: string
+            externalIp: string
+          cloudSqlInstance:
+            displayName: string
+            uri: string
+            networkUri: string
+            internalIp: string
+            externalIp: string
+            region: string
+          redisInstance:
+            displayName: string
+            uri: string
+            networkUri: string
+            primaryEndpointIp: string
+            readEndpointIp: string
+            region: string
+          redisCluster:
+            displayName: string
+            uri: string
+            networkUri: string
+            discoveryEndpointIpAddress: string
+            secondaryEndpointIpAddress: string
+            location: string
+          cloudFunction:
+            displayName: string
+            uri: string
+            location: string
+            versionId: string
+          appEngineVersion:
+            displayName: string
+            uri: string
+            runtime: string
+            environment: string
+          cloudRunRevision:
+            displayName: string
+            uri: string
+            location: string
+            serviceUri: string
+          nat:
+            type: string
+            protocol: string
+            networkUri: string
+            oldSourceIp: string
+            newSourceIp: string
+            oldDestinationIp: string
+            newDestinationIp: string
+            oldSourcePort: integer
+            newSourcePort: integer
+            oldDestinationPort: integer
+            newDestinationPort: integer
+            routerUri: string
+            natGatewayName: string
+          proxyConnection:
+            protocol: string
+            oldSourceIp: string
+            newSourceIp: string
+            oldDestinationIp: string
+            newDestinationIp: string
+            oldSourcePort: integer
+            newSourcePort: integer
+            oldDestinationPort: integer
+            newDestinationPort: integer
+            subnetUri: string
+            networkUri: string
+          loadBalancerBackendInfo:
+            name: string
+            instanceUri: string
+            backendServiceUri: string
+            instanceGroupUri: string
+            networkEndpointGroupUri: string
+            backendBucketUri: string
+            pscServiceAttachmentUri: string
+            pscGoogleApiTarget: string
+            healthCheckUri: string
+            healthCheckFirewallsConfigState: string
+          storageBucket:
+            bucket: string
+          serverlessNeg:
+            negUri: string
+      forwardTraceId: integer
+probingDetails:
+  result: string
+  verifyTime: string
+  abortCause: string
+  sentProbeCount: integer
+  successfulProbeCount: integer
+  probingLatency:
+    latencyPercentiles:
+      - percent: integer
+        latencyMicros: string
+  destinationEgressLocation:
+    metropolitanArea: string
+bypassFirewallChecks: boolean
 
 ```
 </TabItem>

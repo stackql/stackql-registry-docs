@@ -110,60 +110,75 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: templateId
-      value: '{{ templateId }}'
-    - name: locationId
-      value: '{{ locationId }}'
-    - name: inspectTemplate
-      value:
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: description
-          value: '{{ description }}'
-        - name: inspectConfig
-          value:
-            - name: limits
-              value:
-                - name: maxFindingsPerItem
-                  value: '{{ maxFindingsPerItem }}'
-                - name: maxFindingsPerRequest
-                  value: '{{ maxFindingsPerRequest }}'
-                - name: maxFindingsPerInfoType
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-            - name: contentOptions
-              value:
-                - name: enum
-                  value: '{{ enum }}'
-                - name: type
-                  value: '{{ type }}'
-                - name: enumDescriptions
-                  value: '{{ enumDescriptions }}'
-            - name: includeQuote
-              value: '{{ includeQuote }}'
-            - name: customInfoTypes
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minLikelihoodPerInfoType
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: infoTypes
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minLikelihood
-              value: '{{ minLikelihood }}'
-            - name: excludeInfoTypes
-              value: '{{ excludeInfoTypes }}'
-            - name: ruleSet
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
+templateId: string
+locationId: string
+inspectTemplate:
+  displayName: string
+  createTime: string
+  description: string
+  inspectConfig:
+    limits:
+      maxFindingsPerItem: integer
+      maxFindingsPerRequest: integer
+      maxFindingsPerInfoType:
+        - maxFindings: integer
+          infoType:
+            version: string
+            name: string
+            sensitivityScore:
+              score: string
+    contentOptions:
+      - enum: string
+        type: string
+        enumDescriptions: string
+    includeQuote: boolean
+    customInfoTypes:
+      - regex:
+          pattern: string
+          groupIndexes:
+            - type: string
+              format: string
+        exclusionType: string
+        likelihood: string
+        dictionary:
+          cloudStoragePath:
+            path: string
+          wordList:
+            words:
+              - type: string
+        surrogateType: {}
+        detectionRules:
+          - hotwordRule:
+              proximity:
+                windowAfter: integer
+                windowBefore: integer
+              likelihoodAdjustment:
+                relativeLikelihood: integer
+                fixedLikelihood: string
+        storedType:
+          createTime: string
+          name: string
+    minLikelihoodPerInfoType:
+      - minLikelihood: string
+    infoTypes:
+      - version: string
+        name: string
+    minLikelihood: string
+    excludeInfoTypes: boolean
+    ruleSet:
+      - infoTypes:
+          - version: string
+            name: string
+        rules:
+          - exclusionRule:
+              excludeInfoTypes:
+                infoTypes:
+                  - version: string
+                    name: string
+              matchingType: string
+              excludeByHotword: {}
+  updateTime: string
+  name: string
 
 ```
 </TabItem>

@@ -123,34 +123,78 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: supervisedTuningSpec
-      value:
-        - name: validationDatasetUri
-          value: '{{ validationDatasetUri }}'
-        - name: trainingDatasetUri
-          value: '{{ trainingDatasetUri }}'
-        - name: hyperParameters
-          value:
-            - name: adapterSize
-              value: '{{ adapterSize }}'
-            - name: learningRateMultiplier
-              value: '{{ learningRateMultiplier }}'
-            - name: epochCount
-              value: '{{ epochCount }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: tunedModelDisplayName
-      value: '{{ tunedModelDisplayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: baseModel
-      value: '{{ baseModel }}'
-    - name: labels
-      value: '{{ labels }}'
+supervisedTuningSpec:
+  validationDatasetUri: string
+  trainingDatasetUri: string
+  hyperParameters:
+    adapterSize: string
+    learningRateMultiplier: number
+    epochCount: string
+tuningDataStats:
+  supervisedTuningDataStats:
+    tuningDatasetExampleCount: string
+    tuningStepCount: string
+    userOutputTokenDistribution:
+      sum: string
+      p5: number
+      mean: number
+      billableSum: string
+      max: number
+      buckets:
+        - count: number
+          right: number
+          left: number
+      median: number
+      p95: number
+      min: number
+    totalBillableCharacterCount: string
+    totalTruncatedExampleCount: string
+    userDatasetExamples:
+      - role: string
+        parts:
+          - videoMetadata:
+              endOffset: string
+              startOffset: string
+            functionCall:
+              name: string
+              args: object
+            inlineData:
+              mimeType: string
+              data: string
+            text: string
+            functionResponse:
+              response: object
+              name: string
+            fileData:
+              fileUri: string
+              mimeType: string
+    totalBillableTokenCount: string
+    truncatedExampleIndices:
+      - format: string
+        type: string
+    totalTuningCharacterCount: string
+name: string
+state: string
+updateTime: string
+tunedModel:
+  model: string
+  endpoint: string
+encryptionSpec:
+  kmsKeyName: string
+tunedModelDisplayName: string
+endTime: string
+experiment: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+description: string
+startTime: string
+createTime: string
+baseModel: string
+labels: object
 
 ```
 </TabItem>

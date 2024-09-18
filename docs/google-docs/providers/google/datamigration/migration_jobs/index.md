@@ -181,80 +181,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: state
-      value: '{{ state }}'
-    - name: type
-      value: '{{ type }}'
-    - name: dumpPath
-      value: '{{ dumpPath }}'
-    - name: dumpFlags
-      value:
-        - name: dumpFlags
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: source
-      value: '{{ source }}'
-    - name: destination
-      value: '{{ destination }}'
-    - name: reverseSshConnectivity
-      value:
-        - name: vmIp
-          value: '{{ vmIp }}'
-        - name: vmPort
-          value: '{{ vmPort }}'
-        - name: vm
-          value: '{{ vm }}'
-        - name: vpc
-          value: '{{ vpc }}'
-    - name: vpcPeeringConnectivity
-      value:
-        - name: vpc
-          value: '{{ vpc }}'
-    - name: staticIpConnectivity
-      value: []
-    - name: sourceDatabase
-      value:
-        - name: provider
-          value: '{{ provider }}'
-        - name: engine
-          value: '{{ engine }}'
-    - name: conversionWorkspace
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: commitId
-          value: '{{ commitId }}'
-    - name: filter
-      value: '{{ filter }}'
-    - name: cmekKeyName
-      value: '{{ cmekKeyName }}'
-    - name: performanceConfig
-      value:
-        - name: dumpParallelLevel
-          value: '{{ dumpParallelLevel }}'
-    - name: sqlserverHomogeneousMigrationJobConfig
-      value:
-        - name: backupFilePattern
-          value: '{{ backupFilePattern }}'
-        - name: databaseBackups
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: useDiffBackup
-          value: '{{ useDiffBackup }}'
-        - name: promoteWhenReady
-          value: '{{ promoteWhenReady }}'
-    - name: dumpType
-      value: '{{ dumpType }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+state: string
+phase: string
+type: string
+dumpPath: string
+dumpFlags:
+  dumpFlags:
+    - name: string
+      value: string
+source: string
+destination: string
+reverseSshConnectivity:
+  vmIp: string
+  vmPort: integer
+  vm: string
+  vpc: string
+vpcPeeringConnectivity:
+  vpc: string
+staticIpConnectivity: {}
+duration: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+sourceDatabase:
+  provider: string
+  engine: string
+endTime: string
+conversionWorkspace:
+  name: string
+  commitId: string
+filter: string
+cmekKeyName: string
+performanceConfig:
+  dumpParallelLevel: string
+sqlserverHomogeneousMigrationJobConfig:
+  backupFilePattern: string
+  databaseBackups:
+    - database: string
+      encryptionOptions:
+        certPath: string
+        pvkPath: string
+        pvkPassword: string
+  useDiffBackup: boolean
+  promoteWhenReady: boolean
+dumpType: string
 
 ```
 </TabItem>

@@ -117,14 +117,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: registrationId
-      value: '{{ registrationId }}'
-    - name: serviceAccount
-      value: '{{ serviceAccount }}'
-    - name: version
-      value: '{{ version }}'
+createTime: string
+updateTime: string
+name: string
+registrationId: string
+serviceAccount: string
+version: string
+bucket: string
+state: string
+stateTime: string
+error:
+  code: integer
+  message: string
+  details:
+    - type: string
+      additionalProperties: any
+applianceInfrastructureVersion: string
+applianceSoftwareVersion: string
+availableVersions:
+  newDeployableAppliance:
+    version: string
+    uri: string
+    critical: boolean
+    releaseNotesUri: string
+upgradeStatus:
+  version: string
+  state: string
+  startTime: string
+  previousVersion: string
 
 ```
 </TabItem>

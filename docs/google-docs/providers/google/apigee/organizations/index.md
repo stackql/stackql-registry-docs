@@ -169,72 +169,56 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: portalDisabled
-      value: '{{ portalDisabled }}'
-    - name: disableVpcPeering
-      value: '{{ disableVpcPeering }}'
-    - name: apiConsumerDataLocation
-      value: '{{ apiConsumerDataLocation }}'
-    - name: analyticsRegion
-      value: '{{ analyticsRegion }}'
-    - name: billingType
-      value: '{{ billingType }}'
-    - name: authorizedNetwork
-      value: '{{ authorizedNetwork }}'
-    - name: controlPlaneEncryptionKeyName
-      value: '{{ controlPlaneEncryptionKeyName }}'
-    - name: runtimeDatabaseEncryptionKeyName
-      value: '{{ runtimeDatabaseEncryptionKeyName }}'
-    - name: runtimeType
-      value: '{{ runtimeType }}'
-    - name: type
-      value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: apiConsumerDataEncryptionKeyName
-      value: '{{ apiConsumerDataEncryptionKeyName }}'
-    - name: properties
-      value:
-        - name: property
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: description
-      value: '{{ description }}'
-    - name: customerName
-      value: '{{ customerName }}'
-    - name: attributes
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: addonsConfig
-      value:
-        - name: analyticsConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: integrationConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: advancedApiOpsConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: monetizationConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: connectorsPlatformConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
-        - name: apiSecurityConfig
-          value:
-            - name: enabled
-              value: '{{ enabled }}'
+lastModifiedAt: string
+subscriptionPlan: string
+portalDisabled: boolean
+caCertificate: string
+disableVpcPeering: boolean
+apiConsumerDataLocation: string
+analyticsRegion: string
+billingType: string
+authorizedNetwork: string
+controlPlaneEncryptionKeyName: string
+runtimeDatabaseEncryptionKeyName: string
+expiresAt: string
+runtimeType: string
+environments:
+  - type: string
+type: string
+displayName: string
+apiConsumerDataEncryptionKeyName: string
+name: string
+properties:
+  property:
+    - value: string
+      name: string
+projectId: string
+description: string
+state: string
+customerName: string
+apigeeProjectId: string
+attributes:
+  - type: string
+subscriptionType: string
+addonsConfig:
+  analyticsConfig:
+    updateTime: string
+    state: string
+    enabled: boolean
+    expireTimeMillis: string
+  integrationConfig:
+    enabled: boolean
+  advancedApiOpsConfig:
+    enabled: boolean
+  monetizationConfig:
+    enabled: boolean
+  connectorsPlatformConfig:
+    expiresAt: string
+    enabled: boolean
+  apiSecurityConfig:
+    enabled: boolean
+    expiresAt: string
+createdAt: string
 
 ```
 </TabItem>

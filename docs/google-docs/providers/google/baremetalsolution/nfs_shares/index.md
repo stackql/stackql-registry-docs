@@ -113,22 +113,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: allowedClients
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: requestedSizeGib
-      value: '{{ requestedSizeGib }}'
-    - name: storageType
-      value: '{{ storageType }}'
-    - name: pod
-      value: '{{ pod }}'
+name: string
+nfsShareId: string
+id: string
+state: string
+volume: string
+allowedClients:
+  - network: string
+    shareIp: string
+    allowedClientsCidr: string
+    mountPermissions: string
+    allowDev: boolean
+    allowSuid: boolean
+    noRootSquash: boolean
+    nfsPath: string
+labels: object
+requestedSizeGib: string
+storageType: string
+pod: string
 
 ```
 </TabItem>

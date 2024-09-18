@@ -129,52 +129,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: resourcePools
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: network
-      value: '{{ network }}'
-    - name: resourceRuntimeSpec
-      value:
-        - name: serviceAccountSpec
-          value:
-            - name: enableCustomServiceAccount
-              value: '{{ enableCustomServiceAccount }}'
-            - name: serviceAccount
-              value: '{{ serviceAccount }}'
-        - name: raySpec
-          value:
-            - name: resourcePoolImages
-              value: '{{ resourcePoolImages }}'
-            - name: rayMetricSpec
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: imageUri
-              value: '{{ imageUri }}'
-            - name: rayLogsSpec
-              value:
-                - name: disabled
-                  value: '{{ disabled }}'
-            - name: headNodeResourcePoolId
-              value: '{{ headNodeResourcePoolId }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: reservedIpRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
+updateTime: string
+resourcePools:
+  - usedReplicaCount: string
+    replicaCount: string
+    id: string
+    diskSpec:
+      bootDiskType: string
+      bootDiskSizeGb: integer
+    machineSpec:
+      acceleratorCount: integer
+      reservationAffinity:
+        key: string
+        reservationAffinityType: string
+        values:
+          - type: string
+      tpuTopology: string
+      acceleratorType: string
+      machineType: string
+    autoscalingSpec:
+      minReplicaCount: string
+      maxReplicaCount: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+satisfiesPzs: boolean
+displayName: string
+network: string
+resourceRuntimeSpec:
+  serviceAccountSpec:
+    enableCustomServiceAccount: boolean
+    serviceAccount: string
+  raySpec:
+    resourcePoolImages: object
+    rayMetricSpec:
+      disabled: boolean
+    imageUri: string
+    rayLogsSpec:
+      disabled: boolean
+    headNodeResourcePoolId: string
+createTime: string
+resourceRuntime:
+  accessUris: object
+state: string
+satisfiesPzi: boolean
+startTime: string
+labels: object
+reservedIpRanges:
+  - type: string
+name: string
+encryptionSpec:
+  kmsKeyName: string
 
 ```
 </TabItem>

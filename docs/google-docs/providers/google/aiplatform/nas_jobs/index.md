@@ -120,96 +120,118 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: nasJobSpec
-      value:
-        - name: multiTrialAlgorithmSpec
-          value:
-            - name: trainTrialSpec
-              value:
-                - name: frequency
-                  value: '{{ frequency }}'
-                - name: trainTrialJobSpec
-                  value:
-                    - name: workerPoolSpecs
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                    - name: tensorboard
-                      value: '{{ tensorboard }}'
-                    - name: experimentRun
-                      value: '{{ experimentRun }}'
-                    - name: reservedIpRanges
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: scheduling
-                      value:
-                        - name: timeout
-                          value: '{{ timeout }}'
-                        - name: disableRetries
-                          value: '{{ disableRetries }}'
-                        - name: strategy
-                          value: '{{ strategy }}'
-                        - name: restartJobOnWorkerRestart
-                          value: '{{ restartJobOnWorkerRestart }}'
-                        - name: maxWaitDuration
-                          value: '{{ maxWaitDuration }}'
-                    - name: protectedArtifactLocationId
-                      value: '{{ protectedArtifactLocationId }}'
-                    - name: serviceAccount
-                      value: '{{ serviceAccount }}'
-                    - name: baseOutputDirectory
-                      value:
-                        - name: outputUriPrefix
-                          value: '{{ outputUriPrefix }}'
-                    - name: enableWebAccess
-                      value: '{{ enableWebAccess }}'
-                    - name: experiment
-                      value: '{{ experiment }}'
-                    - name: models
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: persistentResourceId
-                      value: '{{ persistentResourceId }}'
-                    - name: network
-                      value: '{{ network }}'
-                    - name: enableDashboardAccess
-                      value: '{{ enableDashboardAccess }}'
-                - name: maxParallelTrialCount
-                  value: '{{ maxParallelTrialCount }}'
-            - name: searchTrialSpec
-              value:
-                - name: maxParallelTrialCount
-                  value: '{{ maxParallelTrialCount }}'
-                - name: maxTrialCount
-                  value: '{{ maxTrialCount }}'
-                - name: maxFailedTrialCount
-                  value: '{{ maxFailedTrialCount }}'
-            - name: multiTrialAlgorithm
-              value: '{{ multiTrialAlgorithm }}'
-            - name: metric
-              value:
-                - name: goal
-                  value: '{{ goal }}'
-                - name: metricId
-                  value: '{{ metricId }}'
-        - name: searchSpaceSpec
-          value: '{{ searchSpaceSpec }}'
-        - name: resumeNasJobId
-          value: '{{ resumeNasJobId }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: enableRestrictedImageTraining
-      value: '{{ enableRestrictedImageTraining }}'
-    - name: labels
-      value: '{{ labels }}'
+createTime: string
+encryptionSpec:
+  kmsKeyName: string
+startTime: string
+error:
+  message: string
+  code: integer
+  details:
+    - additionalProperties: any
+      type: string
+satisfiesPzi: boolean
+nasJobSpec:
+  multiTrialAlgorithmSpec:
+    trainTrialSpec:
+      frequency: integer
+      trainTrialJobSpec:
+        workerPoolSpecs:
+          - machineSpec:
+              acceleratorCount: integer
+              reservationAffinity:
+                key: string
+                reservationAffinityType: string
+                values:
+                  - type: string
+              tpuTopology: string
+              acceleratorType: string
+              machineType: string
+            nfsMounts:
+              - path: string
+                mountPoint: string
+                server: string
+            diskSpec:
+              bootDiskType: string
+              bootDiskSizeGb: integer
+            replicaCount: string
+            containerSpec:
+              command:
+                - type: string
+              args:
+                - type: string
+              imageUri: string
+              env:
+                - value: string
+                  name: string
+            pythonPackageSpec:
+              args:
+                - type: string
+              pythonModule: string
+              env:
+                - value: string
+                  name: string
+              executorImageUri: string
+              packageUris:
+                - type: string
+        tensorboard: string
+        experimentRun: string
+        reservedIpRanges:
+          - type: string
+        scheduling:
+          timeout: string
+          disableRetries: boolean
+          strategy: string
+          restartJobOnWorkerRestart: boolean
+          maxWaitDuration: string
+        protectedArtifactLocationId: string
+        serviceAccount: string
+        baseOutputDirectory:
+          outputUriPrefix: string
+        enableWebAccess: boolean
+        experiment: string
+        models:
+          - type: string
+        persistentResourceId: string
+        network: string
+        enableDashboardAccess: boolean
+      maxParallelTrialCount: integer
+    searchTrialSpec:
+      maxParallelTrialCount: integer
+      maxTrialCount: integer
+      maxFailedTrialCount: integer
+    multiTrialAlgorithm: string
+    metric:
+      goal: string
+      metricId: string
+  searchSpaceSpec: string
+  resumeNasJobId: string
+satisfiesPzs: boolean
+nasJobOutput:
+  multiTrialJobOutput:
+    trainTrials:
+      - endTime: string
+        id: string
+        state: string
+        finalMeasurement:
+          stepCount: string
+          metrics:
+            - value: number
+              metricId: string
+          elapsedDuration: string
+        startTime: string
+    searchTrials:
+      - endTime: string
+        id: string
+        state: string
+        startTime: string
+displayName: string
+endTime: string
+updateTime: string
+enableRestrictedImageTraining: boolean
+labels: object
+name: string
+state: string
 
 ```
 </TabItem>

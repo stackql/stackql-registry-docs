@@ -96,18 +96,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: rules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: source
-      value: '{{ source }}'
+rules:
+  - triggerType: string
+    actions:
+      - dataValidation:
+          conditions: object
+        actionId: string
+        dataUpdate:
+          entries: object
+        removeFromFolderAction:
+          condition: string
+          folder: string
+        deleteDocumentAction:
+          enableHardDelete: boolean
+        accessControl:
+          policy:
+            etag: string
+            auditConfigs:
+              - service: string
+                auditLogConfigs:
+                  - exemptedMembers:
+                      - type: string
+                    logType: string
+            version: integer
+            bindings:
+              - members:
+                  - type: string
+                role: string
+                condition:
+                  title: string
+                  expression: string
+                  description: string
+                  location: string
+          operationType: string
+        addToFolder:
+          folders:
+            - type: string
+        publishToPubSub:
+          messages:
+            - type: string
+          topicId: string
+    description: string
+    condition: string
+    ruleId: string
+description: string
+name: string
+source: string
 
 ```
 </TabItem>

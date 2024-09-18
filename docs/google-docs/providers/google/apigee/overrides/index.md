@@ -92,18 +92,11 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: samplingConfig
-      value:
-        - name: sampler
-          value: '{{ sampler }}'
-        - name: samplingRate
-          value: '{{ samplingRate }}'
-    - name: apiProxy
-      value: '{{ apiProxy }}'
+name: string
+samplingConfig:
+  sampler: string
+  samplingRate: number
+apiProxy: string
 
 ```
 </TabItem>

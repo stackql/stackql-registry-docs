@@ -108,40 +108,29 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: attributes
-      value:
-        - name: criticality
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: environment
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: developerOwners
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: operatorOwners
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: businessOwners
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: scope
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+displayName: string
+description: string
+attributes:
+  criticality:
+    type: string
+  environment:
+    type: string
+  developerOwners:
+    - displayName: string
+      email: string
+  operatorOwners:
+    - displayName: string
+      email: string
+  businessOwners:
+    - displayName: string
+      email: string
+createTime: string
+updateTime: string
+scope:
+  type: string
+uid: string
+state: string
 
 ```
 </TabItem>

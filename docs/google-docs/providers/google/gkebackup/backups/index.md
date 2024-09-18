@@ -147,16 +147,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: deleteLockDays
-      value: '{{ deleteLockDays }}'
-    - name: retainDays
-      value: '{{ retainDays }}'
-    - name: description
-      value: '{{ description }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+manual: boolean
+labels: object
+deleteLockDays: integer
+deleteLockExpireTime: string
+retainDays: integer
+retainExpireTime: string
+encryptionKey:
+  gcpKmsEncryptionKey: string
+allNamespaces: boolean
+selectedNamespaces:
+  namespaces:
+    - type: string
+selectedApplications:
+  namespacedNames:
+    - namespace: string
+      name: string
+containsVolumeData: boolean
+containsSecrets: boolean
+clusterMetadata:
+  cluster: string
+  k8sVersion: string
+  backupCrdVersions: object
+  gkeVersion: string
+  anthosVersion: string
+state: string
+stateReason: string
+completeTime: string
+resourceCount: integer
+volumeCount: integer
+sizeBytes: string
+etag: string
+description: string
+podCount: integer
+configBackupSizeBytes: string
+permissiveMode: boolean
 
 ```
 </TabItem>

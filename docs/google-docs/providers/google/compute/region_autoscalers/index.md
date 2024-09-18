@@ -129,66 +129,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: target
-      value: '{{ target }}'
-    - name: autoscalingPolicy
-      value:
-        - name: minNumReplicas
-          value: '{{ minNumReplicas }}'
-        - name: maxNumReplicas
-          value: '{{ maxNumReplicas }}'
-        - name: scaleInControl
-          value:
-            - name: maxScaledInReplicas
-              value:
-                - name: fixed
-                  value: '{{ fixed }}'
-                - name: percent
-                  value: '{{ percent }}'
-                - name: calculated
-                  value: '{{ calculated }}'
-            - name: timeWindowSec
-              value: '{{ timeWindowSec }}'
-        - name: coolDownPeriodSec
-          value: '{{ coolDownPeriodSec }}'
-        - name: cpuUtilization
-          value:
-            - name: utilizationTarget
-              value: '{{ utilizationTarget }}'
-            - name: predictiveMethod
-              value: '{{ predictiveMethod }}'
-        - name: customMetricUtilizations
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: loadBalancingUtilization
-          value:
-            - name: utilizationTarget
-              value: '{{ utilizationTarget }}'
-        - name: mode
-          value: '{{ mode }}'
-        - name: scalingSchedules
-          value: '{{ scalingSchedules }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: region
-      value: '{{ region }}'
-    - name: status
-      value: '{{ status }}'
-    - name: statusDetails
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: recommendedSize
-      value: '{{ recommendedSize }}'
-    - name: scalingScheduleStatus
-      value: '{{ scalingScheduleStatus }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+target: string
+autoscalingPolicy:
+  minNumReplicas: integer
+  maxNumReplicas: integer
+  scaleInControl:
+    maxScaledInReplicas:
+      fixed: integer
+      percent: integer
+      calculated: integer
+    timeWindowSec: integer
+  coolDownPeriodSec: integer
+  cpuUtilization:
+    utilizationTarget: number
+    predictiveMethod: string
+  customMetricUtilizations:
+    - metric: string
+      filter: string
+      utilizationTarget: number
+      singleInstanceAssignment: number
+      utilizationTargetType: string
+  loadBalancingUtilization:
+    utilizationTarget: number
+  mode: string
+  scalingSchedules: object
+zone: string
+region: string
+selfLink: string
+status: string
+statusDetails:
+  - message: string
+    type: string
+recommendedSize: integer
+scalingScheduleStatus: object
 
 ```
 </TabItem>

@@ -114,72 +114,70 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: backupPlan
-      value: '{{ backupPlan }}'
-    - name: cluster
-      value: '{{ cluster }}'
-    - name: restoreConfig
-      value:
-        - name: volumeDataRestorePolicy
-          value: '{{ volumeDataRestorePolicy }}'
-        - name: clusterResourceConflictPolicy
-          value: '{{ clusterResourceConflictPolicy }}'
-        - name: namespacedResourceRestoreMode
-          value: '{{ namespacedResourceRestoreMode }}'
-        - name: clusterResourceRestoreScope
-          value:
-            - name: selectedGroupKinds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: excludedGroupKinds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: allGroupKinds
-              value: '{{ allGroupKinds }}'
-            - name: noGroupKinds
-              value: '{{ noGroupKinds }}'
-        - name: allNamespaces
-          value: '{{ allNamespaces }}'
-        - name: selectedNamespaces
-          value:
-            - name: namespaces
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: selectedApplications
-          value:
-            - name: namespacedNames
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: noNamespaces
-          value: '{{ noNamespaces }}'
-        - name: substitutionRules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: transformationRules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: volumeDataRestorePolicyBindings
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: restoreOrder
-          value:
-            - name: groupKindDependencies
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
+name: string
+uid: string
+createTime: string
+updateTime: string
+description: string
+backupPlan: string
+cluster: string
+restoreConfig:
+  volumeDataRestorePolicy: string
+  clusterResourceConflictPolicy: string
+  namespacedResourceRestoreMode: string
+  clusterResourceRestoreScope:
+    selectedGroupKinds:
+      - resourceGroup: string
+        resourceKind: string
+    excludedGroupKinds:
+      - resourceGroup: string
+        resourceKind: string
+    allGroupKinds: boolean
+    noGroupKinds: boolean
+  allNamespaces: boolean
+  selectedNamespaces:
+    namespaces:
+      - type: string
+  selectedApplications:
+    namespacedNames:
+      - namespace: string
+        name: string
+  noNamespaces: boolean
+  substitutionRules:
+    - targetNamespaces:
+        - type: string
+      targetGroupKinds:
+        - resourceGroup: string
+          resourceKind: string
+      targetJsonPath: string
+      originalValuePattern: string
+      newValue: string
+  transformationRules:
+    - fieldActions:
+        - op: string
+          fromPath: string
+          path: string
+          value: string
+      resourceFilter:
+        namespaces:
+          - type: string
+        groupKinds:
+          - resourceGroup: string
+            resourceKind: string
+        jsonPath: string
+      description: string
+  volumeDataRestorePolicyBindings:
+    - policy: string
+      volumeType: string
+  restoreOrder:
+    groupKindDependencies:
+      - satisfying:
+          resourceGroup: string
+          resourceKind: string
+labels: object
+etag: string
+state: string
+stateReason: string
 
 ```
 </TabItem>

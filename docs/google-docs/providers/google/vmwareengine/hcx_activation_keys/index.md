@@ -91,8 +91,11 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props: []
+name: string
+createTime: string
+state: string
+activationKey: string
+uid: string
 
 ```
 </TabItem>

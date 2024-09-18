@@ -190,84 +190,59 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: location
-      value: '{{ location }}'
-    - name: linkType
-      value: '{{ linkType }}'
-    - name: requestedLinkCount
-      value: '{{ requestedLinkCount }}'
-    - name: interconnectType
-      value: '{{ interconnectType }}'
-    - name: adminEnabled
-      value: '{{ adminEnabled }}'
-    - name: nocContactEmail
-      value: '{{ nocContactEmail }}'
-    - name: customerName
-      value: '{{ customerName }}'
-    - name: operationalStatus
-      value: '{{ operationalStatus }}'
-    - name: provisionedLinkCount
-      value: '{{ provisionedLinkCount }}'
-    - name: interconnectAttachments
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: peerIpAddress
-      value: '{{ peerIpAddress }}'
-    - name: googleIpAddress
-      value: '{{ googleIpAddress }}'
-    - name: googleReferenceId
-      value: '{{ googleReferenceId }}'
-    - name: expectedOutages
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: circuitInfos
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
-    - name: state
-      value: '{{ state }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: macsec
-      value:
-        - name: preSharedKeys
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: failOpen
-          value: '{{ failOpen }}'
-    - name: macsecEnabled
-      value: '{{ macsecEnabled }}'
-    - name: remoteLocation
-      value: '{{ remoteLocation }}'
-    - name: requestedFeatures
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: availableFeatures
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
+kind: string
+description: string
+selfLink: string
+id: string
+creationTimestamp: string
+name: string
+location: string
+linkType: string
+requestedLinkCount: integer
+interconnectType: string
+adminEnabled: boolean
+nocContactEmail: string
+customerName: string
+operationalStatus: string
+provisionedLinkCount: integer
+interconnectAttachments:
+  - type: string
+peerIpAddress: string
+googleIpAddress: string
+googleReferenceId: string
+expectedOutages:
+  - name: string
+    description: string
+    source: string
+    state: string
+    issueType: string
+    affectedCircuits:
+      - type: string
+    startTime: string
+    endTime: string
+circuitInfos:
+  - googleCircuitId: string
+    googleDemarcId: string
+    customerDemarcId: string
+labels: object
+labelFingerprint: string
+state: string
+satisfiesPzs: boolean
+macsec:
+  preSharedKeys:
+    - name: string
+      startTime: string
+  failOpen: boolean
+macsecEnabled: boolean
+remoteLocation: string
+requestedFeatures:
+  - type: string
+    enumDescriptions: string
+    enum: string
+availableFeatures:
+  - type: string
+    enumDescriptions: string
+    enum: string
 
 ```
 </TabItem>

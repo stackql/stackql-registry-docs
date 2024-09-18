@@ -168,52 +168,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: targetVpnGateway
-      value: '{{ targetVpnGateway }}'
-    - name: vpnGateway
-      value: '{{ vpnGateway }}'
-    - name: vpnGatewayInterface
-      value: '{{ vpnGatewayInterface }}'
-    - name: peerExternalGateway
-      value: '{{ peerExternalGateway }}'
-    - name: peerExternalGatewayInterface
-      value: '{{ peerExternalGatewayInterface }}'
-    - name: peerGcpGateway
-      value: '{{ peerGcpGateway }}'
-    - name: router
-      value: '{{ router }}'
-    - name: peerIp
-      value: '{{ peerIp }}'
-    - name: sharedSecret
-      value: '{{ sharedSecret }}'
-    - name: sharedSecretHash
-      value: '{{ sharedSecretHash }}'
-    - name: status
-      value: '{{ status }}'
-    - name: ikeVersion
-      value: '{{ ikeVersion }}'
-    - name: detailedStatus
-      value: '{{ detailedStatus }}'
-    - name: localTrafficSelector
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: remoteTrafficSelector
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: labelFingerprint
-      value: '{{ labelFingerprint }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+region: string
+targetVpnGateway: string
+vpnGateway: string
+vpnGatewayInterface: integer
+peerExternalGateway: string
+peerExternalGatewayInterface: integer
+peerGcpGateway: string
+router: string
+peerIp: string
+sharedSecret: string
+sharedSecretHash: string
+status: string
+selfLink: string
+ikeVersion: integer
+detailedStatus: string
+localTrafficSelector:
+  - type: string
+remoteTrafficSelector:
+  - type: string
+labels: object
+labelFingerprint: string
 
 ```
 </TabItem>

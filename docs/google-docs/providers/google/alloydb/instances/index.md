@@ -168,68 +168,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: instanceType
-      value: '{{ instanceType }}'
-    - name: machineConfig
-      value:
-        - name: cpuCount
-          value: '{{ cpuCount }}'
-    - name: availabilityType
-      value: '{{ availabilityType }}'
-    - name: gceZone
-      value: '{{ gceZone }}'
-    - name: databaseFlags
-      value: '{{ databaseFlags }}'
-    - name: queryInsightsConfig
-      value:
-        - name: recordApplicationTags
-          value: '{{ recordApplicationTags }}'
-        - name: recordClientAddress
-          value: '{{ recordClientAddress }}'
-        - name: queryStringLength
-          value: '{{ queryStringLength }}'
-        - name: queryPlansPerMinute
-          value: '{{ queryPlansPerMinute }}'
-    - name: readPoolConfig
-      value:
-        - name: nodeCount
-          value: '{{ nodeCount }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: clientConnectionConfig
-      value:
-        - name: requireConnectors
-          value: '{{ requireConnectors }}'
-        - name: sslConfig
-          value:
-            - name: sslMode
-              value: '{{ sslMode }}'
-            - name: caSource
-              value: '{{ caSource }}'
-    - name: pscInstanceConfig
-      value:
-        - name: allowedConsumerProjects
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: networkConfig
-      value:
-        - name: authorizedExternalNetworks
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: enablePublicIp
-          value: '{{ enablePublicIp }}'
-        - name: enableOutboundPublicIp
-          value: '{{ enableOutboundPublicIp }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+deleteTime: string
+labels: object
+state: string
+instanceType: string
+machineConfig:
+  cpuCount: integer
+availabilityType: string
+gceZone: string
+databaseFlags: object
+writableNode:
+  zoneId: string
+  id: string
+  ip: string
+  state: string
+nodes:
+  - zoneId: string
+    id: string
+    ip: string
+    state: string
+queryInsightsConfig:
+  recordApplicationTags: boolean
+  recordClientAddress: boolean
+  queryStringLength: integer
+  queryPlansPerMinute: integer
+readPoolConfig:
+  nodeCount: integer
+ipAddress: string
+publicIpAddress: string
+reconciling: boolean
+etag: string
+annotations: object
+clientConnectionConfig:
+  requireConnectors: boolean
+  sslConfig:
+    sslMode: string
+    caSource: string
+satisfiesPzs: boolean
+pscInstanceConfig:
+  serviceAttachmentLink: string
+  allowedConsumerProjects:
+    - type: string
+  pscDnsName: string
+networkConfig:
+  authorizedExternalNetworks:
+    - cidrRange: string
+  enablePublicIp: boolean
+  enableOutboundPublicIp: boolean
+outboundPublicIpAddresses:
+  - type: string
 
 ```
 </TabItem>

@@ -107,58 +107,31 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: genericWebService
-      value:
-        - name: uri
-          value: '{{ uri }}'
-        - name: username
-          value: '{{ username }}'
-        - name: password
-          value: '{{ password }}'
-        - name: requestHeaders
-          value: '{{ requestHeaders }}'
-        - name: allowedCaCerts
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: format
-              value: '{{ format }}'
-        - name: oauthConfig
-          value:
-            - name: clientId
-              value: '{{ clientId }}'
-            - name: clientSecret
-              value: '{{ clientSecret }}'
-            - name: tokenEndpoint
-              value: '{{ tokenEndpoint }}'
-            - name: scopes
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: serviceAgentAuth
-          value: '{{ serviceAgentAuth }}'
-        - name: webhookType
-          value: '{{ webhookType }}'
-        - name: httpMethod
-          value: '{{ httpMethod }}'
-        - name: requestBody
-          value: '{{ requestBody }}'
-        - name: parameterMapping
-          value: '{{ parameterMapping }}'
-    - name: serviceDirectory
-      value:
-        - name: service
-          value: '{{ service }}'
-    - name: timeout
-      value: '{{ timeout }}'
-    - name: disabled
-      value: '{{ disabled }}'
+name: string
+displayName: string
+genericWebService:
+  uri: string
+  username: string
+  password: string
+  requestHeaders: object
+  allowedCaCerts:
+    - type: string
+      format: string
+  oauthConfig:
+    clientId: string
+    clientSecret: string
+    tokenEndpoint: string
+    scopes:
+      - type: string
+  serviceAgentAuth: string
+  webhookType: string
+  httpMethod: string
+  requestBody: string
+  parameterMapping: object
+serviceDirectory:
+  service: string
+timeout: string
+disabled: boolean
 
 ```
 </TabItem>

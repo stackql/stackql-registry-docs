@@ -106,42 +106,36 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: ethereumDetails
-      value:
-        - name: gethDetails
-          value:
-            - name: garbageCollectionMode
-              value: '{{ garbageCollectionMode }}'
-        - name: network
-          value: '{{ network }}'
-        - name: nodeType
-          value: '{{ nodeType }}'
-        - name: executionClient
-          value: '{{ executionClient }}'
-        - name: consensusClient
-          value: '{{ consensusClient }}'
-        - name: apiEnableAdmin
-          value: '{{ apiEnableAdmin }}'
-        - name: apiEnableDebug
-          value: '{{ apiEnableDebug }}'
-        - name: validatorConfig
-          value:
-            - name: mevRelayUrls
-              value:
-                - name: type
-                  value: '{{ type }}'
-            - name: managedValidatorClient
-              value: '{{ managedValidatorClient }}'
-            - name: beaconFeeRecipient
-              value: '{{ beaconFeeRecipient }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: blockchainType
-      value: '{{ blockchainType }}'
-    - name: privateServiceConnectEnabled
-      value: '{{ privateServiceConnectEnabled }}'
+ethereumDetails:
+  gethDetails:
+    garbageCollectionMode: string
+  network: string
+  nodeType: string
+  executionClient: string
+  consensusClient: string
+  apiEnableAdmin: boolean
+  apiEnableDebug: boolean
+  additionalEndpoints:
+    beaconApiEndpoint: string
+    beaconPrometheusMetricsApiEndpoint: string
+    executionClientPrometheusMetricsApiEndpoint: string
+  validatorConfig:
+    mevRelayUrls:
+      - type: string
+    managedValidatorClient: boolean
+    beaconFeeRecipient: string
+name: string
+createTime: string
+updateTime: string
+labels: object
+blockchainType: string
+connectionInfo:
+  endpointInfo:
+    jsonRpcApiEndpoint: string
+    websocketsApiEndpoint: string
+  serviceAttachment: string
+state: string
+privateServiceConnectEnabled: boolean
 
 ```
 </TabItem>

@@ -139,98 +139,58 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: zone
-      value: '{{ zone }}'
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: specificSkuProperties
-      value:
-        - name: instanceProperties
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-            - name: guestAccelerators
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minCpuPlatform
-              value: '{{ minCpuPlatform }}'
-            - name: localSsds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: locationHint
-              value: '{{ locationHint }}'
-        - name: totalCount
-          value: '{{ totalCount }}'
-        - name: sourceInstanceTemplate
-          value: '{{ sourceInstanceTemplate }}'
-    - name: timeWindow
-      value:
-        - name: startTime
-          value: '{{ startTime }}'
-        - name: endTime
-          value: '{{ endTime }}'
-        - name: duration
-          value:
-            - name: seconds
-              value: '{{ seconds }}'
-            - name: nanos
-              value: '{{ nanos }}'
-    - name: shareSettings
-      value:
-        - name: shareType
-          value: '{{ shareType }}'
-        - name: projectMap
-          value: '{{ projectMap }}'
-    - name: namePrefix
-      value: '{{ namePrefix }}'
-    - name: status
-      value:
-        - name: procurementStatus
-          value: '{{ procurementStatus }}'
-        - name: lockTime
-          value: '{{ lockTime }}'
-        - name: autoCreatedReservations
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: fulfilledCount
-          value: '{{ fulfilledCount }}'
-        - name: specificSkuProperties
-          value:
-            - name: sourceInstanceTemplateId
-              value: '{{ sourceInstanceTemplateId }}'
-        - name: amendmentStatus
-          value: '{{ amendmentStatus }}'
-        - name: lastKnownGoodState
-          value:
-            - name: futureReservationSpecs
-              value: []
-            - name: procurementStatus
-              value: '{{ procurementStatus }}'
-            - name: namePrefix
-              value: '{{ namePrefix }}'
-            - name: description
-              value: '{{ description }}'
-            - name: lockTime
-              value: '{{ lockTime }}'
-            - name: existingMatchingUsageInfo
-              value:
-                - name: count
-                  value: '{{ count }}'
-                - name: timestamp
-                  value: '{{ timestamp }}'
-    - name: planningStatus
-      value: '{{ planningStatus }}'
-    - name: autoCreatedReservationsDeleteTime
-      value: '{{ autoCreatedReservationsDeleteTime }}'
-    - name: autoDeleteAutoCreatedReservations
-      value: '{{ autoDeleteAutoCreatedReservations }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+selfLinkWithId: string
+zone: string
+description: string
+name: string
+specificSkuProperties:
+  instanceProperties:
+    machineType: string
+    guestAccelerators:
+      - acceleratorType: string
+        acceleratorCount: integer
+    minCpuPlatform: string
+    localSsds:
+      - diskSizeGb: string
+        interface: string
+    locationHint: string
+  totalCount: string
+  sourceInstanceTemplate: string
+timeWindow:
+  startTime: string
+  endTime: string
+  duration:
+    seconds: string
+    nanos: integer
+shareSettings:
+  shareType: string
+  projectMap: object
+namePrefix: string
+status:
+  procurementStatus: string
+  lockTime: string
+  autoCreatedReservations:
+    - type: string
+  fulfilledCount: string
+  specificSkuProperties:
+    sourceInstanceTemplateId: string
+  amendmentStatus: string
+  lastKnownGoodState:
+    futureReservationSpecs: {}
+    procurementStatus: string
+    namePrefix: string
+    description: string
+    lockTime: string
+    existingMatchingUsageInfo:
+      count: string
+      timestamp: string
+planningStatus: string
+autoCreatedReservationsDeleteTime: string
+autoDeleteAutoCreatedReservations: boolean
 
 ```
 </TabItem>

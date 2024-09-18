@@ -125,16 +125,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: database
-      value: '{{ database }}'
-    - name: versionTime
-      value: '{{ versionTime }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: name
-      value: '{{ name }}'
+database: string
+versionTime: string
+expireTime: string
+name: string
+createTime: string
+sizeBytes: string
+freeableSizeBytes: string
+exclusiveSizeBytes: string
+state: string
+referencingDatabases:
+  - type: string
+encryptionInfo:
+  encryptionType: string
+  encryptionStatus:
+    code: integer
+    message: string
+    details:
+      - type: string
+        additionalProperties: any
+  kmsKeyVersion: string
+encryptionInformation:
+  - encryptionType: string
+    kmsKeyVersion: string
+databaseDialect: string
+referencingBackups:
+  - type: string
+maxExpireTime: string
+backupSchedules:
+  - type: string
+incrementalBackupChainId: string
+oldestVersionTime: string
 
 ```
 </TabItem>

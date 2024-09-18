@@ -128,82 +128,158 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: data
-      value:
-        - name: entity
-          value: '{{ entity }}'
-        - name: resource
-          value: '{{ resource }}'
-    - name: executionSpec
-      value:
-        - name: trigger
-          value:
-            - name: onDemand
-              value: []
-            - name: schedule
-              value:
-                - name: cron
-                  value: '{{ cron }}'
-        - name: field
-          value: '{{ field }}'
-    - name: dataQualitySpec
-      value:
-        - name: rules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: samplingPercent
-          value: '{{ samplingPercent }}'
-        - name: rowFilter
-          value: '{{ rowFilter }}'
-        - name: postScanActions
-          value:
-            - name: bigqueryExport
-              value:
-                - name: resultsTable
-                  value: '{{ resultsTable }}'
-            - name: notificationReport
-              value:
-                - name: recipients
-                  value:
-                    - name: emails
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                - name: scoreThresholdTrigger
-                  value:
-                    - name: scoreThreshold
-                      value: '{{ scoreThreshold }}'
-                - name: jobFailureTrigger
-                  value: []
-                - name: jobEndTrigger
-                  value: []
-    - name: dataProfileSpec
-      value:
-        - name: samplingPercent
-          value: '{{ samplingPercent }}'
-        - name: rowFilter
-          value: '{{ rowFilter }}'
-        - name: postScanActions
-          value:
-            - name: bigqueryExport
-              value:
-                - name: resultsTable
-                  value: '{{ resultsTable }}'
-        - name: includeFields
-          value:
-            - name: fieldNames
-              value:
-                - name: type
-                  value: '{{ type }}'
+name: string
+uid: string
+description: string
+displayName: string
+labels: object
+state: string
+createTime: string
+updateTime: string
+data:
+  entity: string
+  resource: string
+executionSpec:
+  trigger:
+    onDemand: {}
+    schedule:
+      cron: string
+  field: string
+executionStatus:
+  latestJobStartTime: string
+  latestJobEndTime: string
+  latestJobCreateTime: string
+type: string
+dataQualitySpec:
+  rules:
+    - rangeExpectation:
+        minValue: string
+        maxValue: string
+        strictMinEnabled: boolean
+        strictMaxEnabled: boolean
+      nonNullExpectation: {}
+      setExpectation:
+        values:
+          - type: string
+      regexExpectation:
+        regex: string
+      uniquenessExpectation: {}
+      statisticRangeExpectation:
+        statistic: string
+        minValue: string
+        maxValue: string
+        strictMinEnabled: boolean
+        strictMaxEnabled: boolean
+      rowConditionExpectation:
+        sqlExpression: string
+      tableConditionExpectation:
+        sqlExpression: string
+      sqlAssertion:
+        sqlStatement: string
+      column: string
+      ignoreNull: boolean
+      dimension: string
+      threshold: number
+      name: string
+      description: string
+      suspended: boolean
+  samplingPercent: number
+  rowFilter: string
+  postScanActions:
+    bigqueryExport:
+      resultsTable: string
+    notificationReport:
+      recipients:
+        emails:
+          - type: string
+      scoreThresholdTrigger:
+        scoreThreshold: number
+      jobFailureTrigger: {}
+      jobEndTrigger: {}
+dataProfileSpec:
+  samplingPercent: number
+  rowFilter: string
+  postScanActions:
+    bigqueryExport:
+      resultsTable: string
+  includeFields:
+    fieldNames:
+      - type: string
+dataQualityResult:
+  passed: boolean
+  score: number
+  dimensions:
+    - dimension:
+        name: string
+      passed: boolean
+      score: number
+  columns:
+    - column: string
+      score: number
+  rules:
+    - rule:
+        column: string
+        ignoreNull: boolean
+        dimension: string
+        threshold: number
+        name: string
+        description: string
+        suspended: boolean
+      passed: boolean
+      evaluatedCount: string
+      passedCount: string
+      nullCount: string
+      passRatio: number
+      failingRowsQuery: string
+      assertionRowCount: string
+  rowCount: string
+  scannedData:
+    incrementalField:
+      field: string
+      start: string
+      end: string
+  postScanActionsResult:
+    bigqueryExportResult:
+      state: string
+      message: string
+dataProfileResult:
+  rowCount: string
+  profile:
+    fields:
+      - name: string
+        type: string
+        mode: string
+        profile:
+          nullRatio: number
+          distinctRatio: number
+          topNValues:
+            - value: string
+              count: string
+              ratio: number
+          stringProfile:
+            minLength: string
+            maxLength: string
+            averageLength: number
+          integerProfile:
+            average: number
+            standardDeviation: number
+            min: string
+            quartiles:
+              - type: string
+                format: string
+            max: string
+          doubleProfile:
+            average: number
+            standardDeviation: number
+            min: number
+            quartiles:
+              - type: string
+                format: string
+            max: number
+  postScanActionsResult:
+    bigqueryExportResult:
+      state: string
+      message: string
 
 ```
 </TabItem>

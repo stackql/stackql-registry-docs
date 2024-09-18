@@ -112,18 +112,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: metastore
-      value:
-        - name: service
-          value: '{{ service }}'
+name: string
+displayName: string
+uid: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+state: string
+serviceAccount: string
+metastore:
+  service: string
+assetStatus:
+  updateTime: string
+  activeAssets: integer
+  securityPolicyApplyingAssets: integer
+metastoreStatus:
+  state: string
+  message: string
+  updateTime: string
+  endpoint: string
 
 ```
 </TabItem>

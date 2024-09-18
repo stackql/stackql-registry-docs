@@ -120,124 +120,83 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: priority
-      value: '{{ priority }}'
-    - name: match
-      value:
-        - name: expr
-          value:
-            - name: expression
-              value: '{{ expression }}'
-            - name: title
-              value: '{{ title }}'
-            - name: description
-              value: '{{ description }}'
-            - name: location
-              value: '{{ location }}'
-        - name: exprOptions
-          value:
-            - name: recaptchaOptions
-              value:
-                - name: actionTokenSiteKeys
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-                - name: sessionTokenSiteKeys
-                  value:
-                    - name: type
-                      value: '{{ type }}'
-        - name: versionedExpr
-          value: '{{ versionedExpr }}'
-        - name: config
-          value:
-            - name: srcIpRanges
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: networkMatch
-      value:
-        - name: userDefinedFields
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: srcIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destIpRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: ipProtocols
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcPorts
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: destPorts
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcRegionCodes
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: srcAsns
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: format
-              value: '{{ format }}'
-    - name: action
-      value: '{{ action }}'
-    - name: preview
-      value: '{{ preview }}'
-    - name: rateLimitOptions
-      value:
-        - name: rateLimitThreshold
-          value:
-            - name: count
-              value: '{{ count }}'
-            - name: intervalSec
-              value: '{{ intervalSec }}'
-        - name: conformAction
-          value: '{{ conformAction }}'
-        - name: exceedAction
-          value: '{{ exceedAction }}'
-        - name: exceedRedirectOptions
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: target
-              value: '{{ target }}'
-        - name: enforceOnKey
-          value: '{{ enforceOnKey }}'
-        - name: enforceOnKeyName
-          value: '{{ enforceOnKeyName }}'
-        - name: enforceOnKeyConfigs
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: banDurationSec
-          value: '{{ banDurationSec }}'
-    - name: headerAction
-      value:
-        - name: requestHeadersToAdds
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: preconfiguredWafConfig
-      value:
-        - name: exclusions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+kind: string
+description: string
+priority: integer
+match:
+  expr:
+    expression: string
+    title: string
+    description: string
+    location: string
+  exprOptions:
+    recaptchaOptions:
+      actionTokenSiteKeys:
+        - type: string
+      sessionTokenSiteKeys:
+        - type: string
+  versionedExpr: string
+  config:
+    srcIpRanges:
+      - type: string
+networkMatch:
+  userDefinedFields:
+    - name: string
+      values:
+        - type: string
+  srcIpRanges:
+    - type: string
+  destIpRanges:
+    - type: string
+  ipProtocols:
+    - type: string
+  srcPorts:
+    - type: string
+  destPorts:
+    - type: string
+  srcRegionCodes:
+    - type: string
+  srcAsns:
+    - type: string
+      format: string
+action: string
+preview: boolean
+rateLimitOptions:
+  rateLimitThreshold:
+    count: integer
+    intervalSec: integer
+  conformAction: string
+  exceedAction: string
+  exceedRedirectOptions:
+    type: string
+    target: string
+  enforceOnKey: string
+  enforceOnKeyName: string
+  enforceOnKeyConfigs:
+    - enforceOnKeyType: string
+      enforceOnKeyName: string
+  banDurationSec: integer
+headerAction:
+  requestHeadersToAdds:
+    - headerName: string
+      headerValue: string
+preconfiguredWafConfig:
+  exclusions:
+    - targetRuleSet: string
+      targetRuleIds:
+        - type: string
+      requestHeadersToExclude:
+        - val: string
+          op: string
+      requestCookiesToExclude:
+        - val: string
+          op: string
+      requestQueryParamsToExclude:
+        - val: string
+          op: string
+      requestUrisToExclude:
+        - val: string
+          op: string
 
 ```
 </TabItem>

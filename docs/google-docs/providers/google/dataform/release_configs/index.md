@@ -113,42 +113,32 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: gitCommitish
-      value: '{{ gitCommitish }}'
-    - name: codeCompilationConfig
-      value:
-        - name: defaultDatabase
-          value: '{{ defaultDatabase }}'
-        - name: defaultSchema
-          value: '{{ defaultSchema }}'
-        - name: defaultLocation
-          value: '{{ defaultLocation }}'
-        - name: assertionSchema
-          value: '{{ assertionSchema }}'
-        - name: vars
-          value: '{{ vars }}'
-        - name: databaseSuffix
-          value: '{{ databaseSuffix }}'
-        - name: schemaSuffix
-          value: '{{ schemaSuffix }}'
-        - name: tablePrefix
-          value: '{{ tablePrefix }}'
-        - name: defaultNotebookRuntimeOptions
-          value:
-            - name: gcsOutputBucket
-              value: '{{ gcsOutputBucket }}'
-    - name: cronSchedule
-      value: '{{ cronSchedule }}'
-    - name: timeZone
-      value: '{{ timeZone }}'
-    - name: releaseCompilationResult
-      value: '{{ releaseCompilationResult }}'
-    - name: disabled
-      value: '{{ disabled }}'
+name: string
+gitCommitish: string
+codeCompilationConfig:
+  defaultDatabase: string
+  defaultSchema: string
+  defaultLocation: string
+  assertionSchema: string
+  vars: object
+  databaseSuffix: string
+  schemaSuffix: string
+  tablePrefix: string
+  defaultNotebookRuntimeOptions:
+    gcsOutputBucket: string
+cronSchedule: string
+timeZone: string
+recentScheduledReleaseRecords:
+  - compilationResult: string
+    errorStatus:
+      code: integer
+      message: string
+      details:
+        - type: string
+          additionalProperties: any
+    releaseTime: string
+releaseCompilationResult: string
+disabled: boolean
 
 ```
 </TabItem>

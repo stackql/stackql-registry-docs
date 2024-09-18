@@ -138,34 +138,31 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: region
-      value: '{{ region }}'
-    - name: ipCidrRange
-      value: '{{ ipCidrRange }}'
-    - name: status
-      value: '{{ status }}'
-    - name: parentPrefix
-      value: '{{ parentPrefix }}'
-    - name: publicDelegatedSubPrefixs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: isLiveMigration
-      value: '{{ isLiveMigration }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: mode
-      value: '{{ mode }}'
-    - name: allocatablePrefixLength
-      value: '{{ allocatablePrefixLength }}'
-    - name: byoipApiVersion
-      value: '{{ byoipApiVersion }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+region: string
+ipCidrRange: string
+status: string
+parentPrefix: string
+publicDelegatedSubPrefixs:
+  - name: string
+    description: string
+    region: string
+    status: string
+    ipCidrRange: string
+    delegateeProject: string
+    isAddress: boolean
+    mode: string
+    allocatablePrefixLength: integer
+isLiveMigration: boolean
+fingerprint: string
+mode: string
+allocatablePrefixLength: integer
+byoipApiVersion: string
 
 ```
 </TabItem>

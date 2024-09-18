@@ -120,22 +120,21 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: labels
-      value: '{{ labels }}'
-    - name: network
-      value: '{{ network }}'
-    - name: description
-      value: '{{ description }}'
-    - name: severity
-      value: '{{ severity }}'
-    - name: threatExceptions
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: trafficLogs
-      value: '{{ trafficLogs }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+network: string
+endpointForwardingRule: string
+endpointIp: string
+description: string
+severity: string
+threatExceptions:
+  - type: string
+state: string
+trafficLogs: boolean
+satisfiesPzs: boolean
+satisfiesPzi: boolean
 
 ```
 </TabItem>

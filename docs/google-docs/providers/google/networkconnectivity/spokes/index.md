@@ -129,66 +129,50 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: hub
-      value: '{{ hub }}'
-    - name: group
-      value: '{{ group }}'
-    - name: linkedVpnTunnels
-      value:
-        - name: uris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: siteToSiteDataTransfer
-          value: '{{ siteToSiteDataTransfer }}'
-        - name: includeImportRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: linkedInterconnectAttachments
-      value:
-        - name: uris
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: siteToSiteDataTransfer
-          value: '{{ siteToSiteDataTransfer }}'
-        - name: includeImportRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: linkedRouterApplianceInstances
-      value:
-        - name: instances
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: siteToSiteDataTransfer
-          value: '{{ siteToSiteDataTransfer }}'
-        - name: includeImportRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: linkedVpcNetwork
-      value:
-        - name: uri
-          value: '{{ uri }}'
-        - name: excludeExportRanges
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: includeExportRanges
-          value:
-            - name: type
-              value: '{{ type }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+hub: string
+group: string
+linkedVpnTunnels:
+  uris:
+    - type: string
+  siteToSiteDataTransfer: boolean
+  vpcNetwork: string
+  includeImportRanges:
+    - type: string
+linkedInterconnectAttachments:
+  uris:
+    - type: string
+  siteToSiteDataTransfer: boolean
+  vpcNetwork: string
+  includeImportRanges:
+    - type: string
+linkedRouterApplianceInstances:
+  instances:
+    - virtualMachine: string
+      ipAddress: string
+  siteToSiteDataTransfer: boolean
+  vpcNetwork: string
+  includeImportRanges:
+    - type: string
+linkedVpcNetwork:
+  uri: string
+  excludeExportRanges:
+    - type: string
+  includeExportRanges:
+    - type: string
+  producerVpcSpokes:
+    - type: string
+uniqueId: string
+state: string
+reasons:
+  - code: string
+    message: string
+    userDetails: string
+spokeType: string
 
 ```
 </TabItem>

@@ -131,50 +131,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: boostAction
-      value:
-        - name: boost
-          value: '{{ boost }}'
-        - name: filter
-          value: '{{ filter }}'
-        - name: dataStore
-          value: '{{ dataStore }}'
-    - name: filterAction
-      value:
-        - name: filter
-          value: '{{ filter }}'
-        - name: dataStore
-          value: '{{ dataStore }}'
-    - name: redirectAction
-      value:
-        - name: redirectUri
-          value: '{{ redirectUri }}'
-    - name: synonymsAction
-      value:
-        - name: synonyms
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: solutionType
-      value: '{{ solutionType }}'
-    - name: useCases
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: enumDescriptions
-          value: '{{ enumDescriptions }}'
-        - name: enum
-          value: '{{ enum }}'
-    - name: conditions
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
+boostAction:
+  boost: number
+  filter: string
+  dataStore: string
+filterAction:
+  filter: string
+  dataStore: string
+redirectAction:
+  redirectUri: string
+synonymsAction:
+  synonyms:
+    - type: string
+name: string
+displayName: string
+associatedServingConfigIds:
+  - type: string
+solutionType: string
+useCases:
+  - type: string
+    enumDescriptions: string
+    enum: string
+conditions:
+  - queryTerms:
+      - value: string
+        fullMatch: boolean
+    activeTimeRange:
+      - startTime: string
+        endTime: string
 
 ```
 </TabItem>

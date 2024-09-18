@@ -126,102 +126,113 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: entryFulfillment
-      value:
-        - name: messages
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: webhook
-          value: '{{ webhook }}'
-        - name: returnPartialResponses
-          value: '{{ returnPartialResponses }}'
-        - name: tag
-          value: '{{ tag }}'
-        - name: setParameterActions
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: conditionalCases
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: advancedSettings
-          value:
-            - name: audioExportGcsDestination
-              value:
-                - name: uri
-                  value: '{{ uri }}'
-            - name: speechSettings
-              value:
-                - name: endpointerSensitivity
-                  value: '{{ endpointerSensitivity }}'
-                - name: noSpeechTimeout
-                  value: '{{ noSpeechTimeout }}'
-                - name: useTimeoutBasedEndpointing
-                  value: '{{ useTimeoutBasedEndpointing }}'
-                - name: models
-                  value: '{{ models }}'
-            - name: dtmfSettings
-              value:
-                - name: enabled
-                  value: '{{ enabled }}'
-                - name: maxDigits
-                  value: '{{ maxDigits }}'
-                - name: finishDigit
-                  value: '{{ finishDigit }}'
-                - name: interdigitTimeoutDuration
-                  value: '{{ interdigitTimeoutDuration }}'
-                - name: endpointingTimeoutDuration
-                  value: '{{ endpointingTimeoutDuration }}'
-            - name: loggingSettings
-              value:
-                - name: enableStackdriverLogging
-                  value: '{{ enableStackdriverLogging }}'
-                - name: enableInteractionLogging
-                  value: '{{ enableInteractionLogging }}'
-                - name: enableConsentBasedRedaction
-                  value: '{{ enableConsentBasedRedaction }}'
-        - name: enableGenerativeFallback
-          value: '{{ enableGenerativeFallback }}'
-    - name: form
-      value:
-        - name: parameters
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: transitionRouteGroups
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: transitionRoutes
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: eventHandlers
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: knowledgeConnectorSettings
-      value:
-        - name: enabled
-          value: '{{ enabled }}'
-        - name: targetPage
-          value: '{{ targetPage }}'
-        - name: targetFlow
-          value: '{{ targetFlow }}'
-        - name: dataStoreConnections
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+displayName: string
+description: string
+entryFulfillment:
+  messages:
+    - text:
+        text:
+          - type: string
+        allowPlaybackInterruption: boolean
+      payload: object
+      conversationSuccess:
+        metadata: object
+      outputAudioText:
+        text: string
+        ssml: string
+        allowPlaybackInterruption: boolean
+      liveAgentHandoff:
+        metadata: object
+      endInteraction: {}
+      playAudio:
+        audioUri: string
+        allowPlaybackInterruption: boolean
+      mixedAudio:
+        segments:
+          - audio: string
+            uri: string
+            allowPlaybackInterruption: boolean
+      telephonyTransferCall:
+        phoneNumber: string
+      knowledgeInfoCard: {}
+      responseType: string
+      channel: string
+  webhook: string
+  returnPartialResponses: boolean
+  tag: string
+  setParameterActions:
+    - parameter: string
+      value: any
+  conditionalCases:
+    - cases:
+        - condition: string
+          caseContent:
+            - message:
+                payload: object
+                responseType: string
+                channel: string
+              additionalCases:
+                cases:
+                  - condition: string
+                    caseContent:
+                      - {}
+  advancedSettings:
+    audioExportGcsDestination:
+      uri: string
+    speechSettings:
+      endpointerSensitivity: integer
+      noSpeechTimeout: string
+      useTimeoutBasedEndpointing: boolean
+      models: object
+    dtmfSettings:
+      enabled: boolean
+      maxDigits: integer
+      finishDigit: string
+      interdigitTimeoutDuration: string
+      endpointingTimeoutDuration: string
+    loggingSettings:
+      enableStackdriverLogging: boolean
+      enableInteractionLogging: boolean
+      enableConsentBasedRedaction: boolean
+  enableGenerativeFallback: boolean
+form:
+  parameters:
+    - displayName: string
+      required: boolean
+      entityType: string
+      isList: boolean
+      fillBehavior:
+        repromptEventHandlers:
+          - name: string
+            event: string
+            targetPage: string
+            targetFlow: string
+            targetPlaybook: string
+      defaultValue: any
+      redact: boolean
+transitionRouteGroups:
+  - type: string
+transitionRoutes:
+  - name: string
+    description: string
+    intent: string
+    condition: string
+    targetPage: string
+    targetFlow: string
+eventHandlers:
+  - name: string
+    event: string
+    targetPage: string
+    targetFlow: string
+    targetPlaybook: string
+knowledgeConnectorSettings:
+  enabled: boolean
+  targetPage: string
+  targetFlow: string
+  dataStoreConnections:
+    - dataStoreType: string
+      dataStore: string
 
 ```
 </TabItem>

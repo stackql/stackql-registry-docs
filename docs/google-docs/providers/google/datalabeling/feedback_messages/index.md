@@ -107,18 +107,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: requesterFeedbackMetadata
-      value: []
-    - name: operatorFeedbackMetadata
-      value: []
-    - name: name
-      value: '{{ name }}'
-    - name: body
-      value: '{{ body }}'
-    - name: image
-      value: '{{ image }}'
+requesterFeedbackMetadata: {}
+operatorFeedbackMetadata: {}
+name: string
+body: string
+image: string
+createTime: string
 
 ```
 </TabItem>

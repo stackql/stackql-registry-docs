@@ -125,72 +125,50 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: githubConfig
-      value:
-        - name: authorizerCredential
-          value:
-            - name: oauthTokenSecretVersion
-              value: '{{ oauthTokenSecretVersion }}'
-        - name: appInstallationId
-          value: '{{ appInstallationId }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: bitbucketDataCenterConfig
-      value:
-        - name: serviceDirectoryConfig
-          value:
-            - name: service
-              value: '{{ service }}'
-        - name: authorizerCredential
-          value:
-            - name: userTokenSecretVersion
-              value: '{{ userTokenSecretVersion }}'
-        - name: hostUri
-          value: '{{ hostUri }}'
-        - name: sslCa
-          value: '{{ sslCa }}'
-        - name: webhookSecretSecretVersion
-          value: '{{ webhookSecretSecretVersion }}'
-    - name: gitlabConfig
-      value:
-        - name: webhookSecretSecretVersion
-          value: '{{ webhookSecretSecretVersion }}'
-        - name: sslCa
-          value: '{{ sslCa }}'
-        - name: hostUri
-          value: '{{ hostUri }}'
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: name
-      value: '{{ name }}'
-    - name: githubEnterpriseConfig
-      value:
-        - name: appSlug
-          value: '{{ appSlug }}'
-        - name: sslCa
-          value: '{{ sslCa }}'
-        - name: apiKey
-          value: '{{ apiKey }}'
-        - name: webhookSecretSecretVersion
-          value: '{{ webhookSecretSecretVersion }}'
-        - name: appId
-          value: '{{ appId }}'
-        - name: privateKeySecretVersion
-          value: '{{ privateKeySecretVersion }}'
-        - name: appInstallationId
-          value: '{{ appInstallationId }}'
-        - name: hostUri
-          value: '{{ hostUri }}'
-    - name: bitbucketCloudConfig
-      value:
-        - name: webhookSecretSecretVersion
-          value: '{{ webhookSecretSecretVersion }}'
-        - name: workspace
-          value: '{{ workspace }}'
-    - name: disabled
-      value: '{{ disabled }}'
+updateTime: string
+githubConfig:
+  authorizerCredential:
+    username: string
+    oauthTokenSecretVersion: string
+  appInstallationId: string
+etag: string
+bitbucketDataCenterConfig:
+  serviceDirectoryConfig:
+    service: string
+  authorizerCredential:
+    username: string
+    userTokenSecretVersion: string
+  hostUri: string
+  sslCa: string
+  webhookSecretSecretVersion: string
+  serverVersion: string
+gitlabConfig:
+  webhookSecretSecretVersion: string
+  sslCa: string
+  serverVersion: string
+  hostUri: string
+annotations: object
+name: string
+reconciling: boolean
+githubEnterpriseConfig:
+  appSlug: string
+  sslCa: string
+  apiKey: string
+  webhookSecretSecretVersion: string
+  appId: string
+  serverVersion: string
+  privateKeySecretVersion: string
+  appInstallationId: string
+  hostUri: string
+bitbucketCloudConfig:
+  webhookSecretSecretVersion: string
+  workspace: string
+createTime: string
+installationState:
+  actionUri: string
+  message: string
+  stage: string
+disabled: boolean
 
 ```
 </TabItem>

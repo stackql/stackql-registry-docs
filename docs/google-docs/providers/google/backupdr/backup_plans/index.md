@@ -113,22 +113,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: description
-      value: '{{ description }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: backupRules
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: resourceType
-      value: '{{ resourceType }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: backupVault
-      value: '{{ backupVault }}'
+name: string
+description: string
+labels: object
+createTime: string
+updateTime: string
+backupRules:
+  - ruleId: string
+    backupRetentionDays: integer
+    standardSchedule:
+      recurrenceType: string
+      hourlyFrequency: integer
+      daysOfWeek:
+        - type: string
+          enumDescriptions: string
+          enum: string
+      daysOfMonth:
+        - type: string
+          format: string
+      weekDayOfMonth:
+        weekOfMonth: string
+        dayOfWeek: string
+      months:
+        - type: string
+          enumDescriptions: string
+          enum: string
+      backupWindow:
+        startHourOfDay: integer
+        endHourOfDay: integer
+      timeZone: string
+state: string
+resourceType: string
+etag: string
+backupVault: string
+backupVaultServiceAccount: string
 
 ```
 </TabItem>

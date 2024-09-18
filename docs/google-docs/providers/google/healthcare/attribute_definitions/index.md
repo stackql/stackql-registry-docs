@@ -110,24 +110,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: category
-      value: '{{ category }}'
-    - name: allowedValues
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: consentDefaultValues
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: dataMappingDefaultValue
-      value: '{{ dataMappingDefaultValue }}'
+name: string
+description: string
+category: string
+allowedValues:
+  - type: string
+consentDefaultValues:
+  - type: string
+dataMappingDefaultValue: string
 
 ```
 </TabItem>

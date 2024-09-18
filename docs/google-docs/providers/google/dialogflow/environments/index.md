@@ -112,34 +112,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: versionConfigs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: testCasesConfig
-      value:
-        - name: testCases
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: enableContinuousRun
-          value: '{{ enableContinuousRun }}'
-        - name: enablePredeploymentRun
-          value: '{{ enablePredeploymentRun }}'
-    - name: webhookConfig
-      value:
-        - name: webhookOverrides
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+name: string
+displayName: string
+description: string
+versionConfigs:
+  - version: string
+updateTime: string
+testCasesConfig:
+  testCases:
+    - type: string
+  enableContinuousRun: boolean
+  enablePredeploymentRun: boolean
+webhookConfig:
+  webhookOverrides:
+    - name: string
+      displayName: string
+      genericWebService:
+        uri: string
+        username: string
+        password: string
+        requestHeaders: object
+        allowedCaCerts:
+          - type: string
+            format: string
+        oauthConfig:
+          clientId: string
+          clientSecret: string
+          tokenEndpoint: string
+          scopes:
+            - type: string
+        serviceAgentAuth: string
+        webhookType: string
+        httpMethod: string
+        requestBody: string
+        parameterMapping: object
+      serviceDirectory:
+        service: string
+      timeout: string
+      disabled: boolean
 
 ```
 </TabItem>

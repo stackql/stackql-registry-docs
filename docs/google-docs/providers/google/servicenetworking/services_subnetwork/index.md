@@ -107,54 +107,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: useCustomComputeIdempotencyWindow
-      value: '{{ useCustomComputeIdempotencyWindow }}'
-    - name: subnetworkUsers
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: outsideAllocationPublicIpRange
-      value: '{{ outsideAllocationPublicIpRange }}'
-    - name: role
-      value: '{{ role }}'
-    - name: purpose
-      value: '{{ purpose }}'
-    - name: requestedAddress
-      value: '{{ requestedAddress }}'
-    - name: description
-      value: '{{ description }}'
-    - name: secondaryIpRangeSpecs
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: requestedRanges
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: consumer
-      value: '{{ consumer }}'
-    - name: skipRequestedAddressValidation
-      value: '{{ skipRequestedAddressValidation }}'
-    - name: region
-      value: '{{ region }}'
-    - name: allowSubnetCidrRoutesOverlap
-      value: '{{ allowSubnetCidrRoutesOverlap }}'
-    - name: checkServiceNetworkingUsePermission
-      value: '{{ checkServiceNetworkingUsePermission }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: computeIdempotencyWindow
-      value: '{{ computeIdempotencyWindow }}'
-    - name: consumerNetwork
-      value: '{{ consumerNetwork }}'
-    - name: privateIpv6GoogleAccess
-      value: '{{ privateIpv6GoogleAccess }}'
-    - name: ipPrefixLength
-      value: '{{ ipPrefixLength }}'
-    - name: internalRange
-      value: '{{ internalRange }}'
+useCustomComputeIdempotencyWindow: boolean
+subnetworkUsers:
+  - type: string
+outsideAllocationPublicIpRange: string
+role: string
+purpose: string
+requestedAddress: string
+description: string
+secondaryIpRangeSpecs:
+  - outsideAllocationPublicIpRange: string
+    rangeName: string
+    ipPrefixLength: integer
+    requestedAddress: string
+requestedRanges:
+  - type: string
+consumer: string
+skipRequestedAddressValidation: boolean
+region: string
+allowSubnetCidrRoutesOverlap: boolean
+checkServiceNetworkingUsePermission: boolean
+subnetwork: string
+computeIdempotencyWindow: string
+consumerNetwork: string
+privateIpv6GoogleAccess: string
+ipPrefixLength: integer
+internalRange: string
 
 ```
 </TabItem>

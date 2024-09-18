@@ -86,20 +86,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: customClassId
-      value: '{{ customClassId }}'
-    - name: customClass
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: customClassId
-          value: '{{ customClassId }}'
-        - name: items
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
+customClassId: string
+customClass:
+  name: string
+  customClassId: string
+  items:
+    - value: string
+  kmsKeyName: string
+  kmsKeyVersionName: string
+  uid: string
+  displayName: string
+  state: string
+  deleteTime: string
+  expireTime: string
+  annotations: object
+  etag: string
+  reconciling: boolean
 
 ```
 </TabItem>

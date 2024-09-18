@@ -112,20 +112,16 @@ true|false
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: network
-      value: '{{ network }}'
-    - name: firewallEndpoint
-      value: '{{ firewallEndpoint }}'
-    - name: tlsInspectionPolicy
-      value: '{{ tlsInspectionPolicy }}'
-    - name: disabled
-      value: '{{ disabled }}'
+name: string
+createTime: string
+updateTime: string
+labels: object
+state: string
+network: string
+firewallEndpoint: string
+tlsInspectionPolicy: string
+reconciling: boolean
+disabled: boolean
 
 ```
 </TabItem>

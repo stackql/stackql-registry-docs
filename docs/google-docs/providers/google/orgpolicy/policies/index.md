@@ -107,28 +107,29 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: dryRunSpec
-      value:
-        - name: inheritFromParent
-          value: '{{ inheritFromParent }}'
-        - name: etag
-          value: '{{ etag }}'
-        - name: reset
-          value: '{{ reset }}'
-        - name: rules
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: name
-      value: '{{ name }}'
-    - name: alternate
-      value:
-        - name: launch
-          value: '{{ launch }}'
+dryRunSpec:
+  inheritFromParent: boolean
+  etag: string
+  reset: boolean
+  updateTime: string
+  rules:
+    - enforce: boolean
+      condition:
+        location: string
+        title: string
+        description: string
+        expression: string
+      denyAll: boolean
+      values:
+        deniedValues:
+          - type: string
+        allowedValues:
+          - type: string
+      allowAll: boolean
+etag: string
+name: string
+alternate:
+  launch: string
 
 ```
 </TabItem>

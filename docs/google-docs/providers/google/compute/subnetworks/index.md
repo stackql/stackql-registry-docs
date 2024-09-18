@@ -174,66 +174,41 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: network
-      value: '{{ network }}'
-    - name: ipCidrRange
-      value: '{{ ipCidrRange }}'
-    - name: reservedInternalRange
-      value: '{{ reservedInternalRange }}'
-    - name: gatewayAddress
-      value: '{{ gatewayAddress }}'
-    - name: region
-      value: '{{ region }}'
-    - name: privateIpGoogleAccess
-      value: '{{ privateIpGoogleAccess }}'
-    - name: secondaryIpRanges
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: enableFlowLogs
-      value: '{{ enableFlowLogs }}'
-    - name: privateIpv6GoogleAccess
-      value: '{{ privateIpv6GoogleAccess }}'
-    - name: ipv6CidrRange
-      value: '{{ ipv6CidrRange }}'
-    - name: externalIpv6Prefix
-      value: '{{ externalIpv6Prefix }}'
-    - name: internalIpv6Prefix
-      value: '{{ internalIpv6Prefix }}'
-    - name: purpose
-      value: '{{ purpose }}'
-    - name: role
-      value: '{{ role }}'
-    - name: state
-      value: '{{ state }}'
-    - name: logConfig
-      value:
-        - name: enable
-          value: '{{ enable }}'
-        - name: aggregationInterval
-          value: '{{ aggregationInterval }}'
-        - name: flowSampling
-          value: '{{ flowSampling }}'
-        - name: metadata
-          value: '{{ metadata }}'
-        - name: metadataFields
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: filterExpr
-          value: '{{ filterExpr }}'
-    - name: stackType
-      value: '{{ stackType }}'
-    - name: ipv6AccessType
-      value: '{{ ipv6AccessType }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+network: string
+ipCidrRange: string
+reservedInternalRange: string
+gatewayAddress: string
+region: string
+selfLink: string
+privateIpGoogleAccess: boolean
+secondaryIpRanges:
+  - rangeName: string
+    ipCidrRange: string
+    reservedInternalRange: string
+fingerprint: string
+enableFlowLogs: boolean
+privateIpv6GoogleAccess: string
+ipv6CidrRange: string
+externalIpv6Prefix: string
+internalIpv6Prefix: string
+purpose: string
+role: string
+state: string
+logConfig:
+  enable: boolean
+  aggregationInterval: string
+  flowSampling: number
+  metadata: string
+  metadataFields:
+    - type: string
+  filterExpr: string
+stackType: string
+ipv6AccessType: string
 
 ```
 </TabItem>

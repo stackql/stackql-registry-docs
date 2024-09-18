@@ -146,46 +146,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: description
-      value: '{{ description }}'
-    - name: type
-      value: '{{ type }}'
-    - name: addresses
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: ports
-      value:
-        - name: type
-          value: '{{ type }}'
-        - name: format
-          value: '{{ format }}'
-    - name: scope
-      value: '{{ scope }}'
-    - name: serverTlsPolicy
-      value: '{{ serverTlsPolicy }}'
-    - name: certificateUrls
-      value:
-        - name: type
-          value: '{{ type }}'
-    - name: gatewaySecurityPolicy
-      value: '{{ gatewaySecurityPolicy }}'
-    - name: network
-      value: '{{ network }}'
-    - name: subnetwork
-      value: '{{ subnetwork }}'
-    - name: ipVersion
-      value: '{{ ipVersion }}'
-    - name: envoyHeaders
-      value: '{{ envoyHeaders }}'
-    - name: routingMode
-      value: '{{ routingMode }}'
+name: string
+selfLink: string
+createTime: string
+updateTime: string
+labels: object
+description: string
+type: string
+addresses:
+  - type: string
+ports:
+  - type: string
+    format: string
+scope: string
+serverTlsPolicy: string
+certificateUrls:
+  - type: string
+gatewaySecurityPolicy: string
+network: string
+subnetwork: string
+ipVersion: string
+envoyHeaders: string
+routingMode: string
 
 ```
 </TabItem>

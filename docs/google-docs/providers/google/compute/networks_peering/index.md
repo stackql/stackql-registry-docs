@@ -75,40 +75,22 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: peerNetwork
-      value: '{{ peerNetwork }}'
-    - name: autoCreateRoutes
-      value: '{{ autoCreateRoutes }}'
-    - name: networkPeering
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: network
-          value: '{{ network }}'
-        - name: state
-          value: '{{ state }}'
-        - name: stateDetails
-          value: '{{ stateDetails }}'
-        - name: autoCreateRoutes
-          value: '{{ autoCreateRoutes }}'
-        - name: exportCustomRoutes
-          value: '{{ exportCustomRoutes }}'
-        - name: importCustomRoutes
-          value: '{{ importCustomRoutes }}'
-        - name: exchangeSubnetRoutes
-          value: '{{ exchangeSubnetRoutes }}'
-        - name: exportSubnetRoutesWithPublicIp
-          value: '{{ exportSubnetRoutesWithPublicIp }}'
-        - name: importSubnetRoutesWithPublicIp
-          value: '{{ importSubnetRoutesWithPublicIp }}'
-        - name: peerMtu
-          value: '{{ peerMtu }}'
-        - name: stackType
-          value: '{{ stackType }}'
+name: string
+peerNetwork: string
+autoCreateRoutes: boolean
+networkPeering:
+  name: string
+  network: string
+  state: string
+  stateDetails: string
+  autoCreateRoutes: boolean
+  exportCustomRoutes: boolean
+  importCustomRoutes: boolean
+  exchangeSubnetRoutes: boolean
+  exportSubnetRoutesWithPublicIp: boolean
+  importSubnetRoutesWithPublicIp: boolean
+  peerMtu: integer
+  stackType: string
 
 ```
 </TabItem>

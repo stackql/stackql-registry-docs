@@ -114,26 +114,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: description
-      value: '{{ description }}'
-    - name: primaryContact
-      value: '{{ primaryContact }}'
-    - name: documentation
-      value: '{{ documentation }}'
-    - name: icon
-      value: '{{ icon }}'
-    - name: sharingEnvironmentConfig
-      value:
-        - name: defaultExchangeConfig
-          value: []
-        - name: dcrExchangeConfig
-          value: []
-    - name: discoveryType
-      value: '{{ discoveryType }}'
+name: string
+displayName: string
+description: string
+primaryContact: string
+documentation: string
+listingCount: integer
+icon: string
+sharingEnvironmentConfig:
+  defaultExchangeConfig: {}
+  dcrExchangeConfig:
+    singleSelectedResourceSharingRestriction: boolean
+    singleLinkedDatasetPerCleanroom: boolean
+discoveryType: string
 
 ```
 </TabItem>

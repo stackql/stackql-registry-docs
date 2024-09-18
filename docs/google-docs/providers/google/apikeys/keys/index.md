@@ -108,42 +108,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: annotations
-      value: '{{ annotations }}'
-    - name: restrictions
-      value:
-        - name: serverKeyRestrictions
-          value:
-            - name: allowedIps
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: apiTargets
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: iosKeyRestrictions
-          value:
-            - name: allowedBundleIds
-              value:
-                - name: type
-                  value: '{{ type }}'
-        - name: androidKeyRestrictions
-          value:
-            - name: allowedApplications
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-        - name: browserKeyRestrictions
-          value:
-            - name: allowedReferrers
-              value:
-                - name: type
-                  value: '{{ type }}'
-    - name: displayName
-      value: '{{ displayName }}'
+name: string
+etag: string
+createTime: string
+annotations: object
+uid: string
+keyString: string
+restrictions:
+  serverKeyRestrictions:
+    allowedIps:
+      - type: string
+  apiTargets:
+    - service: string
+      methods:
+        - type: string
+  iosKeyRestrictions:
+    allowedBundleIds:
+      - type: string
+  androidKeyRestrictions:
+    allowedApplications:
+      - packageName: string
+        sha1Fingerprint: string
+  browserKeyRestrictions:
+    allowedReferrers:
+      - type: string
+displayName: string
+updateTime: string
+deleteTime: string
 
 ```
 </TabItem>

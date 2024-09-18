@@ -120,48 +120,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: type
-      value: '{{ type }}'
-    - name: labels
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: metricKind
-      value: '{{ metricKind }}'
-    - name: valueType
-      value: '{{ valueType }}'
-    - name: unit
-      value: '{{ unit }}'
-    - name: description
-      value: '{{ description }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: metadata
-      value:
-        - name: launchStage
-          value: '{{ launchStage }}'
-        - name: samplePeriod
-          value: '{{ samplePeriod }}'
-        - name: ingestDelay
-          value: '{{ ingestDelay }}'
-        - name: timeSeriesResourceHierarchyLevel
-          value:
-            - name: type
-              value: '{{ type }}'
-            - name: enumDescriptions
-              value: '{{ enumDescriptions }}'
-            - name: enum
-              value: '{{ enum }}'
-    - name: launchStage
-      value: '{{ launchStage }}'
-    - name: monitoredResourceTypes
-      value:
-        - name: type
-          value: '{{ type }}'
+name: string
+type: string
+labels:
+  - key: string
+    valueType: string
+    description: string
+metricKind: string
+valueType: string
+unit: string
+description: string
+displayName: string
+metadata:
+  launchStage: string
+  samplePeriod: string
+  ingestDelay: string
+  timeSeriesResourceHierarchyLevel:
+    - type: string
+      enumDescriptions: string
+      enum: string
+launchStage: string
+monitoredResourceTypes:
+  - type: string
 
 ```
 </TabItem>

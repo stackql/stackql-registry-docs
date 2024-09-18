@@ -97,28 +97,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: connection
-      value:
-        - name: state
-          value: '{{ state }}'
-        - name: cloudSql
-          value:
-            - name: connectionName
-              value: '{{ connectionName }}'
-            - name: usernamePassword
-              value:
-                - name: passwordSecretVersionName
-                  value: '{{ passwordSecretVersionName }}'
-                - name: username
-                  value: '{{ username }}'
-            - name: cloudSqlIam
-              value: []
-            - name: maxConnections
-              value: '{{ maxConnections }}'
-            - name: databaseEngine
-              value: '{{ databaseEngine }}'
+connection:
+  state: string
+  cloudSql:
+    connectionName: string
+    usernamePassword:
+      passwordSecretVersionName: string
+      username: string
+    cloudSqlIam: {}
+    maxConnections: integer
+    databaseEngine: string
+  errors:
+    - details:
+        message: string
+        code: integer
+        details:
+          - additionalProperties: any
+            type: string
+      timestamps:
+        - format: string
+          type: string
+      extraInfo: string
+  name: string
 
 ```
 </TabItem>

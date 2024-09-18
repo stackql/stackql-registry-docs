@@ -135,34 +135,69 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: encryptionSpec
-      value:
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-    - name: network
-      value: '{{ network }}'
-    - name: displayName
-      value: '{{ displayName }}'
-    - name: publicEndpointEnabled
-      value: '{{ publicEndpointEnabled }}'
-    - name: enablePrivateServiceConnect
-      value: '{{ enablePrivateServiceConnect }}'
-    - name: etag
-      value: '{{ etag }}'
-    - name: labels
-      value: '{{ labels }}'
-    - name: privateServiceConnectConfig
-      value:
-        - name: enablePrivateServiceConnect
-          value: '{{ enablePrivateServiceConnect }}'
-        - name: projectAllowlist
-          value:
-            - name: type
-              value: '{{ type }}'
-    - name: description
-      value: '{{ description }}'
+encryptionSpec:
+  kmsKeyName: string
+network: string
+displayName: string
+publicEndpointDomainName: string
+deployedIndexes:
+  - createTime: string
+    dedicatedResources:
+      spot: boolean
+      machineSpec:
+        acceleratorCount: integer
+        reservationAffinity:
+          key: string
+          reservationAffinityType: string
+          values:
+            - type: string
+        tpuTopology: string
+        acceleratorType: string
+        machineType: string
+      autoscalingMetricSpecs:
+        - metricName: string
+          target: integer
+      minReplicaCount: integer
+      maxReplicaCount: integer
+    privateEndpoints:
+      pscAutomatedEndpoints:
+        - projectId: string
+          network: string
+          matchAddress: string
+      matchGrpcAddress: string
+      serviceAttachment: string
+    deployedIndexAuthConfig:
+      authProvider:
+        allowedIssuers:
+          - type: string
+        audiences:
+          - type: string
+    automaticResources:
+      minReplicaCount: integer
+      maxReplicaCount: integer
+    id: string
+    displayName: string
+    reservedIpRanges:
+      - type: string
+    enableAccessLogging: boolean
+    indexSyncTime: string
+    index: string
+    deploymentGroup: string
+publicEndpointEnabled: boolean
+name: string
+enablePrivateServiceConnect: boolean
+satisfiesPzs: boolean
+etag: string
+labels: object
+satisfiesPzi: boolean
+privateServiceConnectConfig:
+  serviceAttachment: string
+  enablePrivateServiceConnect: boolean
+  projectAllowlist:
+    - type: string
+createTime: string
+description: string
+updateTime: string
 
 ```
 </TabItem>

@@ -114,22 +114,17 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: urlMap
-      value: '{{ urlMap }}'
-    - name: region
-      value: '{{ region }}'
-    - name: proxyBind
-      value: '{{ proxyBind }}'
-    - name: fingerprint
-      value: '{{ fingerprint }}'
-    - name: httpKeepAliveTimeoutSec
-      value: '{{ httpKeepAliveTimeoutSec }}'
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+selfLink: string
+urlMap: string
+region: string
+proxyBind: boolean
+fingerprint: string
+httpKeepAliveTimeoutSec: integer
 
 ```
 </TabItem>

@@ -137,76 +137,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: zone
-      value: '{{ zone }}'
-    - name: description
-      value: '{{ description }}'
-    - name: name
-      value: '{{ name }}'
-    - name: specificReservation
-      value:
-        - name: instanceProperties
-          value:
-            - name: machineType
-              value: '{{ machineType }}'
-            - name: guestAccelerators
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: minCpuPlatform
-              value: '{{ minCpuPlatform }}'
-            - name: localSsds
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: locationHint
-              value: '{{ locationHint }}'
-        - name: count
-          value: '{{ count }}'
-        - name: inUseCount
-          value: '{{ inUseCount }}'
-        - name: assuredCount
-          value: '{{ assuredCount }}'
-        - name: sourceInstanceTemplate
-          value: '{{ sourceInstanceTemplate }}'
-    - name: aggregateReservation
-      value:
-        - name: vmFamily
-          value: '{{ vmFamily }}'
-        - name: reservedResources
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: inUseResources
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: workloadType
-          value: '{{ workloadType }}'
-    - name: commitment
-      value: '{{ commitment }}'
-    - name: specificReservationRequired
-      value: '{{ specificReservationRequired }}'
-    - name: status
-      value: '{{ status }}'
-    - name: shareSettings
-      value:
-        - name: shareType
-          value: '{{ shareType }}'
-        - name: projectMap
-          value: '{{ projectMap }}'
-    - name: satisfiesPzs
-      value: '{{ satisfiesPzs }}'
-    - name: resourcePolicies
-      value: '{{ resourcePolicies }}'
-    - name: resourceStatus
-      value:
-        - name: specificSkuAllocation
-          value:
-            - name: sourceInstanceTemplateId
-              value: '{{ sourceInstanceTemplateId }}'
+kind: string
+id: string
+creationTimestamp: string
+selfLink: string
+zone: string
+description: string
+name: string
+specificReservation:
+  instanceProperties:
+    machineType: string
+    guestAccelerators:
+      - acceleratorType: string
+        acceleratorCount: integer
+    minCpuPlatform: string
+    localSsds:
+      - diskSizeGb: string
+        interface: string
+    locationHint: string
+  count: string
+  inUseCount: string
+  assuredCount: string
+  sourceInstanceTemplate: string
+aggregateReservation:
+  vmFamily: string
+  reservedResources:
+    - accelerator:
+        acceleratorCount: integer
+        acceleratorType: string
+  inUseResources:
+    - {}
+  workloadType: string
+commitment: string
+specificReservationRequired: boolean
+status: string
+shareSettings:
+  shareType: string
+  projectMap: object
+satisfiesPzs: boolean
+resourcePolicies: object
+resourceStatus:
+  specificSkuAllocation:
+    sourceInstanceTemplateId: string
 
 ```
 </TabItem>

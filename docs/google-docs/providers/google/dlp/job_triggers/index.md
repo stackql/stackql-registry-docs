@@ -116,176 +116,167 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: jobTrigger
-      value:
-        - name: name
-          value: '{{ name }}'
-        - name: triggers
-          value:
-            - name: $ref
-              value: '{{ $ref }}'
-        - name: status
-          value: '{{ status }}'
-        - name: displayName
-          value: '{{ displayName }}'
-        - name: description
-          value: '{{ description }}'
-        - name: inspectJob
-          value:
-            - name: storageConfig
-              value:
-                - name: hybridOptions
-                  value:
-                    - name: requiredFindingLabelKeys
-                      value:
-                        - name: type
-                          value: '{{ type }}'
-                    - name: labels
-                      value: '{{ labels }}'
-                    - name: description
-                      value: '{{ description }}'
-                    - name: tableOptions
-                      value:
-                        - name: identifyingFields
-                          value:
-                            - name: $ref
-                              value: '{{ $ref }}'
-                - name: timespanConfig
-                  value:
-                    - name: startTime
-                      value: '{{ startTime }}'
-                    - name: timestampField
-                      value:
-                        - name: name
-                          value: '{{ name }}'
-                    - name: endTime
-                      value: '{{ endTime }}'
-                    - name: enableAutoPopulationOfTimespanConfig
-                      value: '{{ enableAutoPopulationOfTimespanConfig }}'
-                - name: datastoreOptions
-                  value:
-                    - name: partitionId
-                      value:
-                        - name: namespaceId
-                          value: '{{ namespaceId }}'
-                        - name: projectId
-                          value: '{{ projectId }}'
-                - name: cloudStorageOptions
-                  value:
-                    - name: bytesLimitPerFilePercent
-                      value: '{{ bytesLimitPerFilePercent }}'
-                    - name: filesLimitPercent
-                      value: '{{ filesLimitPercent }}'
-                    - name: fileSet
-                      value:
-                        - name: regexFileSet
-                          value:
-                            - name: excludeRegex
-                              value:
-                                - name: type
-                                  value: '{{ type }}'
-                            - name: includeRegex
-                              value:
-                                - name: type
-                                  value: '{{ type }}'
-                            - name: bucketName
-                              value: '{{ bucketName }}'
-                        - name: url
-                          value: '{{ url }}'
-                    - name: bytesLimitPerFile
-                      value: '{{ bytesLimitPerFile }}'
-                    - name: fileTypes
-                      value:
-                        - name: enumDescriptions
-                          value: '{{ enumDescriptions }}'
-                        - name: enum
-                          value: '{{ enum }}'
-                        - name: type
-                          value: '{{ type }}'
-                    - name: sampleMethod
-                      value: '{{ sampleMethod }}'
-                - name: bigQueryOptions
-                  value:
-                    - name: includedFields
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                    - name: identifyingFields
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                    - name: tableReference
-                      value:
-                        - name: tableId
-                          value: '{{ tableId }}'
-                        - name: projectId
-                          value: '{{ projectId }}'
-                        - name: datasetId
-                          value: '{{ datasetId }}'
-                    - name: excludedFields
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                    - name: rowsLimitPercent
-                      value: '{{ rowsLimitPercent }}'
-                    - name: rowsLimit
-                      value: '{{ rowsLimit }}'
-                    - name: sampleMethod
-                      value: '{{ sampleMethod }}'
-            - name: inspectTemplateName
-              value: '{{ inspectTemplateName }}'
-            - name: actions
-              value:
-                - name: $ref
-                  value: '{{ $ref }}'
-            - name: inspectConfig
-              value:
-                - name: limits
-                  value:
-                    - name: maxFindingsPerItem
-                      value: '{{ maxFindingsPerItem }}'
-                    - name: maxFindingsPerRequest
-                      value: '{{ maxFindingsPerRequest }}'
-                    - name: maxFindingsPerInfoType
-                      value:
-                        - name: $ref
-                          value: '{{ $ref }}'
-                - name: contentOptions
-                  value:
-                    - name: enum
-                      value: '{{ enum }}'
-                    - name: type
-                      value: '{{ type }}'
-                    - name: enumDescriptions
-                      value: '{{ enumDescriptions }}'
-                - name: includeQuote
-                  value: '{{ includeQuote }}'
-                - name: customInfoTypes
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: minLikelihoodPerInfoType
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: infoTypes
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-                - name: minLikelihood
-                  value: '{{ minLikelihood }}'
-                - name: excludeInfoTypes
-                  value: '{{ excludeInfoTypes }}'
-                - name: ruleSet
-                  value:
-                    - name: $ref
-                      value: '{{ $ref }}'
-    - name: triggerId
-      value: '{{ triggerId }}'
-    - name: locationId
-      value: '{{ locationId }}'
+jobTrigger:
+  createTime: string
+  name: string
+  errors:
+    - details:
+        message: string
+        code: integer
+        details:
+          - additionalProperties: any
+            type: string
+      timestamps:
+        - format: string
+          type: string
+      extraInfo: string
+  triggers:
+    - schedule:
+        recurrencePeriodDuration: string
+      manual: {}
+  lastRunTime: string
+  status: string
+  displayName: string
+  description: string
+  inspectJob:
+    storageConfig:
+      hybridOptions:
+        requiredFindingLabelKeys:
+          - type: string
+        labels: object
+        description: string
+        tableOptions:
+          identifyingFields:
+            - name: string
+      timespanConfig:
+        startTime: string
+        timestampField:
+          name: string
+        endTime: string
+        enableAutoPopulationOfTimespanConfig: boolean
+      datastoreOptions:
+        kind:
+          name: string
+        partitionId:
+          namespaceId: string
+          projectId: string
+      cloudStorageOptions:
+        bytesLimitPerFilePercent: integer
+        filesLimitPercent: integer
+        fileSet:
+          regexFileSet:
+            excludeRegex:
+              - type: string
+            includeRegex:
+              - type: string
+            bucketName: string
+          url: string
+        bytesLimitPerFile: string
+        fileTypes:
+          - enumDescriptions: string
+            enum: string
+            type: string
+        sampleMethod: string
+      bigQueryOptions:
+        includedFields:
+          - name: string
+        identifyingFields:
+          - name: string
+        tableReference:
+          tableId: string
+          projectId: string
+          datasetId: string
+        excludedFields:
+          - name: string
+        rowsLimitPercent: integer
+        rowsLimit: string
+        sampleMethod: string
+    inspectTemplateName: string
+    actions:
+      - publishSummaryToCscc: {}
+        saveFindings:
+          outputConfig:
+            outputSchema: string
+        jobNotificationEmails: {}
+        publishFindingsToCloudDataCatalog: {}
+        pubSub:
+          topic: string
+        deidentify:
+          cloudStorageOutput: string
+          transformationConfig:
+            structuredDeidentifyTemplate: string
+            imageRedactTemplate: string
+            deidentifyTemplate: string
+          transformationDetailsStorageConfig: {}
+          fileTypesToTransform:
+            - enumDescriptions: string
+              type: string
+              enum: string
+        publishToStackdriver: {}
+    inspectConfig:
+      limits:
+        maxFindingsPerItem: integer
+        maxFindingsPerRequest: integer
+        maxFindingsPerInfoType:
+          - maxFindings: integer
+            infoType:
+              version: string
+              name: string
+              sensitivityScore:
+                score: string
+      contentOptions:
+        - enum: string
+          type: string
+          enumDescriptions: string
+      includeQuote: boolean
+      customInfoTypes:
+        - regex:
+            pattern: string
+            groupIndexes:
+              - type: string
+                format: string
+          exclusionType: string
+          likelihood: string
+          dictionary:
+            cloudStoragePath:
+              path: string
+            wordList:
+              words:
+                - type: string
+          surrogateType: {}
+          detectionRules:
+            - hotwordRule:
+                proximity:
+                  windowAfter: integer
+                  windowBefore: integer
+                likelihoodAdjustment:
+                  relativeLikelihood: integer
+                  fixedLikelihood: string
+          storedType:
+            createTime: string
+            name: string
+      minLikelihoodPerInfoType:
+        - minLikelihood: string
+      infoTypes:
+        - version: string
+          name: string
+      minLikelihood: string
+      excludeInfoTypes: boolean
+      ruleSet:
+        - infoTypes:
+            - version: string
+              name: string
+          rules:
+            - exclusionRule:
+                excludeInfoTypes:
+                  infoTypes:
+                    - version: string
+                      name: string
+                matchingType: string
+                excludeByHotword: {}
+  updateTime: string
+triggerId: string
+locationId: string
 
 ```
 </TabItem>

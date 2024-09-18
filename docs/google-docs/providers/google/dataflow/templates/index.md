@@ -96,56 +96,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: jobName
-      value: '{{ jobName }}'
-    - name: gcsPath
-      value: '{{ gcsPath }}'
-    - name: parameters
-      value: '{{ parameters }}'
-    - name: environment
-      value:
-        - name: numWorkers
-          value: '{{ numWorkers }}'
-        - name: maxWorkers
-          value: '{{ maxWorkers }}'
-        - name: zone
-          value: '{{ zone }}'
-        - name: serviceAccountEmail
-          value: '{{ serviceAccountEmail }}'
-        - name: tempLocation
-          value: '{{ tempLocation }}'
-        - name: bypassTempDirValidation
-          value: '{{ bypassTempDirValidation }}'
-        - name: machineType
-          value: '{{ machineType }}'
-        - name: additionalExperiments
-          value:
-            - name: type
-              value: '{{ type }}'
-        - name: network
-          value: '{{ network }}'
-        - name: subnetwork
-          value: '{{ subnetwork }}'
-        - name: additionalUserLabels
-          value: '{{ additionalUserLabels }}'
-        - name: kmsKeyName
-          value: '{{ kmsKeyName }}'
-        - name: ipConfiguration
-          value: '{{ ipConfiguration }}'
-        - name: workerRegion
-          value: '{{ workerRegion }}'
-        - name: workerZone
-          value: '{{ workerZone }}'
-        - name: enableStreamingEngine
-          value: '{{ enableStreamingEngine }}'
-        - name: diskSizeGb
-          value: '{{ diskSizeGb }}'
-        - name: streamingMode
-          value: '{{ streamingMode }}'
-    - name: location
-      value: '{{ location }}'
+jobName: string
+gcsPath: string
+parameters: object
+environment:
+  numWorkers: integer
+  maxWorkers: integer
+  zone: string
+  serviceAccountEmail: string
+  tempLocation: string
+  bypassTempDirValidation: boolean
+  machineType: string
+  additionalExperiments:
+    - type: string
+  network: string
+  subnetwork: string
+  additionalUserLabels: object
+  kmsKeyName: string
+  ipConfiguration: string
+  workerRegion: string
+  workerZone: string
+  enableStreamingEngine: boolean
+  diskSizeGb: integer
+  streamingMode: string
+location: string
 
 ```
 </TabItem>

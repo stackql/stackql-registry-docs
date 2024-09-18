@@ -125,26 +125,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: userId
-      value: '{{ userId }}'
-    - name: policies
-      value:
-        - name: $ref
-          value: '{{ $ref }}'
-    - name: consentArtifact
-      value: '{{ consentArtifact }}'
-    - name: state
-      value: '{{ state }}'
-    - name: expireTime
-      value: '{{ expireTime }}'
-    - name: ttl
-      value: '{{ ttl }}'
-    - name: metadata
-      value: '{{ metadata }}'
+name: string
+revisionId: string
+revisionCreateTime: string
+userId: string
+policies:
+  - resourceAttributes:
+      - attributeDefinitionId: string
+        values:
+          - type: string
+    authorizationRule:
+      expression: string
+      title: string
+      description: string
+      location: string
+consentArtifact: string
+state: string
+expireTime: string
+ttl: string
+metadata: object
 
 ```
 </TabItem>

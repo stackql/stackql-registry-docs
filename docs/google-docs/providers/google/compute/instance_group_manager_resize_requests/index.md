@@ -121,86 +121,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: name
-      value: '{{ name }}'
-    - name: description
-      value: '{{ description }}'
-    - name: zone
-      value: '{{ zone }}'
-    - name: resizeBy
-      value: '{{ resizeBy }}'
-    - name: requestedRunDuration
-      value:
-        - name: seconds
-          value: '{{ seconds }}'
-        - name: nanos
-          value: '{{ nanos }}'
-    - name: state
-      value: '{{ state }}'
-    - name: status
-      value:
-        - name: error
-          value:
-            - name: errors
-              value:
-                - name: code
-                  value: '{{ code }}'
-                - name: location
-                  value: '{{ location }}'
-                - name: message
-                  value: '{{ message }}'
-                - name: errorDetails
-                  value:
-                    - name: errorInfo
-                      value:
-                        - name: reason
-                          value: '{{ reason }}'
-                        - name: domain
-                          value: '{{ domain }}'
-                        - name: metadatas
-                          value: '{{ metadatas }}'
-                    - name: quotaInfo
-                      value:
-                        - name: metricName
-                          value: '{{ metricName }}'
-                        - name: limitName
-                          value: '{{ limitName }}'
-                        - name: dimensions
-                          value: '{{ dimensions }}'
-                        - name: limit
-                          value: '{{ limit }}'
-                        - name: futureLimit
-                          value: '{{ futureLimit }}'
-                        - name: rolloutStatus
-                          value: '{{ rolloutStatus }}'
-                    - name: help
-                      value:
-                        - name: links
-                          value:
-                            - name: $ref
-                              value: '{{ $ref }}'
-                    - name: localizedMessage
-                      value:
-                        - name: locale
-                          value: '{{ locale }}'
-                        - name: message
-                          value: '{{ message }}'
-        - name: lastAttempt
-          value:
-            - name: error
-              value:
-                - name: errors
-                  value:
-                    - name: code
-                      value: '{{ code }}'
-                    - name: location
-                      value: '{{ location }}'
-                    - name: message
-                      value: '{{ message }}'
-                    - name: errorDetails
-                      value: []
+kind: string
+id: string
+creationTimestamp: string
+name: string
+description: string
+zone: string
+resizeBy: integer
+requestedRunDuration:
+  seconds: string
+  nanos: integer
+state: string
+status:
+  error:
+    errors:
+      - code: string
+        location: string
+        message: string
+        errorDetails:
+          - errorInfo:
+              reason: string
+              domain: string
+              metadatas: object
+            quotaInfo:
+              metricName: string
+              limitName: string
+              dimensions: object
+              limit: number
+              futureLimit: number
+              rolloutStatus: string
+            help:
+              links:
+                - description: string
+                  url: string
+            localizedMessage:
+              locale: string
+              message: string
+  lastAttempt:
+    error:
+      errors:
+        - code: string
+          location: string
+          message: string
+          errorDetails:
+            - {}
+selfLink: string
+selfLinkWithId: string
 
 ```
 </TabItem>

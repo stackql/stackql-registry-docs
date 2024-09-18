@@ -105,48 +105,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: basicAlgorithm
-      value:
-        - name: yarnConfig
-          value:
-            - name: gracefulDecommissionTimeout
-              value: '{{ gracefulDecommissionTimeout }}'
-            - name: scaleUpFactor
-              value: '{{ scaleUpFactor }}'
-            - name: scaleDownFactor
-              value: '{{ scaleDownFactor }}'
-            - name: scaleUpMinWorkerFraction
-              value: '{{ scaleUpMinWorkerFraction }}'
-            - name: scaleDownMinWorkerFraction
-              value: '{{ scaleDownMinWorkerFraction }}'
-        - name: sparkStandaloneConfig
-          value:
-            - name: gracefulDecommissionTimeout
-              value: '{{ gracefulDecommissionTimeout }}'
-            - name: scaleUpFactor
-              value: '{{ scaleUpFactor }}'
-            - name: scaleDownFactor
-              value: '{{ scaleDownFactor }}'
-            - name: scaleUpMinWorkerFraction
-              value: '{{ scaleUpMinWorkerFraction }}'
-            - name: scaleDownMinWorkerFraction
-              value: '{{ scaleDownMinWorkerFraction }}'
-            - name: removeOnlyIdleWorkers
-              value: '{{ removeOnlyIdleWorkers }}'
-        - name: cooldownPeriod
-          value: '{{ cooldownPeriod }}'
-    - name: workerConfig
-      value:
-        - name: minInstances
-          value: '{{ minInstances }}'
-        - name: maxInstances
-          value: '{{ maxInstances }}'
-        - name: weight
-          value: '{{ weight }}'
-    - name: labels
-      value: '{{ labels }}'
+id: string
+name: string
+basicAlgorithm:
+  yarnConfig:
+    gracefulDecommissionTimeout: string
+    scaleUpFactor: number
+    scaleDownFactor: number
+    scaleUpMinWorkerFraction: number
+    scaleDownMinWorkerFraction: number
+  sparkStandaloneConfig:
+    gracefulDecommissionTimeout: string
+    scaleUpFactor: number
+    scaleDownFactor: number
+    scaleUpMinWorkerFraction: number
+    scaleDownMinWorkerFraction: number
+    removeOnlyIdleWorkers: boolean
+  cooldownPeriod: string
+workerConfig:
+  minInstances: integer
+  maxInstances: integer
+  weight: integer
+labels: object
 
 ```
 </TabItem>

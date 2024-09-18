@@ -105,12 +105,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
-  props:
-    - name: importMethod
-      value: '{{ importMethod }}'
-    - name: protectionLevel
-      value: '{{ protectionLevel }}'
+name: string
+importMethod: string
+protectionLevel: string
+createTime: string
+generateTime: string
+expireTime: string
+expireEventTime: string
+state: string
+publicKey:
+  pem: string
+attestation:
+  format: string
+  content: string
+  certChains:
+    caviumCerts:
+      - type: string
+    googleCardCerts:
+      - type: string
+    googlePartitionCerts:
+      - type: string
 
 ```
 </TabItem>
