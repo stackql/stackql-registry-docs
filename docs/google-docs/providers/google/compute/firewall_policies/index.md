@@ -81,7 +81,7 @@ selfLink,
 selfLinkWithId,
 shortName
 FROM google.compute.firewall_policies
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -100,7 +100,6 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 ```sql
 /*+ create */
 INSERT INTO google.compute.firewall_policies (
-,
 name,
 description,
 rules,
@@ -113,7 +112,6 @@ parent,
 region
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ description }}',
 '{{ rules }}',
@@ -130,72 +128,127 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-rules:
-  - kind: string
-    ruleName: string
-    description: string
-    priority: integer
-    match:
-      srcIpRanges:
-        - type: string
-      destIpRanges:
-        - type: string
-      layer4Configs:
-        - ipProtocol: string
-          ports:
-            - type: string
-      srcSecureTags:
-        - name: string
-          state: string
-      destAddressGroups:
-        - type: string
-      srcAddressGroups:
-        - type: string
-      srcFqdns:
-        - type: string
-      destFqdns:
-        - type: string
-      srcRegionCodes:
-        - type: string
-      destRegionCodes:
-        - type: string
-      destThreatIntelligences:
-        - type: string
-      srcThreatIntelligences:
-        - type: string
-    action: string
-    securityProfileGroup: string
-    tlsInspect: boolean
-    direction: string
-    targetResources:
-      - type: string
-    enableLogging: boolean
-    ruleTupleCount: integer
-    targetServiceAccounts:
-      - type: string
-    targetSecureTags:
-      - name: string
-        state: string
-    disabled: boolean
-fingerprint: string
-selfLink: string
-selfLinkWithId: string
-associations:
-  - name: string
-    attachmentTarget: string
-    firewallPolicyId: string
-    shortName: string
-    displayName: string
-ruleTupleCount: integer
-shortName: string
-displayName: string
-parent: string
-region: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: rules
+      value:
+        - - name: kind
+            value: string
+          - name: ruleName
+            value: string
+          - name: description
+            value: string
+          - name: priority
+            value: integer
+          - name: match
+            value:
+              - name: srcIpRanges
+                value:
+                  - string
+              - name: destIpRanges
+                value:
+                  - string
+              - name: layer4Configs
+                value:
+                  - - name: ipProtocol
+                      value: string
+                    - name: ports
+                      value:
+                        - string
+              - name: srcSecureTags
+                value:
+                  - - name: name
+                      value: string
+                    - name: state
+                      value: string
+              - name: destAddressGroups
+                value:
+                  - string
+              - name: srcAddressGroups
+                value:
+                  - string
+              - name: srcFqdns
+                value:
+                  - string
+              - name: destFqdns
+                value:
+                  - string
+              - name: srcRegionCodes
+                value:
+                  - string
+              - name: destRegionCodes
+                value:
+                  - string
+              - name: destThreatIntelligences
+                value:
+                  - string
+              - name: srcThreatIntelligences
+                value:
+                  - string
+          - name: action
+            value: string
+          - name: securityProfileGroup
+            value: string
+          - name: tlsInspect
+            value: boolean
+          - name: direction
+            value: string
+          - name: targetResources
+            value:
+              - string
+          - name: enableLogging
+            value: boolean
+          - name: ruleTupleCount
+            value: integer
+          - name: targetServiceAccounts
+            value:
+              - string
+          - name: targetSecureTags
+            value:
+              - - name: name
+                  value: string
+                - name: state
+                  value: string
+          - name: disabled
+            value: boolean
+    - name: fingerprint
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: associations
+      value:
+        - - name: name
+            value: string
+          - name: attachmentTarget
+            value: string
+          - name: firewallPolicyId
+            value: string
+          - name: shortName
+            value: string
+          - name: displayName
+            value: string
+    - name: ruleTupleCount
+      value: integer
+    - name: shortName
+      value: string
+    - name: displayName
+      value: string
+    - name: parent
+      value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

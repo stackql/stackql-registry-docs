@@ -47,5 +47,5 @@ SELECT
 registerParameters
 FROM google.domains.registrations_register_parameters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

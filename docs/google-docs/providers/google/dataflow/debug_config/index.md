@@ -48,5 +48,5 @@ SELECT
 config
 FROM google.dataflow.debug_config
 WHERE jobId = '{{ jobId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

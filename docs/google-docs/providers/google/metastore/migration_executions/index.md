@@ -62,7 +62,7 @@ stateMessage
 FROM google.metastore.migration_executions
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `DELETE` example

@@ -58,5 +58,5 @@ error,
 metadata,
 response
 FROM google.ml.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

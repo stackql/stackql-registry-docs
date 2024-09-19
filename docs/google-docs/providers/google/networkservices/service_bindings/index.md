@@ -62,7 +62,7 @@ serviceId,
 updateTime
 FROM google.networkservices.service_bindings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,13 +101,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-service: string
-serviceId: string
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: service
+      value: string
+    - name: serviceId
+      value: string
+    - name: labels
+      value: object
 
 ```
 </TabItem>

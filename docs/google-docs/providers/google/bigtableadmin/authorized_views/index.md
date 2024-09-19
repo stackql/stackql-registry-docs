@@ -58,7 +58,7 @@ subsetView
 FROM google.bigtableadmin.authorized_views
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'
-AND tablesId = '{{ tablesId }}'; 
+AND tablesId = '{{ tablesId }}';
 ```
 
 ## `INSERT` example
@@ -92,21 +92,28 @@ SELECT
 '{{ name }}',
 '{{ subsetView }}',
 '{{ etag }}',
-true|false
+{{ deletionProtection }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-subsetView:
-  rowPrefixes:
-    - type: string
-      format: string
-  familySubsets: object
-etag: string
-deletionProtection: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: subsetView
+      value:
+        - name: rowPrefixes
+          value:
+            - string
+        - name: familySubsets
+          value: object
+    - name: etag
+      value: string
+    - name: deletionProtection
+      value: boolean
 
 ```
 </TabItem>

@@ -60,7 +60,7 @@ parentPolicyTag
 FROM google.datacatalog.policy_tags
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND taxonomiesId = '{{ taxonomiesId }}'; 
+AND taxonomiesId = '{{ taxonomiesId }}';
 ```
 
 ## `INSERT` example
@@ -101,12 +101,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-parentPolicyTag: string
-childPolicyTags:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: parentPolicyTag
+      value: string
+    - name: childPolicyTags
+      value:
+        - string
 
 ```
 </TabItem>

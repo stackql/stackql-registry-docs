@@ -67,7 +67,7 @@ FROM google.aiplatform.runs
 WHERE experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND tensorboardsId = '{{ tensorboardsId }}'; 
+AND tensorboardsId = '{{ tensorboardsId }}';
 ```
 
 ## `INSERT` example
@@ -104,17 +104,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requests:
-  - tensorboardRunId: string
-    parent: string
-    tensorboardRun:
-      createTime: string
-      updateTime: string
-      description: string
-      labels: object
-      name: string
-      etag: string
-      displayName: string
+- name: your_resource_model_name
+  props:
+    - name: requests
+      value:
+        - - name: tensorboardRunId
+            value: string
+          - name: parent
+            value: string
+          - name: tensorboardRun
+            value:
+              - name: createTime
+                value: string
+              - name: updateTime
+                value: string
+              - name: description
+                value: string
+              - name: labels
+                value: object
+              - name: name
+                value: string
+              - name: etag
+                value: string
+              - name: displayName
+                value: string
 
 ```
 </TabItem>

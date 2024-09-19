@@ -63,7 +63,7 @@ labels,
 updateTime
 FROM google.aiplatform.feature_groups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,21 +104,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-bigQuery:
-  dense: boolean
-  entityIdColumns:
-    - type: string
-  staticDataSource: boolean
-  timeSeries:
-    timestampColumn: string
-  bigQuerySource:
-    inputUri: string
-labels: object
-etag: string
-createTime: string
-description: string
-name: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: bigQuery
+      value:
+        - name: dense
+          value: boolean
+        - name: entityIdColumns
+          value:
+            - string
+        - name: staticDataSource
+          value: boolean
+        - name: timeSeries
+          value:
+            - name: timestampColumn
+              value: string
+        - name: bigQuerySource
+          value:
+            - name: inputUri
+              value: string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: createTime
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

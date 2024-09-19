@@ -52,7 +52,7 @@ disableCloudLogging,
 preferenceSet
 FROM google.migrationcenter.settings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

@@ -81,7 +81,7 @@ updateTime,
 vmwareEngineNetwork
 FROM google.vmwareengine.network_peerings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,11 +117,11 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ peerNetwork }}',
-true|false,
-true|false,
-true|false,
-true|false,
-true|false,
+{{ exportCustomRoutes }},
+{{ importCustomRoutes }},
+{{ exchangeSubnetRoutes }},
+{{ exportCustomRoutesWithPublicIp }},
+{{ importCustomRoutesWithPublicIp }},
 '{{ peerMtu }}',
 '{{ peerNetworkType }}',
 '{{ vmwareEngineNetwork }}',
@@ -132,22 +132,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-peerNetwork: string
-exportCustomRoutes: boolean
-importCustomRoutes: boolean
-exchangeSubnetRoutes: boolean
-exportCustomRoutesWithPublicIp: boolean
-importCustomRoutesWithPublicIp: boolean
-state: string
-stateDetails: string
-peerMtu: integer
-peerNetworkType: string
-uid: string
-vmwareEngineNetwork: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: peerNetwork
+      value: string
+    - name: exportCustomRoutes
+      value: boolean
+    - name: importCustomRoutes
+      value: boolean
+    - name: exchangeSubnetRoutes
+      value: boolean
+    - name: exportCustomRoutesWithPublicIp
+      value: boolean
+    - name: importCustomRoutesWithPublicIp
+      value: boolean
+    - name: state
+      value: string
+    - name: stateDetails
+      value: string
+    - name: peerMtu
+      value: integer
+    - name: peerNetworkType
+      value: string
+    - name: uid
+      value: string
+    - name: vmwareEngineNetwork
+      value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

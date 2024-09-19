@@ -82,5 +82,5 @@ userEnvVars
 FROM google.workflows.workflows_revisions
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workflowsId = '{{ workflowsId }}'; 
+AND workflowsId = '{{ workflowsId }}';
 ```

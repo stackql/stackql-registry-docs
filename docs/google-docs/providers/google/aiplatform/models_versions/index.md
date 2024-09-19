@@ -112,5 +112,5 @@ versionUpdateTime
 FROM google.aiplatform.models_versions
 WHERE locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

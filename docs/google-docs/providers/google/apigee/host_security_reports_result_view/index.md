@@ -55,5 +55,5 @@ rows,
 state
 FROM google.apigee.host_security_reports_result_view
 WHERE hostSecurityReportsId = '{{ hostSecurityReportsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

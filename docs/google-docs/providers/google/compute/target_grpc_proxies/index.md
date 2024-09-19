@@ -68,7 +68,7 @@ selfLinkWithId,
 urlMap,
 validateForProxyless
 FROM google.compute.target_grpc_proxies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -99,7 +99,7 @@ SELECT
 '{{ name }}',
 '{{ description }}',
 '{{ urlMap }}',
-true|false,
+{{ validateForProxyless }},
 '{{ fingerprint }}'
 ;
 ```
@@ -107,16 +107,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-selfLinkWithId: string
-urlMap: string
-validateForProxyless: boolean
-fingerprint: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: urlMap
+      value: string
+    - name: validateForProxyless
+      value: boolean
+    - name: fingerprint
+      value: string
 
 ```
 </TabItem>

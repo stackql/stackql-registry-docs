@@ -72,5 +72,5 @@ FROM google.integrations.suspensions
 WHERE executionsId = '{{ executionsId }}'
 AND integrationsId = '{{ integrationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

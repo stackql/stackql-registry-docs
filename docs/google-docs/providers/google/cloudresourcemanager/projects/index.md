@@ -73,7 +73,7 @@ state,
 tags,
 updateTime
 FROM google.cloudresourcemanager.projects
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -92,7 +92,6 @@ Use the following StackQL query and manifest file to create a new <code>projects
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.projects (
-,
 parent,
 projectId,
 displayName,
@@ -100,7 +99,6 @@ labels,
 tags
 )
 SELECT 
-'{{  }}',
 '{{ parent }}',
 '{{ projectId }}',
 '{{ displayName }}',
@@ -112,17 +110,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-projectId: string
-state: string
-displayName: string
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-labels: object
-tags: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: projectId
+      value: string
+    - name: state
+      value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: labels
+      value: object
+    - name: tags
+      value: object
 
 ```
 </TabItem>

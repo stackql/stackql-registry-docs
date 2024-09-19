@@ -53,7 +53,7 @@ members,
 role
 FROM google.managedidentities.domains_iam_policies
 WHERE domainsId = '{{ domainsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

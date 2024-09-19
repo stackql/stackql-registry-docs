@@ -50,7 +50,7 @@ peeredDnsDomains
 FROM google.servicenetworking.peered_dns_domains
 WHERE networksId = '{{ networksId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -87,8 +87,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dnsSuffix: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: dnsSuffix
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

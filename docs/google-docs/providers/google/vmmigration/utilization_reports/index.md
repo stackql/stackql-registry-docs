@@ -69,7 +69,7 @@ vms
 FROM google.vmmigration.utilization_reports
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `INSERT` example
@@ -108,44 +108,81 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-state: string
-stateTime: string
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-createTime: string
-timeFrame: string
-frameEndTime: string
-vmCount: integer
-vms:
-  - vmwareVmDetails:
-      vmId: string
-      datacenterId: string
-      datacenterDescription: string
-      uuid: string
-      displayName: string
-      powerState: string
-      cpuCount: integer
-      memoryMb: integer
-      diskCount: integer
-      committedStorageMb: string
-      guestDescription: string
-      bootOption: string
-    vmId: string
-    utilization:
-      cpuMaxPercent: integer
-      cpuAveragePercent: integer
-      memoryMaxPercent: integer
-      memoryAveragePercent: integer
-      diskIoRateMaxKbps: string
-      diskIoRateAverageKbps: string
-      networkThroughputMaxKbps: string
-      networkThroughputAverageKbps: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: stateTime
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: createTime
+      value: string
+    - name: timeFrame
+      value: string
+    - name: frameEndTime
+      value: string
+    - name: vmCount
+      value: integer
+    - name: vms
+      value:
+        - - name: vmwareVmDetails
+            value:
+              - name: vmId
+                value: string
+              - name: datacenterId
+                value: string
+              - name: datacenterDescription
+                value: string
+              - name: uuid
+                value: string
+              - name: displayName
+                value: string
+              - name: powerState
+                value: string
+              - name: cpuCount
+                value: integer
+              - name: memoryMb
+                value: integer
+              - name: diskCount
+                value: integer
+              - name: committedStorageMb
+                value: string
+              - name: guestDescription
+                value: string
+              - name: bootOption
+                value: string
+          - name: vmId
+            value: string
+          - name: utilization
+            value:
+              - name: cpuMaxPercent
+                value: integer
+              - name: cpuAveragePercent
+                value: integer
+              - name: memoryMaxPercent
+                value: integer
+              - name: memoryAveragePercent
+                value: integer
+              - name: diskIoRateMaxKbps
+                value: string
+              - name: diskIoRateAverageKbps
+                value: string
+              - name: networkThroughputMaxKbps
+                value: string
+              - name: networkThroughputAverageKbps
+                value: string
 
 ```
 </TabItem>

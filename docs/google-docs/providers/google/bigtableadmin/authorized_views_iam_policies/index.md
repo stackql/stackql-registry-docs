@@ -55,7 +55,7 @@ FROM google.bigtableadmin.authorized_views_iam_policies
 WHERE authorizedViewsId = '{{ authorizedViewsId }}'
 AND instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'
-AND tablesId = '{{ tablesId }}'; 
+AND tablesId = '{{ tablesId }}';
 ```
 
 ## `REPLACE` example

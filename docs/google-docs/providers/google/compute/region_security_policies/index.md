@@ -84,7 +84,7 @@ type,
 userDefinedFields
 FROM google.compute.region_security_policies
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -141,130 +141,240 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-userDefinedFields:
-  - name: string
-    base: string
-    offset: integer
-    size: integer
-    mask: string
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-rules:
-  - kind: string
-    description: string
-    priority: integer
-    match:
-      expr:
-        expression: string
-        title: string
-        description: string
-        location: string
-      exprOptions:
-        recaptchaOptions:
-          actionTokenSiteKeys:
-            - type: string
-          sessionTokenSiteKeys:
-            - type: string
-      versionedExpr: string
-      config:
-        srcIpRanges:
-          - type: string
-    networkMatch:
-      userDefinedFields:
-        - name: string
-          values:
-            - type: string
-      srcIpRanges:
-        - type: string
-      destIpRanges:
-        - type: string
-      ipProtocols:
-        - type: string
-      srcPorts:
-        - type: string
-      destPorts:
-        - type: string
-      srcRegionCodes:
-        - type: string
-      srcAsns:
-        - type: string
-          format: string
-    action: string
-    preview: boolean
-    rateLimitOptions:
-      rateLimitThreshold:
-        count: integer
-        intervalSec: integer
-      conformAction: string
-      exceedAction: string
-      exceedRedirectOptions:
-        type: string
-        target: string
-      enforceOnKey: string
-      enforceOnKeyName: string
-      enforceOnKeyConfigs:
-        - enforceOnKeyType: string
-          enforceOnKeyName: string
-      banDurationSec: integer
-    headerAction:
-      requestHeadersToAdds:
-        - headerName: string
-          headerValue: string
-    preconfiguredWafConfig:
-      exclusions:
-        - targetRuleSet: string
-          targetRuleIds:
-            - type: string
-          requestHeadersToExclude:
-            - val: string
-              op: string
-          requestCookiesToExclude:
-            - val: string
-              op: string
-          requestQueryParamsToExclude:
-            - val: string
-              op: string
-          requestUrisToExclude:
-            - val: string
-              op: string
-adaptiveProtectionConfig:
-  layer7DdosDefenseConfig:
-    enable: boolean
-    ruleVisibility: string
-    thresholdConfigs:
-      - name: string
-        autoDeployLoadThreshold: number
-        autoDeployConfidenceThreshold: number
-        autoDeployImpactedBaselineThreshold: number
-        autoDeployExpirationSec: integer
-        detectionLoadThreshold: number
-        detectionAbsoluteQps: number
-        detectionRelativeToBaselineQps: number
-        trafficGranularityConfigs:
-          - type: string
+- name: your_resource_model_name
+  props:
+    - name: userDefinedFields
+      value:
+        - - name: name
             value: string
-            enableEachUniqueValue: boolean
-ddosProtectionConfig:
-  ddosProtection: string
-advancedOptionsConfig:
-  jsonParsing: string
-  jsonCustomConfig:
-    contentTypes:
-      - type: string
-  logLevel: string
-  userIpRequestHeaders:
-    - type: string
-recaptchaOptionsConfig:
-  redirectSiteKey: string
-fingerprint: string
-selfLink: string
-type: string
-labels: object
-labelFingerprint: string
-region: string
+          - name: base
+            value: string
+          - name: offset
+            value: integer
+          - name: size
+            value: integer
+          - name: mask
+            value: string
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: rules
+      value:
+        - - name: kind
+            value: string
+          - name: description
+            value: string
+          - name: priority
+            value: integer
+          - name: match
+            value:
+              - name: expr
+                value:
+                  - name: expression
+                    value: string
+                  - name: title
+                    value: string
+                  - name: description
+                    value: string
+                  - name: location
+                    value: string
+              - name: exprOptions
+                value:
+                  - name: recaptchaOptions
+                    value:
+                      - name: actionTokenSiteKeys
+                        value:
+                          - string
+                      - name: sessionTokenSiteKeys
+                        value:
+                          - string
+              - name: versionedExpr
+                value: string
+              - name: config
+                value:
+                  - name: srcIpRanges
+                    value:
+                      - string
+          - name: networkMatch
+            value:
+              - name: userDefinedFields
+                value:
+                  - - name: name
+                      value: string
+                    - name: values
+                      value:
+                        - string
+              - name: srcIpRanges
+                value:
+                  - string
+              - name: destIpRanges
+                value:
+                  - string
+              - name: ipProtocols
+                value:
+                  - string
+              - name: srcPorts
+                value:
+                  - string
+              - name: destPorts
+                value:
+                  - string
+              - name: srcRegionCodes
+                value:
+                  - string
+              - name: srcAsns
+                value:
+                  - integer
+          - name: action
+            value: string
+          - name: preview
+            value: boolean
+          - name: rateLimitOptions
+            value:
+              - name: rateLimitThreshold
+                value:
+                  - name: count
+                    value: integer
+                  - name: intervalSec
+                    value: integer
+              - name: conformAction
+                value: string
+              - name: exceedAction
+                value: string
+              - name: exceedRedirectOptions
+                value:
+                  - name: type
+                    value: string
+                  - name: target
+                    value: string
+              - name: enforceOnKey
+                value: string
+              - name: enforceOnKeyName
+                value: string
+              - name: enforceOnKeyConfigs
+                value:
+                  - - name: enforceOnKeyType
+                      value: string
+                    - name: enforceOnKeyName
+                      value: string
+              - name: banDurationSec
+                value: integer
+          - name: headerAction
+            value:
+              - name: requestHeadersToAdds
+                value:
+                  - - name: headerName
+                      value: string
+                    - name: headerValue
+                      value: string
+          - name: preconfiguredWafConfig
+            value:
+              - name: exclusions
+                value:
+                  - - name: targetRuleSet
+                      value: string
+                    - name: targetRuleIds
+                      value:
+                        - string
+                    - name: requestHeadersToExclude
+                      value:
+                        - - name: val
+                            value: string
+                          - name: op
+                            value: string
+                    - name: requestCookiesToExclude
+                      value:
+                        - - name: val
+                            value: string
+                          - name: op
+                            value: string
+                    - name: requestQueryParamsToExclude
+                      value:
+                        - - name: val
+                            value: string
+                          - name: op
+                            value: string
+                    - name: requestUrisToExclude
+                      value:
+                        - - name: val
+                            value: string
+                          - name: op
+                            value: string
+    - name: adaptiveProtectionConfig
+      value:
+        - name: layer7DdosDefenseConfig
+          value:
+            - name: enable
+              value: boolean
+            - name: ruleVisibility
+              value: string
+            - name: thresholdConfigs
+              value:
+                - - name: name
+                    value: string
+                  - name: autoDeployLoadThreshold
+                    value: number
+                  - name: autoDeployConfidenceThreshold
+                    value: number
+                  - name: autoDeployImpactedBaselineThreshold
+                    value: number
+                  - name: autoDeployExpirationSec
+                    value: integer
+                  - name: detectionLoadThreshold
+                    value: number
+                  - name: detectionAbsoluteQps
+                    value: number
+                  - name: detectionRelativeToBaselineQps
+                    value: number
+                  - name: trafficGranularityConfigs
+                    value:
+                      - - name: type
+                          value: string
+                        - name: value
+                          value: string
+                        - name: enableEachUniqueValue
+                          value: boolean
+    - name: ddosProtectionConfig
+      value:
+        - name: ddosProtection
+          value: string
+    - name: advancedOptionsConfig
+      value:
+        - name: jsonParsing
+          value: string
+        - name: jsonCustomConfig
+          value:
+            - name: contentTypes
+              value:
+                - string
+        - name: logLevel
+          value: string
+        - name: userIpRequestHeaders
+          value:
+            - string
+    - name: recaptchaOptionsConfig
+      value:
+        - name: redirectSiteKey
+          value: string
+    - name: fingerprint
+      value: string
+    - name: selfLink
+      value: string
+    - name: type
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

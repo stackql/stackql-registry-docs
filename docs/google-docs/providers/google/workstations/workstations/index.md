@@ -84,7 +84,7 @@ FROM google.workstations.workstations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND workstationClustersId = '{{ workstationClustersId }}'
-AND workstationConfigsId = '{{ workstationConfigsId }}'; 
+AND workstationConfigsId = '{{ workstationConfigsId }}';
 ```
 
 ## `INSERT` example
@@ -131,21 +131,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-reconciling: boolean
-annotations: object
-labels: object
-createTime: string
-updateTime: string
-startTime: string
-deleteTime: string
-etag: string
-state: string
-host: string
-env: object
-kmsKey: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: startTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: state
+      value: string
+    - name: host
+      value: string
+    - name: env
+      value: object
+    - name: kmsKey
+      value: string
 
 ```
 </TabItem>

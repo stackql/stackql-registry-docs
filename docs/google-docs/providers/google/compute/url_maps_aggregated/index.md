@@ -76,5 +76,5 @@ region,
 selfLink,
 tests
 FROM google.compute.url_maps_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

@@ -90,7 +90,7 @@ status,
 subnetwork,
 users
 FROM google.compute.addresses
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -153,27 +153,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-address: string
-prefixLength: integer
-status: string
-region: string
-selfLink: string
-users:
-  - type: string
-networkTier: string
-labels: object
-labelFingerprint: string
-ipVersion: string
-addressType: string
-purpose: string
-subnetwork: string
-network: string
-ipv6EndpointType: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: address
+      value: string
+    - name: prefixLength
+      value: integer
+    - name: status
+      value: string
+    - name: region
+      value: string
+    - name: selfLink
+      value: string
+    - name: users
+      value:
+        - string
+    - name: networkTier
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: ipVersion
+      value: string
+    - name: addressType
+      value: string
+    - name: purpose
+      value: string
+    - name: subnetwork
+      value: string
+    - name: network
+      value: string
+    - name: ipv6EndpointType
+      value: string
 
 ```
 </TabItem>

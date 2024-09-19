@@ -67,7 +67,7 @@ state,
 updateTime
 FROM google.blockchainnodeengine.blockchain_nodes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,43 +99,74 @@ SELECT
 '{{ ethereumDetails }}',
 '{{ labels }}',
 '{{ blockchainType }}',
-true|false
+{{ privateServiceConnectEnabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-ethereumDetails:
-  gethDetails:
-    garbageCollectionMode: string
-  network: string
-  nodeType: string
-  executionClient: string
-  consensusClient: string
-  apiEnableAdmin: boolean
-  apiEnableDebug: boolean
-  additionalEndpoints:
-    beaconApiEndpoint: string
-    beaconPrometheusMetricsApiEndpoint: string
-    executionClientPrometheusMetricsApiEndpoint: string
-  validatorConfig:
-    mevRelayUrls:
-      - type: string
-    managedValidatorClient: boolean
-    beaconFeeRecipient: string
-name: string
-createTime: string
-updateTime: string
-labels: object
-blockchainType: string
-connectionInfo:
-  endpointInfo:
-    jsonRpcApiEndpoint: string
-    websocketsApiEndpoint: string
-  serviceAttachment: string
-state: string
-privateServiceConnectEnabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: ethereumDetails
+      value:
+        - name: gethDetails
+          value:
+            - name: garbageCollectionMode
+              value: string
+        - name: network
+          value: string
+        - name: nodeType
+          value: string
+        - name: executionClient
+          value: string
+        - name: consensusClient
+          value: string
+        - name: apiEnableAdmin
+          value: boolean
+        - name: apiEnableDebug
+          value: boolean
+        - name: additionalEndpoints
+          value:
+            - name: beaconApiEndpoint
+              value: string
+            - name: beaconPrometheusMetricsApiEndpoint
+              value: string
+            - name: executionClientPrometheusMetricsApiEndpoint
+              value: string
+        - name: validatorConfig
+          value:
+            - name: mevRelayUrls
+              value:
+                - string
+            - name: managedValidatorClient
+              value: boolean
+            - name: beaconFeeRecipient
+              value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: blockchainType
+      value: string
+    - name: connectionInfo
+      value:
+        - name: endpointInfo
+          value:
+            - name: jsonRpcApiEndpoint
+              value: string
+            - name: websocketsApiEndpoint
+              value: string
+        - name: serviceAttachment
+          value: string
+    - name: state
+      value: string
+    - name: privateServiceConnectEnabled
+      value: boolean
 
 ```
 </TabItem>

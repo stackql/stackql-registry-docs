@@ -48,5 +48,5 @@ optimalTrials
 FROM google.aiplatform.trials_optimal_trials
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND studiesId = '{{ studiesId }}'; 
+AND studiesId = '{{ studiesId }}';
 ```

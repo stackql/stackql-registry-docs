@@ -100,7 +100,7 @@ vmwareSourceVmDetails
 FROM google.vmmigration.migrating_vms
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `INSERT` example
@@ -147,220 +147,421 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-computeEngineTargetDefaults:
-  vmName: string
-  targetProject: string
-  zone: string
-  machineTypeSeries: string
-  machineType: string
-  networkTags:
-    - type: string
-  networkInterfaces:
-    - network: string
-      subnetwork: string
-      internalIp: string
-      externalIp: string
-      networkTier: string
-  serviceAccount: string
-  diskType: string
-  labels: object
-  licenseType: string
-  appliedLicense:
-    type: string
-    osLicense: string
-  computeScheduling:
-    onHostMaintenance: string
-    restartType: string
-    nodeAffinities:
-      - key: string
-        operator: string
-        values:
-          - type: string
-    minNodeCpus: integer
-  secureBoot: boolean
-  enableVtpm: boolean
-  enableIntegrityMonitoring: boolean
-  bootOption: string
-  metadata: object
-  additionalLicenses:
-    - type: string
-  hostname: string
-  encryption:
-    kmsKey: string
-  bootConversion: string
-computeEngineDisksTargetDefaults:
-  zone: string
-  disksTargetDefaults: {}
-  vmTargetDefaults:
-    vmName: string
-    machineTypeSeries: string
-    machineType: string
-    networkTags:
-      - type: string
-    networkInterfaces:
-      - network: string
-        subnetwork: string
-        internalIp: string
-        externalIp: string
-        networkTier: string
-    serviceAccount: string
-    secureBoot: boolean
-    enableVtpm: boolean
-    enableIntegrityMonitoring: boolean
-    metadata: object
-    additionalLicenses:
-      - type: string
-    hostname: string
-    labels: object
-    bootDiskDefaults:
-      image:
-        sourceImage: string
-      diskName: string
-      diskType: string
-      deviceName: string
-  targetProject: string
-  disks:
-    - sourceDiskNumber: integer
-      diskName: string
-      diskType: string
-      additionalLabels: object
-      vmAttachmentDetails:
-        deviceName: string
-vmwareSourceVmDetails:
-  firmware: string
-  committedStorageBytes: string
-  disks:
-    - diskNumber: integer
-      sizeGb: string
-      label: string
-  vmCapabilitiesInfo:
-    osCapabilities:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    lastOsCapabilitiesUpdateTime: string
-awsSourceVmDetails:
-  firmware: string
-  committedStorageBytes: string
-  disks:
-    - diskNumber: integer
-      volumeId: string
-      sizeGb: string
-azureSourceVmDetails:
-  firmware: string
-  committedStorageBytes: string
-  disks:
-    - diskNumber: integer
-      diskId: string
-      sizeGb: string
-name: string
-sourceVmId: string
-displayName: string
-description: string
-policy:
-  idleDuration: string
-  skipOsAdaptation: boolean
-createTime: string
-updateTime: string
-lastSync:
-  lastSyncTime: string
-state: string
-stateTime: string
-currentSyncInfo:
-  name: string
-  cycleNumber: integer
-  startTime: string
-  endTime: string
-  totalPauseDuration: string
-  progressPercent: integer
-  steps:
-    - initializingReplication: {}
-      replicating:
-        totalBytes: string
-        replicatedBytes: string
-        lastTwoMinutesAverageBytesPerSecond: string
-        lastThirtyMinutesAverageBytesPerSecond: string
-      postProcessing: {}
-      startTime: string
-      endTime: string
-  state: string
-  error:
-    code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-  warnings:
-    - code: string
-      warningMessage:
-        locale: string
-        message: string
-      helpLinks:
-        - description: string
-          url: string
-      warningTime: string
-group: string
-labels: object
-recentCloneJobs:
-  - computeEngineTargetDetails:
-      vmName: string
-      project: string
-      zone: string
-      machineTypeSeries: string
-      machineType: string
-      networkTags:
-        - type: string
-      networkInterfaces:
-        - network: string
-          subnetwork: string
-          internalIp: string
-          externalIp: string
-          networkTier: string
-      serviceAccount: string
-      diskType: string
-      labels: object
-      licenseType: string
-      secureBoot: boolean
-      enableVtpm: boolean
-      enableIntegrityMonitoring: boolean
-      bootOption: string
-      metadata: object
-      additionalLicenses:
-        - type: string
-      hostname: string
-      bootConversion: string
-    computeEngineDisksTargetDetails:
-      disksTargetDetails: {}
-      vmTargetDetails:
-        vmUri: string
-      disks:
-        - sourceDiskNumber: integer
-          diskUri: string
-    createTime: string
-    endTime: string
-    name: string
-    state: string
-    stateTime: string
-    steps:
-      - adaptingOs: {}
-        preparingVmDisks: {}
-        instantiatingMigratedVm: {}
-        startTime: string
-        endTime: string
-recentCutoverJobs:
-  - createTime: string
-    endTime: string
-    name: string
-    state: string
-    stateTime: string
-    progressPercent: integer
-    stateMessage: string
-    steps:
-      - shuttingDownSourceVm: {}
-        startTime: string
-        endTime: string
-cutoverForecast:
-  estimatedCutoverJobDuration: string
+- name: your_resource_model_name
+  props:
+    - name: computeEngineTargetDefaults
+      value:
+        - name: vmName
+          value: string
+        - name: targetProject
+          value: string
+        - name: zone
+          value: string
+        - name: machineTypeSeries
+          value: string
+        - name: machineType
+          value: string
+        - name: networkTags
+          value:
+            - string
+        - name: networkInterfaces
+          value:
+            - - name: network
+                value: string
+              - name: subnetwork
+                value: string
+              - name: internalIp
+                value: string
+              - name: externalIp
+                value: string
+              - name: networkTier
+                value: string
+        - name: serviceAccount
+          value: string
+        - name: diskType
+          value: string
+        - name: labels
+          value: object
+        - name: licenseType
+          value: string
+        - name: appliedLicense
+          value:
+            - name: type
+              value: string
+            - name: osLicense
+              value: string
+        - name: computeScheduling
+          value:
+            - name: onHostMaintenance
+              value: string
+            - name: restartType
+              value: string
+            - name: nodeAffinities
+              value:
+                - - name: key
+                    value: string
+                  - name: operator
+                    value: string
+                  - name: values
+                    value:
+                      - string
+            - name: minNodeCpus
+              value: integer
+        - name: secureBoot
+          value: boolean
+        - name: enableVtpm
+          value: boolean
+        - name: enableIntegrityMonitoring
+          value: boolean
+        - name: bootOption
+          value: string
+        - name: metadata
+          value: object
+        - name: additionalLicenses
+          value:
+            - string
+        - name: hostname
+          value: string
+        - name: encryption
+          value:
+            - name: kmsKey
+              value: string
+        - name: bootConversion
+          value: string
+    - name: computeEngineDisksTargetDefaults
+      value:
+        - name: zone
+          value: string
+        - name: disksTargetDefaults
+          value: []
+        - name: vmTargetDefaults
+          value:
+            - name: vmName
+              value: string
+            - name: machineTypeSeries
+              value: string
+            - name: machineType
+              value: string
+            - name: networkTags
+              value:
+                - string
+            - name: networkInterfaces
+              value:
+                - - name: network
+                    value: string
+                  - name: subnetwork
+                    value: string
+                  - name: internalIp
+                    value: string
+                  - name: externalIp
+                    value: string
+                  - name: networkTier
+                    value: string
+            - name: serviceAccount
+              value: string
+            - name: secureBoot
+              value: boolean
+            - name: enableVtpm
+              value: boolean
+            - name: enableIntegrityMonitoring
+              value: boolean
+            - name: metadata
+              value: object
+            - name: additionalLicenses
+              value:
+                - string
+            - name: hostname
+              value: string
+            - name: labels
+              value: object
+            - name: bootDiskDefaults
+              value:
+                - name: image
+                  value:
+                    - name: sourceImage
+                      value: string
+                - name: diskName
+                  value: string
+                - name: diskType
+                  value: string
+                - name: deviceName
+                  value: string
+        - name: targetProject
+          value: string
+        - name: disks
+          value:
+            - - name: sourceDiskNumber
+                value: integer
+              - name: diskName
+                value: string
+              - name: diskType
+                value: string
+              - name: additionalLabels
+                value: object
+              - name: vmAttachmentDetails
+                value:
+                  - name: deviceName
+                    value: string
+    - name: vmwareSourceVmDetails
+      value:
+        - name: firmware
+          value: string
+        - name: committedStorageBytes
+          value: string
+        - name: disks
+          value:
+            - - name: diskNumber
+                value: integer
+              - name: sizeGb
+                value: string
+              - name: label
+                value: string
+        - name: vmCapabilitiesInfo
+          value:
+            - name: osCapabilities
+              value:
+                - string
+            - name: lastOsCapabilitiesUpdateTime
+              value: string
+    - name: awsSourceVmDetails
+      value:
+        - name: firmware
+          value: string
+        - name: committedStorageBytes
+          value: string
+        - name: disks
+          value:
+            - - name: diskNumber
+                value: integer
+              - name: volumeId
+                value: string
+              - name: sizeGb
+                value: string
+    - name: azureSourceVmDetails
+      value:
+        - name: firmware
+          value: string
+        - name: committedStorageBytes
+          value: string
+        - name: disks
+          value:
+            - - name: diskNumber
+                value: integer
+              - name: diskId
+                value: string
+              - name: sizeGb
+                value: string
+    - name: name
+      value: string
+    - name: sourceVmId
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: policy
+      value:
+        - name: idleDuration
+          value: string
+        - name: skipOsAdaptation
+          value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: lastSync
+      value:
+        - name: lastSyncTime
+          value: string
+    - name: state
+      value: string
+    - name: stateTime
+      value: string
+    - name: currentSyncInfo
+      value:
+        - name: name
+          value: string
+        - name: cycleNumber
+          value: integer
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: totalPauseDuration
+          value: string
+        - name: progressPercent
+          value: integer
+        - name: steps
+          value:
+            - - name: initializingReplication
+                value: []
+              - name: replicating
+                value:
+                  - name: totalBytes
+                    value: string
+                  - name: replicatedBytes
+                    value: string
+                  - name: lastTwoMinutesAverageBytesPerSecond
+                    value: string
+                  - name: lastThirtyMinutesAverageBytesPerSecond
+                    value: string
+              - name: postProcessing
+                value: []
+              - name: startTime
+                value: string
+              - name: endTime
+                value: string
+        - name: state
+          value: string
+        - name: error
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+        - name: warnings
+          value:
+            - - name: code
+                value: string
+              - name: warningMessage
+                value:
+                  - name: locale
+                    value: string
+                  - name: message
+                    value: string
+              - name: helpLinks
+                value:
+                  - - name: description
+                      value: string
+                    - name: url
+                      value: string
+              - name: warningTime
+                value: string
+    - name: group
+      value: string
+    - name: labels
+      value: object
+    - name: recentCloneJobs
+      value:
+        - - name: computeEngineTargetDetails
+            value:
+              - name: vmName
+                value: string
+              - name: project
+                value: string
+              - name: zone
+                value: string
+              - name: machineTypeSeries
+                value: string
+              - name: machineType
+                value: string
+              - name: networkTags
+                value:
+                  - string
+              - name: networkInterfaces
+                value:
+                  - - name: network
+                      value: string
+                    - name: subnetwork
+                      value: string
+                    - name: internalIp
+                      value: string
+                    - name: externalIp
+                      value: string
+                    - name: networkTier
+                      value: string
+              - name: serviceAccount
+                value: string
+              - name: diskType
+                value: string
+              - name: labels
+                value: object
+              - name: licenseType
+                value: string
+              - name: secureBoot
+                value: boolean
+              - name: enableVtpm
+                value: boolean
+              - name: enableIntegrityMonitoring
+                value: boolean
+              - name: bootOption
+                value: string
+              - name: metadata
+                value: object
+              - name: additionalLicenses
+                value:
+                  - string
+              - name: hostname
+                value: string
+              - name: bootConversion
+                value: string
+          - name: computeEngineDisksTargetDetails
+            value:
+              - name: disksTargetDetails
+                value: []
+              - name: vmTargetDetails
+                value:
+                  - name: vmUri
+                    value: string
+              - name: disks
+                value:
+                  - - name: sourceDiskNumber
+                      value: integer
+                    - name: diskUri
+                      value: string
+          - name: createTime
+            value: string
+          - name: endTime
+            value: string
+          - name: name
+            value: string
+          - name: state
+            value: string
+          - name: stateTime
+            value: string
+          - name: steps
+            value:
+              - - name: adaptingOs
+                  value: []
+                - name: preparingVmDisks
+                  value: []
+                - name: instantiatingMigratedVm
+                  value: []
+                - name: startTime
+                  value: string
+                - name: endTime
+                  value: string
+    - name: recentCutoverJobs
+      value:
+        - - name: createTime
+            value: string
+          - name: endTime
+            value: string
+          - name: name
+            value: string
+          - name: state
+            value: string
+          - name: stateTime
+            value: string
+          - name: progressPercent
+            value: integer
+          - name: stateMessage
+            value: string
+          - name: steps
+            value:
+              - - name: shuttingDownSourceVm
+                  value: []
+                - name: startTime
+                  value: string
+                - name: endTime
+                  value: string
+    - name: cutoverForecast
+      value:
+        - name: estimatedCutoverJobDuration
+          value: string
 
 ```
 </TabItem>

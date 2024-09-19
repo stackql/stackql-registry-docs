@@ -98,7 +98,7 @@ FROM google.clouddeploy.rollouts
 WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND releasesId = '{{ releasesId }}'; 
+AND releasesId = '{{ releasesId }}';
 ```
 
 ## `INSERT` example
@@ -145,73 +145,136 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-description: string
-annotations: object
-labels: object
-createTime: string
-approveTime: string
-enqueueTime: string
-deployStartTime: string
-deployEndTime: string
-targetId: string
-approvalState: string
-state: string
-failureReason: string
-deployingBuild: string
-etag: string
-deployFailureCause: string
-phases:
-  - id: string
-    state: string
-    skipMessage: string
-    deploymentJobs:
-      deployJob:
-        id: string
-        state: string
-        skipMessage: string
-        jobRun: string
-        deployJob: {}
-        verifyJob: {}
-        predeployJob:
-          actions:
-            - type: string
-        postdeployJob:
-          actions:
-            - type: string
-        createChildRolloutJob: {}
-        advanceChildRolloutJob: {}
-    childRolloutJobs:
-      createRolloutJobs:
-        - id: string
-          state: string
-          skipMessage: string
-          jobRun: string
-      advanceRolloutJobs:
-        - id: string
-          state: string
-          skipMessage: string
-          jobRun: string
-metadata:
-  cloudRun:
-    service: string
-    serviceUrls:
-      - type: string
-    revision: string
-    job: string
-  automation:
-    promoteAutomationRun: string
-    advanceAutomationRuns:
-      - type: string
-    repairAutomationRuns:
-      - type: string
-  custom:
-    values: object
-controllerRollout: string
-rollbackOfRollout: string
-rolledBackByRollouts:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: approveTime
+      value: string
+    - name: enqueueTime
+      value: string
+    - name: deployStartTime
+      value: string
+    - name: deployEndTime
+      value: string
+    - name: targetId
+      value: string
+    - name: approvalState
+      value: string
+    - name: state
+      value: string
+    - name: failureReason
+      value: string
+    - name: deployingBuild
+      value: string
+    - name: etag
+      value: string
+    - name: deployFailureCause
+      value: string
+    - name: phases
+      value:
+        - - name: id
+            value: string
+          - name: state
+            value: string
+          - name: skipMessage
+            value: string
+          - name: deploymentJobs
+            value:
+              - name: deployJob
+                value:
+                  - name: id
+                    value: string
+                  - name: state
+                    value: string
+                  - name: skipMessage
+                    value: string
+                  - name: jobRun
+                    value: string
+                  - name: deployJob
+                    value: []
+                  - name: verifyJob
+                    value: []
+                  - name: predeployJob
+                    value:
+                      - name: actions
+                        value:
+                          - string
+                  - name: postdeployJob
+                    value:
+                      - name: actions
+                        value:
+                          - string
+                  - name: createChildRolloutJob
+                    value: []
+                  - name: advanceChildRolloutJob
+                    value: []
+          - name: childRolloutJobs
+            value:
+              - name: createRolloutJobs
+                value:
+                  - - name: id
+                      value: string
+                    - name: state
+                      value: string
+                    - name: skipMessage
+                      value: string
+                    - name: jobRun
+                      value: string
+              - name: advanceRolloutJobs
+                value:
+                  - - name: id
+                      value: string
+                    - name: state
+                      value: string
+                    - name: skipMessage
+                      value: string
+                    - name: jobRun
+                      value: string
+    - name: metadata
+      value:
+        - name: cloudRun
+          value:
+            - name: service
+              value: string
+            - name: serviceUrls
+              value:
+                - string
+            - name: revision
+              value: string
+            - name: job
+              value: string
+        - name: automation
+          value:
+            - name: promoteAutomationRun
+              value: string
+            - name: advanceAutomationRuns
+              value:
+                - string
+            - name: repairAutomationRuns
+              value:
+                - string
+        - name: custom
+          value:
+            - name: values
+              value: object
+    - name: controllerRollout
+      value: string
+    - name: rollbackOfRollout
+      value: string
+    - name: rolledBackByRollouts
+      value:
+        - string
 
 ```
 </TabItem>

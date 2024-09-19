@@ -51,5 +51,5 @@ displayName,
 sasUserIds
 FROM google.sasportal.customer_node
 WHERE customersId = '{{ customersId }}'
-AND nodesId = '{{ nodesId }}'; 
+AND nodesId = '{{ nodesId }}';
 ```

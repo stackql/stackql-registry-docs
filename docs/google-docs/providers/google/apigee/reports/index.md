@@ -92,7 +92,7 @@ timeUnit,
 toTime,
 topk
 FROM google.apigee.reports
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -155,38 +155,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dimensions:
-  - type: string
-environment: string
-displayName: string
-organization: string
-sortOrder: string
-filter: string
-chartType: string
-metrics:
-  - name: string
-    function: string
-timeUnit: string
-name: string
-toTime: string
-sortByCols:
-  - type: string
-properties:
-  - value:
-      - name: string
-        value: string
-    property: string
-offset: string
-createdAt: string
-tags:
-  - type: string
-topk: string
-lastModifiedAt: string
-fromTime: string
-comments:
-  - type: string
-limit: string
-lastViewedAt: string
+- name: your_resource_model_name
+  props:
+    - name: dimensions
+      value:
+        - string
+    - name: environment
+      value: string
+    - name: displayName
+      value: string
+    - name: organization
+      value: string
+    - name: sortOrder
+      value: string
+    - name: filter
+      value: string
+    - name: chartType
+      value: string
+    - name: metrics
+      value:
+        - - name: name
+            value: string
+          - name: function
+            value: string
+    - name: timeUnit
+      value: string
+    - name: name
+      value: string
+    - name: toTime
+      value: string
+    - name: sortByCols
+      value:
+        - string
+    - name: properties
+      value:
+        - - name: value
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: string
+          - name: property
+            value: string
+    - name: offset
+      value: string
+    - name: createdAt
+      value: string
+    - name: tags
+      value:
+        - string
+    - name: topk
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: fromTime
+      value: string
+    - name: comments
+      value:
+        - string
+    - name: limit
+      value: string
+    - name: lastViewedAt
+      value: string
 
 ```
 </TabItem>

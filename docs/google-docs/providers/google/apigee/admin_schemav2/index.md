@@ -51,5 +51,5 @@ meta,
 metrics
 FROM google.apigee.admin_schemav2
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

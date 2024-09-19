@@ -121,7 +121,7 @@ sourceIpRanges,
 subnetwork,
 target
 FROM google.compute.forwarding_rules
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -197,16 +197,16 @@ SELECT
 '{{ labelFingerprint }}',
 '{{ ipVersion }}',
 '{{ fingerprint }}',
-true|false,
-true|false,
+{{ allPorts }},
+{{ allowGlobalAccess }},
 '{{ metadataFilters }}',
-true|false,
+{{ isMirroringCollector }},
 '{{ sourceIpRanges }}',
 '{{ pscConnectionId }}',
 '{{ pscConnectionStatus }}',
 '{{ baseForwardingRule }}',
-true|false,
-true|false,
+{{ allowPscGlobalAccess }},
+{{ noAutomateDnsZone }},
 '{{ ipCollection }}'
 ;
 ```
@@ -214,50 +214,94 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-IPAddress: string
-IPProtocol: string
-portRange: string
-ports:
-  - type: string
-target: string
-selfLink: string
-loadBalancingScheme: string
-subnetwork: string
-network: string
-backendService: string
-serviceDirectoryRegistrations:
-  - namespace: string
-    service: string
-    serviceDirectoryRegion: string
-serviceLabel: string
-serviceName: string
-networkTier: string
-labels: object
-labelFingerprint: string
-ipVersion: string
-fingerprint: string
-allPorts: boolean
-allowGlobalAccess: boolean
-metadataFilters:
-  - filterMatchCriteria: string
-    filterLabels:
-      - name: string
-        value: string
-isMirroringCollector: boolean
-sourceIpRanges:
-  - type: string
-pscConnectionId: string
-pscConnectionStatus: string
-baseForwardingRule: string
-allowPscGlobalAccess: boolean
-noAutomateDnsZone: boolean
-ipCollection: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: IPAddress
+      value: string
+    - name: IPProtocol
+      value: string
+    - name: portRange
+      value: string
+    - name: ports
+      value:
+        - string
+    - name: target
+      value: string
+    - name: selfLink
+      value: string
+    - name: loadBalancingScheme
+      value: string
+    - name: subnetwork
+      value: string
+    - name: network
+      value: string
+    - name: backendService
+      value: string
+    - name: serviceDirectoryRegistrations
+      value:
+        - - name: namespace
+            value: string
+          - name: service
+            value: string
+          - name: serviceDirectoryRegion
+            value: string
+    - name: serviceLabel
+      value: string
+    - name: serviceName
+      value: string
+    - name: networkTier
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: ipVersion
+      value: string
+    - name: fingerprint
+      value: string
+    - name: allPorts
+      value: boolean
+    - name: allowGlobalAccess
+      value: boolean
+    - name: metadataFilters
+      value:
+        - - name: filterMatchCriteria
+            value: string
+          - name: filterLabels
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: string
+    - name: isMirroringCollector
+      value: boolean
+    - name: sourceIpRanges
+      value:
+        - string
+    - name: pscConnectionId
+      value: string
+    - name: pscConnectionStatus
+      value: string
+    - name: baseForwardingRule
+      value: string
+    - name: allowPscGlobalAccess
+      value: boolean
+    - name: noAutomateDnsZone
+      value: boolean
+    - name: ipCollection
+      value: string
 
 ```
 </TabItem>

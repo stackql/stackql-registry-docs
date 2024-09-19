@@ -48,5 +48,5 @@ caCerts
 FROM google.privateca.ca_pools_ca_certs
 WHERE caPoolsId = '{{ caPoolsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

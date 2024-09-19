@@ -64,7 +64,7 @@ methodTypes,
 resourceTypes,
 updateTime
 FROM google.orgpolicy.custom_constraints
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -107,18 +107,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-description: string
-condition: string
-displayName: string
-actionType: string
-name: string
-resourceTypes:
-  - type: string
-updateTime: string
-methodTypes:
-  - enum: string
-    type: string
-    enumDescriptions: string
+- name: your_resource_model_name
+  props:
+    - name: description
+      value: string
+    - name: condition
+      value: string
+    - name: displayName
+      value: string
+    - name: actionType
+      value: string
+    - name: name
+      value: string
+    - name: resourceTypes
+      value:
+        - string
+    - name: updateTime
+      value: string
+    - name: methodTypes
+      value:
+        - string
 
 ```
 </TabItem>

@@ -68,5 +68,5 @@ resetPasswordTemplate,
 useEmailSending,
 verifyEmailTemplate
 FROM google.identitytoolkit.relyingparty_project_config
-WHERE  = '{{  }}'; 
+;
 ```

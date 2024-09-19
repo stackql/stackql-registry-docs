@@ -54,7 +54,7 @@ role
 FROM google.config.deployments_iam_policies
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -49,5 +49,5 @@ SELECT
 name,
 capabilities
 FROM google.ml.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

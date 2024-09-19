@@ -55,7 +55,7 @@ FROM google.gkebackup.backups_iam_policies
 WHERE backupPlansId = '{{ backupPlansId }}'
 AND backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

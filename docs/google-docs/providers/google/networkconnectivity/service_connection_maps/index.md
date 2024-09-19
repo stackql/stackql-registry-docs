@@ -75,7 +75,7 @@ token,
 updateTime
 FROM google.networkconnectivity.service_connection_maps
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -122,48 +122,89 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-serviceClass: string
-serviceClassUri: string
-infrastructure: string
-producerPscConfigs:
-  - serviceAttachmentUri: string
-consumerPscConfigs:
-  - project: string
-    network: string
-    disableGlobalAccess: boolean
-    state: string
-    producerInstanceId: string
-    serviceAttachmentIpAddressMap: object
-    consumerInstanceProject: string
-consumerPscConnections:
-  - serviceAttachmentUri: string
-    state: string
-    project: string
-    network: string
-    pscConnectionId: string
-    ip: string
-    errorType: string
-    error:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-    gceOperation: string
-    forwardingRule: string
-    errorInfo:
-      reason: string
-      domain: string
-      metadata: object
-    selectedSubnetwork: string
-    producerInstanceId: string
-token: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: serviceClass
+      value: string
+    - name: serviceClassUri
+      value: string
+    - name: infrastructure
+      value: string
+    - name: producerPscConfigs
+      value:
+        - - name: serviceAttachmentUri
+            value: string
+    - name: consumerPscConfigs
+      value:
+        - - name: project
+            value: string
+          - name: network
+            value: string
+          - name: disableGlobalAccess
+            value: boolean
+          - name: state
+            value: string
+          - name: producerInstanceId
+            value: string
+          - name: serviceAttachmentIpAddressMap
+            value: object
+          - name: consumerInstanceProject
+            value: string
+    - name: consumerPscConnections
+      value:
+        - - name: serviceAttachmentUri
+            value: string
+          - name: state
+            value: string
+          - name: project
+            value: string
+          - name: network
+            value: string
+          - name: pscConnectionId
+            value: string
+          - name: ip
+            value: string
+          - name: errorType
+            value: string
+          - name: error
+            value:
+              - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
+          - name: gceOperation
+            value: string
+          - name: forwardingRule
+            value: string
+          - name: errorInfo
+            value:
+              - name: reason
+                value: string
+              - name: domain
+                value: string
+              - name: metadata
+                value: object
+          - name: selectedSubnetwork
+            value: string
+          - name: producerInstanceId
+            value: string
+    - name: token
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

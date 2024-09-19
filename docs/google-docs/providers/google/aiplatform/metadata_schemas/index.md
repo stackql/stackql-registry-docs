@@ -60,7 +60,7 @@ schemaVersion
 FROM google.aiplatform.metadata_schemas
 WHERE locationsId = '{{ locationsId }}'
 AND metadataStoresId = '{{ metadataStoresId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,12 +101,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-schema: string
-createTime: string
-schemaVersion: string
-schemaType: string
-description: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: schema
+      value: string
+    - name: createTime
+      value: string
+    - name: schemaVersion
+      value: string
+    - name: schemaType
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

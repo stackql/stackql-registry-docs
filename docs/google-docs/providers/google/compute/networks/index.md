@@ -85,7 +85,7 @@ selfLink,
 selfLinkWithId,
 subnetworks
 FROM google.compute.networks
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -125,14 +125,14 @@ SELECT
 '{{ description }}',
 '{{ IPv4Range }}',
 '{{ gatewayIPv4 }}',
-true|false,
+{{ autoCreateSubnetworks }},
 '{{ subnetworks }}',
 '{{ peerings }}',
 '{{ routingConfig }}',
 '{{ mtu }}',
 '{{ firewallPolicy }}',
 '{{ networkFirewallPolicyEnforcementOrder }}',
-true|false,
+{{ enableUlaInternalIpv6 }},
 '{{ internalIpv6Range }}'
 ;
 ```
@@ -140,38 +140,71 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-IPv4Range: string
-gatewayIPv4: string
-selfLink: string
-selfLinkWithId: string
-autoCreateSubnetworks: boolean
-subnetworks:
-  - type: string
-peerings:
-  - name: string
-    network: string
-    state: string
-    stateDetails: string
-    autoCreateRoutes: boolean
-    exportCustomRoutes: boolean
-    importCustomRoutes: boolean
-    exchangeSubnetRoutes: boolean
-    exportSubnetRoutesWithPublicIp: boolean
-    importSubnetRoutesWithPublicIp: boolean
-    peerMtu: integer
-    stackType: string
-routingConfig:
-  routingMode: string
-mtu: integer
-firewallPolicy: string
-networkFirewallPolicyEnforcementOrder: string
-enableUlaInternalIpv6: boolean
-internalIpv6Range: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: IPv4Range
+      value: string
+    - name: gatewayIPv4
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: autoCreateSubnetworks
+      value: boolean
+    - name: subnetworks
+      value:
+        - string
+    - name: peerings
+      value:
+        - - name: name
+            value: string
+          - name: network
+            value: string
+          - name: state
+            value: string
+          - name: stateDetails
+            value: string
+          - name: autoCreateRoutes
+            value: boolean
+          - name: exportCustomRoutes
+            value: boolean
+          - name: importCustomRoutes
+            value: boolean
+          - name: exchangeSubnetRoutes
+            value: boolean
+          - name: exportSubnetRoutesWithPublicIp
+            value: boolean
+          - name: importSubnetRoutesWithPublicIp
+            value: boolean
+          - name: peerMtu
+            value: integer
+          - name: stackType
+            value: string
+    - name: routingConfig
+      value:
+        - name: routingMode
+          value: string
+    - name: mtu
+      value: integer
+    - name: firewallPolicy
+      value: string
+    - name: networkFirewallPolicyEnforcementOrder
+      value: string
+    - name: enableUlaInternalIpv6
+      value: boolean
+    - name: internalIpv6Range
+      value: string
 
 ```
 </TabItem>

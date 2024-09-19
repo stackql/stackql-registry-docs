@@ -96,7 +96,7 @@ tags,
 tier
 FROM google.file.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -145,7 +145,7 @@ SELECT
 '{{ tags }}',
 '{{ protocol }}',
 '{{ performanceConfig }}',
-true|false,
+{{ deletionProtectionEnabled }},
 '{{ deletionProtectionReason }}'
 ;
 ```
@@ -153,67 +153,113 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-state: string
-statusMessage: string
-createTime: string
-tier: string
-labels: object
-fileShares:
-  - name: string
-    capacityGb: string
-    sourceBackup: string
-    nfsExportOptions:
-      - ipRanges:
-          - type: string
-        accessMode: string
-        squashMode: string
-        anonUid: string
-        anonGid: string
-networks:
-  - network: string
-    modes:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    reservedIpRange: string
-    ipAddresses:
-      - type: string
-    connectMode: string
-etag: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
-kmsKeyName: string
-suspensionReasons:
-  - type: string
-    enumDescriptions: string
-    enum: string
-replication:
-  role: string
-  replicas:
-    - state: string
-      stateReasons:
-        - type: string
-          enumDescriptions: string
-          enum: string
-      peerInstance: string
-      lastActiveSyncTime: string
-tags: object
-protocol: string
-configurablePerformanceEnabled: boolean
-performanceConfig:
-  fixedIops:
-    maxReadIops: string
-  iopsPerTb:
-    maxReadIopsPerTb: string
-performanceLimits:
-  maxReadIops: string
-  maxWriteIops: string
-  maxReadThroughputBps: string
-  maxWriteThroughputBps: string
-deletionProtectionEnabled: boolean
-deletionProtectionReason: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: statusMessage
+      value: string
+    - name: createTime
+      value: string
+    - name: tier
+      value: string
+    - name: labels
+      value: object
+    - name: fileShares
+      value:
+        - - name: name
+            value: string
+          - name: capacityGb
+            value: string
+          - name: sourceBackup
+            value: string
+          - name: nfsExportOptions
+            value:
+              - - name: ipRanges
+                  value:
+                    - string
+                - name: accessMode
+                  value: string
+                - name: squashMode
+                  value: string
+                - name: anonUid
+                  value: string
+                - name: anonGid
+                  value: string
+    - name: networks
+      value:
+        - - name: network
+            value: string
+          - name: modes
+            value:
+              - string
+          - name: reservedIpRange
+            value: string
+          - name: ipAddresses
+            value:
+              - string
+          - name: connectMode
+            value: string
+    - name: etag
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
+    - name: kmsKeyName
+      value: string
+    - name: suspensionReasons
+      value:
+        - string
+    - name: replication
+      value:
+        - name: role
+          value: string
+        - name: replicas
+          value:
+            - - name: state
+                value: string
+              - name: stateReasons
+                value:
+                  - string
+              - name: peerInstance
+                value: string
+              - name: lastActiveSyncTime
+                value: string
+    - name: tags
+      value: object
+    - name: protocol
+      value: string
+    - name: configurablePerformanceEnabled
+      value: boolean
+    - name: performanceConfig
+      value:
+        - name: fixedIops
+          value:
+            - name: maxReadIops
+              value: string
+        - name: iopsPerTb
+          value:
+            - name: maxReadIopsPerTb
+              value: string
+    - name: performanceLimits
+      value:
+        - name: maxReadIops
+          value: string
+        - name: maxWriteIops
+          value: string
+        - name: maxReadThroughputBps
+          value: string
+        - name: maxWriteThroughputBps
+          value: string
+    - name: deletionProtectionEnabled
+      value: boolean
+    - name: deletionProtectionReason
+      value: string
 
 ```
 </TabItem>

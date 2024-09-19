@@ -85,5 +85,5 @@ remoteService,
 selfLink,
 status
 FROM google.compute.interconnect_remote_locations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

@@ -53,5 +53,5 @@ securityPolicy
 FROM google.networksecurity.address_groups_references
 WHERE addressGroupsId = '{{ addressGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -64,5 +64,5 @@ secondaryIpRanges,
 stackType,
 subnetwork
 FROM google.compute.subnetworks_usable
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

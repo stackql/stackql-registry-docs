@@ -70,7 +70,7 @@ storageType,
 volume
 FROM google.baremetalsolution.nfs_shares
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,24 +113,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-nfsShareId: string
-id: string
-state: string
-volume: string
-allowedClients:
-  - network: string
-    shareIp: string
-    allowedClientsCidr: string
-    mountPermissions: string
-    allowDev: boolean
-    allowSuid: boolean
-    noRootSquash: boolean
-    nfsPath: string
-labels: object
-requestedSizeGib: string
-storageType: string
-pod: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: nfsShareId
+      value: string
+    - name: id
+      value: string
+    - name: state
+      value: string
+    - name: volume
+      value: string
+    - name: allowedClients
+      value:
+        - - name: network
+            value: string
+          - name: shareIp
+            value: string
+          - name: allowedClientsCidr
+            value: string
+          - name: mountPermissions
+            value: string
+          - name: allowDev
+            value: boolean
+          - name: allowSuid
+            value: boolean
+          - name: noRootSquash
+            value: boolean
+          - name: nfsPath
+            value: string
+    - name: labels
+      value: object
+    - name: requestedSizeGib
+      value: string
+    - name: storageType
+      value: string
+    - name: pod
+      value: string
 
 ```
 </TabItem>

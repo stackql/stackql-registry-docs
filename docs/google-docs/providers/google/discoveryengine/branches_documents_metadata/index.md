@@ -50,5 +50,5 @@ FROM google.discoveryengine.branches_documents_metadata
 WHERE branchesId = '{{ branchesId }}'
 AND dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

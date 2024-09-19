@@ -56,7 +56,7 @@ bandwidthLimit,
 displayName,
 state
 FROM google.storagetransfer.agent_pools
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -91,11 +91,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-state: string
-bandwidthLimit:
-  limitMbps: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: bandwidthLimit
+      value:
+        - name: limitMbps
+          value: string
 
 ```
 </TabItem>

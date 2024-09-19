@@ -64,7 +64,7 @@ parent,
 shortName,
 updateTime
 FROM google.cloudresourcemanager.tag_values
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -83,7 +83,6 @@ Use the following StackQL query and manifest file to create a new <code>tag_valu
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.tag_values (
-,
 name,
 parent,
 shortName,
@@ -91,7 +90,6 @@ description,
 etag
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ parent }}',
 '{{ shortName }}',
@@ -103,14 +101,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-shortName: string
-namespacedName: string
-description: string
-createTime: string
-updateTime: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: shortName
+      value: string
+    - name: namespacedName
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

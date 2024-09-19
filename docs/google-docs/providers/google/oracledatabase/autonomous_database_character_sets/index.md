@@ -51,5 +51,5 @@ characterSet,
 characterSetType
 FROM google.oracledatabase.autonomous_database_character_sets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

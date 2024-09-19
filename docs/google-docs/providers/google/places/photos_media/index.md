@@ -49,5 +49,5 @@ name,
 photoUri
 FROM google.places.photos_media
 WHERE photosId = '{{ photosId }}'
-AND placesId = '{{ placesId }}'; 
+AND placesId = '{{ placesId }}';
 ```

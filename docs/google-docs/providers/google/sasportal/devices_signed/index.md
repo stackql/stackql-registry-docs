@@ -75,8 +75,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-installerId: string
-encodedDevice: string
+- name: your_resource_model_name
+  props:
+    - name: installerId
+      value: string
+    - name: encodedDevice
+      value: string
 
 ```
 </TabItem>

@@ -72,5 +72,5 @@ FROM google.gkebackup.volume_restores
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND restorePlansId = '{{ restorePlansId }}'
-AND restoresId = '{{ restoresId }}'; 
+AND restoresId = '{{ restoresId }}';
 ```

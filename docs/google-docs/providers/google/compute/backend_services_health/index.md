@@ -51,5 +51,5 @@ healthStatus,
 kind
 FROM google.compute.backend_services_health
 WHERE backendService = '{{ backendService }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

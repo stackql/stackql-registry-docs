@@ -54,7 +54,7 @@ role
 FROM google.dataplex.lakes_iam_policies
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -64,5 +64,5 @@ FROM google.recommendationengine.user_events
 WHERE catalogsId = '{{ catalogsId }}'
 AND eventStoresId = '{{ eventStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -56,5 +56,5 @@ mailsSentCount,
 state,
 updateTime
 FROM google.cloudidentity.userinvitations
-WHERE customersId = '{{ customersId }}'; 
+WHERE customersId = '{{ customersId }}';
 ```

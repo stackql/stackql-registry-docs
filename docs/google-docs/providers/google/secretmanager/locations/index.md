@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.secretmanager.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

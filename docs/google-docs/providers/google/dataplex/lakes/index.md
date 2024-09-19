@@ -73,7 +73,7 @@ uid,
 updateTime
 FROM google.dataplex.lakes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,26 +112,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-state: string
-serviceAccount: string
-metastore:
-  service: string
-assetStatus:
-  updateTime: string
-  activeAssets: integer
-  securityPolicyApplyingAssets: integer
-metastoreStatus:
-  state: string
-  message: string
-  updateTime: string
-  endpoint: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: metastore
+      value:
+        - name: service
+          value: string
+    - name: assetStatus
+      value:
+        - name: updateTime
+          value: string
+        - name: activeAssets
+          value: integer
+        - name: securityPolicyApplyingAssets
+          value: integer
+    - name: metastoreStatus
+      value:
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: updateTime
+          value: string
+        - name: endpoint
+          value: string
 
 ```
 </TabItem>

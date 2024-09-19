@@ -56,5 +56,5 @@ metadata,
 response
 FROM google.assuredworkloads.operations
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

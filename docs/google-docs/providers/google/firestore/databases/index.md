@@ -88,7 +88,7 @@ uid,
 updateTime,
 versionRetentionPeriod
 FROM google.firestore.databases
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -135,30 +135,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-deleteTime: string
-locationId: string
-type: string
-concurrencyMode: string
-versionRetentionPeriod: string
-earliestVersionTime: string
-pointInTimeRecoveryEnablement: string
-appEngineIntegrationMode: string
-keyPrefix: string
-deleteProtectionState: string
-cmekConfig:
-  kmsKeyName: string
-  activeKeyVersion:
-    - type: string
-previousId: string
-sourceInfo:
-  backup:
-    backup: string
-  operation: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: locationId
+      value: string
+    - name: type
+      value: string
+    - name: concurrencyMode
+      value: string
+    - name: versionRetentionPeriod
+      value: string
+    - name: earliestVersionTime
+      value: string
+    - name: pointInTimeRecoveryEnablement
+      value: string
+    - name: appEngineIntegrationMode
+      value: string
+    - name: keyPrefix
+      value: string
+    - name: deleteProtectionState
+      value: string
+    - name: cmekConfig
+      value:
+        - name: kmsKeyName
+          value: string
+        - name: activeKeyVersion
+          value:
+            - string
+    - name: previousId
+      value: string
+    - name: sourceInfo
+      value:
+        - name: backup
+          value:
+            - name: backup
+              value: string
+        - name: operation
+          value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

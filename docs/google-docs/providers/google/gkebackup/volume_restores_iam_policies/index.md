@@ -56,7 +56,7 @@ WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND restorePlansId = '{{ restorePlansId }}'
 AND restoresId = '{{ restoresId }}'
-AND volumeRestoresId = '{{ volumeRestoresId }}'; 
+AND volumeRestoresId = '{{ volumeRestoresId }}';
 ```
 
 ## `REPLACE` example

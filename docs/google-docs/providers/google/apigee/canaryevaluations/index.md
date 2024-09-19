@@ -65,7 +65,7 @@ verdict
 FROM google.apigee.canaryevaluations
 WHERE canaryevaluationsId = '{{ canaryevaluationsId }}'
 AND instancesId = '{{ instancesId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -106,18 +106,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-control: string
-endTime: string
-metricLabels:
-  env: string
-  location: string
-  instance_id: string
-startTime: string
-verdict: string
-treatment: string
-name: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: string
+    - name: control
+      value: string
+    - name: endTime
+      value: string
+    - name: metricLabels
+      value:
+        - name: env
+          value: string
+        - name: location
+          value: string
+        - name: instance_id
+          value: string
+    - name: startTime
+      value: string
+    - name: verdict
+      value: string
+    - name: treatment
+      value: string
+    - name: name
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

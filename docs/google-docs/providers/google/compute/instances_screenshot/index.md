@@ -50,5 +50,5 @@ kind
 FROM google.compute.instances_screenshot
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

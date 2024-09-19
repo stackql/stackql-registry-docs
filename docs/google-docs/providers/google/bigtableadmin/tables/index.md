@@ -73,7 +73,7 @@ restoreInfo,
 stats
 FROM google.bigtableadmin.tables
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,33 +110,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-tableId: string
-table:
-  name: string
-  clusterStates: object
-  columnFamilies: object
-  granularity: string
-  restoreInfo:
-    sourceType: string
-    backupInfo:
-      backup: string
-      startTime: string
-      endTime: string
-      sourceTable: string
-      sourceBackup: string
-  changeStreamConfig:
-    retentionPeriod: string
-  deletionProtection: boolean
-  stats:
-    rowCount: string
-    averageColumnsPerRow: number
-    averageCellsPerColumn: number
-    logicalDataBytes: string
-  automatedBackupPolicy:
-    retentionPeriod: string
-    frequency: string
-initialSplits:
-  - key: string
+- name: your_resource_model_name
+  props:
+    - name: tableId
+      value: string
+    - name: table
+      value:
+        - name: name
+          value: string
+        - name: clusterStates
+          value: object
+        - name: columnFamilies
+          value: object
+        - name: granularity
+          value: string
+        - name: restoreInfo
+          value:
+            - name: sourceType
+              value: string
+            - name: backupInfo
+              value:
+                - name: backup
+                  value: string
+                - name: startTime
+                  value: string
+                - name: endTime
+                  value: string
+                - name: sourceTable
+                  value: string
+                - name: sourceBackup
+                  value: string
+        - name: changeStreamConfig
+          value:
+            - name: retentionPeriod
+              value: string
+        - name: deletionProtection
+          value: boolean
+        - name: stats
+          value:
+            - name: rowCount
+              value: string
+            - name: averageColumnsPerRow
+              value: number
+            - name: averageCellsPerColumn
+              value: number
+            - name: logicalDataBytes
+              value: string
+        - name: automatedBackupPolicy
+          value:
+            - name: retentionPeriod
+              value: string
+            - name: frequency
+              value: string
+    - name: initialSplits
+      value:
+        - - name: key
+            value: string
 
 ```
 </TabItem>

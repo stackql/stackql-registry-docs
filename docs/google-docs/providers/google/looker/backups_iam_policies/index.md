@@ -55,7 +55,7 @@ FROM google.looker.backups_iam_policies
 WHERE backupsId = '{{ backupsId }}'
 AND instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

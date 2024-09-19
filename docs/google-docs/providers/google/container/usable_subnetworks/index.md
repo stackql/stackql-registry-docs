@@ -54,5 +54,5 @@ secondaryIpRanges,
 statusMessage,
 subnetwork
 FROM google.container.usable_subnetworks
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

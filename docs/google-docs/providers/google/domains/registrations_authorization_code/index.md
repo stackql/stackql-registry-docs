@@ -48,5 +48,5 @@ code
 FROM google.domains.registrations_authorization_code
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND registrationsId = '{{ registrationsId }}'; 
+AND registrationsId = '{{ registrationsId }}';
 ```

@@ -50,7 +50,7 @@ name,
 defaultEkmConnection
 FROM google.cloudkms.ekm_config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

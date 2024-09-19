@@ -51,7 +51,7 @@ name,
 accessSettings,
 applicationSettings
 FROM google.iap.iap_iap_settings
-WHERE v1Id = '{{ v1Id }}'; 
+WHERE v1Id = '{{ v1Id }}';
 ```
 
 ## `UPDATE` example

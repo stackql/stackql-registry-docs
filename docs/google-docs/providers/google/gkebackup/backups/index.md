@@ -106,7 +106,7 @@ volumeCount
 FROM google.gkebackup.backups
 WHERE backupPlansId = '{{ backupPlansId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -147,45 +147,85 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-manual: boolean
-labels: object
-deleteLockDays: integer
-deleteLockExpireTime: string
-retainDays: integer
-retainExpireTime: string
-encryptionKey:
-  gcpKmsEncryptionKey: string
-allNamespaces: boolean
-selectedNamespaces:
-  namespaces:
-    - type: string
-selectedApplications:
-  namespacedNames:
-    - namespace: string
-      name: string
-containsVolumeData: boolean
-containsSecrets: boolean
-clusterMetadata:
-  cluster: string
-  k8sVersion: string
-  backupCrdVersions: object
-  gkeVersion: string
-  anthosVersion: string
-state: string
-stateReason: string
-completeTime: string
-resourceCount: integer
-volumeCount: integer
-sizeBytes: string
-etag: string
-description: string
-podCount: integer
-configBackupSizeBytes: string
-permissiveMode: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: manual
+      value: boolean
+    - name: labels
+      value: object
+    - name: deleteLockDays
+      value: integer
+    - name: deleteLockExpireTime
+      value: string
+    - name: retainDays
+      value: integer
+    - name: retainExpireTime
+      value: string
+    - name: encryptionKey
+      value:
+        - name: gcpKmsEncryptionKey
+          value: string
+    - name: allNamespaces
+      value: boolean
+    - name: selectedNamespaces
+      value:
+        - name: namespaces
+          value:
+            - string
+    - name: selectedApplications
+      value:
+        - name: namespacedNames
+          value:
+            - - name: namespace
+                value: string
+              - name: name
+                value: string
+    - name: containsVolumeData
+      value: boolean
+    - name: containsSecrets
+      value: boolean
+    - name: clusterMetadata
+      value:
+        - name: cluster
+          value: string
+        - name: k8sVersion
+          value: string
+        - name: backupCrdVersions
+          value: object
+        - name: gkeVersion
+          value: string
+        - name: anthosVersion
+          value: string
+    - name: state
+      value: string
+    - name: stateReason
+      value: string
+    - name: completeTime
+      value: string
+    - name: resourceCount
+      value: integer
+    - name: volumeCount
+      value: integer
+    - name: sizeBytes
+      value: string
+    - name: etag
+      value: string
+    - name: description
+      value: string
+    - name: podCount
+      value: integer
+    - name: configBackupSizeBytes
+      value: string
+    - name: permissiveMode
+      value: boolean
 
 ```
 </TabItem>

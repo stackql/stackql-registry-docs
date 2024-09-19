@@ -54,7 +54,7 @@ role
 FROM google.eventarc.triggers_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND triggersId = '{{ triggersId }}'; 
+AND triggersId = '{{ triggersId }}';
 ```
 
 ## `REPLACE` example

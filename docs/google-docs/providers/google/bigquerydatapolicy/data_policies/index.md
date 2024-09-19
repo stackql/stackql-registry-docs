@@ -60,7 +60,7 @@ dataPolicyType,
 policyTag
 FROM google.bigquerydatapolicy.data_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,13 +99,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-policyTag: string
-dataMaskingPolicy:
-  predefinedExpression: string
-  routine: string
-name: string
-dataPolicyType: string
-dataPolicyId: string
+- name: your_resource_model_name
+  props:
+    - name: policyTag
+      value: string
+    - name: dataMaskingPolicy
+      value:
+        - name: predefinedExpression
+          value: string
+        - name: routine
+          value: string
+    - name: name
+      value: string
+    - name: dataPolicyType
+      value: string
+    - name: dataPolicyId
+      value: string
 
 ```
 </TabItem>

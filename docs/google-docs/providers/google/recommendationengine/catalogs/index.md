@@ -54,7 +54,7 @@ defaultEventStoreId,
 displayName
 FROM google.recommendationengine.catalogs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

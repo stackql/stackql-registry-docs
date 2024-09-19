@@ -48,7 +48,7 @@ SELECT
 billingType
 FROM google.apigee.developers_monetization_config
 WHERE developersId = '{{ developersId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `REPLACE` example

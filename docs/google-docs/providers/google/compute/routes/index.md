@@ -91,7 +91,7 @@ selfLink,
 tags,
 warnings
 FROM google.compute.routes
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -156,38 +156,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-network: string
-tags:
-  - type: string
-destRange: string
-priority: integer
-nextHopInstance: string
-nextHopIp: string
-nextHopNetwork: string
-nextHopGateway: string
-nextHopPeering: string
-nextHopIlb: string
-warnings:
-  - code: string
-    message: string
-    data:
-      - key: string
-        value: string
-nextHopVpnTunnel: string
-nextHopHub: string
-selfLink: string
-routeType: string
-asPaths:
-  - pathSegmentType: string
-    asLists:
-      - type: string
-        format: string
-routeStatus: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: tags
+      value:
+        - string
+    - name: destRange
+      value: string
+    - name: priority
+      value: integer
+    - name: nextHopInstance
+      value: string
+    - name: nextHopIp
+      value: string
+    - name: nextHopNetwork
+      value: string
+    - name: nextHopGateway
+      value: string
+    - name: nextHopPeering
+      value: string
+    - name: nextHopIlb
+      value: string
+    - name: warnings
+      value:
+        - - name: code
+            value: string
+          - name: message
+            value: string
+          - name: data
+            value:
+              - - name: key
+                  value: string
+                - name: value
+                  value: string
+    - name: nextHopVpnTunnel
+      value: string
+    - name: nextHopHub
+      value: string
+    - name: selfLink
+      value: string
+    - name: routeType
+      value: string
+    - name: asPaths
+      value:
+        - - name: pathSegmentType
+            value: string
+          - name: asLists
+            value:
+              - integer
+    - name: routeStatus
+      value: string
 
 ```
 </TabItem>

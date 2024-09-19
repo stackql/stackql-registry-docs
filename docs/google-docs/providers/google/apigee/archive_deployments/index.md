@@ -63,7 +63,7 @@ operation,
 updatedAt
 FROM google.apigee.archive_deployments
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -100,12 +100,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
-name: string
-operation: string
-gcsUri: string
-updatedAt: string
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: createdAt
+      value: string
+    - name: name
+      value: string
+    - name: operation
+      value: string
+    - name: gcsUri
+      value: string
+    - name: updatedAt
+      value: string
+    - name: labels
+      value: object
 
 ```
 </TabItem>

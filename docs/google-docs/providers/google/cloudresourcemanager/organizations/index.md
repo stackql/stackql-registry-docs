@@ -61,5 +61,5 @@ etag,
 state,
 updateTime
 FROM google.cloudresourcemanager.organizations
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

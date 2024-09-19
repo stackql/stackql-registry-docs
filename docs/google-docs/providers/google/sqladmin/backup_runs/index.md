@@ -84,7 +84,7 @@ type,
 windowStartTime
 FROM google.sqladmin.backup_runs
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -143,31 +143,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-status: string
-enqueuedTime: string
-id: string
-startTime: string
-endTime: string
-error:
-  kind: string
-  code: string
-  message: string
-type: string
-description: string
-windowStartTime: string
-instance: string
-selfLink: string
-location: string
-diskEncryptionConfiguration:
-  kmsKeyName: string
-  kind: string
-diskEncryptionStatus:
-  kmsKeyVersionName: string
-  kind: string
-backupKind: string
-timeZone: string
-maxChargeableBytes: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: status
+      value: string
+    - name: enqueuedTime
+      value: string
+    - name: id
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: error
+      value:
+        - name: kind
+          value: string
+        - name: code
+          value: string
+        - name: message
+          value: string
+    - name: type
+      value: string
+    - name: description
+      value: string
+    - name: windowStartTime
+      value: string
+    - name: instance
+      value: string
+    - name: selfLink
+      value: string
+    - name: location
+      value: string
+    - name: diskEncryptionConfiguration
+      value:
+        - name: kmsKeyName
+          value: string
+        - name: kind
+          value: string
+    - name: diskEncryptionStatus
+      value:
+        - name: kmsKeyVersionName
+          value: string
+        - name: kind
+          value: string
+    - name: backupKind
+      value: string
+    - name: timeZone
+      value: string
+    - name: maxChargeableBytes
+      value: string
 
 ```
 </TabItem>

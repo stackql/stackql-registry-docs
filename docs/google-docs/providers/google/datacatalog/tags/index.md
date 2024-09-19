@@ -64,7 +64,7 @@ templateDisplayName
 FROM google.datacatalog.tags
 WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,11 +105,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-template: string
-templateDisplayName: string
-column: string
-fields: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: template
+      value: string
+    - name: templateDisplayName
+      value: string
+    - name: column
+      value: string
+    - name: fields
+      value: object
 
 ```
 </TabItem>

@@ -62,7 +62,7 @@ state,
 updateTime
 FROM google.aiplatform.metadata_stores
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,16 +99,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dataplexConfig:
-  enabledPipelinesLineage: boolean
-name: string
-encryptionSpec:
-  kmsKeyName: string
-updateTime: string
-state:
-  diskUtilizationBytes: string
-createTime: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: dataplexConfig
+      value:
+        - name: enabledPipelinesLineage
+          value: boolean
+    - name: name
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value:
+        - name: diskUtilizationBytes
+          value: string
+    - name: createTime
+      value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

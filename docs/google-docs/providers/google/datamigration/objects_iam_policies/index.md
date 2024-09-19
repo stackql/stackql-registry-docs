@@ -55,7 +55,7 @@ FROM google.datamigration.objects_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND migrationJobsId = '{{ migrationJobsId }}'
 AND objectsId = '{{ objectsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

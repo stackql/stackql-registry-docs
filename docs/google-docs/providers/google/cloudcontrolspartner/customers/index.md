@@ -54,5 +54,5 @@ displayName,
 isOnboarded
 FROM google.cloudcontrolspartner.customers
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

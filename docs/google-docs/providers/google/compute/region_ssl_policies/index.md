@@ -75,7 +75,7 @@ selfLink,
 warnings
 FROM google.compute.region_ssl_policies
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -124,26 +124,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-name: string
-description: string
-profile: string
-minTlsVersion: string
-enabledFeatures:
-  - type: string
-customFeatures:
-  - type: string
-fingerprint: string
-warnings:
-  - code: string
-    message: string
-    data:
-      - key: string
-        value: string
-region: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: profile
+      value: string
+    - name: minTlsVersion
+      value: string
+    - name: enabledFeatures
+      value:
+        - string
+    - name: customFeatures
+      value:
+        - string
+    - name: fingerprint
+      value: string
+    - name: warnings
+      value:
+        - - name: code
+            value: string
+          - name: message
+            value: string
+          - name: data
+            value:
+              - - name: key
+                  value: string
+                - name: value
+                  value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

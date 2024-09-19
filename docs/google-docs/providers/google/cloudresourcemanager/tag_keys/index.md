@@ -68,7 +68,7 @@ purposeData,
 shortName,
 updateTime
 FROM google.cloudresourcemanager.tag_keys
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -87,7 +87,6 @@ Use the following StackQL query and manifest file to create a new <code>tag_keys
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.tag_keys (
-,
 name,
 parent,
 shortName,
@@ -97,7 +96,6 @@ purpose,
 purposeData
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ parent }}',
 '{{ shortName }}',
@@ -111,16 +109,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-shortName: string
-namespacedName: string
-description: string
-createTime: string
-updateTime: string
-etag: string
-purpose: string
-purposeData: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: shortName
+      value: string
+    - name: namespacedName
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: purpose
+      value: string
+    - name: purposeData
+      value: object
 
 ```
 </TabItem>

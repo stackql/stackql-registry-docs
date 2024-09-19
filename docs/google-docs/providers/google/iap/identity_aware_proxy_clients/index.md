@@ -55,7 +55,7 @@ displayName,
 secret
 FROM google.iap.identity_aware_proxy_clients
 WHERE brandsId = '{{ brandsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -88,9 +88,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-secret: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: secret
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

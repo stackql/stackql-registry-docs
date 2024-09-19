@@ -50,5 +50,5 @@ repositories
 FROM google.cloudbuild.connections_linkable_repositories
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

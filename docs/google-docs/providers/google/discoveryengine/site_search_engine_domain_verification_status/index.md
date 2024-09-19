@@ -53,5 +53,5 @@ FROM google.discoveryengine.site_search_engine_domain_verification_status
 WHERE collectionsId = '{{ collectionsId }}'
 AND dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

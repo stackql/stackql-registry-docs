@@ -47,5 +47,5 @@ SELECT
 legacySecretKey
 FROM google.recaptchaenterprise.keys_legacy_secret_key
 WHERE keysId = '{{ keysId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -49,7 +49,7 @@ Producers can use this method to retrieve a list of available DNS RecordSets ava
 SELECT
 dnsRecordSets
 FROM google.servicenetworking.dns_record_sets
-WHERE servicesId = '{{ servicesId }}'; 
+WHERE servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -84,14 +84,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-zone: string
-consumerNetwork: string
-dnsRecordSet:
-  ttl: string
-  data:
-    - type: string
-  domain: string
-  type: string
+- name: your_resource_model_name
+  props:
+    - name: zone
+      value: string
+    - name: consumerNetwork
+      value: string
+    - name: dnsRecordSet
+      value:
+        - name: ttl
+          value: string
+        - name: data
+          value:
+            - string
+        - name: domain
+          value: string
+        - name: type
+          value: string
 
 ```
 </TabItem>

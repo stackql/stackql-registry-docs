@@ -77,7 +77,7 @@ updateTime
 FROM google.dataplex.tasks
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -124,72 +124,133 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-displayName: string
-state: string
-labels: object
-triggerSpec:
-  type: string
-  startTime: string
-  disabled: boolean
-  maxRetries: integer
-  schedule: string
-executionSpec:
-  args: object
-  serviceAccount: string
-  project: string
-  maxJobExecutionLifetime: string
-  kmsKey: string
-executionStatus:
-  updateTime: string
-  latestJob:
-    name: string
-    uid: string
-    startTime: string
-    endTime: string
-    state: string
-    retryCount: integer
-    service: string
-    serviceJob: string
-    message: string
-    labels: object
-    trigger: string
-spark:
-  mainJarFileUri: string
-  mainClass: string
-  pythonScriptFile: string
-  sqlScriptFile: string
-  sqlScript: string
-  fileUris:
-    - type: string
-  archiveUris:
-    - type: string
-  infrastructureSpec:
-    batch:
-      executorsCount: integer
-      maxExecutorsCount: integer
-    containerImage:
-      image: string
-      javaJars:
-        - type: string
-      pythonPackages:
-        - type: string
-      properties: object
-    vpcNetwork:
-      network: string
-      subNetwork: string
-      networkTags:
-        - type: string
-notebook:
-  notebook: string
-  fileUris:
-    - type: string
-  archiveUris:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: labels
+      value: object
+    - name: triggerSpec
+      value:
+        - name: type
+          value: string
+        - name: startTime
+          value: string
+        - name: disabled
+          value: boolean
+        - name: maxRetries
+          value: integer
+        - name: schedule
+          value: string
+    - name: executionSpec
+      value:
+        - name: args
+          value: object
+        - name: serviceAccount
+          value: string
+        - name: project
+          value: string
+        - name: maxJobExecutionLifetime
+          value: string
+        - name: kmsKey
+          value: string
+    - name: executionStatus
+      value:
+        - name: updateTime
+          value: string
+        - name: latestJob
+          value:
+            - name: name
+              value: string
+            - name: uid
+              value: string
+            - name: startTime
+              value: string
+            - name: endTime
+              value: string
+            - name: state
+              value: string
+            - name: retryCount
+              value: integer
+            - name: service
+              value: string
+            - name: serviceJob
+              value: string
+            - name: message
+              value: string
+            - name: labels
+              value: object
+            - name: trigger
+              value: string
+    - name: spark
+      value:
+        - name: mainJarFileUri
+          value: string
+        - name: mainClass
+          value: string
+        - name: pythonScriptFile
+          value: string
+        - name: sqlScriptFile
+          value: string
+        - name: sqlScript
+          value: string
+        - name: fileUris
+          value:
+            - string
+        - name: archiveUris
+          value:
+            - string
+        - name: infrastructureSpec
+          value:
+            - name: batch
+              value:
+                - name: executorsCount
+                  value: integer
+                - name: maxExecutorsCount
+                  value: integer
+            - name: containerImage
+              value:
+                - name: image
+                  value: string
+                - name: javaJars
+                  value:
+                    - string
+                - name: pythonPackages
+                  value:
+                    - string
+                - name: properties
+                  value: object
+            - name: vpcNetwork
+              value:
+                - name: network
+                  value: string
+                - name: subNetwork
+                  value: string
+                - name: networkTags
+                  value:
+                    - string
+    - name: notebook
+      value:
+        - name: notebook
+          value: string
+        - name: fileUris
+          value:
+            - string
+        - name: archiveUris
+          value:
+            - string
 
 ```
 </TabItem>

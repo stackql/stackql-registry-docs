@@ -63,5 +63,5 @@ serverCount,
 storageGib
 FROM google.baremetalsolution.provisioning_quotas
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

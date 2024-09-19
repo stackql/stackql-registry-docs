@@ -48,5 +48,5 @@ resourceFile
 FROM google.apigee.resourcefiles_environment_resources
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND type = '{{ type }}'; 
+AND type = '{{ type }}';
 ```

@@ -51,7 +51,7 @@ name,
 legacyRedirectionState,
 pullPercent
 FROM google.artifactregistry.project_settings
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

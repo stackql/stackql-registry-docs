@@ -75,7 +75,7 @@ WHERE experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND runsId = '{{ runsId }}'
-AND tensorboardsId = '{{ tensorboardsId }}'; 
+AND tensorboardsId = '{{ tensorboardsId }}';
 ```
 
 ## `INSERT` example
@@ -124,19 +124,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-metadata:
-  maxStep: string
-  maxWallTime: string
-  maxBlobSequenceLength: string
-description: string
-pluginData: string
-name: string
-valueType: string
-etag: string
-displayName: string
-pluginName: string
-updateTime: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: metadata
+      value:
+        - name: maxStep
+          value: string
+        - name: maxWallTime
+          value: string
+        - name: maxBlobSequenceLength
+          value: string
+    - name: description
+      value: string
+    - name: pluginData
+      value: string
+    - name: name
+      value: string
+    - name: valueType
+      value: string
+    - name: etag
+      value: string
+    - name: displayName
+      value: string
+    - name: pluginName
+      value: string
+    - name: updateTime
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

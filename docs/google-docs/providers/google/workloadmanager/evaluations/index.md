@@ -72,7 +72,7 @@ schedule,
 updateTime
 FROM google.workloadmanager.evaluations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -119,33 +119,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-resourceFilter:
-  scopes:
-    - type: string
-  resourceIdPatterns:
-    - type: string
-  inclusionLabels: object
-  gceInstanceFilter:
-    serviceAccounts:
-      - type: string
-ruleNames:
-  - type: string
-ruleVersions:
-  - type: string
-resourceStatus:
-  rulesNewerVersions:
-    - type: string
-  state: string
-createTime: string
-updateTime: string
-labels: object
-schedule: string
-customRulesBucket: string
-bigQueryDestination:
-  destinationDataset: string
-  createNewResultsTable: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: resourceFilter
+      value:
+        - name: scopes
+          value:
+            - string
+        - name: resourceIdPatterns
+          value:
+            - string
+        - name: inclusionLabels
+          value: object
+        - name: gceInstanceFilter
+          value:
+            - name: serviceAccounts
+              value:
+                - string
+    - name: ruleNames
+      value:
+        - string
+    - name: ruleVersions
+      value:
+        - string
+    - name: resourceStatus
+      value:
+        - name: rulesNewerVersions
+          value:
+            - string
+        - name: state
+          value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: schedule
+      value: string
+    - name: customRulesBucket
+      value: string
+    - name: bigQueryDestination
+      value:
+        - name: destinationDataset
+          value: string
+        - name: createNewResultsTable
+          value: boolean
 
 ```
 </TabItem>

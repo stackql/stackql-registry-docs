@@ -70,5 +70,5 @@ url,
 warnings
 FROM google.deploymentmanager.resources
 WHERE deployment = '{{ deployment }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

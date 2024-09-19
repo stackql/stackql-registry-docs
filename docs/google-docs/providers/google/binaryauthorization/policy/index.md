@@ -67,7 +67,7 @@ kubernetesNamespaceAdmissionRules,
 kubernetesServiceAccountAdmissionRules,
 updateTime
 FROM google.binaryauthorization.policy
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

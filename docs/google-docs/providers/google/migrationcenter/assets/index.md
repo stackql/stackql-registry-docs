@@ -72,7 +72,7 @@ sources,
 updateTime
 FROM google.migrationcenter.assets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

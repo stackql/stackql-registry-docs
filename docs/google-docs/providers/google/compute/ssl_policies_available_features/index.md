@@ -46,5 +46,5 @@ Lists all features that can be specified in the SSL policy when using custom pro
 SELECT
 features
 FROM google.compute.ssl_policies_available_features
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

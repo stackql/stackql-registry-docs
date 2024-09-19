@@ -58,5 +58,5 @@ variableValue
 FROM google.compute.instances_guest_attributes
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

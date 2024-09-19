@@ -69,7 +69,7 @@ vmwareEngineNetwork,
 vmwareEngineNetworkCanonical
 FROM google.vmwareengine.network_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,17 +110,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-internetAccess:
-  enabled: boolean
-  state: string
-edgeServicesCidr: string
-uid: string
-vmwareEngineNetwork: string
-description: string
-vmwareEngineNetworkCanonical: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: internetAccess
+      value:
+        - name: enabled
+          value: boolean
+        - name: state
+          value: string
+    - name: edgeServicesCidr
+      value: string
+    - name: uid
+      value: string
+    - name: vmwareEngineNetwork
+      value: string
+    - name: description
+      value: string
+    - name: vmwareEngineNetworkCanonical
+      value: string
 
 ```
 </TabItem>

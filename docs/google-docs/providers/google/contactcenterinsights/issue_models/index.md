@@ -74,7 +74,7 @@ trainingStats,
 updateTime
 FROM google.contactcenterinsights.issue_models
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,22 +115,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-languageCode: string
-displayName: string
-issueCount: string
-createTime: string
-inputDataConfig:
-  medium: string
-  trainingConversationsCount: string
-  filter: string
-name: string
-updateTime: string
-trainingStats:
-  analyzedConversationsCount: string
-  unclassifiedConversationsCount: string
-  issueStats: object
-modelType: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: languageCode
+      value: string
+    - name: displayName
+      value: string
+    - name: issueCount
+      value: string
+    - name: createTime
+      value: string
+    - name: inputDataConfig
+      value:
+        - name: medium
+          value: string
+        - name: trainingConversationsCount
+          value: string
+        - name: filter
+          value: string
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
+    - name: trainingStats
+      value:
+        - name: analyzedConversationsCount
+          value: string
+        - name: unclassifiedConversationsCount
+          value: string
+        - name: issueStats
+          value: object
+    - name: modelType
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

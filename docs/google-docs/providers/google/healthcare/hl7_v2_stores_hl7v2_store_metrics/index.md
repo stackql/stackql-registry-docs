@@ -51,5 +51,5 @@ FROM google.healthcare.hl7_v2_stores_hl7v2_store_metrics
 WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

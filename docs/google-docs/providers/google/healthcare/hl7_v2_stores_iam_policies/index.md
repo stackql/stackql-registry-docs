@@ -55,7 +55,7 @@ FROM google.healthcare.hl7_v2_stores_iam_policies
 WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

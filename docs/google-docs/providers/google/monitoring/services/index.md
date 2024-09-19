@@ -76,7 +76,7 @@ telemetry,
 userLabels
 FROM google.monitoring.services
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```
 
 ## `INSERT` example
@@ -137,53 +137,102 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-custom: {}
-appEngine:
-  moduleId: string
-cloudEndpoints:
-  service: string
-clusterIstio:
-  location: string
-  clusterName: string
-  serviceNamespace: string
-  serviceName: string
-meshIstio:
-  meshUid: string
-  serviceNamespace: string
-  serviceName: string
-istioCanonicalService:
-  meshUid: string
-  canonicalServiceNamespace: string
-  canonicalService: string
-cloudRun:
-  serviceName: string
-  location: string
-gkeNamespace:
-  projectId: string
-  location: string
-  clusterName: string
-  namespaceName: string
-gkeWorkload:
-  projectId: string
-  location: string
-  clusterName: string
-  namespaceName: string
-  topLevelControllerType: string
-  topLevelControllerName: string
-gkeService:
-  projectId: string
-  location: string
-  clusterName: string
-  namespaceName: string
-  serviceName: string
-basicService:
-  serviceType: string
-  serviceLabels: object
-telemetry:
-  resourceName: string
-userLabels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: custom
+      value: []
+    - name: appEngine
+      value:
+        - name: moduleId
+          value: string
+    - name: cloudEndpoints
+      value:
+        - name: service
+          value: string
+    - name: clusterIstio
+      value:
+        - name: location
+          value: string
+        - name: clusterName
+          value: string
+        - name: serviceNamespace
+          value: string
+        - name: serviceName
+          value: string
+    - name: meshIstio
+      value:
+        - name: meshUid
+          value: string
+        - name: serviceNamespace
+          value: string
+        - name: serviceName
+          value: string
+    - name: istioCanonicalService
+      value:
+        - name: meshUid
+          value: string
+        - name: canonicalServiceNamespace
+          value: string
+        - name: canonicalService
+          value: string
+    - name: cloudRun
+      value:
+        - name: serviceName
+          value: string
+        - name: location
+          value: string
+    - name: gkeNamespace
+      value:
+        - name: projectId
+          value: string
+        - name: location
+          value: string
+        - name: clusterName
+          value: string
+        - name: namespaceName
+          value: string
+    - name: gkeWorkload
+      value:
+        - name: projectId
+          value: string
+        - name: location
+          value: string
+        - name: clusterName
+          value: string
+        - name: namespaceName
+          value: string
+        - name: topLevelControllerType
+          value: string
+        - name: topLevelControllerName
+          value: string
+    - name: gkeService
+      value:
+        - name: projectId
+          value: string
+        - name: location
+          value: string
+        - name: clusterName
+          value: string
+        - name: namespaceName
+          value: string
+        - name: serviceName
+          value: string
+    - name: basicService
+      value:
+        - name: serviceType
+          value: string
+        - name: serviceLabels
+          value: object
+    - name: telemetry
+      value:
+        - name: resourceName
+          value: string
+    - name: userLabels
+      value: object
 
 ```
 </TabItem>

@@ -87,7 +87,7 @@ region,
 selfLink,
 targetService
 FROM google.compute.service_attachments
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -135,50 +135,80 @@ SELECT
 '{{ connectionPreference }}',
 '{{ connectedEndpoints }}',
 '{{ natSubnets }}',
-true|false,
+{{ enableProxyProtocol }},
 '{{ consumerRejectLists }}',
 '{{ consumerAcceptLists }}',
 '{{ pscServiceAttachmentId }}',
 '{{ fingerprint }}',
 '{{ domainNames }}',
-true|false
+{{ reconcileConnections }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-region: string
-producerForwardingRule: string
-targetService: string
-connectionPreference: string
-connectedEndpoints:
-  - status: string
-    pscConnectionId: string
-    endpoint: string
-    consumerNetwork: string
-natSubnets:
-  - type: string
-enableProxyProtocol: boolean
-consumerRejectLists:
-  - type: string
-consumerAcceptLists:
-  - projectIdOrNum: string
-    networkUrl: string
-    connectionLimit: integer
-pscServiceAttachmentId:
-  high: string
-  low: string
-fingerprint: string
-domainNames:
-  - type: string
-reconcileConnections: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: region
+      value: string
+    - name: producerForwardingRule
+      value: string
+    - name: targetService
+      value: string
+    - name: connectionPreference
+      value: string
+    - name: connectedEndpoints
+      value:
+        - - name: status
+            value: string
+          - name: pscConnectionId
+            value: string
+          - name: endpoint
+            value: string
+          - name: consumerNetwork
+            value: string
+    - name: natSubnets
+      value:
+        - string
+    - name: enableProxyProtocol
+      value: boolean
+    - name: consumerRejectLists
+      value:
+        - string
+    - name: consumerAcceptLists
+      value:
+        - - name: projectIdOrNum
+            value: string
+          - name: networkUrl
+            value: string
+          - name: connectionLimit
+            value: integer
+    - name: pscServiceAttachmentId
+      value:
+        - name: high
+          value: string
+        - name: low
+          value: string
+    - name: fingerprint
+      value: string
+    - name: domainNames
+      value:
+        - string
+    - name: reconcileConnections
+      value: boolean
 
 ```
 </TabItem>

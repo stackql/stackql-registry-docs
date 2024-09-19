@@ -62,7 +62,7 @@ type
 FROM google.baremetalsolution.snapshots
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND volumesId = '{{ volumesId }}'; 
+AND volumesId = '{{ volumesId }}';
 ```
 
 ## `INSERT` example
@@ -99,12 +99,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-id: string
-description: string
-createTime: string
-storageVolume: string
-type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: storageVolume
+      value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

@@ -79,7 +79,7 @@ uid,
 updateTime
 FROM google.backupdr.backup_vaults
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -122,21 +122,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-labels: object
-createTime: string
-updateTime: string
-backupMinimumEnforcedRetentionDuration: string
-deletable: boolean
-etag: string
-state: string
-effectiveTime: string
-backupCount: string
-serviceAccount: string
-totalStoredBytes: string
-uid: string
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: backupMinimumEnforcedRetentionDuration
+      value: string
+    - name: deletable
+      value: boolean
+    - name: etag
+      value: string
+    - name: state
+      value: string
+    - name: effectiveTime
+      value: string
+    - name: backupCount
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: totalStoredBytes
+      value: string
+    - name: uid
+      value: string
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

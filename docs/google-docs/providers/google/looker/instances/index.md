@@ -108,7 +108,7 @@ updateTime,
 userMetadata
 FROM google.looker.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -152,9 +152,9 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ platformEdition }}',
-true|false,
-true|false,
-true|false,
+{{ publicIpEnabled }},
+{{ privateIpEnabled }},
+{{ pscEnabled }},
 '{{ pscConfig }}',
 '{{ consumerNetwork }}',
 '{{ reservedRange }}',
@@ -167,72 +167,130 @@ true|false,
 '{{ adminSettings }}',
 '{{ oauthConfig }}',
 '{{ linkedLspProjectNumber }}',
-true|false,
-true|false
+{{ fipsEnabled }},
+{{ geminiEnabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-state: string
-platformEdition: string
-publicIpEnabled: boolean
-privateIpEnabled: boolean
-lookerVersion: string
-egressPublicIp: string
-ingressPrivateIp: string
-ingressPublicIp: string
-lookerUri: string
-pscEnabled: boolean
-pscConfig:
-  allowedVpcs:
-    - type: string
-  serviceAttachments:
-    - localFqdn: string
-      targetServiceAttachmentUri: string
-      connectionStatus: string
-  lookerServiceAttachmentUri: string
-consumerNetwork: string
-reservedRange: string
-maintenanceWindow:
-  dayOfWeek: string
-  startTime:
-    hours: integer
-    minutes: integer
-    seconds: integer
-    nanos: integer
-denyMaintenancePeriod:
-  startDate:
-    year: integer
-    month: integer
-    day: integer
-maintenanceSchedule:
-  startTime: string
-  endTime: string
-userMetadata:
-  additionalViewerUserCount: integer
-  additionalStandardUserCount: integer
-  additionalDeveloperUserCount: integer
-customDomain:
-  domain: string
-  state: string
-encryptionConfig:
-  kmsKeyName: string
-  kmsKeyState: string
-  kmsKeyNameVersion: string
-adminSettings:
-  allowedEmailDomains:
-    - type: string
-oauthConfig:
-  clientId: string
-  clientSecret: string
-linkedLspProjectNumber: string
-fipsEnabled: boolean
-geminiEnabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: platformEdition
+      value: string
+    - name: publicIpEnabled
+      value: boolean
+    - name: privateIpEnabled
+      value: boolean
+    - name: lookerVersion
+      value: string
+    - name: egressPublicIp
+      value: string
+    - name: ingressPrivateIp
+      value: string
+    - name: ingressPublicIp
+      value: string
+    - name: lookerUri
+      value: string
+    - name: pscEnabled
+      value: boolean
+    - name: pscConfig
+      value:
+        - name: allowedVpcs
+          value:
+            - string
+        - name: serviceAttachments
+          value:
+            - - name: localFqdn
+                value: string
+              - name: targetServiceAttachmentUri
+                value: string
+              - name: connectionStatus
+                value: string
+        - name: lookerServiceAttachmentUri
+          value: string
+    - name: consumerNetwork
+      value: string
+    - name: reservedRange
+      value: string
+    - name: maintenanceWindow
+      value:
+        - name: dayOfWeek
+          value: string
+        - name: startTime
+          value:
+            - name: hours
+              value: integer
+            - name: minutes
+              value: integer
+            - name: seconds
+              value: integer
+            - name: nanos
+              value: integer
+    - name: denyMaintenancePeriod
+      value:
+        - name: startDate
+          value:
+            - name: year
+              value: integer
+            - name: month
+              value: integer
+            - name: day
+              value: integer
+    - name: maintenanceSchedule
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+    - name: userMetadata
+      value:
+        - name: additionalViewerUserCount
+          value: integer
+        - name: additionalStandardUserCount
+          value: integer
+        - name: additionalDeveloperUserCount
+          value: integer
+    - name: customDomain
+      value:
+        - name: domain
+          value: string
+        - name: state
+          value: string
+    - name: encryptionConfig
+      value:
+        - name: kmsKeyName
+          value: string
+        - name: kmsKeyState
+          value: string
+        - name: kmsKeyNameVersion
+          value: string
+    - name: adminSettings
+      value:
+        - name: allowedEmailDomains
+          value:
+            - string
+    - name: oauthConfig
+      value:
+        - name: clientId
+          value: string
+        - name: clientSecret
+          value: string
+    - name: linkedLspProjectNumber
+      value: string
+    - name: fipsEnabled
+      value: boolean
+    - name: geminiEnabled
+      value: boolean
 
 ```
 </TabItem>

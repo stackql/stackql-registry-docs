@@ -54,7 +54,7 @@ role
 FROM google.dataproc.clusters_iam_policies
 WHERE clustersId = '{{ clustersId }}'
 AND projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `REPLACE` example

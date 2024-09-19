@@ -78,7 +78,7 @@ tlsInspect
 FROM google.compute.region_network_firewall_policies_rule
 WHERE firewallPolicy = '{{ firewallPolicy }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -125,66 +125,101 @@ SELECT
 '{{ match }}',
 '{{ action }}',
 '{{ securityProfileGroup }}',
-true|false,
+{{ tlsInspect }},
 '{{ direction }}',
 '{{ targetResources }}',
-true|false,
+{{ enableLogging }},
 '{{ ruleTupleCount }}',
 '{{ targetServiceAccounts }}',
 '{{ targetSecureTags }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-ruleName: string
-description: string
-priority: integer
-match:
-  srcIpRanges:
-    - type: string
-  destIpRanges:
-    - type: string
-  layer4Configs:
-    - ipProtocol: string
-      ports:
-        - type: string
-  srcSecureTags:
-    - name: string
-      state: string
-  destAddressGroups:
-    - type: string
-  srcAddressGroups:
-    - type: string
-  srcFqdns:
-    - type: string
-  destFqdns:
-    - type: string
-  srcRegionCodes:
-    - type: string
-  destRegionCodes:
-    - type: string
-  destThreatIntelligences:
-    - type: string
-  srcThreatIntelligences:
-    - type: string
-action: string
-securityProfileGroup: string
-tlsInspect: boolean
-direction: string
-targetResources:
-  - type: string
-enableLogging: boolean
-ruleTupleCount: integer
-targetServiceAccounts:
-  - type: string
-targetSecureTags:
-  - name: string
-    state: string
-disabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: ruleName
+      value: string
+    - name: description
+      value: string
+    - name: priority
+      value: integer
+    - name: match
+      value:
+        - name: srcIpRanges
+          value:
+            - string
+        - name: destIpRanges
+          value:
+            - string
+        - name: layer4Configs
+          value:
+            - - name: ipProtocol
+                value: string
+              - name: ports
+                value:
+                  - string
+        - name: srcSecureTags
+          value:
+            - - name: name
+                value: string
+              - name: state
+                value: string
+        - name: destAddressGroups
+          value:
+            - string
+        - name: srcAddressGroups
+          value:
+            - string
+        - name: srcFqdns
+          value:
+            - string
+        - name: destFqdns
+          value:
+            - string
+        - name: srcRegionCodes
+          value:
+            - string
+        - name: destRegionCodes
+          value:
+            - string
+        - name: destThreatIntelligences
+          value:
+            - string
+        - name: srcThreatIntelligences
+          value:
+            - string
+    - name: action
+      value: string
+    - name: securityProfileGroup
+      value: string
+    - name: tlsInspect
+      value: boolean
+    - name: direction
+      value: string
+    - name: targetResources
+      value:
+        - string
+    - name: enableLogging
+      value: boolean
+    - name: ruleTupleCount
+      value: integer
+    - name: targetServiceAccounts
+      value:
+        - string
+    - name: targetSecureTags
+      value:
+        - - name: name
+            value: string
+          - name: state
+            value: string
+    - name: disabled
+      value: boolean
 
 ```
 </TabItem>

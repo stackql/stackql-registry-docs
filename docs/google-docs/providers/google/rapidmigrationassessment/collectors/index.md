@@ -82,7 +82,7 @@ updateTime,
 vsphereScan
 FROM google.rapidmigrationassessment.collectors
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,23 +129,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-description: string
-serviceAccount: string
-bucket: string
-expectedAssetCount: string
-state: string
-clientVersion: string
-guestOsScan:
-  coreSource: string
-vsphereScan:
-  coreSource: string
-collectionDays: integer
-eulaUri: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: bucket
+      value: string
+    - name: expectedAssetCount
+      value: string
+    - name: state
+      value: string
+    - name: clientVersion
+      value: string
+    - name: guestOsScan
+      value:
+        - name: coreSource
+          value: string
+    - name: vsphereScan
+      value:
+        - name: coreSource
+          value: string
+    - name: collectionDays
+      value: integer
+    - name: eulaUri
+      value: string
 
 ```
 </TabItem>

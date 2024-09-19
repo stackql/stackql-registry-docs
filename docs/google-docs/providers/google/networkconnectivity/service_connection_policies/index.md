@@ -71,7 +71,7 @@ serviceClass,
 updateTime
 FROM google.networkconnectivity.service_connection_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,42 +116,75 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-network: string
-serviceClass: string
-infrastructure: string
-pscConfig:
-  subnetworks:
-    - type: string
-  limit: string
-  producerInstanceLocation: string
-  allowedGoogleProducersResourceHierarchyLevel:
-    - type: string
-pscConnections:
-  - state: string
-    consumerForwardingRule: string
-    consumerAddress: string
-    errorType: string
-    error:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-    gceOperation: string
-    consumerTargetProject: string
-    pscConnectionId: string
-    errorInfo:
-      reason: string
-      domain: string
-      metadata: object
-    selectedSubnetwork: string
-    producerInstanceId: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: serviceClass
+      value: string
+    - name: infrastructure
+      value: string
+    - name: pscConfig
+      value:
+        - name: subnetworks
+          value:
+            - string
+        - name: limit
+          value: string
+        - name: producerInstanceLocation
+          value: string
+        - name: allowedGoogleProducersResourceHierarchyLevel
+          value:
+            - string
+    - name: pscConnections
+      value:
+        - - name: state
+            value: string
+          - name: consumerForwardingRule
+            value: string
+          - name: consumerAddress
+            value: string
+          - name: errorType
+            value: string
+          - name: error
+            value:
+              - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
+          - name: gceOperation
+            value: string
+          - name: consumerTargetProject
+            value: string
+          - name: pscConnectionId
+            value: string
+          - name: errorInfo
+            value:
+              - name: reason
+                value: string
+              - name: domain
+                value: string
+              - name: metadata
+                value: object
+          - name: selectedSubnetwork
+            value: string
+          - name: producerInstanceId
+            value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

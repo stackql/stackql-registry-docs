@@ -52,5 +52,5 @@ businessEntityName,
 displayName,
 serviceId
 FROM google.cloudbilling.services
-WHERE  = '{{  }}'; 
+;
 ```

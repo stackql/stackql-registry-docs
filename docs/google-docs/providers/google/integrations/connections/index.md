@@ -109,5 +109,5 @@ tlsServiceDirectory,
 updateTime
 FROM google.integrations.connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -61,7 +61,7 @@ FROM google.iam.workload_identity_pool_provider_keys
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND providersId = '{{ providersId }}'
-AND workloadIdentityPoolsId = '{{ workloadIdentityPoolsId }}'; 
+AND workloadIdentityPoolsId = '{{ workloadIdentityPoolsId }}';
 ```
 
 ## `INSERT` example
@@ -100,16 +100,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-keyData:
-  format: string
-  notBeforeTime: string
-  notAfterTime: string
-  key: string
-  keySpec: string
-state: string
-use: string
-expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: keyData
+      value:
+        - name: format
+          value: string
+        - name: notBeforeTime
+          value: string
+        - name: notAfterTime
+          value: string
+        - name: key
+          value: string
+        - name: keySpec
+          value: string
+    - name: state
+      value: string
+    - name: use
+      value: string
+    - name: expireTime
+      value: string
 
 ```
 </TabItem>

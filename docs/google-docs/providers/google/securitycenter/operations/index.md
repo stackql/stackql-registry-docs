@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.securitycenter.operations
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `DELETE` example

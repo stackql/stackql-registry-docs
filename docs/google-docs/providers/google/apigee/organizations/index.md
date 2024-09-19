@@ -106,7 +106,7 @@ subscriptionPlan,
 subscriptionType,
 type
 FROM google.apigee.organizations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -125,7 +125,6 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 ```sql
 /*+ create */
 INSERT INTO google.apigee.organizations (
-,
 customerName,
 type,
 apiConsumerDataLocation,
@@ -145,11 +144,10 @@ billingType,
 runtimeDatabaseEncryptionKeyName
 )
 SELECT 
-'{{  }}',
 '{{ customerName }}',
 '{{ type }}',
 '{{ apiConsumerDataLocation }}',
-true|false,
+{{ disableVpcPeering }},
 '{{ description }}',
 '{{ displayName }}',
 '{{ analyticsRegion }}',
@@ -160,7 +158,7 @@ true|false,
 '{{ authorizedNetwork }}',
 '{{ addonsConfig }}',
 '{{ controlPlaneEncryptionKeyName }}',
-true|false,
+{{ portalDisabled }},
 '{{ billingType }}',
 '{{ runtimeDatabaseEncryptionKeyName }}'
 ;
@@ -169,56 +167,106 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-subscriptionType: string
-name: string
-customerName: string
-type: string
-lastModifiedAt: string
-apiConsumerDataLocation: string
-disableVpcPeering: boolean
-description: string
-displayName: string
-analyticsRegion: string
-properties:
-  property:
-    - name: string
+- name: your_resource_model_name
+  props:
+    - name: subscriptionType
       value: string
-attributes:
-  - type: string
-runtimeType: string
-apigeeProjectId: string
-apiConsumerDataEncryptionKeyName: string
-subscriptionPlan: string
-projectId: string
-authorizedNetwork: string
-addonsConfig:
-  advancedApiOpsConfig:
-    enabled: boolean
-  connectorsPlatformConfig:
-    enabled: boolean
-    expiresAt: string
-  apiSecurityConfig:
-    enabled: boolean
-    expiresAt: string
-  monetizationConfig:
-    enabled: boolean
-  integrationConfig:
-    enabled: boolean
-  analyticsConfig:
-    updateTime: string
-    enabled: boolean
-    expireTimeMillis: string
-    state: string
-controlPlaneEncryptionKeyName: string
-caCertificate: string
-environments:
-  - type: string
-portalDisabled: boolean
-billingType: string
-state: string
-expiresAt: string
-createdAt: string
-runtimeDatabaseEncryptionKeyName: string
+    - name: name
+      value: string
+    - name: customerName
+      value: string
+    - name: type
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: apiConsumerDataLocation
+      value: string
+    - name: disableVpcPeering
+      value: boolean
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: analyticsRegion
+      value: string
+    - name: properties
+      value:
+        - name: property
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+    - name: attributes
+      value:
+        - string
+    - name: runtimeType
+      value: string
+    - name: apigeeProjectId
+      value: string
+    - name: apiConsumerDataEncryptionKeyName
+      value: string
+    - name: subscriptionPlan
+      value: string
+    - name: projectId
+      value: string
+    - name: authorizedNetwork
+      value: string
+    - name: addonsConfig
+      value:
+        - name: advancedApiOpsConfig
+          value:
+            - name: enabled
+              value: boolean
+        - name: connectorsPlatformConfig
+          value:
+            - name: enabled
+              value: boolean
+            - name: expiresAt
+              value: string
+        - name: apiSecurityConfig
+          value:
+            - name: enabled
+              value: boolean
+            - name: expiresAt
+              value: string
+        - name: monetizationConfig
+          value:
+            - name: enabled
+              value: boolean
+        - name: integrationConfig
+          value:
+            - name: enabled
+              value: boolean
+        - name: analyticsConfig
+          value:
+            - name: updateTime
+              value: string
+            - name: enabled
+              value: boolean
+            - name: expireTimeMillis
+              value: string
+            - name: state
+              value: string
+    - name: controlPlaneEncryptionKeyName
+      value: string
+    - name: caCertificate
+      value: string
+    - name: environments
+      value:
+        - string
+    - name: portalDisabled
+      value: boolean
+    - name: billingType
+      value: string
+    - name: state
+      value: string
+    - name: expiresAt
+      value: string
+    - name: createdAt
+      value: string
+    - name: runtimeDatabaseEncryptionKeyName
+      value: string
 
 ```
 </TabItem>

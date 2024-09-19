@@ -88,5 +88,5 @@ vulnerability,
 vulnerabilityAssessment
 FROM google.containeranalysis.occurrences_notes
 WHERE occurrencesId = '{{ occurrencesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

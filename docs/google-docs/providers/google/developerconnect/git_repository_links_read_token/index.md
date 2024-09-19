@@ -53,5 +53,5 @@ FROM google.developerconnect.git_repository_links_read_token
 WHERE connectionsId = '{{ connectionsId }}'
 AND gitRepositoryLinksId = '{{ gitRepositoryLinksId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

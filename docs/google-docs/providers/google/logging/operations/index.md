@@ -66,5 +66,5 @@ error,
 metadata,
 response
 FROM google.logging.operations
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```

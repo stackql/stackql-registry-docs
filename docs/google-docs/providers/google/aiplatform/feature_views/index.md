@@ -76,7 +76,7 @@ vertexRagSource
 FROM google.aiplatform.feature_views
 WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,38 +125,69 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-bigQuerySource:
-  entityIdColumns:
-    - type: string
-  uri: string
-indexConfig:
-  treeAhConfig:
-    leafNodeEmbeddingCount: string
-  crowdingColumn: string
-  bruteForceConfig: {}
-  distanceMeasureType: string
-  embeddingDimension: integer
-  embeddingColumn: string
-  filterColumns:
-    - type: string
-name: string
-etag: string
-satisfiesPzi: boolean
-vertexRagSource:
-  uri: string
-  ragCorpusId: string
-labels: object
-updateTime: string
-satisfiesPzs: boolean
-featureRegistrySource:
-  projectNumber: string
-  featureGroups:
-    - featureIds:
-        - type: string
-      featureGroupId: string
-syncConfig:
-  cron: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: bigQuerySource
+      value:
+        - name: entityIdColumns
+          value:
+            - string
+        - name: uri
+          value: string
+    - name: indexConfig
+      value:
+        - name: treeAhConfig
+          value:
+            - name: leafNodeEmbeddingCount
+              value: string
+        - name: crowdingColumn
+          value: string
+        - name: bruteForceConfig
+          value: []
+        - name: distanceMeasureType
+          value: string
+        - name: embeddingDimension
+          value: integer
+        - name: embeddingColumn
+          value: string
+        - name: filterColumns
+          value:
+            - string
+    - name: name
+      value: string
+    - name: etag
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: vertexRagSource
+      value:
+        - name: uri
+          value: string
+        - name: ragCorpusId
+          value: string
+    - name: labels
+      value: object
+    - name: updateTime
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: featureRegistrySource
+      value:
+        - name: projectNumber
+          value: string
+        - name: featureGroups
+          value:
+            - - name: featureIds
+                value:
+                  - string
+              - name: featureGroupId
+                value: string
+    - name: syncConfig
+      value:
+        - name: cron
+          value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

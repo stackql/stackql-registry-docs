@@ -57,7 +57,7 @@ action,
 priority,
 sourceRange
 FROM google.appengine.ingress_rules
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```
 
 ## `INSERT` example
@@ -94,10 +94,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-priority: integer
-action: string
-sourceRange: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: priority
+      value: integer
+    - name: action
+      value: string
+    - name: sourceRange
+      value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

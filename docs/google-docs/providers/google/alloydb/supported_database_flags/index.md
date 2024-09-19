@@ -61,5 +61,5 @@ supportedDbVersions,
 valueType
 FROM google.alloydb.supported_database_flags
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

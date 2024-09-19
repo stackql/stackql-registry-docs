@@ -64,7 +64,7 @@ errors,
 state
 FROM google.dlp.connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -97,28 +97,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-connection:
-  cloudSql:
-    cloudSqlIam: {}
-    databaseEngine: string
-    connectionName: string
-    maxConnections: integer
-    usernamePassword:
-      passwordSecretVersionName: string
-      username: string
-  state: string
-  name: string
-  errors:
-    - details:
-        details:
-          - additionalProperties: any
-            type: string
-        code: integer
-        message: string
-      timestamps:
-        - type: string
-          format: string
-      extraInfo: string
+- name: your_resource_model_name
+  props:
+    - name: connection
+      value:
+        - name: cloudSql
+          value:
+            - name: cloudSqlIam
+              value: []
+            - name: databaseEngine
+              value: string
+            - name: connectionName
+              value: string
+            - name: maxConnections
+              value: integer
+            - name: usernamePassword
+              value:
+                - name: passwordSecretVersionName
+                  value: string
+                - name: username
+                  value: string
+        - name: state
+          value: string
+        - name: name
+          value: string
+        - name: errors
+          value:
+            - - name: details
+                value:
+                  - name: details
+                    value:
+                      - object
+                  - name: code
+                    value: integer
+                  - name: message
+                    value: string
+              - name: timestamps
+                value:
+                  - string
+              - name: extraInfo
+                value: string
 
 ```
 </TabItem>

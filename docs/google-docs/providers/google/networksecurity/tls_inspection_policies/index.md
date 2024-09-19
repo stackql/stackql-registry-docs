@@ -69,7 +69,7 @@ trustConfig,
 updateTime
 FROM google.networksecurity.tls_inspection_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,7 +106,7 @@ SELECT
 '{{ description }}',
 '{{ caPool }}',
 '{{ trustConfig }}',
-true|false,
+{{ excludePublicCaSet }},
 '{{ minTlsVersion }}',
 '{{ tlsFeatureProfile }}',
 '{{ customTlsFeatures }}'
@@ -116,17 +116,29 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-caPool: string
-trustConfig: string
-excludePublicCaSet: boolean
-minTlsVersion: string
-tlsFeatureProfile: string
-customTlsFeatures:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: caPool
+      value: string
+    - name: trustConfig
+      value: string
+    - name: excludePublicCaSet
+      value: boolean
+    - name: minTlsVersion
+      value: string
+    - name: tlsFeatureProfile
+      value: string
+    - name: customTlsFeatures
+      value:
+        - string
 
 ```
 </TabItem>

@@ -58,7 +58,7 @@ SELECT
 column_anon
 FROM google.networksecurity.address_groups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -103,20 +103,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-type: string
-items:
-  - type: string
-capacity: integer
-selfLink: string
-purpose:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: type
+      value: string
+    - name: items
+      value:
+        - string
+    - name: capacity
+      value: integer
+    - name: selfLink
+      value: string
+    - name: purpose
+      value:
+        - string
 
 ```
 </TabItem>

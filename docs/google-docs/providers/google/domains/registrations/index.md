@@ -89,7 +89,7 @@ supportedPrivacy,
 transferFailureReason
 FROM google.domains.registrations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

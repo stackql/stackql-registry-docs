@@ -83,7 +83,7 @@ updateTime
 FROM google.retail.models
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -132,25 +132,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-trainingState: string
-servingState: string
-createTime: string
-updateTime: string
-type: string
-optimizationObjective: string
-periodicTuningState: string
-lastTuneTime: string
-tuningOperation: string
-dataState: string
-filteringOption: string
-servingConfigLists:
-  - servingConfigIds:
-      - type: string
-modelFeaturesConfig:
-  frequentlyBoughtTogetherConfig:
-    contextProductsType: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: trainingState
+      value: string
+    - name: servingState
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: type
+      value: string
+    - name: optimizationObjective
+      value: string
+    - name: periodicTuningState
+      value: string
+    - name: lastTuneTime
+      value: string
+    - name: tuningOperation
+      value: string
+    - name: dataState
+      value: string
+    - name: filteringOption
+      value: string
+    - name: servingConfigLists
+      value:
+        - - name: servingConfigIds
+            value:
+              - string
+    - name: modelFeaturesConfig
+      value:
+        - name: frequentlyBoughtTogetherConfig
+          value:
+            - name: contextProductsType
+              value: string
 
 ```
 </TabItem>

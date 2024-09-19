@@ -51,5 +51,5 @@ FROM google.compute.instances_effective_firewalls
 WHERE instance = '{{ instance }}'
 AND networkInterface = '{{ networkInterface }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

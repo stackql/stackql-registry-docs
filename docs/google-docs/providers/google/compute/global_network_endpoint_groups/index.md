@@ -87,7 +87,7 @@ size,
 subnetwork,
 zone
 FROM google.compute.global_network_endpoint_groups
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -146,37 +146,70 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-name: string
-description: string
-networkEndpointType: string
-size: integer
-region: string
-zone: string
-network: string
-subnetwork: string
-defaultPort: integer
-annotations: object
-cloudRun:
-  service: string
-  tag: string
-  urlMask: string
-appEngine:
-  service: string
-  version: string
-  urlMask: string
-cloudFunction:
-  function: string
-  urlMask: string
-pscTargetService: string
-pscData:
-  consumerPscAddress: string
-  pscConnectionId: string
-  pscConnectionStatus: string
-  producerPort: integer
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: networkEndpointType
+      value: string
+    - name: size
+      value: integer
+    - name: region
+      value: string
+    - name: zone
+      value: string
+    - name: network
+      value: string
+    - name: subnetwork
+      value: string
+    - name: defaultPort
+      value: integer
+    - name: annotations
+      value: object
+    - name: cloudRun
+      value:
+        - name: service
+          value: string
+        - name: tag
+          value: string
+        - name: urlMask
+          value: string
+    - name: appEngine
+      value:
+        - name: service
+          value: string
+        - name: version
+          value: string
+        - name: urlMask
+          value: string
+    - name: cloudFunction
+      value:
+        - name: function
+          value: string
+        - name: urlMask
+          value: string
+    - name: pscTargetService
+      value: string
+    - name: pscData
+      value:
+        - name: consumerPscAddress
+          value: string
+        - name: pscConnectionId
+          value: string
+        - name: pscConnectionStatus
+          value: string
+        - name: producerPort
+          value: integer
 
 ```
 </TabItem>

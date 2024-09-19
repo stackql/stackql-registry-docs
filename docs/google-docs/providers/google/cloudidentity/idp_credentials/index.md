@@ -55,7 +55,7 @@ dsaKeyInfo,
 rsaKeyInfo,
 updateTime
 FROM google.cloudidentity.idp_credentials
-WHERE inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}'; 
+WHERE inboundSamlSsoProfilesId = '{{ inboundSamlSsoProfilesId }}';
 ```
 
 ## `INSERT` example
@@ -86,7 +86,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-pemData: string
+- name: your_resource_model_name
+  props:
+    - name: pemData
+      value: string
 
 ```
 </TabItem>

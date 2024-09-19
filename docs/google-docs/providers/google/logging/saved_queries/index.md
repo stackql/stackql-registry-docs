@@ -80,7 +80,7 @@ updateTime,
 visibility
 FROM google.logging.saved_queries
 WHERE foldersId = '{{ foldersId }}'
-AND locationsId = '{{ locationsId }}'; 
+AND locationsId = '{{ locationsId }}';
 ```
 
 ## `INSERT` example
@@ -121,20 +121,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-loggingQuery:
-  filter: string
-  summaryFields:
-    - field: string
-  summaryFieldStart: integer
-  summaryFieldEnd: integer
-opsAnalyticsQuery:
-  sqlQueryText: string
-createTime: string
-updateTime: string
-visibility: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: loggingQuery
+      value:
+        - name: filter
+          value: string
+        - name: summaryFields
+          value:
+            - - name: field
+                value: string
+        - name: summaryFieldStart
+          value: integer
+        - name: summaryFieldEnd
+          value: integer
+    - name: opsAnalyticsQuery
+      value:
+        - name: sqlQueryText
+          value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: visibility
+      value: string
 
 ```
 </TabItem>

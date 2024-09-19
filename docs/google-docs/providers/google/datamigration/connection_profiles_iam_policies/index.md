@@ -54,7 +54,7 @@ role
 FROM google.datamigration.connection_profiles_iam_policies
 WHERE connectionProfilesId = '{{ connectionProfilesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

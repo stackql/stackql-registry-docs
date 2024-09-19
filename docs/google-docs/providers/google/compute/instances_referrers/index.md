@@ -54,5 +54,5 @@ target
 FROM google.compute.instances_referrers
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

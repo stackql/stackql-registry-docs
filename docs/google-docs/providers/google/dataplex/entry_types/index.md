@@ -75,7 +75,7 @@ uid,
 updateTime
 FROM google.dataplex.entry_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -124,22 +124,39 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-displayName: string
-labels: object
-etag: string
-typeAliases:
-  - type: string
-platform: string
-system: string
-requiredAspects:
-  - type: string
-authorization:
-  alternateUsePermission: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: typeAliases
+      value:
+        - string
+    - name: platform
+      value: string
+    - name: system
+      value: string
+    - name: requiredAspects
+      value:
+        - - name: type
+            value: string
+    - name: authorization
+      value:
+        - name: alternateUsePermission
+          value: string
 
 ```
 </TabItem>

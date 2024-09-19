@@ -55,5 +55,5 @@ FROM google.dialogflow.continuous_test_results
 WHERE agentsId = '{{ agentsId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

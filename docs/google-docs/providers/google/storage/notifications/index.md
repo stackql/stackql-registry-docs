@@ -65,7 +65,7 @@ payload_format,
 selfLink,
 topic
 FROM google.storage.notifications
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `INSERT` example
@@ -106,16 +106,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-custom_attributes: object
-etag: string
-event_types:
-  - type: string
-id: string
-kind: string
-object_name_prefix: string
-payload_format: string
-selfLink: string
-topic: string
+- name: your_resource_model_name
+  props:
+    - name: custom_attributes
+      value: object
+    - name: etag
+      value: string
+    - name: event_types
+      value:
+        - string
+    - name: id
+      value: string
+    - name: kind
+      value: string
+    - name: object_name_prefix
+      value: string
+    - name: payload_format
+      value: string
+    - name: selfLink
+      value: string
+    - name: topic
+      value: string
 
 ```
 </TabItem>

@@ -64,7 +64,7 @@ responseXPaths,
 variables
 FROM google.apigee.environments_debugmask
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

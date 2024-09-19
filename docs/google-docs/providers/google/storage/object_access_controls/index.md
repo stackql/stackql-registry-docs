@@ -87,7 +87,7 @@ role,
 selfLink
 FROM google.storage.object_access_controls
 WHERE bucket = '{{ bucket }}'
-AND object = '{{ object }}'; 
+AND object = '{{ object }}';
 ```
 
 ## `INSERT` example
@@ -138,21 +138,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-bucket: string
-domain: string
-email: string
-entity: string
-entityId: string
-etag: string
-generation: string
-id: string
-kind: string
-object: string
-projectTeam:
-  projectNumber: string
-  team: string
-role: string
-selfLink: string
+- name: your_resource_model_name
+  props:
+    - name: bucket
+      value: string
+    - name: domain
+      value: string
+    - name: email
+      value: string
+    - name: entity
+      value: string
+    - name: entityId
+      value: string
+    - name: etag
+      value: string
+    - name: generation
+      value: string
+    - name: id
+      value: string
+    - name: kind
+      value: string
+    - name: object
+      value: string
+    - name: projectTeam
+      value:
+        - name: projectNumber
+          value: string
+        - name: team
+          value: string
+    - name: role
+      value: string
+    - name: selfLink
+      value: string
 
 ```
 </TabItem>

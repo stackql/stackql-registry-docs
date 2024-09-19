@@ -54,7 +54,7 @@ applicationTitle,
 orgInternalOnly,
 supportEmail
 FROM google.iap.brands
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -87,10 +87,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-supportEmail: string
-applicationTitle: string
-orgInternalOnly: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: supportEmail
+      value: string
+    - name: applicationTitle
+      value: string
+    - name: orgInternalOnly
+      value: boolean
 
 ```
 </TabItem>

@@ -49,7 +49,7 @@ SELECT
 name,
 mlRetrainingFeedbackEnabled
 FROM google.apigee.security_settings
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

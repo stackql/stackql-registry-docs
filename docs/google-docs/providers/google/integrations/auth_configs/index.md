@@ -88,7 +88,7 @@ validTime,
 visibility
 FROM google.integrations.auth_configs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -149,100 +149,185 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-description: string
-certificateId: string
-name: string
-decryptedCredential:
-  usernameAndPassword:
-    password: string
-    username: string
-  oidcToken:
-    tokenExpireTime: string
-    token: string
-    audience: string
-    serviceAccountEmail: string
-  oauth2ClientCredentials:
-    scope: string
-    clientSecret: string
-    tokenParams:
-      entries:
-        - key:
-            referenceKey: string
-            literalValue:
-              intArray:
-                intValues:
-                  - format: string
-                    type: string
-              doubleArray:
-                doubleValues:
-                  - format: string
-                    type: string
-              intValue: string
-              stringArray:
-                stringValues:
-                  - type: string
-              doubleValue: number
-              stringValue: string
-              jsonValue: string
-              booleanArray:
-                booleanValues:
-                  - type: string
-              booleanValue: boolean
-      keyType: string
-      valueType: string
-    clientId: string
-    tokenEndpoint: string
-    accessToken:
-      accessTokenExpireTime: string
-      refreshToken: string
-      tokenType: string
-      accessToken: string
-      refreshTokenExpireTime: string
-    requestType: string
-  oauth2ResourceOwnerCredentials:
-    scope: string
-    clientId: string
-    username: string
-    clientSecret: string
-    password: string
-    tokenEndpoint: string
-    requestType: string
-  credentialType: string
-  oauth2AuthorizationCode:
-    clientSecret: string
-    requestType: string
-    authCode: string
-    scope: string
-    authEndpoint: string
-    tokenEndpoint: string
-    applyReauthPolicy: boolean
-    clientId: string
-  serviceAccountCredentials:
-    scope: string
-    serviceAccount: string
-  jwt:
-    jwt: string
-    secret: string
-    jwtPayload: string
-    jwtHeader: string
-  authToken:
-    type: string
-    token: string
-visibility: string
-encryptedCredential: string
-creatorEmail: string
-lastModifierEmail: string
-reason: string
-validTime: string
-createTime: string
-credentialType: string
-state: string
-displayName: string
-expiryNotificationDuration:
-  - type: string
-    format: string
-overrideValidTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: description
+      value: string
+    - name: certificateId
+      value: string
+    - name: name
+      value: string
+    - name: decryptedCredential
+      value:
+        - name: usernameAndPassword
+          value:
+            - name: password
+              value: string
+            - name: username
+              value: string
+        - name: oidcToken
+          value:
+            - name: tokenExpireTime
+              value: string
+            - name: token
+              value: string
+            - name: audience
+              value: string
+            - name: serviceAccountEmail
+              value: string
+        - name: oauth2ClientCredentials
+          value:
+            - name: scope
+              value: string
+            - name: clientSecret
+              value: string
+            - name: tokenParams
+              value:
+                - name: entries
+                  value:
+                    - - name: key
+                        value:
+                          - name: referenceKey
+                            value: string
+                          - name: literalValue
+                            value:
+                              - name: intArray
+                                value:
+                                  - name: intValues
+                                    value:
+                                      - string
+                              - name: doubleArray
+                                value:
+                                  - name: doubleValues
+                                    value:
+                                      - number
+                              - name: intValue
+                                value: string
+                              - name: stringArray
+                                value:
+                                  - name: stringValues
+                                    value:
+                                      - string
+                              - name: doubleValue
+                                value: number
+                              - name: stringValue
+                                value: string
+                              - name: jsonValue
+                                value: string
+                              - name: booleanArray
+                                value:
+                                  - name: booleanValues
+                                    value:
+                                      - boolean
+                              - name: booleanValue
+                                value: boolean
+                - name: keyType
+                  value: string
+                - name: valueType
+                  value: string
+            - name: clientId
+              value: string
+            - name: tokenEndpoint
+              value: string
+            - name: accessToken
+              value:
+                - name: accessTokenExpireTime
+                  value: string
+                - name: refreshToken
+                  value: string
+                - name: tokenType
+                  value: string
+                - name: accessToken
+                  value: string
+                - name: refreshTokenExpireTime
+                  value: string
+            - name: requestType
+              value: string
+        - name: oauth2ResourceOwnerCredentials
+          value:
+            - name: scope
+              value: string
+            - name: clientId
+              value: string
+            - name: username
+              value: string
+            - name: clientSecret
+              value: string
+            - name: password
+              value: string
+            - name: tokenEndpoint
+              value: string
+            - name: requestType
+              value: string
+        - name: credentialType
+          value: string
+        - name: oauth2AuthorizationCode
+          value:
+            - name: clientSecret
+              value: string
+            - name: requestType
+              value: string
+            - name: authCode
+              value: string
+            - name: scope
+              value: string
+            - name: authEndpoint
+              value: string
+            - name: tokenEndpoint
+              value: string
+            - name: applyReauthPolicy
+              value: boolean
+            - name: clientId
+              value: string
+        - name: serviceAccountCredentials
+          value:
+            - name: scope
+              value: string
+            - name: serviceAccount
+              value: string
+        - name: jwt
+          value:
+            - name: jwt
+              value: string
+            - name: secret
+              value: string
+            - name: jwtPayload
+              value: string
+            - name: jwtHeader
+              value: string
+        - name: authToken
+          value:
+            - name: type
+              value: string
+            - name: token
+              value: string
+    - name: visibility
+      value: string
+    - name: encryptedCredential
+      value: string
+    - name: creatorEmail
+      value: string
+    - name: lastModifierEmail
+      value: string
+    - name: reason
+      value: string
+    - name: validTime
+      value: string
+    - name: createTime
+      value: string
+    - name: credentialType
+      value: string
+    - name: state
+      value: string
+    - name: displayName
+      value: string
+    - name: expiryNotificationDuration
+      value:
+        - string
+    - name: overrideValidTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

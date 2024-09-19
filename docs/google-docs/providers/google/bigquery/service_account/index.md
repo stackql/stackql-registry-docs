@@ -48,5 +48,5 @@ SELECT
 email,
 kind
 FROM google.bigquery.service_account
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```

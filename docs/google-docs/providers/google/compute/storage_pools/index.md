@@ -87,7 +87,7 @@ status,
 storagePoolType,
 zone
 FROM google.compute.storage_pools
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -146,34 +146,64 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-poolProvisionedCapacityGb: string
-poolProvisionedIops: string
-poolProvisionedThroughput: string
-zone: string
-state: string
-selfLink: string
-selfLinkWithId: string
-labels: object
-labelFingerprint: string
-resourceStatus:
-  lastResizeTimestamp: string
-  diskCount: string
-  poolUsedCapacityBytes: string
-  poolUserWrittenBytes: string
-  totalProvisionedDiskCapacityGb: string
-  maxTotalProvisionedDiskCapacityGb: string
-  poolUsedIops: string
-  totalProvisionedDiskIops: string
-  poolUsedThroughput: string
-  totalProvisionedDiskThroughput: string
-storagePoolType: string
-capacityProvisioningType: string
-performanceProvisioningType: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: poolProvisionedCapacityGb
+      value: string
+    - name: poolProvisionedIops
+      value: string
+    - name: poolProvisionedThroughput
+      value: string
+    - name: zone
+      value: string
+    - name: state
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: resourceStatus
+      value:
+        - name: lastResizeTimestamp
+          value: string
+        - name: diskCount
+          value: string
+        - name: poolUsedCapacityBytes
+          value: string
+        - name: poolUserWrittenBytes
+          value: string
+        - name: totalProvisionedDiskCapacityGb
+          value: string
+        - name: maxTotalProvisionedDiskCapacityGb
+          value: string
+        - name: poolUsedIops
+          value: string
+        - name: totalProvisionedDiskIops
+          value: string
+        - name: poolUsedThroughput
+          value: string
+        - name: totalProvisionedDiskThroughput
+          value: string
+    - name: storagePoolType
+      value: string
+    - name: capacityProvisioningType
+      value: string
+    - name: performanceProvisioningType
+      value: string
 
 ```
 </TabItem>

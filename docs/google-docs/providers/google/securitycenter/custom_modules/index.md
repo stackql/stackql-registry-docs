@@ -74,7 +74,7 @@ type,
 updateTime
 FROM google.securitycenter.custom_modules
 WHERE customModulesId = '{{ customModulesId }}'
-AND foldersId = '{{ foldersId }}'; 
+AND foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

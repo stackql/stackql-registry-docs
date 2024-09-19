@@ -55,5 +55,5 @@ instanceSystemId,
 state
 FROM google.osconfig.instance_details
 WHERE patchJobsId = '{{ patchJobsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

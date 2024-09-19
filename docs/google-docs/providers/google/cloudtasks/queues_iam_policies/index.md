@@ -54,7 +54,7 @@ role
 FROM google.cloudtasks.queues_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND queuesId = '{{ queuesId }}'; 
+AND queuesId = '{{ queuesId }}';
 ```
 
 ## `REPLACE` example

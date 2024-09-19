@@ -82,7 +82,7 @@ state,
 updateTime
 FROM google.aiplatform.persistent_resources
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,60 +129,111 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-encryptionSpec:
-  kmsKeyName: string
-satisfiesPzs: boolean
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-satisfiesPzi: boolean
-createTime: string
-labels: object
-startTime: string
-resourceRuntimeSpec:
-  raySpec:
-    imageUri: string
-    rayMetricSpec:
-      disabled: boolean
-    resourcePoolImages: object
-    headNodeResourcePoolId: string
-    rayLogsSpec:
-      disabled: boolean
-  serviceAccountSpec:
-    serviceAccount: string
-    enableCustomServiceAccount: boolean
-name: string
-reservedIpRanges:
-  - type: string
-network: string
-resourcePools:
-  - replicaCount: string
-    diskSpec:
-      bootDiskType: string
-      bootDiskSizeGb: integer
-    usedReplicaCount: string
-    machineSpec:
-      acceleratorCount: integer
-      tpuTopology: string
-      machineType: string
-      acceleratorType: string
-      reservationAffinity:
-        reservationAffinityType: string
-        values:
-          - type: string
-        key: string
-    id: string
-    autoscalingSpec:
-      maxReplicaCount: string
-      minReplicaCount: string
-displayName: string
-resourceRuntime:
-  accessUris: object
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: satisfiesPzi
+      value: boolean
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: startTime
+      value: string
+    - name: resourceRuntimeSpec
+      value:
+        - name: raySpec
+          value:
+            - name: imageUri
+              value: string
+            - name: rayMetricSpec
+              value:
+                - name: disabled
+                  value: boolean
+            - name: resourcePoolImages
+              value: object
+            - name: headNodeResourcePoolId
+              value: string
+            - name: rayLogsSpec
+              value:
+                - name: disabled
+                  value: boolean
+        - name: serviceAccountSpec
+          value:
+            - name: serviceAccount
+              value: string
+            - name: enableCustomServiceAccount
+              value: boolean
+    - name: name
+      value: string
+    - name: reservedIpRanges
+      value:
+        - string
+    - name: network
+      value: string
+    - name: resourcePools
+      value:
+        - - name: replicaCount
+            value: string
+          - name: diskSpec
+            value:
+              - name: bootDiskType
+                value: string
+              - name: bootDiskSizeGb
+                value: integer
+          - name: usedReplicaCount
+            value: string
+          - name: machineSpec
+            value:
+              - name: acceleratorCount
+                value: integer
+              - name: tpuTopology
+                value: string
+              - name: machineType
+                value: string
+              - name: acceleratorType
+                value: string
+              - name: reservationAffinity
+                value:
+                  - name: reservationAffinityType
+                    value: string
+                  - name: values
+                    value:
+                      - string
+                  - name: key
+                    value: string
+          - name: id
+            value: string
+          - name: autoscalingSpec
+            value:
+              - name: maxReplicaCount
+                value: string
+              - name: minReplicaCount
+                value: string
+    - name: displayName
+      value: string
+    - name: resourceRuntime
+      value:
+        - name: accessUris
+          value: object
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

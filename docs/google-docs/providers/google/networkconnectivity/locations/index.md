@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.networkconnectivity.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

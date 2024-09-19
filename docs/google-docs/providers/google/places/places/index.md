@@ -173,5 +173,5 @@ utcOffsetMinutes,
 viewport,
 websiteUri
 FROM google.places.places
-WHERE placesId = '{{ placesId }}'; 
+WHERE placesId = '{{ placesId }}';
 ```

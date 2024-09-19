@@ -83,7 +83,7 @@ uid,
 updateTime
 FROM google.gkebackup.backup_plans
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,7 +120,7 @@ SELECT
 '{{ retentionPolicy }}',
 '{{ labels }}',
 '{{ backupSchedule }}',
-true|false,
+{{ deactivated }},
 '{{ backupConfig }}'
 ;
 ```
@@ -128,61 +128,112 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-cluster: string
-retentionPolicy:
-  backupDeleteLockDays: integer
-  backupRetainDays: integer
-  locked: boolean
-labels: object
-backupSchedule:
-  cronSchedule: string
-  paused: boolean
-  rpoConfig:
-    targetRpoMinutes: integer
-    exclusionWindows:
-      - startTime:
-          hours: integer
-          minutes: integer
-          seconds: integer
-          nanos: integer
-        duration: string
-        singleOccurrenceDate:
-          year: integer
-          month: integer
-          day: integer
-        daily: boolean
-        daysOfWeek:
-          daysOfWeek:
-            - type: string
-              enumDescriptions: string
-              enum: string
-  nextScheduledBackupTime: string
-etag: string
-deactivated: boolean
-backupConfig:
-  allNamespaces: boolean
-  selectedNamespaces:
-    namespaces:
-      - type: string
-  selectedApplications:
-    namespacedNames:
-      - namespace: string
-        name: string
-  includeVolumeData: boolean
-  includeSecrets: boolean
-  encryptionKey:
-    gcpKmsEncryptionKey: string
-  permissiveMode: boolean
-protectedPodCount: integer
-state: string
-stateReason: string
-rpoRiskLevel: integer
-rpoRiskReason: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: cluster
+      value: string
+    - name: retentionPolicy
+      value:
+        - name: backupDeleteLockDays
+          value: integer
+        - name: backupRetainDays
+          value: integer
+        - name: locked
+          value: boolean
+    - name: labels
+      value: object
+    - name: backupSchedule
+      value:
+        - name: cronSchedule
+          value: string
+        - name: paused
+          value: boolean
+        - name: rpoConfig
+          value:
+            - name: targetRpoMinutes
+              value: integer
+            - name: exclusionWindows
+              value:
+                - - name: startTime
+                    value:
+                      - name: hours
+                        value: integer
+                      - name: minutes
+                        value: integer
+                      - name: seconds
+                        value: integer
+                      - name: nanos
+                        value: integer
+                  - name: duration
+                    value: string
+                  - name: singleOccurrenceDate
+                    value:
+                      - name: year
+                        value: integer
+                      - name: month
+                        value: integer
+                      - name: day
+                        value: integer
+                  - name: daily
+                    value: boolean
+                  - name: daysOfWeek
+                    value:
+                      - name: daysOfWeek
+                        value:
+                          - string
+        - name: nextScheduledBackupTime
+          value: string
+    - name: etag
+      value: string
+    - name: deactivated
+      value: boolean
+    - name: backupConfig
+      value:
+        - name: allNamespaces
+          value: boolean
+        - name: selectedNamespaces
+          value:
+            - name: namespaces
+              value:
+                - string
+        - name: selectedApplications
+          value:
+            - name: namespacedNames
+              value:
+                - - name: namespace
+                    value: string
+                  - name: name
+                    value: string
+        - name: includeVolumeData
+          value: boolean
+        - name: includeSecrets
+          value: boolean
+        - name: encryptionKey
+          value:
+            - name: gcpKmsEncryptionKey
+              value: string
+        - name: permissiveMode
+          value: boolean
+    - name: protectedPodCount
+      value: integer
+    - name: state
+      value: string
+    - name: stateReason
+      value: string
+    - name: rpoRiskLevel
+      value: integer
+    - name: rpoRiskReason
+      value: string
 
 ```
 </TabItem>

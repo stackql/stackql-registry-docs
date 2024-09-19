@@ -69,5 +69,5 @@ urlsTestedCount,
 warningTraces
 FROM google.websecurityscanner.scan_runs
 WHERE projectsId = '{{ projectsId }}'
-AND scanConfigsId = '{{ scanConfigsId }}'; 
+AND scanConfigsId = '{{ scanConfigsId }}';
 ```

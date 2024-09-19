@@ -56,5 +56,5 @@ textPayload,
 videoPayload
 FROM google.datalabeling.data_items
 WHERE datasetsId = '{{ datasetsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

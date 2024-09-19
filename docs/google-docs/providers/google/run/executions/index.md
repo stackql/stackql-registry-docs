@@ -104,7 +104,7 @@ updateTime
 FROM google.run.executions
 WHERE jobsId = '{{ jobsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

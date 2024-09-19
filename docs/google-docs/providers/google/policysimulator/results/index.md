@@ -60,5 +60,5 @@ parent
 FROM google.policysimulator.results
 WHERE foldersId = '{{ foldersId }}'
 AND locationsId = '{{ locationsId }}'
-AND replaysId = '{{ replaysId }}'; 
+AND replaysId = '{{ replaysId }}';
 ```

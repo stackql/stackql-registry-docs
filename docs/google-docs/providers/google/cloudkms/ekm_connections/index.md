@@ -61,7 +61,7 @@ keyManagementMode,
 serviceResolvers
 FROM google.cloudkms.ekm_connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -100,26 +100,47 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-serviceResolvers:
-  - serviceDirectoryService: string
-    endpointFilter: string
-    hostname: string
-    serverCertificates:
-      - rawDer: string
-        parsed: boolean
-        issuer: string
-        subject: string
-        subjectAlternativeDnsNames:
-          - type: string
-        notBeforeTime: string
-        notAfterTime: string
-        serialNumber: string
-        sha256Fingerprint: string
-etag: string
-keyManagementMode: string
-cryptoSpacePath: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: serviceResolvers
+      value:
+        - - name: serviceDirectoryService
+            value: string
+          - name: endpointFilter
+            value: string
+          - name: hostname
+            value: string
+          - name: serverCertificates
+            value:
+              - - name: rawDer
+                  value: string
+                - name: parsed
+                  value: boolean
+                - name: issuer
+                  value: string
+                - name: subject
+                  value: string
+                - name: subjectAlternativeDnsNames
+                  value:
+                    - string
+                - name: notBeforeTime
+                  value: string
+                - name: notAfterTime
+                  value: string
+                - name: serialNumber
+                  value: string
+                - name: sha256Fingerprint
+                  value: string
+    - name: etag
+      value: string
+    - name: keyManagementMode
+      value: string
+    - name: cryptoSpacePath
+      value: string
 
 ```
 </TabItem>

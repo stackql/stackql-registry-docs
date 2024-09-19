@@ -75,7 +75,7 @@ selfLink,
 snapshotSchedulePolicy,
 status
 FROM google.compute.resource_policies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,53 +124,101 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-region: string
-description: string
-name: string
-snapshotSchedulePolicy:
-  schedule:
-    hourlySchedule:
-      hoursInCycle: integer
-      startTime: string
-      duration: string
-    dailySchedule:
-      daysInCycle: integer
-      startTime: string
-      duration: string
-    weeklySchedule:
-      dayOfWeeks:
-        - day: string
-          startTime: string
-          duration: string
-  retentionPolicy:
-    maxRetentionDays: integer
-    onSourceDiskDelete: string
-  snapshotProperties:
-    labels: object
-    storageLocations:
-      - type: string
-    guestFlush: boolean
-    chainName: string
-groupPlacementPolicy:
-  vmCount: integer
-  availabilityDomainCount: integer
-  collocation: string
-instanceSchedulePolicy:
-  vmStartSchedule:
-    schedule: string
-  timeZone: string
-  startTime: string
-  expirationTime: string
-diskConsistencyGroupPolicy: {}
-status: string
-resourceStatus:
-  instanceSchedulePolicy:
-    nextRunStartTime: string
-    lastRunStartTime: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: region
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: snapshotSchedulePolicy
+      value:
+        - name: schedule
+          value:
+            - name: hourlySchedule
+              value:
+                - name: hoursInCycle
+                  value: integer
+                - name: startTime
+                  value: string
+                - name: duration
+                  value: string
+            - name: dailySchedule
+              value:
+                - name: daysInCycle
+                  value: integer
+                - name: startTime
+                  value: string
+                - name: duration
+                  value: string
+            - name: weeklySchedule
+              value:
+                - name: dayOfWeeks
+                  value:
+                    - - name: day
+                        value: string
+                      - name: startTime
+                        value: string
+                      - name: duration
+                        value: string
+        - name: retentionPolicy
+          value:
+            - name: maxRetentionDays
+              value: integer
+            - name: onSourceDiskDelete
+              value: string
+        - name: snapshotProperties
+          value:
+            - name: labels
+              value: object
+            - name: storageLocations
+              value:
+                - string
+            - name: guestFlush
+              value: boolean
+            - name: chainName
+              value: string
+    - name: groupPlacementPolicy
+      value:
+        - name: vmCount
+          value: integer
+        - name: availabilityDomainCount
+          value: integer
+        - name: collocation
+          value: string
+    - name: instanceSchedulePolicy
+      value:
+        - name: vmStartSchedule
+          value:
+            - name: schedule
+              value: string
+        - name: timeZone
+          value: string
+        - name: startTime
+          value: string
+        - name: expirationTime
+          value: string
+    - name: diskConsistencyGroupPolicy
+      value: []
+    - name: status
+      value: string
+    - name: resourceStatus
+      value:
+        - name: instanceSchedulePolicy
+          value:
+            - name: nextRunStartTime
+              value: string
+            - name: lastRunStartTime
+              value: string
 
 ```
 </TabItem>

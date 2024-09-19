@@ -81,7 +81,7 @@ user,
 uuid
 FROM google.dataproc.sessions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,69 +128,128 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uuid: string
-createTime: string
-jupyterSession:
-  kernel: string
-  displayName: string
-sparkConnectSession: {}
-runtimeInfo:
-  endpoints: object
-  outputUri: string
-  diagnosticOutputUri: string
-  approximateUsage:
-    milliDcuSeconds: string
-    shuffleStorageGbSeconds: string
-    milliAcceleratorSeconds: string
-    acceleratorType: string
-  currentUsage:
-    milliDcu: string
-    shuffleStorageGb: string
-    milliDcuPremium: string
-    shuffleStorageGbPremium: string
-    milliAccelerator: string
-    acceleratorType: string
-    snapshotTime: string
-state: string
-stateMessage: string
-stateTime: string
-creator: string
-labels: object
-runtimeConfig:
-  version: string
-  containerImage: string
-  properties: object
-  repositoryConfig:
-    pypiRepositoryConfig:
-      pypiRepository: string
-  autotuningConfig:
-    scenarios:
-      - type: string
-        enumDescriptions: string
-        enum: string
-  cohort: string
-environmentConfig:
-  executionConfig:
-    serviceAccount: string
-    networkUri: string
-    subnetworkUri: string
-    networkTags:
-      - type: string
-    kmsKey: string
-    idleTtl: string
-    ttl: string
-    stagingBucket: string
-  peripheralsConfig:
-    metastoreService: string
-    sparkHistoryServerConfig:
-      dataprocCluster: string
-user: string
-stateHistory:
-  - state: string
-    stateMessage: string
-    stateStartTime: string
-sessionTemplate: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uuid
+      value: string
+    - name: createTime
+      value: string
+    - name: jupyterSession
+      value:
+        - name: kernel
+          value: string
+        - name: displayName
+          value: string
+    - name: sparkConnectSession
+      value: []
+    - name: runtimeInfo
+      value:
+        - name: endpoints
+          value: object
+        - name: outputUri
+          value: string
+        - name: diagnosticOutputUri
+          value: string
+        - name: approximateUsage
+          value:
+            - name: milliDcuSeconds
+              value: string
+            - name: shuffleStorageGbSeconds
+              value: string
+            - name: milliAcceleratorSeconds
+              value: string
+            - name: acceleratorType
+              value: string
+        - name: currentUsage
+          value:
+            - name: milliDcu
+              value: string
+            - name: shuffleStorageGb
+              value: string
+            - name: milliDcuPremium
+              value: string
+            - name: shuffleStorageGbPremium
+              value: string
+            - name: milliAccelerator
+              value: string
+            - name: acceleratorType
+              value: string
+            - name: snapshotTime
+              value: string
+    - name: state
+      value: string
+    - name: stateMessage
+      value: string
+    - name: stateTime
+      value: string
+    - name: creator
+      value: string
+    - name: labels
+      value: object
+    - name: runtimeConfig
+      value:
+        - name: version
+          value: string
+        - name: containerImage
+          value: string
+        - name: properties
+          value: object
+        - name: repositoryConfig
+          value:
+            - name: pypiRepositoryConfig
+              value:
+                - name: pypiRepository
+                  value: string
+        - name: autotuningConfig
+          value:
+            - name: scenarios
+              value:
+                - string
+        - name: cohort
+          value: string
+    - name: environmentConfig
+      value:
+        - name: executionConfig
+          value:
+            - name: serviceAccount
+              value: string
+            - name: networkUri
+              value: string
+            - name: subnetworkUri
+              value: string
+            - name: networkTags
+              value:
+                - string
+            - name: kmsKey
+              value: string
+            - name: idleTtl
+              value: string
+            - name: ttl
+              value: string
+            - name: stagingBucket
+              value: string
+        - name: peripheralsConfig
+          value:
+            - name: metastoreService
+              value: string
+            - name: sparkHistoryServerConfig
+              value:
+                - name: dataprocCluster
+                  value: string
+    - name: user
+      value: string
+    - name: stateHistory
+      value:
+        - - name: state
+            value: string
+          - name: stateMessage
+            value: string
+          - name: stateStartTime
+            value: string
+    - name: sessionTemplate
+      value: string
 
 ```
 </TabItem>

@@ -52,5 +52,5 @@ extensions
 FROM google.apigee.queries_result
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND queriesId = '{{ queriesId }}'; 
+AND queriesId = '{{ queriesId }}';
 ```

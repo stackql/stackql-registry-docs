@@ -60,5 +60,5 @@ serviceProviderName,
 serviceRegions,
 skuId
 FROM google.cloudbilling.skus
-WHERE servicesId = '{{ servicesId }}'; 
+WHERE servicesId = '{{ servicesId }}';
 ```

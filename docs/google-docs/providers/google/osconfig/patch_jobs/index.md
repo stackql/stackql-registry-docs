@@ -77,5 +77,5 @@ rollout,
 state,
 updateTime
 FROM google.osconfig.patch_jobs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

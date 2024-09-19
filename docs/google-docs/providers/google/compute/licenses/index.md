@@ -67,7 +67,7 @@ resourceRequirements,
 selfLink,
 transferable
 FROM google.compute.licenses
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -97,10 +97,10 @@ resourceRequirements
 SELECT 
 '{{ project }}',
 '{{ name }}',
-true|false,
+{{ chargesUseFee }},
 '{{ licenseCode }}',
 '{{ description }}',
-true|false,
+{{ transferable }},
 '{{ resourceRequirements }}'
 ;
 ```
@@ -108,18 +108,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-name: string
-chargesUseFee: boolean
-id: string
-licenseCode: string
-creationTimestamp: string
-description: string
-transferable: boolean
-selfLink: string
-resourceRequirements:
-  minGuestCpuCount: integer
-  minMemoryMb: integer
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: name
+      value: string
+    - name: chargesUseFee
+      value: boolean
+    - name: id
+      value: string
+    - name: licenseCode
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: description
+      value: string
+    - name: transferable
+      value: boolean
+    - name: selfLink
+      value: string
+    - name: resourceRequirements
+      value:
+        - name: minGuestCpuCount
+          value: integer
+        - name: minMemoryMb
+          value: integer
 
 ```
 </TabItem>

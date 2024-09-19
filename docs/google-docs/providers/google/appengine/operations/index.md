@@ -55,5 +55,5 @@ error,
 metadata,
 response
 FROM google.appengine.operations
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```

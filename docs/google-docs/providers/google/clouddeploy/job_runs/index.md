@@ -80,5 +80,5 @@ WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND releasesId = '{{ releasesId }}'
-AND rolloutsId = '{{ rolloutsId }}'; 
+AND rolloutsId = '{{ rolloutsId }}';
 ```

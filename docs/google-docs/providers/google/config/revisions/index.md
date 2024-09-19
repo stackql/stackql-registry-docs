@@ -88,5 +88,5 @@ workerPool
 FROM google.config.revisions
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

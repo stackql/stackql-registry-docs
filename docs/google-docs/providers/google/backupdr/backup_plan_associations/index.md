@@ -67,7 +67,7 @@ state,
 updateTime
 FROM google.backupdr.backup_plan_associations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -102,24 +102,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-resourceType: string
-resource: string
-backupPlan: string
-createTime: string
-updateTime: string
-state: string
-rulesConfigInfo:
-  - ruleId: string
-    lastBackupState: string
-    lastBackupError:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-    lastSuccessfulBackupConsistencyTime: string
-dataSource: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: resourceType
+      value: string
+    - name: resource
+      value: string
+    - name: backupPlan
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: rulesConfigInfo
+      value:
+        - - name: ruleId
+            value: string
+          - name: lastBackupState
+            value: string
+          - name: lastBackupError
+            value:
+              - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
+          - name: lastSuccessfulBackupConsistencyTime
+            value: string
+    - name: dataSource
+      value: string
 
 ```
 </TabItem>

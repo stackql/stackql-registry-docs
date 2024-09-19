@@ -73,14 +73,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requestId: string
-eventId: string
-createTime: string
-jobEvent:
-  type: string
-  jobs:
-    - type: string
-eventNotes: string
+- name: your_resource_model_name
+  props:
+    - name: requestId
+      value: string
+    - name: eventId
+      value: string
+    - name: createTime
+      value: string
+    - name: jobEvent
+      value:
+        - name: type
+          value: string
+        - name: jobs
+          value:
+            - string
+    - name: eventNotes
+      value: string
 
 ```
 </TabItem>

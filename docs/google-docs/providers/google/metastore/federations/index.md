@@ -69,7 +69,7 @@ updateTime,
 version
 FROM google.metastore.federations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,16 +108,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-version: string
-backendMetastores: object
-endpointUri: string
-state: string
-stateMessage: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: version
+      value: string
+    - name: backendMetastores
+      value: object
+    - name: endpointUri
+      value: string
+    - name: state
+      value: string
+    - name: stateMessage
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

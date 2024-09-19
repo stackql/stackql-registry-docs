@@ -58,7 +58,7 @@ masterBillingAccount,
 open,
 parent
 FROM google.cloudbilling.billing_accounts
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -91,11 +91,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-open: boolean
-displayName: string
-masterBillingAccount: string
-parent: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: open
+      value: boolean
+    - name: displayName
+      value: string
+    - name: masterBillingAccount
+      value: string
+    - name: parent
+      value: string
 
 ```
 </TabItem>

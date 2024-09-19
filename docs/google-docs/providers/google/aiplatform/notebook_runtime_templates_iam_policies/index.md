@@ -54,7 +54,7 @@ role
 FROM google.aiplatform.notebook_runtime_templates_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

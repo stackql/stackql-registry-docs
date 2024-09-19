@@ -70,7 +70,7 @@ uid,
 updateTime
 FROM google.batch.jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,143 +113,273 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-priority: string
-taskGroups:
-  - name: string
-    taskSpec:
-      runnables:
-        - container:
-            imageUri: string
-            commands:
-              - type: string
-            entrypoint: string
-            volumes:
-              - type: string
-            options: string
-            blockExternalNetwork: boolean
-            username: string
-            password: string
-            enableImageStreaming: boolean
-          script:
-            path: string
-            text: string
-          barrier:
-            name: string
-          displayName: string
-          ignoreExitStatus: boolean
-          background: boolean
-          alwaysRun: boolean
-          environment:
-            variables: object
-            secretVariables: object
-            encryptedVariables:
-              keyName: string
-              cipherText: string
-          timeout: string
-          labels: object
-      computeResource:
-        cpuMilli: string
-        memoryMib: string
-        bootDiskMib: string
-      maxRunDuration: string
-      maxRetryCount: integer
-      lifecyclePolicies:
-        - action: string
-          actionCondition:
-            exitCodes:
-              - type: string
-                format: string
-      environments: object
-      volumes:
-        - nfs:
-            server: string
-            remotePath: string
-          gcs:
-            remotePath: string
-          deviceName: string
-          mountPath: string
-          mountOptions:
-            - type: string
-    taskCount: string
-    parallelism: string
-    schedulingPolicy: string
-    taskEnvironments:
-      - variables: object
-        secretVariables: object
-    taskCountPerNode: string
-    requireHostsFile: boolean
-    permissiveSsh: boolean
-    runAsNonRoot: boolean
-allocationPolicy:
-  location:
-    allowedLocations:
-      - type: string
-  instances:
-    - policy:
-        machineType: string
-        minCpuPlatform: string
-        provisioningModel: string
-        accelerators:
-          - type: string
-            count: string
-            installGpuDrivers: boolean
-            driverVersion: string
-        bootDisk:
-          image: string
-          snapshot: string
-          type: string
-          sizeGb: string
-          diskInterface: string
-        disks:
-          - existingDisk: string
-            deviceName: string
-        reservation: string
-      instanceTemplate: string
-      installGpuDrivers: boolean
-      installOpsAgent: boolean
-      blockProjectSshKeys: boolean
-  serviceAccount:
-    email: string
-    scopes:
-      - type: string
-  labels: object
-  network:
-    networkInterfaces:
-      - network: string
-        subnetwork: string
-        noExternalIpAddress: boolean
-  placement:
-    collocation: string
-    maxDistance: string
-  tags:
-    - type: string
-labels: object
-status:
-  state: string
-  statusEvents:
-    - type: string
-      description: string
-      eventTime: string
-      taskExecution:
-        exitCode: integer
-      taskState: string
-  taskGroups: object
-  runDuration: string
-createTime: string
-updateTime: string
-logsPolicy:
-  destination: string
-  logsPath: string
-  cloudLoggingOption:
-    useGenericTaskMonitoredResource: boolean
-notifications:
-  - pubsubTopic: string
-    message:
-      type: string
-      newJobState: string
-      newTaskState: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: priority
+      value: string
+    - name: taskGroups
+      value:
+        - - name: name
+            value: string
+          - name: taskSpec
+            value:
+              - name: runnables
+                value:
+                  - - name: container
+                      value:
+                        - name: imageUri
+                          value: string
+                        - name: commands
+                          value:
+                            - string
+                        - name: entrypoint
+                          value: string
+                        - name: volumes
+                          value:
+                            - string
+                        - name: options
+                          value: string
+                        - name: blockExternalNetwork
+                          value: boolean
+                        - name: username
+                          value: string
+                        - name: password
+                          value: string
+                        - name: enableImageStreaming
+                          value: boolean
+                    - name: script
+                      value:
+                        - name: path
+                          value: string
+                        - name: text
+                          value: string
+                    - name: barrier
+                      value:
+                        - name: name
+                          value: string
+                    - name: displayName
+                      value: string
+                    - name: ignoreExitStatus
+                      value: boolean
+                    - name: background
+                      value: boolean
+                    - name: alwaysRun
+                      value: boolean
+                    - name: environment
+                      value:
+                        - name: variables
+                          value: object
+                        - name: secretVariables
+                          value: object
+                        - name: encryptedVariables
+                          value:
+                            - name: keyName
+                              value: string
+                            - name: cipherText
+                              value: string
+                    - name: timeout
+                      value: string
+                    - name: labels
+                      value: object
+              - name: computeResource
+                value:
+                  - name: cpuMilli
+                    value: string
+                  - name: memoryMib
+                    value: string
+                  - name: bootDiskMib
+                    value: string
+              - name: maxRunDuration
+                value: string
+              - name: maxRetryCount
+                value: integer
+              - name: lifecyclePolicies
+                value:
+                  - - name: action
+                      value: string
+                    - name: actionCondition
+                      value:
+                        - name: exitCodes
+                          value:
+                            - integer
+              - name: environments
+                value: object
+              - name: volumes
+                value:
+                  - - name: nfs
+                      value:
+                        - name: server
+                          value: string
+                        - name: remotePath
+                          value: string
+                    - name: gcs
+                      value:
+                        - name: remotePath
+                          value: string
+                    - name: deviceName
+                      value: string
+                    - name: mountPath
+                      value: string
+                    - name: mountOptions
+                      value:
+                        - string
+          - name: taskCount
+            value: string
+          - name: parallelism
+            value: string
+          - name: schedulingPolicy
+            value: string
+          - name: taskEnvironments
+            value:
+              - - name: variables
+                  value: object
+                - name: secretVariables
+                  value: object
+          - name: taskCountPerNode
+            value: string
+          - name: requireHostsFile
+            value: boolean
+          - name: permissiveSsh
+            value: boolean
+          - name: runAsNonRoot
+            value: boolean
+    - name: allocationPolicy
+      value:
+        - name: location
+          value:
+            - name: allowedLocations
+              value:
+                - string
+        - name: instances
+          value:
+            - - name: policy
+                value:
+                  - name: machineType
+                    value: string
+                  - name: minCpuPlatform
+                    value: string
+                  - name: provisioningModel
+                    value: string
+                  - name: accelerators
+                    value:
+                      - - name: type
+                          value: string
+                        - name: count
+                          value: string
+                        - name: installGpuDrivers
+                          value: boolean
+                        - name: driverVersion
+                          value: string
+                  - name: bootDisk
+                    value:
+                      - name: image
+                        value: string
+                      - name: snapshot
+                        value: string
+                      - name: type
+                        value: string
+                      - name: sizeGb
+                        value: string
+                      - name: diskInterface
+                        value: string
+                  - name: disks
+                    value:
+                      - - name: existingDisk
+                          value: string
+                        - name: deviceName
+                          value: string
+                  - name: reservation
+                    value: string
+              - name: instanceTemplate
+                value: string
+              - name: installGpuDrivers
+                value: boolean
+              - name: installOpsAgent
+                value: boolean
+              - name: blockProjectSshKeys
+                value: boolean
+        - name: serviceAccount
+          value:
+            - name: email
+              value: string
+            - name: scopes
+              value:
+                - string
+        - name: labels
+          value: object
+        - name: network
+          value:
+            - name: networkInterfaces
+              value:
+                - - name: network
+                    value: string
+                  - name: subnetwork
+                    value: string
+                  - name: noExternalIpAddress
+                    value: boolean
+        - name: placement
+          value:
+            - name: collocation
+              value: string
+            - name: maxDistance
+              value: string
+        - name: tags
+          value:
+            - string
+    - name: labels
+      value: object
+    - name: status
+      value:
+        - name: state
+          value: string
+        - name: statusEvents
+          value:
+            - - name: type
+                value: string
+              - name: description
+                value: string
+              - name: eventTime
+                value: string
+              - name: taskExecution
+                value:
+                  - name: exitCode
+                    value: integer
+              - name: taskState
+                value: string
+        - name: taskGroups
+          value: object
+        - name: runDuration
+          value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: logsPolicy
+      value:
+        - name: destination
+          value: string
+        - name: logsPath
+          value: string
+        - name: cloudLoggingOption
+          value:
+            - name: useGenericTaskMonitoredResource
+              value: boolean
+    - name: notifications
+      value:
+        - - name: pubsubTopic
+            value: string
+          - name: message
+            value:
+              - name: type
+                value: string
+              - name: newJobState
+                value: string
+              - name: newTaskState
+                value: string
 
 ```
 </TabItem>

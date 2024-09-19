@@ -69,7 +69,7 @@ region,
 selfLink,
 service
 FROM google.compute.target_tcp_proxies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -102,7 +102,7 @@ SELECT
 '{{ description }}',
 '{{ service }}',
 '{{ proxyHeader }}',
-true|false,
+{{ proxyBind }},
 '{{ region }}'
 ;
 ```
@@ -110,16 +110,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-service: string
-proxyHeader: string
-proxyBind: boolean
-region: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: service
+      value: string
+    - name: proxyHeader
+      value: string
+    - name: proxyBind
+      value: boolean
+    - name: region
+      value: string
 
 ```
 </TabItem>

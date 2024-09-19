@@ -55,7 +55,7 @@ trackingIssues
 FROM google.clouderrorreporting.groups
 WHERE groupsId = '{{ groupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -54,7 +54,7 @@ role
 FROM google.vmwareengine.private_clouds_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

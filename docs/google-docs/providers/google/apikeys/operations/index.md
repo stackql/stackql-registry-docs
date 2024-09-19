@@ -54,5 +54,5 @@ error,
 metadata,
 response
 FROM google.apikeys.operations
-WHERE operationsId = '{{ operationsId }}'; 
+WHERE operationsId = '{{ operationsId }}';
 ```

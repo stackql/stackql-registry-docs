@@ -59,7 +59,7 @@ projectId,
 properties,
 state
 FROM google.datastore.indexes
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -92,14 +92,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-projectId: string
-indexId: string
-kind: string
-ancestor: string
-properties:
-  - name: string
-    direction: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: projectId
+      value: string
+    - name: indexId
+      value: string
+    - name: kind
+      value: string
+    - name: ancestor
+      value: string
+    - name: properties
+      value:
+        - - name: name
+            value: string
+          - name: direction
+            value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

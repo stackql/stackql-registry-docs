@@ -125,7 +125,7 @@ timeDeleted,
 timeStorageClassUpdated,
 updated
 FROM google.storage.objects
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `INSERT` example
@@ -192,7 +192,7 @@ SELECT
 '{{ customTime }}',
 '{{ customerEncryption }}',
 '{{ etag }}',
-true|false,
+{{ eventBasedHold }},
 '{{ generation }}',
 '{{ kmsKeyName }}',
 '{{ md5Hash }}',
@@ -205,7 +205,7 @@ true|false,
 '{{ retention }}',
 '{{ size }}',
 '{{ storageClass }}',
-true|false,
+{{ temporaryHold }},
 '{{ timeCreated }}',
 '{{ timeDeleted }}',
 '{{ softDeleteTime }}',
@@ -218,62 +218,120 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-acl:
-  - bucket: string
-    domain: string
-    email: string
-    entity: string
-    entityId: string
-    etag: string
-    generation: string
-    id: string
-    kind: string
-    object: string
-    projectTeam:
-      projectNumber: string
-      team: string
-    role: string
-    selfLink: string
-bucket: string
-cacheControl: string
-componentCount: integer
-contentDisposition: string
-contentEncoding: string
-contentLanguage: string
-contentType: string
-crc32c: string
-customTime: string
-customerEncryption:
-  encryptionAlgorithm: string
-  keySha256: string
-etag: string
-eventBasedHold: boolean
-generation: string
-id: string
-kind: string
-kmsKeyName: string
-md5Hash: string
-mediaLink: string
-metadata: object
-metageneration: string
-name: string
-owner:
-  entity: string
-  entityId: string
-retentionExpirationTime: string
-retention:
-  retainUntilTime: string
-  mode: string
-selfLink: string
-size: string
-storageClass: string
-temporaryHold: boolean
-timeCreated: string
-timeDeleted: string
-softDeleteTime: string
-hardDeleteTime: string
-timeStorageClassUpdated: string
-updated: string
+- name: your_resource_model_name
+  props:
+    - name: acl
+      value:
+        - - name: bucket
+            value: string
+          - name: domain
+            value: string
+          - name: email
+            value: string
+          - name: entity
+            value: string
+          - name: entityId
+            value: string
+          - name: etag
+            value: string
+          - name: generation
+            value: string
+          - name: id
+            value: string
+          - name: kind
+            value: string
+          - name: object
+            value: string
+          - name: projectTeam
+            value:
+              - name: projectNumber
+                value: string
+              - name: team
+                value: string
+          - name: role
+            value: string
+          - name: selfLink
+            value: string
+    - name: bucket
+      value: string
+    - name: cacheControl
+      value: string
+    - name: componentCount
+      value: integer
+    - name: contentDisposition
+      value: string
+    - name: contentEncoding
+      value: string
+    - name: contentLanguage
+      value: string
+    - name: contentType
+      value: string
+    - name: crc32c
+      value: string
+    - name: customTime
+      value: string
+    - name: customerEncryption
+      value:
+        - name: encryptionAlgorithm
+          value: string
+        - name: keySha256
+          value: string
+    - name: etag
+      value: string
+    - name: eventBasedHold
+      value: boolean
+    - name: generation
+      value: string
+    - name: id
+      value: string
+    - name: kind
+      value: string
+    - name: kmsKeyName
+      value: string
+    - name: md5Hash
+      value: string
+    - name: mediaLink
+      value: string
+    - name: metadata
+      value: object
+    - name: metageneration
+      value: string
+    - name: name
+      value: string
+    - name: owner
+      value:
+        - name: entity
+          value: string
+        - name: entityId
+          value: string
+    - name: retentionExpirationTime
+      value: string
+    - name: retention
+      value:
+        - name: retainUntilTime
+          value: string
+        - name: mode
+          value: string
+    - name: selfLink
+      value: string
+    - name: size
+      value: string
+    - name: storageClass
+      value: string
+    - name: temporaryHold
+      value: boolean
+    - name: timeCreated
+      value: string
+    - name: timeDeleted
+      value: string
+    - name: softDeleteTime
+      value: string
+    - name: hardDeleteTime
+      value: string
+    - name: timeStorageClassUpdated
+      value: string
+    - name: updated
+      value: string
 
 ```
 </TabItem>

@@ -62,7 +62,7 @@ FROM google.artifactregistry.versions
 WHERE locationsId = '{{ locationsId }}'
 AND packagesId = '{{ packagesId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `DELETE` example

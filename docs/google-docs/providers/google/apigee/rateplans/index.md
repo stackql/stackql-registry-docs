@@ -87,7 +87,7 @@ startTime,
 state
 FROM google.apigee.rateplans
 WHERE apiproductsId = '{{ apiproductsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -150,32 +150,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-fixedFeeFrequency: integer
-name: string
-description: string
-consumptionPricingRates:
-  - fee:
-      units: string
-      currencyCode: string
-      nanos: integer
-    end: string
-    start: string
-revenueShareType: string
-apiproduct: string
-state: string
-consumptionPricingType: string
-billingPeriod: string
-revenueShareRates:
-  - end: string
-    start: string
-    sharePercentage: number
-startTime: string
-currencyCode: string
-paymentFundingModel: string
-endTime: string
-lastModifiedAt: string
-createdAt: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: fixedFeeFrequency
+      value: integer
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: consumptionPricingRates
+      value:
+        - - name: fee
+            value:
+              - name: units
+                value: string
+              - name: currencyCode
+                value: string
+              - name: nanos
+                value: integer
+          - name: end
+            value: string
+          - name: start
+            value: string
+    - name: revenueShareType
+      value: string
+    - name: apiproduct
+      value: string
+    - name: state
+      value: string
+    - name: consumptionPricingType
+      value: string
+    - name: billingPeriod
+      value: string
+    - name: revenueShareRates
+      value:
+        - - name: end
+            value: string
+          - name: start
+            value: string
+          - name: sharePercentage
+            value: number
+    - name: startTime
+      value: string
+    - name: currencyCode
+      value: string
+    - name: paymentFundingModel
+      value: string
+    - name: endTime
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: createdAt
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

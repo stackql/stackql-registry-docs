@@ -66,7 +66,7 @@ updateTime
 FROM google.vmwareengine.logging_servers
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,14 +107,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-hostname: string
-port: integer
-protocol: string
-sourceType: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: hostname
+      value: string
+    - name: port
+      value: integer
+    - name: protocol
+      value: string
+    - name: sourceType
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

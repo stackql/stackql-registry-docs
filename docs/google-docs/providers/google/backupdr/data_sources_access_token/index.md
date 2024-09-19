@@ -55,5 +55,5 @@ FROM google.backupdr.data_sources_access_token
 WHERE backupVaultsId = '{{ backupVaultsId }}'
 AND dataSourcesId = '{{ dataSourcesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

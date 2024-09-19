@@ -73,7 +73,7 @@ state
 FROM google.iam.workload_identity_pool_providers
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workloadIdentityPoolsId = '{{ workloadIdentityPoolsId }}'; 
+AND workloadIdentityPoolsId = '{{ workloadIdentityPoolsId }}';
 ```
 
 ## `INSERT` example
@@ -110,7 +110,7 @@ SELECT
 '{{ workloadIdentityPoolsId }}',
 '{{ displayName }}',
 '{{ description }}',
-true|false,
+{{ disabled }},
 '{{ attributeMapping }}',
 '{{ attributeCondition }}',
 '{{ aws }}',
@@ -122,23 +122,41 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-state: string
-disabled: boolean
-attributeMapping: object
-attributeCondition: string
-aws:
-  accountId: string
-oidc:
-  issuerUri: string
-  allowedAudiences:
-    - type: string
-  jwksJson: string
-saml:
-  idpMetadataXml: string
-expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: disabled
+      value: boolean
+    - name: attributeMapping
+      value: object
+    - name: attributeCondition
+      value: string
+    - name: aws
+      value:
+        - name: accountId
+          value: string
+    - name: oidc
+      value:
+        - name: issuerUri
+          value: string
+        - name: allowedAudiences
+          value:
+            - string
+        - name: jwksJson
+          value: string
+    - name: saml
+      value:
+        - name: idpMetadataXml
+          value: string
+    - name: expireTime
+      value: string
 
 ```
 </TabItem>

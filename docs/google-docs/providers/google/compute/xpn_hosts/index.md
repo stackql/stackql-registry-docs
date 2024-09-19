@@ -74,5 +74,5 @@ usageExportLocation,
 vmDnsSetting,
 xpnProjectStatus
 FROM google.compute.xpn_hosts
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

@@ -106,7 +106,7 @@ version
 FROM google.container.node_pools
 WHERE clusterId = '{{ clusterId }}'
 AND projectId = '{{ projectId }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `INSERT` example
@@ -149,186 +149,358 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-projectId: string
-zone: string
-clusterId: string
-nodePool:
-  name: string
-  config:
-    machineType: string
-    diskSizeGb: integer
-    oauthScopes:
-      - type: string
-    serviceAccount: string
-    metadata: object
-    imageType: string
-    labels: object
-    localSsdCount: integer
-    tags:
-      - type: string
-    preemptible: boolean
-    accelerators:
-      - acceleratorCount: string
-        acceleratorType: string
-        gpuPartitionSize: string
-        gpuSharingConfig:
-          maxSharedClientsPerGpu: string
-          gpuSharingStrategy: string
-        gpuDriverInstallationConfig:
-          gpuDriverVersion: string
-    diskType: string
-    minCpuPlatform: string
-    workloadMetadataConfig:
-      mode: string
-    taints:
-      - key: string
-        value: string
-        effect: string
-    sandboxConfig:
-      type: string
-    nodeGroup: string
-    reservationAffinity:
-      consumeReservationType: string
-      key: string
-      values:
-        - type: string
-    shieldedInstanceConfig:
-      enableSecureBoot: boolean
-      enableIntegrityMonitoring: boolean
-    linuxNodeConfig:
-      sysctls: object
-      cgroupMode: string
-      hugepages:
-        hugepageSize2m: integer
-        hugepageSize1g: integer
-    kubeletConfig:
-      cpuManagerPolicy: string
-      cpuCfsQuota: boolean
-      cpuCfsQuotaPeriod: string
-      podPidsLimit: string
-      insecureKubeletReadonlyPortEnabled: boolean
-    bootDiskKmsKey: string
-    gcfsConfig:
-      enabled: boolean
-    advancedMachineFeatures:
-      threadsPerCore: string
-      enableNestedVirtualization: boolean
-    gvnic:
-      enabled: boolean
-    spot: boolean
-    confidentialNodes:
-      enabled: boolean
-    fastSocket:
-      enabled: boolean
-    resourceLabels: object
-    loggingConfig:
-      variantConfig:
-        variant: string
-    windowsNodeConfig:
-      osVersion: string
-    localNvmeSsdBlockConfig:
-      localSsdCount: integer
-    ephemeralStorageLocalSsdConfig:
-      localSsdCount: integer
-    soleTenantConfig:
-      nodeAffinities:
-        - key: string
-          operator: string
-          values:
-            - type: string
-    containerdConfig:
-      privateRegistryAccessConfig:
-        enabled: boolean
-        certificateAuthorityDomainConfig:
-          - fqdns:
-              - type: string
-            gcpSecretManagerCertificateConfig:
-              secretUri: string
-    resourceManagerTags:
-      tags: object
-    enableConfidentialStorage: boolean
-    secondaryBootDisks:
-      - mode: string
-        diskImage: string
-    storagePools:
-      - type: string
-    secondaryBootDiskUpdateStrategy: {}
-  initialNodeCount: integer
-  locations:
-    - type: string
-  networkConfig:
-    createPodRange: boolean
-    podRange: string
-    podIpv4CidrBlock: string
-    enablePrivateNodes: boolean
-    networkPerformanceConfig:
-      totalEgressBandwidthTier: string
-    podCidrOverprovisionConfig:
-      disable: boolean
-    additionalNodeNetworkConfigs:
-      - network: string
-        subnetwork: string
-    additionalPodNetworkConfigs:
-      - subnetwork: string
-        secondaryPodRange: string
-        maxPodsPerNode:
-          maxPodsPerNode: string
-    podIpv4RangeUtilization: number
-  selfLink: string
-  version: string
-  instanceGroupUrls:
-    - type: string
-  status: string
-  statusMessage: string
-  autoscaling:
-    enabled: boolean
-    minNodeCount: integer
-    maxNodeCount: integer
-    autoprovisioned: boolean
-    locationPolicy: string
-    totalMinNodeCount: integer
-    totalMaxNodeCount: integer
-  management:
-    autoUpgrade: boolean
-    autoRepair: boolean
-    upgradeOptions:
-      autoUpgradeStartTime: string
-      description: string
-  conditions:
-    - code: string
-      message: string
-      canonicalCode: string
-  podIpv4CidrSize: integer
-  upgradeSettings:
-    maxSurge: integer
-    maxUnavailable: integer
-    strategy: string
-    blueGreenSettings:
-      standardRolloutPolicy:
-        batchPercentage: number
-        batchNodeCount: integer
-        batchSoakDuration: string
-      nodePoolSoakDuration: string
-  placementPolicy:
-    type: string
-    tpuTopology: string
-    policyName: string
-  updateInfo:
-    blueGreenInfo:
-      phase: string
-      blueInstanceGroupUrls:
-        - type: string
-      greenInstanceGroupUrls:
-        - type: string
-      bluePoolDeletionStartTime: string
-      greenPoolVersion: string
-  etag: string
-  queuedProvisioning:
-    enabled: boolean
-  bestEffortProvisioning:
-    enabled: boolean
-    minProvisionNodes: integer
-parent: string
+- name: your_resource_model_name
+  props:
+    - name: projectId
+      value: string
+    - name: zone
+      value: string
+    - name: clusterId
+      value: string
+    - name: nodePool
+      value:
+        - name: name
+          value: string
+        - name: config
+          value:
+            - name: machineType
+              value: string
+            - name: diskSizeGb
+              value: integer
+            - name: oauthScopes
+              value:
+                - string
+            - name: serviceAccount
+              value: string
+            - name: metadata
+              value: object
+            - name: imageType
+              value: string
+            - name: labels
+              value: object
+            - name: localSsdCount
+              value: integer
+            - name: tags
+              value:
+                - string
+            - name: preemptible
+              value: boolean
+            - name: accelerators
+              value:
+                - - name: acceleratorCount
+                    value: string
+                  - name: acceleratorType
+                    value: string
+                  - name: gpuPartitionSize
+                    value: string
+                  - name: gpuSharingConfig
+                    value:
+                      - name: maxSharedClientsPerGpu
+                        value: string
+                      - name: gpuSharingStrategy
+                        value: string
+                  - name: gpuDriverInstallationConfig
+                    value:
+                      - name: gpuDriverVersion
+                        value: string
+            - name: diskType
+              value: string
+            - name: minCpuPlatform
+              value: string
+            - name: workloadMetadataConfig
+              value:
+                - name: mode
+                  value: string
+            - name: taints
+              value:
+                - - name: key
+                    value: string
+                  - name: value
+                    value: string
+                  - name: effect
+                    value: string
+            - name: sandboxConfig
+              value:
+                - name: type
+                  value: string
+            - name: nodeGroup
+              value: string
+            - name: reservationAffinity
+              value:
+                - name: consumeReservationType
+                  value: string
+                - name: key
+                  value: string
+                - name: values
+                  value:
+                    - string
+            - name: shieldedInstanceConfig
+              value:
+                - name: enableSecureBoot
+                  value: boolean
+                - name: enableIntegrityMonitoring
+                  value: boolean
+            - name: linuxNodeConfig
+              value:
+                - name: sysctls
+                  value: object
+                - name: cgroupMode
+                  value: string
+                - name: hugepages
+                  value:
+                    - name: hugepageSize2m
+                      value: integer
+                    - name: hugepageSize1g
+                      value: integer
+            - name: kubeletConfig
+              value:
+                - name: cpuManagerPolicy
+                  value: string
+                - name: cpuCfsQuota
+                  value: boolean
+                - name: cpuCfsQuotaPeriod
+                  value: string
+                - name: podPidsLimit
+                  value: string
+                - name: insecureKubeletReadonlyPortEnabled
+                  value: boolean
+            - name: bootDiskKmsKey
+              value: string
+            - name: gcfsConfig
+              value:
+                - name: enabled
+                  value: boolean
+            - name: advancedMachineFeatures
+              value:
+                - name: threadsPerCore
+                  value: string
+                - name: enableNestedVirtualization
+                  value: boolean
+            - name: gvnic
+              value:
+                - name: enabled
+                  value: boolean
+            - name: spot
+              value: boolean
+            - name: confidentialNodes
+              value:
+                - name: enabled
+                  value: boolean
+            - name: fastSocket
+              value:
+                - name: enabled
+                  value: boolean
+            - name: resourceLabels
+              value: object
+            - name: loggingConfig
+              value:
+                - name: variantConfig
+                  value:
+                    - name: variant
+                      value: string
+            - name: windowsNodeConfig
+              value:
+                - name: osVersion
+                  value: string
+            - name: localNvmeSsdBlockConfig
+              value:
+                - name: localSsdCount
+                  value: integer
+            - name: ephemeralStorageLocalSsdConfig
+              value:
+                - name: localSsdCount
+                  value: integer
+            - name: soleTenantConfig
+              value:
+                - name: nodeAffinities
+                  value:
+                    - - name: key
+                        value: string
+                      - name: operator
+                        value: string
+                      - name: values
+                        value:
+                          - string
+            - name: containerdConfig
+              value:
+                - name: privateRegistryAccessConfig
+                  value:
+                    - name: enabled
+                      value: boolean
+                    - name: certificateAuthorityDomainConfig
+                      value:
+                        - - name: fqdns
+                            value:
+                              - string
+                          - name: gcpSecretManagerCertificateConfig
+                            value:
+                              - name: secretUri
+                                value: string
+            - name: resourceManagerTags
+              value:
+                - name: tags
+                  value: object
+            - name: enableConfidentialStorage
+              value: boolean
+            - name: secondaryBootDisks
+              value:
+                - - name: mode
+                    value: string
+                  - name: diskImage
+                    value: string
+            - name: storagePools
+              value:
+                - string
+            - name: secondaryBootDiskUpdateStrategy
+              value: []
+        - name: initialNodeCount
+          value: integer
+        - name: locations
+          value:
+            - string
+        - name: networkConfig
+          value:
+            - name: createPodRange
+              value: boolean
+            - name: podRange
+              value: string
+            - name: podIpv4CidrBlock
+              value: string
+            - name: enablePrivateNodes
+              value: boolean
+            - name: networkPerformanceConfig
+              value:
+                - name: totalEgressBandwidthTier
+                  value: string
+            - name: podCidrOverprovisionConfig
+              value:
+                - name: disable
+                  value: boolean
+            - name: additionalNodeNetworkConfigs
+              value:
+                - - name: network
+                    value: string
+                  - name: subnetwork
+                    value: string
+            - name: additionalPodNetworkConfigs
+              value:
+                - - name: subnetwork
+                    value: string
+                  - name: secondaryPodRange
+                    value: string
+                  - name: maxPodsPerNode
+                    value:
+                      - name: maxPodsPerNode
+                        value: string
+            - name: podIpv4RangeUtilization
+              value: number
+        - name: selfLink
+          value: string
+        - name: version
+          value: string
+        - name: instanceGroupUrls
+          value:
+            - string
+        - name: status
+          value: string
+        - name: statusMessage
+          value: string
+        - name: autoscaling
+          value:
+            - name: enabled
+              value: boolean
+            - name: minNodeCount
+              value: integer
+            - name: maxNodeCount
+              value: integer
+            - name: autoprovisioned
+              value: boolean
+            - name: locationPolicy
+              value: string
+            - name: totalMinNodeCount
+              value: integer
+            - name: totalMaxNodeCount
+              value: integer
+        - name: management
+          value:
+            - name: autoUpgrade
+              value: boolean
+            - name: autoRepair
+              value: boolean
+            - name: upgradeOptions
+              value:
+                - name: autoUpgradeStartTime
+                  value: string
+                - name: description
+                  value: string
+        - name: conditions
+          value:
+            - - name: code
+                value: string
+              - name: message
+                value: string
+              - name: canonicalCode
+                value: string
+        - name: podIpv4CidrSize
+          value: integer
+        - name: upgradeSettings
+          value:
+            - name: maxSurge
+              value: integer
+            - name: maxUnavailable
+              value: integer
+            - name: strategy
+              value: string
+            - name: blueGreenSettings
+              value:
+                - name: standardRolloutPolicy
+                  value:
+                    - name: batchPercentage
+                      value: number
+                    - name: batchNodeCount
+                      value: integer
+                    - name: batchSoakDuration
+                      value: string
+                - name: nodePoolSoakDuration
+                  value: string
+        - name: placementPolicy
+          value:
+            - name: type
+              value: string
+            - name: tpuTopology
+              value: string
+            - name: policyName
+              value: string
+        - name: updateInfo
+          value:
+            - name: blueGreenInfo
+              value:
+                - name: phase
+                  value: string
+                - name: blueInstanceGroupUrls
+                  value:
+                    - string
+                - name: greenInstanceGroupUrls
+                  value:
+                    - string
+                - name: bluePoolDeletionStartTime
+                  value: string
+                - name: greenPoolVersion
+                  value: string
+        - name: etag
+          value: string
+        - name: queuedProvisioning
+          value:
+            - name: enabled
+              value: boolean
+        - name: bestEffortProvisioning
+          value:
+            - name: enabled
+              value: boolean
+            - name: minProvisionNodes
+              value: integer
+    - name: parent
+      value: string
 
 ```
 </TabItem>

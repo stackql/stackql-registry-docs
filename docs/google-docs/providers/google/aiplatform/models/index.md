@@ -126,7 +126,7 @@ versionId,
 versionUpdateTime
 FROM google.aiplatform.models
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

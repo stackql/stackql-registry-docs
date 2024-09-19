@@ -57,7 +57,7 @@ Lists matching subscriptions.
 SELECT
 column_anon
 FROM google.pubsub.subscriptions
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

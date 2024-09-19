@@ -72,7 +72,7 @@ expireTime,
 state
 FROM google.iam.oauth_clients
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,7 +106,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-true|false,
+{{ disabled }},
 '{{ displayName }}',
 '{{ description }}',
 '{{ clientType }}',
@@ -119,22 +119,33 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-disabled: boolean
-clientId: string
-displayName: string
-description: string
-clientType: string
-allowedGrantTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
-allowedScopes:
-  - type: string
-allowedRedirectUris:
-  - type: string
-expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: disabled
+      value: boolean
+    - name: clientId
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: clientType
+      value: string
+    - name: allowedGrantTypes
+      value:
+        - string
+    - name: allowedScopes
+      value:
+        - string
+    - name: allowedRedirectUris
+      value:
+        - string
+    - name: expireTime
+      value: string
 
 ```
 </TabItem>

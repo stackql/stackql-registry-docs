@@ -95,7 +95,7 @@ updateTime,
 upgrade,
 vulnerability
 FROM google.containeranalysis.occurrences
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -126,362 +126,697 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-occurrences:
-  - noteName: string
-    kind: string
-    sbomReference:
-      signatures:
-        - keyid: string
-          sig: string
-      payloadType: string
-      payload:
-        subject:
-          - digest: object
-            name: string
-        _type: string
-        predicateType: string
-        predicate:
-          digest: object
-          referrerId: string
-          mimeType: string
-          location: string
-    discovery:
-      continuousAnalysis: string
-      analysisStatus: string
-      analysisStatusError:
-        details:
-          - type: string
-            additionalProperties: any
-        message: string
-        code: integer
-      sbomStatus:
-        sbomState: string
-        error: string
-      archiveTime: string
-      lastScanTime: string
-      analysisError:
-        - details:
-            - type: string
-              additionalProperties: any
-          message: string
-          code: integer
-      analysisCompleted:
-        analysisType:
-          - type: string
-      cpe: string
-    attestation:
-      serializedPayload: string
-      jwts:
-        - compactJwt: string
-      signatures:
-        - publicKeyId: string
-          signature: string
-    dsseAttestation:
-      statement:
-        predicateType: string
-        slsaProvenanceZeroTwo:
-          metadata:
-            buildInvocationId: string
-            reproducible: boolean
-            completeness:
-              parameters: boolean
-              environment: boolean
-              materials: boolean
-            buildFinishedOn: string
-            buildStartedOn: string
-          buildConfig: object
-          invocation:
-            parameters: object
-            configSource:
-              entryPoint: string
-              uri: string
-              digest: object
-            environment: object
-          materials:
-            - digest: object
-              uri: string
-          builder:
-            id: string
-          buildType: string
-        _type: string
-        subject:
-          - digest: object
-            name: string
-        provenance:
-          builderConfig:
-            id: string
-          recipe:
-            environment:
-              - additionalProperties: any
-                type: string
-            type: string
-            arguments:
-              - additionalProperties: any
-                type: string
-            definedInMaterial: string
-            entryPoint: string
-          metadata:
-            buildStartedOn: string
-            reproducible: boolean
-            buildInvocationId: string
-            completeness:
-              arguments: boolean
-              environment: boolean
-              materials: boolean
-            buildFinishedOn: string
-          materials:
-            - type: string
-        slsaProvenance:
-          builder:
-            id: string
-          materials:
-            - digest: object
-              uri: string
-          recipe:
-            arguments: object
-            definedInMaterial: string
-            environment: object
-            type: string
-            entryPoint: string
-          metadata:
-            completeness:
-              arguments: boolean
-              materials: boolean
-              environment: boolean
-            reproducible: boolean
-            buildFinishedOn: string
-            buildStartedOn: string
-            buildInvocationId: string
-      envelope:
-        payloadType: string
-        signatures:
-          - keyid: string
-            sig: string
-        payload: string
-    vulnerability:
-      cvssVersion: string
-      severity: string
-      shortDescription: string
-      relatedUrls:
-        - label: string
-          url: string
-      vexAssessment:
-        impacts:
-          - type: string
-        relatedUris:
-          - label: string
-            url: string
-        remediations:
-          - remediationUri:
-              label: string
-              url: string
-            remediationType: string
-            details: string
-        noteName: string
-        justification:
-          justificationType: string
-          details: string
-        vulnerabilityId: string
-        cve: string
-        state: string
-      type: string
-      packageIssue:
-        - fileLocation:
-            - filePath: string
-          affectedCpeUri: string
-          packageType: string
-          fixedVersion:
-            inclusive: boolean
-            revision: string
-            fullName: string
-            epoch: integer
-            name: string
-            kind: string
-          fixAvailable: boolean
-          fixedCpeUri: string
-          effectiveSeverity: string
-          affectedPackage: string
-          fixedPackage: string
-      extraDetails: string
-      cvssV2:
-        attackComplexity: string
-        exploitabilityScore: number
-        impactScore: number
-        availabilityImpact: string
-        baseScore: number
-        attackVector: string
-        scope: string
-        integrityImpact: string
-        confidentialityImpact: string
-        privilegesRequired: string
-        authentication: string
-        userInteraction: string
-      effectiveSeverity: string
-      longDescription: string
-      fixAvailable: boolean
-      cvssScore: number
-    image:
-      baseResourceUrl: string
-      fingerprint:
-        v2Blob:
-          - type: string
-        v2Name: string
-        v1Name: string
-      layerInfo:
-        - arguments: string
-          directive: string
-      distance: integer
-    name: string
-    createTime: string
-    compliance:
-      version:
-        cpeUri: string
-        benchmarkDocument: string
-        version: string
-      nonComplianceReason: string
-      nonCompliantFiles:
-        - reason: string
-          path: string
-          displayCommand: string
-    upgrade:
-      package: string
-      windowsUpdate:
-        description: string
-        categories:
-          - categoryId: string
-            name: string
-        title: string
-        identity:
-          updateId: string
-          revision: integer
-        supportUrl: string
-        lastPublishedTimestamp: string
-        kbArticleIds:
-          - type: string
-      distribution:
-        cpeUri: string
-        classification: string
-        severity: string
-        cve:
-          - type: string
-    package:
-      architecture: string
-      packageType: string
-      license:
-        comments: string
-        expression: string
-      name: string
-      cpeUri: string
-      location:
-        - path: string
-          cpeUri: string
-    deployment:
-      undeployTime: string
-      config: string
-      address: string
-      userEmail: string
-      platform: string
-      resourceUri:
-        - type: string
-      deployTime: string
-    updateTime: string
-    build:
-      inTotoSlsaProvenanceV1:
-        subject:
-          - digest: object
-            name: string
-        predicate:
-          runDetails:
-            builder:
-              builderDependencies:
-                - uri: string
-                  downloadLocation: string
-                  content: string
-                  mediaType: string
-                  name: string
-                  digest: object
-                  annotations: object
-              version: object
-              id: string
-            metadata:
-              finishedOn: string
-              startedOn: string
-              invocationId: string
-            byproducts:
-              - uri: string
-                downloadLocation: string
-                content: string
-                mediaType: string
-                name: string
-                digest: object
-                annotations: object
-          buildDefinition:
-            buildType: string
-            externalParameters: object
-            resolvedDependencies:
-              - uri: string
-                downloadLocation: string
-                content: string
-                mediaType: string
-                name: string
-                digest: object
-                annotations: object
-            internalParameters: object
-        _type: string
-        predicateType: string
-      provenance:
-        createTime: string
-        projectId: string
-        commands:
-          - dir: string
-            id: string
-            env:
-              - type: string
-            args:
-              - type: string
-            waitFor:
-              - type: string
-            name: string
-        buildOptions: object
-        builtArtifacts:
-          - checksum: string
-            id: string
-            names:
-              - type: string
-        id: string
-        startTime: string
-        endTime: string
-        creator: string
-        logsUri: string
-        builderVersion: string
-        triggerId: string
-        sourceProvenance:
-          additionalContexts:
-            - labels: object
-              cloudRepo:
-                revisionId: string
-                repoId:
-                  uid: string
-                  projectRepoId:
-                    repoName: string
-                    projectId: string
-                aliasContext:
-                  kind: string
-                  name: string
-              git:
-                revisionId: string
-                url: string
-              gerrit:
-                gerritProject: string
-                revisionId: string
-                hostUri: string
-          artifactStorageSourceUri: string
-          fileHashes: object
-          context:
-            labels: object
-      provenanceBytes: string
-    resourceUri: string
-    remediation: string
+- name: your_resource_model_name
+  props:
+    - name: occurrences
+      value:
+        - - name: noteName
+            value: string
+          - name: kind
+            value: string
+          - name: sbomReference
+            value:
+              - name: signatures
+                value:
+                  - - name: keyid
+                      value: string
+                    - name: sig
+                      value: string
+              - name: payloadType
+                value: string
+              - name: payload
+                value:
+                  - name: subject
+                    value:
+                      - - name: digest
+                          value: object
+                        - name: name
+                          value: string
+                  - name: _type
+                    value: string
+                  - name: predicateType
+                    value: string
+                  - name: predicate
+                    value:
+                      - name: digest
+                        value: object
+                      - name: referrerId
+                        value: string
+                      - name: mimeType
+                        value: string
+                      - name: location
+                        value: string
+          - name: discovery
+            value:
+              - name: continuousAnalysis
+                value: string
+              - name: analysisStatus
+                value: string
+              - name: analysisStatusError
+                value:
+                  - name: details
+                    value:
+                      - object
+                  - name: message
+                    value: string
+                  - name: code
+                    value: integer
+              - name: sbomStatus
+                value:
+                  - name: sbomState
+                    value: string
+                  - name: error
+                    value: string
+              - name: archiveTime
+                value: string
+              - name: lastScanTime
+                value: string
+              - name: analysisError
+                value:
+                  - - name: details
+                      value:
+                        - object
+                    - name: message
+                      value: string
+                    - name: code
+                      value: integer
+              - name: analysisCompleted
+                value:
+                  - name: analysisType
+                    value:
+                      - string
+              - name: cpe
+                value: string
+          - name: attestation
+            value:
+              - name: serializedPayload
+                value: string
+              - name: jwts
+                value:
+                  - - name: compactJwt
+                      value: string
+              - name: signatures
+                value:
+                  - - name: publicKeyId
+                      value: string
+                    - name: signature
+                      value: string
+          - name: dsseAttestation
+            value:
+              - name: statement
+                value:
+                  - name: predicateType
+                    value: string
+                  - name: slsaProvenanceZeroTwo
+                    value:
+                      - name: metadata
+                        value:
+                          - name: buildInvocationId
+                            value: string
+                          - name: reproducible
+                            value: boolean
+                          - name: completeness
+                            value:
+                              - name: parameters
+                                value: boolean
+                              - name: environment
+                                value: boolean
+                              - name: materials
+                                value: boolean
+                          - name: buildFinishedOn
+                            value: string
+                          - name: buildStartedOn
+                            value: string
+                      - name: buildConfig
+                        value: object
+                      - name: invocation
+                        value:
+                          - name: parameters
+                            value: object
+                          - name: configSource
+                            value:
+                              - name: entryPoint
+                                value: string
+                              - name: uri
+                                value: string
+                              - name: digest
+                                value: object
+                          - name: environment
+                            value: object
+                      - name: materials
+                        value:
+                          - - name: digest
+                              value: object
+                            - name: uri
+                              value: string
+                      - name: builder
+                        value:
+                          - name: id
+                            value: string
+                      - name: buildType
+                        value: string
+                  - name: _type
+                    value: string
+                  - name: subject
+                    value:
+                      - - name: digest
+                          value: object
+                        - name: name
+                          value: string
+                  - name: provenance
+                    value:
+                      - name: builderConfig
+                        value:
+                          - name: id
+                            value: string
+                      - name: recipe
+                        value:
+                          - name: environment
+                            value:
+                              - object
+                          - name: type
+                            value: string
+                          - name: arguments
+                            value:
+                              - object
+                          - name: definedInMaterial
+                            value: string
+                          - name: entryPoint
+                            value: string
+                      - name: metadata
+                        value:
+                          - name: buildStartedOn
+                            value: string
+                          - name: reproducible
+                            value: boolean
+                          - name: buildInvocationId
+                            value: string
+                          - name: completeness
+                            value:
+                              - name: arguments
+                                value: boolean
+                              - name: environment
+                                value: boolean
+                              - name: materials
+                                value: boolean
+                          - name: buildFinishedOn
+                            value: string
+                      - name: materials
+                        value:
+                          - string
+                  - name: slsaProvenance
+                    value:
+                      - name: builder
+                        value:
+                          - name: id
+                            value: string
+                      - name: materials
+                        value:
+                          - - name: digest
+                              value: object
+                            - name: uri
+                              value: string
+                      - name: recipe
+                        value:
+                          - name: arguments
+                            value: object
+                          - name: definedInMaterial
+                            value: string
+                          - name: environment
+                            value: object
+                          - name: type
+                            value: string
+                          - name: entryPoint
+                            value: string
+                      - name: metadata
+                        value:
+                          - name: completeness
+                            value:
+                              - name: arguments
+                                value: boolean
+                              - name: materials
+                                value: boolean
+                              - name: environment
+                                value: boolean
+                          - name: reproducible
+                            value: boolean
+                          - name: buildFinishedOn
+                            value: string
+                          - name: buildStartedOn
+                            value: string
+                          - name: buildInvocationId
+                            value: string
+              - name: envelope
+                value:
+                  - name: payloadType
+                    value: string
+                  - name: signatures
+                    value:
+                      - - name: keyid
+                          value: string
+                        - name: sig
+                          value: string
+                  - name: payload
+                    value: string
+          - name: vulnerability
+            value:
+              - name: cvssVersion
+                value: string
+              - name: severity
+                value: string
+              - name: shortDescription
+                value: string
+              - name: relatedUrls
+                value:
+                  - - name: label
+                      value: string
+                    - name: url
+                      value: string
+              - name: vexAssessment
+                value:
+                  - name: impacts
+                    value:
+                      - string
+                  - name: relatedUris
+                    value:
+                      - - name: label
+                          value: string
+                        - name: url
+                          value: string
+                  - name: remediations
+                    value:
+                      - - name: remediationUri
+                          value:
+                            - name: label
+                              value: string
+                            - name: url
+                              value: string
+                        - name: remediationType
+                          value: string
+                        - name: details
+                          value: string
+                  - name: noteName
+                    value: string
+                  - name: justification
+                    value:
+                      - name: justificationType
+                        value: string
+                      - name: details
+                        value: string
+                  - name: vulnerabilityId
+                    value: string
+                  - name: cve
+                    value: string
+                  - name: state
+                    value: string
+              - name: type
+                value: string
+              - name: packageIssue
+                value:
+                  - - name: fileLocation
+                      value:
+                        - - name: filePath
+                            value: string
+                    - name: affectedCpeUri
+                      value: string
+                    - name: packageType
+                      value: string
+                    - name: fixedVersion
+                      value:
+                        - name: inclusive
+                          value: boolean
+                        - name: revision
+                          value: string
+                        - name: fullName
+                          value: string
+                        - name: epoch
+                          value: integer
+                        - name: name
+                          value: string
+                        - name: kind
+                          value: string
+                    - name: fixAvailable
+                      value: boolean
+                    - name: fixedCpeUri
+                      value: string
+                    - name: effectiveSeverity
+                      value: string
+                    - name: affectedPackage
+                      value: string
+                    - name: fixedPackage
+                      value: string
+              - name: extraDetails
+                value: string
+              - name: cvssV2
+                value:
+                  - name: attackComplexity
+                    value: string
+                  - name: exploitabilityScore
+                    value: number
+                  - name: impactScore
+                    value: number
+                  - name: availabilityImpact
+                    value: string
+                  - name: baseScore
+                    value: number
+                  - name: attackVector
+                    value: string
+                  - name: scope
+                    value: string
+                  - name: integrityImpact
+                    value: string
+                  - name: confidentialityImpact
+                    value: string
+                  - name: privilegesRequired
+                    value: string
+                  - name: authentication
+                    value: string
+                  - name: userInteraction
+                    value: string
+              - name: effectiveSeverity
+                value: string
+              - name: longDescription
+                value: string
+              - name: fixAvailable
+                value: boolean
+              - name: cvssScore
+                value: number
+          - name: image
+            value:
+              - name: baseResourceUrl
+                value: string
+              - name: fingerprint
+                value:
+                  - name: v2Blob
+                    value:
+                      - string
+                  - name: v2Name
+                    value: string
+                  - name: v1Name
+                    value: string
+              - name: layerInfo
+                value:
+                  - - name: arguments
+                      value: string
+                    - name: directive
+                      value: string
+              - name: distance
+                value: integer
+          - name: name
+            value: string
+          - name: createTime
+            value: string
+          - name: compliance
+            value:
+              - name: version
+                value:
+                  - name: cpeUri
+                    value: string
+                  - name: benchmarkDocument
+                    value: string
+                  - name: version
+                    value: string
+              - name: nonComplianceReason
+                value: string
+              - name: nonCompliantFiles
+                value:
+                  - - name: reason
+                      value: string
+                    - name: path
+                      value: string
+                    - name: displayCommand
+                      value: string
+          - name: upgrade
+            value:
+              - name: package
+                value: string
+              - name: windowsUpdate
+                value:
+                  - name: description
+                    value: string
+                  - name: categories
+                    value:
+                      - - name: categoryId
+                          value: string
+                        - name: name
+                          value: string
+                  - name: title
+                    value: string
+                  - name: identity
+                    value:
+                      - name: updateId
+                        value: string
+                      - name: revision
+                        value: integer
+                  - name: supportUrl
+                    value: string
+                  - name: lastPublishedTimestamp
+                    value: string
+                  - name: kbArticleIds
+                    value:
+                      - string
+              - name: distribution
+                value:
+                  - name: cpeUri
+                    value: string
+                  - name: classification
+                    value: string
+                  - name: severity
+                    value: string
+                  - name: cve
+                    value:
+                      - string
+          - name: package
+            value:
+              - name: architecture
+                value: string
+              - name: packageType
+                value: string
+              - name: license
+                value:
+                  - name: comments
+                    value: string
+                  - name: expression
+                    value: string
+              - name: name
+                value: string
+              - name: cpeUri
+                value: string
+              - name: location
+                value:
+                  - - name: path
+                      value: string
+                    - name: cpeUri
+                      value: string
+          - name: deployment
+            value:
+              - name: undeployTime
+                value: string
+              - name: config
+                value: string
+              - name: address
+                value: string
+              - name: userEmail
+                value: string
+              - name: platform
+                value: string
+              - name: resourceUri
+                value:
+                  - string
+              - name: deployTime
+                value: string
+          - name: updateTime
+            value: string
+          - name: build
+            value:
+              - name: inTotoSlsaProvenanceV1
+                value:
+                  - name: subject
+                    value:
+                      - - name: digest
+                          value: object
+                        - name: name
+                          value: string
+                  - name: predicate
+                    value:
+                      - name: runDetails
+                        value:
+                          - name: builder
+                            value:
+                              - name: builderDependencies
+                                value:
+                                  - - name: uri
+                                      value: string
+                                    - name: downloadLocation
+                                      value: string
+                                    - name: content
+                                      value: string
+                                    - name: mediaType
+                                      value: string
+                                    - name: name
+                                      value: string
+                                    - name: digest
+                                      value: object
+                                    - name: annotations
+                                      value: object
+                              - name: version
+                                value: object
+                              - name: id
+                                value: string
+                          - name: metadata
+                            value:
+                              - name: finishedOn
+                                value: string
+                              - name: startedOn
+                                value: string
+                              - name: invocationId
+                                value: string
+                          - name: byproducts
+                            value:
+                              - - name: uri
+                                  value: string
+                                - name: downloadLocation
+                                  value: string
+                                - name: content
+                                  value: string
+                                - name: mediaType
+                                  value: string
+                                - name: name
+                                  value: string
+                                - name: digest
+                                  value: object
+                                - name: annotations
+                                  value: object
+                      - name: buildDefinition
+                        value:
+                          - name: buildType
+                            value: string
+                          - name: externalParameters
+                            value: object
+                          - name: resolvedDependencies
+                            value:
+                              - - name: uri
+                                  value: string
+                                - name: downloadLocation
+                                  value: string
+                                - name: content
+                                  value: string
+                                - name: mediaType
+                                  value: string
+                                - name: name
+                                  value: string
+                                - name: digest
+                                  value: object
+                                - name: annotations
+                                  value: object
+                          - name: internalParameters
+                            value: object
+                  - name: _type
+                    value: string
+                  - name: predicateType
+                    value: string
+              - name: provenance
+                value:
+                  - name: createTime
+                    value: string
+                  - name: projectId
+                    value: string
+                  - name: commands
+                    value:
+                      - - name: dir
+                          value: string
+                        - name: id
+                          value: string
+                        - name: env
+                          value:
+                            - string
+                        - name: args
+                          value:
+                            - string
+                        - name: waitFor
+                          value:
+                            - string
+                        - name: name
+                          value: string
+                  - name: buildOptions
+                    value: object
+                  - name: builtArtifacts
+                    value:
+                      - - name: checksum
+                          value: string
+                        - name: id
+                          value: string
+                        - name: names
+                          value:
+                            - string
+                  - name: id
+                    value: string
+                  - name: startTime
+                    value: string
+                  - name: endTime
+                    value: string
+                  - name: creator
+                    value: string
+                  - name: logsUri
+                    value: string
+                  - name: builderVersion
+                    value: string
+                  - name: triggerId
+                    value: string
+                  - name: sourceProvenance
+                    value:
+                      - name: additionalContexts
+                        value:
+                          - - name: labels
+                              value: object
+                            - name: cloudRepo
+                              value:
+                                - name: revisionId
+                                  value: string
+                                - name: repoId
+                                  value:
+                                    - name: uid
+                                      value: string
+                                    - name: projectRepoId
+                                      value:
+                                        - name: repoName
+                                          value: string
+                                        - name: projectId
+                                          value: string
+                                - name: aliasContext
+                                  value:
+                                    - name: kind
+                                      value: string
+                                    - name: name
+                                      value: string
+                            - name: git
+                              value:
+                                - name: revisionId
+                                  value: string
+                                - name: url
+                                  value: string
+                            - name: gerrit
+                              value:
+                                - name: gerritProject
+                                  value: string
+                                - name: revisionId
+                                  value: string
+                                - name: hostUri
+                                  value: string
+                      - name: artifactStorageSourceUri
+                        value: string
+                      - name: fileHashes
+                        value: object
+                      - name: context
+                        value:
+                          - name: labels
+                            value: object
+              - name: provenanceBytes
+                value: string
+          - name: resourceUri
+            value: string
+          - name: remediation
+            value: string
 
 ```
 </TabItem>

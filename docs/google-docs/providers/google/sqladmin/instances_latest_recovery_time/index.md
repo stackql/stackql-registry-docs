@@ -49,5 +49,5 @@ kind,
 latestRecoveryTime
 FROM google.sqladmin.instances_latest_recovery_time
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

@@ -57,7 +57,7 @@ totalRows
 FROM google.bigquery.tabledata
 WHERE +datasetId = '{{ +datasetId }}'
 AND +tableId = '{{ +tableId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -89,9 +89,9 @@ SELECT
 '{{ +datasetId }}',
 '{{ +tableId }}',
 '{{ projectId }}',
-true|false,
+{{ ignoreUnknownValues }},
 '{{ rows }}',
-true|false,
+{{ skipInvalidRows }},
 '{{ templateSuffix }}',
 '{{ traceId }}'
 ;
@@ -100,14 +100,24 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-ignoreUnknownValues: boolean
-kind: string
-rows:
-  - insertId: string
-    json: {}
-skipInvalidRows: boolean
-templateSuffix: string
-traceId: string
+- name: your_resource_model_name
+  props:
+    - name: ignoreUnknownValues
+      value: boolean
+    - name: kind
+      value: string
+    - name: rows
+      value:
+        - - name: insertId
+            value: string
+          - name: json
+            value: []
+    - name: skipInvalidRows
+      value: boolean
+    - name: templateSuffix
+      value: string
+    - name: traceId
+      value: string
 
 ```
 </TabItem>

@@ -72,7 +72,7 @@ updateTime
 FROM google.discoveryengine.engines
 WHERE collectionsId = '{{ collectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,31 +121,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-chatEngineConfig:
-  agentCreationConfig:
-    business: string
-    defaultLanguageCode: string
-    timeZone: string
-    location: string
-  dialogflowAgentToLink: string
-searchEngineConfig:
-  searchTier: string
-  searchAddOns:
-    - type: string
-      enumDescriptions: string
-      enum: string
-chatEngineMetadata:
-  dialogflowAgent: string
-name: string
-displayName: string
-createTime: string
-updateTime: string
-dataStoreIds:
-  - type: string
-solutionType: string
-industryVertical: string
-commonConfig:
-  companyName: string
+- name: your_resource_model_name
+  props:
+    - name: chatEngineConfig
+      value:
+        - name: agentCreationConfig
+          value:
+            - name: business
+              value: string
+            - name: defaultLanguageCode
+              value: string
+            - name: timeZone
+              value: string
+            - name: location
+              value: string
+        - name: dialogflowAgentToLink
+          value: string
+    - name: searchEngineConfig
+      value:
+        - name: searchTier
+          value: string
+        - name: searchAddOns
+          value:
+            - string
+    - name: chatEngineMetadata
+      value:
+        - name: dialogflowAgent
+          value: string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: dataStoreIds
+      value:
+        - string
+    - name: solutionType
+      value: string
+    - name: industryVertical
+      value: string
+    - name: commonConfig
+      value:
+        - name: companyName
+          value: string
 
 ```
 </TabItem>

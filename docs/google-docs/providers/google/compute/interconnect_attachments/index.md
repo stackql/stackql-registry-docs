@@ -130,7 +130,7 @@ subnetLength,
 type,
 vlanTag8021q
 FROM google.compute.interconnect_attachments
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -204,7 +204,7 @@ SELECT
 '{{ customerRouterIpAddress }}',
 '{{ type }}',
 '{{ pairingKey }}',
-true|false,
+{{ adminEnabled }},
 '{{ vlanTag8021q }}',
 '{{ edgeAvailabilityDomain }}',
 '{{ candidateSubnets }}',
@@ -217,7 +217,7 @@ true|false,
 '{{ encryption }}',
 '{{ ipsecInternalAddresses }}',
 '{{ dataplaneVersion }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ stackType }}',
 '{{ cloudRouterIpv6Address }}',
 '{{ customerRouterIpv6Address }}',
@@ -233,57 +233,107 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-description: string
-selfLink: string
-id: string
-creationTimestamp: string
-name: string
-interconnect: string
-router: string
-region: string
-googleReferenceId: string
-mtu: integer
-privateInterconnectInfo:
-  tag8021q: integer
-operationalStatus: string
-cloudRouterIpAddress: string
-customerRouterIpAddress: string
-type: string
-pairingKey: string
-adminEnabled: boolean
-vlanTag8021q: integer
-edgeAvailabilityDomain: string
-candidateSubnets:
-  - type: string
-bandwidth: string
-partnerMetadata:
-  partnerName: string
-  interconnectName: string
-  portalUrl: string
-labels: object
-labelFingerprint: string
-state: string
-partnerAsn: string
-encryption: string
-ipsecInternalAddresses:
-  - type: string
-dataplaneVersion: integer
-satisfiesPzs: boolean
-stackType: string
-cloudRouterIpv6Address: string
-customerRouterIpv6Address: string
-candidateIpv6Subnets:
-  - type: string
-cloudRouterIpv6InterfaceId: string
-customerRouterIpv6InterfaceId: string
-subnetLength: integer
-remoteService: string
-configurationConstraints:
-  bgpMd5: string
-  bgpPeerAsnRanges:
-    - min: integer
-      max: integer
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: interconnect
+      value: string
+    - name: router
+      value: string
+    - name: region
+      value: string
+    - name: googleReferenceId
+      value: string
+    - name: mtu
+      value: integer
+    - name: privateInterconnectInfo
+      value:
+        - name: tag8021q
+          value: integer
+    - name: operationalStatus
+      value: string
+    - name: cloudRouterIpAddress
+      value: string
+    - name: customerRouterIpAddress
+      value: string
+    - name: type
+      value: string
+    - name: pairingKey
+      value: string
+    - name: adminEnabled
+      value: boolean
+    - name: vlanTag8021q
+      value: integer
+    - name: edgeAvailabilityDomain
+      value: string
+    - name: candidateSubnets
+      value:
+        - string
+    - name: bandwidth
+      value: string
+    - name: partnerMetadata
+      value:
+        - name: partnerName
+          value: string
+        - name: interconnectName
+          value: string
+        - name: portalUrl
+          value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: state
+      value: string
+    - name: partnerAsn
+      value: string
+    - name: encryption
+      value: string
+    - name: ipsecInternalAddresses
+      value:
+        - string
+    - name: dataplaneVersion
+      value: integer
+    - name: satisfiesPzs
+      value: boolean
+    - name: stackType
+      value: string
+    - name: cloudRouterIpv6Address
+      value: string
+    - name: customerRouterIpv6Address
+      value: string
+    - name: candidateIpv6Subnets
+      value:
+        - string
+    - name: cloudRouterIpv6InterfaceId
+      value: string
+    - name: customerRouterIpv6InterfaceId
+      value: string
+    - name: subnetLength
+      value: integer
+    - name: remoteService
+      value: string
+    - name: configurationConstraints
+      value:
+        - name: bgpMd5
+          value: string
+        - name: bgpPeerAsnRanges
+          value:
+            - - name: min
+                value: integer
+              - name: max
+                value: integer
 
 ```
 </TabItem>

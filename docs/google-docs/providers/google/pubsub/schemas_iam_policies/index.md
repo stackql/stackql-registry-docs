@@ -53,7 +53,7 @@ members,
 role
 FROM google.pubsub.schemas_iam_policies
 WHERE projectsId = '{{ projectsId }}'
-AND schemasId = '{{ schemasId }}'; 
+AND schemasId = '{{ schemasId }}';
 ```
 
 ## `REPLACE` example

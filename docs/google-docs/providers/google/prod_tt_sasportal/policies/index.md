@@ -50,5 +50,5 @@ SELECT
 assignments,
 etag
 FROM google.prod_tt_sasportal.policies
-WHERE  = '{{  }}'; 
+;
 ```

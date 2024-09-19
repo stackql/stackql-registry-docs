@@ -48,5 +48,5 @@ image
 FROM google.compute.image_family_views
 WHERE family = '{{ family }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

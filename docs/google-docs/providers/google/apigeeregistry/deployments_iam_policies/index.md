@@ -55,7 +55,7 @@ FROM google.apigeeregistry.deployments_iam_policies
 WHERE apisId = '{{ apisId }}'
 AND deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

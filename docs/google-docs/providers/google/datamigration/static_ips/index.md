@@ -49,5 +49,5 @@ nextPageToken,
 staticIps
 FROM google.datamigration.static_ips
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

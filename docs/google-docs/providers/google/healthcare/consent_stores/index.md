@@ -61,7 +61,7 @@ labels
 FROM google.healthcare.consent_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -95,17 +95,23 @@ SELECT
 '{{ name }}',
 '{{ defaultConsentTtl }}',
 '{{ labels }}',
-true|false
+{{ enableConsentCreateOnUpdate }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-defaultConsentTtl: string
-labels: object
-enableConsentCreateOnUpdate: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: defaultConsentTtl
+      value: string
+    - name: labels
+      value: object
+    - name: enableConsentCreateOnUpdate
+      value: boolean
 
 ```
 </TabItem>

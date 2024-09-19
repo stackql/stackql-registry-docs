@@ -72,7 +72,7 @@ members,
 role
 FROM google.storage.managed_folders_iam_policies
 WHERE bucket = '{{ bucket }}'
-AND managedFolder = '{{ managedFolder }}'; 
+AND managedFolder = '{{ managedFolder }}';
 ```
 
 ## `REPLACE` example

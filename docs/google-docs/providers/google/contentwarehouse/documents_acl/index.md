@@ -50,5 +50,5 @@ policy
 FROM google.contentwarehouse.documents_acl
 WHERE documentsId = '{{ documentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

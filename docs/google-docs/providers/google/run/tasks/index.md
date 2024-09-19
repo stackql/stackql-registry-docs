@@ -110,5 +110,5 @@ FROM google.run.tasks
 WHERE executionsId = '{{ executionsId }}'
 AND jobsId = '{{ jobsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

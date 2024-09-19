@@ -54,5 +54,5 @@ revisionCreateTime,
 revisionId,
 uid
 FROM google.apigee.deployed_ingress_config
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

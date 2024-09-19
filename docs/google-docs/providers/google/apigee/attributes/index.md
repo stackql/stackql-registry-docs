@@ -57,7 +57,7 @@ name,
 value
 FROM google.apigee.attributes
 WHERE developersId = '{{ developersId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `DELETE` example

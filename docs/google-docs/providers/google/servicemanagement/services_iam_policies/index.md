@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.servicemanagement.services_iam_policies
-WHERE servicesId = '{{ servicesId }}'; 
+WHERE servicesId = '{{ servicesId }}';
 ```
 
 ## `REPLACE` example

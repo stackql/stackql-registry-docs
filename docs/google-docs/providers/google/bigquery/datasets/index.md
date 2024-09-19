@@ -110,7 +110,7 @@ storageBillingModel,
 tags,
 type
 FROM google.bigquery.datasets
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -162,7 +162,7 @@ SELECT
 '{{ externalCatalogDatasetOptions }}',
 '{{ externalDatasetReference }}',
 '{{ friendlyName }}',
-true|false,
+{{ isCaseInsensitive }},
 '{{ labels }}',
 '{{ linkedDatasetSource }}',
 '{{ location }}',
@@ -175,66 +175,123 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-access:
-  - dataset:
-      dataset:
-        datasetId: string
-        projectId: string
-      targetTypes:
-        - enum: string
-          enumDescriptions: string
-          type: string
-    domain: string
-    groupByEmail: string
-    iamMember: string
-    role: string
-    routine:
-      datasetId: string
-      projectId: string
-      routineId: string
-    specialGroup: string
-    userByEmail: string
-    view:
-      datasetId: string
-      projectId: string
-      tableId: string
-creationTime: string
-defaultCollation: string
-defaultEncryptionConfiguration:
-  kmsKeyName: string
-defaultPartitionExpirationMs: string
-defaultRoundingMode: string
-defaultTableExpirationMs: string
-description: string
-etag: string
-externalCatalogDatasetOptions:
-  defaultStorageLocationUri: string
-  parameters: object
-externalDatasetReference:
-  connection: string
-  externalSource: string
-friendlyName: string
-id: string
-isCaseInsensitive: boolean
-kind: string
-labels: object
-lastModifiedTime: string
-linkedDatasetMetadata:
-  linkState: string
-linkedDatasetSource: {}
-location: string
-maxTimeTravelHours: string
-resourceTags: object
-restrictions:
-  type: string
-satisfiesPzi: boolean
-satisfiesPzs: boolean
-selfLink: string
-storageBillingModel: string
-tags:
-  - tagKey: string
-    tagValue: string
-type: string
+- name: your_resource_model_name
+  props:
+    - name: access
+      value:
+        - - name: dataset
+            value:
+              - name: dataset
+                value:
+                  - name: datasetId
+                    value: string
+                  - name: projectId
+                    value: string
+              - name: targetTypes
+                value:
+                  - string
+          - name: domain
+            value: string
+          - name: groupByEmail
+            value: string
+          - name: iamMember
+            value: string
+          - name: role
+            value: string
+          - name: routine
+            value:
+              - name: datasetId
+                value: string
+              - name: projectId
+                value: string
+              - name: routineId
+                value: string
+          - name: specialGroup
+            value: string
+          - name: userByEmail
+            value: string
+          - name: view
+            value:
+              - name: datasetId
+                value: string
+              - name: projectId
+                value: string
+              - name: tableId
+                value: string
+    - name: creationTime
+      value: string
+    - name: defaultCollation
+      value: string
+    - name: defaultEncryptionConfiguration
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: defaultPartitionExpirationMs
+      value: string
+    - name: defaultRoundingMode
+      value: string
+    - name: defaultTableExpirationMs
+      value: string
+    - name: description
+      value: string
+    - name: etag
+      value: string
+    - name: externalCatalogDatasetOptions
+      value:
+        - name: defaultStorageLocationUri
+          value: string
+        - name: parameters
+          value: object
+    - name: externalDatasetReference
+      value:
+        - name: connection
+          value: string
+        - name: externalSource
+          value: string
+    - name: friendlyName
+      value: string
+    - name: id
+      value: string
+    - name: isCaseInsensitive
+      value: boolean
+    - name: kind
+      value: string
+    - name: labels
+      value: object
+    - name: lastModifiedTime
+      value: string
+    - name: linkedDatasetMetadata
+      value:
+        - name: linkState
+          value: string
+    - name: linkedDatasetSource
+      value: []
+    - name: location
+      value: string
+    - name: maxTimeTravelHours
+      value: string
+    - name: resourceTags
+      value: object
+    - name: restrictions
+      value:
+        - name: type
+          value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
+    - name: selfLink
+      value: string
+    - name: storageBillingModel
+      value: string
+    - name: tags
+      value:
+        - - name: tagKey
+            value: string
+          - name: tagValue
+            value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ updateTime
 FROM google.aiplatform.dataset_versions
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,16 +108,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-satisfiesPzs: boolean
-etag: string
-modelReference: string
-metadata: any
-updateTime: string
-bigQueryDatasetName: string
-displayName: string
-satisfiesPzi: boolean
-name: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: satisfiesPzs
+      value: boolean
+    - name: etag
+      value: string
+    - name: modelReference
+      value: string
+    - name: metadata
+      value: any
+    - name: updateTime
+      value: string
+    - name: bigQueryDatasetName
+      value: string
+    - name: displayName
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: name
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

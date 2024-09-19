@@ -80,7 +80,7 @@ FROM google.discoveryengine.documents
 WHERE branchesId = '{{ branchesId }}'
 AND dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -127,26 +127,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-structData: object
-jsonData: string
-name: string
-id: string
-schemaId: string
-content:
-  rawBytes: string
-  uri: string
-  mimeType: string
-parentDocumentId: string
-derivedStructData: object
-indexTime: string
-indexStatus:
-  indexTime: string
-  errorSamples:
-    - code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
+- name: your_resource_model_name
+  props:
+    - name: structData
+      value: object
+    - name: jsonData
+      value: string
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: schemaId
+      value: string
+    - name: content
+      value:
+        - name: rawBytes
+          value: string
+        - name: uri
+          value: string
+        - name: mimeType
+          value: string
+    - name: parentDocumentId
+      value: string
+    - name: derivedStructData
+      value: object
+    - name: indexTime
+      value: string
+    - name: indexStatus
+      value:
+        - name: indexTime
+          value: string
+        - name: errorSamples
+          value:
+            - - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
 
 ```
 </TabItem>

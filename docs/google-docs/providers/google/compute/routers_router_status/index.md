@@ -50,5 +50,5 @@ result
 FROM google.compute.routers_router_status
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND router = '{{ router }}'; 
+AND router = '{{ router }}';
 ```

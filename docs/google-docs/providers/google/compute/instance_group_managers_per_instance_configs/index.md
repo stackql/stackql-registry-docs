@@ -56,7 +56,7 @@ status
 FROM google.compute.instance_group_managers_per_instance_configs
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `UPDATE` example

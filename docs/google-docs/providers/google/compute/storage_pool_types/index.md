@@ -80,5 +80,5 @@ selfLinkWithId,
 supportedDiskTypes,
 zone
 FROM google.compute.storage_pool_types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

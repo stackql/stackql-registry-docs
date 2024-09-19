@@ -80,7 +80,7 @@ useCases
 FROM google.discoveryengine.controls
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -131,34 +131,57 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-boostAction:
-  boost: number
-  filter: string
-  dataStore: string
-filterAction:
-  filter: string
-  dataStore: string
-redirectAction:
-  redirectUri: string
-synonymsAction:
-  synonyms:
-    - type: string
-name: string
-displayName: string
-associatedServingConfigIds:
-  - type: string
-solutionType: string
-useCases:
-  - type: string
-    enumDescriptions: string
-    enum: string
-conditions:
-  - queryTerms:
-      - value: string
-        fullMatch: boolean
-    activeTimeRange:
-      - startTime: string
-        endTime: string
+- name: your_resource_model_name
+  props:
+    - name: boostAction
+      value:
+        - name: boost
+          value: number
+        - name: filter
+          value: string
+        - name: dataStore
+          value: string
+    - name: filterAction
+      value:
+        - name: filter
+          value: string
+        - name: dataStore
+          value: string
+    - name: redirectAction
+      value:
+        - name: redirectUri
+          value: string
+    - name: synonymsAction
+      value:
+        - name: synonyms
+          value:
+            - string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: associatedServingConfigIds
+      value:
+        - string
+    - name: solutionType
+      value: string
+    - name: useCases
+      value:
+        - string
+    - name: conditions
+      value:
+        - - name: queryTerms
+            value:
+              - - name: value
+                  value: string
+                - name: fullMatch
+                  value: boolean
+          - name: activeTimeRange
+            value:
+              - - name: startTime
+                  value: string
+                - name: endTime
+                  value: string
 
 ```
 </TabItem>

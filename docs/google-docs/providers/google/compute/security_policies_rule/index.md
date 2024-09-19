@@ -69,7 +69,7 @@ rateLimitOptions,
 redirectOptions
 FROM google.compute.security_policies_rule
 WHERE project = '{{ project }}'
-AND securityPolicy = '{{ securityPolicy }}'; 
+AND securityPolicy = '{{ securityPolicy }}';
 ```
 
 ## `INSERT` example
@@ -109,7 +109,7 @@ SELECT
 '{{ match }}',
 '{{ networkMatch }}',
 '{{ action }}',
-true|false,
+{{ preview }},
 '{{ rateLimitOptions }}',
 '{{ headerAction }}',
 '{{ redirectOptions }}',
@@ -120,83 +120,148 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-description: string
-priority: integer
-match:
-  expr:
-    expression: string
-    title: string
-    description: string
-    location: string
-  exprOptions:
-    recaptchaOptions:
-      actionTokenSiteKeys:
-        - type: string
-      sessionTokenSiteKeys:
-        - type: string
-  versionedExpr: string
-  config:
-    srcIpRanges:
-      - type: string
-networkMatch:
-  userDefinedFields:
-    - name: string
-      values:
-        - type: string
-  srcIpRanges:
-    - type: string
-  destIpRanges:
-    - type: string
-  ipProtocols:
-    - type: string
-  srcPorts:
-    - type: string
-  destPorts:
-    - type: string
-  srcRegionCodes:
-    - type: string
-  srcAsns:
-    - type: string
-      format: string
-action: string
-preview: boolean
-rateLimitOptions:
-  rateLimitThreshold:
-    count: integer
-    intervalSec: integer
-  conformAction: string
-  exceedAction: string
-  exceedRedirectOptions:
-    type: string
-    target: string
-  enforceOnKey: string
-  enforceOnKeyName: string
-  enforceOnKeyConfigs:
-    - enforceOnKeyType: string
-      enforceOnKeyName: string
-  banDurationSec: integer
-headerAction:
-  requestHeadersToAdds:
-    - headerName: string
-      headerValue: string
-preconfiguredWafConfig:
-  exclusions:
-    - targetRuleSet: string
-      targetRuleIds:
-        - type: string
-      requestHeadersToExclude:
-        - val: string
-          op: string
-      requestCookiesToExclude:
-        - val: string
-          op: string
-      requestQueryParamsToExclude:
-        - val: string
-          op: string
-      requestUrisToExclude:
-        - val: string
-          op: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: description
+      value: string
+    - name: priority
+      value: integer
+    - name: match
+      value:
+        - name: expr
+          value:
+            - name: expression
+              value: string
+            - name: title
+              value: string
+            - name: description
+              value: string
+            - name: location
+              value: string
+        - name: exprOptions
+          value:
+            - name: recaptchaOptions
+              value:
+                - name: actionTokenSiteKeys
+                  value:
+                    - string
+                - name: sessionTokenSiteKeys
+                  value:
+                    - string
+        - name: versionedExpr
+          value: string
+        - name: config
+          value:
+            - name: srcIpRanges
+              value:
+                - string
+    - name: networkMatch
+      value:
+        - name: userDefinedFields
+          value:
+            - - name: name
+                value: string
+              - name: values
+                value:
+                  - string
+        - name: srcIpRanges
+          value:
+            - string
+        - name: destIpRanges
+          value:
+            - string
+        - name: ipProtocols
+          value:
+            - string
+        - name: srcPorts
+          value:
+            - string
+        - name: destPorts
+          value:
+            - string
+        - name: srcRegionCodes
+          value:
+            - string
+        - name: srcAsns
+          value:
+            - integer
+    - name: action
+      value: string
+    - name: preview
+      value: boolean
+    - name: rateLimitOptions
+      value:
+        - name: rateLimitThreshold
+          value:
+            - name: count
+              value: integer
+            - name: intervalSec
+              value: integer
+        - name: conformAction
+          value: string
+        - name: exceedAction
+          value: string
+        - name: exceedRedirectOptions
+          value:
+            - name: type
+              value: string
+            - name: target
+              value: string
+        - name: enforceOnKey
+          value: string
+        - name: enforceOnKeyName
+          value: string
+        - name: enforceOnKeyConfigs
+          value:
+            - - name: enforceOnKeyType
+                value: string
+              - name: enforceOnKeyName
+                value: string
+        - name: banDurationSec
+          value: integer
+    - name: headerAction
+      value:
+        - name: requestHeadersToAdds
+          value:
+            - - name: headerName
+                value: string
+              - name: headerValue
+                value: string
+    - name: preconfiguredWafConfig
+      value:
+        - name: exclusions
+          value:
+            - - name: targetRuleSet
+                value: string
+              - name: targetRuleIds
+                value:
+                  - string
+              - name: requestHeadersToExclude
+                value:
+                  - - name: val
+                      value: string
+                    - name: op
+                      value: string
+              - name: requestCookiesToExclude
+                value:
+                  - - name: val
+                      value: string
+                    - name: op
+                      value: string
+              - name: requestQueryParamsToExclude
+                value:
+                  - - name: val
+                      value: string
+                    - name: op
+                      value: string
+              - name: requestUrisToExclude
+                value:
+                  - - name: val
+                      value: string
+                    - name: op
+                      value: string
 
 ```
 </TabItem>

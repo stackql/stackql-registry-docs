@@ -90,7 +90,7 @@ updater
 FROM google.contentwarehouse.reference_id
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND referenceIdId = '{{ referenceIdId }}'; 
+AND referenceIdId = '{{ referenceIdId }}';
 ```
 
 ## `UPDATE` example

@@ -100,7 +100,7 @@ volumes,
 workloadProfile
 FROM google.baremetalsolution.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

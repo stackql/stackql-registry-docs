@@ -60,5 +60,5 @@ status
 FROM google.datapipelines.jobs
 WHERE locationsId = '{{ locationsId }}'
 AND pipelinesId = '{{ pipelinesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

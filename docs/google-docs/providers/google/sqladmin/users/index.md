@@ -71,7 +71,7 @@ sqlserverUserDetails,
 type
 FROM google.sqladmin.users
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -122,27 +122,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-password: string
-etag: string
-name: string
-host: string
-instance: string
-project: string
-type: string
-sqlserverUserDetails:
-  disabled: boolean
-  serverRoles:
-    - type: string
-passwordPolicy:
-  allowedFailedAttempts: integer
-  passwordExpirationDuration: string
-  enableFailedAttemptsCheck: boolean
-  status:
-    locked: boolean
-    passwordExpirationTime: string
-  enablePasswordVerification: boolean
-dualPasswordType: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: password
+      value: string
+    - name: etag
+      value: string
+    - name: name
+      value: string
+    - name: host
+      value: string
+    - name: instance
+      value: string
+    - name: project
+      value: string
+    - name: type
+      value: string
+    - name: sqlserverUserDetails
+      value:
+        - name: disabled
+          value: boolean
+        - name: serverRoles
+          value:
+            - string
+    - name: passwordPolicy
+      value:
+        - name: allowedFailedAttempts
+          value: integer
+        - name: passwordExpirationDuration
+          value: string
+        - name: enableFailedAttemptsCheck
+          value: boolean
+        - name: status
+          value:
+            - name: locked
+              value: boolean
+            - name: passwordExpirationTime
+              value: string
+        - name: enablePasswordVerification
+          value: boolean
+    - name: dualPasswordType
+      value: string
 
 ```
 </TabItem>

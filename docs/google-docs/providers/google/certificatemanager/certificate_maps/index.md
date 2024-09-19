@@ -61,7 +61,7 @@ labels,
 updateTime
 FROM google.certificatemanager.certificate_maps
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -98,19 +98,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-gclbTargets:
-  - targetHttpsProxy: string
-    targetSslProxy: string
-    ipConfigs:
-      - ipAddress: string
-        ports:
-          - type: string
-            format: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: gclbTargets
+      value:
+        - - name: targetHttpsProxy
+            value: string
+          - name: targetSslProxy
+            value: string
+          - name: ipConfigs
+            value:
+              - - name: ipAddress
+                  value: string
+                - name: ports
+                  value:
+                    - integer
 
 ```
 </TabItem>

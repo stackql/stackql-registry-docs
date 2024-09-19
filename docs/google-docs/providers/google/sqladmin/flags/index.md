@@ -64,5 +64,5 @@ minValue,
 requiresRestart,
 type
 FROM google.sqladmin.flags
-WHERE  = '{{  }}'; 
+;
 ```

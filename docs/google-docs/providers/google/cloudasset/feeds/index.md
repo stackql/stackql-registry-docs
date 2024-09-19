@@ -48,7 +48,7 @@ SELECT
 feeds
 FROM google.cloudasset.feeds
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```
 
 ## `INSERT` example
@@ -83,24 +83,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-feedId: string
-feed:
-  name: string
-  assetNames:
-    - type: string
-  assetTypes:
-    - type: string
-  contentType: string
-  feedOutputConfig:
-    pubsubDestination:
-      topic: string
-  condition:
-    expression: string
-    title: string
-    description: string
-    location: string
-  relationshipTypes:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: feedId
+      value: string
+    - name: feed
+      value:
+        - name: name
+          value: string
+        - name: assetNames
+          value:
+            - string
+        - name: assetTypes
+          value:
+            - string
+        - name: contentType
+          value: string
+        - name: feedOutputConfig
+          value:
+            - name: pubsubDestination
+              value:
+                - name: topic
+                  value: string
+        - name: condition
+          value:
+            - name: expression
+              value: string
+            - name: title
+              value: string
+            - name: description
+              value: string
+            - name: location
+              value: string
+        - name: relationshipTypes
+          value:
+            - string
 
 ```
 </TabItem>

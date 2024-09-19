@@ -97,95 +97,174 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-backupSource:
-  backupUid: string
-  backupName: string
-migrationSource:
-  hostPort: string
-  referenceId: string
-  sourceType: string
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-deleteTime: string
-labels: object
-state: string
-clusterType: string
-databaseVersion: string
-networkConfig:
-  network: string
-  allocatedIpRange: string
-network: string
-etag: string
-annotations: object
-reconciling: boolean
-initialUser:
-  user: string
-  password: string
-automatedBackupPolicy:
-  weeklySchedule:
-    startTimes:
-      - hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-    daysOfWeek:
-      - type: string
-        enumDescriptions: string
-        enum: string
-  timeBasedRetention:
-    retentionPeriod: string
-  quantityBasedRetention:
-    count: integer
-  enabled: boolean
-  backupWindow: string
-  encryptionConfig:
-    kmsKeyName: string
-  location: string
-  labels: object
-sslConfig:
-  sslMode: string
-  caSource: string
-encryptionInfo:
-  encryptionType: string
-  kmsKeyVersions:
-    - type: string
-continuousBackupConfig:
-  enabled: boolean
-  recoveryWindowDays: integer
-continuousBackupInfo:
-  enabledTime: string
-  schedule:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  earliestRestorableTime: string
-secondaryConfig:
-  primaryClusterName: string
-primaryConfig:
-  secondaryClusterNames:
-    - type: string
-satisfiesPzs: boolean
-pscConfig:
-  pscEnabled: boolean
-maintenanceUpdatePolicy:
-  maintenanceWindows:
-    - day: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-maintenanceSchedule:
-  startTime: string
-subscriptionType: string
-trialMetadata:
-  startTime: string
-  endTime: string
-  upgradeTime: string
-  graceEndTime: string
+- name: your_resource_model_name
+  props:
+    - name: backupSource
+      value:
+        - name: backupUid
+          value: string
+        - name: backupName
+          value: string
+    - name: migrationSource
+      value:
+        - name: hostPort
+          value: string
+        - name: referenceId
+          value: string
+        - name: sourceType
+          value: string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: clusterType
+      value: string
+    - name: databaseVersion
+      value: string
+    - name: networkConfig
+      value:
+        - name: network
+          value: string
+        - name: allocatedIpRange
+          value: string
+    - name: network
+      value: string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: reconciling
+      value: boolean
+    - name: initialUser
+      value:
+        - name: user
+          value: string
+        - name: password
+          value: string
+    - name: automatedBackupPolicy
+      value:
+        - name: weeklySchedule
+          value:
+            - name: startTimes
+              value:
+                - - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+            - name: daysOfWeek
+              value:
+                - string
+        - name: timeBasedRetention
+          value:
+            - name: retentionPeriod
+              value: string
+        - name: quantityBasedRetention
+          value:
+            - name: count
+              value: integer
+        - name: enabled
+          value: boolean
+        - name: backupWindow
+          value: string
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: string
+        - name: location
+          value: string
+        - name: labels
+          value: object
+    - name: sslConfig
+      value:
+        - name: sslMode
+          value: string
+        - name: caSource
+          value: string
+    - name: encryptionInfo
+      value:
+        - name: encryptionType
+          value: string
+        - name: kmsKeyVersions
+          value:
+            - string
+    - name: continuousBackupConfig
+      value:
+        - name: enabled
+          value: boolean
+        - name: recoveryWindowDays
+          value: integer
+    - name: continuousBackupInfo
+      value:
+        - name: enabledTime
+          value: string
+        - name: schedule
+          value:
+            - string
+        - name: earliestRestorableTime
+          value: string
+    - name: secondaryConfig
+      value:
+        - name: primaryClusterName
+          value: string
+    - name: primaryConfig
+      value:
+        - name: secondaryClusterNames
+          value:
+            - string
+    - name: satisfiesPzs
+      value: boolean
+    - name: pscConfig
+      value:
+        - name: pscEnabled
+          value: boolean
+    - name: maintenanceUpdatePolicy
+      value:
+        - name: maintenanceWindows
+          value:
+            - - name: day
+                value: string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+    - name: maintenanceSchedule
+      value:
+        - name: startTime
+          value: string
+    - name: subscriptionType
+      value: string
+    - name: trialMetadata
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: upgradeTime
+          value: string
+        - name: graceEndTime
+          value: string
 
 ```
 </TabItem>

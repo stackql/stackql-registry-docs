@@ -55,7 +55,7 @@ FROM google.healthcare.consent_stores_iam_policies
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

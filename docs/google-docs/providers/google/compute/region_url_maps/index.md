@@ -83,7 +83,7 @@ selfLink,
 tests
 FROM google.compute.region_url_maps
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -138,133 +138,251 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-hostRules:
-  - description: string
-    hosts:
-      - type: string
-    pathMatcher: string
-pathMatchers:
-  - name: string
-    description: string
-    defaultService: string
-    defaultRouteAction:
-      weightedBackendServices:
-        - backendService: string
-          weight: integer
-          headerAction:
-            requestHeadersToRemove:
-              - type: string
-            requestHeadersToAdd:
-              - headerName: string
-                headerValue: string
-                replace: boolean
-            responseHeadersToRemove:
-              - type: string
-            responseHeadersToAdd:
-              - headerName: string
-                headerValue: string
-                replace: boolean
-      urlRewrite:
-        pathPrefixRewrite: string
-        hostRewrite: string
-        pathTemplateRewrite: string
-      timeout:
-        seconds: string
-        nanos: integer
-      retryPolicy:
-        retryConditions:
-          - type: string
-        numRetries: integer
-      requestMirrorPolicy:
-        backendService: string
-      corsPolicy:
-        allowOrigins:
-          - type: string
-        allowOriginRegexes:
-          - type: string
-        allowMethods:
-          - type: string
-        allowHeaders:
-          - type: string
-        exposeHeaders:
-          - type: string
-        maxAge: integer
-        allowCredentials: boolean
-        disabled: boolean
-      faultInjectionPolicy:
-        delay:
-          percentage: number
-        abort:
-          httpStatus: integer
-          percentage: number
-    defaultUrlRedirect:
-      hostRedirect: string
-      pathRedirect: string
-      prefixRedirect: string
-      redirectResponseCode: string
-      httpsRedirect: boolean
-      stripQuery: boolean
-    pathRules:
-      - service: string
-        paths:
-          - type: string
-        customErrorResponsePolicy:
-          errorResponseRules:
-            - matchResponseCodes:
-                - type: string
-              path: string
-              overrideResponseCode: integer
-          errorService: string
-    routeRules:
-      - priority: integer
-        description: string
-        matchRules:
-          - prefixMatch: string
-            fullPathMatch: string
-            regexMatch: string
-            ignoreCase: boolean
-            headerMatches:
-              - headerName: string
-                exactMatch: string
-                regexMatch: string
-                rangeMatch:
-                  rangeStart: string
-                  rangeEnd: string
-                presentMatch: boolean
-                prefixMatch: string
-                suffixMatch: string
-                invertMatch: boolean
-            queryParameterMatches:
-              - name: string
-                presentMatch: boolean
-                exactMatch: string
-                regexMatch: string
-            metadataFilters:
-              - filterMatchCriteria: string
-                filterLabels:
-                  - name: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: hostRules
+      value:
+        - - name: description
+            value: string
+          - name: hosts
+            value:
+              - string
+          - name: pathMatcher
+            value: string
+    - name: pathMatchers
+      value:
+        - - name: name
+            value: string
+          - name: description
+            value: string
+          - name: defaultService
+            value: string
+          - name: defaultRouteAction
+            value:
+              - name: weightedBackendServices
+                value:
+                  - - name: backendService
+                      value: string
+                    - name: weight
+                      value: integer
+                    - name: headerAction
+                      value:
+                        - name: requestHeadersToRemove
+                          value:
+                            - string
+                        - name: requestHeadersToAdd
+                          value:
+                            - - name: headerName
+                                value: string
+                              - name: headerValue
+                                value: string
+                              - name: replace
+                                value: boolean
+                        - name: responseHeadersToRemove
+                          value:
+                            - string
+                        - name: responseHeadersToAdd
+                          value:
+                            - - name: headerName
+                                value: string
+                              - name: headerValue
+                                value: string
+                              - name: replace
+                                value: boolean
+              - name: urlRewrite
+                value:
+                  - name: pathPrefixRewrite
                     value: string
-            pathTemplateMatch: string
-        service: string
-tests:
-  - description: string
-    host: string
-    path: string
-    headers:
-      - name: string
-        value: string
-    service: string
-    expectedOutputUrl: string
-    expectedRedirectResponseCode: integer
-defaultService: string
-fingerprint: string
-region: string
+                  - name: hostRewrite
+                    value: string
+                  - name: pathTemplateRewrite
+                    value: string
+              - name: timeout
+                value:
+                  - name: seconds
+                    value: string
+                  - name: nanos
+                    value: integer
+              - name: retryPolicy
+                value:
+                  - name: retryConditions
+                    value:
+                      - string
+                  - name: numRetries
+                    value: integer
+              - name: requestMirrorPolicy
+                value:
+                  - name: backendService
+                    value: string
+              - name: corsPolicy
+                value:
+                  - name: allowOrigins
+                    value:
+                      - string
+                  - name: allowOriginRegexes
+                    value:
+                      - string
+                  - name: allowMethods
+                    value:
+                      - string
+                  - name: allowHeaders
+                    value:
+                      - string
+                  - name: exposeHeaders
+                    value:
+                      - string
+                  - name: maxAge
+                    value: integer
+                  - name: allowCredentials
+                    value: boolean
+                  - name: disabled
+                    value: boolean
+              - name: faultInjectionPolicy
+                value:
+                  - name: delay
+                    value:
+                      - name: percentage
+                        value: number
+                  - name: abort
+                    value:
+                      - name: httpStatus
+                        value: integer
+                      - name: percentage
+                        value: number
+          - name: defaultUrlRedirect
+            value:
+              - name: hostRedirect
+                value: string
+              - name: pathRedirect
+                value: string
+              - name: prefixRedirect
+                value: string
+              - name: redirectResponseCode
+                value: string
+              - name: httpsRedirect
+                value: boolean
+              - name: stripQuery
+                value: boolean
+          - name: pathRules
+            value:
+              - - name: service
+                  value: string
+                - name: paths
+                  value:
+                    - string
+                - name: customErrorResponsePolicy
+                  value:
+                    - name: errorResponseRules
+                      value:
+                        - - name: matchResponseCodes
+                            value:
+                              - string
+                          - name: path
+                            value: string
+                          - name: overrideResponseCode
+                            value: integer
+                    - name: errorService
+                      value: string
+          - name: routeRules
+            value:
+              - - name: priority
+                  value: integer
+                - name: description
+                  value: string
+                - name: matchRules
+                  value:
+                    - - name: prefixMatch
+                        value: string
+                      - name: fullPathMatch
+                        value: string
+                      - name: regexMatch
+                        value: string
+                      - name: ignoreCase
+                        value: boolean
+                      - name: headerMatches
+                        value:
+                          - - name: headerName
+                              value: string
+                            - name: exactMatch
+                              value: string
+                            - name: regexMatch
+                              value: string
+                            - name: rangeMatch
+                              value:
+                                - name: rangeStart
+                                  value: string
+                                - name: rangeEnd
+                                  value: string
+                            - name: presentMatch
+                              value: boolean
+                            - name: prefixMatch
+                              value: string
+                            - name: suffixMatch
+                              value: string
+                            - name: invertMatch
+                              value: boolean
+                      - name: queryParameterMatches
+                        value:
+                          - - name: name
+                              value: string
+                            - name: presentMatch
+                              value: boolean
+                            - name: exactMatch
+                              value: string
+                            - name: regexMatch
+                              value: string
+                      - name: metadataFilters
+                        value:
+                          - - name: filterMatchCriteria
+                              value: string
+                            - name: filterLabels
+                              value:
+                                - - name: name
+                                    value: string
+                                  - name: value
+                                    value: string
+                      - name: pathTemplateMatch
+                        value: string
+                - name: service
+                  value: string
+    - name: tests
+      value:
+        - - name: description
+            value: string
+          - name: host
+            value: string
+          - name: path
+            value: string
+          - name: headers
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: string
+          - name: service
+            value: string
+          - name: expectedOutputUrl
+            value: string
+          - name: expectedRedirectResponseCode
+            value: integer
+    - name: defaultService
+      value: string
+    - name: fingerprint
+      value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

@@ -55,7 +55,7 @@ FROM google.spanner.backup_schedules_iam_policies
 WHERE backupSchedulesId = '{{ backupSchedulesId }}'
 AND databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

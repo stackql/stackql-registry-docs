@@ -48,5 +48,5 @@ enabled
 FROM google.servicenetworking.networks_vpc_service_controls
 WHERE networksId = '{{ networksId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```

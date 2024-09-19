@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.documentai.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

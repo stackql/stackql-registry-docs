@@ -55,7 +55,7 @@ members,
 role
 FROM google.compute.network_firewall_policies_iam_policies
 WHERE project = '{{ project }}'
-AND resource = '{{ resource }}'; 
+AND resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

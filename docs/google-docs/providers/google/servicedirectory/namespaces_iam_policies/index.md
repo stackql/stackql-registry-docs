@@ -54,7 +54,7 @@ role
 FROM google.servicedirectory.namespaces_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

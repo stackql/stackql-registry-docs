@@ -58,5 +58,5 @@ FROM google.discoveryengine.search_engine_operations
 WHERE collectionsId = '{{ collectionsId }}'
 AND dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

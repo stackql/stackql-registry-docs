@@ -55,5 +55,5 @@ FROM google.cloudcontrolspartner.access_approval_requests
 WHERE customersId = '{{ customersId }}'
 AND locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND workloadsId = '{{ workloadsId }}'; 
+AND workloadsId = '{{ workloadsId }}';
 ```

@@ -55,5 +55,5 @@ AND dicomStoresId = '{{ dicomStoresId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND seriesId = '{{ seriesId }}'
-AND studiesId = '{{ studiesId }}'; 
+AND studiesId = '{{ studiesId }}';
 ```

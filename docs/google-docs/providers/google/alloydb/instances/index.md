@@ -107,7 +107,7 @@ writableNode
 FROM google.alloydb.instances
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -168,60 +168,114 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-deleteTime: string
-labels: object
-state: string
-instanceType: string
-machineConfig:
-  cpuCount: integer
-availabilityType: string
-gceZone: string
-databaseFlags: object
-writableNode:
-  zoneId: string
-  id: string
-  ip: string
-  state: string
-nodes:
-  - zoneId: string
-    id: string
-    ip: string
-    state: string
-queryInsightsConfig:
-  recordApplicationTags: boolean
-  recordClientAddress: boolean
-  queryStringLength: integer
-  queryPlansPerMinute: integer
-readPoolConfig:
-  nodeCount: integer
-ipAddress: string
-publicIpAddress: string
-reconciling: boolean
-etag: string
-annotations: object
-clientConnectionConfig:
-  requireConnectors: boolean
-  sslConfig:
-    sslMode: string
-    caSource: string
-satisfiesPzs: boolean
-pscInstanceConfig:
-  serviceAttachmentLink: string
-  allowedConsumerProjects:
-    - type: string
-  pscDnsName: string
-networkConfig:
-  authorizedExternalNetworks:
-    - cidrRange: string
-  enablePublicIp: boolean
-  enableOutboundPublicIp: boolean
-outboundPublicIpAddresses:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: instanceType
+      value: string
+    - name: machineConfig
+      value:
+        - name: cpuCount
+          value: integer
+    - name: availabilityType
+      value: string
+    - name: gceZone
+      value: string
+    - name: databaseFlags
+      value: object
+    - name: writableNode
+      value:
+        - name: zoneId
+          value: string
+        - name: id
+          value: string
+        - name: ip
+          value: string
+        - name: state
+          value: string
+    - name: nodes
+      value:
+        - - name: zoneId
+            value: string
+          - name: id
+            value: string
+          - name: ip
+            value: string
+          - name: state
+            value: string
+    - name: queryInsightsConfig
+      value:
+        - name: recordApplicationTags
+          value: boolean
+        - name: recordClientAddress
+          value: boolean
+        - name: queryStringLength
+          value: integer
+        - name: queryPlansPerMinute
+          value: integer
+    - name: readPoolConfig
+      value:
+        - name: nodeCount
+          value: integer
+    - name: ipAddress
+      value: string
+    - name: publicIpAddress
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: clientConnectionConfig
+      value:
+        - name: requireConnectors
+          value: boolean
+        - name: sslConfig
+          value:
+            - name: sslMode
+              value: string
+            - name: caSource
+              value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: pscInstanceConfig
+      value:
+        - name: serviceAttachmentLink
+          value: string
+        - name: allowedConsumerProjects
+          value:
+            - string
+        - name: pscDnsName
+          value: string
+    - name: networkConfig
+      value:
+        - name: authorizedExternalNetworks
+          value:
+            - - name: cidrRange
+                value: string
+        - name: enablePublicIp
+          value: boolean
+        - name: enableOutboundPublicIp
+          value: boolean
+    - name: outboundPublicIpAddresses
+      value:
+        - string
 
 ```
 </TabItem>

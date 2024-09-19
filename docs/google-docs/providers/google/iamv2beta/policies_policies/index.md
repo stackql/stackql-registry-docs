@@ -65,5 +65,5 @@ uid,
 updateTime
 FROM google.iamv2beta.policies_policies
 WHERE policiesId = '{{ policiesId }}'
-AND policiesId1 = '{{ policiesId1 }}'; 
+AND policiesId1 = '{{ policiesId1 }}';
 ```

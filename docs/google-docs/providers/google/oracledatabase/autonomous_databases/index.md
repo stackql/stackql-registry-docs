@@ -70,7 +70,7 @@ network,
 properties
 FROM google.oracledatabase.autonomous_databases
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,116 +117,225 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-database: string
-displayName: string
-entitlementId: string
-adminPassword: string
-properties:
-  ocid: string
-  computeCount: number
-  cpuCoreCount: integer
-  dataStorageSizeTb: integer
-  dataStorageSizeGb: integer
-  dbWorkload: string
-  dbEdition: string
-  characterSet: string
-  nCharacterSet: string
-  privateEndpointIp: string
-  privateEndpointLabel: string
-  dbVersion: string
-  isAutoScalingEnabled: boolean
-  isStorageAutoScalingEnabled: boolean
-  licenseType: string
-  customerContacts:
-    - email: string
-  secretId: string
-  vaultId: string
-  maintenanceScheduleType: string
-  mtlsConnectionRequired: boolean
-  backupRetentionPeriodDays: integer
-  actualUsedDataStorageSizeTb: number
-  allocatedStorageSizeTb: number
-  apexDetails:
-    apexVersion: string
-    ordsVersion: string
-  arePrimaryAllowlistedIpsUsed: boolean
-  lifecycleDetails: string
-  state: string
-  autonomousContainerDatabaseId: string
-  availableUpgradeVersions:
-    - type: string
-  connectionStrings:
-    allConnectionStrings:
-      high: string
-      low: string
-      medium: string
-    dedicated: string
-    high: string
-    low: string
-    medium: string
-    profiles:
-      - consumerGroup: string
-        displayName: string
-        hostFormat: string
-        isRegional: boolean
-        protocol: string
-        sessionMode: string
-        syntaxFormat: string
-        tlsAuthentication: string
-        value: string
-  connectionUrls:
-    apexUri: string
-    databaseTransformsUri: string
-    graphStudioUri: string
-    machineLearningNotebookUri: string
-    machineLearningUserManagementUri: string
-    mongoDbUri: string
-    ordsUri: string
-    sqlDevWebUri: string
-  failedDataRecoveryDuration: string
-  memoryTableGbs: integer
-  isLocalDataGuardEnabled: boolean
-  localAdgAutoFailoverMaxDataLossLimit: integer
-  localStandbyDb:
-    lagTimeDuration: string
-    lifecycleDetails: string
-    state: string
-    dataGuardRoleChangedTime: string
-    disasterRecoveryRoleChangedTime: string
-  memoryPerOracleComputeUnitGbs: integer
-  localDisasterRecoveryType: string
-  dataSafeState: string
-  databaseManagementState: string
-  openMode: string
-  operationsInsightsState: string
-  peerDbIds:
-    - type: string
-  permissionLevel: string
-  privateEndpoint: string
-  refreshableMode: string
-  refreshableState: string
-  role: string
-  scheduledOperationDetails:
-    - dayOfWeek: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-  sqlWebDeveloperUrl: string
-  supportedCloneRegions:
-    - type: string
-  usedDataStorageSizeTbs: integer
-  ociUrl: string
-  totalAutoBackupStorageSizeGbs: number
-  nextLongTermBackupTime: string
-  maintenanceBeginTime: string
-  maintenanceEndTime: string
-labels: object
-network: string
-cidr: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: database
+      value: string
+    - name: displayName
+      value: string
+    - name: entitlementId
+      value: string
+    - name: adminPassword
+      value: string
+    - name: properties
+      value:
+        - name: ocid
+          value: string
+        - name: computeCount
+          value: number
+        - name: cpuCoreCount
+          value: integer
+        - name: dataStorageSizeTb
+          value: integer
+        - name: dataStorageSizeGb
+          value: integer
+        - name: dbWorkload
+          value: string
+        - name: dbEdition
+          value: string
+        - name: characterSet
+          value: string
+        - name: nCharacterSet
+          value: string
+        - name: privateEndpointIp
+          value: string
+        - name: privateEndpointLabel
+          value: string
+        - name: dbVersion
+          value: string
+        - name: isAutoScalingEnabled
+          value: boolean
+        - name: isStorageAutoScalingEnabled
+          value: boolean
+        - name: licenseType
+          value: string
+        - name: customerContacts
+          value:
+            - - name: email
+                value: string
+        - name: secretId
+          value: string
+        - name: vaultId
+          value: string
+        - name: maintenanceScheduleType
+          value: string
+        - name: mtlsConnectionRequired
+          value: boolean
+        - name: backupRetentionPeriodDays
+          value: integer
+        - name: actualUsedDataStorageSizeTb
+          value: number
+        - name: allocatedStorageSizeTb
+          value: number
+        - name: apexDetails
+          value:
+            - name: apexVersion
+              value: string
+            - name: ordsVersion
+              value: string
+        - name: arePrimaryAllowlistedIpsUsed
+          value: boolean
+        - name: lifecycleDetails
+          value: string
+        - name: state
+          value: string
+        - name: autonomousContainerDatabaseId
+          value: string
+        - name: availableUpgradeVersions
+          value:
+            - string
+        - name: connectionStrings
+          value:
+            - name: allConnectionStrings
+              value:
+                - name: high
+                  value: string
+                - name: low
+                  value: string
+                - name: medium
+                  value: string
+            - name: dedicated
+              value: string
+            - name: high
+              value: string
+            - name: low
+              value: string
+            - name: medium
+              value: string
+            - name: profiles
+              value:
+                - - name: consumerGroup
+                    value: string
+                  - name: displayName
+                    value: string
+                  - name: hostFormat
+                    value: string
+                  - name: isRegional
+                    value: boolean
+                  - name: protocol
+                    value: string
+                  - name: sessionMode
+                    value: string
+                  - name: syntaxFormat
+                    value: string
+                  - name: tlsAuthentication
+                    value: string
+                  - name: value
+                    value: string
+        - name: connectionUrls
+          value:
+            - name: apexUri
+              value: string
+            - name: databaseTransformsUri
+              value: string
+            - name: graphStudioUri
+              value: string
+            - name: machineLearningNotebookUri
+              value: string
+            - name: machineLearningUserManagementUri
+              value: string
+            - name: mongoDbUri
+              value: string
+            - name: ordsUri
+              value: string
+            - name: sqlDevWebUri
+              value: string
+        - name: failedDataRecoveryDuration
+          value: string
+        - name: memoryTableGbs
+          value: integer
+        - name: isLocalDataGuardEnabled
+          value: boolean
+        - name: localAdgAutoFailoverMaxDataLossLimit
+          value: integer
+        - name: localStandbyDb
+          value:
+            - name: lagTimeDuration
+              value: string
+            - name: lifecycleDetails
+              value: string
+            - name: state
+              value: string
+            - name: dataGuardRoleChangedTime
+              value: string
+            - name: disasterRecoveryRoleChangedTime
+              value: string
+        - name: memoryPerOracleComputeUnitGbs
+          value: integer
+        - name: localDisasterRecoveryType
+          value: string
+        - name: dataSafeState
+          value: string
+        - name: databaseManagementState
+          value: string
+        - name: openMode
+          value: string
+        - name: operationsInsightsState
+          value: string
+        - name: peerDbIds
+          value:
+            - string
+        - name: permissionLevel
+          value: string
+        - name: privateEndpoint
+          value: string
+        - name: refreshableMode
+          value: string
+        - name: refreshableState
+          value: string
+        - name: role
+          value: string
+        - name: scheduledOperationDetails
+          value:
+            - - name: dayOfWeek
+                value: string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+        - name: sqlWebDeveloperUrl
+          value: string
+        - name: supportedCloneRegions
+          value:
+            - string
+        - name: usedDataStorageSizeTbs
+          value: integer
+        - name: ociUrl
+          value: string
+        - name: totalAutoBackupStorageSizeGbs
+          value: number
+        - name: nextLongTermBackupTime
+          value: string
+        - name: maintenanceBeginTime
+          value: string
+        - name: maintenanceEndTime
+          value: string
+    - name: labels
+      value: object
+    - name: network
+      value: string
+    - name: cidr
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

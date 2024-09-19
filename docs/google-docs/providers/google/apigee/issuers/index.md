@@ -46,5 +46,5 @@ Lists hybrid services and its trusted issuers service account ids. This api is a
 SELECT
 issuers
 FROM google.apigee.issuers
-WHERE  = '{{  }}'; 
+;
 ```

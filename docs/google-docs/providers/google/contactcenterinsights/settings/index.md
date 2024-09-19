@@ -64,7 +64,7 @@ speechConfig,
 updateTime
 FROM google.contactcenterinsights.settings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

@@ -50,5 +50,5 @@ partition
 FROM google.pubsublite.cursors
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND subscriptionsId = '{{ subscriptionsId }}'; 
+AND subscriptionsId = '{{ subscriptionsId }}';
 ```

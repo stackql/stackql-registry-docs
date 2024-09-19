@@ -74,7 +74,7 @@ updateTime
 FROM google.dataplex.attributes
 WHERE dataTaxonomiesId = '{{ dataTaxonomiesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,26 +121,44 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-displayName: string
-labels: object
-parentId: string
-attributeCount: integer
-etag: string
-resourceAccessSpec:
-  readers:
-    - type: string
-  writers:
-    - type: string
-  owners:
-    - type: string
-dataAccessSpec:
-  readers:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: parentId
+      value: string
+    - name: attributeCount
+      value: integer
+    - name: etag
+      value: string
+    - name: resourceAccessSpec
+      value:
+        - name: readers
+          value:
+            - string
+        - name: writers
+          value:
+            - string
+        - name: owners
+          value:
+            - string
+    - name: dataAccessSpec
+      value:
+        - name: readers
+          value:
+            - string
 
 ```
 </TabItem>

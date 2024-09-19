@@ -67,7 +67,7 @@ updateTime,
 vpcNetworks
 FROM google.vmwareengine.vmware_engine_networks
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,17 +104,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-description: string
-vpcNetworks:
-  - type: string
-    network: string
-state: string
-type: string
-uid: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: vpcNetworks
+      value:
+        - - name: type
+            value: string
+          - name: network
+            value: string
+    - name: state
+      value: string
+    - name: type
+      value: string
+    - name: uid
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

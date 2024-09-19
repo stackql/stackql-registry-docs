@@ -120,7 +120,7 @@ workforceIdentityServiceEndpoint,
 zone
 FROM google.datafusion.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -166,9 +166,9 @@ SELECT
 '{{ projectsId }}',
 '{{ description }}',
 '{{ type }}',
-true|false,
-true|false,
-true|false,
+{{ enableStackdriverLogging }},
+{{ enableStackdriverMonitoring }},
+{{ privateInstance }},
 '{{ networkConfig }}',
 '{{ labels }}',
 '{{ options }}',
@@ -176,12 +176,12 @@ true|false,
 '{{ version }}',
 '{{ displayName }}',
 '{{ dataprocServiceAccount }}',
-true|false,
+{{ enableRbac }},
 '{{ cryptoKeyConfig }}',
 '{{ eventPublishConfig }}',
-true|false,
+{{ enableZoneSeparation }},
 '{{ patchRevision }}',
-true|false,
+{{ dataplexDataLineageIntegrationEnabled }},
 '{{ maintenancePolicy }}'
 ;
 ```
@@ -189,67 +189,124 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-type: string
-enableStackdriverLogging: boolean
-enableStackdriverMonitoring: boolean
-privateInstance: boolean
-networkConfig:
-  network: string
-  ipAllocation: string
-  connectionType: string
-  privateServiceConnectConfig:
-    networkAttachment: string
-    unreachableCidrBlock: string
-    effectiveUnreachableCidrBlock: string
-labels: object
-options: object
-createTime: string
-updateTime: string
-state: string
-stateMessage: string
-serviceEndpoint: string
-zone: string
-version: string
-serviceAccount: string
-displayName: string
-availableVersion:
-  - versionNumber: string
-    defaultVersion: boolean
-    availableFeatures:
-      - type: string
-    type: string
-apiEndpoint: string
-gcsBucket: string
-accelerators:
-  - acceleratorType: string
-    state: string
-p4ServiceAccount: string
-tenantProjectId: string
-dataprocServiceAccount: string
-enableRbac: boolean
-cryptoKeyConfig:
-  keyReference: string
-disabledReason:
-  - type: string
-    enumDescriptions: string
-    enum: string
-eventPublishConfig:
-  enabled: boolean
-  topic: string
-enableZoneSeparation: boolean
-satisfiesPzs: boolean
-workforceIdentityServiceEndpoint: string
-patchRevision: string
-dataplexDataLineageIntegrationEnabled: boolean
-maintenancePolicy:
-  maintenanceWindow:
-    recurringTimeWindow:
-      window:
-        startTime: string
-        endTime: string
-      recurrence: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: type
+      value: string
+    - name: enableStackdriverLogging
+      value: boolean
+    - name: enableStackdriverMonitoring
+      value: boolean
+    - name: privateInstance
+      value: boolean
+    - name: networkConfig
+      value:
+        - name: network
+          value: string
+        - name: ipAllocation
+          value: string
+        - name: connectionType
+          value: string
+        - name: privateServiceConnectConfig
+          value:
+            - name: networkAttachment
+              value: string
+            - name: unreachableCidrBlock
+              value: string
+            - name: effectiveUnreachableCidrBlock
+              value: string
+    - name: labels
+      value: object
+    - name: options
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: stateMessage
+      value: string
+    - name: serviceEndpoint
+      value: string
+    - name: zone
+      value: string
+    - name: version
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: displayName
+      value: string
+    - name: availableVersion
+      value:
+        - - name: versionNumber
+            value: string
+          - name: defaultVersion
+            value: boolean
+          - name: availableFeatures
+            value:
+              - string
+          - name: type
+            value: string
+    - name: apiEndpoint
+      value: string
+    - name: gcsBucket
+      value: string
+    - name: accelerators
+      value:
+        - - name: acceleratorType
+            value: string
+          - name: state
+            value: string
+    - name: p4ServiceAccount
+      value: string
+    - name: tenantProjectId
+      value: string
+    - name: dataprocServiceAccount
+      value: string
+    - name: enableRbac
+      value: boolean
+    - name: cryptoKeyConfig
+      value:
+        - name: keyReference
+          value: string
+    - name: disabledReason
+      value:
+        - string
+    - name: eventPublishConfig
+      value:
+        - name: enabled
+          value: boolean
+        - name: topic
+          value: string
+    - name: enableZoneSeparation
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
+    - name: workforceIdentityServiceEndpoint
+      value: string
+    - name: patchRevision
+      value: string
+    - name: dataplexDataLineageIntegrationEnabled
+      value: boolean
+    - name: maintenancePolicy
+      value:
+        - name: maintenanceWindow
+          value:
+            - name: recurringTimeWindow
+              value:
+                - name: window
+                  value:
+                    - name: startTime
+                      value: string
+                    - name: endTime
+                      value: string
+                - name: recurrence
+                  value: string
 
 ```
 </TabItem>

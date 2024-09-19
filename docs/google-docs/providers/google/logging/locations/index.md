@@ -62,5 +62,5 @@ labels,
 locationId,
 metadata
 FROM google.logging.locations
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```

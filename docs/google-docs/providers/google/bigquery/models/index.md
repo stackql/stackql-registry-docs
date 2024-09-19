@@ -90,7 +90,7 @@ trainingRuns,
 transformColumns
 FROM google.bigquery.models
 WHERE +datasetId = '{{ +datasetId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```
 
 ## `UPDATE` example

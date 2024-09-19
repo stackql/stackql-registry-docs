@@ -128,5 +128,5 @@ subsetting,
 timeoutSec,
 usedBy
 FROM google.compute.backend_services_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

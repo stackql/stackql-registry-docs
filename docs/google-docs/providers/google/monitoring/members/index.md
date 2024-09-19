@@ -49,5 +49,5 @@ labels,
 type
 FROM google.monitoring.members
 WHERE groupsId = '{{ groupsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -62,5 +62,5 @@ user,
 zoneContext
 FROM google.dns.managed_zone_operations
 WHERE managedZone = '{{ managedZone }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

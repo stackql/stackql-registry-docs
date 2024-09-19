@@ -52,5 +52,5 @@ status
 FROM google.compute.region_instance_groups_instances
 WHERE instanceGroup = '{{ instanceGroup }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

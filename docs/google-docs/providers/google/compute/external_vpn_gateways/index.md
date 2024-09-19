@@ -68,7 +68,7 @@ labels,
 redundancyType,
 selfLink
 FROM google.compute.external_vpn_gateways
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -109,19 +109,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-description: string
-selfLink: string
-id: string
-creationTimestamp: string
-name: string
-redundancyType: string
-interfaces:
-  - id: integer
-    ipAddress: string
-    ipv6Address: string
-labels: object
-labelFingerprint: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: redundancyType
+      value: string
+    - name: interfaces
+      value:
+        - - name: id
+            value: integer
+          - name: ipAddress
+            value: string
+          - name: ipv6Address
+            value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
 
 ```
 </TabItem>

@@ -60,5 +60,5 @@ uid,
 updateTime
 FROM google.networkconnectivity.route_tables
 WHERE hubsId = '{{ hubsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

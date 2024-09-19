@@ -54,5 +54,5 @@ endTime,
 scanData,
 startTime
 FROM google.spanner.scans
-WHERE  = '{{  }}'; 
+;
 ```

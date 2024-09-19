@@ -69,7 +69,7 @@ uid,
 updateTime
 FROM google.eventarc.channels
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,16 +106,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-provider: string
-pubsubTopic: string
-state: string
-activationToken: string
-cryptoKeyName: string
-satisfiesPzs: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: provider
+      value: string
+    - name: pubsubTopic
+      value: string
+    - name: state
+      value: string
+    - name: activationToken
+      value: string
+    - name: cryptoKeyName
+      value: string
+    - name: satisfiesPzs
+      value: boolean
 
 ```
 </TabItem>

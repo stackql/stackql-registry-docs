@@ -56,7 +56,7 @@ role
 FROM google.compute.region_network_firewall_policies_iam_policies
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND resource = '{{ resource }}'; 
+AND resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

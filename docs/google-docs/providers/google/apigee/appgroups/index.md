@@ -68,7 +68,7 @@ lastModifiedAt,
 organization,
 status
 FROM google.apigee.appgroups
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -111,18 +111,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-status: string
-appGroupId: string
-createdAt: string
-lastModifiedAt: string
-channelUri: string
-channelId: string
-organization: string
-attributes:
-  - name: string
-    value: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: status
+      value: string
+    - name: appGroupId
+      value: string
+    - name: createdAt
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: channelUri
+      value: string
+    - name: channelId
+      value: string
+    - name: organization
+      value: string
+    - name: attributes
+      value:
+        - - name: name
+            value: string
+          - name: value
+            value: string
 
 ```
 </TabItem>

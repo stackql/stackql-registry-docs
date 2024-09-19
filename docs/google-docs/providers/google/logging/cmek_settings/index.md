@@ -55,7 +55,7 @@ kmsKeyName,
 kmsKeyVersionName,
 serviceAccountId
 FROM google.logging.cmek_settings
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

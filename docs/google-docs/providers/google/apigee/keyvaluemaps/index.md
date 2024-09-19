@@ -64,7 +64,7 @@ name
 )
 SELECT 
 '{{ organizationsId }}',
-true|false,
+{{ encrypted }},
 '{{ name }}'
 ;
 ```
@@ -72,8 +72,12 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-encrypted: boolean
-name: string
+- name: your_resource_model_name
+  props:
+    - name: encrypted
+      value: boolean
+    - name: name
+      value: string
 
 ```
 </TabItem>

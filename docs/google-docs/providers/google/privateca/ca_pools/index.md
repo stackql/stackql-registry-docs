@@ -59,7 +59,7 @@ publishingOptions,
 tier
 FROM google.privateca.ca_pools
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -98,98 +98,166 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-tier: string
-issuancePolicy:
-  allowedKeyTypes:
-    - rsa:
-        minModulusSize: string
-        maxModulusSize: string
-      ellipticCurve:
-        signatureAlgorithm: string
-  maximumLifetime: string
-  allowedIssuanceModes:
-    allowCsrBasedIssuance: boolean
-    allowConfigBasedIssuance: boolean
-  baselineValues:
-    keyUsage:
-      baseKeyUsage:
-        digitalSignature: boolean
-        contentCommitment: boolean
-        keyEncipherment: boolean
-        dataEncipherment: boolean
-        keyAgreement: boolean
-        certSign: boolean
-        crlSign: boolean
-        encipherOnly: boolean
-        decipherOnly: boolean
-      extendedKeyUsage:
-        serverAuth: boolean
-        clientAuth: boolean
-        codeSigning: boolean
-        emailProtection: boolean
-        timeStamping: boolean
-        ocspSigning: boolean
-      unknownExtendedKeyUsages:
-        - objectIdPath:
-            - type: string
-              format: string
-    caOptions:
-      isCa: boolean
-      maxIssuerPathLength: integer
-    policyIds:
-      - objectIdPath:
-          - type: string
-            format: string
-    aiaOcspServers:
-      - type: string
-    nameConstraints:
-      critical: boolean
-      permittedDnsNames:
-        - type: string
-      excludedDnsNames:
-        - type: string
-      permittedIpRanges:
-        - type: string
-      excludedIpRanges:
-        - type: string
-      permittedEmailAddresses:
-        - type: string
-      excludedEmailAddresses:
-        - type: string
-      permittedUris:
-        - type: string
-      excludedUris:
-        - type: string
-    additionalExtensions:
-      - objectId:
-          objectIdPath:
-            - type: string
-              format: string
-        critical: boolean
-        value: string
-  identityConstraints:
-    celExpression:
-      expression: string
-      title: string
-      description: string
-      location: string
-    allowSubjectPassthrough: boolean
-    allowSubjectAltNamesPassthrough: boolean
-  passthroughExtensions:
-    knownExtensions:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    additionalExtensions:
-      - objectIdPath:
-          - type: string
-            format: string
-publishingOptions:
-  publishCaCert: boolean
-  publishCrl: boolean
-  encodingFormat: string
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: tier
+      value: string
+    - name: issuancePolicy
+      value:
+        - name: allowedKeyTypes
+          value:
+            - - name: rsa
+                value:
+                  - name: minModulusSize
+                    value: string
+                  - name: maxModulusSize
+                    value: string
+              - name: ellipticCurve
+                value:
+                  - name: signatureAlgorithm
+                    value: string
+        - name: maximumLifetime
+          value: string
+        - name: allowedIssuanceModes
+          value:
+            - name: allowCsrBasedIssuance
+              value: boolean
+            - name: allowConfigBasedIssuance
+              value: boolean
+        - name: baselineValues
+          value:
+            - name: keyUsage
+              value:
+                - name: baseKeyUsage
+                  value:
+                    - name: digitalSignature
+                      value: boolean
+                    - name: contentCommitment
+                      value: boolean
+                    - name: keyEncipherment
+                      value: boolean
+                    - name: dataEncipherment
+                      value: boolean
+                    - name: keyAgreement
+                      value: boolean
+                    - name: certSign
+                      value: boolean
+                    - name: crlSign
+                      value: boolean
+                    - name: encipherOnly
+                      value: boolean
+                    - name: decipherOnly
+                      value: boolean
+                - name: extendedKeyUsage
+                  value:
+                    - name: serverAuth
+                      value: boolean
+                    - name: clientAuth
+                      value: boolean
+                    - name: codeSigning
+                      value: boolean
+                    - name: emailProtection
+                      value: boolean
+                    - name: timeStamping
+                      value: boolean
+                    - name: ocspSigning
+                      value: boolean
+                - name: unknownExtendedKeyUsages
+                  value:
+                    - - name: objectIdPath
+                        value:
+                          - integer
+            - name: caOptions
+              value:
+                - name: isCa
+                  value: boolean
+                - name: maxIssuerPathLength
+                  value: integer
+            - name: policyIds
+              value:
+                - - name: objectIdPath
+                    value:
+                      - integer
+            - name: aiaOcspServers
+              value:
+                - string
+            - name: nameConstraints
+              value:
+                - name: critical
+                  value: boolean
+                - name: permittedDnsNames
+                  value:
+                    - string
+                - name: excludedDnsNames
+                  value:
+                    - string
+                - name: permittedIpRanges
+                  value:
+                    - string
+                - name: excludedIpRanges
+                  value:
+                    - string
+                - name: permittedEmailAddresses
+                  value:
+                    - string
+                - name: excludedEmailAddresses
+                  value:
+                    - string
+                - name: permittedUris
+                  value:
+                    - string
+                - name: excludedUris
+                  value:
+                    - string
+            - name: additionalExtensions
+              value:
+                - - name: objectId
+                    value:
+                      - name: objectIdPath
+                        value:
+                          - integer
+                  - name: critical
+                    value: boolean
+                  - name: value
+                    value: string
+        - name: identityConstraints
+          value:
+            - name: celExpression
+              value:
+                - name: expression
+                  value: string
+                - name: title
+                  value: string
+                - name: description
+                  value: string
+                - name: location
+                  value: string
+            - name: allowSubjectPassthrough
+              value: boolean
+            - name: allowSubjectAltNamesPassthrough
+              value: boolean
+        - name: passthroughExtensions
+          value:
+            - name: knownExtensions
+              value:
+                - string
+            - name: additionalExtensions
+              value:
+                - - name: objectIdPath
+                    value:
+                      - integer
+    - name: publishingOptions
+      value:
+        - name: publishCaCert
+          value: boolean
+        - name: publishCrl
+          value: boolean
+        - name: encodingFormat
+          value: string
+    - name: labels
+      value: object
 
 ```
 </TabItem>

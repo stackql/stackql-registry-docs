@@ -56,5 +56,5 @@ loggingQuery,
 opsAnalyticsQuery
 FROM google.logging.recent_queries
 WHERE foldersId = '{{ foldersId }}'
-AND locationsId = '{{ locationsId }}'; 
+AND locationsId = '{{ locationsId }}';
 ```

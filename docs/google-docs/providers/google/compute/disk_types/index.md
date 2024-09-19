@@ -68,5 +68,5 @@ selfLink,
 validDiskSize,
 zone
 FROM google.compute.disk_types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

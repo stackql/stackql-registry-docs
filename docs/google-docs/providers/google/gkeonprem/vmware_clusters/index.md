@@ -116,7 +116,7 @@ vcenter,
 vmTrackingEnabled
 FROM google.gkeonprem.vmware_clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -174,160 +174,296 @@ SELECT
 '{{ loadBalancer }}',
 '{{ vcenter }}',
 '{{ dataplaneV2 }}',
-true|false,
+{{ vmTrackingEnabled }},
 '{{ autoRepairConfig }}',
 '{{ authorization }}',
-true|false,
+{{ enableControlPlaneV2 }},
 '{{ binaryAuthorization }}',
 '{{ upgradePolicy }}',
-true|false
+{{ disableBundledIngress }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-adminClusterMembership: string
-description: string
-onPremVersion: string
-uid: string
-state: string
-endpoint: string
-reconciling: boolean
-createTime: string
-updateTime: string
-localName: string
-etag: string
-annotations: object
-controlPlaneNode:
-  cpus: string
-  memory: string
-  replicas: string
-  autoResizeConfig:
-    enabled: boolean
-  vsphereConfig:
-    datastore: string
-    storagePolicyName: string
-antiAffinityGroups:
-  aagConfigDisabled: boolean
-storage:
-  vsphereCsiDisabled: boolean
-networkConfig:
-  serviceAddressCidrBlocks:
-    - type: string
-  podAddressCidrBlocks:
-    - type: string
-  staticIpConfig:
-    ipBlocks:
-      - netmask: string
-        gateway: string
-        ips:
-          - ip: string
-            hostname: string
-  dhcpIpConfig:
-    enabled: boolean
-  vcenterNetwork: string
-  hostConfig:
-    dnsServers:
-      - type: string
-    ntpServers:
-      - type: string
-    dnsSearchDomains:
-      - type: string
-  controlPlaneV2Config:
-    controlPlaneIpBlock:
-      netmask: string
-      gateway: string
-      ips:
-        - ip: string
-          hostname: string
-loadBalancer:
-  vipConfig:
-    controlPlaneVip: string
-    ingressVip: string
-  f5Config:
-    address: string
-    partition: string
-    snatPool: string
-  manualLbConfig:
-    ingressHttpNodePort: integer
-    ingressHttpsNodePort: integer
-    controlPlaneNodePort: integer
-    konnectivityServerNodePort: integer
-  seesawConfig:
-    group: string
-    masterIp: string
-    ipBlocks:
-      - netmask: string
-        gateway: string
-        ips:
-          - ip: string
-            hostname: string
-    enableHa: boolean
-    vms:
-      - type: string
-    stackdriverName: string
-  metalLbConfig:
-    addressPools:
-      - pool: string
-        addresses:
-          - type: string
-        avoidBuggyIps: boolean
-        manualAssign: boolean
-vcenter:
-  resourcePool: string
-  datastore: string
-  datacenter: string
-  cluster: string
-  folder: string
-  caCertData: string
-  address: string
-  storagePolicyName: string
-status:
-  errorMessage: string
-  conditions:
-    - type: string
-      reason: string
-      message: string
-      lastTransitionTime: string
-      state: string
-  version: string
-  versions:
-    versions:
-      - version: string
-        count: string
-dataplaneV2:
-  dataplaneV2Enabled: boolean
-  windowsDataplaneV2Enabled: boolean
-  advancedNetworking: boolean
-  forwardMode: string
-vmTrackingEnabled: boolean
-autoRepairConfig:
-  enabled: boolean
-fleet:
-  membership: string
-authorization:
-  adminUsers:
-    - username: string
-deleteTime: string
-validationCheck:
-  option: string
-  status:
-    result:
-      - state: string
-        description: string
-        category: string
-        reason: string
-        details: string
-  scenario: string
-adminClusterName: string
-enableControlPlaneV2: boolean
-binaryAuthorization:
-  evaluationMode: string
-upgradePolicy:
-  controlPlaneOnly: boolean
-disableBundledIngress: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: adminClusterMembership
+      value: string
+    - name: description
+      value: string
+    - name: onPremVersion
+      value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
+    - name: endpoint
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: localName
+      value: string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: controlPlaneNode
+      value:
+        - name: cpus
+          value: string
+        - name: memory
+          value: string
+        - name: replicas
+          value: string
+        - name: autoResizeConfig
+          value:
+            - name: enabled
+              value: boolean
+        - name: vsphereConfig
+          value:
+            - name: datastore
+              value: string
+            - name: storagePolicyName
+              value: string
+    - name: antiAffinityGroups
+      value:
+        - name: aagConfigDisabled
+          value: boolean
+    - name: storage
+      value:
+        - name: vsphereCsiDisabled
+          value: boolean
+    - name: networkConfig
+      value:
+        - name: serviceAddressCidrBlocks
+          value:
+            - string
+        - name: podAddressCidrBlocks
+          value:
+            - string
+        - name: staticIpConfig
+          value:
+            - name: ipBlocks
+              value:
+                - - name: netmask
+                    value: string
+                  - name: gateway
+                    value: string
+                  - name: ips
+                    value:
+                      - - name: ip
+                          value: string
+                        - name: hostname
+                          value: string
+        - name: dhcpIpConfig
+          value:
+            - name: enabled
+              value: boolean
+        - name: vcenterNetwork
+          value: string
+        - name: hostConfig
+          value:
+            - name: dnsServers
+              value:
+                - string
+            - name: ntpServers
+              value:
+                - string
+            - name: dnsSearchDomains
+              value:
+                - string
+        - name: controlPlaneV2Config
+          value:
+            - name: controlPlaneIpBlock
+              value:
+                - name: netmask
+                  value: string
+                - name: gateway
+                  value: string
+                - name: ips
+                  value:
+                    - - name: ip
+                        value: string
+                      - name: hostname
+                        value: string
+    - name: loadBalancer
+      value:
+        - name: vipConfig
+          value:
+            - name: controlPlaneVip
+              value: string
+            - name: ingressVip
+              value: string
+        - name: f5Config
+          value:
+            - name: address
+              value: string
+            - name: partition
+              value: string
+            - name: snatPool
+              value: string
+        - name: manualLbConfig
+          value:
+            - name: ingressHttpNodePort
+              value: integer
+            - name: ingressHttpsNodePort
+              value: integer
+            - name: controlPlaneNodePort
+              value: integer
+            - name: konnectivityServerNodePort
+              value: integer
+        - name: seesawConfig
+          value:
+            - name: group
+              value: string
+            - name: masterIp
+              value: string
+            - name: ipBlocks
+              value:
+                - - name: netmask
+                    value: string
+                  - name: gateway
+                    value: string
+                  - name: ips
+                    value:
+                      - - name: ip
+                          value: string
+                        - name: hostname
+                          value: string
+            - name: enableHa
+              value: boolean
+            - name: vms
+              value:
+                - string
+            - name: stackdriverName
+              value: string
+        - name: metalLbConfig
+          value:
+            - name: addressPools
+              value:
+                - - name: pool
+                    value: string
+                  - name: addresses
+                    value:
+                      - string
+                  - name: avoidBuggyIps
+                    value: boolean
+                  - name: manualAssign
+                    value: boolean
+    - name: vcenter
+      value:
+        - name: resourcePool
+          value: string
+        - name: datastore
+          value: string
+        - name: datacenter
+          value: string
+        - name: cluster
+          value: string
+        - name: folder
+          value: string
+        - name: caCertData
+          value: string
+        - name: address
+          value: string
+        - name: storagePolicyName
+          value: string
+    - name: status
+      value:
+        - name: errorMessage
+          value: string
+        - name: conditions
+          value:
+            - - name: type
+                value: string
+              - name: reason
+                value: string
+              - name: message
+                value: string
+              - name: lastTransitionTime
+                value: string
+              - name: state
+                value: string
+        - name: version
+          value: string
+        - name: versions
+          value:
+            - name: versions
+              value:
+                - - name: version
+                    value: string
+                  - name: count
+                    value: string
+    - name: dataplaneV2
+      value:
+        - name: dataplaneV2Enabled
+          value: boolean
+        - name: windowsDataplaneV2Enabled
+          value: boolean
+        - name: advancedNetworking
+          value: boolean
+        - name: forwardMode
+          value: string
+    - name: vmTrackingEnabled
+      value: boolean
+    - name: autoRepairConfig
+      value:
+        - name: enabled
+          value: boolean
+    - name: fleet
+      value:
+        - name: membership
+          value: string
+    - name: authorization
+      value:
+        - name: adminUsers
+          value:
+            - - name: username
+                value: string
+    - name: deleteTime
+      value: string
+    - name: validationCheck
+      value:
+        - name: option
+          value: string
+        - name: status
+          value:
+            - name: result
+              value:
+                - - name: state
+                    value: string
+                  - name: description
+                    value: string
+                  - name: category
+                    value: string
+                  - name: reason
+                    value: string
+                  - name: details
+                    value: string
+        - name: scenario
+          value: string
+    - name: adminClusterName
+      value: string
+    - name: enableControlPlaneV2
+      value: boolean
+    - name: binaryAuthorization
+      value:
+        - name: evaluationMode
+          value: string
+    - name: upgradePolicy
+      value:
+        - name: controlPlaneOnly
+          value: boolean
+    - name: disableBundledIngress
+      value: boolean
 
 ```
 </TabItem>

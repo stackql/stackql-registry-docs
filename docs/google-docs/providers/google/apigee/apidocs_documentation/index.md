@@ -57,7 +57,7 @@ status
 FROM google.apigee.apidocs_documentation
 WHERE apidocsId = '{{ apidocsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND sitesId = '{{ sitesId }}'; 
+AND sitesId = '{{ sitesId }}';
 ```
 
 ## `UPDATE` example

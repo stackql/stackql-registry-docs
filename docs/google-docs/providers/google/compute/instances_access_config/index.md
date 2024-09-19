@@ -79,7 +79,7 @@ SELECT
 '{{ natIP }}',
 '{{ externalIpv6 }}',
 '{{ externalIpv6PrefixLength }}',
-true|false,
+{{ setPublicPtr }},
 '{{ publicPtrDomainName }}',
 '{{ networkTier }}',
 '{{ securityPolicy }}'
@@ -89,16 +89,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-type: string
-name: string
-natIP: string
-externalIpv6: string
-externalIpv6PrefixLength: integer
-setPublicPtr: boolean
-publicPtrDomainName: string
-networkTier: string
-securityPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: type
+      value: string
+    - name: name
+      value: string
+    - name: natIP
+      value: string
+    - name: externalIpv6
+      value: string
+    - name: externalIpv6PrefixLength
+      value: integer
+    - name: setPublicPtr
+      value: boolean
+    - name: publicPtrDomainName
+      value: string
+    - name: networkTier
+      value: string
+    - name: securityPolicy
+      value: string
 
 ```
 </TabItem>

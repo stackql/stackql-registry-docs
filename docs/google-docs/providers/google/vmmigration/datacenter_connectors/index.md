@@ -78,7 +78,7 @@ version
 FROM google.vmmigration.datacenter_connectors
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `INSERT` example
@@ -117,34 +117,61 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-updateTime: string
-name: string
-registrationId: string
-serviceAccount: string
-version: string
-bucket: string
-state: string
-stateTime: string
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-applianceInfrastructureVersion: string
-applianceSoftwareVersion: string
-availableVersions:
-  newDeployableAppliance:
-    version: string
-    uri: string
-    critical: boolean
-    releaseNotesUri: string
-upgradeStatus:
-  version: string
-  state: string
-  startTime: string
-  previousVersion: string
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: name
+      value: string
+    - name: registrationId
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: version
+      value: string
+    - name: bucket
+      value: string
+    - name: state
+      value: string
+    - name: stateTime
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: applianceInfrastructureVersion
+      value: string
+    - name: applianceSoftwareVersion
+      value: string
+    - name: availableVersions
+      value:
+        - name: newDeployableAppliance
+          value:
+            - name: version
+              value: string
+            - name: uri
+              value: string
+            - name: critical
+              value: boolean
+            - name: releaseNotesUri
+              value: string
+    - name: upgradeStatus
+      value:
+        - name: version
+          value: string
+        - name: state
+          value: string
+        - name: startTime
+          value: string
+        - name: previousVersion
+          value: string
 
 ```
 </TabItem>

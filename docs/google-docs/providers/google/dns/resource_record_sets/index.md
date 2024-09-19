@@ -63,7 +63,7 @@ ttl,
 type
 FROM google.dns.resource_record_sets
 WHERE managedZone = '{{ managedZone }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -106,51 +106,91 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-type: string
-ttl: integer
-rrdatas:
-  - type: string
-signatureRrdatas:
-  - type: string
-routingPolicy:
-  geo:
-    items:
-      - location: string
-        rrdatas:
-          - type: string
-        signatureRrdatas:
-          - type: string
-        healthCheckedTargets:
-          internalLoadBalancers:
-            - loadBalancerType: string
-              ipAddress: string
-              port: string
-              ipProtocol: string
-              networkUrl: string
-              project: string
-              region: string
-              kind: string
-          externalEndpoints:
-            - type: string
-        kind: string
-    enableFencing: boolean
-    kind: string
-  wrr:
-    items:
-      - weight: number
-        rrdatas:
-          - type: string
-        signatureRrdatas:
-          - type: string
-        kind: string
-    kind: string
-  primaryBackup:
-    trickleTraffic: number
-    kind: string
-  healthCheck: string
-  kind: string
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: ttl
+      value: integer
+    - name: rrdatas
+      value:
+        - string
+    - name: signatureRrdatas
+      value:
+        - string
+    - name: routingPolicy
+      value:
+        - name: geo
+          value:
+            - name: items
+              value:
+                - - name: location
+                    value: string
+                  - name: rrdatas
+                    value:
+                      - string
+                  - name: signatureRrdatas
+                    value:
+                      - string
+                  - name: healthCheckedTargets
+                    value:
+                      - name: internalLoadBalancers
+                        value:
+                          - - name: loadBalancerType
+                              value: string
+                            - name: ipAddress
+                              value: string
+                            - name: port
+                              value: string
+                            - name: ipProtocol
+                              value: string
+                            - name: networkUrl
+                              value: string
+                            - name: project
+                              value: string
+                            - name: region
+                              value: string
+                            - name: kind
+                              value: string
+                      - name: externalEndpoints
+                        value:
+                          - string
+                  - name: kind
+                    value: string
+            - name: enableFencing
+              value: boolean
+            - name: kind
+              value: string
+        - name: wrr
+          value:
+            - name: items
+              value:
+                - - name: weight
+                    value: number
+                  - name: rrdatas
+                    value:
+                      - string
+                  - name: signatureRrdatas
+                    value:
+                      - string
+                  - name: kind
+                    value: string
+            - name: kind
+              value: string
+        - name: primaryBackup
+          value:
+            - name: trickleTraffic
+              value: number
+            - name: kind
+              value: string
+        - name: healthCheck
+          value: string
+        - name: kind
+          value: string
+    - name: kind
+      value: string
 
 ```
 </TabItem>

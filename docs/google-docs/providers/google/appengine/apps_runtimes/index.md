@@ -62,5 +62,5 @@ stage,
 supportedOperatingSystems,
 warnings
 FROM google.appengine.apps_runtimes
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```

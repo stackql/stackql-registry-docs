@@ -78,7 +78,7 @@ organizationName,
 status,
 userName
 FROM google.apigee.developers
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -127,24 +127,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-companies:
-  - type: string
-status: string
-developerId: string
-apps:
-  - type: string
-createdAt: string
-email: string
-appFamily: string
-firstName: string
-userName: string
-organizationName: string
-attributes:
-  - name: string
-    value: string
-lastModifiedAt: string
-accessType: string
-lastName: string
+- name: your_resource_model_name
+  props:
+    - name: companies
+      value:
+        - string
+    - name: status
+      value: string
+    - name: developerId
+      value: string
+    - name: apps
+      value:
+        - string
+    - name: createdAt
+      value: string
+    - name: email
+      value: string
+    - name: appFamily
+      value: string
+    - name: firstName
+      value: string
+    - name: userName
+      value: string
+    - name: organizationName
+      value: string
+    - name: attributes
+      value:
+        - - name: name
+            value: string
+          - name: value
+            value: string
+    - name: lastModifiedAt
+      value: string
+    - name: accessType
+      value: string
+    - name: lastName
+      value: string
 
 ```
 </TabItem>

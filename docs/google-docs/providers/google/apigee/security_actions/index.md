@@ -73,7 +73,7 @@ ttl,
 updateTime
 FROM google.apigee.security_actions
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -124,46 +124,74 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-conditionConfig:
-  apiKeys:
-    - type: string
-  httpMethods:
-    - type: string
-  developers:
-    - type: string
-  apiProducts:
-    - type: string
-  ipAddressRanges:
-    - type: string
-  botReasons:
-    - type: string
-  asns:
-    - format: string
-      type: string
-  developerApps:
-    - type: string
-  regionCodes:
-    - type: string
-  accessTokens:
-    - type: string
-  userAgents:
-    - type: string
-allow: {}
-name: string
-description: string
-deny:
-  responseCode: integer
-createTime: string
-ttl: string
-updateTime: string
-flag:
-  headers:
-    - value: string
-      name: string
-expireTime: string
-apiProxies:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: string
+    - name: conditionConfig
+      value:
+        - name: apiKeys
+          value:
+            - string
+        - name: httpMethods
+          value:
+            - string
+        - name: developers
+          value:
+            - string
+        - name: apiProducts
+          value:
+            - string
+        - name: ipAddressRanges
+          value:
+            - string
+        - name: botReasons
+          value:
+            - string
+        - name: asns
+          value:
+            - string
+        - name: developerApps
+          value:
+            - string
+        - name: regionCodes
+          value:
+            - string
+        - name: accessTokens
+          value:
+            - string
+        - name: userAgents
+          value:
+            - string
+    - name: allow
+      value: []
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: deny
+      value:
+        - name: responseCode
+          value: integer
+    - name: createTime
+      value: string
+    - name: ttl
+      value: string
+    - name: updateTime
+      value: string
+    - name: flag
+      value:
+        - name: headers
+          value:
+            - - name: value
+                value: string
+              - name: name
+                value: string
+    - name: expireTime
+      value: string
+    - name: apiProxies
+      value:
+        - string
 
 ```
 </TabItem>

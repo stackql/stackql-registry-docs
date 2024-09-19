@@ -76,7 +76,7 @@ filter,
 updateTime
 FROM google.logging.views
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```
 
 ## `INSERT` example
@@ -111,11 +111,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-filter: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: filter
+      value: string
 
 ```
 </TabItem>

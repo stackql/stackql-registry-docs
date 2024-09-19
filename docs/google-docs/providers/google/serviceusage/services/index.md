@@ -49,5 +49,5 @@ Returns the service configuration and enabled state for a given service.
 SELECT
 services
 FROM google.serviceusage.services
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```

@@ -55,7 +55,7 @@ members,
 role
 FROM google.compute.machine_images_iam_policies
 WHERE project = '{{ project }}'
-AND resource = '{{ resource }}'; 
+AND resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

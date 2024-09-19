@@ -68,7 +68,7 @@ state,
 stateHistories,
 ttl
 FROM google.testing.device_sessions
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,23 +105,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-state: string
-stateHistories:
-  - sessionState: string
-    eventTime: string
-    stateMessage: string
-ttl: string
-expireTime: string
-inactivityTimeout: string
-createTime: string
-activeStartTime: string
-androidDevice:
-  androidModelId: string
-  androidVersionId: string
-  locale: string
-  orientation: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: stateHistories
+      value:
+        - - name: sessionState
+            value: string
+          - name: eventTime
+            value: string
+          - name: stateMessage
+            value: string
+    - name: ttl
+      value: string
+    - name: expireTime
+      value: string
+    - name: inactivityTimeout
+      value: string
+    - name: createTime
+      value: string
+    - name: activeStartTime
+      value: string
+    - name: androidDevice
+      value:
+        - name: androidModelId
+          value: string
+        - name: androidVersionId
+          value: string
+        - name: locale
+          value: string
+        - name: orientation
+          value: string
 
 ```
 </TabItem>

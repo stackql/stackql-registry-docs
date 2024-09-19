@@ -68,5 +68,5 @@ FROM google.cloudcontrolspartner.violations
 WHERE customersId = '{{ customersId }}'
 AND locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND workloadsId = '{{ workloadsId }}'; 
+AND workloadsId = '{{ workloadsId }}';
 ```

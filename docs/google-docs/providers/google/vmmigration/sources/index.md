@@ -67,7 +67,7 @@ updateTime,
 vmware
 FROM google.vmmigration.sources
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,49 +110,90 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-vmware:
-  username: string
-  password: string
-  vcenterIp: string
-  thumbprint: string
-  resolvedVcenterHost: string
-aws:
-  accessKeyCreds:
-    accessKeyId: string
-    secretAccessKey: string
-    sessionToken: string
-  awsRegion: string
-  state: string
-  error:
-    code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-  inventoryTagList:
-    - key: string
+- name: your_resource_model_name
+  props:
+    - name: vmware
+      value:
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: vcenterIp
+          value: string
+        - name: thumbprint
+          value: string
+        - name: resolvedVcenterHost
+          value: string
+    - name: aws
+      value:
+        - name: accessKeyCreds
+          value:
+            - name: accessKeyId
+              value: string
+            - name: secretAccessKey
+              value: string
+            - name: sessionToken
+              value: string
+        - name: awsRegion
+          value: string
+        - name: state
+          value: string
+        - name: error
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+        - name: inventoryTagList
+          value:
+            - - name: key
+                value: string
+              - name: value
+                value: string
+        - name: inventorySecurityGroupNames
+          value:
+            - string
+        - name: migrationResourcesUserTags
+          value: object
+        - name: publicIp
+          value: string
+    - name: azure
+      value:
+        - name: clientSecretCreds
+          value:
+            - name: tenantId
+              value: string
+            - name: clientId
+              value: string
+            - name: clientSecret
+              value: string
+        - name: subscriptionId
+          value: string
+        - name: azureLocation
+          value: string
+        - name: state
+          value: string
+        - name: migrationResourcesUserTags
+          value: object
+        - name: resourceGroupId
+          value: string
+    - name: name
       value: string
-  inventorySecurityGroupNames:
-    - type: string
-  migrationResourcesUserTags: object
-  publicIp: string
-azure:
-  clientSecretCreds:
-    tenantId: string
-    clientId: string
-    clientSecret: string
-  subscriptionId: string
-  azureLocation: string
-  state: string
-  migrationResourcesUserTags: object
-  resourceGroupId: string
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-encryption:
-  kmsKey: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: encryption
+      value:
+        - name: kmsKey
+          value: string
 
 ```
 </TabItem>

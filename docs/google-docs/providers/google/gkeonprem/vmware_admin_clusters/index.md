@@ -103,7 +103,7 @@ validationCheck,
 vcenter
 FROM google.gkeonprem.vmware_admin_clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

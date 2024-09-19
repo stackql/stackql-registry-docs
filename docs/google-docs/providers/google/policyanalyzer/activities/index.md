@@ -50,5 +50,5 @@ nextPageToken
 FROM google.policyanalyzer.activities
 WHERE activityTypesId = '{{ activityTypesId }}'
 AND locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

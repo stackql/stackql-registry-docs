@@ -54,7 +54,7 @@ role
 FROM google.cloudkms.ekm_connections_iam_policies
 WHERE ekmConnectionsId = '{{ ekmConnectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

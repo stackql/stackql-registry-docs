@@ -78,7 +78,7 @@ templateId,
 ttlAfterCompletionDays
 FROM google.transcoder.jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,225 +129,439 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-inputUri: string
-outputUri: string
-templateId: string
-config:
-  inputs:
-    - key: string
-      uri: string
-      preprocessingConfig:
-        color:
-          saturation: number
-          contrast: number
-          brightness: number
-        denoise:
-          strength: number
-          tune: string
-        deblock:
-          strength: number
-          enabled: boolean
-        audio:
-          lufs: number
-          highBoost: boolean
-          lowBoost: boolean
-        crop:
-          topPixels: integer
-          bottomPixels: integer
-          leftPixels: integer
-          rightPixels: integer
-        pad:
-          topPixels: integer
-          bottomPixels: integer
-          leftPixels: integer
-          rightPixels: integer
-        deinterlace:
-          yadif:
-            mode: string
-            disableSpatialInterlacing: boolean
-            parity: string
-            deinterlaceAllFrames: boolean
-          bwdif:
-            mode: string
-            parity: string
-            deinterlaceAllFrames: boolean
-  editList:
-    - key: string
-      inputs:
-        - type: string
-      endTimeOffset: string
-      startTimeOffset: string
-  elementaryStreams:
-    - key: string
-      videoStream:
-        h264:
-          widthPixels: integer
-          heightPixels: integer
-          frameRate: number
-          frameRateConversionStrategy: string
-          bitrateBps: integer
-          pixelFormat: string
-          rateControlMode: string
-          crfLevel: integer
-          allowOpenGop: boolean
-          gopFrameCount: integer
-          gopDuration: string
-          enableTwoPass: boolean
-          vbvSizeBits: integer
-          vbvFullnessBits: integer
-          entropyCoder: string
-          bPyramid: boolean
-          bFrameCount: integer
-          aqStrength: number
-          profile: string
-          tune: string
-          preset: string
-          sdr: {}
-          hlg: {}
-        h265:
-          widthPixels: integer
-          heightPixels: integer
-          frameRate: number
-          frameRateConversionStrategy: string
-          bitrateBps: integer
-          pixelFormat: string
-          rateControlMode: string
-          crfLevel: integer
-          allowOpenGop: boolean
-          gopFrameCount: integer
-          gopDuration: string
-          enableTwoPass: boolean
-          vbvSizeBits: integer
-          vbvFullnessBits: integer
-          bPyramid: boolean
-          bFrameCount: integer
-          aqStrength: number
-          profile: string
-          tune: string
-          preset: string
-          sdr: {}
-          hlg: {}
-          hdr10: {}
-        vp9:
-          widthPixels: integer
-          heightPixels: integer
-          frameRate: number
-          frameRateConversionStrategy: string
-          bitrateBps: integer
-          pixelFormat: string
-          rateControlMode: string
-          crfLevel: integer
-          gopFrameCount: integer
-          gopDuration: string
-          profile: string
-          sdr: {}
-          hlg: {}
-      audioStream:
-        codec: string
-        bitrateBps: integer
-        channelCount: integer
-        channelLayout:
-          - type: string
-        mapping:
-          - atomKey: string
-            inputKey: string
-            inputTrack: integer
-            inputChannel: integer
-            outputChannel: integer
-            gainDb: number
-        sampleRateHertz: integer
-        languageCode: string
-        displayName: string
-      textStream:
-        codec: string
-        languageCode: string
-        mapping:
-          - atomKey: string
-            inputKey: string
-            inputTrack: integer
-        displayName: string
-  muxStreams:
-    - key: string
-      fileName: string
-      container: string
-      elementaryStreams:
-        - type: string
-      segmentSettings:
-        segmentDuration: string
-        individualSegments: boolean
-      encryptionId: string
-      fmp4:
-        codecTag: string
-  manifests:
-    - fileName: string
-      type: string
-      muxStreams:
-        - type: string
-      dash:
-        segmentReferenceScheme: string
-  output:
-    uri: string
-  adBreaks:
-    - startTimeOffset: string
-  pubsubDestination:
-    topic: string
-  spriteSheets:
-    - format: string
-      filePrefix: string
-      spriteWidthPixels: integer
-      spriteHeightPixels: integer
-      columnCount: integer
-      rowCount: integer
-      startTimeOffset: string
-      endTimeOffset: string
-      totalCount: integer
-      interval: string
-      quality: integer
-  overlays:
-    - image:
-        uri: string
-        resolution:
-          x: number
-          'y': number
-        alpha: number
-      animations:
-        - animationStatic:
-            startTimeOffset: string
-          animationFade:
-            fadeType: string
-            startTimeOffset: string
-            endTimeOffset: string
-          animationEnd:
-            startTimeOffset: string
-  encryptions:
-    - id: string
-      aes128: {}
-      sampleAes: {}
-      mpegCenc:
-        scheme: string
-      secretManagerKeySource:
-        secretVersion: string
-      drmSystems:
-        widevine: {}
-        fairplay: {}
-        playready: {}
-        clearkey: {}
-state: string
-createTime: string
-startTime: string
-endTime: string
-ttlAfterCompletionDays: integer
-labels: object
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-mode: string
-batchModePriority: integer
-optimization: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: inputUri
+      value: string
+    - name: outputUri
+      value: string
+    - name: templateId
+      value: string
+    - name: config
+      value:
+        - name: inputs
+          value:
+            - - name: key
+                value: string
+              - name: uri
+                value: string
+              - name: preprocessingConfig
+                value:
+                  - name: color
+                    value:
+                      - name: saturation
+                        value: number
+                      - name: contrast
+                        value: number
+                      - name: brightness
+                        value: number
+                  - name: denoise
+                    value:
+                      - name: strength
+                        value: number
+                      - name: tune
+                        value: string
+                  - name: deblock
+                    value:
+                      - name: strength
+                        value: number
+                      - name: enabled
+                        value: boolean
+                  - name: audio
+                    value:
+                      - name: lufs
+                        value: number
+                      - name: highBoost
+                        value: boolean
+                      - name: lowBoost
+                        value: boolean
+                  - name: crop
+                    value:
+                      - name: topPixels
+                        value: integer
+                      - name: bottomPixels
+                        value: integer
+                      - name: leftPixels
+                        value: integer
+                      - name: rightPixels
+                        value: integer
+                  - name: pad
+                    value:
+                      - name: topPixels
+                        value: integer
+                      - name: bottomPixels
+                        value: integer
+                      - name: leftPixels
+                        value: integer
+                      - name: rightPixels
+                        value: integer
+                  - name: deinterlace
+                    value:
+                      - name: yadif
+                        value:
+                          - name: mode
+                            value: string
+                          - name: disableSpatialInterlacing
+                            value: boolean
+                          - name: parity
+                            value: string
+                          - name: deinterlaceAllFrames
+                            value: boolean
+                      - name: bwdif
+                        value:
+                          - name: mode
+                            value: string
+                          - name: parity
+                            value: string
+                          - name: deinterlaceAllFrames
+                            value: boolean
+        - name: editList
+          value:
+            - - name: key
+                value: string
+              - name: inputs
+                value:
+                  - string
+              - name: endTimeOffset
+                value: string
+              - name: startTimeOffset
+                value: string
+        - name: elementaryStreams
+          value:
+            - - name: key
+                value: string
+              - name: videoStream
+                value:
+                  - name: h264
+                    value:
+                      - name: widthPixels
+                        value: integer
+                      - name: heightPixels
+                        value: integer
+                      - name: frameRate
+                        value: number
+                      - name: frameRateConversionStrategy
+                        value: string
+                      - name: bitrateBps
+                        value: integer
+                      - name: pixelFormat
+                        value: string
+                      - name: rateControlMode
+                        value: string
+                      - name: crfLevel
+                        value: integer
+                      - name: allowOpenGop
+                        value: boolean
+                      - name: gopFrameCount
+                        value: integer
+                      - name: gopDuration
+                        value: string
+                      - name: enableTwoPass
+                        value: boolean
+                      - name: vbvSizeBits
+                        value: integer
+                      - name: vbvFullnessBits
+                        value: integer
+                      - name: entropyCoder
+                        value: string
+                      - name: bPyramid
+                        value: boolean
+                      - name: bFrameCount
+                        value: integer
+                      - name: aqStrength
+                        value: number
+                      - name: profile
+                        value: string
+                      - name: tune
+                        value: string
+                      - name: preset
+                        value: string
+                      - name: sdr
+                        value: []
+                      - name: hlg
+                        value: []
+                  - name: h265
+                    value:
+                      - name: widthPixels
+                        value: integer
+                      - name: heightPixels
+                        value: integer
+                      - name: frameRate
+                        value: number
+                      - name: frameRateConversionStrategy
+                        value: string
+                      - name: bitrateBps
+                        value: integer
+                      - name: pixelFormat
+                        value: string
+                      - name: rateControlMode
+                        value: string
+                      - name: crfLevel
+                        value: integer
+                      - name: allowOpenGop
+                        value: boolean
+                      - name: gopFrameCount
+                        value: integer
+                      - name: gopDuration
+                        value: string
+                      - name: enableTwoPass
+                        value: boolean
+                      - name: vbvSizeBits
+                        value: integer
+                      - name: vbvFullnessBits
+                        value: integer
+                      - name: bPyramid
+                        value: boolean
+                      - name: bFrameCount
+                        value: integer
+                      - name: aqStrength
+                        value: number
+                      - name: profile
+                        value: string
+                      - name: tune
+                        value: string
+                      - name: preset
+                        value: string
+                      - name: sdr
+                        value: []
+                      - name: hlg
+                        value: []
+                      - name: hdr10
+                        value: []
+                  - name: vp9
+                    value:
+                      - name: widthPixels
+                        value: integer
+                      - name: heightPixels
+                        value: integer
+                      - name: frameRate
+                        value: number
+                      - name: frameRateConversionStrategy
+                        value: string
+                      - name: bitrateBps
+                        value: integer
+                      - name: pixelFormat
+                        value: string
+                      - name: rateControlMode
+                        value: string
+                      - name: crfLevel
+                        value: integer
+                      - name: gopFrameCount
+                        value: integer
+                      - name: gopDuration
+                        value: string
+                      - name: profile
+                        value: string
+                      - name: sdr
+                        value: []
+                      - name: hlg
+                        value: []
+              - name: audioStream
+                value:
+                  - name: codec
+                    value: string
+                  - name: bitrateBps
+                    value: integer
+                  - name: channelCount
+                    value: integer
+                  - name: channelLayout
+                    value:
+                      - string
+                  - name: mapping
+                    value:
+                      - - name: atomKey
+                          value: string
+                        - name: inputKey
+                          value: string
+                        - name: inputTrack
+                          value: integer
+                        - name: inputChannel
+                          value: integer
+                        - name: outputChannel
+                          value: integer
+                        - name: gainDb
+                          value: number
+                  - name: sampleRateHertz
+                    value: integer
+                  - name: languageCode
+                    value: string
+                  - name: displayName
+                    value: string
+              - name: textStream
+                value:
+                  - name: codec
+                    value: string
+                  - name: languageCode
+                    value: string
+                  - name: mapping
+                    value:
+                      - - name: atomKey
+                          value: string
+                        - name: inputKey
+                          value: string
+                        - name: inputTrack
+                          value: integer
+                  - name: displayName
+                    value: string
+        - name: muxStreams
+          value:
+            - - name: key
+                value: string
+              - name: fileName
+                value: string
+              - name: container
+                value: string
+              - name: elementaryStreams
+                value:
+                  - string
+              - name: segmentSettings
+                value:
+                  - name: segmentDuration
+                    value: string
+                  - name: individualSegments
+                    value: boolean
+              - name: encryptionId
+                value: string
+              - name: fmp4
+                value:
+                  - name: codecTag
+                    value: string
+        - name: manifests
+          value:
+            - - name: fileName
+                value: string
+              - name: type
+                value: string
+              - name: muxStreams
+                value:
+                  - string
+              - name: dash
+                value:
+                  - name: segmentReferenceScheme
+                    value: string
+        - name: output
+          value:
+            - name: uri
+              value: string
+        - name: adBreaks
+          value:
+            - - name: startTimeOffset
+                value: string
+        - name: pubsubDestination
+          value:
+            - name: topic
+              value: string
+        - name: spriteSheets
+          value:
+            - - name: format
+                value: string
+              - name: filePrefix
+                value: string
+              - name: spriteWidthPixels
+                value: integer
+              - name: spriteHeightPixels
+                value: integer
+              - name: columnCount
+                value: integer
+              - name: rowCount
+                value: integer
+              - name: startTimeOffset
+                value: string
+              - name: endTimeOffset
+                value: string
+              - name: totalCount
+                value: integer
+              - name: interval
+                value: string
+              - name: quality
+                value: integer
+        - name: overlays
+          value:
+            - - name: image
+                value:
+                  - name: uri
+                    value: string
+                  - name: resolution
+                    value:
+                      - name: x
+                        value: number
+                      - name: 'y'
+                        value: number
+                  - name: alpha
+                    value: number
+              - name: animations
+                value:
+                  - - name: animationStatic
+                      value:
+                        - name: startTimeOffset
+                          value: string
+                    - name: animationFade
+                      value:
+                        - name: fadeType
+                          value: string
+                        - name: startTimeOffset
+                          value: string
+                        - name: endTimeOffset
+                          value: string
+                    - name: animationEnd
+                      value:
+                        - name: startTimeOffset
+                          value: string
+        - name: encryptions
+          value:
+            - - name: id
+                value: string
+              - name: aes128
+                value: []
+              - name: sampleAes
+                value: []
+              - name: mpegCenc
+                value:
+                  - name: scheme
+                    value: string
+              - name: secretManagerKeySource
+                value:
+                  - name: secretVersion
+                    value: string
+              - name: drmSystems
+                value:
+                  - name: widevine
+                    value: []
+                  - name: fairplay
+                    value: []
+                  - name: playready
+                    value: []
+                  - name: clearkey
+                    value: []
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: ttlAfterCompletionDays
+      value: integer
+    - name: labels
+      value: object
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: mode
+      value: string
+    - name: batchModePriority
+      value: integer
+    - name: optimization
+      value: string
 
 ```
 </TabItem>

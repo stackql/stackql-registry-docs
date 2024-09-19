@@ -54,7 +54,7 @@ role
 FROM google.eventarc.channels_iam_policies
 WHERE channelsId = '{{ channelsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

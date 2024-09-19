@@ -67,7 +67,7 @@ satisfiesPzs,
 schemaSettings,
 state
 FROM google.pubsub.topics
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

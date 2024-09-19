@@ -55,7 +55,7 @@ displayName,
 productLevelConfig
 FROM google.retail.catalogs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

@@ -85,7 +85,7 @@ shieldedVmConfig,
 updateTime
 FROM google.aiplatform.notebook_runtime_templates
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -146,45 +146,84 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-serviceAccount: string
-encryptionSpec:
-  kmsKeyName: string
-name: string
-dataPersistentDiskSpec:
-  diskSizeGb: string
-  diskType: string
-labels: object
-shieldedVmConfig:
-  enableSecureBoot: boolean
-displayName: string
-networkTags:
-  - type: string
-machineSpec:
-  acceleratorCount: integer
-  tpuTopology: string
-  machineType: string
-  acceleratorType: string
-  reservationAffinity:
-    reservationAffinityType: string
-    values:
-      - type: string
-    key: string
-description: string
-networkSpec:
-  enableInternetAccess: boolean
-  subnetwork: string
-  network: string
-updateTime: string
-idleShutdownConfig:
-  idleShutdownDisabled: boolean
-  idleTimeout: string
-notebookRuntimeType: string
-isDefault: boolean
-etag: string
-eucConfig:
-  eucDisabled: boolean
-  bypassActasCheck: boolean
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: serviceAccount
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: name
+      value: string
+    - name: dataPersistentDiskSpec
+      value:
+        - name: diskSizeGb
+          value: string
+        - name: diskType
+          value: string
+    - name: labels
+      value: object
+    - name: shieldedVmConfig
+      value:
+        - name: enableSecureBoot
+          value: boolean
+    - name: displayName
+      value: string
+    - name: networkTags
+      value:
+        - string
+    - name: machineSpec
+      value:
+        - name: acceleratorCount
+          value: integer
+        - name: tpuTopology
+          value: string
+        - name: machineType
+          value: string
+        - name: acceleratorType
+          value: string
+        - name: reservationAffinity
+          value:
+            - name: reservationAffinityType
+              value: string
+            - name: values
+              value:
+                - string
+            - name: key
+              value: string
+    - name: description
+      value: string
+    - name: networkSpec
+      value:
+        - name: enableInternetAccess
+          value: boolean
+        - name: subnetwork
+          value: string
+        - name: network
+          value: string
+    - name: updateTime
+      value: string
+    - name: idleShutdownConfig
+      value:
+        - name: idleShutdownDisabled
+          value: boolean
+        - name: idleTimeout
+          value: string
+    - name: notebookRuntimeType
+      value: string
+    - name: isDefault
+      value: boolean
+    - name: etag
+      value: string
+    - name: eucConfig
+      value:
+        - name: eucDisabled
+          value: boolean
+        - name: bypassActasCheck
+          value: boolean
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

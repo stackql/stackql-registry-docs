@@ -58,5 +58,5 @@ type
 FROM google.vmwareengine.peering_routes
 WHERE locationsId = '{{ locationsId }}'
 AND privateConnectionsId = '{{ privateConnectionsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

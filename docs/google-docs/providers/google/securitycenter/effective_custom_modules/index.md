@@ -63,5 +63,5 @@ customConfig,
 displayName,
 enablementState
 FROM google.securitycenter.effective_custom_modules
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

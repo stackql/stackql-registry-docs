@@ -85,7 +85,7 @@ trials,
 updateTime
 FROM google.aiplatform.hyperparameter_tuning_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -132,178 +132,331 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-createTime: string
-studySpec:
-  parameters:
-    - discreteValueSpec:
-        values:
-          - type: string
-            format: string
-        defaultValue: number
-      categoricalValueSpec:
-        defaultValue: string
-        values:
-          - type: string
-      conditionalParameterSpecs:
-        - parentCategoricalValues:
-            values:
-              - type: string
-          parentDiscreteValues:
-            values:
-              - type: string
-                format: string
-          parameterSpec:
-            conditionalParameterSpecs:
-              - parentIntValues:
-                  values:
-                    - format: string
-                      type: string
-            scaleType: string
-            integerValueSpec:
-              maxValue: string
-              defaultValue: string
-              minValue: string
-            parameterId: string
-            doubleValueSpec:
-              defaultValue: number
-              maxValue: number
-              minValue: number
-      scaleType: string
-      parameterId: string
-  decayCurveStoppingSpec:
-    useElapsedDuration: boolean
-  observationNoise: string
-  measurementSelectionType: string
-  medianAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-  convexAutomatedStoppingSpec:
-    maxStepCount: string
-    updateAllStoppedTrials: boolean
-    minStepCount: string
-    learningRateParameterName: string
-    useElapsedDuration: boolean
-    minMeasurementCount: string
-  metrics:
-    - goal: string
-      metricId: string
-      safetyConfig:
-        desiredMinSafeTrialsFraction: number
-        safetyThreshold: number
-  studyStoppingConfig:
-    maxNumTrials: integer
-    maxNumTrialsNoProgress: integer
-    shouldStopAsap: boolean
-    maximumRuntimeConstraint:
-      maxDuration: string
-      endTime: string
-    minNumTrials: integer
-    maxDurationNoProgress: string
-  algorithm: string
-maxFailedTrialCount: integer
-state: string
-trialJobSpec:
-  scheduling:
-    restartJobOnWorkerRestart: boolean
-    timeout: string
-    strategy: string
-    disableRetries: boolean
-    maxWaitDuration: string
-  persistentResourceId: string
-  baseOutputDirectory:
-    outputUriPrefix: string
-  experimentRun: string
-  protectedArtifactLocationId: string
-  serviceAccount: string
-  workerPoolSpecs:
-    - pythonPackageSpec:
-        args:
-          - type: string
-        env:
-          - value: string
-            name: string
-        pythonModule: string
-        executorImageUri: string
-        packageUris:
-          - type: string
-      diskSpec:
-        bootDiskType: string
-        bootDiskSizeGb: integer
-      machineSpec:
-        acceleratorCount: integer
-        tpuTopology: string
-        machineType: string
-        acceleratorType: string
-        reservationAffinity:
-          reservationAffinityType: string
-          values:
-            - type: string
-          key: string
-      containerSpec:
-        command:
-          - type: string
-        args:
-          - type: string
-        imageUri: string
-        env:
-          - value: string
-            name: string
-      nfsMounts:
-        - mountPoint: string
-          path: string
-          server: string
-      replicaCount: string
-  enableDashboardAccess: boolean
-  network: string
-  enableWebAccess: boolean
-  experiment: string
-  reservedIpRanges:
-    - type: string
-  tensorboard: string
-  models:
-    - type: string
-maxTrialCount: integer
-endTime: string
-name: string
-satisfiesPzi: boolean
-encryptionSpec:
-  kmsKeyName: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-parallelTrialCount: integer
-startTime: string
-trials:
-  - id: string
-    clientId: string
-    name: string
-    customJob: string
-    finalMeasurement:
-      stepCount: string
-      elapsedDuration: string
-      metrics:
-        - value: number
-          metricId: string
-    startTime: string
-    measurements:
-      - stepCount: string
-        elapsedDuration: string
-        metrics:
-          - value: number
-            metricId: string
-    state: string
-    endTime: string
-    webAccessUris: object
-    parameters:
-      - value: any
-        parameterId: string
-    infeasibleReason: string
-updateTime: string
-labels: object
-satisfiesPzs: boolean
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: studySpec
+      value:
+        - name: parameters
+          value:
+            - - name: discreteValueSpec
+                value:
+                  - name: values
+                    value:
+                      - number
+                  - name: defaultValue
+                    value: number
+              - name: categoricalValueSpec
+                value:
+                  - name: defaultValue
+                    value: string
+                  - name: values
+                    value:
+                      - string
+              - name: conditionalParameterSpecs
+                value:
+                  - - name: parentCategoricalValues
+                      value:
+                        - name: values
+                          value:
+                            - string
+                    - name: parentDiscreteValues
+                      value:
+                        - name: values
+                          value:
+                            - number
+                    - name: parameterSpec
+                      value:
+                        - name: conditionalParameterSpecs
+                          value:
+                            - - name: parentIntValues
+                                value:
+                                  - name: values
+                                    value:
+                                      - string
+                        - name: scaleType
+                          value: string
+                        - name: integerValueSpec
+                          value:
+                            - name: maxValue
+                              value: string
+                            - name: defaultValue
+                              value: string
+                            - name: minValue
+                              value: string
+                        - name: parameterId
+                          value: string
+                        - name: doubleValueSpec
+                          value:
+                            - name: defaultValue
+                              value: number
+                            - name: maxValue
+                              value: number
+                            - name: minValue
+                              value: number
+              - name: scaleType
+                value: string
+              - name: parameterId
+                value: string
+        - name: decayCurveStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: boolean
+        - name: observationNoise
+          value: string
+        - name: measurementSelectionType
+          value: string
+        - name: medianAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: boolean
+        - name: convexAutomatedStoppingSpec
+          value:
+            - name: maxStepCount
+              value: string
+            - name: updateAllStoppedTrials
+              value: boolean
+            - name: minStepCount
+              value: string
+            - name: learningRateParameterName
+              value: string
+            - name: useElapsedDuration
+              value: boolean
+            - name: minMeasurementCount
+              value: string
+        - name: metrics
+          value:
+            - - name: goal
+                value: string
+              - name: metricId
+                value: string
+              - name: safetyConfig
+                value:
+                  - name: desiredMinSafeTrialsFraction
+                    value: number
+                  - name: safetyThreshold
+                    value: number
+        - name: studyStoppingConfig
+          value:
+            - name: maxNumTrials
+              value: integer
+            - name: maxNumTrialsNoProgress
+              value: integer
+            - name: shouldStopAsap
+              value: boolean
+            - name: maximumRuntimeConstraint
+              value:
+                - name: maxDuration
+                  value: string
+                - name: endTime
+                  value: string
+            - name: minNumTrials
+              value: integer
+            - name: maxDurationNoProgress
+              value: string
+        - name: algorithm
+          value: string
+    - name: maxFailedTrialCount
+      value: integer
+    - name: state
+      value: string
+    - name: trialJobSpec
+      value:
+        - name: scheduling
+          value:
+            - name: restartJobOnWorkerRestart
+              value: boolean
+            - name: timeout
+              value: string
+            - name: strategy
+              value: string
+            - name: disableRetries
+              value: boolean
+            - name: maxWaitDuration
+              value: string
+        - name: persistentResourceId
+          value: string
+        - name: baseOutputDirectory
+          value:
+            - name: outputUriPrefix
+              value: string
+        - name: experimentRun
+          value: string
+        - name: protectedArtifactLocationId
+          value: string
+        - name: serviceAccount
+          value: string
+        - name: workerPoolSpecs
+          value:
+            - - name: pythonPackageSpec
+                value:
+                  - name: args
+                    value:
+                      - string
+                  - name: env
+                    value:
+                      - - name: value
+                          value: string
+                        - name: name
+                          value: string
+                  - name: pythonModule
+                    value: string
+                  - name: executorImageUri
+                    value: string
+                  - name: packageUris
+                    value:
+                      - string
+              - name: diskSpec
+                value:
+                  - name: bootDiskType
+                    value: string
+                  - name: bootDiskSizeGb
+                    value: integer
+              - name: machineSpec
+                value:
+                  - name: acceleratorCount
+                    value: integer
+                  - name: tpuTopology
+                    value: string
+                  - name: machineType
+                    value: string
+                  - name: acceleratorType
+                    value: string
+                  - name: reservationAffinity
+                    value:
+                      - name: reservationAffinityType
+                        value: string
+                      - name: values
+                        value:
+                          - string
+                      - name: key
+                        value: string
+              - name: containerSpec
+                value:
+                  - name: command
+                    value:
+                      - string
+                  - name: args
+                    value:
+                      - string
+                  - name: imageUri
+                    value: string
+                  - name: env
+                    value:
+                      - - name: value
+                          value: string
+                        - name: name
+                          value: string
+              - name: nfsMounts
+                value:
+                  - - name: mountPoint
+                      value: string
+                    - name: path
+                      value: string
+                    - name: server
+                      value: string
+              - name: replicaCount
+                value: string
+        - name: enableDashboardAccess
+          value: boolean
+        - name: network
+          value: string
+        - name: enableWebAccess
+          value: boolean
+        - name: experiment
+          value: string
+        - name: reservedIpRanges
+          value:
+            - string
+        - name: tensorboard
+          value: string
+        - name: models
+          value:
+            - string
+    - name: maxTrialCount
+      value: integer
+    - name: endTime
+      value: string
+    - name: name
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: parallelTrialCount
+      value: integer
+    - name: startTime
+      value: string
+    - name: trials
+      value:
+        - - name: id
+            value: string
+          - name: clientId
+            value: string
+          - name: name
+            value: string
+          - name: customJob
+            value: string
+          - name: finalMeasurement
+            value:
+              - name: stepCount
+                value: string
+              - name: elapsedDuration
+                value: string
+              - name: metrics
+                value:
+                  - - name: value
+                      value: number
+                    - name: metricId
+                      value: string
+          - name: startTime
+            value: string
+          - name: measurements
+            value:
+              - - name: stepCount
+                  value: string
+                - name: elapsedDuration
+                  value: string
+                - name: metrics
+                  value:
+                    - - name: value
+                        value: number
+                      - name: metricId
+                        value: string
+          - name: state
+            value: string
+          - name: endTime
+            value: string
+          - name: webAccessUris
+            value: object
+          - name: parameters
+            value:
+              - - name: value
+                  value: any
+                - name: parameterId
+                  value: string
+          - name: infeasibleReason
+            value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: satisfiesPzs
+      value: boolean
 
 ```
 </TabItem>

@@ -55,7 +55,7 @@ ipAddress,
 state
 FROM google.apigee.nat_addresses
 WHERE instancesId = '{{ instancesId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -88,9 +88,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-name: string
-ipAddress: string
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: string
+    - name: name
+      value: string
+    - name: ipAddress
+      value: string
 
 ```
 </TabItem>

@@ -66,7 +66,7 @@ updateTime
 FROM google.dataform.workflow_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -109,32 +109,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-releaseConfig: string
-invocationConfig:
-  includedTargets:
-    - database: string
-      schema: string
-      name: string
-  includedTags:
-    - type: string
-  transitiveDependenciesIncluded: boolean
-  transitiveDependentsIncluded: boolean
-  fullyRefreshIncrementalTablesEnabled: boolean
-  serviceAccount: string
-cronSchedule: string
-timeZone: string
-recentScheduledExecutionRecords:
-  - workflowInvocation: string
-    errorStatus:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-    executionTime: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: releaseConfig
+      value: string
+    - name: invocationConfig
+      value:
+        - name: includedTargets
+          value:
+            - - name: database
+                value: string
+              - name: schema
+                value: string
+              - name: name
+                value: string
+        - name: includedTags
+          value:
+            - string
+        - name: transitiveDependenciesIncluded
+          value: boolean
+        - name: transitiveDependentsIncluded
+          value: boolean
+        - name: fullyRefreshIncrementalTablesEnabled
+          value: boolean
+        - name: serviceAccount
+          value: string
+    - name: cronSchedule
+      value: string
+    - name: timeZone
+      value: string
+    - name: recentScheduledExecutionRecords
+      value:
+        - - name: workflowInvocation
+            value: string
+          - name: errorStatus
+            value:
+              - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
+          - name: executionTime
+            value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

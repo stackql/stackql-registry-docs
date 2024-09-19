@@ -85,7 +85,7 @@ type,
 updateTime
 FROM google.networkservices.gateways
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -146,28 +146,47 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-selfLink: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-type: string
-addresses:
-  - type: string
-ports:
-  - type: string
-    format: string
-scope: string
-serverTlsPolicy: string
-certificateUrls:
-  - type: string
-gatewaySecurityPolicy: string
-network: string
-subnetwork: string
-ipVersion: string
-envoyHeaders: string
-routingMode: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: selfLink
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: type
+      value: string
+    - name: addresses
+      value:
+        - string
+    - name: ports
+      value:
+        - integer
+    - name: scope
+      value: string
+    - name: serverTlsPolicy
+      value: string
+    - name: certificateUrls
+      value:
+        - string
+    - name: gatewaySecurityPolicy
+      value: string
+    - name: network
+      value: string
+    - name: subnetwork
+      value: string
+    - name: ipVersion
+      value: string
+    - name: envoyHeaders
+      value: string
+    - name: routingMode
+      value: string
 
 ```
 </TabItem>

@@ -73,5 +73,5 @@ subnetwork,
 zone
 FROM google.compute.region_instance_groups
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

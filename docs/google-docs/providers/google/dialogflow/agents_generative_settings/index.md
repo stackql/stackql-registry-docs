@@ -57,7 +57,7 @@ languageCode
 FROM google.dialogflow.agents_generative_settings
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

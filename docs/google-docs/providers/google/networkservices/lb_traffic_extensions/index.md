@@ -67,7 +67,7 @@ metadata,
 updateTime
 FROM google.networkservices.lb_traffic_extensions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,31 +112,51 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-description: string
-labels: object
-forwardingRules:
-  - type: string
-extensionChains:
-  - name: string
-    matchCondition:
-      celExpression: string
-    extensions:
-      - name: string
-        authority: string
-        service: string
-        supportedEvents:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        timeout: string
-        failOpen: boolean
-        forwardHeaders:
-          - type: string
-loadBalancingScheme: string
-metadata: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: forwardingRules
+      value:
+        - string
+    - name: extensionChains
+      value:
+        - - name: name
+            value: string
+          - name: matchCondition
+            value:
+              - name: celExpression
+                value: string
+          - name: extensions
+            value:
+              - - name: name
+                  value: string
+                - name: authority
+                  value: string
+                - name: service
+                  value: string
+                - name: supportedEvents
+                  value:
+                    - string
+                - name: timeout
+                  value: string
+                - name: failOpen
+                  value: boolean
+                - name: forwardHeaders
+                  value:
+                    - string
+    - name: loadBalancingScheme
+      value: string
+    - name: metadata
+      value: object
 
 ```
 </TabItem>

@@ -80,7 +80,7 @@ disabled,
 filter,
 updateTime
 FROM google.logging.exclusions
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```
 
 ## `INSERT` example
@@ -108,19 +108,27 @@ SELECT
 '{{ foldersId }}',
 '{{ description }}',
 '{{ filter }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-filter: string
-disabled: boolean
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: filter
+      value: string
+    - name: disabled
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

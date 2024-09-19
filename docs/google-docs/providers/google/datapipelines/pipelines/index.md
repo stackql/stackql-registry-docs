@@ -73,7 +73,7 @@ type,
 workload
 FROM google.datapipelines.pipelines
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,77 +120,148 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-name: string
-jobCount: integer
-type: string
-pipelineSources: object
-scheduleInfo:
-  timeZone: string
-  schedule: string
-  nextJobTime: string
-workload:
-  dataflowLaunchTemplateRequest:
-    gcsPath: string
-    validateOnly: boolean
-    projectId: string
-    location: string
-    launchParameters:
-      update: boolean
-      environment:
-        workerZone: string
-        maxWorkers: integer
-        enableStreamingEngine: boolean
-        machineType: string
-        additionalExperiments:
-          - type: string
-        zone: string
-        bypassTempDirValidation: boolean
-        kmsKeyName: string
-        additionalUserLabels: object
-        ipConfiguration: string
-        tempLocation: string
-        numWorkers: integer
-        serviceAccountEmail: string
-        network: string
-        subnetwork: string
-        workerRegion: string
-      parameters: object
-      jobName: string
-      transformNameMapping: object
-  dataflowFlexTemplateRequest:
-    validateOnly: boolean
-    launchParameter:
-      update: boolean
-      transformNameMappings: object
-      parameters: object
-      environment:
-        enableStreamingEngine: boolean
-        subnetwork: string
-        serviceAccountEmail: string
-        numWorkers: integer
-        tempLocation: string
-        zone: string
-        additionalUserLabels: object
-        network: string
-        maxWorkers: integer
-        kmsKeyName: string
-        flexrsGoal: string
-        machineType: string
-        workerZone: string
-        workerRegion: string
-        additionalExperiments:
-          - type: string
-        ipConfiguration: string
-      containerSpecGcsPath: string
-      launchOptions: object
-      jobName: string
-    projectId: string
-    location: string
-state: string
-lastUpdateTime: string
-createTime: string
-schedulerServiceAccountEmail: string
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: jobCount
+      value: integer
+    - name: type
+      value: string
+    - name: pipelineSources
+      value: object
+    - name: scheduleInfo
+      value:
+        - name: timeZone
+          value: string
+        - name: schedule
+          value: string
+        - name: nextJobTime
+          value: string
+    - name: workload
+      value:
+        - name: dataflowLaunchTemplateRequest
+          value:
+            - name: gcsPath
+              value: string
+            - name: validateOnly
+              value: boolean
+            - name: projectId
+              value: string
+            - name: location
+              value: string
+            - name: launchParameters
+              value:
+                - name: update
+                  value: boolean
+                - name: environment
+                  value:
+                    - name: workerZone
+                      value: string
+                    - name: maxWorkers
+                      value: integer
+                    - name: enableStreamingEngine
+                      value: boolean
+                    - name: machineType
+                      value: string
+                    - name: additionalExperiments
+                      value:
+                        - string
+                    - name: zone
+                      value: string
+                    - name: bypassTempDirValidation
+                      value: boolean
+                    - name: kmsKeyName
+                      value: string
+                    - name: additionalUserLabels
+                      value: object
+                    - name: ipConfiguration
+                      value: string
+                    - name: tempLocation
+                      value: string
+                    - name: numWorkers
+                      value: integer
+                    - name: serviceAccountEmail
+                      value: string
+                    - name: network
+                      value: string
+                    - name: subnetwork
+                      value: string
+                    - name: workerRegion
+                      value: string
+                - name: parameters
+                  value: object
+                - name: jobName
+                  value: string
+                - name: transformNameMapping
+                  value: object
+        - name: dataflowFlexTemplateRequest
+          value:
+            - name: validateOnly
+              value: boolean
+            - name: launchParameter
+              value:
+                - name: update
+                  value: boolean
+                - name: transformNameMappings
+                  value: object
+                - name: parameters
+                  value: object
+                - name: environment
+                  value:
+                    - name: enableStreamingEngine
+                      value: boolean
+                    - name: subnetwork
+                      value: string
+                    - name: serviceAccountEmail
+                      value: string
+                    - name: numWorkers
+                      value: integer
+                    - name: tempLocation
+                      value: string
+                    - name: zone
+                      value: string
+                    - name: additionalUserLabels
+                      value: object
+                    - name: network
+                      value: string
+                    - name: maxWorkers
+                      value: integer
+                    - name: kmsKeyName
+                      value: string
+                    - name: flexrsGoal
+                      value: string
+                    - name: machineType
+                      value: string
+                    - name: workerZone
+                      value: string
+                    - name: workerRegion
+                      value: string
+                    - name: additionalExperiments
+                      value:
+                        - string
+                    - name: ipConfiguration
+                      value: string
+                - name: containerSpecGcsPath
+                  value: string
+                - name: launchOptions
+                  value: object
+                - name: jobName
+                  value: string
+            - name: projectId
+              value: string
+            - name: location
+              value: string
+    - name: state
+      value: string
+    - name: lastUpdateTime
+      value: string
+    - name: createTime
+      value: string
+    - name: schedulerServiceAccountEmail
+      value: string
 
 ```
 </TabItem>

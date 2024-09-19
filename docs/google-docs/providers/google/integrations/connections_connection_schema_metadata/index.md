@@ -50,5 +50,5 @@ entities
 FROM google.integrations.connections_connection_schema_metadata
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -59,7 +59,7 @@ location,
 serviceAttachment,
 state
 FROM google.apigee.endpoint_attachments
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -94,12 +94,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-connectionState: string
-name: string
-host: string
-location: string
-serviceAttachment: string
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: string
+    - name: connectionState
+      value: string
+    - name: name
+      value: string
+    - name: host
+      value: string
+    - name: location
+      value: string
+    - name: serviceAttachment
+      value: string
 
 ```
 </TabItem>

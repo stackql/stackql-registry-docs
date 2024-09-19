@@ -55,7 +55,7 @@ FROM google.apigateway.configs_iam_policies
 WHERE apisId = '{{ apisId }}'
 AND configsId = '{{ configsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

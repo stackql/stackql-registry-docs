@@ -57,5 +57,5 @@ labels,
 launchStage,
 type
 FROM google.monitoring.monitored_resource_descriptors
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

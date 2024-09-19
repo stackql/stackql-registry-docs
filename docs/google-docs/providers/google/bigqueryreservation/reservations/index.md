@@ -74,7 +74,7 @@ slotCapacity,
 updateTime
 FROM google.bigqueryreservation.reservations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -111,10 +111,10 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ slotCapacity }}',
-true|false,
+{{ ignoreIdleSlots }},
 '{{ autoscale }}',
 '{{ concurrency }}',
-true|false,
+{{ multiRegionAuxiliary }},
 '{{ edition }}',
 '{{ primaryLocation }}',
 '{{ secondaryLocation }}',
@@ -125,20 +125,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-slotCapacity: string
-ignoreIdleSlots: boolean
-autoscale:
-  currentSlots: string
-  maxSlots: string
-concurrency: string
-creationTime: string
-updateTime: string
-multiRegionAuxiliary: boolean
-edition: string
-primaryLocation: string
-secondaryLocation: string
-originalPrimaryLocation: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: slotCapacity
+      value: string
+    - name: ignoreIdleSlots
+      value: boolean
+    - name: autoscale
+      value:
+        - name: currentSlots
+          value: string
+        - name: maxSlots
+          value: string
+    - name: concurrency
+      value: string
+    - name: creationTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: multiRegionAuxiliary
+      value: boolean
+    - name: edition
+      value: string
+    - name: primaryLocation
+      value: string
+    - name: secondaryLocation
+      value: string
+    - name: originalPrimaryLocation
+      value: string
 
 ```
 </TabItem>

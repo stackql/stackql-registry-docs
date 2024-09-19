@@ -73,7 +73,7 @@ view
 FROM google.cloudtasks.tasks
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND queuesId = '{{ queuesId }}'; 
+AND queuesId = '{{ queuesId }}';
 ```
 
 ## `INSERT` example
@@ -110,46 +110,85 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-task:
-  name: string
-  appEngineHttpRequest:
-    httpMethod: string
-    appEngineRouting:
-      service: string
-      version: string
-      instance: string
-      host: string
-    relativeUri: string
-    headers: object
-    body: string
-  httpRequest:
-    url: string
-    httpMethod: string
-    headers: object
-    body: string
-    oauthToken:
-      serviceAccountEmail: string
-      scope: string
-    oidcToken:
-      serviceAccountEmail: string
-      audience: string
-  scheduleTime: string
-  createTime: string
-  dispatchDeadline: string
-  dispatchCount: integer
-  responseCount: integer
-  firstAttempt:
-    scheduleTime: string
-    dispatchTime: string
-    responseTime: string
-    responseStatus:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-  view: string
-responseView: string
+- name: your_resource_model_name
+  props:
+    - name: task
+      value:
+        - name: name
+          value: string
+        - name: appEngineHttpRequest
+          value:
+            - name: httpMethod
+              value: string
+            - name: appEngineRouting
+              value:
+                - name: service
+                  value: string
+                - name: version
+                  value: string
+                - name: instance
+                  value: string
+                - name: host
+                  value: string
+            - name: relativeUri
+              value: string
+            - name: headers
+              value: object
+            - name: body
+              value: string
+        - name: httpRequest
+          value:
+            - name: url
+              value: string
+            - name: httpMethod
+              value: string
+            - name: headers
+              value: object
+            - name: body
+              value: string
+            - name: oauthToken
+              value:
+                - name: serviceAccountEmail
+                  value: string
+                - name: scope
+                  value: string
+            - name: oidcToken
+              value:
+                - name: serviceAccountEmail
+                  value: string
+                - name: audience
+                  value: string
+        - name: scheduleTime
+          value: string
+        - name: createTime
+          value: string
+        - name: dispatchDeadline
+          value: string
+        - name: dispatchCount
+          value: integer
+        - name: responseCount
+          value: integer
+        - name: firstAttempt
+          value:
+            - name: scheduleTime
+              value: string
+            - name: dispatchTime
+              value: string
+            - name: responseTime
+              value: string
+            - name: responseStatus
+              value:
+                - name: code
+                  value: integer
+                - name: message
+                  value: string
+                - name: details
+                  value:
+                    - object
+        - name: view
+          value: string
+    - name: responseView
+      value: string
 
 ```
 </TabItem>

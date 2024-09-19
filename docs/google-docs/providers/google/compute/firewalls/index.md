@@ -87,7 +87,7 @@ sourceTags,
 targetServiceAccounts,
 targetTags
 FROM google.compute.firewalls
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -139,46 +139,73 @@ SELECT
 '{{ denied }}',
 '{{ direction }}',
 '{{ logConfig }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-network: string
-priority: integer
-sourceRanges:
-  - type: string
-destinationRanges:
-  - type: string
-sourceTags:
-  - type: string
-targetTags:
-  - type: string
-sourceServiceAccounts:
-  - type: string
-targetServiceAccounts:
-  - type: string
-allowed:
-  - IPProtocol: string
-    ports:
-      - type: string
-denied:
-  - IPProtocol: string
-    ports:
-      - type: string
-direction: string
-logConfig:
-  enable: boolean
-  metadata: string
-disabled: boolean
-selfLink: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: priority
+      value: integer
+    - name: sourceRanges
+      value:
+        - string
+    - name: destinationRanges
+      value:
+        - string
+    - name: sourceTags
+      value:
+        - string
+    - name: targetTags
+      value:
+        - string
+    - name: sourceServiceAccounts
+      value:
+        - string
+    - name: targetServiceAccounts
+      value:
+        - string
+    - name: allowed
+      value:
+        - - name: IPProtocol
+            value: string
+          - name: ports
+            value:
+              - string
+    - name: denied
+      value:
+        - - name: IPProtocol
+            value: string
+          - name: ports
+            value:
+              - string
+    - name: direction
+      value: string
+    - name: logConfig
+      value:
+        - name: enable
+          value: boolean
+        - name: metadata
+          value: string
+    - name: disabled
+      value: boolean
+    - name: selfLink
+      value: string
 
 ```
 </TabItem>

@@ -53,5 +53,5 @@ AND dataId = '{{ dataId }}'
 AND debugsessionsId = '{{ debugsessionsId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND revisionsId = '{{ revisionsId }}'; 
+AND revisionsId = '{{ revisionsId }}';
 ```

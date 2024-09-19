@@ -72,7 +72,7 @@ oauth2ClientId,
 projectId,
 uniqueId
 FROM google.iam.service_accounts
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,17 +105,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-accountId: string
-serviceAccount:
-  name: string
-  projectId: string
-  uniqueId: string
-  email: string
-  displayName: string
-  etag: string
-  description: string
-  oauth2ClientId: string
-  disabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: accountId
+      value: string
+    - name: serviceAccount
+      value:
+        - name: name
+          value: string
+        - name: projectId
+          value: string
+        - name: uniqueId
+          value: string
+        - name: email
+          value: string
+        - name: displayName
+          value: string
+        - name: etag
+          value: string
+        - name: description
+          value: string
+        - name: oauth2ClientId
+          value: string
+        - name: disabled
+          value: boolean
 
 ```
 </TabItem>

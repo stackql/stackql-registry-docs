@@ -59,5 +59,5 @@ launchStage,
 supportedTiers,
 type
 FROM google.monitoring.notification_channel_descriptors
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

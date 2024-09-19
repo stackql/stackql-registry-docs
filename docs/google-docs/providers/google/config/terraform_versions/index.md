@@ -56,5 +56,5 @@ state,
 supportTime
 FROM google.config.terraform_versions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

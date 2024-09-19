@@ -48,5 +48,5 @@ name
 FROM google.spanner.database_roles
 WHERE databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

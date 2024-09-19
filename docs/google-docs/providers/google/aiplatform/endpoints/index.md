@@ -101,7 +101,7 @@ trafficSplit,
 updateTime
 FROM google.aiplatform.endpoints
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -138,13 +138,13 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ etag }}',
-true|false,
+{{ enablePrivateServiceConnect }},
 '{{ encryptionSpec }}',
 '{{ network }}',
 '{{ privateServiceConnectConfig }}',
 '{{ displayName }}',
 '{{ description }}',
-true|false,
+{{ dedicatedEndpointEnabled }},
 '{{ trafficSplit }}',
 '{{ predictRequestResponseLoggingConfig }}',
 '{{ labels }}'
@@ -154,105 +154,202 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-etag: string
-enablePrivateServiceConnect: boolean
-encryptionSpec:
-  kmsKeyName: string
-satisfiesPzi: boolean
-satisfiesPzs: boolean
-network: string
-privateServiceConnectConfig:
-  serviceAttachment: string
-  projectAllowlist:
-    - type: string
-  enablePrivateServiceConnect: boolean
-displayName: string
-dedicatedEndpointDns: string
-updateTime: string
-description: string
-dedicatedEndpointEnabled: boolean
-createTime: string
-modelDeploymentMonitoringJob: string
-name: string
-trafficSplit: object
-deployedModels:
-  - displayName: string
-    modelVersionId: string
-    model: string
-    createTime: string
-    disableExplanations: boolean
-    privateEndpoints:
-      serviceAttachment: string
-      predictHttpUri: string
-      healthHttpUri: string
-      explainHttpUri: string
-    disableContainerLogging: boolean
-    explanationSpec:
-      metadata:
-        latentSpaceSource: string
-        featureAttributionsSchemaUri: string
-        outputs: object
-        inputs: object
-      parameters:
-        integratedGradientsAttribution:
-          blurBaselineConfig:
-            maxBlurSigma: number
-          smoothGradConfig:
-            featureNoiseSigma:
-              noiseSigma:
-                - name: string
-                  sigma: number
-            noisySampleCount: integer
-            noiseSigma: number
-          stepCount: integer
-        topK: integer
-        outputIndices:
-          - type: string
-        sampledShapleyAttribution:
-          pathCount: integer
-        xraiAttribution:
-          stepCount: integer
-        examples:
-          nearestNeighborSearchConfig: any
-          neighborCount: integer
-          exampleGcsSource:
-            gcsSource:
-              uris:
-                - type: string
-            dataFormat: string
-          presets:
-            modality: string
-            query: string
-    automaticResources:
-      minReplicaCount: integer
-      maxReplicaCount: integer
-    enableAccessLogging: boolean
-    sharedResources: string
-    serviceAccount: string
-    id: string
-    dedicatedResources:
-      machineSpec:
-        acceleratorCount: integer
-        tpuTopology: string
-        machineType: string
-        acceleratorType: string
-        reservationAffinity:
-          reservationAffinityType: string
-          values:
-            - type: string
-          key: string
-      autoscalingMetricSpecs:
-        - target: integer
-          metricName: string
-      maxReplicaCount: integer
-      minReplicaCount: integer
-      spot: boolean
-predictRequestResponseLoggingConfig:
-  samplingRate: number
-  enabled: boolean
-  bigqueryDestination:
-    outputUri: string
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: etag
+      value: string
+    - name: enablePrivateServiceConnect
+      value: boolean
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
+    - name: network
+      value: string
+    - name: privateServiceConnectConfig
+      value:
+        - name: serviceAttachment
+          value: string
+        - name: projectAllowlist
+          value:
+            - string
+        - name: enablePrivateServiceConnect
+          value: boolean
+    - name: displayName
+      value: string
+    - name: dedicatedEndpointDns
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: dedicatedEndpointEnabled
+      value: boolean
+    - name: createTime
+      value: string
+    - name: modelDeploymentMonitoringJob
+      value: string
+    - name: name
+      value: string
+    - name: trafficSplit
+      value: object
+    - name: deployedModels
+      value:
+        - - name: displayName
+            value: string
+          - name: modelVersionId
+            value: string
+          - name: model
+            value: string
+          - name: createTime
+            value: string
+          - name: disableExplanations
+            value: boolean
+          - name: privateEndpoints
+            value:
+              - name: serviceAttachment
+                value: string
+              - name: predictHttpUri
+                value: string
+              - name: healthHttpUri
+                value: string
+              - name: explainHttpUri
+                value: string
+          - name: disableContainerLogging
+            value: boolean
+          - name: explanationSpec
+            value:
+              - name: metadata
+                value:
+                  - name: latentSpaceSource
+                    value: string
+                  - name: featureAttributionsSchemaUri
+                    value: string
+                  - name: outputs
+                    value: object
+                  - name: inputs
+                    value: object
+              - name: parameters
+                value:
+                  - name: integratedGradientsAttribution
+                    value:
+                      - name: blurBaselineConfig
+                        value:
+                          - name: maxBlurSigma
+                            value: number
+                      - name: smoothGradConfig
+                        value:
+                          - name: featureNoiseSigma
+                            value:
+                              - name: noiseSigma
+                                value:
+                                  - - name: name
+                                      value: string
+                                    - name: sigma
+                                      value: number
+                          - name: noisySampleCount
+                            value: integer
+                          - name: noiseSigma
+                            value: number
+                      - name: stepCount
+                        value: integer
+                  - name: topK
+                    value: integer
+                  - name: outputIndices
+                    value:
+                      - any
+                  - name: sampledShapleyAttribution
+                    value:
+                      - name: pathCount
+                        value: integer
+                  - name: xraiAttribution
+                    value:
+                      - name: stepCount
+                        value: integer
+                  - name: examples
+                    value:
+                      - name: nearestNeighborSearchConfig
+                        value: any
+                      - name: neighborCount
+                        value: integer
+                      - name: exampleGcsSource
+                        value:
+                          - name: gcsSource
+                            value:
+                              - name: uris
+                                value:
+                                  - string
+                          - name: dataFormat
+                            value: string
+                      - name: presets
+                        value:
+                          - name: modality
+                            value: string
+                          - name: query
+                            value: string
+          - name: automaticResources
+            value:
+              - name: minReplicaCount
+                value: integer
+              - name: maxReplicaCount
+                value: integer
+          - name: enableAccessLogging
+            value: boolean
+          - name: sharedResources
+            value: string
+          - name: serviceAccount
+            value: string
+          - name: id
+            value: string
+          - name: dedicatedResources
+            value:
+              - name: machineSpec
+                value:
+                  - name: acceleratorCount
+                    value: integer
+                  - name: tpuTopology
+                    value: string
+                  - name: machineType
+                    value: string
+                  - name: acceleratorType
+                    value: string
+                  - name: reservationAffinity
+                    value:
+                      - name: reservationAffinityType
+                        value: string
+                      - name: values
+                        value:
+                          - string
+                      - name: key
+                        value: string
+              - name: autoscalingMetricSpecs
+                value:
+                  - - name: target
+                      value: integer
+                    - name: metricName
+                      value: string
+              - name: maxReplicaCount
+                value: integer
+              - name: minReplicaCount
+                value: integer
+              - name: spot
+                value: boolean
+    - name: predictRequestResponseLoggingConfig
+      value:
+        - name: samplingRate
+          value: number
+        - name: enabled
+          value: boolean
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: string
+    - name: labels
+      value: object
 
 ```
 </TabItem>

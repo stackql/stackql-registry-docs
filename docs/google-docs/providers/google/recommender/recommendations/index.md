@@ -95,5 +95,5 @@ xorGroupId
 FROM google.recommender.recommendations
 WHERE foldersId = '{{ foldersId }}'
 AND locationsId = '{{ locationsId }}'
-AND recommendersId = '{{ recommendersId }}'; 
+AND recommendersId = '{{ recommendersId }}';
 ```

@@ -55,5 +55,5 @@ revisionId,
 type
 FROM google.pubsub.schemas_revisions
 WHERE projectsId = '{{ projectsId }}'
-AND schemasId = '{{ schemasId }}'; 
+AND schemasId = '{{ schemasId }}';
 ```

@@ -89,7 +89,7 @@ tfVersionConstraint,
 workerPool
 FROM google.config.previews
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -140,42 +140,77 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-terraformBlueprint:
-  gcsSource: string
-  gitSource:
-    repo: string
-    directory: string
-    ref: string
-  inputValues: object
-name: string
-createTime: string
-labels: object
-state: string
-deployment: string
-previewMode: string
-serviceAccount: string
-artifactsGcsBucket: string
-workerPool: string
-errorCode: string
-errorStatus:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-build: string
-tfErrors:
-  - resourceAddress: string
-    httpResponseCode: integer
-    errorDescription: string
-errorLogs: string
-previewArtifacts:
-  content: string
-  artifacts: string
-logs: string
-tfVersion: string
-tfVersionConstraint: string
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: terraformBlueprint
+      value:
+        - name: gcsSource
+          value: string
+        - name: gitSource
+          value:
+            - name: repo
+              value: string
+            - name: directory
+              value: string
+            - name: ref
+              value: string
+        - name: inputValues
+          value: object
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: deployment
+      value: string
+    - name: previewMode
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: artifactsGcsBucket
+      value: string
+    - name: workerPool
+      value: string
+    - name: errorCode
+      value: string
+    - name: errorStatus
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: build
+      value: string
+    - name: tfErrors
+      value:
+        - - name: resourceAddress
+            value: string
+          - name: httpResponseCode
+            value: integer
+          - name: errorDescription
+            value: string
+    - name: errorLogs
+      value: string
+    - name: previewArtifacts
+      value:
+        - name: content
+          value: string
+        - name: artifacts
+          value: string
+    - name: logs
+      value: string
+    - name: tfVersion
+      value: string
+    - name: tfVersionConstraint
+      value: string
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

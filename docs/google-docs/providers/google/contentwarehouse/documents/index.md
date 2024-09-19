@@ -96,7 +96,7 @@ updater
 FROM google.contentwarehouse.documents
 WHERE documentsId = '{{ documentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -137,405 +137,783 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-cloudAiDocumentOption:
-  customizedEntitiesPropertiesConversions: object
-  enableEntitiesConversions: boolean
-requestMetadata:
-  userInfo:
-    groupIds:
-      - type: string
-    id: string
-policy:
-  etag: string
-  bindings:
-    - members:
-        - type: string
-      role: string
-      condition:
-        location: string
-        expression: string
-        title: string
-        description: string
-  auditConfigs:
-    - service: string
-      auditLogConfigs:
-        - exemptedMembers:
-            - type: string
-          logType: string
-  version: integer
-createMask: string
-document:
-  referenceId: string
-  title: string
-  updater: string
-  creator: string
-  rawDocumentFileType: string
-  inlineRawDocument: string
-  legalHold: boolean
-  createTime: string
-  contentCategory: string
-  cloudAiDocument:
-    revisions:
-      - parent:
-          - format: string
-            type: string
-        humanReview:
-          state: string
-          stateMessage: string
-        id: string
-        createTime: string
-        processor: string
-        parentIds:
-          - type: string
-        agent: string
-    pages:
-      - imageQualityScores:
-          detectedDefects:
-            - type: string
-              confidence: number
-          qualityScore: number
-        tables:
-          - layout:
-              boundingPoly:
-                normalizedVertices:
-                  - 'y': number
-                    x: number
-                vertices:
-                  - 'y': integer
-                    x: integer
-              orientation: string
-              textAnchor:
-                textSegments:
-                  - startIndex: string
-                    endIndex: string
-                content: string
-              confidence: number
-            detectedLanguages:
-              - languageCode: string
-                confidence: number
-            headerRows:
-              - cells:
-                  - colSpan: integer
-                    detectedLanguages:
-                      - languageCode: string
-                        confidence: number
-                    rowSpan: integer
-            bodyRows:
-              - cells:
-                  - colSpan: integer
-                    detectedLanguages:
-                      - languageCode: string
-                        confidence: number
-                    rowSpan: integer
-            provenance:
-              id: integer
-              revision: integer
-              parents:
-                - revision: integer
-                  id: integer
-                  index: integer
-              type: string
-        image:
-          content: string
-          width: integer
-          mimeType: string
-          height: integer
-        formFields:
-          - correctedKeyText: string
-            valueDetectedLanguages:
-              - languageCode: string
-                confidence: number
-            valueType: string
-            nameDetectedLanguages:
-              - languageCode: string
-                confidence: number
-            correctedValueText: string
-        pageNumber: integer
-        detectedBarcodes:
-          - barcode:
-              rawValue: string
-              format: string
-              valueFormat: string
-        tokens:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-            detectedBreak:
-              type: string
-            styleInfo:
-              textColor:
-                green: number
-                red: number
-                alpha: number
-                blue: number
-              strikeout: boolean
-              fontSize: integer
-              underlined: boolean
-              handwritten: boolean
-              letterSpacing: number
-              bold: boolean
-              fontType: string
-              fontWeight: integer
-              smallcaps: boolean
-              subscript: boolean
-              pixelFontSize: number
-              italic: boolean
-              superscript: boolean
-        detectedLanguages:
-          - languageCode: string
-            confidence: number
-        symbols:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-        lines:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-        transforms:
-          - type: integer
-            data: string
-            rows: integer
-            cols: integer
-        visualElements:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-            type: string
-        paragraphs:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-        dimension:
-          unit: string
-          height: number
-          width: number
-        blocks:
-          - detectedLanguages:
-              - languageCode: string
-                confidence: number
-    entityRelations:
-      - objectId: string
-        relation: string
-        subjectId: string
-    content: string
-    shardInfo:
-      shardIndex: string
-      shardCount: string
-      textOffset: string
-    chunkedDocument:
-      chunks:
-        - sourceBlockIds:
-            - type: string
-          pageFooters:
-            - pageSpan:
-                pageEnd: integer
-                pageStart: integer
-              text: string
-          content: string
-          chunkId: string
-          pageHeaders:
-            - text: string
-    entities:
-      - type: string
-        normalizedValue:
-          datetimeValue:
-            day: integer
-            hours: integer
-            month: integer
-            timeZone:
-              version: string
-              id: string
-            year: integer
-            utcOffset: string
-            minutes: integer
-            nanos: integer
-            seconds: integer
-          text: string
-          moneyValue:
-            nanos: integer
-            currencyCode: string
-            units: string
-          booleanValue: boolean
-          dateValue:
-            year: integer
-            day: integer
-            month: integer
-          integerValue: integer
-          floatValue: number
-          addressValue:
-            revision: integer
-            regionCode: string
-            administrativeArea: string
-            organization: string
-            locality: string
-            sortingCode: string
-            sublocality: string
-            addressLines:
-              - type: string
-            recipients:
-              - type: string
-            languageCode: string
-            postalCode: string
-        properties:
-          - type: string
-            properties:
-              - type: string
-                properties:
-                  - type: string
-                    properties:
-                      - type: string
-                        properties:
-                          - type: string
-                            properties:
-                              - type: string
-                                properties:
-                                  - type: string
-                                    properties:
-                                      - {}
-                                    id: string
-                                    confidence: number
-                                    redacted: boolean
-                                    mentionText: string
-                                    mentionId: string
-                                    pageAnchor: {}
-                                id: string
-                                confidence: number
-                                redacted: boolean
-                                mentionText: string
-                                mentionId: string
-                            id: string
-                            confidence: number
-                            redacted: boolean
-                            mentionText: string
-                            mentionId: string
-                        id: string
-                        confidence: number
-                        redacted: boolean
-                        mentionText: string
-                        mentionId: string
-                    id: string
-                    confidence: number
-                    redacted: boolean
-                    mentionText: string
-                    mentionId: string
-                id: string
-                confidence: number
-                redacted: boolean
-                mentionText: string
-                mentionId: string
-            id: string
-            confidence: number
-            redacted: boolean
-            mentionText: string
-            mentionId: string
-        id: string
-        confidence: number
-        redacted: boolean
-        mentionText: string
-        mentionId: string
-    text: string
-    textStyles:
-      - fontWeight: string
-        textStyle: string
-        fontSize:
-          unit: string
-          size: number
-        textDecoration: string
-        fontFamily: string
-    mimeType: string
-    documentLayout:
-      blocks:
-        - pageSpan:
-            pageStart: integer
-            pageEnd: integer
-          tableBlock:
-            bodyRows:
-              - cells:
-                  - colSpan: integer
-                    rowSpan: integer
-                    blocks:
-                      - listBlock:
-                          listEntries:
-                            - blocks:
-                                - {}
-                          type: string
-                        blockId: string
-                        textBlock:
-                          text: string
-                          type: string
-                          blocks:
-                            - blockId: string
-            headerRows:
-              - cells:
-                  - colSpan: integer
-                    rowSpan: integer
-                    blocks:
-                      - blockId: string
-            caption: string
-          blockId: string
-    uri: string
-    textChanges:
-      - changedText: string
-        provenance:
-          - id: integer
-            revision: integer
-            parents:
-              - revision: integer
-                id: integer
-                index: integer
-            type: string
-    error:
-      details:
-        - additionalProperties: any
-          type: string
-      message: string
-      code: integer
-  displayName: string
-  name: string
-  textExtractionDisabled: boolean
-  properties:
-    - textValues:
-        values:
-          - type: string
-      enumValues:
-        values:
-          - type: string
-      propertyValues:
-        properties:
-          - timestampValues:
-              values:
-                - textValue: string
-                  timestampValue: string
-            floatValues:
-              values:
-                - format: string
-                  type: string
-            mapProperty:
-              fields: object
-            integerValues:
-              values:
-                - format: string
-                  type: string
-            dateTimeValues:
-              values:
-                - day: integer
-                  hours: integer
-                  month: integer
-                  year: integer
-                  utcOffset: string
-                  minutes: integer
-                  nanos: integer
-                  seconds: integer
-            name: string
-      name: string
-  textExtractionEnabled: boolean
-  plainText: string
-  updateTime: string
-  rawDocumentPath: string
-  displayUri: string
-  dispositionTime: string
-  documentSchemaName: string
+- name: your_resource_model_name
+  props:
+    - name: cloudAiDocumentOption
+      value:
+        - name: customizedEntitiesPropertiesConversions
+          value: object
+        - name: enableEntitiesConversions
+          value: boolean
+    - name: requestMetadata
+      value:
+        - name: userInfo
+          value:
+            - name: groupIds
+              value:
+                - string
+            - name: id
+              value: string
+    - name: policy
+      value:
+        - name: etag
+          value: string
+        - name: bindings
+          value:
+            - - name: members
+                value:
+                  - string
+              - name: role
+                value: string
+              - name: condition
+                value:
+                  - name: location
+                    value: string
+                  - name: expression
+                    value: string
+                  - name: title
+                    value: string
+                  - name: description
+                    value: string
+        - name: auditConfigs
+          value:
+            - - name: service
+                value: string
+              - name: auditLogConfigs
+                value:
+                  - - name: exemptedMembers
+                      value:
+                        - string
+                    - name: logType
+                      value: string
+        - name: version
+          value: integer
+    - name: createMask
+      value: string
+    - name: document
+      value:
+        - name: referenceId
+          value: string
+        - name: title
+          value: string
+        - name: updater
+          value: string
+        - name: creator
+          value: string
+        - name: rawDocumentFileType
+          value: string
+        - name: inlineRawDocument
+          value: string
+        - name: legalHold
+          value: boolean
+        - name: createTime
+          value: string
+        - name: contentCategory
+          value: string
+        - name: cloudAiDocument
+          value:
+            - name: revisions
+              value:
+                - - name: parent
+                    value:
+                      - integer
+                  - name: humanReview
+                    value:
+                      - name: state
+                        value: string
+                      - name: stateMessage
+                        value: string
+                  - name: id
+                    value: string
+                  - name: createTime
+                    value: string
+                  - name: processor
+                    value: string
+                  - name: parentIds
+                    value:
+                      - string
+                  - name: agent
+                    value: string
+            - name: pages
+              value:
+                - - name: imageQualityScores
+                    value:
+                      - name: detectedDefects
+                        value:
+                          - - name: type
+                              value: string
+                            - name: confidence
+                              value: number
+                      - name: qualityScore
+                        value: number
+                  - name: tables
+                    value:
+                      - - name: layout
+                          value:
+                            - name: boundingPoly
+                              value:
+                                - name: normalizedVertices
+                                  value:
+                                    - - name: 'y'
+                                        value: number
+                                      - name: x
+                                        value: number
+                                - name: vertices
+                                  value:
+                                    - - name: 'y'
+                                        value: integer
+                                      - name: x
+                                        value: integer
+                            - name: orientation
+                              value: string
+                            - name: textAnchor
+                              value:
+                                - name: textSegments
+                                  value:
+                                    - - name: startIndex
+                                        value: string
+                                      - name: endIndex
+                                        value: string
+                                - name: content
+                                  value: string
+                            - name: confidence
+                              value: number
+                        - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                        - name: headerRows
+                          value:
+                            - - name: cells
+                                value:
+                                  - - name: colSpan
+                                      value: integer
+                                    - name: detectedLanguages
+                                      value:
+                                        - - name: languageCode
+                                            value: string
+                                          - name: confidence
+                                            value: number
+                                    - name: rowSpan
+                                      value: integer
+                        - name: bodyRows
+                          value:
+                            - - name: cells
+                                value:
+                                  - - name: colSpan
+                                      value: integer
+                                    - name: detectedLanguages
+                                      value:
+                                        - - name: languageCode
+                                            value: string
+                                          - name: confidence
+                                            value: number
+                                    - name: rowSpan
+                                      value: integer
+                        - name: provenance
+                          value:
+                            - name: id
+                              value: integer
+                            - name: revision
+                              value: integer
+                            - name: parents
+                              value:
+                                - - name: revision
+                                    value: integer
+                                  - name: id
+                                    value: integer
+                                  - name: index
+                                    value: integer
+                            - name: type
+                              value: string
+                  - name: image
+                    value:
+                      - name: content
+                        value: string
+                      - name: width
+                        value: integer
+                      - name: mimeType
+                        value: string
+                      - name: height
+                        value: integer
+                  - name: formFields
+                    value:
+                      - - name: correctedKeyText
+                          value: string
+                        - name: valueDetectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                        - name: valueType
+                          value: string
+                        - name: nameDetectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                        - name: correctedValueText
+                          value: string
+                  - name: pageNumber
+                    value: integer
+                  - name: detectedBarcodes
+                    value:
+                      - - name: barcode
+                          value:
+                            - name: rawValue
+                              value: string
+                            - name: format
+                              value: string
+                            - name: valueFormat
+                              value: string
+                  - name: tokens
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                        - name: detectedBreak
+                          value:
+                            - name: type
+                              value: string
+                        - name: styleInfo
+                          value:
+                            - name: textColor
+                              value:
+                                - name: green
+                                  value: number
+                                - name: red
+                                  value: number
+                                - name: alpha
+                                  value: number
+                                - name: blue
+                                  value: number
+                            - name: strikeout
+                              value: boolean
+                            - name: fontSize
+                              value: integer
+                            - name: underlined
+                              value: boolean
+                            - name: handwritten
+                              value: boolean
+                            - name: letterSpacing
+                              value: number
+                            - name: bold
+                              value: boolean
+                            - name: fontType
+                              value: string
+                            - name: fontWeight
+                              value: integer
+                            - name: smallcaps
+                              value: boolean
+                            - name: subscript
+                              value: boolean
+                            - name: pixelFontSize
+                              value: number
+                            - name: italic
+                              value: boolean
+                            - name: superscript
+                              value: boolean
+                  - name: detectedLanguages
+                    value:
+                      - - name: languageCode
+                          value: string
+                        - name: confidence
+                          value: number
+                  - name: symbols
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                  - name: lines
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                  - name: transforms
+                    value:
+                      - - name: type
+                          value: integer
+                        - name: data
+                          value: string
+                        - name: rows
+                          value: integer
+                        - name: cols
+                          value: integer
+                  - name: visualElements
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                        - name: type
+                          value: string
+                  - name: paragraphs
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+                  - name: dimension
+                    value:
+                      - name: unit
+                        value: string
+                      - name: height
+                        value: number
+                      - name: width
+                        value: number
+                  - name: blocks
+                    value:
+                      - - name: detectedLanguages
+                          value:
+                            - - name: languageCode
+                                value: string
+                              - name: confidence
+                                value: number
+            - name: entityRelations
+              value:
+                - - name: objectId
+                    value: string
+                  - name: relation
+                    value: string
+                  - name: subjectId
+                    value: string
+            - name: content
+              value: string
+            - name: shardInfo
+              value:
+                - name: shardIndex
+                  value: string
+                - name: shardCount
+                  value: string
+                - name: textOffset
+                  value: string
+            - name: chunkedDocument
+              value:
+                - name: chunks
+                  value:
+                    - - name: sourceBlockIds
+                        value:
+                          - string
+                      - name: pageFooters
+                        value:
+                          - - name: pageSpan
+                              value:
+                                - name: pageEnd
+                                  value: integer
+                                - name: pageStart
+                                  value: integer
+                            - name: text
+                              value: string
+                      - name: content
+                        value: string
+                      - name: chunkId
+                        value: string
+                      - name: pageHeaders
+                        value:
+                          - - name: text
+                              value: string
+            - name: entities
+              value:
+                - - name: type
+                    value: string
+                  - name: normalizedValue
+                    value:
+                      - name: datetimeValue
+                        value:
+                          - name: day
+                            value: integer
+                          - name: hours
+                            value: integer
+                          - name: month
+                            value: integer
+                          - name: timeZone
+                            value:
+                              - name: version
+                                value: string
+                              - name: id
+                                value: string
+                          - name: year
+                            value: integer
+                          - name: utcOffset
+                            value: string
+                          - name: minutes
+                            value: integer
+                          - name: nanos
+                            value: integer
+                          - name: seconds
+                            value: integer
+                      - name: text
+                        value: string
+                      - name: moneyValue
+                        value:
+                          - name: nanos
+                            value: integer
+                          - name: currencyCode
+                            value: string
+                          - name: units
+                            value: string
+                      - name: booleanValue
+                        value: boolean
+                      - name: dateValue
+                        value:
+                          - name: year
+                            value: integer
+                          - name: day
+                            value: integer
+                          - name: month
+                            value: integer
+                      - name: integerValue
+                        value: integer
+                      - name: floatValue
+                        value: number
+                      - name: addressValue
+                        value:
+                          - name: revision
+                            value: integer
+                          - name: regionCode
+                            value: string
+                          - name: administrativeArea
+                            value: string
+                          - name: organization
+                            value: string
+                          - name: locality
+                            value: string
+                          - name: sortingCode
+                            value: string
+                          - name: sublocality
+                            value: string
+                          - name: addressLines
+                            value:
+                              - string
+                          - name: recipients
+                            value:
+                              - string
+                          - name: languageCode
+                            value: string
+                          - name: postalCode
+                            value: string
+                  - name: properties
+                    value:
+                      - - name: type
+                          value: string
+                        - name: properties
+                          value:
+                            - - name: type
+                                value: string
+                              - name: properties
+                                value:
+                                  - - name: type
+                                      value: string
+                                    - name: properties
+                                      value:
+                                        - - name: type
+                                            value: string
+                                          - name: properties
+                                            value:
+                                              - - name: type
+                                                  value: string
+                                                - name: properties
+                                                  value:
+                                                    - - name: type
+                                                        value: string
+                                                      - name: properties
+                                                        value:
+                                                          - - name: type
+                                                              value: string
+                                                            - name: properties
+                                                              value:
+                                                                - []
+                                                            - name: id
+                                                              value: string
+                                                            - name: confidence
+                                                              value: number
+                                                            - name: redacted
+                                                              value: boolean
+                                                            - name: mentionText
+                                                              value: string
+                                                            - name: mentionId
+                                                              value: string
+                                                            - name: pageAnchor
+                                                              value: []
+                                                      - name: id
+                                                        value: string
+                                                      - name: confidence
+                                                        value: number
+                                                      - name: redacted
+                                                        value: boolean
+                                                      - name: mentionText
+                                                        value: string
+                                                      - name: mentionId
+                                                        value: string
+                                                - name: id
+                                                  value: string
+                                                - name: confidence
+                                                  value: number
+                                                - name: redacted
+                                                  value: boolean
+                                                - name: mentionText
+                                                  value: string
+                                                - name: mentionId
+                                                  value: string
+                                          - name: id
+                                            value: string
+                                          - name: confidence
+                                            value: number
+                                          - name: redacted
+                                            value: boolean
+                                          - name: mentionText
+                                            value: string
+                                          - name: mentionId
+                                            value: string
+                                    - name: id
+                                      value: string
+                                    - name: confidence
+                                      value: number
+                                    - name: redacted
+                                      value: boolean
+                                    - name: mentionText
+                                      value: string
+                                    - name: mentionId
+                                      value: string
+                              - name: id
+                                value: string
+                              - name: confidence
+                                value: number
+                              - name: redacted
+                                value: boolean
+                              - name: mentionText
+                                value: string
+                              - name: mentionId
+                                value: string
+                        - name: id
+                          value: string
+                        - name: confidence
+                          value: number
+                        - name: redacted
+                          value: boolean
+                        - name: mentionText
+                          value: string
+                        - name: mentionId
+                          value: string
+                  - name: id
+                    value: string
+                  - name: confidence
+                    value: number
+                  - name: redacted
+                    value: boolean
+                  - name: mentionText
+                    value: string
+                  - name: mentionId
+                    value: string
+            - name: text
+              value: string
+            - name: textStyles
+              value:
+                - - name: fontWeight
+                    value: string
+                  - name: textStyle
+                    value: string
+                  - name: fontSize
+                    value:
+                      - name: unit
+                        value: string
+                      - name: size
+                        value: number
+                  - name: textDecoration
+                    value: string
+                  - name: fontFamily
+                    value: string
+            - name: mimeType
+              value: string
+            - name: documentLayout
+              value:
+                - name: blocks
+                  value:
+                    - - name: pageSpan
+                        value:
+                          - name: pageStart
+                            value: integer
+                          - name: pageEnd
+                            value: integer
+                      - name: tableBlock
+                        value:
+                          - name: bodyRows
+                            value:
+                              - - name: cells
+                                  value:
+                                    - - name: colSpan
+                                        value: integer
+                                      - name: rowSpan
+                                        value: integer
+                                      - name: blocks
+                                        value:
+                                          - - name: listBlock
+                                              value:
+                                                - name: listEntries
+                                                  value:
+                                                    - - name: blocks
+                                                        value:
+                                                          - []
+                                                - name: type
+                                                  value: string
+                                            - name: blockId
+                                              value: string
+                                            - name: textBlock
+                                              value:
+                                                - name: text
+                                                  value: string
+                                                - name: type
+                                                  value: string
+                                                - name: blocks
+                                                  value:
+                                                    - - name: blockId
+                                                        value: string
+                          - name: headerRows
+                            value:
+                              - - name: cells
+                                  value:
+                                    - - name: colSpan
+                                        value: integer
+                                      - name: rowSpan
+                                        value: integer
+                                      - name: blocks
+                                        value:
+                                          - - name: blockId
+                                              value: string
+                          - name: caption
+                            value: string
+                      - name: blockId
+                        value: string
+            - name: uri
+              value: string
+            - name: textChanges
+              value:
+                - - name: changedText
+                    value: string
+                  - name: provenance
+                    value:
+                      - - name: id
+                          value: integer
+                        - name: revision
+                          value: integer
+                        - name: parents
+                          value:
+                            - - name: revision
+                                value: integer
+                              - name: id
+                                value: integer
+                              - name: index
+                                value: integer
+                        - name: type
+                          value: string
+            - name: error
+              value:
+                - name: details
+                  value:
+                    - object
+                - name: message
+                  value: string
+                - name: code
+                  value: integer
+        - name: displayName
+          value: string
+        - name: name
+          value: string
+        - name: textExtractionDisabled
+          value: boolean
+        - name: properties
+          value:
+            - - name: textValues
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: enumValues
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: propertyValues
+                value:
+                  - name: properties
+                    value:
+                      - - name: timestampValues
+                          value:
+                            - name: values
+                              value:
+                                - - name: textValue
+                                    value: string
+                                  - name: timestampValue
+                                    value: string
+                        - name: floatValues
+                          value:
+                            - name: values
+                              value:
+                                - number
+                        - name: mapProperty
+                          value:
+                            - name: fields
+                              value: object
+                        - name: integerValues
+                          value:
+                            - name: values
+                              value:
+                                - integer
+                        - name: dateTimeValues
+                          value:
+                            - name: values
+                              value:
+                                - - name: day
+                                    value: integer
+                                  - name: hours
+                                    value: integer
+                                  - name: month
+                                    value: integer
+                                  - name: year
+                                    value: integer
+                                  - name: utcOffset
+                                    value: string
+                                  - name: minutes
+                                    value: integer
+                                  - name: nanos
+                                    value: integer
+                                  - name: seconds
+                                    value: integer
+                        - name: name
+                          value: string
+              - name: name
+                value: string
+        - name: textExtractionEnabled
+          value: boolean
+        - name: plainText
+          value: string
+        - name: updateTime
+          value: string
+        - name: rawDocumentPath
+          value: string
+        - name: displayUri
+          value: string
+        - name: dispositionTime
+          value: string
+        - name: documentSchemaName
+          value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ uid,
 updateTime
 FROM google.dataplex.data_attribute_bindings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,21 +116,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-displayName: string
-labels: object
-etag: string
-resource: string
-attributes:
-  - type: string
-paths:
-  - name: string
-    attributes:
-      - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: resource
+      value: string
+    - name: attributes
+      value:
+        - string
+    - name: paths
+      value:
+        - - name: name
+            value: string
+          - name: attributes
+            value:
+              - string
 
 ```
 </TabItem>

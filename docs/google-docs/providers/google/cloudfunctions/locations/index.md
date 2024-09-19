@@ -54,5 +54,5 @@ labels,
 locationId,
 metadata
 FROM google.cloudfunctions.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

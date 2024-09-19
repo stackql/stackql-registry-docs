@@ -75,23 +75,39 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-projectConfig:
-  labels: object
-  tenantProjectPolicy:
-    policyBindings:
-      - members:
-          - type: string
-        role: string
-  billingConfig:
-    billingAccount: string
-  folder: string
-  serviceAccountConfig:
-    accountId: string
-    tenantProjectRoles:
-      - type: string
-  services:
-    - type: string
-tag: string
+- name: your_resource_model_name
+  props:
+    - name: projectConfig
+      value:
+        - name: labels
+          value: object
+        - name: tenantProjectPolicy
+          value:
+            - name: policyBindings
+              value:
+                - - name: members
+                    value:
+                      - string
+                  - name: role
+                    value: string
+        - name: billingConfig
+          value:
+            - name: billingAccount
+              value: string
+        - name: folder
+          value: string
+        - name: serviceAccountConfig
+          value:
+            - name: accountId
+              value: string
+            - name: tenantProjectRoles
+              value:
+                - string
+        - name: services
+          value:
+            - string
+    - name: tag
+      value: string
 
 ```
 </TabItem>

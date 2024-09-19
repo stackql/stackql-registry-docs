@@ -69,8 +69,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-public_key: string
-access_token: string
+- name: your_resource_model_name
+  props:
+    - name: public_key
+      value: string
+    - name: access_token
+      value: string
 
 ```
 </TabItem>

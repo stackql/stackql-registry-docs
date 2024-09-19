@@ -56,7 +56,7 @@ creator,
 plainTextBody
 FROM google.cloudsupport.comments
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```
 
 ## `INSERT` example
@@ -89,15 +89,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-plainTextBody: string
-body: string
-createTime: string
-creator:
-  displayName: string
-  email: string
-  googleSupport: boolean
-  username: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: plainTextBody
+      value: string
+    - name: body
+      value: string
+    - name: createTime
+      value: string
+    - name: creator
+      value:
+        - name: displayName
+          value: string
+        - name: email
+          value: string
+        - name: googleSupport
+          value: boolean
+        - name: username
+          value: string
 
 ```
 </TabItem>

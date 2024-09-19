@@ -56,5 +56,5 @@ labels,
 locationId,
 metadata
 FROM google.tpu.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

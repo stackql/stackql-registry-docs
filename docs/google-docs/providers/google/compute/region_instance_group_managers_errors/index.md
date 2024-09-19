@@ -52,5 +52,5 @@ timestamp
 FROM google.compute.region_instance_group_managers_errors
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

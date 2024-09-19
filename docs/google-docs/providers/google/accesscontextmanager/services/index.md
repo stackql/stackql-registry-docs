@@ -59,5 +59,5 @@ supportStage,
 supportedMethods,
 title
 FROM google.accesscontextmanager.services
-WHERE  = '{{  }}'; 
+;
 ```

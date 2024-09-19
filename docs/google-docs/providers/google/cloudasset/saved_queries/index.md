@@ -64,7 +64,7 @@ labels,
 lastUpdateTime,
 lastUpdater
 FROM google.cloudasset.saved_queries
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```
 
 ## `INSERT` example
@@ -103,34 +103,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-creator: string
-lastUpdateTime: string
-lastUpdater: string
-labels: object
-content:
-  iamPolicyAnalysisQuery:
-    scope: string
-    resourceSelector:
-      fullResourceName: string
-    identitySelector:
-      identity: string
-    accessSelector:
-      roles:
-        - type: string
-      permissions:
-        - type: string
-    options:
-      expandGroups: boolean
-      expandRoles: boolean
-      expandResources: boolean
-      outputResourceEdges: boolean
-      outputGroupEdges: boolean
-      analyzeServiceAccountImpersonation: boolean
-    conditionContext:
-      accessTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: creator
+      value: string
+    - name: lastUpdateTime
+      value: string
+    - name: lastUpdater
+      value: string
+    - name: labels
+      value: object
+    - name: content
+      value:
+        - name: iamPolicyAnalysisQuery
+          value:
+            - name: scope
+              value: string
+            - name: resourceSelector
+              value:
+                - name: fullResourceName
+                  value: string
+            - name: identitySelector
+              value:
+                - name: identity
+                  value: string
+            - name: accessSelector
+              value:
+                - name: roles
+                  value:
+                    - string
+                - name: permissions
+                  value:
+                    - string
+            - name: options
+              value:
+                - name: expandGroups
+                  value: boolean
+                - name: expandRoles
+                  value: boolean
+                - name: expandResources
+                  value: boolean
+                - name: outputResourceEdges
+                  value: boolean
+                - name: outputGroupEdges
+                  value: boolean
+                - name: analyzeServiceAccountImpersonation
+                  value: boolean
+            - name: conditionContext
+              value:
+                - name: accessTime
+                  value: string
 
 ```
 </TabItem>

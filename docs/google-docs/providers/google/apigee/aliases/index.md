@@ -57,7 +57,7 @@ FROM google.apigee.aliases
 WHERE aliasesId = '{{ aliasesId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND keystoresId = '{{ keystoresId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -96,11 +96,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-contentType: string
-data: string
-extensions:
-  - additionalProperties: any
-    type: string
+- name: your_resource_model_name
+  props:
+    - name: contentType
+      value: string
+    - name: data
+      value: string
+    - name: extensions
+      value:
+        - object
 
 ```
 </TabItem>

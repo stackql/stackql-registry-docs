@@ -62,7 +62,7 @@ FROM google.datalabeling.feedback_messages
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND feedbackThreadsId = '{{ feedbackThreadsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,12 +107,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requesterFeedbackMetadata: {}
-operatorFeedbackMetadata: {}
-name: string
-body: string
-image: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: requesterFeedbackMetadata
+      value: []
+    - name: operatorFeedbackMetadata
+      value: []
+    - name: name
+      value: string
+    - name: body
+      value: string
+    - name: image
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

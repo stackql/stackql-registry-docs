@@ -61,5 +61,5 @@ evaluationMetrics
 FROM google.datalabeling.evaluations
 WHERE datasetsId = '{{ datasetsId }}'
 AND evaluationsId = '{{ evaluationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

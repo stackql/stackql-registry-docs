@@ -67,7 +67,7 @@ parent,
 sessionDuration,
 state
 FROM google.iam.workforce_pools
-WHERE locationsId = '{{ locationsId }}'; 
+WHERE locationsId = '{{ locationsId }}';
 ```
 
 ## `INSERT` example
@@ -99,7 +99,7 @@ SELECT
 '{{ parent }}',
 '{{ displayName }}',
 '{{ description }}',
-true|false,
+{{ disabled }},
 '{{ sessionDuration }}',
 '{{ accessRestrictions }}'
 ;
@@ -108,18 +108,32 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-displayName: string
-description: string
-state: string
-disabled: boolean
-sessionDuration: string
-expireTime: string
-accessRestrictions:
-  allowedServices:
-    - domain: string
-  disableProgrammaticSignin: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: disabled
+      value: boolean
+    - name: sessionDuration
+      value: string
+    - name: expireTime
+      value: string
+    - name: accessRestrictions
+      value:
+        - name: allowedServices
+          value:
+            - - name: domain
+                value: string
+        - name: disableProgrammaticSignin
+          value: boolean
 
 ```
 </TabItem>

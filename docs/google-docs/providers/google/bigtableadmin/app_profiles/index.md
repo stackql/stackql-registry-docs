@@ -65,7 +65,7 @@ singleClusterRouting,
 standardIsolation
 FROM google.bigtableadmin.app_profiles
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,21 +112,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-etag: string
-description: string
-multiClusterRoutingUseAny:
-  clusterIds:
-    - type: string
-  rowAffinity: {}
-singleClusterRouting:
-  clusterId: string
-  allowTransactionalWrites: boolean
-priority: string
-standardIsolation:
-  priority: string
-dataBoostIsolationReadOnly:
-  computeBillingOwner: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: etag
+      value: string
+    - name: description
+      value: string
+    - name: multiClusterRoutingUseAny
+      value:
+        - name: clusterIds
+          value:
+            - string
+        - name: rowAffinity
+          value: []
+    - name: singleClusterRouting
+      value:
+        - name: clusterId
+          value: string
+        - name: allowTransactionalWrites
+          value: boolean
+    - name: priority
+      value: string
+    - name: standardIsolation
+      value:
+        - name: priority
+          value: string
+    - name: dataBoostIsolationReadOnly
+      value:
+        - name: computeBillingOwner
+          value: string
 
 ```
 </TabItem>

@@ -46,5 +46,5 @@ Returns a list of legacy organizations.
 SELECT
 organizations
 FROM google.prod_tt_sasportal.customers_legacy_organizations
-WHERE  = '{{  }}'; 
+;
 ```

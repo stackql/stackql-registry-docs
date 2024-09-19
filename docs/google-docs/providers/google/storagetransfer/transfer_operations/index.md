@@ -58,5 +58,5 @@ error,
 metadata,
 response
 FROM google.storagetransfer.transfer_operations
-WHERE filter = '{{ filter }}'; 
+WHERE filter = '{{ filter }}';
 ```

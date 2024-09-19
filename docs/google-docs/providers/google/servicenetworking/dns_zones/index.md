@@ -53,7 +53,7 @@ producerPrivateZone
 FROM google.servicenetworking.dns_zones
 WHERE networksId = '{{ networksId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -88,9 +88,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-dnsSuffix: string
-consumerNetwork: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: dnsSuffix
+      value: string
+    - name: consumerNetwork
+      value: string
 
 ```
 </TabItem>

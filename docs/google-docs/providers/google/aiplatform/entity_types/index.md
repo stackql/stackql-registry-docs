@@ -75,7 +75,7 @@ updateTime
 FROM google.aiplatform.entity_types
 WHERE featurestoresId = '{{ featurestoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,25 +120,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-updateTime: string
-etag: string
-offlineStorageTtlDays: integer
-labels: object
-satisfiesPzs: boolean
-createTime: string
-satisfiesPzi: boolean
-description: string
-monitoringConfig:
-  numericalThresholdConfig:
-    value: number
-  snapshotAnalysis:
-    disabled: boolean
-    monitoringIntervalDays: integer
-    stalenessDays: integer
-  importFeaturesAnalysis:
-    anomalyDetectionBaseline: string
-    state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: offlineStorageTtlDays
+      value: integer
+    - name: labels
+      value: object
+    - name: satisfiesPzs
+      value: boolean
+    - name: createTime
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: description
+      value: string
+    - name: monitoringConfig
+      value:
+        - name: numericalThresholdConfig
+          value:
+            - name: value
+              value: number
+        - name: snapshotAnalysis
+          value:
+            - name: disabled
+              value: boolean
+            - name: monitoringIntervalDays
+              value: integer
+            - name: stalenessDays
+              value: integer
+        - name: importFeaturesAnalysis
+          value:
+            - name: anomalyDetectionBaseline
+              value: string
+            - name: state
+              value: string
 
 ```
 </TabItem>

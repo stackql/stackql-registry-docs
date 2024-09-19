@@ -52,5 +52,5 @@ url
 FROM google.websecurityscanner.crawled_urls
 WHERE projectsId = '{{ projectsId }}'
 AND scanConfigsId = '{{ scanConfigsId }}'
-AND scanRunsId = '{{ scanRunsId }}'; 
+AND scanRunsId = '{{ scanRunsId }}';
 ```

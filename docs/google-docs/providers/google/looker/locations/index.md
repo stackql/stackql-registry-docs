@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.looker.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

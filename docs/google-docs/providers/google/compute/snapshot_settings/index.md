@@ -47,7 +47,7 @@ Get snapshot settings.
 SELECT
 storageLocation
 FROM google.compute.snapshot_settings
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `UPDATE` example

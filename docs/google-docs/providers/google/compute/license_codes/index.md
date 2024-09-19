@@ -63,5 +63,5 @@ state,
 transferable
 FROM google.compute.license_codes
 WHERE licenseCode = '{{ licenseCode }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

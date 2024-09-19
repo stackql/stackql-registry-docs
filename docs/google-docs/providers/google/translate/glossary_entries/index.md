@@ -58,7 +58,7 @@ termsSet
 FROM google.translate.glossary_entries
 WHERE glossariesId = '{{ glossariesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,16 +99,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-termsPair:
-  sourceTerm:
-    languageCode: string
-    text: string
-termsSet:
-  terms:
-    - languageCode: string
-      text: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: termsPair
+      value:
+        - name: sourceTerm
+          value:
+            - name: languageCode
+              value: string
+            - name: text
+              value: string
+    - name: termsSet
+      value:
+        - name: terms
+          value:
+            - - name: languageCode
+                value: string
+              - name: text
+                value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

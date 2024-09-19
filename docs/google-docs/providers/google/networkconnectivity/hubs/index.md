@@ -76,7 +76,7 @@ state,
 uniqueId,
 updateTime
 FROM google.networkconnectivity.hubs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,38 +112,64 @@ SELECT
 '{{ routingVpcs }}',
 '{{ policyMode }}',
 '{{ presetTopology }}',
-true|false
+{{ exportPsc }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-uniqueId: string
-state: string
-routingVpcs:
-  - uri: string
-    requiredForNewSiteToSiteDataTransferSpokes: boolean
-routeTables:
-  - type: string
-spokeSummary:
-  spokeTypeCounts:
-    - spokeType: string
-      count: string
-  spokeStateCounts:
-    - state: string
-      count: string
-  spokeStateReasonCounts:
-    - stateReasonCode: string
-      count: string
-policyMode: string
-presetTopology: string
-exportPsc: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: uniqueId
+      value: string
+    - name: state
+      value: string
+    - name: routingVpcs
+      value:
+        - - name: uri
+            value: string
+          - name: requiredForNewSiteToSiteDataTransferSpokes
+            value: boolean
+    - name: routeTables
+      value:
+        - string
+    - name: spokeSummary
+      value:
+        - name: spokeTypeCounts
+          value:
+            - - name: spokeType
+                value: string
+              - name: count
+                value: string
+        - name: spokeStateCounts
+          value:
+            - - name: state
+                value: string
+              - name: count
+                value: string
+        - name: spokeStateReasonCounts
+          value:
+            - - name: stateReasonCode
+                value: string
+              - name: count
+                value: string
+    - name: policyMode
+      value: string
+    - name: presetTopology
+      value: string
+    - name: exportPsc
+      value: boolean
 
 ```
 </TabItem>

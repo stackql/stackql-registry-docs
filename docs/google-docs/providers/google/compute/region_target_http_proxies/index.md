@@ -71,7 +71,7 @@ selfLink,
 urlMap
 FROM google.compute.region_target_http_proxies
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -107,7 +107,7 @@ SELECT
 '{{ description }}',
 '{{ urlMap }}',
 '{{ region }}',
-true|false,
+{{ proxyBind }},
 '{{ fingerprint }}',
 '{{ httpKeepAliveTimeoutSec }}'
 ;
@@ -116,17 +116,30 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-urlMap: string
-region: string
-proxyBind: boolean
-fingerprint: string
-httpKeepAliveTimeoutSec: integer
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: urlMap
+      value: string
+    - name: region
+      value: string
+    - name: proxyBind
+      value: boolean
+    - name: fingerprint
+      value: string
+    - name: httpKeepAliveTimeoutSec
+      value: integer
 
 ```
 </TabItem>

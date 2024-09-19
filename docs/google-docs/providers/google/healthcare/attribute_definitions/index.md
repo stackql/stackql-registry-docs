@@ -63,7 +63,7 @@ FROM google.healthcare.attribute_definitions
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,14 +110,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-category: string
-allowedValues:
-  - type: string
-consentDefaultValues:
-  - type: string
-dataMappingDefaultValue: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: category
+      value: string
+    - name: allowedValues
+      value:
+        - string
+    - name: consentDefaultValues
+      value:
+        - string
+    - name: dataMappingDefaultValue
+      value: string
 
 ```
 </TabItem>

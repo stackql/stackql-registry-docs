@@ -55,5 +55,5 @@ author,
 read,
 title
 FROM google.libraryagent.books
-WHERE shelvesId = '{{ shelvesId }}'; 
+WHERE shelvesId = '{{ shelvesId }}';
 ```

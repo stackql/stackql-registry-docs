@@ -97,7 +97,7 @@ saaEnrollmentResponse,
 violationNotificationsEnabled
 FROM google.assuredworkloads.workloads
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -138,14 +138,14 @@ SELECT
 '{{ organizationsId }}',
 '{{ billingAccount }}',
 '{{ partnerPermissions }}',
-true|false,
+{{ violationNotificationsEnabled }},
 '{{ partnerServicesBillingAccount }}',
 '{{ kmsSettings }}',
 '{{ complianceRegime }}',
 '{{ etag }}',
 '{{ provisionedResourcesParent }}',
 '{{ displayName }}',
-true|false,
+{{ enableSovereignControls }},
 '{{ labels }}',
 '{{ partner }}',
 '{{ name }}',
@@ -156,52 +156,94 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-resources:
-  - resourceId: string
-    resourceType: string
-billingAccount: string
-partnerPermissions:
-  accessTransparencyLogsSupportCaseViewer: boolean
-  dataLogsViewer: boolean
-  serviceAccessApprover: boolean
-  assuredWorkloadsMonitoring: boolean
-violationNotificationsEnabled: boolean
-partnerServicesBillingAccount: string
-kajEnrollmentState: string
-saaEnrollmentResponse:
-  setupStatus: string
-  setupErrors:
-    - type: string
-      enumDescriptions: string
-      enum: string
-kmsSettings:
-  rotationPeriod: string
-  nextRotationTime: string
-complianceRegime: string
-etag: string
-ekmProvisioningResponse:
-  ekmProvisioningErrorDomain: string
-  ekmProvisioningState: string
-  ekmProvisioningErrorMapping: string
-provisionedResourcesParent: string
-displayName: string
-enableSovereignControls: boolean
-labels: object
-complianceStatus:
-  acknowledgedResourceViolationCount: integer
-  acknowledgedViolationCount: integer
-  activeViolationCount: integer
-  activeResourceViolationCount: integer
-resourceMonitoringEnabled: boolean
-partner: string
-name: string
-resourceSettings:
-  - displayName: string
-    resourceId: string
-    resourceType: string
-compliantButDisallowedServices:
-  - type: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: resources
+      value:
+        - - name: resourceId
+            value: string
+          - name: resourceType
+            value: string
+    - name: billingAccount
+      value: string
+    - name: partnerPermissions
+      value:
+        - name: accessTransparencyLogsSupportCaseViewer
+          value: boolean
+        - name: dataLogsViewer
+          value: boolean
+        - name: serviceAccessApprover
+          value: boolean
+        - name: assuredWorkloadsMonitoring
+          value: boolean
+    - name: violationNotificationsEnabled
+      value: boolean
+    - name: partnerServicesBillingAccount
+      value: string
+    - name: kajEnrollmentState
+      value: string
+    - name: saaEnrollmentResponse
+      value:
+        - name: setupStatus
+          value: string
+        - name: setupErrors
+          value:
+            - string
+    - name: kmsSettings
+      value:
+        - name: rotationPeriod
+          value: string
+        - name: nextRotationTime
+          value: string
+    - name: complianceRegime
+      value: string
+    - name: etag
+      value: string
+    - name: ekmProvisioningResponse
+      value:
+        - name: ekmProvisioningErrorDomain
+          value: string
+        - name: ekmProvisioningState
+          value: string
+        - name: ekmProvisioningErrorMapping
+          value: string
+    - name: provisionedResourcesParent
+      value: string
+    - name: displayName
+      value: string
+    - name: enableSovereignControls
+      value: boolean
+    - name: labels
+      value: object
+    - name: complianceStatus
+      value:
+        - name: acknowledgedResourceViolationCount
+          value: integer
+        - name: acknowledgedViolationCount
+          value: integer
+        - name: activeViolationCount
+          value: integer
+        - name: activeResourceViolationCount
+          value: integer
+    - name: resourceMonitoringEnabled
+      value: boolean
+    - name: partner
+      value: string
+    - name: name
+      value: string
+    - name: resourceSettings
+      value:
+        - - name: displayName
+            value: string
+          - name: resourceId
+            value: string
+          - name: resourceType
+            value: string
+    - name: compliantButDisallowedServices
+      value:
+        - string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

@@ -55,7 +55,7 @@ context,
 synonyms
 FROM google.contentwarehouse.synonym_sets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -92,11 +92,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-synonyms:
-  - words:
-      - type: string
-context: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: synonyms
+      value:
+        - - name: words
+            value:
+              - string
+    - name: context
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

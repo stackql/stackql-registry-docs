@@ -50,5 +50,5 @@ keys
 FROM google.container.clusters_jwks
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

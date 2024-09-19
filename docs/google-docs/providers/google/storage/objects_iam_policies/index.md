@@ -72,7 +72,7 @@ members,
 role
 FROM google.storage.objects_iam_policies
 WHERE bucket = '{{ bucket }}'
-AND object = '{{ object }}'; 
+AND object = '{{ object }}';
 ```
 
 ## `REPLACE` example

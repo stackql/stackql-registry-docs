@@ -52,5 +52,5 @@ domain,
 ttl,
 type
 FROM google.servicenetworking.dns_record_set
-WHERE servicesId = '{{ servicesId }}'; 
+WHERE servicesId = '{{ servicesId }}';
 ```

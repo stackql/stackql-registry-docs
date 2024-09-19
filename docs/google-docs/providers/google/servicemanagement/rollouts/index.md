@@ -60,7 +60,7 @@ serviceName,
 status,
 trafficPercentStrategy
 FROM google.servicemanagement.rollouts
-WHERE serviceName = '{{ serviceName }}'; 
+WHERE serviceName = '{{ serviceName }}';
 ```
 
 ## `INSERT` example
@@ -101,14 +101,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-rolloutId: string
-createTime: string
-createdBy: string
-status: string
-trafficPercentStrategy:
-  percentages: object
-deleteServiceStrategy: {}
-serviceName: string
+- name: your_resource_model_name
+  props:
+    - name: rolloutId
+      value: string
+    - name: createTime
+      value: string
+    - name: createdBy
+      value: string
+    - name: status
+      value: string
+    - name: trafficPercentStrategy
+      value:
+        - name: percentages
+          value: object
+    - name: deleteServiceStrategy
+      value: []
+    - name: serviceName
+      value: string
 
 ```
 </TabItem>

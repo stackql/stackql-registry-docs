@@ -55,7 +55,7 @@ FROM google.gkeonprem.vmware_node_pools_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND vmwareClustersId = '{{ vmwareClustersId }}'
-AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}'; 
+AND vmwareNodePoolsId = '{{ vmwareNodePoolsId }}';
 ```
 
 ## `REPLACE` example

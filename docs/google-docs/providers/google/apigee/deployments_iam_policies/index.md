@@ -54,7 +54,7 @@ role
 FROM google.apigee.deployments_iam_policies
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `REPLACE` example

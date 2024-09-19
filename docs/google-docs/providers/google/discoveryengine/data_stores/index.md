@@ -79,7 +79,7 @@ startingSchema,
 workspaceConfig
 FROM google.discoveryengine.data_stores
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,39 +128,68 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-industryVertical: string
-solutionTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
-defaultSchemaId: string
-contentConfig: string
-createTime: string
-workspaceConfig:
-  type: string
-  dasherCustomerId: string
-documentProcessingConfig:
-  name: string
-  chunkingConfig:
-    layoutBasedChunkingConfig:
-      chunkSize: integer
-      includeAncestorHeadings: boolean
-  defaultParsingConfig:
-    digitalParsingConfig: {}
-    ocrParsingConfig:
-      enhancedDocumentElements:
-        - type: string
-      useNativeText: boolean
-    layoutParsingConfig: {}
-  parsingConfigOverrides: object
-startingSchema:
-  structSchema: object
-  jsonSchema: string
-  name: string
-servingConfigDataStore:
-  disabledForServing: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: industryVertical
+      value: string
+    - name: solutionTypes
+      value:
+        - string
+    - name: defaultSchemaId
+      value: string
+    - name: contentConfig
+      value: string
+    - name: createTime
+      value: string
+    - name: workspaceConfig
+      value:
+        - name: type
+          value: string
+        - name: dasherCustomerId
+          value: string
+    - name: documentProcessingConfig
+      value:
+        - name: name
+          value: string
+        - name: chunkingConfig
+          value:
+            - name: layoutBasedChunkingConfig
+              value:
+                - name: chunkSize
+                  value: integer
+                - name: includeAncestorHeadings
+                  value: boolean
+        - name: defaultParsingConfig
+          value:
+            - name: digitalParsingConfig
+              value: []
+            - name: ocrParsingConfig
+              value:
+                - name: enhancedDocumentElements
+                  value:
+                    - string
+                - name: useNativeText
+                  value: boolean
+            - name: layoutParsingConfig
+              value: []
+        - name: parsingConfigOverrides
+          value: object
+    - name: startingSchema
+      value:
+        - name: structSchema
+          value: object
+        - name: jsonSchema
+          value: string
+        - name: name
+          value: string
+    - name: servingConfigDataStore
+      value:
+        - name: disabledForServing
+          value: boolean
 
 ```
 </TabItem>

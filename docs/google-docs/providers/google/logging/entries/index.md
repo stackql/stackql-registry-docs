@@ -51,5 +51,5 @@ SELECT
 entries,
 nextPageToken
 FROM google.logging.entries
-WHERE  = '{{  }}'; 
+;
 ```

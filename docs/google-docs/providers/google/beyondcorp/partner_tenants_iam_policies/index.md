@@ -53,7 +53,7 @@ members,
 role
 FROM google.beyondcorp.partner_tenants_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'
-AND partnerTenantsId = '{{ partnerTenantsId }}'; 
+AND partnerTenantsId = '{{ partnerTenantsId }}';
 ```
 
 ## `REPLACE` example

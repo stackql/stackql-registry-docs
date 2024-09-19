@@ -69,5 +69,5 @@ totalBytesProcessed,
 totalRows
 FROM google.bigquery.jobs_query_results
 WHERE +jobId = '{{ +jobId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

@@ -48,5 +48,5 @@ SELECT
 accountEmail,
 subjectId
 FROM google.storagetransfer.google_service_accounts
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```

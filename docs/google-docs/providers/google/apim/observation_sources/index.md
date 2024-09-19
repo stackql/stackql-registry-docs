@@ -58,7 +58,7 @@ state,
 updateTime
 FROM google.apim.observation_sources
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,14 +93,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-gclbObservationSource:
-  pscNetworkConfigs:
-    - network: string
-      subnetwork: string
-name: string
-state: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: gclbObservationSource
+      value:
+        - name: pscNetworkConfigs
+          value:
+            - - name: network
+                value: string
+              - name: subnetwork
+                value: string
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

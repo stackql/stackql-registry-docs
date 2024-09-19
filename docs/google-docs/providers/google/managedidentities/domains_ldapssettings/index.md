@@ -58,7 +58,7 @@ state,
 updateTime
 FROM google.managedidentities.domains_ldapssettings
 WHERE domainsId = '{{ domainsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

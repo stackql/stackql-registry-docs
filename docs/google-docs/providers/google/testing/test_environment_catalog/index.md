@@ -54,5 +54,5 @@ iosDeviceCatalog,
 networkConfigurationCatalog,
 softwareCatalog
 FROM google.testing.test_environment_catalog
-WHERE environmentType = '{{ environmentType }}'; 
+WHERE environmentType = '{{ environmentType }}';
 ```

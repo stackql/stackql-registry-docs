@@ -127,7 +127,7 @@ updated,
 versioning,
 website
 FROM google.storage.buckets
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `INSERT` example
@@ -189,7 +189,7 @@ SELECT
 '{{ billing }}',
 '{{ cors }}',
 '{{ customPlacementConfig }}',
-true|false,
+{{ defaultEventBasedHold }},
 '{{ defaultObjectAcl }}',
 '{{ encryption }}',
 '{{ etag }}',
@@ -218,144 +218,267 @@ true|false,
 '{{ hardDeleteTime }}',
 '{{ versioning }}',
 '{{ website }}',
-true|false,
-true|false
+{{ satisfiesPZS }},
+{{ satisfiesPZI }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-acl:
-  - bucket: string
-    domain: string
-    email: string
-    entity: string
-    entityId: string
-    etag: string
-    id: string
-    kind: string
-    projectTeam:
-      projectNumber: string
-      team: string
-    role: string
-    selfLink: string
-billing:
-  requesterPays: boolean
-cors:
-  - maxAgeSeconds: integer
-    method:
-      - type: string
-    origin:
-      - type: string
-    responseHeader:
-      - type: string
-customPlacementConfig:
-  dataLocations:
-    - type: string
-defaultEventBasedHold: boolean
-defaultObjectAcl:
-  - bucket: string
-    domain: string
-    email: string
-    entity: string
-    entityId: string
-    etag: string
-    generation: string
-    id: string
-    kind: string
-    object: string
-    projectTeam:
-      projectNumber: string
-      team: string
-    role: string
-    selfLink: string
-encryption:
-  defaultKmsKeyName: string
-etag: string
-hierarchicalNamespace:
-  enabled: boolean
-iamConfiguration:
-  bucketPolicyOnly:
-    enabled: boolean
-    lockedTime: string
-  uniformBucketLevelAccess:
-    enabled: boolean
-    lockedTime: string
-  publicAccessPrevention: string
-id: string
-ipFilter:
-  mode: string
-  publicNetworkSource:
-    allowedIpCidrRanges:
-      - type: string
-  vpcNetworkSources:
-    - network: string
-      allowedIpCidrRanges:
-        - type: string
-kind: string
-labels: object
-lifecycle:
-  rule:
-    - action:
-        storageClass: string
-        type: string
-      condition:
-        age: integer
-        createdBefore: string
-        customTimeBefore: string
-        daysSinceCustomTime: integer
-        daysSinceNoncurrentTime: integer
-        isLive: boolean
-        matchesPattern: string
-        matchesPrefix:
-          - type: string
-        matchesSuffix:
-          - type: string
-        matchesStorageClass:
-          - type: string
-        noncurrentTimeBefore: string
-        numNewerVersions: integer
-autoclass:
-  enabled: boolean
-  toggleTime: string
-  terminalStorageClass: string
-  terminalStorageClassUpdateTime: string
-location: string
-locationType: string
-logging:
-  logBucket: string
-  logObjectPrefix: string
-generation: string
-metageneration: string
-name: string
-owner:
-  entity: string
-  entityId: string
-projectNumber: string
-retentionPolicy:
-  effectiveTime: string
-  isLocked: boolean
-  retentionPeriod: string
-objectRetention:
-  mode: string
-rpo: string
-selfLink: string
-softDeletePolicy:
-  retentionDurationSeconds: string
-  effectiveTime: string
-storageClass: string
-timeCreated: string
-updated: string
-softDeleteTime: string
-hardDeleteTime: string
-versioning:
-  enabled: boolean
-website:
-  mainPageSuffix: string
-  notFoundPage: string
-satisfiesPZS: boolean
-satisfiesPZI: boolean
+- name: your_resource_model_name
+  props:
+    - name: acl
+      value:
+        - - name: bucket
+            value: string
+          - name: domain
+            value: string
+          - name: email
+            value: string
+          - name: entity
+            value: string
+          - name: entityId
+            value: string
+          - name: etag
+            value: string
+          - name: id
+            value: string
+          - name: kind
+            value: string
+          - name: projectTeam
+            value:
+              - name: projectNumber
+                value: string
+              - name: team
+                value: string
+          - name: role
+            value: string
+          - name: selfLink
+            value: string
+    - name: billing
+      value:
+        - name: requesterPays
+          value: boolean
+    - name: cors
+      value:
+        - - name: maxAgeSeconds
+            value: integer
+          - name: method
+            value:
+              - string
+          - name: origin
+            value:
+              - string
+          - name: responseHeader
+            value:
+              - string
+    - name: customPlacementConfig
+      value:
+        - name: dataLocations
+          value:
+            - string
+    - name: defaultEventBasedHold
+      value: boolean
+    - name: defaultObjectAcl
+      value:
+        - - name: bucket
+            value: string
+          - name: domain
+            value: string
+          - name: email
+            value: string
+          - name: entity
+            value: string
+          - name: entityId
+            value: string
+          - name: etag
+            value: string
+          - name: generation
+            value: string
+          - name: id
+            value: string
+          - name: kind
+            value: string
+          - name: object
+            value: string
+          - name: projectTeam
+            value:
+              - name: projectNumber
+                value: string
+              - name: team
+                value: string
+          - name: role
+            value: string
+          - name: selfLink
+            value: string
+    - name: encryption
+      value:
+        - name: defaultKmsKeyName
+          value: string
+    - name: etag
+      value: string
+    - name: hierarchicalNamespace
+      value:
+        - name: enabled
+          value: boolean
+    - name: iamConfiguration
+      value:
+        - name: bucketPolicyOnly
+          value:
+            - name: enabled
+              value: boolean
+            - name: lockedTime
+              value: string
+        - name: uniformBucketLevelAccess
+          value:
+            - name: enabled
+              value: boolean
+            - name: lockedTime
+              value: string
+        - name: publicAccessPrevention
+          value: string
+    - name: id
+      value: string
+    - name: ipFilter
+      value:
+        - name: mode
+          value: string
+        - name: publicNetworkSource
+          value:
+            - name: allowedIpCidrRanges
+              value:
+                - string
+        - name: vpcNetworkSources
+          value:
+            - - name: network
+                value: string
+              - name: allowedIpCidrRanges
+                value:
+                  - string
+    - name: kind
+      value: string
+    - name: labels
+      value: object
+    - name: lifecycle
+      value:
+        - name: rule
+          value:
+            - - name: action
+                value:
+                  - name: storageClass
+                    value: string
+                  - name: type
+                    value: string
+              - name: condition
+                value:
+                  - name: age
+                    value: integer
+                  - name: createdBefore
+                    value: string
+                  - name: customTimeBefore
+                    value: string
+                  - name: daysSinceCustomTime
+                    value: integer
+                  - name: daysSinceNoncurrentTime
+                    value: integer
+                  - name: isLive
+                    value: boolean
+                  - name: matchesPattern
+                    value: string
+                  - name: matchesPrefix
+                    value:
+                      - string
+                  - name: matchesSuffix
+                    value:
+                      - string
+                  - name: matchesStorageClass
+                    value:
+                      - string
+                  - name: noncurrentTimeBefore
+                    value: string
+                  - name: numNewerVersions
+                    value: integer
+    - name: autoclass
+      value:
+        - name: enabled
+          value: boolean
+        - name: toggleTime
+          value: string
+        - name: terminalStorageClass
+          value: string
+        - name: terminalStorageClassUpdateTime
+          value: string
+    - name: location
+      value: string
+    - name: locationType
+      value: string
+    - name: logging
+      value:
+        - name: logBucket
+          value: string
+        - name: logObjectPrefix
+          value: string
+    - name: generation
+      value: string
+    - name: metageneration
+      value: string
+    - name: name
+      value: string
+    - name: owner
+      value:
+        - name: entity
+          value: string
+        - name: entityId
+          value: string
+    - name: projectNumber
+      value: string
+    - name: retentionPolicy
+      value:
+        - name: effectiveTime
+          value: string
+        - name: isLocked
+          value: boolean
+        - name: retentionPeriod
+          value: string
+    - name: objectRetention
+      value:
+        - name: mode
+          value: string
+    - name: rpo
+      value: string
+    - name: selfLink
+      value: string
+    - name: softDeletePolicy
+      value:
+        - name: retentionDurationSeconds
+          value: string
+        - name: effectiveTime
+          value: string
+    - name: storageClass
+      value: string
+    - name: timeCreated
+      value: string
+    - name: updated
+      value: string
+    - name: softDeleteTime
+      value: string
+    - name: hardDeleteTime
+      value: string
+    - name: versioning
+      value:
+        - name: enabled
+          value: boolean
+    - name: website
+      value:
+        - name: mainPageSuffix
+          value: string
+        - name: notFoundPage
+          value: string
+    - name: satisfiesPZS
+      value: boolean
+    - name: satisfiesPZI
+      value: boolean
 
 ```
 </TabItem>

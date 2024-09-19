@@ -55,7 +55,7 @@ FROM google.cloudkms.import_jobs_iam_policies
 WHERE importJobsId = '{{ importJobsId }}'
 AND keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

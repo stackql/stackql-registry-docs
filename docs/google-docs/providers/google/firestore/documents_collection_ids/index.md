@@ -51,5 +51,5 @@ FROM google.firestore.documents_collection_ids
 WHERE databasesId = '{{ databasesId }}'
 AND documentsId = '{{ documentsId }}'
 AND documentsId1 = '{{ documentsId1 }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

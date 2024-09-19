@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.workflows.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

@@ -53,7 +53,7 @@ billingAccountName,
 billingEnabled,
 projectId
 FROM google.cloudbilling.billing_info
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

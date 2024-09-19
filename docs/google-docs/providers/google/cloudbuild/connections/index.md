@@ -76,7 +76,7 @@ reconciling,
 updateTime
 FROM google.cloudbuild.connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,7 +116,7 @@ SELECT
 '{{ annotations }}',
 '{{ etag }}',
 '{{ githubConfig }}',
-true|false,
+{{ disabled }},
 '{{ name }}',
 '{{ gitlabConfig }}'
 ;
@@ -125,50 +125,96 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-githubEnterpriseConfig:
-  hostUri: string
-  appId: string
-  privateKeySecretVersion: string
-  webhookSecretSecretVersion: string
-  appInstallationId: string
-  appSlug: string
-  serverVersion: string
-  apiKey: string
-  serviceDirectoryConfig:
-    service: string
-  sslCa: string
-updateTime: string
-bitbucketDataCenterConfig:
-  readAuthorizerCredential:
-    userTokenSecretVersion: string
-    username: string
-  hostUri: string
-  webhookSecretSecretVersion: string
-  serverVersion: string
-  sslCa: string
-bitbucketCloudConfig:
-  webhookSecretSecretVersion: string
-  workspace: string
-annotations: object
-etag: string
-githubConfig:
-  appInstallationId: string
-  authorizerCredential:
-    oauthTokenSecretVersion: string
-    username: string
-disabled: boolean
-installationState:
-  stage: string
-  actionUri: string
-  message: string
-name: string
-reconciling: boolean
-createTime: string
-gitlabConfig:
-  serverVersion: string
-  webhookSecretSecretVersion: string
-  sslCa: string
-  hostUri: string
+- name: your_resource_model_name
+  props:
+    - name: githubEnterpriseConfig
+      value:
+        - name: hostUri
+          value: string
+        - name: appId
+          value: string
+        - name: privateKeySecretVersion
+          value: string
+        - name: webhookSecretSecretVersion
+          value: string
+        - name: appInstallationId
+          value: string
+        - name: appSlug
+          value: string
+        - name: serverVersion
+          value: string
+        - name: apiKey
+          value: string
+        - name: serviceDirectoryConfig
+          value:
+            - name: service
+              value: string
+        - name: sslCa
+          value: string
+    - name: updateTime
+      value: string
+    - name: bitbucketDataCenterConfig
+      value:
+        - name: readAuthorizerCredential
+          value:
+            - name: userTokenSecretVersion
+              value: string
+            - name: username
+              value: string
+        - name: hostUri
+          value: string
+        - name: webhookSecretSecretVersion
+          value: string
+        - name: serverVersion
+          value: string
+        - name: sslCa
+          value: string
+    - name: bitbucketCloudConfig
+      value:
+        - name: webhookSecretSecretVersion
+          value: string
+        - name: workspace
+          value: string
+    - name: annotations
+      value: object
+    - name: etag
+      value: string
+    - name: githubConfig
+      value:
+        - name: appInstallationId
+          value: string
+        - name: authorizerCredential
+          value:
+            - name: oauthTokenSecretVersion
+              value: string
+            - name: username
+              value: string
+    - name: disabled
+      value: boolean
+    - name: installationState
+      value:
+        - name: stage
+          value: string
+        - name: actionUri
+          value: string
+        - name: message
+          value: string
+    - name: name
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: createTime
+      value: string
+    - name: gitlabConfig
+      value:
+        - name: serverVersion
+          value: string
+        - name: webhookSecretSecretVersion
+          value: string
+        - name: sslCa
+          value: string
+        - name: hostUri
+          value: string
 
 ```
 </TabItem>

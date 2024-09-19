@@ -84,7 +84,7 @@ status,
 timeWindow,
 zone
 FROM google.compute.future_reservations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -132,65 +132,118 @@ SELECT
 '{{ planningStatus }}',
 '{{ autoCreatedReservationsDeleteTime }}',
 '{{ autoCreatedReservationsDuration }}',
-true|false
+{{ autoDeleteAutoCreatedReservations }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-selfLinkWithId: string
-zone: string
-description: string
-name: string
-specificSkuProperties:
-  instanceProperties:
-    machineType: string
-    guestAccelerators:
-      - acceleratorType: string
-        acceleratorCount: integer
-    minCpuPlatform: string
-    localSsds:
-      - diskSizeGb: string
-        interface: string
-    locationHint: string
-  totalCount: string
-  sourceInstanceTemplate: string
-timeWindow:
-  startTime: string
-  endTime: string
-  duration:
-    seconds: string
-    nanos: integer
-shareSettings:
-  shareType: string
-  projectMap: object
-namePrefix: string
-status:
-  procurementStatus: string
-  lockTime: string
-  autoCreatedReservations:
-    - type: string
-  fulfilledCount: string
-  specificSkuProperties:
-    sourceInstanceTemplateId: string
-  amendmentStatus: string
-  lastKnownGoodState:
-    futureReservationSpecs: {}
-    procurementStatus: string
-    namePrefix: string
-    description: string
-    lockTime: string
-    existingMatchingUsageInfo:
-      count: string
-      timestamp: string
-planningStatus: string
-autoCreatedReservationsDeleteTime: string
-autoDeleteAutoCreatedReservations: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: zone
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: specificSkuProperties
+      value:
+        - name: instanceProperties
+          value:
+            - name: machineType
+              value: string
+            - name: guestAccelerators
+              value:
+                - - name: acceleratorType
+                    value: string
+                  - name: acceleratorCount
+                    value: integer
+            - name: minCpuPlatform
+              value: string
+            - name: localSsds
+              value:
+                - - name: diskSizeGb
+                    value: string
+                  - name: interface
+                    value: string
+            - name: locationHint
+              value: string
+        - name: totalCount
+          value: string
+        - name: sourceInstanceTemplate
+          value: string
+    - name: timeWindow
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: duration
+          value:
+            - name: seconds
+              value: string
+            - name: nanos
+              value: integer
+    - name: shareSettings
+      value:
+        - name: shareType
+          value: string
+        - name: projectMap
+          value: object
+    - name: namePrefix
+      value: string
+    - name: status
+      value:
+        - name: procurementStatus
+          value: string
+        - name: lockTime
+          value: string
+        - name: autoCreatedReservations
+          value:
+            - string
+        - name: fulfilledCount
+          value: string
+        - name: specificSkuProperties
+          value:
+            - name: sourceInstanceTemplateId
+              value: string
+        - name: amendmentStatus
+          value: string
+        - name: lastKnownGoodState
+          value:
+            - name: futureReservationSpecs
+              value: []
+            - name: procurementStatus
+              value: string
+            - name: namePrefix
+              value: string
+            - name: description
+              value: string
+            - name: lockTime
+              value: string
+            - name: existingMatchingUsageInfo
+              value:
+                - name: count
+                  value: string
+                - name: timestamp
+                  value: string
+    - name: planningStatus
+      value: string
+    - name: autoCreatedReservationsDeleteTime
+      value: string
+    - name: autoDeleteAutoCreatedReservations
+      value: boolean
 
 ```
 </TabItem>

@@ -68,7 +68,7 @@ stackdriverLoggingConfig,
 state
 FROM google.cloudtasks.queues
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,47 +115,90 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-appEngineRoutingOverride:
-  service: string
-  version: string
-  instance: string
-  host: string
-httpTarget:
-  uriOverride:
-    scheme: string
-    host: string
-    port: string
-    pathOverride:
-      path: string
-    queryOverride:
-      queryParams: string
-    uriOverrideEnforceMode: string
-  httpMethod: string
-  headerOverrides:
-    - header:
-        key: string
-        value: string
-  oauthToken:
-    serviceAccountEmail: string
-    scope: string
-  oidcToken:
-    serviceAccountEmail: string
-    audience: string
-rateLimits:
-  maxDispatchesPerSecond: number
-  maxBurstSize: integer
-  maxConcurrentDispatches: integer
-retryConfig:
-  maxAttempts: integer
-  maxRetryDuration: string
-  minBackoff: string
-  maxBackoff: string
-  maxDoublings: integer
-state: string
-purgeTime: string
-stackdriverLoggingConfig:
-  samplingRatio: number
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: appEngineRoutingOverride
+      value:
+        - name: service
+          value: string
+        - name: version
+          value: string
+        - name: instance
+          value: string
+        - name: host
+          value: string
+    - name: httpTarget
+      value:
+        - name: uriOverride
+          value:
+            - name: scheme
+              value: string
+            - name: host
+              value: string
+            - name: port
+              value: string
+            - name: pathOverride
+              value:
+                - name: path
+                  value: string
+            - name: queryOverride
+              value:
+                - name: queryParams
+                  value: string
+            - name: uriOverrideEnforceMode
+              value: string
+        - name: httpMethod
+          value: string
+        - name: headerOverrides
+          value:
+            - - name: header
+                value:
+                  - name: key
+                    value: string
+                  - name: value
+                    value: string
+        - name: oauthToken
+          value:
+            - name: serviceAccountEmail
+              value: string
+            - name: scope
+              value: string
+        - name: oidcToken
+          value:
+            - name: serviceAccountEmail
+              value: string
+            - name: audience
+              value: string
+    - name: rateLimits
+      value:
+        - name: maxDispatchesPerSecond
+          value: number
+        - name: maxBurstSize
+          value: integer
+        - name: maxConcurrentDispatches
+          value: integer
+    - name: retryConfig
+      value:
+        - name: maxAttempts
+          value: integer
+        - name: maxRetryDuration
+          value: string
+        - name: minBackoff
+          value: string
+        - name: maxBackoff
+          value: string
+        - name: maxDoublings
+          value: integer
+    - name: state
+      value: string
+    - name: purgeTime
+      value: string
+    - name: stackdriverLoggingConfig
+      value:
+        - name: samplingRatio
+          value: number
 
 ```
 </TabItem>

@@ -69,7 +69,7 @@ resource,
 stateChange
 FROM google.securitycenter.findings
 WHERE foldersId = '{{ foldersId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `INSERT` example
@@ -190,355 +190,679 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-resourceName: string
-state: string
-category: string
-externalUri: string
-sourceProperties: object
-securityMarks:
-  name: string
-  marks: object
-  canonicalName: string
-eventTime: string
-createTime: string
-severity: string
-canonicalName: string
-mute: string
-findingClass: string
-indicator:
-  ipAddresses:
-    - type: string
-  domains:
-    - type: string
-  signatures:
-    - memoryHashSignature:
-        binaryFamily: string
-        detections:
-          - binary: string
-            percentPagesMatched: number
-      yaraRuleSignature:
-        yaraRule: string
-      signatureType: string
-  uris:
-    - type: string
-vulnerability:
-  cve:
-    id: string
-    references:
-      - source: string
-        uri: string
-    cvssv3:
-      baseScore: number
-      attackVector: string
-      attackComplexity: string
-      privilegesRequired: string
-      userInteraction: string
-      scope: string
-      confidentialityImpact: string
-      integrityImpact: string
-      availabilityImpact: string
-    upstreamFixAvailable: boolean
-    impact: string
-    exploitationActivity: string
-    observedInTheWild: boolean
-    zeroDay: boolean
-    exploitReleaseDate: string
-    firstExploitationDate: string
-  offendingPackage:
-    packageName: string
-    cpeUri: string
-    packageType: string
-    packageVersion: string
-  securityBulletin:
-    bulletinId: string
-    submissionTime: string
-    suggestedUpgradeVersion: string
-muteUpdateTime: string
-externalSystems: object
-mitreAttack:
-  primaryTactic: string
-  primaryTechniques:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  additionalTactics:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  additionalTechniques:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  version: string
-access:
-  principalEmail: string
-  callerIp: string
-  callerIpGeo:
-    regionCode: string
-  userAgentFamily: string
-  userAgent: string
-  serviceName: string
-  methodName: string
-  principalSubject: string
-  serviceAccountKeyName: string
-  serviceAccountDelegationInfo:
-    - principalEmail: string
-      principalSubject: string
-  userName: string
-connections:
-  - destinationIp: string
-    destinationPort: integer
-    sourceIp: string
-    sourcePort: integer
-    protocol: string
-muteInitiator: string
-muteInfo:
-  staticMute:
-    state: string
-    applyTime: string
-  dynamicMuteRecords:
-    - muteConfig: string
-      matchTime: string
-processes:
-  - name: string
-    binary:
-      path: string
-      size: string
-      sha256: string
-      hashedSize: string
-      partiallyHashed: boolean
-      contents: string
-      diskPath:
-        partitionUuid: string
-        relativePath: string
-    libraries:
-      - path: string
-        size: string
-        sha256: string
-        hashedSize: string
-        partiallyHashed: boolean
-        contents: string
-    args:
-      - type: string
-    argumentsTruncated: boolean
-    envVariables:
-      - name: string
-        val: string
-    envVariablesTruncated: boolean
-    pid: string
-    parentPid: string
-contacts: object
-compliances:
-  - standard: string
-    version: string
-    ids:
-      - type: string
-parentDisplayName: string
-description: string
-exfiltration:
-  sources:
-    - name: string
-      components:
-        - type: string
-  targets:
-    - name: string
-      components:
-        - type: string
-  totalExfiltratedBytes: string
-iamBindings:
-  - action: string
-    role: string
-    member: string
-nextSteps: string
-moduleName: string
-containers:
-  - name: string
-    uri: string
-    imageId: string
-    labels:
-      - name: string
-        value: string
-    createTime: string
-kubernetes:
-  pods:
-    - ns: string
-      name: string
-      labels:
-        - name: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: resourceName
+      value: string
+    - name: state
+      value: string
+    - name: category
+      value: string
+    - name: externalUri
+      value: string
+    - name: sourceProperties
+      value: object
+    - name: securityMarks
+      value:
+        - name: name
           value: string
-      containers:
-        - name: string
-          uri: string
-          imageId: string
-          labels:
-            - name: string
+        - name: marks
+          value: object
+        - name: canonicalName
+          value: string
+    - name: eventTime
+      value: string
+    - name: createTime
+      value: string
+    - name: severity
+      value: string
+    - name: canonicalName
+      value: string
+    - name: mute
+      value: string
+    - name: findingClass
+      value: string
+    - name: indicator
+      value:
+        - name: ipAddresses
+          value:
+            - string
+        - name: domains
+          value:
+            - string
+        - name: signatures
+          value:
+            - - name: memoryHashSignature
+                value:
+                  - name: binaryFamily
+                    value: string
+                  - name: detections
+                    value:
+                      - - name: binary
+                          value: string
+                        - name: percentPagesMatched
+                          value: number
+              - name: yaraRuleSignature
+                value:
+                  - name: yaraRule
+                    value: string
+              - name: signatureType
+                value: string
+        - name: uris
+          value:
+            - string
+    - name: vulnerability
+      value:
+        - name: cve
+          value:
+            - name: id
               value: string
-          createTime: string
-  nodes:
-    - name: string
-  nodePools:
-    - name: string
-      nodes:
-        - name: string
-  roles:
-    - kind: string
-      ns: string
-      name: string
-  bindings:
-    - ns: string
-      name: string
-      role:
-        kind: string
-        ns: string
-        name: string
-      subjects:
-        - kind: string
-          ns: string
-          name: string
-  accessReviews:
-    - group: string
-      ns: string
-      name: string
-      resource: string
-      subresource: string
-      verb: string
-      version: string
-  objects:
-    - group: string
-      kind: string
-      ns: string
-      name: string
-      containers:
-        - name: string
-          uri: string
-          imageId: string
-          labels:
-            - name: string
+            - name: references
+              value:
+                - - name: source
+                    value: string
+                  - name: uri
+                    value: string
+            - name: cvssv3
+              value:
+                - name: baseScore
+                  value: number
+                - name: attackVector
+                  value: string
+                - name: attackComplexity
+                  value: string
+                - name: privilegesRequired
+                  value: string
+                - name: userInteraction
+                  value: string
+                - name: scope
+                  value: string
+                - name: confidentialityImpact
+                  value: string
+                - name: integrityImpact
+                  value: string
+                - name: availabilityImpact
+                  value: string
+            - name: upstreamFixAvailable
+              value: boolean
+            - name: impact
               value: string
-          createTime: string
-database:
-  name: string
-  displayName: string
-  userName: string
-  query: string
-  grantees:
-    - type: string
-  version: string
-attackExposure:
-  score: number
-  latestCalculationTime: string
-  attackExposureResult: string
-  state: string
-  exposedHighValueResourcesCount: integer
-  exposedMediumValueResourcesCount: integer
-  exposedLowValueResourcesCount: integer
-files:
-  - path: string
-    size: string
-    sha256: string
-    hashedSize: string
-    partiallyHashed: boolean
-    contents: string
-cloudDlpInspection:
-  inspectJob: string
-  infoType: string
-  infoTypeCount: string
-  fullScan: boolean
-cloudDlpDataProfile:
-  dataProfile: string
-  parentType: string
-kernelRootkit:
-  name: string
-  unexpectedCodeModification: boolean
-  unexpectedReadOnlyDataModification: boolean
-  unexpectedFtraceHandler: boolean
-  unexpectedKprobeHandler: boolean
-  unexpectedKernelCodePages: boolean
-  unexpectedSystemCallHandler: boolean
-  unexpectedInterruptHandler: boolean
-  unexpectedProcessesInRunqueue: boolean
-orgPolicies:
-  - name: string
-application:
-  baseUri: string
-  fullUri: string
-backupDisasterRecovery:
-  backupTemplate: string
-  policies:
-    - type: string
-  host: string
-  applications:
-    - type: string
-  storagePool: string
-  policyOptions:
-    - type: string
-  profile: string
-  appliance: string
-  backupType: string
-  backupCreateTime: string
-securityPosture:
-  name: string
-  revisionId: string
-  postureDeploymentResource: string
-  postureDeployment: string
-  changedPolicy: string
-  policySet: string
-  policy: string
-  policyDriftDetails:
-    - field: string
-      expectedValue: string
-      detectedValue: string
-logEntries:
-  - cloudLoggingEntry:
-      insertId: string
-      logId: string
-      resourceContainer: string
-      timestamp: string
-loadBalancers:
-  - name: string
-cloudArmor:
-  securityPolicy:
-    name: string
-    type: string
-    preview: boolean
-  requests:
-    ratio: number
-    shortTermAllowed: integer
-    longTermAllowed: integer
-    longTermDenied: integer
-  adaptiveProtection:
-    confidence: number
-  attack:
-    volumePps: integer
-    volumeBps: integer
-    classification: string
-  threatVector: string
-  duration: string
-notebook:
-  name: string
-  service: string
-  lastAuthor: string
-  notebookUpdateTime: string
-toxicCombination:
-  attackExposureScore: number
-  relatedFindings:
-    - type: string
-groupMemberships:
-  - groupType: string
-    groupId: string
-dataAccessEvents:
-  - eventId: string
-    principalEmail: string
-    operation: string
-    eventTime: string
-dataFlowEvents:
-  - eventId: string
-    principalEmail: string
-    operation: string
-    violatedLocation: string
-    eventTime: string
+            - name: exploitationActivity
+              value: string
+            - name: observedInTheWild
+              value: boolean
+            - name: zeroDay
+              value: boolean
+            - name: exploitReleaseDate
+              value: string
+            - name: firstExploitationDate
+              value: string
+        - name: offendingPackage
+          value:
+            - name: packageName
+              value: string
+            - name: cpeUri
+              value: string
+            - name: packageType
+              value: string
+            - name: packageVersion
+              value: string
+        - name: securityBulletin
+          value:
+            - name: bulletinId
+              value: string
+            - name: submissionTime
+              value: string
+            - name: suggestedUpgradeVersion
+              value: string
+    - name: muteUpdateTime
+      value: string
+    - name: externalSystems
+      value: object
+    - name: mitreAttack
+      value:
+        - name: primaryTactic
+          value: string
+        - name: primaryTechniques
+          value:
+            - string
+        - name: additionalTactics
+          value:
+            - string
+        - name: additionalTechniques
+          value:
+            - string
+        - name: version
+          value: string
+    - name: access
+      value:
+        - name: principalEmail
+          value: string
+        - name: callerIp
+          value: string
+        - name: callerIpGeo
+          value:
+            - name: regionCode
+              value: string
+        - name: userAgentFamily
+          value: string
+        - name: userAgent
+          value: string
+        - name: serviceName
+          value: string
+        - name: methodName
+          value: string
+        - name: principalSubject
+          value: string
+        - name: serviceAccountKeyName
+          value: string
+        - name: serviceAccountDelegationInfo
+          value:
+            - - name: principalEmail
+                value: string
+              - name: principalSubject
+                value: string
+        - name: userName
+          value: string
+    - name: connections
+      value:
+        - - name: destinationIp
+            value: string
+          - name: destinationPort
+            value: integer
+          - name: sourceIp
+            value: string
+          - name: sourcePort
+            value: integer
+          - name: protocol
+            value: string
+    - name: muteInitiator
+      value: string
+    - name: muteInfo
+      value:
+        - name: staticMute
+          value:
+            - name: state
+              value: string
+            - name: applyTime
+              value: string
+        - name: dynamicMuteRecords
+          value:
+            - - name: muteConfig
+                value: string
+              - name: matchTime
+                value: string
+    - name: processes
+      value:
+        - - name: name
+            value: string
+          - name: binary
+            value:
+              - name: path
+                value: string
+              - name: size
+                value: string
+              - name: sha256
+                value: string
+              - name: hashedSize
+                value: string
+              - name: partiallyHashed
+                value: boolean
+              - name: contents
+                value: string
+              - name: diskPath
+                value:
+                  - name: partitionUuid
+                    value: string
+                  - name: relativePath
+                    value: string
+          - name: libraries
+            value:
+              - - name: path
+                  value: string
+                - name: size
+                  value: string
+                - name: sha256
+                  value: string
+                - name: hashedSize
+                  value: string
+                - name: partiallyHashed
+                  value: boolean
+                - name: contents
+                  value: string
+          - name: args
+            value:
+              - string
+          - name: argumentsTruncated
+            value: boolean
+          - name: envVariables
+            value:
+              - - name: name
+                  value: string
+                - name: val
+                  value: string
+          - name: envVariablesTruncated
+            value: boolean
+          - name: pid
+            value: string
+          - name: parentPid
+            value: string
+    - name: contacts
+      value: object
+    - name: compliances
+      value:
+        - - name: standard
+            value: string
+          - name: version
+            value: string
+          - name: ids
+            value:
+              - string
+    - name: parentDisplayName
+      value: string
+    - name: description
+      value: string
+    - name: exfiltration
+      value:
+        - name: sources
+          value:
+            - - name: name
+                value: string
+              - name: components
+                value:
+                  - string
+        - name: targets
+          value:
+            - - name: name
+                value: string
+              - name: components
+                value:
+                  - string
+        - name: totalExfiltratedBytes
+          value: string
+    - name: iamBindings
+      value:
+        - - name: action
+            value: string
+          - name: role
+            value: string
+          - name: member
+            value: string
+    - name: nextSteps
+      value: string
+    - name: moduleName
+      value: string
+    - name: containers
+      value:
+        - - name: name
+            value: string
+          - name: uri
+            value: string
+          - name: imageId
+            value: string
+          - name: labels
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: string
+          - name: createTime
+            value: string
+    - name: kubernetes
+      value:
+        - name: pods
+          value:
+            - - name: ns
+                value: string
+              - name: name
+                value: string
+              - name: labels
+                value:
+                  - - name: name
+                      value: string
+                    - name: value
+                      value: string
+              - name: containers
+                value:
+                  - - name: name
+                      value: string
+                    - name: uri
+                      value: string
+                    - name: imageId
+                      value: string
+                    - name: labels
+                      value:
+                        - - name: name
+                            value: string
+                          - name: value
+                            value: string
+                    - name: createTime
+                      value: string
+        - name: nodes
+          value:
+            - - name: name
+                value: string
+        - name: nodePools
+          value:
+            - - name: name
+                value: string
+              - name: nodes
+                value:
+                  - - name: name
+                      value: string
+        - name: roles
+          value:
+            - - name: kind
+                value: string
+              - name: ns
+                value: string
+              - name: name
+                value: string
+        - name: bindings
+          value:
+            - - name: ns
+                value: string
+              - name: name
+                value: string
+              - name: role
+                value:
+                  - name: kind
+                    value: string
+                  - name: ns
+                    value: string
+                  - name: name
+                    value: string
+              - name: subjects
+                value:
+                  - - name: kind
+                      value: string
+                    - name: ns
+                      value: string
+                    - name: name
+                      value: string
+        - name: accessReviews
+          value:
+            - - name: group
+                value: string
+              - name: ns
+                value: string
+              - name: name
+                value: string
+              - name: resource
+                value: string
+              - name: subresource
+                value: string
+              - name: verb
+                value: string
+              - name: version
+                value: string
+        - name: objects
+          value:
+            - - name: group
+                value: string
+              - name: kind
+                value: string
+              - name: ns
+                value: string
+              - name: name
+                value: string
+              - name: containers
+                value:
+                  - - name: name
+                      value: string
+                    - name: uri
+                      value: string
+                    - name: imageId
+                      value: string
+                    - name: labels
+                      value:
+                        - - name: name
+                            value: string
+                          - name: value
+                            value: string
+                    - name: createTime
+                      value: string
+    - name: database
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: userName
+          value: string
+        - name: query
+          value: string
+        - name: grantees
+          value:
+            - string
+        - name: version
+          value: string
+    - name: attackExposure
+      value:
+        - name: score
+          value: number
+        - name: latestCalculationTime
+          value: string
+        - name: attackExposureResult
+          value: string
+        - name: state
+          value: string
+        - name: exposedHighValueResourcesCount
+          value: integer
+        - name: exposedMediumValueResourcesCount
+          value: integer
+        - name: exposedLowValueResourcesCount
+          value: integer
+    - name: files
+      value:
+        - - name: path
+            value: string
+          - name: size
+            value: string
+          - name: sha256
+            value: string
+          - name: hashedSize
+            value: string
+          - name: partiallyHashed
+            value: boolean
+          - name: contents
+            value: string
+    - name: cloudDlpInspection
+      value:
+        - name: inspectJob
+          value: string
+        - name: infoType
+          value: string
+        - name: infoTypeCount
+          value: string
+        - name: fullScan
+          value: boolean
+    - name: cloudDlpDataProfile
+      value:
+        - name: dataProfile
+          value: string
+        - name: parentType
+          value: string
+    - name: kernelRootkit
+      value:
+        - name: name
+          value: string
+        - name: unexpectedCodeModification
+          value: boolean
+        - name: unexpectedReadOnlyDataModification
+          value: boolean
+        - name: unexpectedFtraceHandler
+          value: boolean
+        - name: unexpectedKprobeHandler
+          value: boolean
+        - name: unexpectedKernelCodePages
+          value: boolean
+        - name: unexpectedSystemCallHandler
+          value: boolean
+        - name: unexpectedInterruptHandler
+          value: boolean
+        - name: unexpectedProcessesInRunqueue
+          value: boolean
+    - name: orgPolicies
+      value:
+        - - name: name
+            value: string
+    - name: application
+      value:
+        - name: baseUri
+          value: string
+        - name: fullUri
+          value: string
+    - name: backupDisasterRecovery
+      value:
+        - name: backupTemplate
+          value: string
+        - name: policies
+          value:
+            - string
+        - name: host
+          value: string
+        - name: applications
+          value:
+            - string
+        - name: storagePool
+          value: string
+        - name: policyOptions
+          value:
+            - string
+        - name: profile
+          value: string
+        - name: appliance
+          value: string
+        - name: backupType
+          value: string
+        - name: backupCreateTime
+          value: string
+    - name: securityPosture
+      value:
+        - name: name
+          value: string
+        - name: revisionId
+          value: string
+        - name: postureDeploymentResource
+          value: string
+        - name: postureDeployment
+          value: string
+        - name: changedPolicy
+          value: string
+        - name: policySet
+          value: string
+        - name: policy
+          value: string
+        - name: policyDriftDetails
+          value:
+            - - name: field
+                value: string
+              - name: expectedValue
+                value: string
+              - name: detectedValue
+                value: string
+    - name: logEntries
+      value:
+        - - name: cloudLoggingEntry
+            value:
+              - name: insertId
+                value: string
+              - name: logId
+                value: string
+              - name: resourceContainer
+                value: string
+              - name: timestamp
+                value: string
+    - name: loadBalancers
+      value:
+        - - name: name
+            value: string
+    - name: cloudArmor
+      value:
+        - name: securityPolicy
+          value:
+            - name: name
+              value: string
+            - name: type
+              value: string
+            - name: preview
+              value: boolean
+        - name: requests
+          value:
+            - name: ratio
+              value: number
+            - name: shortTermAllowed
+              value: integer
+            - name: longTermAllowed
+              value: integer
+            - name: longTermDenied
+              value: integer
+        - name: adaptiveProtection
+          value:
+            - name: confidence
+              value: number
+        - name: attack
+          value:
+            - name: volumePps
+              value: integer
+            - name: volumeBps
+              value: integer
+            - name: classification
+              value: string
+        - name: threatVector
+          value: string
+        - name: duration
+          value: string
+    - name: notebook
+      value:
+        - name: name
+          value: string
+        - name: service
+          value: string
+        - name: lastAuthor
+          value: string
+        - name: notebookUpdateTime
+          value: string
+    - name: toxicCombination
+      value:
+        - name: attackExposureScore
+          value: number
+        - name: relatedFindings
+          value:
+            - string
+    - name: groupMemberships
+      value:
+        - - name: groupType
+            value: string
+          - name: groupId
+            value: string
+    - name: dataAccessEvents
+      value:
+        - - name: eventId
+            value: string
+          - name: principalEmail
+            value: string
+          - name: operation
+            value: string
+          - name: eventTime
+            value: string
+    - name: dataFlowEvents
+      value:
+        - - name: eventId
+            value: string
+          - name: principalEmail
+            value: string
+          - name: operation
+            value: string
+          - name: violatedLocation
+            value: string
+          - name: eventTime
+            value: string
 
 ```
 </TabItem>

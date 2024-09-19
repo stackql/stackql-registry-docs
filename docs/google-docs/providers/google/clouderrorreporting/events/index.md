@@ -55,7 +55,7 @@ message,
 serviceContext
 FROM google.clouderrorreporting.events
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

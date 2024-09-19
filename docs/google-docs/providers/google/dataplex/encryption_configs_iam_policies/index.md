@@ -54,7 +54,7 @@ role
 FROM google.dataplex.encryption_configs_iam_policies
 WHERE encryptionConfigsId = '{{ encryptionConfigsId }}'
 AND locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `REPLACE` example

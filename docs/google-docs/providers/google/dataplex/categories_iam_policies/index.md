@@ -55,7 +55,7 @@ FROM google.dataplex.categories_iam_policies
 WHERE categoriesId = '{{ categoriesId }}'
 AND glossariesId = '{{ glossariesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

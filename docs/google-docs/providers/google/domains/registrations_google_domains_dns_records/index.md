@@ -50,5 +50,5 @@ rrset
 FROM google.domains.registrations_google_domains_dns_records
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND registrationsId = '{{ registrationsId }}'; 
+AND registrationsId = '{{ registrationsId }}';
 ```

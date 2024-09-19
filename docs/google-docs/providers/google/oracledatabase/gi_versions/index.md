@@ -49,5 +49,5 @@ name,
 version
 FROM google.oracledatabase.gi_versions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

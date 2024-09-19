@@ -59,7 +59,7 @@ actions,
 condition,
 path
 FROM google.recaptchaenterprise.firewallpolicies
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -98,20 +98,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-description: string
-actions:
-  - allow: {}
-    substitute:
-      path: string
-    setHeader:
+- name: your_resource_model_name
+  props:
+    - name: description
       value: string
-      key: string
-    includeRecaptchaScript: {}
-    block: {}
-    redirect: {}
-path: string
-condition: string
-name: string
+    - name: actions
+      value:
+        - - name: allow
+            value: []
+          - name: substitute
+            value:
+              - name: path
+                value: string
+          - name: setHeader
+            value:
+              - name: value
+                value: string
+              - name: key
+                value: string
+          - name: includeRecaptchaScript
+            value: []
+          - name: block
+            value: []
+          - name: redirect
+            value: []
+    - name: path
+      value: string
+    - name: condition
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

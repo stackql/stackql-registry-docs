@@ -55,7 +55,7 @@ FROM google.analyticshub.listings_iam_policies
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND listingsId = '{{ listingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

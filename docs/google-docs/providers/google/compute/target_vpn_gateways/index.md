@@ -75,7 +75,7 @@ selfLink,
 status,
 tunnels
 FROM google.compute.target_vpn_gateways
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,21 +124,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-network: string
-tunnels:
-  - type: string
-status: string
-selfLink: string
-forwardingRules:
-  - type: string
-labels: object
-labelFingerprint: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: network
+      value: string
+    - name: tunnels
+      value:
+        - string
+    - name: status
+      value: string
+    - name: selfLink
+      value: string
+    - name: forwardingRules
+      value:
+        - string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
 
 ```
 </TabItem>

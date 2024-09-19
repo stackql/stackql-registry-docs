@@ -115,7 +115,7 @@ uri,
 urls
 FROM google.run.services
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -166,7 +166,7 @@ SELECT
 '{{ template }}',
 '{{ traffic }}',
 '{{ scaling }}',
-true|false,
+{{ defaultUriDisabled }},
 '{{ customAudiences }}'
 ;
 ```
@@ -174,161 +174,311 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-uid: string
-generation: string
-labels: object
-annotations: object
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
-creator: string
-lastModifier: string
-client: string
-clientVersion: string
-ingress: string
-launchStage: string
-binaryAuthorization:
-  useDefault: boolean
-  policy: string
-  breakglassJustification: string
-template:
-  revision: string
-  labels: object
-  annotations: object
-  scaling:
-    minInstanceCount: integer
-    maxInstanceCount: integer
-  vpcAccess:
-    connector: string
-    egress: string
-    networkInterfaces:
-      - network: string
-        subnetwork: string
-        tags:
-          - type: string
-  timeout: string
-  serviceAccount: string
-  containers:
-    - name: string
-      image: string
-      command:
-        - type: string
-      args:
-        - type: string
-      env:
-        - name: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: uid
+      value: string
+    - name: generation
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: creator
+      value: string
+    - name: lastModifier
+      value: string
+    - name: client
+      value: string
+    - name: clientVersion
+      value: string
+    - name: ingress
+      value: string
+    - name: launchStage
+      value: string
+    - name: binaryAuthorization
+      value:
+        - name: useDefault
+          value: boolean
+        - name: policy
           value: string
-          valueSource:
-            secretKeyRef:
-              secret: string
-              version: string
-      resources:
-        limits: object
-        cpuIdle: boolean
-        startupCpuBoost: boolean
-      ports:
-        - name: string
-          containerPort: integer
-      volumeMounts:
-        - name: string
-          mountPath: string
-      workingDir: string
-      livenessProbe:
-        initialDelaySeconds: integer
-        timeoutSeconds: integer
-        periodSeconds: integer
-        failureThreshold: integer
-        httpGet:
-          path: string
-          httpHeaders:
-            - name: string
+        - name: breakglassJustification
+          value: string
+    - name: template
+      value:
+        - name: revision
+          value: string
+        - name: labels
+          value: object
+        - name: annotations
+          value: object
+        - name: scaling
+          value:
+            - name: minInstanceCount
+              value: integer
+            - name: maxInstanceCount
+              value: integer
+        - name: vpcAccess
+          value:
+            - name: connector
               value: string
-          port: integer
-        tcpSocket:
-          port: integer
-        grpc:
-          port: integer
-          service: string
-      dependsOn:
-        - type: string
-  volumes:
-    - name: string
-      secret:
-        secret: string
-        items:
-          - path: string
-            version: string
-            mode: integer
-        defaultMode: integer
-      cloudSqlInstance:
-        instances:
-          - type: string
-      emptyDir:
-        medium: string
-        sizeLimit: string
-      nfs:
-        server: string
-        path: string
-        readOnly: boolean
-      gcs:
-        bucket: string
-        readOnly: boolean
-  executionEnvironment: string
-  encryptionKey: string
-  maxInstanceRequestConcurrency: integer
-  serviceMesh:
-    mesh: string
-  sessionAffinity: boolean
-  healthCheckDisabled: boolean
-  nodeSelector:
-    accelerator: string
-traffic:
-  - type: string
-    revision: string
-    percent: integer
-    tag: string
-scaling:
-  minInstanceCount: integer
-  scalingMode: string
-defaultUriDisabled: boolean
-urls:
-  - type: string
-customAudiences:
-  - type: string
-observedGeneration: string
-terminalCondition:
-  type: string
-  state: string
-  message: string
-  lastTransitionTime: string
-  severity: string
-  reason: string
-  revisionReason: string
-  executionReason: string
-conditions:
-  - type: string
-    state: string
-    message: string
-    lastTransitionTime: string
-    severity: string
-    reason: string
-    revisionReason: string
-    executionReason: string
-latestReadyRevision: string
-latestCreatedRevision: string
-trafficStatuses:
-  - type: string
-    revision: string
-    percent: integer
-    tag: string
-    uri: string
-uri: string
-satisfiesPzs: boolean
-reconciling: boolean
-etag: string
+            - name: egress
+              value: string
+            - name: networkInterfaces
+              value:
+                - - name: network
+                    value: string
+                  - name: subnetwork
+                    value: string
+                  - name: tags
+                    value:
+                      - string
+        - name: timeout
+          value: string
+        - name: serviceAccount
+          value: string
+        - name: containers
+          value:
+            - - name: name
+                value: string
+              - name: image
+                value: string
+              - name: command
+                value:
+                  - string
+              - name: args
+                value:
+                  - string
+              - name: env
+                value:
+                  - - name: name
+                      value: string
+                    - name: value
+                      value: string
+                    - name: valueSource
+                      value:
+                        - name: secretKeyRef
+                          value:
+                            - name: secret
+                              value: string
+                            - name: version
+                              value: string
+              - name: resources
+                value:
+                  - name: limits
+                    value: object
+                  - name: cpuIdle
+                    value: boolean
+                  - name: startupCpuBoost
+                    value: boolean
+              - name: ports
+                value:
+                  - - name: name
+                      value: string
+                    - name: containerPort
+                      value: integer
+              - name: volumeMounts
+                value:
+                  - - name: name
+                      value: string
+                    - name: mountPath
+                      value: string
+              - name: workingDir
+                value: string
+              - name: livenessProbe
+                value:
+                  - name: initialDelaySeconds
+                    value: integer
+                  - name: timeoutSeconds
+                    value: integer
+                  - name: periodSeconds
+                    value: integer
+                  - name: failureThreshold
+                    value: integer
+                  - name: httpGet
+                    value:
+                      - name: path
+                        value: string
+                      - name: httpHeaders
+                        value:
+                          - - name: name
+                              value: string
+                            - name: value
+                              value: string
+                      - name: port
+                        value: integer
+                  - name: tcpSocket
+                    value:
+                      - name: port
+                        value: integer
+                  - name: grpc
+                    value:
+                      - name: port
+                        value: integer
+                      - name: service
+                        value: string
+              - name: dependsOn
+                value:
+                  - string
+        - name: volumes
+          value:
+            - - name: name
+                value: string
+              - name: secret
+                value:
+                  - name: secret
+                    value: string
+                  - name: items
+                    value:
+                      - - name: path
+                          value: string
+                        - name: version
+                          value: string
+                        - name: mode
+                          value: integer
+                  - name: defaultMode
+                    value: integer
+              - name: cloudSqlInstance
+                value:
+                  - name: instances
+                    value:
+                      - string
+              - name: emptyDir
+                value:
+                  - name: medium
+                    value: string
+                  - name: sizeLimit
+                    value: string
+              - name: nfs
+                value:
+                  - name: server
+                    value: string
+                  - name: path
+                    value: string
+                  - name: readOnly
+                    value: boolean
+              - name: gcs
+                value:
+                  - name: bucket
+                    value: string
+                  - name: readOnly
+                    value: boolean
+        - name: executionEnvironment
+          value: string
+        - name: encryptionKey
+          value: string
+        - name: maxInstanceRequestConcurrency
+          value: integer
+        - name: serviceMesh
+          value:
+            - name: mesh
+              value: string
+        - name: sessionAffinity
+          value: boolean
+        - name: healthCheckDisabled
+          value: boolean
+        - name: nodeSelector
+          value:
+            - name: accelerator
+              value: string
+    - name: traffic
+      value:
+        - - name: type
+            value: string
+          - name: revision
+            value: string
+          - name: percent
+            value: integer
+          - name: tag
+            value: string
+    - name: scaling
+      value:
+        - name: minInstanceCount
+          value: integer
+        - name: scalingMode
+          value: string
+    - name: defaultUriDisabled
+      value: boolean
+    - name: urls
+      value:
+        - string
+    - name: customAudiences
+      value:
+        - string
+    - name: observedGeneration
+      value: string
+    - name: terminalCondition
+      value:
+        - name: type
+          value: string
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: lastTransitionTime
+          value: string
+        - name: severity
+          value: string
+        - name: reason
+          value: string
+        - name: revisionReason
+          value: string
+        - name: executionReason
+          value: string
+    - name: conditions
+      value:
+        - - name: type
+            value: string
+          - name: state
+            value: string
+          - name: message
+            value: string
+          - name: lastTransitionTime
+            value: string
+          - name: severity
+            value: string
+          - name: reason
+            value: string
+          - name: revisionReason
+            value: string
+          - name: executionReason
+            value: string
+    - name: latestReadyRevision
+      value: string
+    - name: latestCreatedRevision
+      value: string
+    - name: trafficStatuses
+      value:
+        - - name: type
+            value: string
+          - name: revision
+            value: string
+          - name: percent
+            value: integer
+          - name: tag
+            value: string
+          - name: uri
+            value: string
+    - name: uri
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: reconciling
+      value: boolean
+    - name: etag
+      value: string
 
 ```
 </TabItem>

@@ -50,5 +50,5 @@ name
 FROM google.appengine.authorized_domains
 WHERE applicationsId = '{{ applicationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

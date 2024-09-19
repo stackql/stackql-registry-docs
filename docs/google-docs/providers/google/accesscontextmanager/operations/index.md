@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.accesscontextmanager.operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

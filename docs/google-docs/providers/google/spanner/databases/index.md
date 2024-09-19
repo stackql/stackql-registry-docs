@@ -77,7 +77,7 @@ state,
 versionRetentionPeriod
 FROM google.spanner.databases
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,15 +118,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createStatement: string
-extraStatements:
-  - type: string
-encryptionConfig:
-  kmsKeyName: string
-  kmsKeyNames:
-    - type: string
-databaseDialect: string
-protoDescriptors: string
+- name: your_resource_model_name
+  props:
+    - name: createStatement
+      value: string
+    - name: extraStatements
+      value:
+        - string
+    - name: encryptionConfig
+      value:
+        - name: kmsKeyName
+          value: string
+        - name: kmsKeyNames
+          value:
+            - string
+    - name: databaseDialect
+      value: string
+    - name: protoDescriptors
+      value: string
 
 ```
 </TabItem>

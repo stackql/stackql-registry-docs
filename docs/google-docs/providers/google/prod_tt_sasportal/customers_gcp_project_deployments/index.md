@@ -46,5 +46,5 @@ Returns a list of SAS deployments associated with current GCP project. Includes 
 SELECT
 deployments
 FROM google.prod_tt_sasportal.customers_gcp_project_deployments
-WHERE  = '{{  }}'; 
+;
 ```

@@ -59,7 +59,7 @@ metadata,
 response
 FROM google.ondemandscanning.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

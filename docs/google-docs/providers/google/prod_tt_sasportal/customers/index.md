@@ -55,7 +55,7 @@ name,
 displayName,
 sasUserIds
 FROM google.prod_tt_sasportal.customers
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `UPDATE` example

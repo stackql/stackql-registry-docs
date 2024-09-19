@@ -64,7 +64,7 @@ FROM google.healthcare.user_data_mappings
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,15 +107,25 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-dataId: string
-userId: string
-resourceAttributes:
-  - attributeDefinitionId: string
-    values:
-      - type: string
-archived: boolean
-archiveTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: dataId
+      value: string
+    - name: userId
+      value: string
+    - name: resourceAttributes
+      value:
+        - - name: attributeDefinitionId
+            value: string
+          - name: values
+            value:
+              - string
+    - name: archived
+      value: boolean
+    - name: archiveTime
+      value: string
 
 ```
 </TabItem>

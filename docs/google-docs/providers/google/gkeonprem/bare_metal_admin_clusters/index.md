@@ -109,7 +109,7 @@ updateTime,
 validationCheck
 FROM google.gkeonprem.bare_metal_admin_clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -174,110 +174,212 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-uid: string
-bareMetalVersion: string
-state: string
-endpoint: string
-reconciling: boolean
-createTime: string
-updateTime: string
-deleteTime: string
-localName: string
-etag: string
-annotations: object
-networkConfig:
-  islandModeCidr:
-    serviceAddressCidrBlocks:
-      - type: string
-    podAddressCidrBlocks:
-      - type: string
-controlPlane:
-  controlPlaneNodePoolConfig:
-    nodePoolConfig:
-      nodeConfigs:
-        - nodeIp: string
-          labels: object
-      operatingSystem: string
-      taints:
-        - key: string
-          value: string
-          effect: string
-      labels: object
-      kubeletConfig:
-        registryPullQps: integer
-        registryBurst: integer
-        serializeImagePullsDisabled: boolean
-  apiServerArgs:
-    - argument: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-loadBalancer:
-  vipConfig:
-    controlPlaneVip: string
-  portConfig:
-    controlPlaneLoadBalancerPort: integer
-  manualLbConfig:
-    enabled: boolean
-storage:
-  lvpShareConfig:
-    lvpConfig:
-      path: string
-      storageClass: string
-    sharedPathPvCount: integer
-fleet:
-  membership: string
-clusterOperations:
-  enableApplicationLogs: boolean
-status:
-  errorMessage: string
-  conditions:
-    - type: string
-      reason: string
-      message: string
-      lastTransitionTime: string
-      state: string
-  version: string
-  versions:
-    versions:
-      - version: string
-        count: string
-maintenanceConfig:
-  maintenanceAddressCidrBlocks:
-    - type: string
-maintenanceStatus:
-  machineDrainStatus:
-    drainingMachines:
-      - nodeIp: string
-        podCount: integer
-    drainedMachines:
-      - nodeIp: string
-validationCheck:
-  option: string
-  status:
-    result:
-      - state: string
-        description: string
-        category: string
-        reason: string
-        details: string
-  scenario: string
-nodeConfig:
-  maxPodsPerNode: string
-proxy:
-  uri: string
-  noProxy:
-    - type: string
-securityConfig:
-  authorization:
-    adminUsers:
-      - username: string
-nodeAccessConfig:
-  loginUser: string
-osEnvironmentConfig:
-  packageRepoExcluded: boolean
-binaryAuthorization:
-  evaluationMode: string
+    - name: description
+      value: string
+    - name: uid
+      value: string
+    - name: bareMetalVersion
+      value: string
+    - name: state
+      value: string
+    - name: endpoint
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: localName
+      value: string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: networkConfig
+      value:
+        - name: islandModeCidr
+          value:
+            - name: serviceAddressCidrBlocks
+              value:
+                - string
+            - name: podAddressCidrBlocks
+              value:
+                - string
+    - name: controlPlane
+      value:
+        - name: controlPlaneNodePoolConfig
+          value:
+            - name: nodePoolConfig
+              value:
+                - name: nodeConfigs
+                  value:
+                    - - name: nodeIp
+                        value: string
+                      - name: labels
+                        value: object
+                - name: operatingSystem
+                  value: string
+                - name: taints
+                  value:
+                    - - name: key
+                        value: string
+                      - name: value
+                        value: string
+                      - name: effect
+                        value: string
+                - name: labels
+                  value: object
+                - name: kubeletConfig
+                  value:
+                    - name: registryPullQps
+                      value: integer
+                    - name: registryBurst
+                      value: integer
+                    - name: serializeImagePullsDisabled
+                      value: boolean
+        - name: apiServerArgs
+          value:
+            - - name: argument
+                value: string
+              - name: value
+                value: string
+    - name: loadBalancer
+      value:
+        - name: vipConfig
+          value:
+            - name: controlPlaneVip
+              value: string
+        - name: portConfig
+          value:
+            - name: controlPlaneLoadBalancerPort
+              value: integer
+        - name: manualLbConfig
+          value:
+            - name: enabled
+              value: boolean
+    - name: storage
+      value:
+        - name: lvpShareConfig
+          value:
+            - name: lvpConfig
+              value:
+                - name: path
+                  value: string
+                - name: storageClass
+                  value: string
+            - name: sharedPathPvCount
+              value: integer
+    - name: fleet
+      value:
+        - name: membership
+          value: string
+    - name: clusterOperations
+      value:
+        - name: enableApplicationLogs
+          value: boolean
+    - name: status
+      value:
+        - name: errorMessage
+          value: string
+        - name: conditions
+          value:
+            - - name: type
+                value: string
+              - name: reason
+                value: string
+              - name: message
+                value: string
+              - name: lastTransitionTime
+                value: string
+              - name: state
+                value: string
+        - name: version
+          value: string
+        - name: versions
+          value:
+            - name: versions
+              value:
+                - - name: version
+                    value: string
+                  - name: count
+                    value: string
+    - name: maintenanceConfig
+      value:
+        - name: maintenanceAddressCidrBlocks
+          value:
+            - string
+    - name: maintenanceStatus
+      value:
+        - name: machineDrainStatus
+          value:
+            - name: drainingMachines
+              value:
+                - - name: nodeIp
+                    value: string
+                  - name: podCount
+                    value: integer
+            - name: drainedMachines
+              value:
+                - - name: nodeIp
+                    value: string
+    - name: validationCheck
+      value:
+        - name: option
+          value: string
+        - name: status
+          value:
+            - name: result
+              value:
+                - - name: state
+                    value: string
+                  - name: description
+                    value: string
+                  - name: category
+                    value: string
+                  - name: reason
+                    value: string
+                  - name: details
+                    value: string
+        - name: scenario
+          value: string
+    - name: nodeConfig
+      value:
+        - name: maxPodsPerNode
+          value: string
+    - name: proxy
+      value:
+        - name: uri
+          value: string
+        - name: noProxy
+          value:
+            - string
+    - name: securityConfig
+      value:
+        - name: authorization
+          value:
+            - name: adminUsers
+              value:
+                - - name: username
+                    value: string
+    - name: nodeAccessConfig
+      value:
+        - name: loginUser
+          value: string
+    - name: osEnvironmentConfig
+      value:
+        - name: packageRepoExcluded
+          value: boolean
+    - name: binaryAuthorization
+      value:
+        - name: evaluationMode
+          value: string
 
 ```
 </TabItem>

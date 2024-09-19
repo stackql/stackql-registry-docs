@@ -51,5 +51,5 @@ FROM google.workloadmanager.scanned_resources
 WHERE evaluationsId = '{{ evaluationsId }}'
 AND executionsId = '{{ executionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

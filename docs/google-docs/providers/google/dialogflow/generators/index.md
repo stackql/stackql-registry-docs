@@ -58,7 +58,7 @@ promptText
 FROM google.dialogflow.generators
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,13 +99,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-promptText:
-  text: string
-placeholders:
-  - id: string
-    name: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: promptText
+      value:
+        - name: text
+          value: string
+    - name: placeholders
+      value:
+        - - name: id
+            value: string
+          - name: name
+            value: string
 
 ```
 </TabItem>

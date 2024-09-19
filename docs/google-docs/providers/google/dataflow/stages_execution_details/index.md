@@ -51,5 +51,5 @@ FROM google.dataflow.stages_execution_details
 WHERE jobId = '{{ jobId }}'
 AND location = '{{ location }}'
 AND projectId = '{{ projectId }}'
-AND stageId = '{{ stageId }}'; 
+AND stageId = '{{ stageId }}';
 ```

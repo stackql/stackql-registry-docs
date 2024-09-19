@@ -64,7 +64,7 @@ updateTime
 FROM google.spanner.backup_schedules
 WHERE databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -109,21 +109,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-spec:
-  cronSpec:
-    text: string
-    timeZone: string
-    creationWindow: string
-retentionDuration: string
-encryptionConfig:
-  encryptionType: string
-  kmsKeyName: string
-  kmsKeyNames:
-    - type: string
-fullBackupSpec: {}
-incrementalBackupSpec: {}
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: spec
+      value:
+        - name: cronSpec
+          value:
+            - name: text
+              value: string
+            - name: timeZone
+              value: string
+            - name: creationWindow
+              value: string
+    - name: retentionDuration
+      value: string
+    - name: encryptionConfig
+      value:
+        - name: encryptionType
+          value: string
+        - name: kmsKeyName
+          value: string
+        - name: kmsKeyNames
+          value:
+            - string
+    - name: fullBackupSpec
+      value: []
+    - name: incrementalBackupSpec
+      value: []
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

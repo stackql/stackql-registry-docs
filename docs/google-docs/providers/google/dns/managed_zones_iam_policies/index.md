@@ -53,7 +53,7 @@ members,
 role
 FROM google.dns.managed_zones_iam_policies
 WHERE managedZonesId = '{{ managedZonesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

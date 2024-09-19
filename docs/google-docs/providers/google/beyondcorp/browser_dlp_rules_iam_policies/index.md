@@ -54,7 +54,7 @@ role
 FROM google.beyondcorp.browser_dlp_rules_iam_policies
 WHERE browserDlpRulesId = '{{ browserDlpRulesId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND partnerTenantsId = '{{ partnerTenantsId }}'; 
+AND partnerTenantsId = '{{ partnerTenantsId }}';
 ```
 
 ## `REPLACE` example

@@ -48,5 +48,5 @@ urls
 FROM google.apigee.queries_resulturl
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND queriesId = '{{ queriesId }}'; 
+AND queriesId = '{{ queriesId }}';
 ```

@@ -80,7 +80,7 @@ state,
 type
 FROM google.apigee.environments
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -117,7 +117,7 @@ SELECT
 '{{ displayName }}',
 '{{ description }}',
 '{{ properties }}',
-true|false,
+{{ hasAttachedFlowHooks }},
 '{{ apiProxyType }}',
 '{{ name }}',
 '{{ deploymentType }}',
@@ -129,25 +129,46 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
-state: string
-nodeConfig:
-  minNodeCount: string
-  currentAggregateNodeCount: string
-  maxNodeCount: string
-displayName: string
-description: string
-properties:
-  property:
-    - name: string
+- name: your_resource_model_name
+  props:
+    - name: createdAt
       value: string
-hasAttachedFlowHooks: boolean
-apiProxyType: string
-name: string
-deploymentType: string
-forwardProxyUri: string
-lastModifiedAt: string
-type: string
+    - name: state
+      value: string
+    - name: nodeConfig
+      value:
+        - name: minNodeCount
+          value: string
+        - name: currentAggregateNodeCount
+          value: string
+        - name: maxNodeCount
+          value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: properties
+      value:
+        - name: property
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+    - name: hasAttachedFlowHooks
+      value: boolean
+    - name: apiProxyType
+      value: string
+    - name: name
+      value: string
+    - name: deploymentType
+      value: string
+    - name: forwardProxyUri
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

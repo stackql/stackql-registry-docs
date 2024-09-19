@@ -52,7 +52,7 @@ aliases
 FROM google.apigee.keystores
 WHERE environmentsId = '{{ environmentsId }}'
 AND keystoresId = '{{ keystoresId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -85,9 +85,13 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-aliases:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: aliases
+      value:
+        - string
 
 ```
 </TabItem>

@@ -49,5 +49,5 @@ code,
 expireTime
 FROM google.monitoring.notification_channels_verification_code
 WHERE notificationChannelsId = '{{ notificationChannelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

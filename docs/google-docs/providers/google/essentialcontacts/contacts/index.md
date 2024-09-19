@@ -76,7 +76,7 @@ notificationCategorySubscriptions,
 validateTime,
 validationState
 FROM google.essentialcontacts.contacts
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -113,15 +113,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-validationState: string
-email: string
-notificationCategorySubscriptions:
-  - enumDescriptions: string
-    enum: string
-    type: string
-validateTime: string
-languageTag: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: validationState
+      value: string
+    - name: email
+      value: string
+    - name: notificationCategorySubscriptions
+      value:
+        - string
+    - name: validateTime
+      value: string
+    - name: languageTag
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

@@ -58,5 +58,5 @@ kmsServiceAccountId,
 loggingServiceAccountId,
 storageLocation
 FROM google.logging.billing_accounts_settings
-WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+WHERE billingAccountsId = '{{ billingAccountsId }}';
 ```

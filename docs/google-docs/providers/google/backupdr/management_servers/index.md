@@ -80,7 +80,7 @@ workforceIdentityBasedManagementUri,
 workforceIdentityBasedOauth2ClientId
 FROM google.backupdr.management_servers
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,31 +121,57 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-labels: object
-createTime: string
-updateTime: string
-type: string
-managementUri:
-  webUi: string
-  api: string
-workforceIdentityBasedManagementUri:
-  firstPartyManagementUri: string
-  thirdPartyManagementUri: string
-state: string
-networks:
-  - network: string
-    peeringMode: string
-etag: string
-oauth2ClientId: string
-workforceIdentityBasedOauth2ClientId:
-  firstPartyOauth2ClientId: string
-  thirdPartyOauth2ClientId: string
-baProxyUri:
-  - type: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: type
+      value: string
+    - name: managementUri
+      value:
+        - name: webUi
+          value: string
+        - name: api
+          value: string
+    - name: workforceIdentityBasedManagementUri
+      value:
+        - name: firstPartyManagementUri
+          value: string
+        - name: thirdPartyManagementUri
+          value: string
+    - name: state
+      value: string
+    - name: networks
+      value:
+        - - name: network
+            value: string
+          - name: peeringMode
+            value: string
+    - name: etag
+      value: string
+    - name: oauth2ClientId
+      value: string
+    - name: workforceIdentityBasedOauth2ClientId
+      value:
+        - name: firstPartyOauth2ClientId
+          value: string
+        - name: thirdPartyOauth2ClientId
+          value: string
+    - name: baProxyUri
+      value:
+        - string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

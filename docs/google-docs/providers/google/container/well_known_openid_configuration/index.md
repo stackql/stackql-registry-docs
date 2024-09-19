@@ -62,5 +62,5 @@ subject_types_supported
 FROM google.container.well_known_openid_configuration
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

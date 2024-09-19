@@ -56,5 +56,5 @@ start
 FROM google.compute.instances_serial_port_output
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

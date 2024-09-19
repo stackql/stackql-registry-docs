@@ -50,5 +50,5 @@ networkEndpoint
 FROM google.compute.region_network_endpoint_groups_network_endpoints
 WHERE networkEndpointGroup = '{{ networkEndpointGroup }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

@@ -55,7 +55,7 @@ FROM google.workstations.workstation_configs_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND workstationClustersId = '{{ workstationClustersId }}'
-AND workstationConfigsId = '{{ workstationConfigsId }}'; 
+AND workstationConfigsId = '{{ workstationConfigsId }}';
 ```
 
 ## `REPLACE` example

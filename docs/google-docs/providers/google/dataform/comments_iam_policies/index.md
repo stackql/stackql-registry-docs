@@ -55,7 +55,7 @@ WHERE commentThreadsId = '{{ commentThreadsId }}'
 AND commentsId = '{{ commentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `REPLACE` example

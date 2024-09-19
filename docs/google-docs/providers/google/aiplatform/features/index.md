@@ -73,7 +73,7 @@ versionColumnName
 FROM google.aiplatform.features
 WHERE featureGroupsId = '{{ featureGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -109,7 +109,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ versionColumnName }}',
-true|false,
+{{ disableMonitoring }},
 '{{ description }}',
 '{{ name }}',
 '{{ etag }}',
@@ -122,26 +122,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-versionColumnName: string
-updateTime: string
-disableMonitoring: boolean
-createTime: string
-description: string
-monitoringStatsAnomalies:
-  - featureStatsAnomaly:
-      statsUri: string
-      anomalyUri: string
-      anomalyDetectionThreshold: number
-      endTime: string
-      distributionDeviation: number
-      startTime: string
-      score: number
-    objective: string
-name: string
-etag: string
-valueType: string
-labels: object
-pointOfContact: string
+- name: your_resource_model_name
+  props:
+    - name: versionColumnName
+      value: string
+    - name: updateTime
+      value: string
+    - name: disableMonitoring
+      value: boolean
+    - name: createTime
+      value: string
+    - name: description
+      value: string
+    - name: monitoringStatsAnomalies
+      value:
+        - - name: featureStatsAnomaly
+            value:
+              - name: statsUri
+                value: string
+              - name: anomalyUri
+                value: string
+              - name: anomalyDetectionThreshold
+                value: number
+              - name: endTime
+                value: string
+              - name: distributionDeviation
+                value: number
+              - name: startTime
+                value: string
+              - name: score
+                value: number
+          - name: objective
+            value: string
+    - name: name
+      value: string
+    - name: etag
+      value: string
+    - name: valueType
+      value: string
+    - name: labels
+      value: object
+    - name: pointOfContact
+      value: string
 
 ```
 </TabItem>

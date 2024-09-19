@@ -68,9 +68,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-ipOverrideData:
-  overrideType: string
-  ip: string
+- name: your_resource_model_name
+  props:
+    - name: ipOverrideData
+      value:
+        - name: overrideType
+          value: string
+        - name: ip
+          value: string
 
 ```
 </TabItem>

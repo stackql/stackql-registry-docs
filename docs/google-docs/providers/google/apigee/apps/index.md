@@ -81,7 +81,7 @@ lastModifiedAt,
 scopes,
 status
 FROM google.apigee.apps
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -130,35 +130,63 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-callbackUrl: string
-appId: string
-apiProducts:
-  - type: string
-scopes:
-  - type: string
-keyExpiresIn: string
-status: string
-appGroup: string
-lastModifiedAt: string
-createdAt: string
-name: string
-attributes:
-  - name: string
-    value: string
-credentials:
-  - expiresAt: string
-    consumerSecret: string
-    apiProducts:
-      - status: string
-        apiproduct: string
-    scopes:
-      - type: string
-    issuedAt: string
-    consumerKey: string
-    attributes:
-      - name: string
-        value: string
-    status: string
+- name: your_resource_model_name
+  props:
+    - name: callbackUrl
+      value: string
+    - name: appId
+      value: string
+    - name: apiProducts
+      value:
+        - string
+    - name: scopes
+      value:
+        - string
+    - name: keyExpiresIn
+      value: string
+    - name: status
+      value: string
+    - name: appGroup
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: createdAt
+      value: string
+    - name: name
+      value: string
+    - name: attributes
+      value:
+        - - name: name
+            value: string
+          - name: value
+            value: string
+    - name: credentials
+      value:
+        - - name: expiresAt
+            value: string
+          - name: consumerSecret
+            value: string
+          - name: apiProducts
+            value:
+              - - name: status
+                  value: string
+                - name: apiproduct
+                  value: string
+          - name: scopes
+            value:
+              - string
+          - name: issuedAt
+            value: string
+          - name: consumerKey
+            value: string
+          - name: attributes
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: string
+          - name: status
+            value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ retentionStrategy,
 retentionWindowDays
 FROM google.dialogflow.security_settings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -124,26 +124,43 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-redactionStrategy: string
-redactionScope: string
-inspectTemplate: string
-deidentifyTemplate: string
-retentionWindowDays: integer
-retentionStrategy: string
-purgeDataTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
-audioExportSettings:
-  gcsBucket: string
-  audioExportPattern: string
-  enableAudioRedaction: boolean
-  audioFormat: string
-  storeTtsAudio: boolean
-insightsExportSettings:
-  enableInsightsExport: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: redactionStrategy
+      value: string
+    - name: redactionScope
+      value: string
+    - name: inspectTemplate
+      value: string
+    - name: deidentifyTemplate
+      value: string
+    - name: retentionWindowDays
+      value: integer
+    - name: retentionStrategy
+      value: string
+    - name: purgeDataTypes
+      value:
+        - string
+    - name: audioExportSettings
+      value:
+        - name: gcsBucket
+          value: string
+        - name: audioExportPattern
+          value: string
+        - name: enableAudioRedaction
+          value: boolean
+        - name: audioFormat
+          value: string
+        - name: storeTtsAudio
+          value: boolean
+    - name: insightsExportSettings
+      value:
+        - name: enableInsightsExport
+          value: boolean
 
 ```
 </TabItem>

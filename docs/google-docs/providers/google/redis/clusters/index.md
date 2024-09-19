@@ -94,7 +94,7 @@ uid,
 zoneDistributionConfig
 FROM google.redis.clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -143,7 +143,7 @@ SELECT
 '{{ redisConfigs }}',
 '{{ zoneDistributionConfig }}',
 '{{ crossClusterReplicationConfig }}',
-true|false,
+{{ deletionProtectionEnabled }},
 '{{ maintenancePolicy }}'
 ;
 ```
@@ -151,74 +151,144 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-state: string
-uid: string
-replicaCount: integer
-authorizationMode: string
-transitEncryptionMode: string
-sizeGb: integer
-shardCount: integer
-pscConfigs:
-  - network: string
-discoveryEndpoints:
-  - address: string
-    port: integer
-    pscConfig:
-      network: string
-pscConnections:
-  - pscConnectionId: string
-    address: string
-    forwardingRule: string
-    projectId: string
-    network: string
-stateInfo:
-  updateInfo:
-    targetShardCount: integer
-    targetReplicaCount: integer
-nodeType: string
-persistenceConfig:
-  mode: string
-  rdbConfig:
-    rdbSnapshotPeriod: string
-    rdbSnapshotStartTime: string
-  aofConfig:
-    appendFsync: string
-redisConfigs: object
-preciseSizeGb: number
-zoneDistributionConfig:
-  mode: string
-  zone: string
-crossClusterReplicationConfig:
-  clusterRole: string
-  primaryCluster:
-    cluster: string
-    uid: string
-  secondaryClusters:
-    - cluster: string
-      uid: string
-  updateTime: string
-  membership:
-    secondaryClusters:
-      - cluster: string
-        uid: string
-deletionProtectionEnabled: boolean
-maintenancePolicy:
-  createTime: string
-  updateTime: string
-  weeklyMaintenanceWindow:
-    - day: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-      duration: string
-maintenanceSchedule:
-  startTime: string
-  endTime: string
-  scheduleDeadlineTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: state
+      value: string
+    - name: uid
+      value: string
+    - name: replicaCount
+      value: integer
+    - name: authorizationMode
+      value: string
+    - name: transitEncryptionMode
+      value: string
+    - name: sizeGb
+      value: integer
+    - name: shardCount
+      value: integer
+    - name: pscConfigs
+      value:
+        - - name: network
+            value: string
+    - name: discoveryEndpoints
+      value:
+        - - name: address
+            value: string
+          - name: port
+            value: integer
+          - name: pscConfig
+            value:
+              - name: network
+                value: string
+    - name: pscConnections
+      value:
+        - - name: pscConnectionId
+            value: string
+          - name: address
+            value: string
+          - name: forwardingRule
+            value: string
+          - name: projectId
+            value: string
+          - name: network
+            value: string
+    - name: stateInfo
+      value:
+        - name: updateInfo
+          value:
+            - name: targetShardCount
+              value: integer
+            - name: targetReplicaCount
+              value: integer
+    - name: nodeType
+      value: string
+    - name: persistenceConfig
+      value:
+        - name: mode
+          value: string
+        - name: rdbConfig
+          value:
+            - name: rdbSnapshotPeriod
+              value: string
+            - name: rdbSnapshotStartTime
+              value: string
+        - name: aofConfig
+          value:
+            - name: appendFsync
+              value: string
+    - name: redisConfigs
+      value: object
+    - name: preciseSizeGb
+      value: number
+    - name: zoneDistributionConfig
+      value:
+        - name: mode
+          value: string
+        - name: zone
+          value: string
+    - name: crossClusterReplicationConfig
+      value:
+        - name: clusterRole
+          value: string
+        - name: primaryCluster
+          value:
+            - name: cluster
+              value: string
+            - name: uid
+              value: string
+        - name: secondaryClusters
+          value:
+            - - name: cluster
+                value: string
+              - name: uid
+                value: string
+        - name: updateTime
+          value: string
+        - name: membership
+          value:
+            - name: secondaryClusters
+              value:
+                - - name: cluster
+                    value: string
+                  - name: uid
+                    value: string
+    - name: deletionProtectionEnabled
+      value: boolean
+    - name: maintenancePolicy
+      value:
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: weeklyMaintenanceWindow
+          value:
+            - - name: day
+                value: string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+              - name: duration
+                value: string
+    - name: maintenanceSchedule
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: scheduleDeadlineTime
+          value: string
 
 ```
 </TabItem>

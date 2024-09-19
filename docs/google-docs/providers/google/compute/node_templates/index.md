@@ -80,7 +80,7 @@ serverBinding,
 status,
 statusMessage
 FROM google.compute.node_templates
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -135,31 +135,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-nodeType: string
-nodeAffinityLabels: object
-status: string
-statusMessage: string
-region: string
-selfLink: string
-nodeTypeFlexibility:
-  cpus: string
-  memory: string
-  localSsd: string
-serverBinding:
-  type: string
-disks:
-  - diskType: string
-    diskSizeGb: integer
-    diskCount: integer
-accelerators:
-  - acceleratorType: string
-    acceleratorCount: integer
-cpuOvercommitType: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: nodeType
+      value: string
+    - name: nodeAffinityLabels
+      value: object
+    - name: status
+      value: string
+    - name: statusMessage
+      value: string
+    - name: region
+      value: string
+    - name: selfLink
+      value: string
+    - name: nodeTypeFlexibility
+      value:
+        - name: cpus
+          value: string
+        - name: memory
+          value: string
+        - name: localSsd
+          value: string
+    - name: serverBinding
+      value:
+        - name: type
+          value: string
+    - name: disks
+      value:
+        - - name: diskType
+            value: string
+          - name: diskSizeGb
+            value: integer
+          - name: diskCount
+            value: integer
+    - name: accelerators
+      value:
+        - - name: acceleratorType
+            value: string
+          - name: acceleratorCount
+            value: integer
+    - name: cpuOvercommitType
+      value: string
 
 ```
 </TabItem>

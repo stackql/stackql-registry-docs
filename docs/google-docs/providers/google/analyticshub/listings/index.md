@@ -83,7 +83,7 @@ state
 FROM google.analyticshub.listings
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -142,42 +142,74 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-bigqueryDataset:
-  dataset: string
-  selectedResources:
-    - table: string
-  restrictedExportPolicy:
-    enabled: boolean
-    restrictDirectTableAccess: boolean
-    restrictQueryResult: boolean
-pubsubTopic:
-  topic: string
-  dataAffinityRegions:
-    - type: string
-name: string
-displayName: string
-description: string
-primaryContact: string
-documentation: string
-state: string
-icon: string
-dataProvider:
-  name: string
-  primaryContact: string
-categories:
-  - type: string
-    enumDescriptions: string
-    enum: string
-publisher:
-  name: string
-  primaryContact: string
-requestAccess: string
-restrictedExportConfig:
-  enabled: boolean
-  restrictDirectTableAccess: boolean
-  restrictQueryResult: boolean
-discoveryType: string
-resourceType: string
+- name: your_resource_model_name
+  props:
+    - name: bigqueryDataset
+      value:
+        - name: dataset
+          value: string
+        - name: selectedResources
+          value:
+            - - name: table
+                value: string
+        - name: restrictedExportPolicy
+          value:
+            - name: enabled
+              value: boolean
+            - name: restrictDirectTableAccess
+              value: boolean
+            - name: restrictQueryResult
+              value: boolean
+    - name: pubsubTopic
+      value:
+        - name: topic
+          value: string
+        - name: dataAffinityRegions
+          value:
+            - string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: primaryContact
+      value: string
+    - name: documentation
+      value: string
+    - name: state
+      value: string
+    - name: icon
+      value: string
+    - name: dataProvider
+      value:
+        - name: name
+          value: string
+        - name: primaryContact
+          value: string
+    - name: categories
+      value:
+        - string
+    - name: publisher
+      value:
+        - name: name
+          value: string
+        - name: primaryContact
+          value: string
+    - name: requestAccess
+      value: string
+    - name: restrictedExportConfig
+      value:
+        - name: enabled
+          value: boolean
+        - name: restrictDirectTableAccess
+          value: boolean
+        - name: restrictQueryResult
+          value: boolean
+    - name: discoveryType
+      value: string
+    - name: resourceType
+      value: string
 
 ```
 </TabItem>

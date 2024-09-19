@@ -70,5 +70,5 @@ subscriberContact
 FROM google.analyticshub.data_exchanges_subscriptions
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

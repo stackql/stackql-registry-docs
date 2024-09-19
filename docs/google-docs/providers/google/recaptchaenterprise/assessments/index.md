@@ -72,155 +72,277 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-phoneFraudAssessment:
-  smsTollFraudVerdict:
-    reasons:
-      - enum: string
-        enumDescriptions: string
-        type: string
-    risk: number
-name: string
-assessmentEnvironment:
-  version: string
-  client: string
-accountVerification:
-  latestVerificationResult: string
-  languageCode: string
-  endpoints:
-    - emailAddress: string
-      requestToken: string
-      phoneNumber: string
-      lastVerificationTime: string
-  username: string
-tokenProperties:
-  hostname: string
-  valid: boolean
-  invalidReason: string
-  androidPackageName: string
-  createTime: string
-  action: string
-  iosBundleId: string
-event:
-  userIpAddress: string
-  fraudPrevention: string
-  wafTokenAssessment: boolean
-  requestedUri: string
-  userAgent: string
-  expectedAction: string
-  token: string
-  hashedAccountId: string
-  firewallPolicyEvaluation: boolean
-  express: boolean
-  headers:
-    - type: string
-  ja3: string
-  siteKey: string
-  transactionData:
-    billingAddress:
-      recipient: string
-      address:
-        - type: string
-      postalCode: string
-      regionCode: string
-      administrativeArea: string
-      locality: string
-    user:
-      phoneNumber: string
-      emailVerified: boolean
-      email: string
-      accountId: string
-      creationMs: string
-      phoneVerified: boolean
-    paymentMethod: string
-    cardBin: string
-    items:
-      - value: number
-        quantity: string
-        merchantAccountId: string
-        name: string
-    currencyCode: string
-    gatewayInfo:
-      avsResponseCode: string
-      name: string
-      gatewayResponseCode: string
-      cvvResponseCode: string
-    transactionId: string
-    shippingValue: number
-    cardLastFour: string
-    value: number
-    merchants:
-      - phoneNumber: string
-        emailVerified: boolean
-        email: string
-        accountId: string
-        creationMs: string
-        phoneVerified: boolean
-  userInfo:
-    userIds:
-      - email: string
-        username: string
-        phoneNumber: string
-    createAccountTime: string
-    accountId: string
-firewallPolicyAssessment:
-  error:
-    message: string
-    code: integer
-    details:
-      - additionalProperties: any
-        type: string
-  firewallPolicy:
-    description: string
-    actions:
-      - allow: {}
-        substitute:
-          path: string
-        setHeader:
+- name: your_resource_model_name
+  props:
+    - name: phoneFraudAssessment
+      value:
+        - name: smsTollFraudVerdict
+          value:
+            - name: reasons
+              value:
+                - string
+            - name: risk
+              value: number
+    - name: name
+      value: string
+    - name: assessmentEnvironment
+      value:
+        - name: version
           value: string
-          key: string
-        includeRecaptchaScript: {}
-        block: {}
-        redirect: {}
-    path: string
-    condition: string
-    name: string
-privatePasswordLeakVerification:
-  encryptedLeakMatchPrefixes:
-    - type: string
-      format: string
-  reencryptedUserCredentialsHash: string
-  lookupHashPrefix: string
-  encryptedUserCredentialsHash: string
-fraudSignals:
-  cardSignals:
-    cardLabels:
-      - type: string
-        enum: string
-        enumDescriptions: string
-  userSignals:
-    activeDaysLowerBound: integer
-    syntheticRisk: number
-riskAnalysis:
-  reasons:
-    - enum: string
-      enumDescriptions: string
-      type: string
-  extendedVerdictReasons:
-    - type: string
-  score: number
-accountDefenderAssessment:
-  labels:
-    - enumDescriptions: string
-      type: string
-      enum: string
-fraudPreventionAssessment:
-  stolenInstrumentVerdict:
-    risk: number
-  transactionRisk: number
-  cardTestingVerdict:
-    risk: number
-  behavioralTrustVerdict:
-    trust: number
+        - name: client
+          value: string
+    - name: accountVerification
+      value:
+        - name: latestVerificationResult
+          value: string
+        - name: languageCode
+          value: string
+        - name: endpoints
+          value:
+            - - name: emailAddress
+                value: string
+              - name: requestToken
+                value: string
+              - name: phoneNumber
+                value: string
+              - name: lastVerificationTime
+                value: string
+        - name: username
+          value: string
+    - name: tokenProperties
+      value:
+        - name: hostname
+          value: string
+        - name: valid
+          value: boolean
+        - name: invalidReason
+          value: string
+        - name: androidPackageName
+          value: string
+        - name: createTime
+          value: string
+        - name: action
+          value: string
+        - name: iosBundleId
+          value: string
+    - name: event
+      value:
+        - name: userIpAddress
+          value: string
+        - name: fraudPrevention
+          value: string
+        - name: wafTokenAssessment
+          value: boolean
+        - name: requestedUri
+          value: string
+        - name: userAgent
+          value: string
+        - name: expectedAction
+          value: string
+        - name: token
+          value: string
+        - name: hashedAccountId
+          value: string
+        - name: firewallPolicyEvaluation
+          value: boolean
+        - name: express
+          value: boolean
+        - name: headers
+          value:
+            - string
+        - name: ja3
+          value: string
+        - name: siteKey
+          value: string
+        - name: transactionData
+          value:
+            - name: billingAddress
+              value:
+                - name: recipient
+                  value: string
+                - name: address
+                  value:
+                    - string
+                - name: postalCode
+                  value: string
+                - name: regionCode
+                  value: string
+                - name: administrativeArea
+                  value: string
+                - name: locality
+                  value: string
+            - name: user
+              value:
+                - name: phoneNumber
+                  value: string
+                - name: emailVerified
+                  value: boolean
+                - name: email
+                  value: string
+                - name: accountId
+                  value: string
+                - name: creationMs
+                  value: string
+                - name: phoneVerified
+                  value: boolean
+            - name: paymentMethod
+              value: string
+            - name: cardBin
+              value: string
+            - name: items
+              value:
+                - - name: value
+                    value: number
+                  - name: quantity
+                    value: string
+                  - name: merchantAccountId
+                    value: string
+                  - name: name
+                    value: string
+            - name: currencyCode
+              value: string
+            - name: gatewayInfo
+              value:
+                - name: avsResponseCode
+                  value: string
+                - name: name
+                  value: string
+                - name: gatewayResponseCode
+                  value: string
+                - name: cvvResponseCode
+                  value: string
+            - name: transactionId
+              value: string
+            - name: shippingValue
+              value: number
+            - name: cardLastFour
+              value: string
+            - name: value
+              value: number
+            - name: merchants
+              value:
+                - - name: phoneNumber
+                    value: string
+                  - name: emailVerified
+                    value: boolean
+                  - name: email
+                    value: string
+                  - name: accountId
+                    value: string
+                  - name: creationMs
+                    value: string
+                  - name: phoneVerified
+                    value: boolean
+        - name: userInfo
+          value:
+            - name: userIds
+              value:
+                - - name: email
+                    value: string
+                  - name: username
+                    value: string
+                  - name: phoneNumber
+                    value: string
+            - name: createAccountTime
+              value: string
+            - name: accountId
+              value: string
+    - name: firewallPolicyAssessment
+      value:
+        - name: error
+          value:
+            - name: message
+              value: string
+            - name: code
+              value: integer
+            - name: details
+              value:
+                - object
+        - name: firewallPolicy
+          value:
+            - name: description
+              value: string
+            - name: actions
+              value:
+                - - name: allow
+                    value: []
+                  - name: substitute
+                    value:
+                      - name: path
+                        value: string
+                  - name: setHeader
+                    value:
+                      - name: value
+                        value: string
+                      - name: key
+                        value: string
+                  - name: includeRecaptchaScript
+                    value: []
+                  - name: block
+                    value: []
+                  - name: redirect
+                    value: []
+            - name: path
+              value: string
+            - name: condition
+              value: string
+            - name: name
+              value: string
+    - name: privatePasswordLeakVerification
+      value:
+        - name: encryptedLeakMatchPrefixes
+          value:
+            - string
+        - name: reencryptedUserCredentialsHash
+          value: string
+        - name: lookupHashPrefix
+          value: string
+        - name: encryptedUserCredentialsHash
+          value: string
+    - name: fraudSignals
+      value:
+        - name: cardSignals
+          value:
+            - name: cardLabels
+              value:
+                - string
+        - name: userSignals
+          value:
+            - name: activeDaysLowerBound
+              value: integer
+            - name: syntheticRisk
+              value: number
+    - name: riskAnalysis
+      value:
+        - name: reasons
+          value:
+            - string
+        - name: extendedVerdictReasons
+          value:
+            - string
+        - name: score
+          value: number
+    - name: accountDefenderAssessment
+      value:
+        - name: labels
+          value:
+            - string
+    - name: fraudPreventionAssessment
+      value:
+        - name: stolenInstrumentVerdict
+          value:
+            - name: risk
+              value: number
+        - name: transactionRisk
+          value: number
+        - name: cardTestingVerdict
+          value:
+            - name: risk
+              value: number
+        - name: behavioralTrustVerdict
+          value:
+            - name: trust
+              value: number
 
 ```
 </TabItem>

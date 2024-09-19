@@ -69,7 +69,7 @@ resourceNames,
 updateTime
 FROM google.logging.log_scopes
 WHERE foldersId = '{{ foldersId }}'
-AND locationsId = '{{ locationsId }}'; 
+AND locationsId = '{{ locationsId }}';
 ```
 
 ## `INSERT` example
@@ -104,12 +104,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-resourceNames:
-  - type: string
-description: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: resourceNames
+      value:
+        - string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

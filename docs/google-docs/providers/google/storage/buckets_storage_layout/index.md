@@ -56,5 +56,5 @@ kind,
 location,
 locationType
 FROM google.storage.buckets_storage_layout
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```

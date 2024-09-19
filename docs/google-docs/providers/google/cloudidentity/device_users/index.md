@@ -71,7 +71,7 @@ passwordState,
 userAgent,
 userEmail
 FROM google.cloudidentity.device_users
-WHERE devicesId = '{{ devicesId }}'; 
+WHERE devicesId = '{{ devicesId }}';
 ```
 
 ## `DELETE` example

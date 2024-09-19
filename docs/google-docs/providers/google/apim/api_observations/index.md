@@ -68,5 +68,5 @@ updateTime
 FROM google.apim.api_observations
 WHERE locationsId = '{{ locationsId }}'
 AND observationJobsId = '{{ observationJobsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

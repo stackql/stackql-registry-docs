@@ -83,7 +83,7 @@ reverseLookupConfig,
 serviceDirectoryConfig,
 visibility
 FROM google.dns.managed_zones
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -142,58 +142,111 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-dnsName: string
-description: string
-id: string
-nameServers:
-  - type: string
-creationTime: string
-dnssecConfig:
-  state: string
-  defaultKeySpecs:
-    - keyType: string
-      algorithm: string
-      keyLength: integer
-      kind: string
-  nonExistence: string
-  kind: string
-nameServerSet: string
-visibility: string
-privateVisibilityConfig:
-  networks:
-    - networkUrl: string
-      kind: string
-  gkeClusters:
-    - gkeClusterName: string
-      kind: string
-  kind: string
-forwardingConfig:
-  targetNameServers:
-    - ipv4Address: string
-      forwardingPath: string
-      ipv6Address: string
-      kind: string
-  kind: string
-labels: object
-peeringConfig:
-  targetNetwork:
-    networkUrl: string
-    deactivateTime: string
-    kind: string
-  kind: string
-reverseLookupConfig:
-  kind: string
-serviceDirectoryConfig:
-  namespace:
-    namespaceUrl: string
-    deletionTime: string
-    kind: string
-  kind: string
-cloudLoggingConfig:
-  enableLogging: boolean
-  kind: string
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: dnsName
+      value: string
+    - name: description
+      value: string
+    - name: id
+      value: string
+    - name: nameServers
+      value:
+        - string
+    - name: creationTime
+      value: string
+    - name: dnssecConfig
+      value:
+        - name: state
+          value: string
+        - name: defaultKeySpecs
+          value:
+            - - name: keyType
+                value: string
+              - name: algorithm
+                value: string
+              - name: keyLength
+                value: integer
+              - name: kind
+                value: string
+        - name: nonExistence
+          value: string
+        - name: kind
+          value: string
+    - name: nameServerSet
+      value: string
+    - name: visibility
+      value: string
+    - name: privateVisibilityConfig
+      value:
+        - name: networks
+          value:
+            - - name: networkUrl
+                value: string
+              - name: kind
+                value: string
+        - name: gkeClusters
+          value:
+            - - name: gkeClusterName
+                value: string
+              - name: kind
+                value: string
+        - name: kind
+          value: string
+    - name: forwardingConfig
+      value:
+        - name: targetNameServers
+          value:
+            - - name: ipv4Address
+                value: string
+              - name: forwardingPath
+                value: string
+              - name: ipv6Address
+                value: string
+              - name: kind
+                value: string
+        - name: kind
+          value: string
+    - name: labels
+      value: object
+    - name: peeringConfig
+      value:
+        - name: targetNetwork
+          value:
+            - name: networkUrl
+              value: string
+            - name: deactivateTime
+              value: string
+            - name: kind
+              value: string
+        - name: kind
+          value: string
+    - name: reverseLookupConfig
+      value:
+        - name: kind
+          value: string
+    - name: serviceDirectoryConfig
+      value:
+        - name: namespace
+          value:
+            - name: namespaceUrl
+              value: string
+            - name: deletionTime
+              value: string
+            - name: kind
+              value: string
+        - name: kind
+          value: string
+    - name: cloudLoggingConfig
+      value:
+        - name: enableLogging
+          value: boolean
+        - name: kind
+          value: string
+    - name: kind
+      value: string
 
 ```
 </TabItem>

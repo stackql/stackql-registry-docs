@@ -54,5 +54,5 @@ error,
 metadata,
 response
 FROM google.cloudidentity.memberships_membership_graph
-WHERE groupsId = '{{ groupsId }}'; 
+WHERE groupsId = '{{ groupsId }}';
 ```

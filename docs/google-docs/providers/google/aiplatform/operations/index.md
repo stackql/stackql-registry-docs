@@ -60,7 +60,7 @@ response
 FROM google.aiplatform.operations
 WHERE indexEndpointsId = '{{ indexEndpointsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

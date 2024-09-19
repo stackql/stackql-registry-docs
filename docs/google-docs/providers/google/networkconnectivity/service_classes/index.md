@@ -62,7 +62,7 @@ serviceClass,
 updateTime
 FROM google.networkconnectivity.service_classes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

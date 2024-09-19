@@ -76,7 +76,7 @@ uri
 FROM google.aiplatform.artifacts
 WHERE locationsId = '{{ locationsId }}'
 AND metadataStoresId = '{{ metadataStoresId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -127,18 +127,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-uri: string
-labels: object
-metadata: object
-schemaVersion: string
-schemaTitle: string
-displayName: string
-state: string
-name: string
-updateTime: string
-etag: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: string
+    - name: uri
+      value: string
+    - name: labels
+      value: object
+    - name: metadata
+      value: object
+    - name: schemaVersion
+      value: string
+    - name: schemaTitle
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

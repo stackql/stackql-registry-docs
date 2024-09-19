@@ -57,7 +57,7 @@ runtimeMetadata,
 status,
 templateType
 FROM google.dataflow.templates
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -96,30 +96,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-jobName: string
-gcsPath: string
-parameters: object
-environment:
-  numWorkers: integer
-  maxWorkers: integer
-  zone: string
-  serviceAccountEmail: string
-  tempLocation: string
-  bypassTempDirValidation: boolean
-  machineType: string
-  additionalExperiments:
-    - type: string
-  network: string
-  subnetwork: string
-  additionalUserLabels: object
-  kmsKeyName: string
-  ipConfiguration: string
-  workerRegion: string
-  workerZone: string
-  enableStreamingEngine: boolean
-  diskSizeGb: integer
-  streamingMode: string
-location: string
+- name: your_resource_model_name
+  props:
+    - name: jobName
+      value: string
+    - name: gcsPath
+      value: string
+    - name: parameters
+      value: object
+    - name: environment
+      value:
+        - name: numWorkers
+          value: integer
+        - name: maxWorkers
+          value: integer
+        - name: zone
+          value: string
+        - name: serviceAccountEmail
+          value: string
+        - name: tempLocation
+          value: string
+        - name: bypassTempDirValidation
+          value: boolean
+        - name: machineType
+          value: string
+        - name: additionalExperiments
+          value:
+            - string
+        - name: network
+          value: string
+        - name: subnetwork
+          value: string
+        - name: additionalUserLabels
+          value: object
+        - name: kmsKeyName
+          value: string
+        - name: ipConfiguration
+          value: string
+        - name: workerRegion
+          value: string
+        - name: workerZone
+          value: string
+        - name: enableStreamingEngine
+          value: boolean
+        - name: diskSizeGb
+          value: integer
+        - name: streamingMode
+          value: string
+    - name: location
+      value: string
 
 ```
 </TabItem>

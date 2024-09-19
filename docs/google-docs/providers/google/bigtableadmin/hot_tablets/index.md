@@ -60,5 +60,5 @@ tableName
 FROM google.bigtableadmin.hot_tablets
 WHERE clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

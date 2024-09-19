@@ -61,7 +61,7 @@ tenantResources
 FROM google.serviceconsumermanagement.tenancy_units
 WHERE servicesId = '{{ servicesId }}'
 AND servicesId1 = '{{ servicesId1 }}'
-AND servicesId2 = '{{ servicesId2 }}'; 
+AND servicesId2 = '{{ servicesId2 }}';
 ```
 
 ## `INSERT` example
@@ -96,7 +96,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-tenancyUnitId: string
+- name: your_resource_model_name
+  props:
+    - name: tenancyUnitId
+      value: string
 
 ```
 </TabItem>

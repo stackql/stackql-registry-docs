@@ -59,7 +59,7 @@ WHERE entitiesId = '{{ entitiesId }}'
 AND lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND zonesId = '{{ zonesId }}'; 
+AND zonesId = '{{ zonesId }}';
 ```
 
 ## `INSERT` example
@@ -102,11 +102,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-values:
-  - type: string
-location: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: values
+      value:
+        - string
+    - name: location
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

@@ -47,5 +47,5 @@ Returns a list of supported languages for translation.
 SELECT
 languages
 FROM google.translate.supported_languages
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

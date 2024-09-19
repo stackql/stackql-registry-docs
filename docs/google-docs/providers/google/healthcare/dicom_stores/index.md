@@ -66,7 +66,7 @@ streamConfigs
 FROM google.healthcare.dicom_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,16 +107,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-notificationConfig:
-  pubsubTopic: string
-  sendForBulkImport: boolean
-labels: object
-streamConfigs:
-  - bigqueryDestination:
-      tableUri: string
-      force: boolean
-      writeDisposition: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: notificationConfig
+      value:
+        - name: pubsubTopic
+          value: string
+        - name: sendForBulkImport
+          value: boolean
+    - name: labels
+      value: object
+    - name: streamConfigs
+      value:
+        - - name: bigqueryDestination
+            value:
+              - name: tableUri
+                value: string
+              - name: force
+                value: boolean
+              - name: writeDisposition
+                value: string
 
 ```
 </TabItem>

@@ -83,14 +83,14 @@ SELECT
 '{{ servicesId2 }}',
 '{{ role }}',
 '{{ ipPrefixLength }}',
-true|false,
+{{ skipRequestedAddressValidation }},
 '{{ consumerNetwork }}',
 '{{ internalRange }}',
 '{{ secondaryIpRangeSpecs }}',
 '{{ description }}',
-true|false,
+{{ useCustomComputeIdempotencyWindow }},
 '{{ requestedRanges }}',
-true|false,
+{{ allowSubnetCidrRoutesOverlap }},
 '{{ computeIdempotencyWindow }}',
 '{{ subnetwork }}',
 '{{ requestedAddress }}',
@@ -100,39 +100,65 @@ true|false,
 '{{ subnetworkUsers }}',
 '{{ purpose }}',
 '{{ region }}',
-true|false
+{{ checkServiceNetworkingUsePermission }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-role: string
-ipPrefixLength: integer
-skipRequestedAddressValidation: boolean
-consumerNetwork: string
-internalRange: string
-secondaryIpRangeSpecs:
-  - ipPrefixLength: integer
-    outsideAllocationPublicIpRange: string
-    requestedAddress: string
-    rangeName: string
-description: string
-useCustomComputeIdempotencyWindow: boolean
-requestedRanges:
-  - type: string
-allowSubnetCidrRoutesOverlap: boolean
-computeIdempotencyWindow: string
-subnetwork: string
-requestedAddress: string
-outsideAllocationPublicIpRange: string
-privateIpv6GoogleAccess: string
-consumer: string
-subnetworkUsers:
-  - type: string
-purpose: string
-region: string
-checkServiceNetworkingUsePermission: boolean
+- name: your_resource_model_name
+  props:
+    - name: role
+      value: string
+    - name: ipPrefixLength
+      value: integer
+    - name: skipRequestedAddressValidation
+      value: boolean
+    - name: consumerNetwork
+      value: string
+    - name: internalRange
+      value: string
+    - name: secondaryIpRangeSpecs
+      value:
+        - - name: ipPrefixLength
+            value: integer
+          - name: outsideAllocationPublicIpRange
+            value: string
+          - name: requestedAddress
+            value: string
+          - name: rangeName
+            value: string
+    - name: description
+      value: string
+    - name: useCustomComputeIdempotencyWindow
+      value: boolean
+    - name: requestedRanges
+      value:
+        - string
+    - name: allowSubnetCidrRoutesOverlap
+      value: boolean
+    - name: computeIdempotencyWindow
+      value: string
+    - name: subnetwork
+      value: string
+    - name: requestedAddress
+      value: string
+    - name: outsideAllocationPublicIpRange
+      value: string
+    - name: privateIpv6GoogleAccess
+      value: string
+    - name: consumer
+      value: string
+    - name: subnetworkUsers
+      value:
+        - string
+    - name: purpose
+      value: string
+    - name: region
+      value: string
+    - name: checkServiceNetworkingUsePermission
+      value: boolean
 
 ```
 </TabItem>

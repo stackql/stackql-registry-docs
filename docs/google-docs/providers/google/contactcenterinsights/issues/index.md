@@ -61,7 +61,7 @@ updateTime
 FROM google.contactcenterinsights.issues
 WHERE issueModelsId = '{{ issueModelsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

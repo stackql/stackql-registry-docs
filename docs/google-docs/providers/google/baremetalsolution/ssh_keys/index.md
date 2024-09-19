@@ -51,7 +51,7 @@ name,
 publicKey
 FROM google.baremetalsolution.ssh_keys
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -84,8 +84,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-publicKey: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: publicKey
+      value: string
 
 ```
 </TabItem>

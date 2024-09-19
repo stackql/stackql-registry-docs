@@ -73,7 +73,7 @@ multiplexed
 FROM google.spanner.sessions
 WHERE databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,14 +110,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-sessionTemplate:
-  name: string
-  labels: object
-  createTime: string
-  approximateLastUseTime: string
-  creatorRole: string
-  multiplexed: boolean
-sessionCount: integer
+- name: your_resource_model_name
+  props:
+    - name: sessionTemplate
+      value:
+        - name: name
+          value: string
+        - name: labels
+          value: object
+        - name: createTime
+          value: string
+        - name: approximateLastUseTime
+          value: string
+        - name: creatorRole
+          value: string
+        - name: multiplexed
+          value: boolean
+    - name: sessionCount
+      value: integer
 
 ```
 </TabItem>

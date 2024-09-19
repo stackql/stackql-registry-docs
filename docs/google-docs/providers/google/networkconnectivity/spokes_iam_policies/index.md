@@ -54,7 +54,7 @@ role
 FROM google.networkconnectivity.spokes_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND spokesId = '{{ spokesId }}'; 
+AND spokesId = '{{ spokesId }}';
 ```
 
 ## `REPLACE` example

@@ -65,7 +65,7 @@ updateTime
 FROM google.recommender.recommenders_config
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND recommendersId = '{{ recommendersId }}'; 
+AND recommendersId = '{{ recommendersId }}';
 ```
 
 ## `UPDATE` example

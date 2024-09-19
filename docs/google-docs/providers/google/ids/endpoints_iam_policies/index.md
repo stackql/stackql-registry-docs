@@ -54,7 +54,7 @@ role
 FROM google.ids.endpoints_iam_policies
 WHERE endpointsId = '{{ endpointsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

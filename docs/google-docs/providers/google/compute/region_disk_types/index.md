@@ -68,5 +68,5 @@ validDiskSize,
 zone
 FROM google.compute.region_disk_types
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

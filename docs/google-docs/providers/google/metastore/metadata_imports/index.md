@@ -63,7 +63,7 @@ updateTime
 FROM google.metastore.metadata_imports
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -102,17 +102,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-databaseDump:
-  databaseType: string
-  gcsUri: string
-  sourceDatabase: string
-  type: string
-name: string
-description: string
-createTime: string
-updateTime: string
-endTime: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: databaseDump
+      value:
+        - name: databaseType
+          value: string
+        - name: gcsUri
+          value: string
+        - name: sourceDatabase
+          value: string
+        - name: type
+          value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: endTime
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

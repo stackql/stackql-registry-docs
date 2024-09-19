@@ -59,7 +59,7 @@ basic,
 custom,
 title
 FROM google.accesscontextmanager.access_levels
-WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
+WHERE accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `INSERT` example
@@ -98,48 +98,77 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-title: string
-description: string
-basic:
-  conditions:
-    - ipSubnetworks:
-        - type: string
-      devicePolicy:
-        requireScreenlock: boolean
-        allowedEncryptionStatuses:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        osConstraints:
-          - osType: string
-            minimumVersion: string
-            requireVerifiedChromeOs: boolean
-        allowedDeviceManagementLevels:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        requireAdminApproval: boolean
-        requireCorpOwned: boolean
-      requiredAccessLevels:
-        - type: string
-      negate: boolean
-      members:
-        - type: string
-      regions:
-        - type: string
-      vpcNetworkSources:
-        - vpcSubnetwork:
-            network: string
-            vpcIpSubnetworks:
-              - type: string
-  combiningFunction: string
-custom:
-  expr:
-    expression: string
-    title: string
-    description: string
-    location: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: title
+      value: string
+    - name: description
+      value: string
+    - name: basic
+      value:
+        - name: conditions
+          value:
+            - - name: ipSubnetworks
+                value:
+                  - string
+              - name: devicePolicy
+                value:
+                  - name: requireScreenlock
+                    value: boolean
+                  - name: allowedEncryptionStatuses
+                    value:
+                      - string
+                  - name: osConstraints
+                    value:
+                      - - name: osType
+                          value: string
+                        - name: minimumVersion
+                          value: string
+                        - name: requireVerifiedChromeOs
+                          value: boolean
+                  - name: allowedDeviceManagementLevels
+                    value:
+                      - string
+                  - name: requireAdminApproval
+                    value: boolean
+                  - name: requireCorpOwned
+                    value: boolean
+              - name: requiredAccessLevels
+                value:
+                  - string
+              - name: negate
+                value: boolean
+              - name: members
+                value:
+                  - string
+              - name: regions
+                value:
+                  - string
+              - name: vpcNetworkSources
+                value:
+                  - - name: vpcSubnetwork
+                      value:
+                        - name: network
+                          value: string
+                        - name: vpcIpSubnetworks
+                          value:
+                            - string
+        - name: combiningFunction
+          value: string
+    - name: custom
+      value:
+        - name: expr
+          value:
+            - name: expression
+              value: string
+            - name: title
+              value: string
+            - name: description
+              value: string
+            - name: location
+              value: string
 
 ```
 </TabItem>

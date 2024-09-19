@@ -63,7 +63,7 @@ FROM google.servicedirectory.endpoints
 WHERE locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -108,12 +108,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-address: string
-port: integer
-annotations: object
-network: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: address
+      value: string
+    - name: port
+      value: integer
+    - name: annotations
+      value: object
+    - name: network
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

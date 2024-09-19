@@ -47,5 +47,5 @@ SELECT
 Response
 FROM google.apigee.optimized_host_stats
 WHERE optimizedHostStatsId = '{{ optimizedHostStatsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

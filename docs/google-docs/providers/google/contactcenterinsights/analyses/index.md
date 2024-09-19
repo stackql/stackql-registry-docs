@@ -59,7 +59,7 @@ requestTime
 FROM google.contactcenterinsights.analyses
 WHERE conversationsId = '{{ conversationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,66 +96,126 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-analysisResult:
-  endTime: string
-  callAnalysisMetadata:
-    sentiments:
-      - channelTag: integer
-        sentimentData:
-          score: number
-          magnitude: number
-    silence:
-      silenceDuration: string
-      silencePercentage: number
-    intents: object
-    entities: object
-    issueModelResult:
-      issues:
-        - score: number
-          displayName: string
-          issue: string
-      issueModel: string
-    phraseMatchers: object
-    annotations:
-      - silenceData: {}
-        entityMentionData:
-          entityUniqueId: string
-          type: string
-        channelTag: integer
-        interruptionData: {}
-        phraseMatchData:
-          phraseMatcher: string
-          displayName: string
-        annotationEndBoundary:
-          wordIndex: integer
-          transcriptIndex: integer
-        issueMatchData:
-          issueAssignment:
-            score: number
-            displayName: string
-            issue: string
-        holdData: {}
-        intentMatchData:
-          intentUniqueId: string
-name: string
-createTime: string
-requestTime: string
-annotatorSelector:
-  runSummarizationAnnotator: boolean
-  runSentimentAnnotator: boolean
-  issueModels:
-    - type: string
-  runIntentAnnotator: boolean
-  runEntityAnnotator: boolean
-  runPhraseMatcherAnnotator: boolean
-  runInterruptionAnnotator: boolean
-  runSilenceAnnotator: boolean
-  runIssueModelAnnotator: boolean
-  summarizationConfig:
-    summarizationModel: string
-    conversationProfile: string
-  phraseMatchers:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: analysisResult
+      value:
+        - name: endTime
+          value: string
+        - name: callAnalysisMetadata
+          value:
+            - name: sentiments
+              value:
+                - - name: channelTag
+                    value: integer
+                  - name: sentimentData
+                    value:
+                      - name: score
+                        value: number
+                      - name: magnitude
+                        value: number
+            - name: silence
+              value:
+                - name: silenceDuration
+                  value: string
+                - name: silencePercentage
+                  value: number
+            - name: intents
+              value: object
+            - name: entities
+              value: object
+            - name: issueModelResult
+              value:
+                - name: issues
+                  value:
+                    - - name: score
+                        value: number
+                      - name: displayName
+                        value: string
+                      - name: issue
+                        value: string
+                - name: issueModel
+                  value: string
+            - name: phraseMatchers
+              value: object
+            - name: annotations
+              value:
+                - - name: silenceData
+                    value: []
+                  - name: entityMentionData
+                    value:
+                      - name: entityUniqueId
+                        value: string
+                      - name: type
+                        value: string
+                  - name: channelTag
+                    value: integer
+                  - name: interruptionData
+                    value: []
+                  - name: phraseMatchData
+                    value:
+                      - name: phraseMatcher
+                        value: string
+                      - name: displayName
+                        value: string
+                  - name: annotationEndBoundary
+                    value:
+                      - name: wordIndex
+                        value: integer
+                      - name: transcriptIndex
+                        value: integer
+                  - name: issueMatchData
+                    value:
+                      - name: issueAssignment
+                        value:
+                          - name: score
+                            value: number
+                          - name: displayName
+                            value: string
+                          - name: issue
+                            value: string
+                  - name: holdData
+                    value: []
+                  - name: intentMatchData
+                    value:
+                      - name: intentUniqueId
+                        value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: requestTime
+      value: string
+    - name: annotatorSelector
+      value:
+        - name: runSummarizationAnnotator
+          value: boolean
+        - name: runSentimentAnnotator
+          value: boolean
+        - name: issueModels
+          value:
+            - string
+        - name: runIntentAnnotator
+          value: boolean
+        - name: runEntityAnnotator
+          value: boolean
+        - name: runPhraseMatcherAnnotator
+          value: boolean
+        - name: runInterruptionAnnotator
+          value: boolean
+        - name: runSilenceAnnotator
+          value: boolean
+        - name: runIssueModelAnnotator
+          value: boolean
+        - name: summarizationConfig
+          value:
+            - name: summarizationModel
+              value: string
+            - name: conversationProfile
+              value: string
+        - name: phraseMatchers
+          value:
+            - string
 
 ```
 </TabItem>

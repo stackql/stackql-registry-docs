@@ -69,7 +69,7 @@ testingOptions,
 wafSettings,
 webSettings
 FROM google.recaptchaenterprise.keys
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,37 +116,67 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-wafSettings:
-  wafFeature: string
-  wafService: string
-name: string
-iosSettings:
-  appleDeveloperId:
-    keyId: string
-    teamId: string
-    privateKey: string
-  allowedBundleIds:
-    - type: string
-  allowAllBundleIds: boolean
-createTime: string
-testingOptions:
-  testingChallenge: string
-  testingScore: number
-webSettings:
-  challengeSecurityPreference: string
-  allowedDomains:
-    - type: string
-  allowAllDomains: boolean
-  allowAmpTraffic: boolean
-  integrationType: string
-androidSettings:
-  supportNonGoogleAppStoreDistribution: boolean
-  allowedPackageNames:
-    - type: string
-  allowAllPackageNames: boolean
-labels: object
-displayName: string
-expressSettings: {}
+- name: your_resource_model_name
+  props:
+    - name: wafSettings
+      value:
+        - name: wafFeature
+          value: string
+        - name: wafService
+          value: string
+    - name: name
+      value: string
+    - name: iosSettings
+      value:
+        - name: appleDeveloperId
+          value:
+            - name: keyId
+              value: string
+            - name: teamId
+              value: string
+            - name: privateKey
+              value: string
+        - name: allowedBundleIds
+          value:
+            - string
+        - name: allowAllBundleIds
+          value: boolean
+    - name: createTime
+      value: string
+    - name: testingOptions
+      value:
+        - name: testingChallenge
+          value: string
+        - name: testingScore
+          value: number
+    - name: webSettings
+      value:
+        - name: challengeSecurityPreference
+          value: string
+        - name: allowedDomains
+          value:
+            - string
+        - name: allowAllDomains
+          value: boolean
+        - name: allowAmpTraffic
+          value: boolean
+        - name: integrationType
+          value: string
+    - name: androidSettings
+      value:
+        - name: supportNonGoogleAppStoreDistribution
+          value: boolean
+        - name: allowedPackageNames
+          value:
+            - string
+        - name: allowAllPackageNames
+          value: boolean
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: expressSettings
+      value: []
 
 ```
 </TabItem>

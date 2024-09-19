@@ -96,7 +96,7 @@ sensitivityScore,
 state
 FROM google.dlp.file_store_data_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

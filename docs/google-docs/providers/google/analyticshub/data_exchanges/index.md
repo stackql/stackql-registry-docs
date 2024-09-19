@@ -69,7 +69,7 @@ primaryContact,
 sharingEnvironmentConfig
 FROM google.analyticshub.data_exchanges
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,19 +114,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-primaryContact: string
-documentation: string
-listingCount: integer
-icon: string
-sharingEnvironmentConfig:
-  defaultExchangeConfig: {}
-  dcrExchangeConfig:
-    singleSelectedResourceSharingRestriction: boolean
-    singleLinkedDatasetPerCleanroom: boolean
-discoveryType: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: primaryContact
+      value: string
+    - name: documentation
+      value: string
+    - name: listingCount
+      value: integer
+    - name: icon
+      value: string
+    - name: sharingEnvironmentConfig
+      value:
+        - name: defaultExchangeConfig
+          value: []
+        - name: dcrExchangeConfig
+          value:
+            - name: singleSelectedResourceSharingRestriction
+              value: boolean
+            - name: singleLinkedDatasetPerCleanroom
+              value: boolean
+    - name: discoveryType
+      value: string
 
 ```
 </TabItem>

@@ -118,7 +118,7 @@ sourceType,
 status,
 storageLocations
 FROM google.compute.images
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -196,76 +196,134 @@ SELECT
 '{{ sourceSnapshotEncryptionKey }}',
 '{{ storageLocations }}',
 '{{ shieldedInstanceInitialState }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ architecture }}',
-true|false
+{{ enableConfidentialCompute }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-sourceType: string
-rawDisk:
-  source: string
-  sha1Checksum: string
-  containerType: string
-deprecated:
-  state: string
-  replacement: string
-  deprecated: string
-  obsolete: string
-  deleted: string
-status: string
-archiveSizeBytes: string
-diskSizeGb: string
-sourceDisk: string
-sourceDiskId: string
-licenses:
-  - type: string
-family: string
-imageEncryptionKey:
-  rawKey: string
-  rsaEncryptedKey: string
-  kmsKeyName: string
-  sha256: string
-  kmsKeyServiceAccount: string
-selfLink: string
-labels: object
-labelFingerprint: string
-guestOsFeatures:
-  - type: string
-licenseCodes:
-  - type: string
-    format: string
-sourceImage: string
-sourceImageId: string
-sourceSnapshot: string
-sourceSnapshotId: string
-storageLocations:
-  - type: string
-shieldedInstanceInitialState:
-  pk:
-    content: string
-    fileType: string
-  keks:
-    - content: string
-      fileType: string
-  dbs:
-    - content: string
-      fileType: string
-  dbxs:
-    - content: string
-      fileType: string
-satisfiesPzs: boolean
-architecture: string
-enableConfidentialCompute: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: sourceType
+      value: string
+    - name: rawDisk
+      value:
+        - name: source
+          value: string
+        - name: sha1Checksum
+          value: string
+        - name: containerType
+          value: string
+    - name: deprecated
+      value:
+        - name: state
+          value: string
+        - name: replacement
+          value: string
+        - name: deprecated
+          value: string
+        - name: obsolete
+          value: string
+        - name: deleted
+          value: string
+    - name: status
+      value: string
+    - name: archiveSizeBytes
+      value: string
+    - name: diskSizeGb
+      value: string
+    - name: sourceDisk
+      value: string
+    - name: sourceDiskId
+      value: string
+    - name: licenses
+      value:
+        - string
+    - name: family
+      value: string
+    - name: imageEncryptionKey
+      value:
+        - name: rawKey
+          value: string
+        - name: rsaEncryptedKey
+          value: string
+        - name: kmsKeyName
+          value: string
+        - name: sha256
+          value: string
+        - name: kmsKeyServiceAccount
+          value: string
+    - name: selfLink
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: guestOsFeatures
+      value:
+        - - name: type
+            value: string
+    - name: licenseCodes
+      value:
+        - string
+    - name: sourceImage
+      value: string
+    - name: sourceImageId
+      value: string
+    - name: sourceSnapshot
+      value: string
+    - name: sourceSnapshotId
+      value: string
+    - name: storageLocations
+      value:
+        - string
+    - name: shieldedInstanceInitialState
+      value:
+        - name: pk
+          value:
+            - name: content
+              value: string
+            - name: fileType
+              value: string
+        - name: keks
+          value:
+            - - name: content
+                value: string
+              - name: fileType
+                value: string
+        - name: dbs
+          value:
+            - - name: content
+                value: string
+              - name: fileType
+                value: string
+        - name: dbxs
+          value:
+            - - name: content
+                value: string
+              - name: fileType
+                value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: architecture
+      value: string
+    - name: enableConfidentialCompute
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

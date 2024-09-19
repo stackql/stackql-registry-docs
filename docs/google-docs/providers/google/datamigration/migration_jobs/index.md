@@ -110,7 +110,7 @@ updateTime,
 vpcPeeringConnectivity
 FROM google.datamigration.migration_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -181,58 +181,109 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-state: string
-phase: string
-type: string
-dumpPath: string
-dumpFlags:
-  dumpFlags:
-    - name: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-source: string
-destination: string
-reverseSshConnectivity:
-  vmIp: string
-  vmPort: integer
-  vm: string
-  vpc: string
-vpcPeeringConnectivity:
-  vpc: string
-staticIpConnectivity: {}
-duration: string
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-sourceDatabase:
-  provider: string
-  engine: string
-endTime: string
-conversionWorkspace:
-  name: string
-  commitId: string
-filter: string
-cmekKeyName: string
-performanceConfig:
-  dumpParallelLevel: string
-sqlserverHomogeneousMigrationJobConfig:
-  backupFilePattern: string
-  databaseBackups:
-    - database: string
-      encryptionOptions:
-        certPath: string
-        pvkPath: string
-        pvkPassword: string
-  useDiffBackup: boolean
-  promoteWhenReady: boolean
-dumpType: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: phase
+      value: string
+    - name: type
+      value: string
+    - name: dumpPath
+      value: string
+    - name: dumpFlags
+      value:
+        - name: dumpFlags
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+    - name: source
+      value: string
+    - name: destination
+      value: string
+    - name: reverseSshConnectivity
+      value:
+        - name: vmIp
+          value: string
+        - name: vmPort
+          value: integer
+        - name: vm
+          value: string
+        - name: vpc
+          value: string
+    - name: vpcPeeringConnectivity
+      value:
+        - name: vpc
+          value: string
+    - name: staticIpConnectivity
+      value: []
+    - name: duration
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: sourceDatabase
+      value:
+        - name: provider
+          value: string
+        - name: engine
+          value: string
+    - name: endTime
+      value: string
+    - name: conversionWorkspace
+      value:
+        - name: name
+          value: string
+        - name: commitId
+          value: string
+    - name: filter
+      value: string
+    - name: cmekKeyName
+      value: string
+    - name: performanceConfig
+      value:
+        - name: dumpParallelLevel
+          value: string
+    - name: sqlserverHomogeneousMigrationJobConfig
+      value:
+        - name: backupFilePattern
+          value: string
+        - name: databaseBackups
+          value:
+            - - name: database
+                value: string
+              - name: encryptionOptions
+                value:
+                  - name: certPath
+                    value: string
+                  - name: pvkPath
+                    value: string
+                  - name: pvkPassword
+                    value: string
+        - name: useDiffBackup
+          value: boolean
+        - name: promoteWhenReady
+          value: boolean
+    - name: dumpType
+      value: string
 
 ```
 </TabItem>

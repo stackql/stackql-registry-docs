@@ -49,5 +49,5 @@ firewallPolicys,
 firewalls
 FROM google.compute.networks_effective_firewalls
 WHERE network = '{{ network }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

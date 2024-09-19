@@ -50,5 +50,5 @@ email,
 kind,
 oobCode
 FROM google.identitytoolkit.relyingparty_oob_confirmation_code
-WHERE  = '{{  }}'; 
+;
 ```

@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.eventarc.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

@@ -70,7 +70,7 @@ updateTime
 FROM google.networksecurity.rules
 WHERE gatewaySecurityPoliciesId = '{{ gatewaySecurityPoliciesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,28 +107,40 @@ SELECT
 '{{ projectsId }}',
 '{{ basicProfile }}',
 '{{ name }}',
-true|false,
+{{ enabled }},
 '{{ priority }}',
 '{{ description }}',
 '{{ sessionMatcher }}',
 '{{ applicationMatcher }}',
-true|false
+{{ tlsInspectionEnabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-basicProfile: string
-name: string
-createTime: string
-updateTime: string
-enabled: boolean
-priority: integer
-description: string
-sessionMatcher: string
-applicationMatcher: string
-tlsInspectionEnabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: basicProfile
+      value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: enabled
+      value: boolean
+    - name: priority
+      value: integer
+    - name: description
+      value: string
+    - name: sessionMatcher
+      value: string
+    - name: applicationMatcher
+      value: string
+    - name: tlsInspectionEnabled
+      value: boolean
 
 ```
 </TabItem>

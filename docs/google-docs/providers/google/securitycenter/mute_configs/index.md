@@ -91,7 +91,7 @@ mostRecentEditor,
 type,
 updateTime
 FROM google.securitycenter.mute_configs
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -132,15 +132,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-filter: string
-createTime: string
-updateTime: string
-mostRecentEditor: string
-type: string
-expiryTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: filter
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: mostRecentEditor
+      value: string
+    - name: type
+      value: string
+    - name: expiryTime
+      value: string
 
 ```
 </TabItem>

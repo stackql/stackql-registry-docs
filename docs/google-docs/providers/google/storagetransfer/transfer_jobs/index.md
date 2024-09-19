@@ -77,7 +77,7 @@ schedule,
 status,
 transferSpec
 FROM google.storagetransfer.transfer_jobs
-WHERE filter = '{{ filter }}'; 
+WHERE filter = '{{ filter }}';
 ```
 
 ## `INSERT` example
@@ -96,7 +96,6 @@ Use the following StackQL query and manifest file to create a new <code>transfer
 ```sql
 /*+ create */
 INSERT INTO google.storagetransfer.transfer_jobs (
-,
 name,
 description,
 projectId,
@@ -110,7 +109,6 @@ status,
 latestOperationName
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ description }}',
 '{{ projectId }}',
@@ -128,113 +126,205 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-projectId: string
-transferSpec:
-  gcsDataSink:
-    bucketName: string
-    path: string
-    managedFolderTransferEnabled: boolean
-  posixDataSink:
-    rootDirectory: string
-  awsS3DataSource:
-    bucketName: string
-    awsAccessKey:
-      accessKeyId: string
-      secretAccessKey: string
-    path: string
-    roleArn: string
-    cloudfrontDomain: string
-    credentialsSecret: string
-    managedPrivateNetwork: boolean
-  httpDataSource:
-    listUrl: string
-  azureBlobStorageDataSource:
-    storageAccount: string
-    azureCredentials:
-      sasToken: string
-    container: string
-    path: string
-    credentialsSecret: string
-  awsS3CompatibleDataSource:
-    bucketName: string
-    path: string
-    endpoint: string
-    region: string
-    s3Metadata:
-      authMethod: string
-      requestModel: string
-      protocol: string
-      listApi: string
-  hdfsDataSource:
-    path: string
-  objectConditions:
-    minTimeElapsedSinceLastModification: string
-    maxTimeElapsedSinceLastModification: string
-    includePrefixes:
-      - type: string
-    excludePrefixes:
-      - type: string
-    lastModifiedSince: string
-    lastModifiedBefore: string
-  transferOptions:
-    overwriteObjectsAlreadyExistingInSink: boolean
-    deleteObjectsUniqueInSink: boolean
-    deleteObjectsFromSourceAfterTransfer: boolean
-    overwriteWhen: string
-    metadataOptions:
-      symlink: string
-      mode: string
-      gid: string
-      uid: string
-      acl: string
-      storageClass: string
-      temporaryHold: string
-      kmsKey: string
-      timeCreated: string
-  transferManifest:
-    location: string
-  sourceAgentPoolName: string
-  sinkAgentPoolName: string
-replicationSpec: {}
-notificationConfig:
-  pubsubTopic: string
-  eventTypes:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  payloadFormat: string
-loggingConfig:
-  logActions:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  logActionStates:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  enableOnpremGcsTransferLogs: boolean
-schedule:
-  scheduleStartDate:
-    year: integer
-    month: integer
-    day: integer
-  startTimeOfDay:
-    hours: integer
-    minutes: integer
-    seconds: integer
-    nanos: integer
-  repeatInterval: string
-eventStream:
-  name: string
-  eventStreamStartTime: string
-  eventStreamExpirationTime: string
-status: string
-creationTime: string
-lastModificationTime: string
-deletionTime: string
-latestOperationName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: projectId
+      value: string
+    - name: transferSpec
+      value:
+        - name: gcsDataSink
+          value:
+            - name: bucketName
+              value: string
+            - name: path
+              value: string
+            - name: managedFolderTransferEnabled
+              value: boolean
+        - name: posixDataSink
+          value:
+            - name: rootDirectory
+              value: string
+        - name: awsS3DataSource
+          value:
+            - name: bucketName
+              value: string
+            - name: awsAccessKey
+              value:
+                - name: accessKeyId
+                  value: string
+                - name: secretAccessKey
+                  value: string
+            - name: path
+              value: string
+            - name: roleArn
+              value: string
+            - name: cloudfrontDomain
+              value: string
+            - name: credentialsSecret
+              value: string
+            - name: managedPrivateNetwork
+              value: boolean
+        - name: httpDataSource
+          value:
+            - name: listUrl
+              value: string
+        - name: azureBlobStorageDataSource
+          value:
+            - name: storageAccount
+              value: string
+            - name: azureCredentials
+              value:
+                - name: sasToken
+                  value: string
+            - name: container
+              value: string
+            - name: path
+              value: string
+            - name: credentialsSecret
+              value: string
+        - name: awsS3CompatibleDataSource
+          value:
+            - name: bucketName
+              value: string
+            - name: path
+              value: string
+            - name: endpoint
+              value: string
+            - name: region
+              value: string
+            - name: s3Metadata
+              value:
+                - name: authMethod
+                  value: string
+                - name: requestModel
+                  value: string
+                - name: protocol
+                  value: string
+                - name: listApi
+                  value: string
+        - name: hdfsDataSource
+          value:
+            - name: path
+              value: string
+        - name: objectConditions
+          value:
+            - name: minTimeElapsedSinceLastModification
+              value: string
+            - name: maxTimeElapsedSinceLastModification
+              value: string
+            - name: includePrefixes
+              value:
+                - string
+            - name: excludePrefixes
+              value:
+                - string
+            - name: lastModifiedSince
+              value: string
+            - name: lastModifiedBefore
+              value: string
+        - name: transferOptions
+          value:
+            - name: overwriteObjectsAlreadyExistingInSink
+              value: boolean
+            - name: deleteObjectsUniqueInSink
+              value: boolean
+            - name: deleteObjectsFromSourceAfterTransfer
+              value: boolean
+            - name: overwriteWhen
+              value: string
+            - name: metadataOptions
+              value:
+                - name: symlink
+                  value: string
+                - name: mode
+                  value: string
+                - name: gid
+                  value: string
+                - name: uid
+                  value: string
+                - name: acl
+                  value: string
+                - name: storageClass
+                  value: string
+                - name: temporaryHold
+                  value: string
+                - name: kmsKey
+                  value: string
+                - name: timeCreated
+                  value: string
+        - name: transferManifest
+          value:
+            - name: location
+              value: string
+        - name: sourceAgentPoolName
+          value: string
+        - name: sinkAgentPoolName
+          value: string
+    - name: replicationSpec
+      value: []
+    - name: notificationConfig
+      value:
+        - name: pubsubTopic
+          value: string
+        - name: eventTypes
+          value:
+            - string
+        - name: payloadFormat
+          value: string
+    - name: loggingConfig
+      value:
+        - name: logActions
+          value:
+            - string
+        - name: logActionStates
+          value:
+            - string
+        - name: enableOnpremGcsTransferLogs
+          value: boolean
+    - name: schedule
+      value:
+        - name: scheduleStartDate
+          value:
+            - name: year
+              value: integer
+            - name: month
+              value: integer
+            - name: day
+              value: integer
+        - name: startTimeOfDay
+          value:
+            - name: hours
+              value: integer
+            - name: minutes
+              value: integer
+            - name: seconds
+              value: integer
+            - name: nanos
+              value: integer
+        - name: repeatInterval
+          value: string
+    - name: eventStream
+      value:
+        - name: name
+          value: string
+        - name: eventStreamStartTime
+          value: string
+        - name: eventStreamExpirationTime
+          value: string
+    - name: status
+      value: string
+    - name: creationTime
+      value: string
+    - name: lastModificationTime
+      value: string
+    - name: deletionTime
+      value: string
+    - name: latestOperationName
+      value: string
 
 ```
 </TabItem>

@@ -65,7 +65,7 @@ serverCertificate,
 updateTime
 FROM google.networksecurity.server_tls_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,7 +99,7 @@ SELECT
 '{{ name }}',
 '{{ description }}',
 '{{ labels }}',
-true|false,
+{{ allowOpen }},
 '{{ serverCertificate }}',
 '{{ mtlsPolicy }}'
 ;
@@ -108,22 +108,39 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-allowOpen: boolean
-serverCertificate:
-  grpcEndpoint:
-    targetUri: string
-  certificateProviderInstance:
-    pluginInstance: string
-mtlsPolicy:
-  clientValidationMode: string
-  clientValidationCa:
-    - {}
-  clientValidationTrustConfig: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: allowOpen
+      value: boolean
+    - name: serverCertificate
+      value:
+        - name: grpcEndpoint
+          value:
+            - name: targetUri
+              value: string
+        - name: certificateProviderInstance
+          value:
+            - name: pluginInstance
+              value: string
+    - name: mtlsPolicy
+      value:
+        - name: clientValidationMode
+          value: string
+        - name: clientValidationCa
+          value:
+            - []
+        - name: clientValidationTrustConfig
+          value: string
 
 ```
 </TabItem>

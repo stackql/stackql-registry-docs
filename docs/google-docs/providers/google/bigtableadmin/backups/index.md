@@ -73,7 +73,7 @@ state
 FROM google.bigtableadmin.backups
 WHERE clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,25 +116,43 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-sourceTable: string
-sourceBackup: string
-expireTime: string
-startTime: string
-endTime: string
-sizeBytes: string
-state: string
-encryptionInfo:
-  encryptionType: string
-  encryptionStatus:
-    code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-  kmsKeyVersion: string
-backupType: string
-hotToStandardTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: sourceTable
+      value: string
+    - name: sourceBackup
+      value: string
+    - name: expireTime
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: sizeBytes
+      value: string
+    - name: state
+      value: string
+    - name: encryptionInfo
+      value:
+        - name: encryptionType
+          value: string
+        - name: encryptionStatus
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+        - name: kmsKeyVersion
+          value: string
+    - name: backupType
+      value: string
+    - name: hotToStandardTime
+      value: string
 
 ```
 </TabItem>

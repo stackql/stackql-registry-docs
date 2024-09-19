@@ -47,5 +47,5 @@ SELECT
 features
 FROM google.compute.region_ssl_policies_available_features
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

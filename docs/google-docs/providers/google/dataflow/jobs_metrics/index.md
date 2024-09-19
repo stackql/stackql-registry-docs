@@ -50,5 +50,5 @@ metricTime,
 metrics
 FROM google.dataflow.jobs_metrics
 WHERE jobId = '{{ jobId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

@@ -80,7 +80,7 @@ uniqueId,
 updateTime
 FROM google.networkconnectivity.spokes
 WHERE hubsId = '{{ hubsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,50 +129,88 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-hub: string
-group: string
-linkedVpnTunnels:
-  uris:
-    - type: string
-  siteToSiteDataTransfer: boolean
-  vpcNetwork: string
-  includeImportRanges:
-    - type: string
-linkedInterconnectAttachments:
-  uris:
-    - type: string
-  siteToSiteDataTransfer: boolean
-  vpcNetwork: string
-  includeImportRanges:
-    - type: string
-linkedRouterApplianceInstances:
-  instances:
-    - virtualMachine: string
-      ipAddress: string
-  siteToSiteDataTransfer: boolean
-  vpcNetwork: string
-  includeImportRanges:
-    - type: string
-linkedVpcNetwork:
-  uri: string
-  excludeExportRanges:
-    - type: string
-  includeExportRanges:
-    - type: string
-  producerVpcSpokes:
-    - type: string
-uniqueId: string
-state: string
-reasons:
-  - code: string
-    message: string
-    userDetails: string
-spokeType: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: hub
+      value: string
+    - name: group
+      value: string
+    - name: linkedVpnTunnels
+      value:
+        - name: uris
+          value:
+            - string
+        - name: siteToSiteDataTransfer
+          value: boolean
+        - name: vpcNetwork
+          value: string
+        - name: includeImportRanges
+          value:
+            - string
+    - name: linkedInterconnectAttachments
+      value:
+        - name: uris
+          value:
+            - string
+        - name: siteToSiteDataTransfer
+          value: boolean
+        - name: vpcNetwork
+          value: string
+        - name: includeImportRanges
+          value:
+            - string
+    - name: linkedRouterApplianceInstances
+      value:
+        - name: instances
+          value:
+            - - name: virtualMachine
+                value: string
+              - name: ipAddress
+                value: string
+        - name: siteToSiteDataTransfer
+          value: boolean
+        - name: vpcNetwork
+          value: string
+        - name: includeImportRanges
+          value:
+            - string
+    - name: linkedVpcNetwork
+      value:
+        - name: uri
+          value: string
+        - name: excludeExportRanges
+          value:
+            - string
+        - name: includeExportRanges
+          value:
+            - string
+        - name: producerVpcSpokes
+          value:
+            - string
+    - name: uniqueId
+      value: string
+    - name: state
+      value: string
+    - name: reasons
+      value:
+        - - name: code
+            value: string
+          - name: message
+            value: string
+          - name: userDetails
+            value: string
+    - name: spokeType
+      value: string
 
 ```
 </TabItem>

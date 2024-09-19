@@ -50,5 +50,5 @@ contentType,
 data,
 extensions
 FROM google.solar.geo_tiff
-WHERE  = '{{  }}'; 
+;
 ```

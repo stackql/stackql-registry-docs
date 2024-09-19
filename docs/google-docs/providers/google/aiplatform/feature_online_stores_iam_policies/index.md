@@ -54,7 +54,7 @@ role
 FROM google.aiplatform.feature_online_stores_iam_policies
 WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

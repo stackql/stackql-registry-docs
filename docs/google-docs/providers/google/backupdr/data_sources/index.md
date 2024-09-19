@@ -77,7 +77,7 @@ updateTime
 FROM google.backupdr.data_sources
 WHERE backupVaultsId = '{{ backupVaultsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

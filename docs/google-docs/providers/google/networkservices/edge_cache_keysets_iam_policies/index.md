@@ -54,7 +54,7 @@ role
 FROM google.networkservices.edge_cache_keysets_iam_policies
 WHERE edgeCacheKeysetsId = '{{ edgeCacheKeysetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

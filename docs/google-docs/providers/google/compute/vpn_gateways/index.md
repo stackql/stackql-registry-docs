@@ -75,7 +75,7 @@ selfLink,
 stackType,
 vpnInterfaces
 FROM google.compute.vpn_gateways
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,23 +124,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-network: string
-selfLink: string
-labels: object
-labelFingerprint: string
-vpnInterfaces:
-  - id: integer
-    ipAddress: string
-    ipv6Address: string
-    interconnectAttachment: string
-stackType: string
-gatewayIpVersion: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: network
+      value: string
+    - name: selfLink
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: vpnInterfaces
+      value:
+        - - name: id
+            value: integer
+          - name: ipAddress
+            value: string
+          - name: ipv6Address
+            value: string
+          - name: interconnectAttachment
+            value: string
+    - name: stackType
+      value: string
+    - name: gatewayIpVersion
+      value: string
 
 ```
 </TabItem>

@@ -79,7 +79,7 @@ network,
 region,
 selfLink
 FROM google.compute.routers
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -122,7 +122,7 @@ SELECT
 '{{ bgpPeers }}',
 '{{ bgp }}',
 '{{ nats }}',
-true|false,
+{{ encryptedInterconnectRouter }},
 '{{ md5AuthenticationKeys }}'
 ;
 ```
@@ -130,124 +130,215 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-network: string
-interfaces:
-  - name: string
-    linkedVpnTunnel: string
-    linkedInterconnectAttachment: string
-    ipRange: string
-    managementType: string
-    privateIpAddress: string
-    redundantInterface: string
-    subnetwork: string
-    ipVersion: string
-bgpPeers:
-  - name: string
-    interfaceName: string
-    ipAddress: string
-    peerIpAddress: string
-    peerAsn: integer
-    advertisedRoutePriority: integer
-    advertiseMode: string
-    advertisedGroups:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    advertisedIpRanges:
-      - range: string
-        description: string
-    managementType: string
-    enable: string
-    bfd:
-      sessionInitializationMode: string
-      minTransmitInterval: integer
-      minReceiveInterval: integer
-      multiplier: integer
-    routerApplianceInstance: string
-    enableIpv6: boolean
-    ipv6NexthopAddress: string
-    peerIpv6NexthopAddress: string
-    md5AuthenticationKeyName: string
-    customLearnedRoutePriority: integer
-    customLearnedIpRanges:
-      - range: string
-    enableIpv4: boolean
-    ipv4NexthopAddress: string
-    peerIpv4NexthopAddress: string
-    exportPolicies:
-      - type: string
-    importPolicies:
-      - type: string
-bgp:
-  asn: integer
-  advertiseMode: string
-  advertisedGroups:
-    - type: string
-      enumDescriptions: string
-      enum: string
-  advertisedIpRanges:
-    - range: string
-      description: string
-  keepaliveInterval: integer
-  identifierRange: string
-selfLink: string
-nats:
-  - name: string
-    type: string
-    autoNetworkTier: string
-    endpointTypes:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    sourceSubnetworkIpRangesToNat: string
-    subnetworks:
-      - name: string
-        sourceIpRangesToNat:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        secondaryIpRangeNames:
-          - type: string
-    natIps:
-      - type: string
-    drainNatIps:
-      - type: string
-    natIpAllocateOption: string
-    minPortsPerVm: integer
-    maxPortsPerVm: integer
-    enableDynamicPortAllocation: boolean
-    udpIdleTimeoutSec: integer
-    icmpIdleTimeoutSec: integer
-    tcpEstablishedIdleTimeoutSec: integer
-    tcpTransitoryIdleTimeoutSec: integer
-    tcpTimeWaitTimeoutSec: integer
-    logConfig:
-      enable: boolean
-      filter: string
-    rules:
-      - ruleNumber: integer
-        description: string
-        match: string
-        action:
-          sourceNatActiveIps:
-            - type: string
-          sourceNatDrainIps:
-            - type: string
-          sourceNatActiveRanges:
-            - type: string
-          sourceNatDrainRanges:
-            - type: string
-    enableEndpointIndependentMapping: boolean
-encryptedInterconnectRouter: boolean
-md5AuthenticationKeys:
-  - name: string
-    key: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: network
+      value: string
+    - name: interfaces
+      value:
+        - - name: name
+            value: string
+          - name: linkedVpnTunnel
+            value: string
+          - name: linkedInterconnectAttachment
+            value: string
+          - name: ipRange
+            value: string
+          - name: managementType
+            value: string
+          - name: privateIpAddress
+            value: string
+          - name: redundantInterface
+            value: string
+          - name: subnetwork
+            value: string
+          - name: ipVersion
+            value: string
+    - name: bgpPeers
+      value:
+        - - name: name
+            value: string
+          - name: interfaceName
+            value: string
+          - name: ipAddress
+            value: string
+          - name: peerIpAddress
+            value: string
+          - name: peerAsn
+            value: integer
+          - name: advertisedRoutePriority
+            value: integer
+          - name: advertiseMode
+            value: string
+          - name: advertisedGroups
+            value:
+              - string
+          - name: advertisedIpRanges
+            value:
+              - - name: range
+                  value: string
+                - name: description
+                  value: string
+          - name: managementType
+            value: string
+          - name: enable
+            value: string
+          - name: bfd
+            value:
+              - name: sessionInitializationMode
+                value: string
+              - name: minTransmitInterval
+                value: integer
+              - name: minReceiveInterval
+                value: integer
+              - name: multiplier
+                value: integer
+          - name: routerApplianceInstance
+            value: string
+          - name: enableIpv6
+            value: boolean
+          - name: ipv6NexthopAddress
+            value: string
+          - name: peerIpv6NexthopAddress
+            value: string
+          - name: md5AuthenticationKeyName
+            value: string
+          - name: customLearnedRoutePriority
+            value: integer
+          - name: customLearnedIpRanges
+            value:
+              - - name: range
+                  value: string
+          - name: enableIpv4
+            value: boolean
+          - name: ipv4NexthopAddress
+            value: string
+          - name: peerIpv4NexthopAddress
+            value: string
+          - name: exportPolicies
+            value:
+              - string
+          - name: importPolicies
+            value:
+              - string
+    - name: bgp
+      value:
+        - name: asn
+          value: integer
+        - name: advertiseMode
+          value: string
+        - name: advertisedGroups
+          value:
+            - string
+        - name: advertisedIpRanges
+          value:
+            - - name: range
+                value: string
+              - name: description
+                value: string
+        - name: keepaliveInterval
+          value: integer
+        - name: identifierRange
+          value: string
+    - name: selfLink
+      value: string
+    - name: nats
+      value:
+        - - name: name
+            value: string
+          - name: type
+            value: string
+          - name: autoNetworkTier
+            value: string
+          - name: endpointTypes
+            value:
+              - string
+          - name: sourceSubnetworkIpRangesToNat
+            value: string
+          - name: subnetworks
+            value:
+              - - name: name
+                  value: string
+                - name: sourceIpRangesToNat
+                  value:
+                    - string
+                - name: secondaryIpRangeNames
+                  value:
+                    - string
+          - name: natIps
+            value:
+              - string
+          - name: drainNatIps
+            value:
+              - string
+          - name: natIpAllocateOption
+            value: string
+          - name: minPortsPerVm
+            value: integer
+          - name: maxPortsPerVm
+            value: integer
+          - name: enableDynamicPortAllocation
+            value: boolean
+          - name: udpIdleTimeoutSec
+            value: integer
+          - name: icmpIdleTimeoutSec
+            value: integer
+          - name: tcpEstablishedIdleTimeoutSec
+            value: integer
+          - name: tcpTransitoryIdleTimeoutSec
+            value: integer
+          - name: tcpTimeWaitTimeoutSec
+            value: integer
+          - name: logConfig
+            value:
+              - name: enable
+                value: boolean
+              - name: filter
+                value: string
+          - name: rules
+            value:
+              - - name: ruleNumber
+                  value: integer
+                - name: description
+                  value: string
+                - name: match
+                  value: string
+                - name: action
+                  value:
+                    - name: sourceNatActiveIps
+                      value:
+                        - string
+                    - name: sourceNatDrainIps
+                      value:
+                        - string
+                    - name: sourceNatActiveRanges
+                      value:
+                        - string
+                    - name: sourceNatDrainRanges
+                      value:
+                        - string
+          - name: enableEndpointIndependentMapping
+            value: boolean
+    - name: encryptedInterconnectRouter
+      value: boolean
+    - name: md5AuthenticationKeys
+      value:
+        - - name: name
+            value: string
+          - name: key
+            value: string
 
 ```
 </TabItem>

@@ -69,7 +69,7 @@ enablementState,
 lastEditor,
 updateTime
 FROM google.securitycenter.security_health_analytics_modules
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -106,27 +106,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-enablementState: string
-updateTime: string
-lastEditor: string
-ancestorModule: string
-customConfig:
-  predicate:
-    expression: string
-    title: string
-    description: string
-    location: string
-  customOutput:
-    properties:
-      - name: string
-  resourceSelector:
-    resourceTypes:
-      - type: string
-  severity: string
-  description: string
-  recommendation: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: enablementState
+      value: string
+    - name: updateTime
+      value: string
+    - name: lastEditor
+      value: string
+    - name: ancestorModule
+      value: string
+    - name: customConfig
+      value:
+        - name: predicate
+          value:
+            - name: expression
+              value: string
+            - name: title
+              value: string
+            - name: description
+              value: string
+            - name: location
+              value: string
+        - name: customOutput
+          value:
+            - name: properties
+              value:
+                - - name: name
+                    value: string
+        - name: resourceSelector
+          value:
+            - name: resourceTypes
+              value:
+                - string
+        - name: severity
+          value: string
+        - name: description
+          value: string
+        - name: recommendation
+          value: string
 
 ```
 </TabItem>

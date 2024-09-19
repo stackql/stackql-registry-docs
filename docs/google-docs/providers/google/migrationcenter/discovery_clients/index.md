@@ -80,7 +80,7 @@ updateTime,
 version
 FROM google.migrationcenter.discovery_clients
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,26 +125,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-source: string
-serviceAccount: string
-signalsEndpoint: string
-displayName: string
-description: string
-labels: object
-state: string
-version: string
-errors:
-  - code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-heartbeatTime: string
-expireTime: string
-ttl: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: source
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: signalsEndpoint
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: version
+      value: string
+    - name: errors
+      value:
+        - - name: code
+            value: integer
+          - name: message
+            value: string
+          - name: details
+            value:
+              - object
+    - name: heartbeatTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: ttl
+      value: string
 
 ```
 </TabItem>

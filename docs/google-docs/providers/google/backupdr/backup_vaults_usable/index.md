@@ -51,5 +51,5 @@ nextPageToken,
 unreachable
 FROM google.backupdr.backup_vaults_usable
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

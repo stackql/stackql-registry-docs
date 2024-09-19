@@ -53,7 +53,7 @@ members,
 role
 FROM google.securitycenter.sources_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `REPLACE` example

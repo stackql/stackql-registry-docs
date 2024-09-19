@@ -83,7 +83,7 @@ uid,
 updateTime
 FROM google.workstations.workstation_clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -132,34 +132,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-reconciling: boolean
-annotations: object
-labels: object
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-network: string
-subnetwork: string
-controlPlaneIp: string
-privateClusterConfig:
-  enablePrivateEndpoint: boolean
-  clusterHostname: string
-  serviceAttachmentUri: string
-  allowedProjects:
-    - type: string
-domainConfig:
-  domain: string
-degraded: boolean
-conditions:
-  - code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: network
+      value: string
+    - name: subnetwork
+      value: string
+    - name: controlPlaneIp
+      value: string
+    - name: privateClusterConfig
+      value:
+        - name: enablePrivateEndpoint
+          value: boolean
+        - name: clusterHostname
+          value: string
+        - name: serviceAttachmentUri
+          value: string
+        - name: allowedProjects
+          value:
+            - string
+    - name: domainConfig
+      value:
+        - name: domain
+          value: string
+    - name: degraded
+      value: boolean
+    - name: conditions
+      value:
+        - - name: code
+            value: integer
+          - name: message
+            value: string
+          - name: details
+            value:
+              - object
 
 ```
 </TabItem>

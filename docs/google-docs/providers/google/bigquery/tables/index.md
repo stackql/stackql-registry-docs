@@ -152,7 +152,7 @@ type,
 view
 FROM google.bigquery.tables
 WHERE +datasetId = '{{ +datasetId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -217,7 +217,7 @@ SELECT
 '{{ model }}',
 '{{ partitionDefinition }}',
 '{{ rangePartitioning }}',
-true|false,
+{{ requirePartitionFilter }},
 '{{ resourceTags }}',
 '{{ schema }}',
 '{{ tableConstraints }}',
@@ -231,409 +231,786 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-biglakeConfiguration:
-  connectionId: string
-  fileFormat: string
-  storageUri: string
-  tableFormat: string
-cloneDefinition:
-  baseTableReference:
-    datasetId: string
-    projectId: string
-    tableId: string
-  cloneTime: string
-clustering:
-  fields:
-    - type: string
-creationTime: string
-defaultCollation: string
-defaultRoundingMode: string
-description: string
-encryptionConfiguration:
-  kmsKeyName: string
-etag: string
-expirationTime: string
-externalCatalogTableOptions:
-  connectionId: string
-  parameters: object
-  storageDescriptor:
-    inputFormat: string
-    locationUri: string
-    outputFormat: string
-    serdeInfo:
-      name: string
-      parameters: object
-      serializationLibrary: string
-externalDataConfiguration:
-  autodetect: boolean
-  avroOptions:
-    useAvroLogicalTypes: boolean
-  bigtableOptions:
-    columnFamilies:
-      - columns:
-          - encoding: string
-            fieldName: string
-            onlyReadLatest: boolean
-            qualifierEncoded: string
-            qualifierString: string
-            type: string
-        encoding: string
-        familyId: string
-        onlyReadLatest: boolean
-        type: string
-    ignoreUnspecifiedColumnFamilies: boolean
-    outputColumnFamiliesAsJson: boolean
-    readRowkeyAsString: boolean
-  compression: string
-  connectionId: string
-  csvOptions:
-    allowJaggedRows: boolean
-    allowQuotedNewlines: boolean
-    encoding: string
-    fieldDelimiter: string
-    nullMarker: string
-    preserveAsciiControlCharacters: boolean
-    quote: string
-    skipLeadingRows: string
-  decimalTargetTypes:
-    - enum: string
-      enumDescriptions: string
-      type: string
-  fileSetSpecType: string
-  googleSheetsOptions:
-    range: string
-    skipLeadingRows: string
-  hivePartitioningOptions:
-    fields:
-      - type: string
-    mode: string
-    requirePartitionFilter: boolean
-    sourceUriPrefix: string
-  ignoreUnknownValues: boolean
-  jsonExtension: string
-  jsonOptions:
-    encoding: string
-  maxBadRecords: integer
-  metadataCacheMode: string
-  objectMetadata: string
-  parquetOptions:
-    enableListInference: boolean
-    enumAsString: boolean
-    mapTargetType: string
-  referenceFileSchemaUri: string
-  schema:
-    fields:
-      - categories:
-          names:
-            - type: string
-        collation: string
-        dataPolicies:
-          - name: string
-        defaultValueExpression: string
-        description: string
-        fields:
-          - categories:
-              names:
-                - type: string
-            collation: string
-            dataPolicies:
-              - name: string
-            defaultValueExpression: string
-            description: string
-            fields:
-              - categories:
-                  names:
-                    - type: string
-                collation: string
-                dataPolicies:
-                  - name: string
-                defaultValueExpression: string
-                description: string
-                fields:
-                  - categories:
-                      names:
-                        - type: string
-                    collation: string
-                    dataPolicies:
-                      - name: string
-                    defaultValueExpression: string
-                    description: string
-                    fields:
-                      - categories:
-                          names:
-                            - type: string
-                        collation: string
-                        dataPolicies:
-                          - name: string
-                        defaultValueExpression: string
-                        description: string
-                        fields:
-                          - categories:
-                              names:
-                                - type: string
-                            collation: string
-                            dataPolicies:
-                              - name: string
-                            defaultValueExpression: string
-                            description: string
-                            fields:
-                              - categories:
-                                  names:
-                                    - {}
-                                collation: string
-                                dataPolicies:
-                                  - name: string
-                                defaultValueExpression: string
-                                description: string
-                                fields:
-                                  - categories: {}
-                                    collation: string
-                                    dataPolicies:
-                                      - {}
-                                    defaultValueExpression: string
-                                    description: string
-                                    fields:
-                                      - {}
-                                    foreignTypeDefinition: string
-                                    maxLength: string
-                                    mode: string
-                                    name: string
-                                    policyTags: {}
-                                    precision: string
-                                    rangeElementType: {}
-                                    roundingMode: string
-                                    scale: string
-                                    type: string
-                                foreignTypeDefinition: string
-                                maxLength: string
-                                mode: string
-                                name: string
-                                policyTags:
-                                  names:
-                                    - {}
-                                precision: string
-                                rangeElementType:
-                                  type: string
-                                roundingMode: string
-                                scale: string
-                                type: string
-                            foreignTypeDefinition: string
-                            maxLength: string
-                            mode: string
-                            name: string
-                            policyTags:
-                              names:
-                                - type: string
-                            precision: string
-                            rangeElementType:
-                              type: string
-                            roundingMode: string
-                            scale: string
-                            type: string
-                        foreignTypeDefinition: string
-                        maxLength: string
-                        mode: string
-                        name: string
-                        policyTags:
-                          names:
-                            - type: string
-                        precision: string
-                        rangeElementType:
-                          type: string
-                        roundingMode: string
-                        scale: string
-                        type: string
-                    foreignTypeDefinition: string
-                    maxLength: string
-                    mode: string
-                    name: string
-                    policyTags:
-                      names:
-                        - type: string
-                    precision: string
-                    rangeElementType:
-                      type: string
-                    roundingMode: string
-                    scale: string
-                    type: string
-                foreignTypeDefinition: string
-                maxLength: string
-                mode: string
-                name: string
-                policyTags:
-                  names:
-                    - type: string
-                precision: string
-                rangeElementType:
-                  type: string
-                roundingMode: string
-                scale: string
-                type: string
-            foreignTypeDefinition: string
-            maxLength: string
-            mode: string
-            name: string
-            policyTags:
-              names:
-                - type: string
-            precision: string
-            rangeElementType:
-              type: string
-            roundingMode: string
-            scale: string
-            type: string
-        foreignTypeDefinition: string
-        maxLength: string
-        mode: string
-        name: string
-        policyTags:
-          names:
-            - type: string
-        precision: string
-        rangeElementType:
-          type: string
-        roundingMode: string
-        scale: string
-        type: string
-    foreignTypeInfo:
-      typeSystem: string
-  sourceFormat: string
-  sourceUris:
-    - type: string
-friendlyName: string
-id: string
-kind: string
-labels: object
-lastModifiedTime: string
-location: string
-materializedView:
-  allowNonIncrementalDefinition: boolean
-  enableRefresh: boolean
-  lastRefreshTime: string
-  maxStaleness: string
-  query: string
-  refreshIntervalMs: string
-materializedViewStatus:
-  lastRefreshStatus:
-    debugInfo: string
-    location: string
-    message: string
-    reason: string
-  refreshWatermark: string
-maxStaleness: string
-model:
-  modelOptions:
-    labels:
-      - type: string
-    lossType: string
-    modelType: string
-  trainingRuns:
-    - iterationResults:
-        - durationMs: string
-          evalLoss: number
-          index: integer
-          learnRate: number
-          trainingLoss: number
-      startTime: string
-      state: string
-      trainingOptions:
-        earlyStop: boolean
-        l1Reg: number
-        l2Reg: number
-        learnRate: number
-        learnRateStrategy: string
-        lineSearchInitLearnRate: number
-        maxIteration: string
-        minRelProgress: number
-        warmStart: boolean
-numActiveLogicalBytes: string
-numActivePhysicalBytes: string
-numBytes: string
-numCurrentPhysicalBytes: string
-numLongTermBytes: string
-numLongTermLogicalBytes: string
-numLongTermPhysicalBytes: string
-numPartitions: string
-numPhysicalBytes: string
-numRows: string
-numTimeTravelPhysicalBytes: string
-numTotalLogicalBytes: string
-numTotalPhysicalBytes: string
-partitionDefinition:
-  partitionedColumn:
-    - field: string
-rangePartitioning:
-  field: string
-  range:
-    end: string
-    interval: string
-    start: string
-replicas:
-  - datasetId: string
-    projectId: string
-    tableId: string
-requirePartitionFilter: boolean
-resourceTags: object
-restrictions:
-  type: string
-selfLink: string
-snapshotDefinition:
-  snapshotTime: string
-streamingBuffer:
-  estimatedBytes: string
-  estimatedRows: string
-  oldestEntryTime: string
-tableConstraints:
-  foreignKeys:
-    - columnReferences:
-        - referencedColumn: string
-          referencingColumn: string
-      name: string
-      referencedTable:
-        datasetId: string
-        projectId: string
-        tableId: string
-  primaryKey:
-    columns:
-      - type: string
-tableReplicationInfo:
-  replicatedSourceLastRefreshTime: string
-  replicationIntervalMs: string
-  replicationStatus: string
-timePartitioning:
-  expirationMs: string
-  field: string
-  requirePartitionFilter: boolean
-  type: string
-type: string
-view:
-  foreignDefinitions:
-    - dialect: string
-      query: string
-  privacyPolicy:
-    aggregationThresholdPolicy:
-      privacyUnitColumns:
-        - type: string
-      threshold: string
-    differentialPrivacyPolicy:
-      deltaBudget: number
-      deltaBudgetRemaining: number
-      deltaPerQuery: number
-      epsilonBudget: number
-      epsilonBudgetRemaining: number
-      maxEpsilonPerQuery: number
-      maxGroupsContributed: string
-      privacyUnitColumn: string
-    joinRestrictionPolicy:
-      joinAllowedColumns:
-        - type: string
-      joinCondition: string
-  query: string
-  useExplicitColumnNames: boolean
-  useLegacySql: boolean
-  userDefinedFunctionResources:
-    - inlineCode: string
-      resourceUri: string
+- name: your_resource_model_name
+  props:
+    - name: biglakeConfiguration
+      value:
+        - name: connectionId
+          value: string
+        - name: fileFormat
+          value: string
+        - name: storageUri
+          value: string
+        - name: tableFormat
+          value: string
+    - name: cloneDefinition
+      value:
+        - name: baseTableReference
+          value:
+            - name: datasetId
+              value: string
+            - name: projectId
+              value: string
+            - name: tableId
+              value: string
+        - name: cloneTime
+          value: string
+    - name: clustering
+      value:
+        - name: fields
+          value:
+            - string
+    - name: creationTime
+      value: string
+    - name: defaultCollation
+      value: string
+    - name: defaultRoundingMode
+      value: string
+    - name: description
+      value: string
+    - name: encryptionConfiguration
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: etag
+      value: string
+    - name: expirationTime
+      value: string
+    - name: externalCatalogTableOptions
+      value:
+        - name: connectionId
+          value: string
+        - name: parameters
+          value: object
+        - name: storageDescriptor
+          value:
+            - name: inputFormat
+              value: string
+            - name: locationUri
+              value: string
+            - name: outputFormat
+              value: string
+            - name: serdeInfo
+              value:
+                - name: name
+                  value: string
+                - name: parameters
+                  value: object
+                - name: serializationLibrary
+                  value: string
+    - name: externalDataConfiguration
+      value:
+        - name: autodetect
+          value: boolean
+        - name: avroOptions
+          value:
+            - name: useAvroLogicalTypes
+              value: boolean
+        - name: bigtableOptions
+          value:
+            - name: columnFamilies
+              value:
+                - - name: columns
+                    value:
+                      - - name: encoding
+                          value: string
+                        - name: fieldName
+                          value: string
+                        - name: onlyReadLatest
+                          value: boolean
+                        - name: qualifierEncoded
+                          value: string
+                        - name: qualifierString
+                          value: string
+                        - name: type
+                          value: string
+                  - name: encoding
+                    value: string
+                  - name: familyId
+                    value: string
+                  - name: onlyReadLatest
+                    value: boolean
+                  - name: type
+                    value: string
+            - name: ignoreUnspecifiedColumnFamilies
+              value: boolean
+            - name: outputColumnFamiliesAsJson
+              value: boolean
+            - name: readRowkeyAsString
+              value: boolean
+        - name: compression
+          value: string
+        - name: connectionId
+          value: string
+        - name: csvOptions
+          value:
+            - name: allowJaggedRows
+              value: boolean
+            - name: allowQuotedNewlines
+              value: boolean
+            - name: encoding
+              value: string
+            - name: fieldDelimiter
+              value: string
+            - name: nullMarker
+              value: string
+            - name: preserveAsciiControlCharacters
+              value: boolean
+            - name: quote
+              value: string
+            - name: skipLeadingRows
+              value: string
+        - name: decimalTargetTypes
+          value:
+            - string
+        - name: fileSetSpecType
+          value: string
+        - name: googleSheetsOptions
+          value:
+            - name: range
+              value: string
+            - name: skipLeadingRows
+              value: string
+        - name: hivePartitioningOptions
+          value:
+            - name: fields
+              value:
+                - string
+            - name: mode
+              value: string
+            - name: requirePartitionFilter
+              value: boolean
+            - name: sourceUriPrefix
+              value: string
+        - name: ignoreUnknownValues
+          value: boolean
+        - name: jsonExtension
+          value: string
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: string
+        - name: maxBadRecords
+          value: integer
+        - name: metadataCacheMode
+          value: string
+        - name: objectMetadata
+          value: string
+        - name: parquetOptions
+          value:
+            - name: enableListInference
+              value: boolean
+            - name: enumAsString
+              value: boolean
+            - name: mapTargetType
+              value: string
+        - name: referenceFileSchemaUri
+          value: string
+        - name: schema
+          value:
+            - name: fields
+              value:
+                - - name: categories
+                    value:
+                      - name: names
+                        value:
+                          - string
+                  - name: collation
+                    value: string
+                  - name: dataPolicies
+                    value:
+                      - - name: name
+                          value: string
+                  - name: defaultValueExpression
+                    value: string
+                  - name: description
+                    value: string
+                  - name: fields
+                    value:
+                      - - name: categories
+                          value:
+                            - name: names
+                              value:
+                                - string
+                        - name: collation
+                          value: string
+                        - name: dataPolicies
+                          value:
+                            - - name: name
+                                value: string
+                        - name: defaultValueExpression
+                          value: string
+                        - name: description
+                          value: string
+                        - name: fields
+                          value:
+                            - - name: categories
+                                value:
+                                  - name: names
+                                    value:
+                                      - string
+                              - name: collation
+                                value: string
+                              - name: dataPolicies
+                                value:
+                                  - - name: name
+                                      value: string
+                              - name: defaultValueExpression
+                                value: string
+                              - name: description
+                                value: string
+                              - name: fields
+                                value:
+                                  - - name: categories
+                                      value:
+                                        - name: names
+                                          value:
+                                            - string
+                                    - name: collation
+                                      value: string
+                                    - name: dataPolicies
+                                      value:
+                                        - - name: name
+                                            value: string
+                                    - name: defaultValueExpression
+                                      value: string
+                                    - name: description
+                                      value: string
+                                    - name: fields
+                                      value:
+                                        - - name: categories
+                                            value:
+                                              - name: names
+                                                value:
+                                                  - string
+                                          - name: collation
+                                            value: string
+                                          - name: dataPolicies
+                                            value:
+                                              - - name: name
+                                                  value: string
+                                          - name: defaultValueExpression
+                                            value: string
+                                          - name: description
+                                            value: string
+                                          - name: fields
+                                            value:
+                                              - - name: categories
+                                                  value:
+                                                    - name: names
+                                                      value:
+                                                        - string
+                                                - name: collation
+                                                  value: string
+                                                - name: dataPolicies
+                                                  value:
+                                                    - - name: name
+                                                        value: string
+                                                - name: defaultValueExpression
+                                                  value: string
+                                                - name: description
+                                                  value: string
+                                                - name: fields
+                                                  value:
+                                                    - - name: categories
+                                                        value:
+                                                          - name: names
+                                                            value:
+                                                              - string
+                                                      - name: collation
+                                                        value: string
+                                                      - name: dataPolicies
+                                                        value:
+                                                          - - name: name
+                                                              value: string
+                                                      - name: defaultValueExpression
+                                                        value: string
+                                                      - name: description
+                                                        value: string
+                                                      - name: fields
+                                                        value:
+                                                          - - name: categories
+                                                              value: []
+                                                            - name: collation
+                                                              value: string
+                                                            - name: dataPolicies
+                                                              value:
+                                                                - []
+                                                            - name: defaultValueExpression
+                                                              value: string
+                                                            - name: description
+                                                              value: string
+                                                            - name: fields
+                                                              value:
+                                                                - []
+                                                            - name: foreignTypeDefinition
+                                                              value: string
+                                                            - name: maxLength
+                                                              value: string
+                                                            - name: mode
+                                                              value: string
+                                                            - name: name
+                                                              value: string
+                                                            - name: policyTags
+                                                              value: []
+                                                            - name: precision
+                                                              value: string
+                                                            - name: rangeElementType
+                                                              value: []
+                                                            - name: roundingMode
+                                                              value: string
+                                                            - name: scale
+                                                              value: string
+                                                            - name: type
+                                                              value: string
+                                                      - name: foreignTypeDefinition
+                                                        value: string
+                                                      - name: maxLength
+                                                        value: string
+                                                      - name: mode
+                                                        value: string
+                                                      - name: name
+                                                        value: string
+                                                      - name: policyTags
+                                                        value:
+                                                          - name: names
+                                                            value:
+                                                              - string
+                                                      - name: precision
+                                                        value: string
+                                                      - name: rangeElementType
+                                                        value:
+                                                          - name: type
+                                                            value: string
+                                                      - name: roundingMode
+                                                        value: string
+                                                      - name: scale
+                                                        value: string
+                                                      - name: type
+                                                        value: string
+                                                - name: foreignTypeDefinition
+                                                  value: string
+                                                - name: maxLength
+                                                  value: string
+                                                - name: mode
+                                                  value: string
+                                                - name: name
+                                                  value: string
+                                                - name: policyTags
+                                                  value:
+                                                    - name: names
+                                                      value:
+                                                        - string
+                                                - name: precision
+                                                  value: string
+                                                - name: rangeElementType
+                                                  value:
+                                                    - name: type
+                                                      value: string
+                                                - name: roundingMode
+                                                  value: string
+                                                - name: scale
+                                                  value: string
+                                                - name: type
+                                                  value: string
+                                          - name: foreignTypeDefinition
+                                            value: string
+                                          - name: maxLength
+                                            value: string
+                                          - name: mode
+                                            value: string
+                                          - name: name
+                                            value: string
+                                          - name: policyTags
+                                            value:
+                                              - name: names
+                                                value:
+                                                  - string
+                                          - name: precision
+                                            value: string
+                                          - name: rangeElementType
+                                            value:
+                                              - name: type
+                                                value: string
+                                          - name: roundingMode
+                                            value: string
+                                          - name: scale
+                                            value: string
+                                          - name: type
+                                            value: string
+                                    - name: foreignTypeDefinition
+                                      value: string
+                                    - name: maxLength
+                                      value: string
+                                    - name: mode
+                                      value: string
+                                    - name: name
+                                      value: string
+                                    - name: policyTags
+                                      value:
+                                        - name: names
+                                          value:
+                                            - string
+                                    - name: precision
+                                      value: string
+                                    - name: rangeElementType
+                                      value:
+                                        - name: type
+                                          value: string
+                                    - name: roundingMode
+                                      value: string
+                                    - name: scale
+                                      value: string
+                                    - name: type
+                                      value: string
+                              - name: foreignTypeDefinition
+                                value: string
+                              - name: maxLength
+                                value: string
+                              - name: mode
+                                value: string
+                              - name: name
+                                value: string
+                              - name: policyTags
+                                value:
+                                  - name: names
+                                    value:
+                                      - string
+                              - name: precision
+                                value: string
+                              - name: rangeElementType
+                                value:
+                                  - name: type
+                                    value: string
+                              - name: roundingMode
+                                value: string
+                              - name: scale
+                                value: string
+                              - name: type
+                                value: string
+                        - name: foreignTypeDefinition
+                          value: string
+                        - name: maxLength
+                          value: string
+                        - name: mode
+                          value: string
+                        - name: name
+                          value: string
+                        - name: policyTags
+                          value:
+                            - name: names
+                              value:
+                                - string
+                        - name: precision
+                          value: string
+                        - name: rangeElementType
+                          value:
+                            - name: type
+                              value: string
+                        - name: roundingMode
+                          value: string
+                        - name: scale
+                          value: string
+                        - name: type
+                          value: string
+                  - name: foreignTypeDefinition
+                    value: string
+                  - name: maxLength
+                    value: string
+                  - name: mode
+                    value: string
+                  - name: name
+                    value: string
+                  - name: policyTags
+                    value:
+                      - name: names
+                        value:
+                          - string
+                  - name: precision
+                    value: string
+                  - name: rangeElementType
+                    value:
+                      - name: type
+                        value: string
+                  - name: roundingMode
+                    value: string
+                  - name: scale
+                    value: string
+                  - name: type
+                    value: string
+            - name: foreignTypeInfo
+              value:
+                - name: typeSystem
+                  value: string
+        - name: sourceFormat
+          value: string
+        - name: sourceUris
+          value:
+            - string
+    - name: friendlyName
+      value: string
+    - name: id
+      value: string
+    - name: kind
+      value: string
+    - name: labels
+      value: object
+    - name: lastModifiedTime
+      value: string
+    - name: location
+      value: string
+    - name: materializedView
+      value:
+        - name: allowNonIncrementalDefinition
+          value: boolean
+        - name: enableRefresh
+          value: boolean
+        - name: lastRefreshTime
+          value: string
+        - name: maxStaleness
+          value: string
+        - name: query
+          value: string
+        - name: refreshIntervalMs
+          value: string
+    - name: materializedViewStatus
+      value:
+        - name: lastRefreshStatus
+          value:
+            - name: debugInfo
+              value: string
+            - name: location
+              value: string
+            - name: message
+              value: string
+            - name: reason
+              value: string
+        - name: refreshWatermark
+          value: string
+    - name: maxStaleness
+      value: string
+    - name: model
+      value:
+        - name: modelOptions
+          value:
+            - name: labels
+              value:
+                - string
+            - name: lossType
+              value: string
+            - name: modelType
+              value: string
+        - name: trainingRuns
+          value:
+            - - name: iterationResults
+                value:
+                  - - name: durationMs
+                      value: string
+                    - name: evalLoss
+                      value: number
+                    - name: index
+                      value: integer
+                    - name: learnRate
+                      value: number
+                    - name: trainingLoss
+                      value: number
+              - name: startTime
+                value: string
+              - name: state
+                value: string
+              - name: trainingOptions
+                value:
+                  - name: earlyStop
+                    value: boolean
+                  - name: l1Reg
+                    value: number
+                  - name: l2Reg
+                    value: number
+                  - name: learnRate
+                    value: number
+                  - name: learnRateStrategy
+                    value: string
+                  - name: lineSearchInitLearnRate
+                    value: number
+                  - name: maxIteration
+                    value: string
+                  - name: minRelProgress
+                    value: number
+                  - name: warmStart
+                    value: boolean
+    - name: numActiveLogicalBytes
+      value: string
+    - name: numActivePhysicalBytes
+      value: string
+    - name: numBytes
+      value: string
+    - name: numCurrentPhysicalBytes
+      value: string
+    - name: numLongTermBytes
+      value: string
+    - name: numLongTermLogicalBytes
+      value: string
+    - name: numLongTermPhysicalBytes
+      value: string
+    - name: numPartitions
+      value: string
+    - name: numPhysicalBytes
+      value: string
+    - name: numRows
+      value: string
+    - name: numTimeTravelPhysicalBytes
+      value: string
+    - name: numTotalLogicalBytes
+      value: string
+    - name: numTotalPhysicalBytes
+      value: string
+    - name: partitionDefinition
+      value:
+        - name: partitionedColumn
+          value:
+            - - name: field
+                value: string
+    - name: rangePartitioning
+      value:
+        - name: field
+          value: string
+        - name: range
+          value:
+            - name: end
+              value: string
+            - name: interval
+              value: string
+            - name: start
+              value: string
+    - name: replicas
+      value:
+        - - name: datasetId
+            value: string
+          - name: projectId
+            value: string
+          - name: tableId
+            value: string
+    - name: requirePartitionFilter
+      value: boolean
+    - name: resourceTags
+      value: object
+    - name: restrictions
+      value:
+        - name: type
+          value: string
+    - name: selfLink
+      value: string
+    - name: snapshotDefinition
+      value:
+        - name: snapshotTime
+          value: string
+    - name: streamingBuffer
+      value:
+        - name: estimatedBytes
+          value: string
+        - name: estimatedRows
+          value: string
+        - name: oldestEntryTime
+          value: string
+    - name: tableConstraints
+      value:
+        - name: foreignKeys
+          value:
+            - - name: columnReferences
+                value:
+                  - - name: referencedColumn
+                      value: string
+                    - name: referencingColumn
+                      value: string
+              - name: name
+                value: string
+              - name: referencedTable
+                value:
+                  - name: datasetId
+                    value: string
+                  - name: projectId
+                    value: string
+                  - name: tableId
+                    value: string
+        - name: primaryKey
+          value:
+            - name: columns
+              value:
+                - string
+    - name: tableReplicationInfo
+      value:
+        - name: replicatedSourceLastRefreshTime
+          value: string
+        - name: replicationIntervalMs
+          value: string
+        - name: replicationStatus
+          value: string
+    - name: timePartitioning
+      value:
+        - name: expirationMs
+          value: string
+        - name: field
+          value: string
+        - name: requirePartitionFilter
+          value: boolean
+        - name: type
+          value: string
+    - name: type
+      value: string
+    - name: view
+      value:
+        - name: foreignDefinitions
+          value:
+            - - name: dialect
+                value: string
+              - name: query
+                value: string
+        - name: privacyPolicy
+          value:
+            - name: aggregationThresholdPolicy
+              value:
+                - name: privacyUnitColumns
+                  value:
+                    - string
+                - name: threshold
+                  value: string
+            - name: differentialPrivacyPolicy
+              value:
+                - name: deltaBudget
+                  value: number
+                - name: deltaBudgetRemaining
+                  value: number
+                - name: deltaPerQuery
+                  value: number
+                - name: epsilonBudget
+                  value: number
+                - name: epsilonBudgetRemaining
+                  value: number
+                - name: maxEpsilonPerQuery
+                  value: number
+                - name: maxGroupsContributed
+                  value: string
+                - name: privacyUnitColumn
+                  value: string
+            - name: joinRestrictionPolicy
+              value:
+                - name: joinAllowedColumns
+                  value:
+                    - string
+                - name: joinCondition
+                  value: string
+        - name: query
+          value: string
+        - name: useExplicitColumnNames
+          value: boolean
+        - name: useLegacySql
+          value: boolean
+        - name: userDefinedFunctionResources
+          value:
+            - - name: inlineCode
+                value: string
+              - name: resourceUri
+                value: string
 
 ```
 </TabItem>

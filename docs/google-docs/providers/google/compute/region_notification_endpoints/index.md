@@ -64,7 +64,7 @@ region,
 selfLink
 FROM google.compute.region_notification_endpoints
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -103,21 +103,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-region: string
-grpcSettings:
-  endpoint: string
-  retryDurationSec: integer
-  payloadName: string
-  authority: string
-  resendInterval:
-    seconds: string
-    nanos: integer
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: region
+      value: string
+    - name: grpcSettings
+      value:
+        - name: endpoint
+          value: string
+        - name: retryDurationSec
+          value: integer
+        - name: payloadName
+          value: string
+        - name: authority
+          value: string
+        - name: resendInterval
+          value:
+            - name: seconds
+              value: string
+            - name: nanos
+              value: integer
 
 ```
 </TabItem>

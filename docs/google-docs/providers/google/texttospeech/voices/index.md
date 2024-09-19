@@ -46,5 +46,5 @@ Returns a list of Voice supported for synthesis.
 SELECT
 voices
 FROM google.texttospeech.voices
-WHERE  = '{{  }}'; 
+;
 ```

@@ -58,7 +58,7 @@ hostnames,
 lastModifiedAt,
 state
 FROM google.apigee.envgroups
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -91,12 +91,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-lastModifiedAt: string
-name: string
-hostnames:
-  - type: string
-createdAt: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: lastModifiedAt
+      value: string
+    - name: name
+      value: string
+    - name: hostnames
+      value:
+        - string
+    - name: createdAt
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

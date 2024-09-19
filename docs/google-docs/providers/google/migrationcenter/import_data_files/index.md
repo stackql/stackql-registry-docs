@@ -61,7 +61,7 @@ uploadFileInfo
 FROM google.migrationcenter.import_data_files
 WHERE importJobsId = '{{ importJobsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -100,15 +100,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-format: string
-createTime: string
-state: string
-uploadFileInfo:
-  signedUri: string
-  headers: object
-  uriExpirationTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: format
+      value: string
+    - name: createTime
+      value: string
+    - name: state
+      value: string
+    - name: uploadFileInfo
+      value:
+        - name: signedUri
+          value: string
+        - name: headers
+          value: object
+        - name: uriExpirationTime
+          value: string
 
 ```
 </TabItem>

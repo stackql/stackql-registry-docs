@@ -77,7 +77,7 @@ state,
 updateTime
 FROM google.datamigration.connection_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -130,131 +130,255 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-state: string
-displayName: string
-mysql:
-  host: string
-  port: integer
-  username: string
-  password: string
-  passwordSet: boolean
-  ssl:
-    type: string
-    clientKey: string
-    clientCertificate: string
-    caCertificate: string
-  cloudSqlId: string
-postgresql:
-  host: string
-  port: integer
-  username: string
-  password: string
-  passwordSet: boolean
-  cloudSqlId: string
-  alloydbClusterId: string
-  networkArchitecture: string
-  staticIpConnectivity: {}
-  privateServiceConnectConnectivity:
-    serviceAttachment: string
-sqlserver:
-  host: string
-  port: integer
-  username: string
-  password: string
-  passwordSet: boolean
-  cloudSqlId: string
-  backups:
-    gcsBucket: string
-    gcsPrefix: string
-  forwardSshConnectivity:
-    hostname: string
-    username: string
-    port: integer
-    password: string
-    privateKey: string
-  privateConnectivity:
-    privateConnection: string
-oracle:
-  host: string
-  port: integer
-  username: string
-  password: string
-  passwordSet: boolean
-  databaseService: string
-  staticServiceIpConnectivity: {}
-  oracleAsmConfig:
-    hostname: string
-    port: integer
-    username: string
-    password: string
-    passwordSet: boolean
-    asmService: string
-cloudsql:
-  cloudSqlId: string
-  settings:
-    databaseVersion: string
-    userLabels: object
-    tier: string
-    storageAutoResizeLimit: string
-    activationPolicy: string
-    ipConfig:
-      enableIpv4: boolean
-      privateNetwork: string
-      allocatedIpRange: string
-      requireSsl: boolean
-      authorizedNetworks:
-        - value: string
-          expireTime: string
-          ttl: string
-          label: string
-    autoStorageIncrease: boolean
-    databaseFlags: object
-    dataDiskType: string
-    dataDiskSizeGb: string
-    zone: string
-    secondaryZone: string
-    sourceId: string
-    rootPassword: string
-    rootPasswordSet: boolean
-    collation: string
-    cmekKeyName: string
-    availabilityType: string
-    edition: string
-    dataCacheConfig:
-      dataCacheEnabled: boolean
-  privateIp: string
-  publicIp: string
-  additionalPublicIp: string
-alloydb:
-  clusterId: string
-  settings:
-    initialUser:
-      user: string
-      password: string
-      passwordSet: boolean
-    vpcNetwork: string
-    labels: object
-    primaryInstanceSettings:
-      id: string
-      machineConfig:
-        cpuCount: integer
-      databaseFlags: object
-      labels: object
-      privateIp: string
-    encryptionConfig:
-      kmsKeyName: string
-    databaseVersion: string
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-provider: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: displayName
+      value: string
+    - name: mysql
+      value:
+        - name: host
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: passwordSet
+          value: boolean
+        - name: ssl
+          value:
+            - name: type
+              value: string
+            - name: clientKey
+              value: string
+            - name: clientCertificate
+              value: string
+            - name: caCertificate
+              value: string
+        - name: cloudSqlId
+          value: string
+    - name: postgresql
+      value:
+        - name: host
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: passwordSet
+          value: boolean
+        - name: cloudSqlId
+          value: string
+        - name: alloydbClusterId
+          value: string
+        - name: networkArchitecture
+          value: string
+        - name: staticIpConnectivity
+          value: []
+        - name: privateServiceConnectConnectivity
+          value:
+            - name: serviceAttachment
+              value: string
+    - name: sqlserver
+      value:
+        - name: host
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: passwordSet
+          value: boolean
+        - name: cloudSqlId
+          value: string
+        - name: backups
+          value:
+            - name: gcsBucket
+              value: string
+            - name: gcsPrefix
+              value: string
+        - name: forwardSshConnectivity
+          value:
+            - name: hostname
+              value: string
+            - name: username
+              value: string
+            - name: port
+              value: integer
+            - name: password
+              value: string
+            - name: privateKey
+              value: string
+        - name: privateConnectivity
+          value:
+            - name: privateConnection
+              value: string
+    - name: oracle
+      value:
+        - name: host
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: passwordSet
+          value: boolean
+        - name: databaseService
+          value: string
+        - name: staticServiceIpConnectivity
+          value: []
+        - name: oracleAsmConfig
+          value:
+            - name: hostname
+              value: string
+            - name: port
+              value: integer
+            - name: username
+              value: string
+            - name: password
+              value: string
+            - name: passwordSet
+              value: boolean
+            - name: asmService
+              value: string
+    - name: cloudsql
+      value:
+        - name: cloudSqlId
+          value: string
+        - name: settings
+          value:
+            - name: databaseVersion
+              value: string
+            - name: userLabels
+              value: object
+            - name: tier
+              value: string
+            - name: storageAutoResizeLimit
+              value: string
+            - name: activationPolicy
+              value: string
+            - name: ipConfig
+              value:
+                - name: enableIpv4
+                  value: boolean
+                - name: privateNetwork
+                  value: string
+                - name: allocatedIpRange
+                  value: string
+                - name: requireSsl
+                  value: boolean
+                - name: authorizedNetworks
+                  value:
+                    - - name: value
+                        value: string
+                      - name: expireTime
+                        value: string
+                      - name: ttl
+                        value: string
+                      - name: label
+                        value: string
+            - name: autoStorageIncrease
+              value: boolean
+            - name: databaseFlags
+              value: object
+            - name: dataDiskType
+              value: string
+            - name: dataDiskSizeGb
+              value: string
+            - name: zone
+              value: string
+            - name: secondaryZone
+              value: string
+            - name: sourceId
+              value: string
+            - name: rootPassword
+              value: string
+            - name: rootPasswordSet
+              value: boolean
+            - name: collation
+              value: string
+            - name: cmekKeyName
+              value: string
+            - name: availabilityType
+              value: string
+            - name: edition
+              value: string
+            - name: dataCacheConfig
+              value:
+                - name: dataCacheEnabled
+                  value: boolean
+        - name: privateIp
+          value: string
+        - name: publicIp
+          value: string
+        - name: additionalPublicIp
+          value: string
+    - name: alloydb
+      value:
+        - name: clusterId
+          value: string
+        - name: settings
+          value:
+            - name: initialUser
+              value:
+                - name: user
+                  value: string
+                - name: password
+                  value: string
+                - name: passwordSet
+                  value: boolean
+            - name: vpcNetwork
+              value: string
+            - name: labels
+              value: object
+            - name: primaryInstanceSettings
+              value:
+                - name: id
+                  value: string
+                - name: machineConfig
+                  value:
+                    - name: cpuCount
+                      value: integer
+                - name: databaseFlags
+                  value: object
+                - name: labels
+                  value: object
+                - name: privateIp
+                  value: string
+            - name: encryptionConfig
+              value:
+                - name: kmsKeyName
+                  value: string
+            - name: databaseVersion
+              value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: provider
+      value: string
 
 ```
 </TabItem>

@@ -53,7 +53,7 @@ name,
 throughputCapacity
 FROM google.pubsublite.reservations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -88,8 +88,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-throughputCapacity: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: throughputCapacity
+      value: string
 
 ```
 </TabItem>

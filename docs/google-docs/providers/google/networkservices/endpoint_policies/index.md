@@ -71,7 +71,7 @@ type,
 updateTime
 FROM google.networkservices.endpoint_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,24 +120,43 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-type: string
-authorizationPolicy: string
-endpointMatcher:
-  metadataLabelMatcher:
-    metadataLabelMatchCriteria: string
-    metadataLabels:
-      - labelName: string
-        labelValue: string
-trafficPortSelector:
-  ports:
-    - type: string
-description: string
-serverTlsPolicy: string
-clientTlsPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: type
+      value: string
+    - name: authorizationPolicy
+      value: string
+    - name: endpointMatcher
+      value:
+        - name: metadataLabelMatcher
+          value:
+            - name: metadataLabelMatchCriteria
+              value: string
+            - name: metadataLabels
+              value:
+                - - name: labelName
+                    value: string
+                  - name: labelValue
+                    value: string
+    - name: trafficPortSelector
+      value:
+        - name: ports
+          value:
+            - string
+    - name: description
+      value: string
+    - name: serverTlsPolicy
+      value: string
+    - name: clientTlsPolicy
+      value: string
 
 ```
 </TabItem>

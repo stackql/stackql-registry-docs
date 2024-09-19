@@ -85,7 +85,7 @@ state,
 updateTime
 FROM google.aiplatform.data_labeling_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -138,43 +138,77 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-datasets:
-  - type: string
-labelerCount: integer
-instructionUri: string
-activeLearningConfig:
-  maxDataItemPercentage: integer
-  trainingConfig:
-    timeoutTrainingMilliHours: string
-  maxDataItemCount: string
-  sampleConfig:
-    sampleStrategy: string
-    followingBatchSamplePercentage: integer
-    initialBatchSamplePercentage: integer
-inputsSchemaUri: string
-inputs: any
-encryptionSpec:
-  kmsKeyName: string
-annotationLabels: object
-name: string
-currentSpend:
-  currencyCode: string
-  units: string
-  nanos: integer
-displayName: string
-updateTime: string
-state: string
-labels: object
-createTime: string
-specialistPools:
-  - type: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-labelingProgress: integer
+- name: your_resource_model_name
+  props:
+    - name: datasets
+      value:
+        - string
+    - name: labelerCount
+      value: integer
+    - name: instructionUri
+      value: string
+    - name: activeLearningConfig
+      value:
+        - name: maxDataItemPercentage
+          value: integer
+        - name: trainingConfig
+          value:
+            - name: timeoutTrainingMilliHours
+              value: string
+        - name: maxDataItemCount
+          value: string
+        - name: sampleConfig
+          value:
+            - name: sampleStrategy
+              value: string
+            - name: followingBatchSamplePercentage
+              value: integer
+            - name: initialBatchSamplePercentage
+              value: integer
+    - name: inputsSchemaUri
+      value: string
+    - name: inputs
+      value: any
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: annotationLabels
+      value: object
+    - name: name
+      value: string
+    - name: currentSpend
+      value:
+        - name: currencyCode
+          value: string
+        - name: units
+          value: string
+        - name: nanos
+          value: integer
+    - name: displayName
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: specialistPools
+      value:
+        - string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: labelingProgress
+      value: integer
 
 ```
 </TabItem>

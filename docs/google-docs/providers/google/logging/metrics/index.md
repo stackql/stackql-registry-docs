@@ -74,7 +74,7 @@ updateTime,
 valueExtractor,
 version
 FROM google.logging.metrics
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -111,7 +111,7 @@ SELECT
 '{{ description }}',
 '{{ filter }}',
 '{{ bucketName }}',
-true|false,
+{{ disabled }},
 '{{ metricDescriptor }}',
 '{{ valueExtractor }}',
 '{{ labelExtractors }}',
@@ -123,53 +123,93 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-resourceName: string
-description: string
-filter: string
-bucketName: string
-disabled: boolean
-metricDescriptor:
-  name: string
-  type: string
-  labels:
-    - key: string
-      valueType: string
-      description: string
-  metricKind: string
-  valueType: string
-  unit: string
-  description: string
-  displayName: string
-  metadata:
-    launchStage: string
-    samplePeriod: string
-    ingestDelay: string
-    timeSeriesResourceHierarchyLevel:
-      - type: string
-        enumDescriptions: string
-        enum: string
-  launchStage: string
-  monitoredResourceTypes:
-    - type: string
-valueExtractor: string
-labelExtractors: object
-bucketOptions:
-  linearBuckets:
-    numFiniteBuckets: integer
-    width: number
-    offset: number
-  exponentialBuckets:
-    numFiniteBuckets: integer
-    growthFactor: number
-    scale: number
-  explicitBuckets:
-    bounds:
-      - type: string
-        format: string
-createTime: string
-updateTime: string
-version: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: resourceName
+      value: string
+    - name: description
+      value: string
+    - name: filter
+      value: string
+    - name: bucketName
+      value: string
+    - name: disabled
+      value: boolean
+    - name: metricDescriptor
+      value:
+        - name: name
+          value: string
+        - name: type
+          value: string
+        - name: labels
+          value:
+            - - name: key
+                value: string
+              - name: valueType
+                value: string
+              - name: description
+                value: string
+        - name: metricKind
+          value: string
+        - name: valueType
+          value: string
+        - name: unit
+          value: string
+        - name: description
+          value: string
+        - name: displayName
+          value: string
+        - name: metadata
+          value:
+            - name: launchStage
+              value: string
+            - name: samplePeriod
+              value: string
+            - name: ingestDelay
+              value: string
+            - name: timeSeriesResourceHierarchyLevel
+              value:
+                - string
+        - name: launchStage
+          value: string
+        - name: monitoredResourceTypes
+          value:
+            - string
+    - name: valueExtractor
+      value: string
+    - name: labelExtractors
+      value: object
+    - name: bucketOptions
+      value:
+        - name: linearBuckets
+          value:
+            - name: numFiniteBuckets
+              value: integer
+            - name: width
+              value: number
+            - name: offset
+              value: number
+        - name: exponentialBuckets
+          value:
+            - name: numFiniteBuckets
+              value: integer
+            - name: growthFactor
+              value: number
+            - name: scale
+              value: number
+        - name: explicitBuckets
+          value:
+            - name: bounds
+              value:
+                - number
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: version
+      value: string
 
 ```
 </TabItem>

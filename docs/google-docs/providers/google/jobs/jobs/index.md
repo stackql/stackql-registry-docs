@@ -114,7 +114,7 @@ title,
 visibility
 FROM google.jobs.jobs
 WHERE projectsId = '{{ projectsId }}'
-AND tenantsId = '{{ tenantsId }}'; 
+AND tenantsId = '{{ tenantsId }}';
 ```
 
 ## `INSERT` example
@@ -147,88 +147,147 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-jobs:
-  - name: string
-    company: string
-    requisitionId: string
-    title: string
-    description: string
-    addresses:
-      - type: string
-    applicationInfo:
-      emails:
-        - type: string
-      instruction: string
-      uris:
-        - type: string
-    jobBenefits:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    compensationInfo:
-      entries:
-        - type: string
-          unit: string
-          amount:
-            currencyCode: string
-            units: string
-            nanos: integer
-          range: {}
-          description: string
-          expectedUnitsPerYear: number
-    customAttributes: object
-    degreeTypes:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    department: string
-    employmentTypes:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    incentives: string
-    languageCode: string
-    jobLevel: string
-    promotionValue: integer
-    qualifications: string
-    responsibilities: string
-    postingRegion: string
-    visibility: string
-    jobStartTime: string
-    jobEndTime: string
-    postingPublishTime: string
-    postingExpireTime: string
-    postingCreateTime: string
-    postingUpdateTime: string
-    companyDisplayName: string
-    derivedInfo:
-      locations:
-        - locationType: string
-          postalAddress:
-            revision: integer
-            regionCode: string
-            languageCode: string
-            postalCode: string
-            sortingCode: string
-            administrativeArea: string
-            locality: string
-            sublocality: string
-            addressLines:
-              - type: string
-            recipients:
-              - type: string
-            organization: string
-          latLng:
-            latitude: number
-            longitude: number
-          radiusMiles: number
-      jobCategories:
-        - type: string
-          enumDescriptions: string
-          enum: string
-    processingOptions:
-      disableStreetAddressResolution: boolean
-      htmlSanitization: string
+- name: your_resource_model_name
+  props:
+    - name: jobs
+      value:
+        - - name: name
+            value: string
+          - name: company
+            value: string
+          - name: requisitionId
+            value: string
+          - name: title
+            value: string
+          - name: description
+            value: string
+          - name: addresses
+            value:
+              - string
+          - name: applicationInfo
+            value:
+              - name: emails
+                value:
+                  - string
+              - name: instruction
+                value: string
+              - name: uris
+                value:
+                  - string
+          - name: jobBenefits
+            value:
+              - string
+          - name: compensationInfo
+            value:
+              - name: entries
+                value:
+                  - - name: type
+                      value: string
+                    - name: unit
+                      value: string
+                    - name: amount
+                      value:
+                        - name: currencyCode
+                          value: string
+                        - name: units
+                          value: string
+                        - name: nanos
+                          value: integer
+                    - name: range
+                      value: []
+                    - name: description
+                      value: string
+                    - name: expectedUnitsPerYear
+                      value: number
+          - name: customAttributes
+            value: object
+          - name: degreeTypes
+            value:
+              - string
+          - name: department
+            value: string
+          - name: employmentTypes
+            value:
+              - string
+          - name: incentives
+            value: string
+          - name: languageCode
+            value: string
+          - name: jobLevel
+            value: string
+          - name: promotionValue
+            value: integer
+          - name: qualifications
+            value: string
+          - name: responsibilities
+            value: string
+          - name: postingRegion
+            value: string
+          - name: visibility
+            value: string
+          - name: jobStartTime
+            value: string
+          - name: jobEndTime
+            value: string
+          - name: postingPublishTime
+            value: string
+          - name: postingExpireTime
+            value: string
+          - name: postingCreateTime
+            value: string
+          - name: postingUpdateTime
+            value: string
+          - name: companyDisplayName
+            value: string
+          - name: derivedInfo
+            value:
+              - name: locations
+                value:
+                  - - name: locationType
+                      value: string
+                    - name: postalAddress
+                      value:
+                        - name: revision
+                          value: integer
+                        - name: regionCode
+                          value: string
+                        - name: languageCode
+                          value: string
+                        - name: postalCode
+                          value: string
+                        - name: sortingCode
+                          value: string
+                        - name: administrativeArea
+                          value: string
+                        - name: locality
+                          value: string
+                        - name: sublocality
+                          value: string
+                        - name: addressLines
+                          value:
+                            - string
+                        - name: recipients
+                          value:
+                            - string
+                        - name: organization
+                          value: string
+                    - name: latLng
+                      value:
+                        - name: latitude
+                          value: number
+                        - name: longitude
+                          value: number
+                    - name: radiusMiles
+                      value: number
+              - name: jobCategories
+                value:
+                  - string
+          - name: processingOptions
+            value:
+              - name: disableStreetAddressResolution
+                value: boolean
+              - name: htmlSanitization
+                value: string
 
 ```
 </TabItem>

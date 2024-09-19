@@ -59,7 +59,7 @@ labels,
 networkSettings,
 split
 FROM google.appengine.services
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```
 
 ## `UPDATE` example

@@ -75,7 +75,7 @@ selfLink,
 timeoutSec,
 unhealthyThreshold
 FROM google.compute.https_health_checks
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -122,19 +122,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-host: string
-requestPath: string
-port: integer
-checkIntervalSec: integer
-timeoutSec: integer
-unhealthyThreshold: integer
-healthyThreshold: integer
-selfLink: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: host
+      value: string
+    - name: requestPath
+      value: string
+    - name: port
+      value: integer
+    - name: checkIntervalSec
+      value: integer
+    - name: timeoutSec
+      value: integer
+    - name: unhealthyThreshold
+      value: integer
+    - name: healthyThreshold
+      value: integer
+    - name: selfLink
+      value: string
 
 ```
 </TabItem>

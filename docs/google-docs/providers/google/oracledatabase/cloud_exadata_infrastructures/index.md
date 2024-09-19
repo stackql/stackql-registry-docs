@@ -62,7 +62,7 @@ labels,
 properties
 FROM google.oracledatabase.cloud_exadata_infrastructures
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -103,60 +103,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-gcpOracleZone: string
-entitlementId: string
-properties:
-  ocid: string
-  computeCount: integer
-  storageCount: integer
-  totalStorageSizeGb: integer
-  availableStorageSizeGb: integer
-  maintenanceWindow:
-    preference: string
-    months:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    weeksOfMonth:
-      - type: string
-        format: string
-    daysOfWeek:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    hoursOfDay:
-      - type: string
-        format: string
-    leadTimeWeek: integer
-    patchingMode: string
-    customActionTimeoutMins: integer
-    isCustomActionTimeoutEnabled: boolean
-  state: string
-  shape: string
-  ociUrl: string
-  cpuCount: integer
-  maxCpuCount: integer
-  memorySizeGb: integer
-  maxMemoryGb: integer
-  dbNodeStorageSizeGb: integer
-  maxDbNodeStorageSizeGb: integer
-  dataStorageSizeTb: number
-  maxDataStorageTb: number
-  activatedStorageCount: integer
-  additionalStorageCount: integer
-  dbServerVersion: string
-  storageServerVersion: string
-  nextMaintenanceRunId: string
-  nextMaintenanceRunTime: string
-  nextSecurityMaintenanceRunTime: string
-  customerContacts:
-    - email: string
-  monthlyStorageServerVersion: string
-  monthlyDbServerVersion: string
-labels: object
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: gcpOracleZone
+      value: string
+    - name: entitlementId
+      value: string
+    - name: properties
+      value:
+        - name: ocid
+          value: string
+        - name: computeCount
+          value: integer
+        - name: storageCount
+          value: integer
+        - name: totalStorageSizeGb
+          value: integer
+        - name: availableStorageSizeGb
+          value: integer
+        - name: maintenanceWindow
+          value:
+            - name: preference
+              value: string
+            - name: months
+              value:
+                - string
+            - name: weeksOfMonth
+              value:
+                - integer
+            - name: daysOfWeek
+              value:
+                - string
+            - name: hoursOfDay
+              value:
+                - integer
+            - name: leadTimeWeek
+              value: integer
+            - name: patchingMode
+              value: string
+            - name: customActionTimeoutMins
+              value: integer
+            - name: isCustomActionTimeoutEnabled
+              value: boolean
+        - name: state
+          value: string
+        - name: shape
+          value: string
+        - name: ociUrl
+          value: string
+        - name: cpuCount
+          value: integer
+        - name: maxCpuCount
+          value: integer
+        - name: memorySizeGb
+          value: integer
+        - name: maxMemoryGb
+          value: integer
+        - name: dbNodeStorageSizeGb
+          value: integer
+        - name: maxDbNodeStorageSizeGb
+          value: integer
+        - name: dataStorageSizeTb
+          value: number
+        - name: maxDataStorageTb
+          value: number
+        - name: activatedStorageCount
+          value: integer
+        - name: additionalStorageCount
+          value: integer
+        - name: dbServerVersion
+          value: string
+        - name: storageServerVersion
+          value: string
+        - name: nextMaintenanceRunId
+          value: string
+        - name: nextMaintenanceRunTime
+          value: string
+        - name: nextSecurityMaintenanceRunTime
+          value: string
+        - name: customerContacts
+          value:
+            - - name: email
+                value: string
+        - name: monthlyStorageServerVersion
+          value: string
+        - name: monthlyDbServerVersion
+          value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

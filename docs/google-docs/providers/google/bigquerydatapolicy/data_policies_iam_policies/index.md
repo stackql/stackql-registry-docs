@@ -54,7 +54,7 @@ role
 FROM google.bigquerydatapolicy.data_policies_iam_policies
 WHERE dataPoliciesId = '{{ dataPoliciesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

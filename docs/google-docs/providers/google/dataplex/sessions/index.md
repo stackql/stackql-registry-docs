@@ -55,5 +55,5 @@ FROM google.dataplex.sessions
 WHERE environmentsId = '{{ environmentsId }}'
 AND lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

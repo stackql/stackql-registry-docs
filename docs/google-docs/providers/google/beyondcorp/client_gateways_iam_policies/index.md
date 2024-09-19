@@ -54,7 +54,7 @@ role
 FROM google.beyondcorp.client_gateways_iam_policies
 WHERE clientGatewaysId = '{{ clientGatewaysId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

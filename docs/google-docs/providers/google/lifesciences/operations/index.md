@@ -57,5 +57,5 @@ metadata,
 response
 FROM google.lifesciences.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

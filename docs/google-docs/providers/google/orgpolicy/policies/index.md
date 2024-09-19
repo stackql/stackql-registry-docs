@@ -68,7 +68,7 @@ dryRunSpec,
 etag,
 spec
 FROM google.orgpolicy.policies
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -107,29 +107,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dryRunSpec:
-  reset: boolean
-  inheritFromParent: boolean
-  updateTime: string
-  etag: string
-  rules:
-    - values:
-        allowedValues:
-          - type: string
-        deniedValues:
-          - type: string
-      condition:
-        description: string
-        location: string
-        expression: string
-        title: string
-      allowAll: boolean
-      enforce: boolean
-      denyAll: boolean
-name: string
-etag: string
-alternate:
-  launch: string
+- name: your_resource_model_name
+  props:
+    - name: dryRunSpec
+      value:
+        - name: reset
+          value: boolean
+        - name: inheritFromParent
+          value: boolean
+        - name: updateTime
+          value: string
+        - name: etag
+          value: string
+        - name: rules
+          value:
+            - - name: values
+                value:
+                  - name: allowedValues
+                    value:
+                      - string
+                  - name: deniedValues
+                    value:
+                      - string
+              - name: condition
+                value:
+                  - name: description
+                    value: string
+                  - name: location
+                    value: string
+                  - name: expression
+                    value: string
+                  - name: title
+                    value: string
+              - name: allowAll
+                value: boolean
+              - name: enforce
+                value: boolean
+              - name: denyAll
+                value: boolean
+    - name: name
+      value: string
+    - name: etag
+      value: string
+    - name: alternate
+      value:
+        - name: launch
+          value: string
 
 ```
 </TabItem>

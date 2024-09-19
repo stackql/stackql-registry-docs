@@ -52,7 +52,7 @@ exporter,
 samplingConfig
 FROM google.apigee.environments_trace_config
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

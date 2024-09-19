@@ -69,7 +69,7 @@ state,
 tags,
 updateTime
 FROM google.cloudresourcemanager.folders
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -88,13 +88,11 @@ Use the following StackQL query and manifest file to create a new <code>folders<
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.folders (
-,
 parent,
 displayName,
 tags
 )
 SELECT 
-'{{  }}',
 '{{ parent }}',
 '{{ displayName }}',
 '{{ tags }}'
@@ -104,15 +102,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-displayName: string
-state: string
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-tags: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: tags
+      value: object
 
 ```
 </TabItem>

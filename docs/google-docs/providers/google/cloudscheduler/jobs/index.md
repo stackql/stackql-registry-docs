@@ -80,7 +80,7 @@ timeZone,
 userUpdateTime
 FROM google.cloudscheduler.jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,52 +129,97 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-pubsubTarget:
-  topicName: string
-  data: string
-  attributes: object
-appEngineHttpTarget:
-  httpMethod: string
-  appEngineRouting:
-    service: string
-    version: string
-    instance: string
-    host: string
-  relativeUri: string
-  headers: object
-  body: string
-httpTarget:
-  uri: string
-  httpMethod: string
-  headers: object
-  body: string
-  oauthToken:
-    serviceAccountEmail: string
-    scope: string
-  oidcToken:
-    serviceAccountEmail: string
-    audience: string
-schedule: string
-timeZone: string
-userUpdateTime: string
-state: string
-status:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-scheduleTime: string
-lastAttemptTime: string
-retryConfig:
-  retryCount: integer
-  maxRetryDuration: string
-  minBackoffDuration: string
-  maxBackoffDuration: string
-  maxDoublings: integer
-attemptDeadline: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: pubsubTarget
+      value:
+        - name: topicName
+          value: string
+        - name: data
+          value: string
+        - name: attributes
+          value: object
+    - name: appEngineHttpTarget
+      value:
+        - name: httpMethod
+          value: string
+        - name: appEngineRouting
+          value:
+            - name: service
+              value: string
+            - name: version
+              value: string
+            - name: instance
+              value: string
+            - name: host
+              value: string
+        - name: relativeUri
+          value: string
+        - name: headers
+          value: object
+        - name: body
+          value: string
+    - name: httpTarget
+      value:
+        - name: uri
+          value: string
+        - name: httpMethod
+          value: string
+        - name: headers
+          value: object
+        - name: body
+          value: string
+        - name: oauthToken
+          value:
+            - name: serviceAccountEmail
+              value: string
+            - name: scope
+              value: string
+        - name: oidcToken
+          value:
+            - name: serviceAccountEmail
+              value: string
+            - name: audience
+              value: string
+    - name: schedule
+      value: string
+    - name: timeZone
+      value: string
+    - name: userUpdateTime
+      value: string
+    - name: state
+      value: string
+    - name: status
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: scheduleTime
+      value: string
+    - name: lastAttemptTime
+      value: string
+    - name: retryConfig
+      value:
+        - name: retryCount
+          value: integer
+        - name: maxRetryDuration
+          value: string
+        - name: minBackoffDuration
+          value: string
+        - name: maxBackoffDuration
+          value: string
+        - name: maxDoublings
+          value: integer
+    - name: attemptDeadline
+      value: string
 
 ```
 </TabItem>

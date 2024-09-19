@@ -62,7 +62,7 @@ solutionTypes
 FROM google.retail.controls
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,67 +105,108 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-rule:
-  boostAction:
-    boost: number
-    productsFilter: string
-  redirectAction:
-    redirectUri: string
-  onewaySynonymsAction:
-    queryTerms:
-      - type: string
-    synonyms:
-      - type: string
-    onewayTerms:
-      - type: string
-  doNotAssociateAction:
-    queryTerms:
-      - type: string
-    doNotAssociateTerms:
-      - type: string
-    terms:
-      - type: string
-  replacementAction:
-    queryTerms:
-      - type: string
-    replacementTerm: string
-    term: string
-  ignoreAction:
-    ignoreTerms:
-      - type: string
-  filterAction:
-    filter: string
-  twowaySynonymsAction:
-    synonyms:
-      - type: string
-  forceReturnFacetAction:
-    facetPositionAdjustments:
-      - attributeName: string
-        position: integer
-  removeFacetAction:
-    attributeNames:
-      - type: string
-  condition:
-    queryTerms:
-      - value: string
-        fullMatch: boolean
-    activeTimeRange:
-      - startTime: string
-        endTime: string
-    pageCategories:
-      - type: string
-name: string
-displayName: string
-associatedServingConfigIds:
-  - type: string
-solutionTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
-searchSolutionUseCase:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: rule
+      value:
+        - name: boostAction
+          value:
+            - name: boost
+              value: number
+            - name: productsFilter
+              value: string
+        - name: redirectAction
+          value:
+            - name: redirectUri
+              value: string
+        - name: onewaySynonymsAction
+          value:
+            - name: queryTerms
+              value:
+                - string
+            - name: synonyms
+              value:
+                - string
+            - name: onewayTerms
+              value:
+                - string
+        - name: doNotAssociateAction
+          value:
+            - name: queryTerms
+              value:
+                - string
+            - name: doNotAssociateTerms
+              value:
+                - string
+            - name: terms
+              value:
+                - string
+        - name: replacementAction
+          value:
+            - name: queryTerms
+              value:
+                - string
+            - name: replacementTerm
+              value: string
+            - name: term
+              value: string
+        - name: ignoreAction
+          value:
+            - name: ignoreTerms
+              value:
+                - string
+        - name: filterAction
+          value:
+            - name: filter
+              value: string
+        - name: twowaySynonymsAction
+          value:
+            - name: synonyms
+              value:
+                - string
+        - name: forceReturnFacetAction
+          value:
+            - name: facetPositionAdjustments
+              value:
+                - - name: attributeName
+                    value: string
+                  - name: position
+                    value: integer
+        - name: removeFacetAction
+          value:
+            - name: attributeNames
+              value:
+                - string
+        - name: condition
+          value:
+            - name: queryTerms
+              value:
+                - - name: value
+                    value: string
+                  - name: fullMatch
+                    value: boolean
+            - name: activeTimeRange
+              value:
+                - - name: startTime
+                    value: string
+                  - name: endTime
+                    value: string
+            - name: pageCategories
+              value:
+                - string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: associatedServingConfigIds
+      value:
+        - string
+    - name: solutionTypes
+      value:
+        - string
+    - name: searchSolutionUseCase
+      value:
+        - string
 
 ```
 </TabItem>

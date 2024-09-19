@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.appengine.locations
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```

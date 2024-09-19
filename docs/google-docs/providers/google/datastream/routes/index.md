@@ -63,7 +63,7 @@ updateTime
 FROM google.datastream.routes
 WHERE locationsId = '{{ locationsId }}'
 AND privateConnectionsId = '{{ privateConnectionsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,13 +104,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-destinationAddress: string
-destinationPort: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: destinationAddress
+      value: string
+    - name: destinationPort
+      value: integer
 
 ```
 </TabItem>

@@ -74,7 +74,7 @@ updateTime
 FROM google.dataplex.zones
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -119,36 +119,66 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-state: string
-type: string
-discoverySpec:
-  enabled: boolean
-  includePatterns:
-    - type: string
-  excludePatterns:
-    - type: string
-  csvOptions:
-    headerRows: integer
-    delimiter: string
-    encoding: string
-    disableTypeInference: boolean
-  jsonOptions:
-    encoding: string
-    disableTypeInference: boolean
-  schedule: string
-resourceSpec:
-  locationType: string
-assetStatus:
-  updateTime: string
-  activeAssets: integer
-  securityPolicyApplyingAssets: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: type
+      value: string
+    - name: discoverySpec
+      value:
+        - name: enabled
+          value: boolean
+        - name: includePatterns
+          value:
+            - string
+        - name: excludePatterns
+          value:
+            - string
+        - name: csvOptions
+          value:
+            - name: headerRows
+              value: integer
+            - name: delimiter
+              value: string
+            - name: encoding
+              value: string
+            - name: disableTypeInference
+              value: boolean
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: string
+            - name: disableTypeInference
+              value: boolean
+        - name: schedule
+          value: string
+    - name: resourceSpec
+      value:
+        - name: locationType
+          value: string
+    - name: assetStatus
+      value:
+        - name: updateTime
+          value: string
+        - name: activeAssets
+          value: integer
+        - name: securityPolicyApplyingAssets
+          value: integer
 
 ```
 </TabItem>

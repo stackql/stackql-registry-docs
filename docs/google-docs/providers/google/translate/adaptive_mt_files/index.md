@@ -58,7 +58,7 @@ updateTime
 FROM google.translate.adaptive_mt_files
 WHERE adaptiveMtDatasetsId = '{{ adaptiveMtDatasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

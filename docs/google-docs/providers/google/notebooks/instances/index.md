@@ -94,7 +94,7 @@ updateTime,
 upgradeHistory
 FROM google.notebooks.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,7 +125,7 @@ SELECT
 '{{ projectsId }}',
 '{{ gceSetup }}',
 '{{ instanceOwners }}',
-true|false,
+{{ disableProxyAccess }},
 '{{ labels }}'
 ;
 ```
@@ -133,77 +133,147 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-gceSetup:
-  machineType: string
-  minCpuPlatform: string
-  acceleratorConfigs:
-    - type: string
-      coreCount: string
-  serviceAccounts:
-    - email: string
-      scopes:
-        - type: string
-  vmImage:
-    project: string
-    name: string
-    family: string
-  containerImage:
-    repository: string
-    tag: string
-  bootDisk:
-    diskSizeGb: string
-    diskType: string
-    diskEncryption: string
-    kmsKey: string
-  dataDisks:
-    - diskSizeGb: string
-      diskType: string
-      diskEncryption: string
-      kmsKey: string
-  shieldedInstanceConfig:
-    enableSecureBoot: boolean
-    enableVtpm: boolean
-    enableIntegrityMonitoring: boolean
-  networkInterfaces:
-    - network: string
-      subnet: string
-      nicType: string
-      accessConfigs:
-        - externalIp: string
-  disablePublicIp: boolean
-  tags:
-    - type: string
-  metadata: object
-  enableIpForwarding: boolean
-  gpuDriverConfig:
-    enableGpuDriver: boolean
-    customGpuDriverPath: string
-proxyUri: string
-instanceOwners:
-  - type: string
-creator: string
-state: string
-upgradeHistory:
-  - snapshot: string
-    vmImage: string
-    containerImage: string
-    framework: string
-    version: string
-    state: string
-    createTime: string
-    action: string
-    targetVersion: string
-id: string
-healthState: string
-healthInfo: object
-createTime: string
-updateTime: string
-disableProxyAccess: boolean
-labels: object
-thirdPartyProxyUrl: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: gceSetup
+      value:
+        - name: machineType
+          value: string
+        - name: minCpuPlatform
+          value: string
+        - name: acceleratorConfigs
+          value:
+            - - name: type
+                value: string
+              - name: coreCount
+                value: string
+        - name: serviceAccounts
+          value:
+            - - name: email
+                value: string
+              - name: scopes
+                value:
+                  - string
+        - name: vmImage
+          value:
+            - name: project
+              value: string
+            - name: name
+              value: string
+            - name: family
+              value: string
+        - name: containerImage
+          value:
+            - name: repository
+              value: string
+            - name: tag
+              value: string
+        - name: bootDisk
+          value:
+            - name: diskSizeGb
+              value: string
+            - name: diskType
+              value: string
+            - name: diskEncryption
+              value: string
+            - name: kmsKey
+              value: string
+        - name: dataDisks
+          value:
+            - - name: diskSizeGb
+                value: string
+              - name: diskType
+                value: string
+              - name: diskEncryption
+                value: string
+              - name: kmsKey
+                value: string
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: boolean
+            - name: enableVtpm
+              value: boolean
+            - name: enableIntegrityMonitoring
+              value: boolean
+        - name: networkInterfaces
+          value:
+            - - name: network
+                value: string
+              - name: subnet
+                value: string
+              - name: nicType
+                value: string
+              - name: accessConfigs
+                value:
+                  - - name: externalIp
+                      value: string
+        - name: disablePublicIp
+          value: boolean
+        - name: tags
+          value:
+            - string
+        - name: metadata
+          value: object
+        - name: enableIpForwarding
+          value: boolean
+        - name: gpuDriverConfig
+          value:
+            - name: enableGpuDriver
+              value: boolean
+            - name: customGpuDriverPath
+              value: string
+    - name: proxyUri
+      value: string
+    - name: instanceOwners
+      value:
+        - string
+    - name: creator
+      value: string
+    - name: state
+      value: string
+    - name: upgradeHistory
+      value:
+        - - name: snapshot
+            value: string
+          - name: vmImage
+            value: string
+          - name: containerImage
+            value: string
+          - name: framework
+            value: string
+          - name: version
+            value: string
+          - name: state
+            value: string
+          - name: createTime
+            value: string
+          - name: action
+            value: string
+          - name: targetVersion
+            value: string
+    - name: id
+      value: string
+    - name: healthState
+      value: string
+    - name: healthInfo
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: disableProxyAccess
+      value: boolean
+    - name: labels
+      value: object
+    - name: thirdPartyProxyUrl
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

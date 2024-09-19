@@ -60,7 +60,7 @@ error,
 metadata,
 response
 FROM google.vision.operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

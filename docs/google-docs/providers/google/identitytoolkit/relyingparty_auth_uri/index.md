@@ -53,7 +53,6 @@ Use the following StackQL query and manifest file to create a new <code>relyingp
 ```sql
 /*+ create */
 INSERT INTO google.identitytoolkit.relyingparty_auth_uri (
-,
 appId,
 authFlowType,
 clientId,
@@ -72,7 +71,6 @@ tenantId,
 tenantProjectNumber
 )
 SELECT 
-'{{  }}',
 '{{ appId }}',
 '{{ authFlowType }}',
 '{{ clientId }}',
@@ -95,22 +93,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-appId: string
-authFlowType: string
-clientId: string
-context: string
-continueUri: string
-customParameter: object
-hostedDomain: string
-identifier: string
-oauthConsumerKey: string
-oauthScope: string
-openidRealm: string
-otaApp: string
-providerId: string
-sessionId: string
-tenantId: string
-tenantProjectNumber: string
+- name: your_resource_model_name
+  props:
+    - name: appId
+      value: string
+    - name: authFlowType
+      value: string
+    - name: clientId
+      value: string
+    - name: context
+      value: string
+    - name: continueUri
+      value: string
+    - name: customParameter
+      value: object
+    - name: hostedDomain
+      value: string
+    - name: identifier
+      value: string
+    - name: oauthConsumerKey
+      value: string
+    - name: oauthScope
+      value: string
+    - name: openidRealm
+      value: string
+    - name: otaApp
+      value: string
+    - name: providerId
+      value: string
+    - name: sessionId
+      value: string
+    - name: tenantId
+      value: string
+    - name: tenantProjectNumber
+      value: string
 
 ```
 </TabItem>

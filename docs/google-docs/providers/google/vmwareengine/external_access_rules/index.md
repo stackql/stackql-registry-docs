@@ -76,7 +76,7 @@ updateTime
 FROM google.vmwareengine.external_access_rules
 WHERE locationsId = '{{ locationsId }}'
 AND networkPoliciesId = '{{ networkPoliciesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,27 +125,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-description: string
-priority: integer
-action: string
-ipProtocol: string
-sourceIpRanges:
-  - ipAddress: string
-    ipAddressRange: string
-    externalAddress: string
-sourcePorts:
-  - type: string
-destinationIpRanges:
-  - ipAddress: string
-    ipAddressRange: string
-    externalAddress: string
-destinationPorts:
-  - type: string
-state: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: priority
+      value: integer
+    - name: action
+      value: string
+    - name: ipProtocol
+      value: string
+    - name: sourceIpRanges
+      value:
+        - - name: ipAddress
+            value: string
+          - name: ipAddressRange
+            value: string
+          - name: externalAddress
+            value: string
+    - name: sourcePorts
+      value:
+        - string
+    - name: destinationIpRanges
+      value:
+        - - name: ipAddress
+            value: string
+          - name: ipAddressRange
+            value: string
+          - name: externalAddress
+            value: string
+    - name: destinationPorts
+      value:
+        - string
+    - name: state
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

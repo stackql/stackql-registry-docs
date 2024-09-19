@@ -54,7 +54,7 @@ role
 FROM google.networkconnectivity.groups_iam_policies
 WHERE groupsId = '{{ groupsId }}'
 AND hubsId = '{{ hubsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

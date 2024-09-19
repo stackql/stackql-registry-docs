@@ -78,7 +78,7 @@ staticServiceIpConnectivity,
 updateTime
 FROM google.datastream.connection_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -131,58 +131,112 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-oracleProfile:
-  hostname: string
-  port: integer
-  username: string
-  password: string
-  databaseService: string
-  connectionAttributes: object
-  oracleSslConfig:
-    caCertificate: string
-    caCertificateSet: boolean
-gcsProfile:
-  bucket: string
-  rootPath: string
-mysqlProfile:
-  hostname: string
-  port: integer
-  username: string
-  password: string
-  sslConfig:
-    clientKey: string
-    clientKeySet: boolean
-    clientCertificate: string
-    clientCertificateSet: boolean
-    caCertificate: string
-    caCertificateSet: boolean
-bigqueryProfile: {}
-postgresqlProfile:
-  hostname: string
-  port: integer
-  username: string
-  password: string
-  database: string
-sqlServerProfile:
-  hostname: string
-  port: integer
-  username: string
-  password: string
-  database: string
-staticServiceIpConnectivity: {}
-forwardSshConnectivity:
-  hostname: string
-  username: string
-  port: integer
-  password: string
-  privateKey: string
-privateConnectivity:
-  privateConnection: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: oracleProfile
+      value:
+        - name: hostname
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: databaseService
+          value: string
+        - name: connectionAttributes
+          value: object
+        - name: oracleSslConfig
+          value:
+            - name: caCertificate
+              value: string
+            - name: caCertificateSet
+              value: boolean
+    - name: gcsProfile
+      value:
+        - name: bucket
+          value: string
+        - name: rootPath
+          value: string
+    - name: mysqlProfile
+      value:
+        - name: hostname
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: sslConfig
+          value:
+            - name: clientKey
+              value: string
+            - name: clientKeySet
+              value: boolean
+            - name: clientCertificate
+              value: string
+            - name: clientCertificateSet
+              value: boolean
+            - name: caCertificate
+              value: string
+            - name: caCertificateSet
+              value: boolean
+    - name: bigqueryProfile
+      value: []
+    - name: postgresqlProfile
+      value:
+        - name: hostname
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: database
+          value: string
+    - name: sqlServerProfile
+      value:
+        - name: hostname
+          value: string
+        - name: port
+          value: integer
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: database
+          value: string
+    - name: staticServiceIpConnectivity
+      value: []
+    - name: forwardSshConnectivity
+      value:
+        - name: hostname
+          value: string
+        - name: username
+          value: string
+        - name: port
+          value: integer
+        - name: password
+          value: string
+        - name: privateKey
+          value: string
+    - name: privateConnectivity
+      value:
+        - name: privateConnection
+          value: string
 
 ```
 </TabItem>

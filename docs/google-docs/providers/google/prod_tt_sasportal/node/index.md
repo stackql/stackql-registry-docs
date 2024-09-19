@@ -51,5 +51,5 @@ name,
 displayName,
 sasUserIds
 FROM google.prod_tt_sasportal.node
-WHERE nodesId = '{{ nodesId }}'; 
+WHERE nodesId = '{{ nodesId }}';
 ```

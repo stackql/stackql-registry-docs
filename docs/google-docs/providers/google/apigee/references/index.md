@@ -57,7 +57,7 @@ resourceType
 FROM google.apigee.references
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND referencesId = '{{ referencesId }}'; 
+AND referencesId = '{{ referencesId }}';
 ```
 
 ## `INSERT` example
@@ -96,10 +96,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-description: string
-name: string
-resourceType: string
-refers: string
+- name: your_resource_model_name
+  props:
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: resourceType
+      value: string
+    - name: refers
+      value: string
 
 ```
 </TabItem>

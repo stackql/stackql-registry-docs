@@ -61,5 +61,5 @@ resourceType,
 resourceValue,
 resourceValueConfigsUsed
 FROM google.securitycenter.valued_resources
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

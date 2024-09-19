@@ -73,7 +73,7 @@ state,
 subscriberContact
 FROM google.analyticshub.subscriptions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

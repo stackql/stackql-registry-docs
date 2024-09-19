@@ -65,7 +65,7 @@ updateTime
 FROM google.migrationcenter.reports
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND reportConfigsId = '{{ reportConfigsId }}'; 
+AND reportConfigsId = '{{ reportConfigsId }}';
 ```
 
 ## `INSERT` example
@@ -106,96 +106,179 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-displayName: string
-description: string
-type: string
-state: string
-summary:
-  allAssetsStats:
-    totalMemoryBytes: string
-    totalStorageBytes: string
-    totalCores: string
-    totalAssets: string
-    memoryUtilizationChart:
-      used: string
-      free: string
-    operatingSystem:
-      dataPoints:
-        - label: string
-          value: number
-    coreCountHistogram:
-      buckets:
-        - lowerBound: string
-          upperBound: string
-          count: string
-  groupFindings:
-    - displayName: string
-      description: string
-      overlappingAssetCount: string
-      preferenceSetFindings:
-        - displayName: string
-          description: string
-          machinePreferences:
-            targetProduct: string
-            regionPreferences:
-              preferredRegions:
-                - type: string
-            commitmentPlan: string
-            sizingOptimizationStrategy: string
-            computeEnginePreferences:
-              persistentDiskType: string
-              machinePreferences:
-                allowedMachineSeries:
-                  - code: string
-              licenseType: string
-            vmwareEnginePreferences:
-              cpuOvercommitRatio: number
-              memoryOvercommitRatio: number
-              storageDeduplicationCompressionRatio: number
-              commitmentPlan: string
-            soleTenancyPreferences:
-              cpuOvercommitRatio: number
-              hostMaintenancePolicy: string
-              commitmentPlan: string
-              nodeTypes:
-                - nodeName: string
-          monthlyCostTotal:
-            currencyCode: string
-            units: string
-            nanos: integer
-          computeEngineFinding:
-            allocatedRegions:
-              - type: string
-            allocatedAssetCount: string
-            machineSeriesAllocations:
-              - machineSeries:
-                  code: string
-                allocatedAssetCount: string
-            allocatedDiskTypes:
-              - type: string
-                enumDescriptions: string
-                enum: string
-          vmwareEngineFinding:
-            allocatedRegions:
-              - type: string
-            allocatedAssetCount: string
-            nodeAllocations:
-              - vmwareNode:
-                  code: string
-                nodeCount: string
-                allocatedAssetCount: string
-          soleTenantFinding:
-            allocatedRegions:
-              - type: string
-            allocatedAssetCount: string
-            nodeAllocations:
-              - node:
-                  nodeName: string
-                nodeCount: string
-                allocatedAssetCount: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: type
+      value: string
+    - name: state
+      value: string
+    - name: summary
+      value:
+        - name: allAssetsStats
+          value:
+            - name: totalMemoryBytes
+              value: string
+            - name: totalStorageBytes
+              value: string
+            - name: totalCores
+              value: string
+            - name: totalAssets
+              value: string
+            - name: memoryUtilizationChart
+              value:
+                - name: used
+                  value: string
+                - name: free
+                  value: string
+            - name: operatingSystem
+              value:
+                - name: dataPoints
+                  value:
+                    - - name: label
+                        value: string
+                      - name: value
+                        value: number
+            - name: coreCountHistogram
+              value:
+                - name: buckets
+                  value:
+                    - - name: lowerBound
+                        value: string
+                      - name: upperBound
+                        value: string
+                      - name: count
+                        value: string
+        - name: groupFindings
+          value:
+            - - name: displayName
+                value: string
+              - name: description
+                value: string
+              - name: overlappingAssetCount
+                value: string
+              - name: preferenceSetFindings
+                value:
+                  - - name: displayName
+                      value: string
+                    - name: description
+                      value: string
+                    - name: machinePreferences
+                      value:
+                        - name: targetProduct
+                          value: string
+                        - name: regionPreferences
+                          value:
+                            - name: preferredRegions
+                              value:
+                                - string
+                        - name: commitmentPlan
+                          value: string
+                        - name: sizingOptimizationStrategy
+                          value: string
+                        - name: computeEnginePreferences
+                          value:
+                            - name: persistentDiskType
+                              value: string
+                            - name: machinePreferences
+                              value:
+                                - name: allowedMachineSeries
+                                  value:
+                                    - - name: code
+                                        value: string
+                            - name: licenseType
+                              value: string
+                        - name: vmwareEnginePreferences
+                          value:
+                            - name: cpuOvercommitRatio
+                              value: number
+                            - name: memoryOvercommitRatio
+                              value: number
+                            - name: storageDeduplicationCompressionRatio
+                              value: number
+                            - name: commitmentPlan
+                              value: string
+                        - name: soleTenancyPreferences
+                          value:
+                            - name: cpuOvercommitRatio
+                              value: number
+                            - name: hostMaintenancePolicy
+                              value: string
+                            - name: commitmentPlan
+                              value: string
+                            - name: nodeTypes
+                              value:
+                                - - name: nodeName
+                                    value: string
+                    - name: monthlyCostTotal
+                      value:
+                        - name: currencyCode
+                          value: string
+                        - name: units
+                          value: string
+                        - name: nanos
+                          value: integer
+                    - name: computeEngineFinding
+                      value:
+                        - name: allocatedRegions
+                          value:
+                            - string
+                        - name: allocatedAssetCount
+                          value: string
+                        - name: machineSeriesAllocations
+                          value:
+                            - - name: machineSeries
+                                value:
+                                  - name: code
+                                    value: string
+                              - name: allocatedAssetCount
+                                value: string
+                        - name: allocatedDiskTypes
+                          value:
+                            - string
+                    - name: vmwareEngineFinding
+                      value:
+                        - name: allocatedRegions
+                          value:
+                            - string
+                        - name: allocatedAssetCount
+                          value: string
+                        - name: nodeAllocations
+                          value:
+                            - - name: vmwareNode
+                                value:
+                                  - name: code
+                                    value: string
+                              - name: nodeCount
+                                value: string
+                              - name: allocatedAssetCount
+                                value: string
+                    - name: soleTenantFinding
+                      value:
+                        - name: allocatedRegions
+                          value:
+                            - string
+                        - name: allocatedAssetCount
+                          value: string
+                        - name: nodeAllocations
+                          value:
+                            - - name: node
+                                value:
+                                  - name: nodeName
+                                    value: string
+                              - name: nodeCount
+                                value: string
+                              - name: allocatedAssetCount
+                                value: string
 
 ```
 </TabItem>

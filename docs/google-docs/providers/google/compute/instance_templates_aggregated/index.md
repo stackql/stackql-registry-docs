@@ -64,5 +64,5 @@ selfLink,
 sourceInstance,
 sourceInstanceParams
 FROM google.compute.instance_templates_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

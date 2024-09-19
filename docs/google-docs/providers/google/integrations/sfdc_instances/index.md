@@ -72,7 +72,7 @@ sfdcOrgId,
 updateTime
 FROM google.integrations.sfdc_instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,16 +115,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-sfdcOrgId: string
-serviceAuthority: string
-authConfigId:
-  - type: string
-deleteTime: string
-updateTime: string
-displayName: string
-createTime: string
-name: string
-description: string
+- name: your_resource_model_name
+  props:
+    - name: sfdcOrgId
+      value: string
+    - name: serviceAuthority
+      value: string
+    - name: authConfigId
+      value:
+        - string
+    - name: deleteTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
 
 ```
 </TabItem>

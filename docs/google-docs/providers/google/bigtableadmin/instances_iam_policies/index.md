@@ -53,7 +53,7 @@ members,
 role
 FROM google.bigtableadmin.instances_iam_policies
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

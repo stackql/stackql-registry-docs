@@ -54,5 +54,5 @@ labels,
 locationId,
 metadata
 FROM google.vpcaccess.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

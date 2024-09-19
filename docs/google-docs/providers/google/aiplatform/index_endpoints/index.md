@@ -86,7 +86,7 @@ satisfiesPzs,
 updateTime
 FROM google.aiplatform.index_endpoints
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,86 +121,149 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ encryptionSpec }}',
-true|false,
+{{ publicEndpointEnabled }},
 '{{ network }}',
 '{{ privateServiceConnectConfig }}',
 '{{ labels }}',
 '{{ displayName }}',
 '{{ description }}',
 '{{ etag }}',
-true|false
+{{ enablePrivateServiceConnect }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-satisfiesPzi: boolean
-encryptionSpec:
-  kmsKeyName: string
-publicEndpointEnabled: boolean
-updateTime: string
-createTime: string
-network: string
-privateServiceConnectConfig:
-  serviceAttachment: string
-  projectAllowlist:
-    - type: string
-  enablePrivateServiceConnect: boolean
-labels: object
-satisfiesPzs: boolean
-displayName: string
-description: string
-name: string
-publicEndpointDomainName: string
-etag: string
-deployedIndexes:
-  - deploymentGroup: string
-    privateEndpoints:
-      matchGrpcAddress: string
-      pscAutomatedEndpoints:
-        - projectId: string
-          network: string
-          matchAddress: string
-      serviceAttachment: string
-    deployedIndexAuthConfig:
-      authProvider:
-        audiences:
-          - type: string
-        allowedIssuers:
-          - type: string
-    indexSyncTime: string
-    enableAccessLogging: boolean
-    dedicatedResources:
-      machineSpec:
-        acceleratorCount: integer
-        tpuTopology: string
-        machineType: string
-        acceleratorType: string
-        reservationAffinity:
-          reservationAffinityType: string
-          values:
-            - type: string
-          key: string
-      autoscalingMetricSpecs:
-        - target: integer
-          metricName: string
-      maxReplicaCount: integer
-      minReplicaCount: integer
-      spot: boolean
-    reservedIpRanges:
-      - type: string
-    displayName: string
-    pscAutomationConfigs:
-      - projectId: string
-        network: string
-    id: string
-    index: string
-    createTime: string
-    automaticResources:
-      minReplicaCount: integer
-      maxReplicaCount: integer
-enablePrivateServiceConnect: boolean
+- name: your_resource_model_name
+  props:
+    - name: satisfiesPzi
+      value: boolean
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: publicEndpointEnabled
+      value: boolean
+    - name: updateTime
+      value: string
+    - name: createTime
+      value: string
+    - name: network
+      value: string
+    - name: privateServiceConnectConfig
+      value:
+        - name: serviceAttachment
+          value: string
+        - name: projectAllowlist
+          value:
+            - string
+        - name: enablePrivateServiceConnect
+          value: boolean
+    - name: labels
+      value: object
+    - name: satisfiesPzs
+      value: boolean
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: publicEndpointDomainName
+      value: string
+    - name: etag
+      value: string
+    - name: deployedIndexes
+      value:
+        - - name: deploymentGroup
+            value: string
+          - name: privateEndpoints
+            value:
+              - name: matchGrpcAddress
+                value: string
+              - name: pscAutomatedEndpoints
+                value:
+                  - - name: projectId
+                      value: string
+                    - name: network
+                      value: string
+                    - name: matchAddress
+                      value: string
+              - name: serviceAttachment
+                value: string
+          - name: deployedIndexAuthConfig
+            value:
+              - name: authProvider
+                value:
+                  - name: audiences
+                    value:
+                      - string
+                  - name: allowedIssuers
+                    value:
+                      - string
+          - name: indexSyncTime
+            value: string
+          - name: enableAccessLogging
+            value: boolean
+          - name: dedicatedResources
+            value:
+              - name: machineSpec
+                value:
+                  - name: acceleratorCount
+                    value: integer
+                  - name: tpuTopology
+                    value: string
+                  - name: machineType
+                    value: string
+                  - name: acceleratorType
+                    value: string
+                  - name: reservationAffinity
+                    value:
+                      - name: reservationAffinityType
+                        value: string
+                      - name: values
+                        value:
+                          - string
+                      - name: key
+                        value: string
+              - name: autoscalingMetricSpecs
+                value:
+                  - - name: target
+                      value: integer
+                    - name: metricName
+                      value: string
+              - name: maxReplicaCount
+                value: integer
+              - name: minReplicaCount
+                value: integer
+              - name: spot
+                value: boolean
+          - name: reservedIpRanges
+            value:
+              - string
+          - name: displayName
+            value: string
+          - name: pscAutomationConfigs
+            value:
+              - - name: projectId
+                  value: string
+                - name: network
+                  value: string
+          - name: id
+            value: string
+          - name: index
+            value: string
+          - name: createTime
+            value: string
+          - name: automaticResources
+            value:
+              - name: minReplicaCount
+                value: integer
+              - name: maxReplicaCount
+                value: integer
+    - name: enablePrivateServiceConnect
+      value: boolean
 
 ```
 </TabItem>

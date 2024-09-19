@@ -64,7 +64,7 @@ state,
 statusMessage,
 updateTime
 FROM google.managedidentities.peerings
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,14 +99,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-labels: object
-authorizedNetwork: string
-domainResource: string
-createTime: string
-updateTime: string
-state: string
-statusMessage: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: labels
+      value: object
+    - name: authorizedNetwork
+      value: string
+    - name: domainResource
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: statusMessage
+      value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ updateTime,
 uuid
 FROM google.dataproc.session_templates
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,45 +116,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-jupyterSession:
-  kernel: string
-  displayName: string
-sparkConnectSession: {}
-creator: string
-labels: object
-runtimeConfig:
-  version: string
-  containerImage: string
-  properties: object
-  repositoryConfig:
-    pypiRepositoryConfig:
-      pypiRepository: string
-  autotuningConfig:
-    scenarios:
-      - type: string
-        enumDescriptions: string
-        enum: string
-  cohort: string
-environmentConfig:
-  executionConfig:
-    serviceAccount: string
-    networkUri: string
-    subnetworkUri: string
-    networkTags:
-      - type: string
-    kmsKey: string
-    idleTtl: string
-    ttl: string
-    stagingBucket: string
-  peripheralsConfig:
-    metastoreService: string
-    sparkHistoryServerConfig:
-      dataprocCluster: string
-updateTime: string
-uuid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: jupyterSession
+      value:
+        - name: kernel
+          value: string
+        - name: displayName
+          value: string
+    - name: sparkConnectSession
+      value: []
+    - name: creator
+      value: string
+    - name: labels
+      value: object
+    - name: runtimeConfig
+      value:
+        - name: version
+          value: string
+        - name: containerImage
+          value: string
+        - name: properties
+          value: object
+        - name: repositoryConfig
+          value:
+            - name: pypiRepositoryConfig
+              value:
+                - name: pypiRepository
+                  value: string
+        - name: autotuningConfig
+          value:
+            - name: scenarios
+              value:
+                - string
+        - name: cohort
+          value: string
+    - name: environmentConfig
+      value:
+        - name: executionConfig
+          value:
+            - name: serviceAccount
+              value: string
+            - name: networkUri
+              value: string
+            - name: subnetworkUri
+              value: string
+            - name: networkTags
+              value:
+                - string
+            - name: kmsKey
+              value: string
+            - name: idleTtl
+              value: string
+            - name: ttl
+              value: string
+            - name: stagingBucket
+              value: string
+        - name: peripheralsConfig
+          value:
+            - name: metastoreService
+              value: string
+            - name: sparkHistoryServerConfig
+              value:
+                - name: dataprocCluster
+                  value: string
+    - name: updateTime
+      value: string
+    - name: uuid
+      value: string
 
 ```
 </TabItem>

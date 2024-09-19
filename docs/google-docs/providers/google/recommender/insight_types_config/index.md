@@ -65,7 +65,7 @@ updateTime
 FROM google.recommender.insight_types_config
 WHERE insightTypesId = '{{ insightTypesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

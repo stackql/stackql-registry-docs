@@ -77,7 +77,7 @@ webAccessUris
 FROM google.aiplatform.trials
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND studiesId = '{{ studiesId }}'; 
+AND studiesId = '{{ studiesId }}';
 ```
 
 ## `INSERT` example
@@ -110,30 +110,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-clientId: string
-name: string
-customJob: string
-finalMeasurement:
-  stepCount: string
-  elapsedDuration: string
-  metrics:
-    - value: number
-      metricId: string
-startTime: string
-measurements:
-  - stepCount: string
-    elapsedDuration: string
-    metrics:
-      - value: number
-        metricId: string
-state: string
-endTime: string
-webAccessUris: object
-parameters:
-  - value: any
-    parameterId: string
-infeasibleReason: string
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: clientId
+      value: string
+    - name: name
+      value: string
+    - name: customJob
+      value: string
+    - name: finalMeasurement
+      value:
+        - name: stepCount
+          value: string
+        - name: elapsedDuration
+          value: string
+        - name: metrics
+          value:
+            - - name: value
+                value: number
+              - name: metricId
+                value: string
+    - name: startTime
+      value: string
+    - name: measurements
+      value:
+        - - name: stepCount
+            value: string
+          - name: elapsedDuration
+            value: string
+          - name: metrics
+            value:
+              - - name: value
+                  value: number
+                - name: metricId
+                  value: string
+    - name: state
+      value: string
+    - name: endTime
+      value: string
+    - name: webAccessUris
+      value: object
+    - name: parameters
+      value:
+        - - name: value
+            value: any
+          - name: parameterId
+            value: string
+    - name: infeasibleReason
+      value: string
 
 ```
 </TabItem>

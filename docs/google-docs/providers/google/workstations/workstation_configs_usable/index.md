@@ -98,5 +98,5 @@ updateTime
 FROM google.workstations.workstation_configs_usable
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workstationClustersId = '{{ workstationClustersId }}'; 
+AND workstationClustersId = '{{ workstationClustersId }}';
 ```

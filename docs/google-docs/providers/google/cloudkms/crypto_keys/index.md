@@ -75,7 +75,7 @@ versionTemplate
 FROM google.cloudkms.crypto_keys
 WHERE keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,7 +116,7 @@ SELECT
 '{{ rotationPeriod }}',
 '{{ versionTemplate }}',
 '{{ labels }}',
-true|false,
+{{ importOnly }},
 '{{ destroyScheduledDuration }}',
 '{{ cryptoKeyBackend }}',
 '{{ keyAccessJustificationsPolicy }}'
@@ -126,51 +126,90 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-primary:
-  name: string
-  state: string
-  protectionLevel: string
-  algorithm: string
-  attestation:
-    format: string
-    content: string
-    certChains:
-      caviumCerts:
-        - type: string
-      googleCardCerts:
-        - type: string
-      googlePartitionCerts:
-        - type: string
-  createTime: string
-  generateTime: string
-  destroyTime: string
-  destroyEventTime: string
-  importJob: string
-  importTime: string
-  importFailureReason: string
-  generationFailureReason: string
-  externalDestructionFailureReason: string
-  externalProtectionLevelOptions:
-    externalKeyUri: string
-    ekmConnectionKeyPath: string
-  reimportEligible: boolean
-purpose: string
-createTime: string
-nextRotationTime: string
-rotationPeriod: string
-versionTemplate:
-  protectionLevel: string
-  algorithm: string
-labels: object
-importOnly: boolean
-destroyScheduledDuration: string
-cryptoKeyBackend: string
-keyAccessJustificationsPolicy:
-  allowedAccessReasons:
-    - type: string
-      enumDescriptions: string
-      enum: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: primary
+      value:
+        - name: name
+          value: string
+        - name: state
+          value: string
+        - name: protectionLevel
+          value: string
+        - name: algorithm
+          value: string
+        - name: attestation
+          value:
+            - name: format
+              value: string
+            - name: content
+              value: string
+            - name: certChains
+              value:
+                - name: caviumCerts
+                  value:
+                    - string
+                - name: googleCardCerts
+                  value:
+                    - string
+                - name: googlePartitionCerts
+                  value:
+                    - string
+        - name: createTime
+          value: string
+        - name: generateTime
+          value: string
+        - name: destroyTime
+          value: string
+        - name: destroyEventTime
+          value: string
+        - name: importJob
+          value: string
+        - name: importTime
+          value: string
+        - name: importFailureReason
+          value: string
+        - name: generationFailureReason
+          value: string
+        - name: externalDestructionFailureReason
+          value: string
+        - name: externalProtectionLevelOptions
+          value:
+            - name: externalKeyUri
+              value: string
+            - name: ekmConnectionKeyPath
+              value: string
+        - name: reimportEligible
+          value: boolean
+    - name: purpose
+      value: string
+    - name: createTime
+      value: string
+    - name: nextRotationTime
+      value: string
+    - name: rotationPeriod
+      value: string
+    - name: versionTemplate
+      value:
+        - name: protectionLevel
+          value: string
+        - name: algorithm
+          value: string
+    - name: labels
+      value: object
+    - name: importOnly
+      value: boolean
+    - name: destroyScheduledDuration
+      value: string
+    - name: cryptoKeyBackend
+      value: string
+    - name: keyAccessJustificationsPolicy
+      value:
+        - name: allowedAccessReasons
+          value:
+            - string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ uid,
 updateTime
 FROM google.apikeys.keys
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,33 +108,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-restrictions:
-  serverKeyRestrictions:
-    allowedIps:
-      - type: string
-  browserKeyRestrictions:
-    allowedReferrers:
-      - type: string
-  androidKeyRestrictions:
-    allowedApplications:
-      - sha1Fingerprint: string
-        packageName: string
-  iosKeyRestrictions:
-    allowedBundleIds:
-      - type: string
-  apiTargets:
-    - methods:
-        - type: string
-      service: string
-deleteTime: string
-createTime: string
-displayName: string
-updateTime: string
-annotations: object
-name: string
-uid: string
-keyString: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: restrictions
+      value:
+        - name: serverKeyRestrictions
+          value:
+            - name: allowedIps
+              value:
+                - string
+        - name: browserKeyRestrictions
+          value:
+            - name: allowedReferrers
+              value:
+                - string
+        - name: androidKeyRestrictions
+          value:
+            - name: allowedApplications
+              value:
+                - - name: sha1Fingerprint
+                    value: string
+                  - name: packageName
+                    value: string
+        - name: iosKeyRestrictions
+          value:
+            - name: allowedBundleIds
+              value:
+                - string
+        - name: apiTargets
+          value:
+            - - name: methods
+                value:
+                  - string
+              - name: service
+                value: string
+    - name: deleteTime
+      value: string
+    - name: createTime
+      value: string
+    - name: displayName
+      value: string
+    - name: updateTime
+      value: string
+    - name: annotations
+      value: object
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: keyString
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

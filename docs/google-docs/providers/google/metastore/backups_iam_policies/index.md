@@ -54,7 +54,7 @@ FROM google.metastore.backups_iam_policies
 WHERE backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `REPLACE` example

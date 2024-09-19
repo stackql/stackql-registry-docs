@@ -50,5 +50,5 @@ ipAddress,
 location,
 region
 FROM google.monitoring.uptime_check_ips
-WHERE  = '{{  }}'; 
+;
 ```

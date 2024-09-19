@@ -76,7 +76,7 @@ updateTime,
 uuid
 FROM google.composer.environments
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -119,127 +119,248 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-config:
-  gkeCluster: string
-  dagGcsPrefix: string
-  nodeCount: integer
-  softwareConfig:
-    imageVersion: string
-    airflowConfigOverrides: object
-    pypiPackages: object
-    envVariables: object
-    pythonVersion: string
-    schedulerCount: integer
-    cloudDataLineageIntegration:
-      enabled: boolean
-    webServerPluginsMode: string
-  nodeConfig:
-    location: string
-    machineType: string
-    network: string
-    subnetwork: string
-    diskSizeGb: integer
-    oauthScopes:
-      - type: string
-    serviceAccount: string
-    tags:
-      - type: string
-    ipAllocationPolicy:
-      useIpAliases: boolean
-      clusterSecondaryRangeName: string
-      clusterIpv4CidrBlock: string
-      servicesSecondaryRangeName: string
-      servicesIpv4CidrBlock: string
-    enableIpMasqAgent: boolean
-    composerNetworkAttachment: string
-    composerInternalIpv4CidrBlock: string
-  privateEnvironmentConfig:
-    enablePrivateEnvironment: boolean
-    enablePrivateBuildsOnly: boolean
-    privateClusterConfig:
-      enablePrivateEndpoint: boolean
-      masterIpv4CidrBlock: string
-      masterIpv4ReservedRange: string
-    webServerIpv4CidrBlock: string
-    cloudSqlIpv4CidrBlock: string
-    webServerIpv4ReservedRange: string
-    cloudComposerNetworkIpv4CidrBlock: string
-    cloudComposerNetworkIpv4ReservedRange: string
-    enablePrivatelyUsedPublicIps: boolean
-    cloudComposerConnectionSubnetwork: string
-    networkingConfig:
-      connectionType: string
-  webServerNetworkAccessControl:
-    allowedIpRanges:
-      - value: string
-        description: string
-  databaseConfig:
-    machineType: string
-    zone: string
-  webServerConfig:
-    machineType: string
-  encryptionConfig:
-    kmsKeyName: string
-  maintenanceWindow:
-    startTime: string
-    endTime: string
-    recurrence: string
-  workloadsConfig:
-    scheduler:
-      cpu: number
-      memoryGb: number
-      storageGb: number
-      count: integer
-    webServer:
-      cpu: number
-      memoryGb: number
-      storageGb: number
-    worker:
-      cpu: number
-      memoryGb: number
-      storageGb: number
-      minCount: integer
-      maxCount: integer
-    triggerer:
-      count: integer
-      cpu: number
-      memoryGb: number
-    dagProcessor:
-      cpu: number
-      memoryGb: number
-      storageGb: number
-      count: integer
-  environmentSize: string
-  airflowUri: string
-  airflowByoidUri: string
-  masterAuthorizedNetworksConfig:
-    enabled: boolean
-    cidrBlocks:
-      - displayName: string
-        cidrBlock: string
-  recoveryConfig:
-    scheduledSnapshotsConfig:
-      enabled: boolean
-      snapshotLocation: string
-      snapshotCreationSchedule: string
-      timeZone: string
-  resilienceMode: string
-  dataRetentionConfig:
-    airflowMetadataRetentionConfig:
-      retentionMode: string
-      retentionDays: integer
-    taskLogsRetentionConfig:
-      storageMode: string
-uuid: string
-state: string
-createTime: string
-updateTime: string
-labels: object
-satisfiesPzs: boolean
-satisfiesPzi: boolean
-storageConfig:
-  bucket: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: config
+      value:
+        - name: gkeCluster
+          value: string
+        - name: dagGcsPrefix
+          value: string
+        - name: nodeCount
+          value: integer
+        - name: softwareConfig
+          value:
+            - name: imageVersion
+              value: string
+            - name: airflowConfigOverrides
+              value: object
+            - name: pypiPackages
+              value: object
+            - name: envVariables
+              value: object
+            - name: pythonVersion
+              value: string
+            - name: schedulerCount
+              value: integer
+            - name: cloudDataLineageIntegration
+              value:
+                - name: enabled
+                  value: boolean
+            - name: webServerPluginsMode
+              value: string
+        - name: nodeConfig
+          value:
+            - name: location
+              value: string
+            - name: machineType
+              value: string
+            - name: network
+              value: string
+            - name: subnetwork
+              value: string
+            - name: diskSizeGb
+              value: integer
+            - name: oauthScopes
+              value:
+                - string
+            - name: serviceAccount
+              value: string
+            - name: tags
+              value:
+                - string
+            - name: ipAllocationPolicy
+              value:
+                - name: useIpAliases
+                  value: boolean
+                - name: clusterSecondaryRangeName
+                  value: string
+                - name: clusterIpv4CidrBlock
+                  value: string
+                - name: servicesSecondaryRangeName
+                  value: string
+                - name: servicesIpv4CidrBlock
+                  value: string
+            - name: enableIpMasqAgent
+              value: boolean
+            - name: composerNetworkAttachment
+              value: string
+            - name: composerInternalIpv4CidrBlock
+              value: string
+        - name: privateEnvironmentConfig
+          value:
+            - name: enablePrivateEnvironment
+              value: boolean
+            - name: enablePrivateBuildsOnly
+              value: boolean
+            - name: privateClusterConfig
+              value:
+                - name: enablePrivateEndpoint
+                  value: boolean
+                - name: masterIpv4CidrBlock
+                  value: string
+                - name: masterIpv4ReservedRange
+                  value: string
+            - name: webServerIpv4CidrBlock
+              value: string
+            - name: cloudSqlIpv4CidrBlock
+              value: string
+            - name: webServerIpv4ReservedRange
+              value: string
+            - name: cloudComposerNetworkIpv4CidrBlock
+              value: string
+            - name: cloudComposerNetworkIpv4ReservedRange
+              value: string
+            - name: enablePrivatelyUsedPublicIps
+              value: boolean
+            - name: cloudComposerConnectionSubnetwork
+              value: string
+            - name: networkingConfig
+              value:
+                - name: connectionType
+                  value: string
+        - name: webServerNetworkAccessControl
+          value:
+            - name: allowedIpRanges
+              value:
+                - - name: value
+                    value: string
+                  - name: description
+                    value: string
+        - name: databaseConfig
+          value:
+            - name: machineType
+              value: string
+            - name: zone
+              value: string
+        - name: webServerConfig
+          value:
+            - name: machineType
+              value: string
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: string
+        - name: maintenanceWindow
+          value:
+            - name: startTime
+              value: string
+            - name: endTime
+              value: string
+            - name: recurrence
+              value: string
+        - name: workloadsConfig
+          value:
+            - name: scheduler
+              value:
+                - name: cpu
+                  value: number
+                - name: memoryGb
+                  value: number
+                - name: storageGb
+                  value: number
+                - name: count
+                  value: integer
+            - name: webServer
+              value:
+                - name: cpu
+                  value: number
+                - name: memoryGb
+                  value: number
+                - name: storageGb
+                  value: number
+            - name: worker
+              value:
+                - name: cpu
+                  value: number
+                - name: memoryGb
+                  value: number
+                - name: storageGb
+                  value: number
+                - name: minCount
+                  value: integer
+                - name: maxCount
+                  value: integer
+            - name: triggerer
+              value:
+                - name: count
+                  value: integer
+                - name: cpu
+                  value: number
+                - name: memoryGb
+                  value: number
+            - name: dagProcessor
+              value:
+                - name: cpu
+                  value: number
+                - name: memoryGb
+                  value: number
+                - name: storageGb
+                  value: number
+                - name: count
+                  value: integer
+        - name: environmentSize
+          value: string
+        - name: airflowUri
+          value: string
+        - name: airflowByoidUri
+          value: string
+        - name: masterAuthorizedNetworksConfig
+          value:
+            - name: enabled
+              value: boolean
+            - name: cidrBlocks
+              value:
+                - - name: displayName
+                    value: string
+                  - name: cidrBlock
+                    value: string
+        - name: recoveryConfig
+          value:
+            - name: scheduledSnapshotsConfig
+              value:
+                - name: enabled
+                  value: boolean
+                - name: snapshotLocation
+                  value: string
+                - name: snapshotCreationSchedule
+                  value: string
+                - name: timeZone
+                  value: string
+        - name: resilienceMode
+          value: string
+        - name: dataRetentionConfig
+          value:
+            - name: airflowMetadataRetentionConfig
+              value:
+                - name: retentionMode
+                  value: string
+                - name: retentionDays
+                  value: integer
+            - name: taskLogsRetentionConfig
+              value:
+                - name: storageMode
+                  value: string
+    - name: uuid
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
+    - name: storageConfig
+      value:
+        - name: bucket
+          value: string
 
 ```
 </TabItem>

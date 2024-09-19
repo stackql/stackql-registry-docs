@@ -94,7 +94,7 @@ updateTime,
 zones
 FROM google.memcache.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -149,56 +149,106 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-labels: object
-authorizedNetwork: string
-zones:
-  - type: string
-nodeCount: integer
-nodeConfig:
-  cpuCount: integer
-  memorySizeMb: integer
-memcacheVersion: string
-parameters:
-  id: string
-  params: object
-memcacheNodes:
-  - nodeId: string
-    zone: string
-    state: string
-    host: string
-    port: integer
-    memcacheVersion: string
-    memcacheFullVersion: string
-createTime: string
-updateTime: string
-state: string
-memcacheFullVersion: string
-instanceMessages:
-  - code: string
-    message: string
-discoveryEndpoint: string
-maintenancePolicy:
-  createTime: string
-  updateTime: string
-  description: string
-  weeklyMaintenanceWindow:
-    - day: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-      duration: string
-maintenanceSchedule:
-  startTime: string
-  endTime: string
-  scheduleDeadlineTime: string
-reservedIpRangeId:
-  - type: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: authorizedNetwork
+      value: string
+    - name: zones
+      value:
+        - string
+    - name: nodeCount
+      value: integer
+    - name: nodeConfig
+      value:
+        - name: cpuCount
+          value: integer
+        - name: memorySizeMb
+          value: integer
+    - name: memcacheVersion
+      value: string
+    - name: parameters
+      value:
+        - name: id
+          value: string
+        - name: params
+          value: object
+    - name: memcacheNodes
+      value:
+        - - name: nodeId
+            value: string
+          - name: zone
+            value: string
+          - name: state
+            value: string
+          - name: host
+            value: string
+          - name: port
+            value: integer
+          - name: memcacheVersion
+            value: string
+          - name: memcacheFullVersion
+            value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: memcacheFullVersion
+      value: string
+    - name: instanceMessages
+      value:
+        - - name: code
+            value: string
+          - name: message
+            value: string
+    - name: discoveryEndpoint
+      value: string
+    - name: maintenancePolicy
+      value:
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: description
+          value: string
+        - name: weeklyMaintenanceWindow
+          value:
+            - - name: day
+                value: string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+              - name: duration
+                value: string
+    - name: maintenanceSchedule
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: scheduleDeadlineTime
+          value: string
+    - name: reservedIpRangeId
+      value:
+        - string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

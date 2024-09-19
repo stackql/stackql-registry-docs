@@ -85,7 +85,7 @@ updateTime,
 virtualRepositoryConfig
 FROM google.artifactregistry.repositories
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -134,75 +134,138 @@ SELECT
 '{{ kmsKeyName }}',
 '{{ mode }}',
 '{{ cleanupPolicies }}',
-true|false,
-true|false
+{{ cleanupPolicyDryRun }},
+{{ disallowUnspecifiedMode }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-mavenConfig:
-  allowSnapshotOverwrites: boolean
-  versionPolicy: string
-dockerConfig:
-  immutableTags: boolean
-virtualRepositoryConfig:
-  upstreamPolicies:
-    - id: string
-      repository: string
-      priority: integer
-remoteRepositoryConfig:
-  dockerRepository:
-    publicRepository: string
-    customRepository:
-      uri: string
-  mavenRepository:
-    publicRepository: string
-    customRepository:
-      uri: string
-  npmRepository:
-    publicRepository: string
-    customRepository:
-      uri: string
-  pythonRepository:
-    publicRepository: string
-    customRepository:
-      uri: string
-  aptRepository:
-    publicRepository:
-      repositoryBase: string
-      repositoryPath: string
-    customRepository:
-      uri: string
-  yumRepository:
-    publicRepository:
-      repositoryBase: string
-      repositoryPath: string
-    customRepository:
-      uri: string
-  commonRepository:
-    uri: string
-  description: string
-  upstreamCredentials:
-    usernamePasswordCredentials:
-      username: string
-      passwordSecretVersion: string
-  disableUpstreamValidation: boolean
-name: string
-format: string
-description: string
-labels: object
-createTime: string
-updateTime: string
-kmsKeyName: string
-mode: string
-cleanupPolicies: object
-sizeBytes: string
-satisfiesPzs: boolean
-cleanupPolicyDryRun: boolean
-disallowUnspecifiedMode: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: mavenConfig
+      value:
+        - name: allowSnapshotOverwrites
+          value: boolean
+        - name: versionPolicy
+          value: string
+    - name: dockerConfig
+      value:
+        - name: immutableTags
+          value: boolean
+    - name: virtualRepositoryConfig
+      value:
+        - name: upstreamPolicies
+          value:
+            - - name: id
+                value: string
+              - name: repository
+                value: string
+              - name: priority
+                value: integer
+    - name: remoteRepositoryConfig
+      value:
+        - name: dockerRepository
+          value:
+            - name: publicRepository
+              value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: mavenRepository
+          value:
+            - name: publicRepository
+              value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: npmRepository
+          value:
+            - name: publicRepository
+              value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: pythonRepository
+          value:
+            - name: publicRepository
+              value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: aptRepository
+          value:
+            - name: publicRepository
+              value:
+                - name: repositoryBase
+                  value: string
+                - name: repositoryPath
+                  value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: yumRepository
+          value:
+            - name: publicRepository
+              value:
+                - name: repositoryBase
+                  value: string
+                - name: repositoryPath
+                  value: string
+            - name: customRepository
+              value:
+                - name: uri
+                  value: string
+        - name: commonRepository
+          value:
+            - name: uri
+              value: string
+        - name: description
+          value: string
+        - name: upstreamCredentials
+          value:
+            - name: usernamePasswordCredentials
+              value:
+                - name: username
+                  value: string
+                - name: passwordSecretVersion
+                  value: string
+        - name: disableUpstreamValidation
+          value: boolean
+    - name: name
+      value: string
+    - name: format
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: kmsKeyName
+      value: string
+    - name: mode
+      value: string
+    - name: cleanupPolicies
+      value: object
+    - name: sizeBytes
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: cleanupPolicyDryRun
+      value: boolean
+    - name: disallowUnspecifiedMode
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

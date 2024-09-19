@@ -79,7 +79,7 @@ state,
 updateTime
 FROM google.aiplatform.nas_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -109,7 +109,7 @@ encryptionSpec
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-true|false,
+{{ enableRestrictedImageTraining }},
 '{{ labels }}',
 '{{ nasJobSpec }}',
 '{{ displayName }}',
@@ -120,118 +120,222 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-enableRestrictedImageTraining: boolean
-labels: object
-nasJobSpec:
-  multiTrialAlgorithmSpec:
-    multiTrialAlgorithm: string
-    trainTrialSpec:
-      trainTrialJobSpec:
-        scheduling:
-          restartJobOnWorkerRestart: boolean
-          timeout: string
-          strategy: string
-          disableRetries: boolean
-          maxWaitDuration: string
-        persistentResourceId: string
-        baseOutputDirectory:
-          outputUriPrefix: string
-        experimentRun: string
-        protectedArtifactLocationId: string
-        serviceAccount: string
-        workerPoolSpecs:
-          - pythonPackageSpec:
-              args:
-                - type: string
-              env:
-                - value: string
-                  name: string
-              pythonModule: string
-              executorImageUri: string
-              packageUris:
-                - type: string
-            diskSpec:
-              bootDiskType: string
-              bootDiskSizeGb: integer
-            machineSpec:
-              acceleratorCount: integer
-              tpuTopology: string
-              machineType: string
-              acceleratorType: string
-              reservationAffinity:
-                reservationAffinityType: string
-                values:
-                  - type: string
-                key: string
-            containerSpec:
-              command:
-                - type: string
-              args:
-                - type: string
-              imageUri: string
-              env:
-                - value: string
-                  name: string
-            nfsMounts:
-              - mountPoint: string
-                path: string
-                server: string
-            replicaCount: string
-        enableDashboardAccess: boolean
-        network: string
-        enableWebAccess: boolean
-        experiment: string
-        reservedIpRanges:
-          - type: string
-        tensorboard: string
-        models:
-          - type: string
-      maxParallelTrialCount: integer
-      frequency: integer
-    searchTrialSpec:
-      maxFailedTrialCount: integer
-      maxTrialCount: integer
-      maxParallelTrialCount: integer
-    metric:
-      goal: string
-      metricId: string
-  resumeNasJobId: string
-  searchSpaceSpec: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-displayName: string
-startTime: string
-state: string
-satisfiesPzs: boolean
-updateTime: string
-endTime: string
-nasJobOutput:
-  multiTrialJobOutput:
-    trainTrials:
-      - finalMeasurement:
-          stepCount: string
-          elapsedDuration: string
-          metrics:
-            - value: number
-              metricId: string
-        id: string
-        endTime: string
-        startTime: string
-        state: string
-    searchTrials:
-      - id: string
-        endTime: string
-        startTime: string
-        state: string
-createTime: string
-encryptionSpec:
-  kmsKeyName: string
-satisfiesPzi: boolean
-name: string
+- name: your_resource_model_name
+  props:
+    - name: enableRestrictedImageTraining
+      value: boolean
+    - name: labels
+      value: object
+    - name: nasJobSpec
+      value:
+        - name: multiTrialAlgorithmSpec
+          value:
+            - name: multiTrialAlgorithm
+              value: string
+            - name: trainTrialSpec
+              value:
+                - name: trainTrialJobSpec
+                  value:
+                    - name: scheduling
+                      value:
+                        - name: restartJobOnWorkerRestart
+                          value: boolean
+                        - name: timeout
+                          value: string
+                        - name: strategy
+                          value: string
+                        - name: disableRetries
+                          value: boolean
+                        - name: maxWaitDuration
+                          value: string
+                    - name: persistentResourceId
+                      value: string
+                    - name: baseOutputDirectory
+                      value:
+                        - name: outputUriPrefix
+                          value: string
+                    - name: experimentRun
+                      value: string
+                    - name: protectedArtifactLocationId
+                      value: string
+                    - name: serviceAccount
+                      value: string
+                    - name: workerPoolSpecs
+                      value:
+                        - - name: pythonPackageSpec
+                            value:
+                              - name: args
+                                value:
+                                  - string
+                              - name: env
+                                value:
+                                  - - name: value
+                                      value: string
+                                    - name: name
+                                      value: string
+                              - name: pythonModule
+                                value: string
+                              - name: executorImageUri
+                                value: string
+                              - name: packageUris
+                                value:
+                                  - string
+                          - name: diskSpec
+                            value:
+                              - name: bootDiskType
+                                value: string
+                              - name: bootDiskSizeGb
+                                value: integer
+                          - name: machineSpec
+                            value:
+                              - name: acceleratorCount
+                                value: integer
+                              - name: tpuTopology
+                                value: string
+                              - name: machineType
+                                value: string
+                              - name: acceleratorType
+                                value: string
+                              - name: reservationAffinity
+                                value:
+                                  - name: reservationAffinityType
+                                    value: string
+                                  - name: values
+                                    value:
+                                      - string
+                                  - name: key
+                                    value: string
+                          - name: containerSpec
+                            value:
+                              - name: command
+                                value:
+                                  - string
+                              - name: args
+                                value:
+                                  - string
+                              - name: imageUri
+                                value: string
+                              - name: env
+                                value:
+                                  - - name: value
+                                      value: string
+                                    - name: name
+                                      value: string
+                          - name: nfsMounts
+                            value:
+                              - - name: mountPoint
+                                  value: string
+                                - name: path
+                                  value: string
+                                - name: server
+                                  value: string
+                          - name: replicaCount
+                            value: string
+                    - name: enableDashboardAccess
+                      value: boolean
+                    - name: network
+                      value: string
+                    - name: enableWebAccess
+                      value: boolean
+                    - name: experiment
+                      value: string
+                    - name: reservedIpRanges
+                      value:
+                        - string
+                    - name: tensorboard
+                      value: string
+                    - name: models
+                      value:
+                        - string
+                - name: maxParallelTrialCount
+                  value: integer
+                - name: frequency
+                  value: integer
+            - name: searchTrialSpec
+              value:
+                - name: maxFailedTrialCount
+                  value: integer
+                - name: maxTrialCount
+                  value: integer
+                - name: maxParallelTrialCount
+                  value: integer
+            - name: metric
+              value:
+                - name: goal
+                  value: string
+                - name: metricId
+                  value: string
+        - name: resumeNasJobId
+          value: string
+        - name: searchSpaceSpec
+          value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: displayName
+      value: string
+    - name: startTime
+      value: string
+    - name: state
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: updateTime
+      value: string
+    - name: endTime
+      value: string
+    - name: nasJobOutput
+      value:
+        - name: multiTrialJobOutput
+          value:
+            - name: trainTrials
+              value:
+                - - name: finalMeasurement
+                    value:
+                      - name: stepCount
+                        value: string
+                      - name: elapsedDuration
+                        value: string
+                      - name: metrics
+                        value:
+                          - - name: value
+                              value: number
+                            - name: metricId
+                              value: string
+                  - name: id
+                    value: string
+                  - name: endTime
+                    value: string
+                  - name: startTime
+                    value: string
+                  - name: state
+                    value: string
+            - name: searchTrials
+              value:
+                - - name: id
+                    value: string
+                  - name: endTime
+                    value: string
+                  - name: startTime
+                    value: string
+                  - name: state
+                    value: string
+    - name: createTime
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: name
+      value: string
 
 ```
 </TabItem>

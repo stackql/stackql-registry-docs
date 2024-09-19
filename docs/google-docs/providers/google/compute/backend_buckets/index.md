@@ -76,7 +76,7 @@ kind,
 selfLink,
 usedBy
 FROM google.compute.backend_buckets
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -111,7 +111,7 @@ SELECT
 '{{ name }}',
 '{{ description }}',
 '{{ bucketName }}',
-true|false,
+{{ enableCdn }},
 '{{ cdnPolicy }}',
 '{{ customResponseHeaders }}',
 '{{ edgeSecurityPolicy }}',
@@ -123,41 +123,74 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-bucketName: string
-enableCdn: boolean
-cdnPolicy:
-  signedUrlKeyNames:
-    - type: string
-  signedUrlCacheMaxAgeSec: string
-  requestCoalescing: boolean
-  cacheMode: string
-  defaultTtl: integer
-  maxTtl: integer
-  clientTtl: integer
-  negativeCaching: boolean
-  negativeCachingPolicy:
-    - code: integer
-      ttl: integer
-  bypassCacheOnRequestHeaders:
-    - headerName: string
-  serveWhileStale: integer
-  cacheKeyPolicy:
-    queryStringWhitelist:
-      - type: string
-    includeHttpHeaders:
-      - type: string
-customResponseHeaders:
-  - type: string
-edgeSecurityPolicy: string
-compressionMode: string
-usedBy:
-  - reference: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: bucketName
+      value: string
+    - name: enableCdn
+      value: boolean
+    - name: cdnPolicy
+      value:
+        - name: signedUrlKeyNames
+          value:
+            - string
+        - name: signedUrlCacheMaxAgeSec
+          value: string
+        - name: requestCoalescing
+          value: boolean
+        - name: cacheMode
+          value: string
+        - name: defaultTtl
+          value: integer
+        - name: maxTtl
+          value: integer
+        - name: clientTtl
+          value: integer
+        - name: negativeCaching
+          value: boolean
+        - name: negativeCachingPolicy
+          value:
+            - - name: code
+                value: integer
+              - name: ttl
+                value: integer
+        - name: bypassCacheOnRequestHeaders
+          value:
+            - - name: headerName
+                value: string
+        - name: serveWhileStale
+          value: integer
+        - name: cacheKeyPolicy
+          value:
+            - name: queryStringWhitelist
+              value:
+                - string
+            - name: includeHttpHeaders
+              value:
+                - string
+    - name: customResponseHeaders
+      value:
+        - string
+    - name: edgeSecurityPolicy
+      value: string
+    - name: compressionMode
+      value: string
+    - name: usedBy
+      value:
+        - - name: reference
+            value: string
 
 ```
 </TabItem>

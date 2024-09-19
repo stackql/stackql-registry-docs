@@ -68,7 +68,7 @@ updateTime
 FROM google.vmwareengine.clusters
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,21 +107,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-state: string
-management: boolean
-autoscalingSettings:
-  autoscalingPolicies: object
-  minClusterNodeCount: integer
-  maxClusterNodeCount: integer
-  coolDownPeriod: string
-uid: string
-nodeTypeConfigs: object
-stretchedClusterConfig:
-  preferredLocation: string
-  secondaryLocation: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: management
+      value: boolean
+    - name: autoscalingSettings
+      value:
+        - name: autoscalingPolicies
+          value: object
+        - name: minClusterNodeCount
+          value: integer
+        - name: maxClusterNodeCount
+          value: integer
+        - name: coolDownPeriod
+          value: string
+    - name: uid
+      value: string
+    - name: nodeTypeConfigs
+      value: object
+    - name: stretchedClusterConfig
+      value:
+        - name: preferredLocation
+          value: string
+        - name: secondaryLocation
+          value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ condition,
 members,
 role
 FROM google.storage.buckets_iam_policies
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `REPLACE` example

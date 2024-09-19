@@ -61,7 +61,7 @@ startTime,
 status
 FROM google.dns.changes
 WHERE managedZone = '{{ managedZone }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -95,73 +95,126 @@ SELECT
 '{{ deletions }}',
 '{{ startTime }}',
 '{{ status }}',
-true|false
+{{ isServing }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-additions:
-  - name: string
-    type: string
-    ttl: integer
-    rrdatas:
-      - type: string
-    signatureRrdatas:
-      - type: string
-    routingPolicy:
-      geo:
-        items:
-          - location: string
-            rrdatas:
-              - type: string
-            signatureRrdatas:
-              - type: string
-            healthCheckedTargets:
-              internalLoadBalancers:
-                - loadBalancerType: string
-                  ipAddress: string
-                  port: string
-                  ipProtocol: string
-                  networkUrl: string
-                  project: string
-                  region: string
-                  kind: string
-              externalEndpoints:
-                - type: string
-            kind: string
-        enableFencing: boolean
-        kind: string
-      wrr:
-        items:
-          - weight: number
-            rrdatas:
-              - type: string
-            signatureRrdatas:
-              - type: string
-            kind: string
-        kind: string
-      primaryBackup:
-        trickleTraffic: number
-        kind: string
-      healthCheck: string
-      kind: string
-    kind: string
-deletions:
-  - name: string
-    type: string
-    ttl: integer
-    rrdatas:
-      - type: string
-    signatureRrdatas:
-      - type: string
-    kind: string
-startTime: string
-id: string
-status: string
-isServing: boolean
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: additions
+      value:
+        - - name: name
+            value: string
+          - name: type
+            value: string
+          - name: ttl
+            value: integer
+          - name: rrdatas
+            value:
+              - string
+          - name: signatureRrdatas
+            value:
+              - string
+          - name: routingPolicy
+            value:
+              - name: geo
+                value:
+                  - name: items
+                    value:
+                      - - name: location
+                          value: string
+                        - name: rrdatas
+                          value:
+                            - string
+                        - name: signatureRrdatas
+                          value:
+                            - string
+                        - name: healthCheckedTargets
+                          value:
+                            - name: internalLoadBalancers
+                              value:
+                                - - name: loadBalancerType
+                                    value: string
+                                  - name: ipAddress
+                                    value: string
+                                  - name: port
+                                    value: string
+                                  - name: ipProtocol
+                                    value: string
+                                  - name: networkUrl
+                                    value: string
+                                  - name: project
+                                    value: string
+                                  - name: region
+                                    value: string
+                                  - name: kind
+                                    value: string
+                            - name: externalEndpoints
+                              value:
+                                - string
+                        - name: kind
+                          value: string
+                  - name: enableFencing
+                    value: boolean
+                  - name: kind
+                    value: string
+              - name: wrr
+                value:
+                  - name: items
+                    value:
+                      - - name: weight
+                          value: number
+                        - name: rrdatas
+                          value:
+                            - string
+                        - name: signatureRrdatas
+                          value:
+                            - string
+                        - name: kind
+                          value: string
+                  - name: kind
+                    value: string
+              - name: primaryBackup
+                value:
+                  - name: trickleTraffic
+                    value: number
+                  - name: kind
+                    value: string
+              - name: healthCheck
+                value: string
+              - name: kind
+                value: string
+          - name: kind
+            value: string
+    - name: deletions
+      value:
+        - - name: name
+            value: string
+          - name: type
+            value: string
+          - name: ttl
+            value: integer
+          - name: rrdatas
+            value:
+              - string
+          - name: signatureRrdatas
+            value:
+              - string
+          - name: kind
+            value: string
+    - name: startTime
+      value: string
+    - name: id
+      value: string
+    - name: status
+      value: string
+    - name: isServing
+      value: boolean
+    - name: kind
+      value: string
 
 ```
 </TabItem>

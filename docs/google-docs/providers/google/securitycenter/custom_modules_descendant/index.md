@@ -63,5 +63,5 @@ enablementState,
 lastEditor,
 updateTime
 FROM google.securitycenter.custom_modules_descendant
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

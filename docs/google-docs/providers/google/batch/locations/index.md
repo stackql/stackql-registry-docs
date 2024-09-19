@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.batch.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

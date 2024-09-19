@@ -67,5 +67,5 @@ tags,
 uri
 FROM google.workloadmanager.rules
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

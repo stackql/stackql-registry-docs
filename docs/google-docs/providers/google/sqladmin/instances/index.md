@@ -166,7 +166,7 @@ switchTransactionLogsToCloudStorageEnabled,
 upgradableDatabaseVersions,
 writeEndpoint
 FROM google.sqladmin.instances
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -252,229 +252,432 @@ SELECT
 '{{ diskEncryptionStatus }}',
 '{{ rootPassword }}',
 '{{ scheduledMaintenance }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ outOfDiskReport }}',
 '{{ maintenanceVersion }}',
 '{{ sqlNetworkArchitecture }}',
 '{{ replicationCluster }}',
 '{{ geminiConfig }}',
-true|false
+{{ switchTransactionLogsToCloudStorageEnabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-state: string
-databaseVersion: string
-settings:
-  settingsVersion: string
-  authorizedGaeApplications:
-    - type: string
-  tier: string
-  kind: string
-  userLabels: object
-  availabilityType: string
-  pricingPlan: string
-  replicationType: string
-  storageAutoResizeLimit: string
-  activationPolicy: string
-  ipConfiguration:
-    ipv4Enabled: boolean
-    privateNetwork: string
-    requireSsl: boolean
-    authorizedNetworks:
-      - value: string
-        expirationTime: string
-        name: string
-        kind: string
-    allocatedIpRange: string
-    enablePrivatePathForGoogleCloudServices: boolean
-    sslMode: string
-    pscConfig:
-      pscEnabled: boolean
-      allowedConsumerProjects:
-        - type: string
-    serverCaMode: string
-  storageAutoResize: boolean
-  locationPreference:
-    followGaeApplication: string
-    zone: string
-    secondaryZone: string
-    kind: string
-  databaseFlags:
-    - name: string
+- name: your_resource_model_name
+  props:
+    - name: kind
       value: string
-  dataDiskType: string
-  maintenanceWindow:
-    hour: integer
-    day: integer
-    updateTrack: string
-    kind: string
-  backupConfiguration:
-    startTime: string
-    enabled: boolean
-    kind: string
-    binaryLogEnabled: boolean
-    replicationLogArchivingEnabled: boolean
-    location: string
-    pointInTimeRecoveryEnabled: boolean
-    backupRetentionSettings:
-      retentionUnit: string
-      retainedBackups: integer
-    transactionLogRetentionDays: integer
-    transactionalLogStorageState: string
-  databaseReplicationEnabled: boolean
-  crashSafeReplicationEnabled: boolean
-  dataDiskSizeGb: string
-  activeDirectoryConfig:
-    kind: string
-    domain: string
-  collation: string
-  denyMaintenancePeriods:
-    - startDate: string
-      endDate: string
-      time: string
-  insightsConfig:
-    queryInsightsEnabled: boolean
-    recordClientAddress: boolean
-    recordApplicationTags: boolean
-    queryStringLength: integer
-    queryPlansPerMinute: integer
-  passwordValidationPolicy:
-    minLength: integer
-    complexity: string
-    reuseInterval: integer
-    disallowUsernameSubstring: boolean
-    passwordChangeInterval: string
-    enablePasswordPolicy: boolean
-    disallowCompromisedCredentials: boolean
-  sqlServerAuditConfig:
-    kind: string
-    bucket: string
-    retentionInterval: string
-    uploadInterval: string
-  edition: string
-  connectorEnforcement: string
-  deletionProtectionEnabled: boolean
-  timeZone: string
-  advancedMachineFeatures:
-    threadsPerCore: integer
-  dataCacheConfig:
-    dataCacheEnabled: boolean
-  enableGoogleMlIntegration: boolean
-  enableDataplexIntegration: boolean
-etag: string
-failoverReplica:
-  name: string
-  available: boolean
-masterInstanceName: string
-replicaNames:
-  - type: string
-maxDiskSize: string
-currentDiskSize: string
-ipAddresses:
-  - type: string
-    ipAddress: string
-    timeToRetire: string
-serverCaCert:
-  kind: string
-  certSerialNumber: string
-  cert: string
-  createTime: string
-  commonName: string
-  expirationTime: string
-  sha1Fingerprint: string
-  instance: string
-  selfLink: string
-instanceType: string
-project: string
-ipv6Address: string
-serviceAccountEmailAddress: string
-onPremisesConfiguration:
-  hostPort: string
-  kind: string
-  username: string
-  password: string
-  caCertificate: string
-  clientCertificate: string
-  clientKey: string
-  dumpFilePath: string
-  sourceInstance:
-    name: string
-    region: string
-    project: string
-replicaConfiguration:
-  kind: string
-  mysqlReplicaConfiguration:
-    dumpFilePath: string
-    username: string
-    password: string
-    connectRetryInterval: integer
-    masterHeartbeatPeriod: string
-    caCertificate: string
-    clientCertificate: string
-    clientKey: string
-    sslCipher: string
-    verifyServerCertificate: boolean
-    kind: string
-  failoverTarget: boolean
-  cascadableReplica: boolean
-backendType: string
-selfLink: string
-suspensionReason:
-  - type: string
-    enumDescriptions: string
-    enum: string
-connectionName: string
-name: string
-region: string
-gceZone: string
-secondaryGceZone: string
-diskEncryptionConfiguration:
-  kmsKeyName: string
-  kind: string
-diskEncryptionStatus:
-  kmsKeyVersionName: string
-  kind: string
-rootPassword: string
-scheduledMaintenance:
-  startTime: string
-  canDefer: boolean
-  canReschedule: boolean
-  scheduleDeadlineTime: string
-satisfiesPzs: boolean
-databaseInstalledVersion: string
-outOfDiskReport:
-  sqlOutOfDiskState: string
-  sqlMinRecommendedIncreaseSizeGb: integer
-createTime: string
-availableMaintenanceVersions:
-  - type: string
-maintenanceVersion: string
-upgradableDatabaseVersions:
-  - majorVersion: string
-    name: string
-    displayName: string
-sqlNetworkArchitecture: string
-pscServiceAttachmentLink: string
-dnsName: string
-primaryDnsName: string
-writeEndpoint: string
-replicationCluster:
-  psaWriteEndpoint: string
-  failoverDrReplicaName: string
-  drReplica: boolean
-geminiConfig:
-  entitled: boolean
-  googleVacuumMgmtEnabled: boolean
-  oomSessionCancelEnabled: boolean
-  activeQueryEnabled: boolean
-  indexAdvisorEnabled: boolean
-  flagRecommenderEnabled: boolean
-satisfiesPzi: boolean
-switchTransactionLogsToCloudStorageEnabled: boolean
+    - name: state
+      value: string
+    - name: databaseVersion
+      value: string
+    - name: settings
+      value:
+        - name: settingsVersion
+          value: string
+        - name: authorizedGaeApplications
+          value:
+            - string
+        - name: tier
+          value: string
+        - name: kind
+          value: string
+        - name: userLabels
+          value: object
+        - name: availabilityType
+          value: string
+        - name: pricingPlan
+          value: string
+        - name: replicationType
+          value: string
+        - name: storageAutoResizeLimit
+          value: string
+        - name: activationPolicy
+          value: string
+        - name: ipConfiguration
+          value:
+            - name: ipv4Enabled
+              value: boolean
+            - name: privateNetwork
+              value: string
+            - name: requireSsl
+              value: boolean
+            - name: authorizedNetworks
+              value:
+                - - name: value
+                    value: string
+                  - name: expirationTime
+                    value: string
+                  - name: name
+                    value: string
+                  - name: kind
+                    value: string
+            - name: allocatedIpRange
+              value: string
+            - name: enablePrivatePathForGoogleCloudServices
+              value: boolean
+            - name: sslMode
+              value: string
+            - name: pscConfig
+              value:
+                - name: pscEnabled
+                  value: boolean
+                - name: allowedConsumerProjects
+                  value:
+                    - string
+            - name: serverCaMode
+              value: string
+        - name: storageAutoResize
+          value: boolean
+        - name: locationPreference
+          value:
+            - name: followGaeApplication
+              value: string
+            - name: zone
+              value: string
+            - name: secondaryZone
+              value: string
+            - name: kind
+              value: string
+        - name: databaseFlags
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+        - name: dataDiskType
+          value: string
+        - name: maintenanceWindow
+          value:
+            - name: hour
+              value: integer
+            - name: day
+              value: integer
+            - name: updateTrack
+              value: string
+            - name: kind
+              value: string
+        - name: backupConfiguration
+          value:
+            - name: startTime
+              value: string
+            - name: enabled
+              value: boolean
+            - name: kind
+              value: string
+            - name: binaryLogEnabled
+              value: boolean
+            - name: replicationLogArchivingEnabled
+              value: boolean
+            - name: location
+              value: string
+            - name: pointInTimeRecoveryEnabled
+              value: boolean
+            - name: backupRetentionSettings
+              value:
+                - name: retentionUnit
+                  value: string
+                - name: retainedBackups
+                  value: integer
+            - name: transactionLogRetentionDays
+              value: integer
+            - name: transactionalLogStorageState
+              value: string
+        - name: databaseReplicationEnabled
+          value: boolean
+        - name: crashSafeReplicationEnabled
+          value: boolean
+        - name: dataDiskSizeGb
+          value: string
+        - name: activeDirectoryConfig
+          value:
+            - name: kind
+              value: string
+            - name: domain
+              value: string
+        - name: collation
+          value: string
+        - name: denyMaintenancePeriods
+          value:
+            - - name: startDate
+                value: string
+              - name: endDate
+                value: string
+              - name: time
+                value: string
+        - name: insightsConfig
+          value:
+            - name: queryInsightsEnabled
+              value: boolean
+            - name: recordClientAddress
+              value: boolean
+            - name: recordApplicationTags
+              value: boolean
+            - name: queryStringLength
+              value: integer
+            - name: queryPlansPerMinute
+              value: integer
+        - name: passwordValidationPolicy
+          value:
+            - name: minLength
+              value: integer
+            - name: complexity
+              value: string
+            - name: reuseInterval
+              value: integer
+            - name: disallowUsernameSubstring
+              value: boolean
+            - name: passwordChangeInterval
+              value: string
+            - name: enablePasswordPolicy
+              value: boolean
+            - name: disallowCompromisedCredentials
+              value: boolean
+        - name: sqlServerAuditConfig
+          value:
+            - name: kind
+              value: string
+            - name: bucket
+              value: string
+            - name: retentionInterval
+              value: string
+            - name: uploadInterval
+              value: string
+        - name: edition
+          value: string
+        - name: connectorEnforcement
+          value: string
+        - name: deletionProtectionEnabled
+          value: boolean
+        - name: timeZone
+          value: string
+        - name: advancedMachineFeatures
+          value:
+            - name: threadsPerCore
+              value: integer
+        - name: dataCacheConfig
+          value:
+            - name: dataCacheEnabled
+              value: boolean
+        - name: enableGoogleMlIntegration
+          value: boolean
+        - name: enableDataplexIntegration
+          value: boolean
+    - name: etag
+      value: string
+    - name: failoverReplica
+      value:
+        - name: name
+          value: string
+        - name: available
+          value: boolean
+    - name: masterInstanceName
+      value: string
+    - name: replicaNames
+      value:
+        - string
+    - name: maxDiskSize
+      value: string
+    - name: currentDiskSize
+      value: string
+    - name: ipAddresses
+      value:
+        - - name: type
+            value: string
+          - name: ipAddress
+            value: string
+          - name: timeToRetire
+            value: string
+    - name: serverCaCert
+      value:
+        - name: kind
+          value: string
+        - name: certSerialNumber
+          value: string
+        - name: cert
+          value: string
+        - name: createTime
+          value: string
+        - name: commonName
+          value: string
+        - name: expirationTime
+          value: string
+        - name: sha1Fingerprint
+          value: string
+        - name: instance
+          value: string
+        - name: selfLink
+          value: string
+    - name: instanceType
+      value: string
+    - name: project
+      value: string
+    - name: ipv6Address
+      value: string
+    - name: serviceAccountEmailAddress
+      value: string
+    - name: onPremisesConfiguration
+      value:
+        - name: hostPort
+          value: string
+        - name: kind
+          value: string
+        - name: username
+          value: string
+        - name: password
+          value: string
+        - name: caCertificate
+          value: string
+        - name: clientCertificate
+          value: string
+        - name: clientKey
+          value: string
+        - name: dumpFilePath
+          value: string
+        - name: sourceInstance
+          value:
+            - name: name
+              value: string
+            - name: region
+              value: string
+            - name: project
+              value: string
+    - name: replicaConfiguration
+      value:
+        - name: kind
+          value: string
+        - name: mysqlReplicaConfiguration
+          value:
+            - name: dumpFilePath
+              value: string
+            - name: username
+              value: string
+            - name: password
+              value: string
+            - name: connectRetryInterval
+              value: integer
+            - name: masterHeartbeatPeriod
+              value: string
+            - name: caCertificate
+              value: string
+            - name: clientCertificate
+              value: string
+            - name: clientKey
+              value: string
+            - name: sslCipher
+              value: string
+            - name: verifyServerCertificate
+              value: boolean
+            - name: kind
+              value: string
+        - name: failoverTarget
+          value: boolean
+        - name: cascadableReplica
+          value: boolean
+    - name: backendType
+      value: string
+    - name: selfLink
+      value: string
+    - name: suspensionReason
+      value:
+        - string
+    - name: connectionName
+      value: string
+    - name: name
+      value: string
+    - name: region
+      value: string
+    - name: gceZone
+      value: string
+    - name: secondaryGceZone
+      value: string
+    - name: diskEncryptionConfiguration
+      value:
+        - name: kmsKeyName
+          value: string
+        - name: kind
+          value: string
+    - name: diskEncryptionStatus
+      value:
+        - name: kmsKeyVersionName
+          value: string
+        - name: kind
+          value: string
+    - name: rootPassword
+      value: string
+    - name: scheduledMaintenance
+      value:
+        - name: startTime
+          value: string
+        - name: canDefer
+          value: boolean
+        - name: canReschedule
+          value: boolean
+        - name: scheduleDeadlineTime
+          value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: databaseInstalledVersion
+      value: string
+    - name: outOfDiskReport
+      value:
+        - name: sqlOutOfDiskState
+          value: string
+        - name: sqlMinRecommendedIncreaseSizeGb
+          value: integer
+    - name: createTime
+      value: string
+    - name: availableMaintenanceVersions
+      value:
+        - string
+    - name: maintenanceVersion
+      value: string
+    - name: upgradableDatabaseVersions
+      value:
+        - - name: majorVersion
+            value: string
+          - name: name
+            value: string
+          - name: displayName
+            value: string
+    - name: sqlNetworkArchitecture
+      value: string
+    - name: pscServiceAttachmentLink
+      value: string
+    - name: dnsName
+      value: string
+    - name: primaryDnsName
+      value: string
+    - name: writeEndpoint
+      value: string
+    - name: replicationCluster
+      value:
+        - name: psaWriteEndpoint
+          value: string
+        - name: failoverDrReplicaName
+          value: string
+        - name: drReplica
+          value: boolean
+    - name: geminiConfig
+      value:
+        - name: entitled
+          value: boolean
+        - name: googleVacuumMgmtEnabled
+          value: boolean
+        - name: oomSessionCancelEnabled
+          value: boolean
+        - name: activeQueryEnabled
+          value: boolean
+        - name: indexAdvisorEnabled
+          value: boolean
+        - name: flagRecommenderEnabled
+          value: boolean
+    - name: satisfiesPzi
+      value: boolean
+    - name: switchTransactionLogsToCloudStorageEnabled
+      value: boolean
 
 ```
 </TabItem>

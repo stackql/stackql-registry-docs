@@ -55,7 +55,7 @@ FROM google.servicedirectory.services_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `REPLACE` example

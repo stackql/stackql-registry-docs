@@ -72,7 +72,7 @@ revisionPublishTime,
 revisionUpdateTime,
 scoringConfigs
 FROM google.apigee.security_profiles
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -113,30 +113,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-scoringConfigs:
-  - description: string
-    title: string
-    scorePath: string
-profileConfig:
-  categories:
-    - abuse: {}
-      threat: {}
-      mediation: {}
-      mtls: {}
-      cors: {}
-      authorization: {}
-displayName: string
-revisionPublishTime: string
-minScore: integer
-revisionId: string
-name: string
-description: string
-maxScore: integer
-environments:
-  - environment: string
-    attachTime: string
-revisionCreateTime: string
-revisionUpdateTime: string
+- name: your_resource_model_name
+  props:
+    - name: scoringConfigs
+      value:
+        - - name: description
+            value: string
+          - name: title
+            value: string
+          - name: scorePath
+            value: string
+    - name: profileConfig
+      value:
+        - name: categories
+          value:
+            - - name: abuse
+                value: []
+              - name: threat
+                value: []
+              - name: mediation
+                value: []
+              - name: mtls
+                value: []
+              - name: cors
+                value: []
+              - name: authorization
+                value: []
+    - name: displayName
+      value: string
+    - name: revisionPublishTime
+      value: string
+    - name: minScore
+      value: integer
+    - name: revisionId
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: maxScore
+      value: integer
+    - name: environments
+      value:
+        - - name: environment
+            value: string
+          - name: attachTime
+            value: string
+    - name: revisionCreateTime
+      value: string
+    - name: revisionUpdateTime
+      value: string
 
 ```
 </TabItem>

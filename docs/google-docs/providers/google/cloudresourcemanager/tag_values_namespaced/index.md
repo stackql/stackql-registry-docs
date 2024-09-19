@@ -60,5 +60,5 @@ parent,
 shortName,
 updateTime
 FROM google.cloudresourcemanager.tag_values_namespaced
-WHERE  = '{{  }}'; 
+;
 ```

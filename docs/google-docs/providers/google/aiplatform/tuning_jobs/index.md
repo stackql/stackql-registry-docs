@@ -80,7 +80,7 @@ tuningDataStats,
 updateTime
 FROM google.aiplatform.tuning_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -123,78 +123,146 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-tunedModel:
-  model: string
-  endpoint: string
-endTime: string
-baseModel: string
-tuningDataStats:
-  supervisedTuningDataStats:
-    totalTruncatedExampleCount: string
-    totalTuningCharacterCount: string
-    totalBillableTokenCount: string
-    truncatedExampleIndices:
-      - format: string
-        type: string
-    tuningStepCount: string
-    userMessagePerExampleDistribution:
-      p95: number
-      min: number
-      sum: string
-      billableSum: string
-      max: number
-      median: number
-      mean: number
-      p5: number
-      buckets:
-        - left: number
-          count: number
-          right: number
-    userDatasetExamples:
-      - role: string
-        parts:
-          - fileData:
-              mimeType: string
-              fileUri: string
-            functionCall:
-              args: object
-              name: string
-            videoMetadata:
-              endOffset: string
-              startOffset: string
-            text: string
-            inlineData:
-              data: string
-              mimeType: string
-            functionResponse:
-              name: string
-              response: object
-    tuningDatasetExampleCount: string
-    totalBillableCharacterCount: string
-createTime: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-encryptionSpec:
-  kmsKeyName: string
-startTime: string
-supervisedTuningSpec:
-  hyperParameters:
-    adapterSize: string
-    learningRateMultiplier: number
-    epochCount: string
-  validationDatasetUri: string
-  trainingDatasetUri: string
-name: string
-description: string
-labels: object
-updateTime: string
-experiment: string
-tunedModelDisplayName: string
+- name: your_resource_model_name
+  props:
+    - name: state
+      value: string
+    - name: tunedModel
+      value:
+        - name: model
+          value: string
+        - name: endpoint
+          value: string
+    - name: endTime
+      value: string
+    - name: baseModel
+      value: string
+    - name: tuningDataStats
+      value:
+        - name: supervisedTuningDataStats
+          value:
+            - name: totalTruncatedExampleCount
+              value: string
+            - name: totalTuningCharacterCount
+              value: string
+            - name: totalBillableTokenCount
+              value: string
+            - name: truncatedExampleIndices
+              value:
+                - string
+            - name: tuningStepCount
+              value: string
+            - name: userMessagePerExampleDistribution
+              value:
+                - name: p95
+                  value: number
+                - name: min
+                  value: number
+                - name: sum
+                  value: string
+                - name: billableSum
+                  value: string
+                - name: max
+                  value: number
+                - name: median
+                  value: number
+                - name: mean
+                  value: number
+                - name: p5
+                  value: number
+                - name: buckets
+                  value:
+                    - - name: left
+                        value: number
+                      - name: count
+                        value: number
+                      - name: right
+                        value: number
+            - name: userDatasetExamples
+              value:
+                - - name: role
+                    value: string
+                  - name: parts
+                    value:
+                      - - name: fileData
+                          value:
+                            - name: mimeType
+                              value: string
+                            - name: fileUri
+                              value: string
+                        - name: functionCall
+                          value:
+                            - name: args
+                              value: object
+                            - name: name
+                              value: string
+                        - name: videoMetadata
+                          value:
+                            - name: endOffset
+                              value: string
+                            - name: startOffset
+                              value: string
+                        - name: text
+                          value: string
+                        - name: inlineData
+                          value:
+                            - name: data
+                              value: string
+                            - name: mimeType
+                              value: string
+                        - name: functionResponse
+                          value:
+                            - name: name
+                              value: string
+                            - name: response
+                              value: object
+            - name: tuningDatasetExampleCount
+              value: string
+            - name: totalBillableCharacterCount
+              value: string
+    - name: createTime
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: startTime
+      value: string
+    - name: supervisedTuningSpec
+      value:
+        - name: hyperParameters
+          value:
+            - name: adapterSize
+              value: string
+            - name: learningRateMultiplier
+              value: number
+            - name: epochCount
+              value: string
+        - name: validationDatasetUri
+          value: string
+        - name: trainingDatasetUri
+          value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: updateTime
+      value: string
+    - name: experiment
+      value: string
+    - name: tunedModelDisplayName
+      value: string
 
 ```
 </TabItem>

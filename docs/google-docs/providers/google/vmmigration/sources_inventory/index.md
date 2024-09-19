@@ -56,5 +56,5 @@ vmwareVms
 FROM google.vmmigration.sources_inventory
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```

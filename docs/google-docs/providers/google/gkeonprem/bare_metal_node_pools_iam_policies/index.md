@@ -55,7 +55,7 @@ FROM google.gkeonprem.bare_metal_node_pools_iam_policies
 WHERE bareMetalClustersId = '{{ bareMetalClustersId }}'
 AND bareMetalNodePoolsId = '{{ bareMetalNodePoolsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

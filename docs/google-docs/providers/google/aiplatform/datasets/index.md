@@ -84,7 +84,7 @@ savedQueries,
 updateTime
 FROM google.aiplatform.datasets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -133,33 +133,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dataItemCount: string
-displayName: string
-updateTime: string
-metadataSchemaUri: string
-encryptionSpec:
-  kmsKeyName: string
-description: string
-name: string
-metadata: any
-modelReference: string
-savedQueries:
-  - createTime: string
-    etag: string
-    metadata: any
-    problemType: string
-    displayName: string
-    name: string
-    supportAutomlTraining: boolean
-    annotationFilter: string
-    annotationSpecCount: integer
-    updateTime: string
-labels: object
-createTime: string
-satisfiesPzi: boolean
-etag: string
-metadataArtifact: string
-satisfiesPzs: boolean
+- name: your_resource_model_name
+  props:
+    - name: dataItemCount
+      value: string
+    - name: displayName
+      value: string
+    - name: updateTime
+      value: string
+    - name: metadataSchemaUri
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: metadata
+      value: any
+    - name: modelReference
+      value: string
+    - name: savedQueries
+      value:
+        - - name: createTime
+            value: string
+          - name: etag
+            value: string
+          - name: metadata
+            value: any
+          - name: problemType
+            value: string
+          - name: displayName
+            value: string
+          - name: name
+            value: string
+          - name: supportAutomlTraining
+            value: boolean
+          - name: annotationFilter
+            value: string
+          - name: annotationSpecCount
+            value: integer
+          - name: updateTime
+            value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: etag
+      value: string
+    - name: metadataArtifact
+      value: string
+    - name: satisfiesPzs
+      value: boolean
 
 ```
 </TabItem>

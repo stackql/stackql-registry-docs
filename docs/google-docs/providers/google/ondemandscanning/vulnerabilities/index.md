@@ -84,5 +84,5 @@ vulnerability
 FROM google.ondemandscanning.vulnerabilities
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND scansId = '{{ scansId }}'; 
+AND scansId = '{{ scansId }}';
 ```

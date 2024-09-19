@@ -68,7 +68,7 @@ state,
 timeCreated,
 updated
 FROM google.storage.hmac_keys
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -99,7 +99,8 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-{}
+- name: your_resource_model_name
+  props: []
 
 ```
 </TabItem>

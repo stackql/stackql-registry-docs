@@ -81,7 +81,7 @@ FROM google.apigeeregistry.specs
 WHERE apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND versionsId = '{{ versionsId }}'; 
+AND versionsId = '{{ versionsId }}';
 ```
 
 ## `INSERT` example
@@ -132,20 +132,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-filename: string
-description: string
-revisionId: string
-createTime: string
-revisionCreateTime: string
-revisionUpdateTime: string
-mimeType: string
-sizeBytes: integer
-hash: string
-sourceUri: string
-contents: string
-labels: object
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: filename
+      value: string
+    - name: description
+      value: string
+    - name: revisionId
+      value: string
+    - name: createTime
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: revisionUpdateTime
+      value: string
+    - name: mimeType
+      value: string
+    - name: sizeBytes
+      value: integer
+    - name: hash
+      value: string
+    - name: sourceUri
+      value: string
+    - name: contents
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

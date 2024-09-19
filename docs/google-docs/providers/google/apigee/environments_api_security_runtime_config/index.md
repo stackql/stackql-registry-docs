@@ -55,5 +55,5 @@ uid,
 updateTime
 FROM google.apigee.environments_api_security_runtime_config
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

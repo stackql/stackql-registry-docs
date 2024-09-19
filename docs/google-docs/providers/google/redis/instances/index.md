@@ -128,7 +128,7 @@ tier,
 transitEncryptionMode
 FROM google.redis.instances
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -189,7 +189,7 @@ SELECT
 '{{ memorySizeGb }}',
 '{{ authorizedNetwork }}',
 '{{ connectMode }}',
-true|false,
+{{ authEnabled }},
 '{{ transitEncryptionMode }}',
 '{{ maintenancePolicy }}',
 '{{ replicaCount }}',
@@ -205,73 +205,136 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-labels: object
-locationId: string
-alternativeLocationId: string
-redisVersion: string
-reservedIpRange: string
-secondaryIpRange: string
-host: string
-port: integer
-currentLocationId: string
-createTime: string
-state: string
-statusMessage: string
-redisConfigs: object
-tier: string
-memorySizeGb: integer
-authorizedNetwork: string
-persistenceIamIdentity: string
-connectMode: string
-authEnabled: boolean
-serverCaCerts:
-  - serialNumber: string
-    cert: string
-    createTime: string
-    expireTime: string
-    sha1Fingerprint: string
-transitEncryptionMode: string
-maintenancePolicy:
-  createTime: string
-  updateTime: string
-  description: string
-  weeklyMaintenanceWindow:
-    - day: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-      duration: string
-maintenanceSchedule:
-  startTime: string
-  endTime: string
-  canReschedule: boolean
-  scheduleDeadlineTime: string
-replicaCount: integer
-nodes:
-  - id: string
-    zone: string
-readEndpoint: string
-readEndpointPort: integer
-readReplicasMode: string
-customerManagedKey: string
-persistenceConfig:
-  persistenceMode: string
-  rdbSnapshotPeriod: string
-  rdbNextSnapshotTime: string
-  rdbSnapshotStartTime: string
-suspensionReasons:
-  - type: string
-    enumDescriptions: string
-    enum: string
-maintenanceVersion: string
-availableMaintenanceVersions:
-  - type: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: locationId
+      value: string
+    - name: alternativeLocationId
+      value: string
+    - name: redisVersion
+      value: string
+    - name: reservedIpRange
+      value: string
+    - name: secondaryIpRange
+      value: string
+    - name: host
+      value: string
+    - name: port
+      value: integer
+    - name: currentLocationId
+      value: string
+    - name: createTime
+      value: string
+    - name: state
+      value: string
+    - name: statusMessage
+      value: string
+    - name: redisConfigs
+      value: object
+    - name: tier
+      value: string
+    - name: memorySizeGb
+      value: integer
+    - name: authorizedNetwork
+      value: string
+    - name: persistenceIamIdentity
+      value: string
+    - name: connectMode
+      value: string
+    - name: authEnabled
+      value: boolean
+    - name: serverCaCerts
+      value:
+        - - name: serialNumber
+            value: string
+          - name: cert
+            value: string
+          - name: createTime
+            value: string
+          - name: expireTime
+            value: string
+          - name: sha1Fingerprint
+            value: string
+    - name: transitEncryptionMode
+      value: string
+    - name: maintenancePolicy
+      value:
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: description
+          value: string
+        - name: weeklyMaintenanceWindow
+          value:
+            - - name: day
+                value: string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+              - name: duration
+                value: string
+    - name: maintenanceSchedule
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: canReschedule
+          value: boolean
+        - name: scheduleDeadlineTime
+          value: string
+    - name: replicaCount
+      value: integer
+    - name: nodes
+      value:
+        - - name: id
+            value: string
+          - name: zone
+            value: string
+    - name: readEndpoint
+      value: string
+    - name: readEndpointPort
+      value: integer
+    - name: readReplicasMode
+      value: string
+    - name: customerManagedKey
+      value: string
+    - name: persistenceConfig
+      value:
+        - name: persistenceMode
+          value: string
+        - name: rdbSnapshotPeriod
+          value: string
+        - name: rdbNextSnapshotTime
+          value: string
+        - name: rdbSnapshotStartTime
+          value: string
+    - name: suspensionReasons
+      value:
+        - string
+    - name: maintenanceVersion
+      value: string
+    - name: availableMaintenanceVersions
+      value:
+        - string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

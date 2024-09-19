@@ -67,7 +67,7 @@ vpcNetwork
 FROM google.vmwareengine.management_dns_zone_bindings
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,14 +106,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-state: string
-description: string
-vpcNetwork: string
-vmwareEngineNetwork: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: description
+      value: string
+    - name: vpcNetwork
+      value: string
+    - name: vmwareEngineNetwork
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

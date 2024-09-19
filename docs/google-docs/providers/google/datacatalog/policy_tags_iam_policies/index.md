@@ -55,7 +55,7 @@ FROM google.datacatalog.policy_tags_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND policyTagsId = '{{ policyTagsId }}'
 AND projectsId = '{{ projectsId }}'
-AND taxonomiesId = '{{ taxonomiesId }}'; 
+AND taxonomiesId = '{{ taxonomiesId }}';
 ```
 
 ## `REPLACE` example

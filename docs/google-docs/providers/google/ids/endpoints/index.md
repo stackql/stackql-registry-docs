@@ -77,7 +77,7 @@ trafficLogs,
 updateTime
 FROM google.ids.endpoints
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,28 +113,44 @@ SELECT
 '{{ description }}',
 '{{ severity }}',
 '{{ threatExceptions }}',
-true|false
+{{ trafficLogs }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-network: string
-endpointForwardingRule: string
-endpointIp: string
-description: string
-severity: string
-threatExceptions:
-  - type: string
-state: string
-trafficLogs: boolean
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: network
+      value: string
+    - name: endpointForwardingRule
+      value: string
+    - name: endpointIp
+      value: string
+    - name: description
+      value: string
+    - name: severity
+      value: string
+    - name: threatExceptions
+      value:
+        - string
+    - name: state
+      value: string
+    - name: trafficLogs
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

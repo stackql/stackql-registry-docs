@@ -109,7 +109,7 @@ satisfiesPzs,
 selfLink,
 state
 FROM google.compute.interconnects
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -164,7 +164,7 @@ SELECT
 '{{ linkType }}',
 '{{ requestedLinkCount }}',
 '{{ interconnectType }}',
-true|false,
+{{ adminEnabled }},
 '{{ nocContactEmail }}',
 '{{ customerName }}',
 '{{ operationalStatus }}',
@@ -178,9 +178,9 @@ true|false,
 '{{ labels }}',
 '{{ labelFingerprint }}',
 '{{ state }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ macsec }}',
-true|false,
+{{ macsecEnabled }},
 '{{ remoteLocation }}',
 '{{ requestedFeatures }}',
 '{{ availableFeatures }}'
@@ -190,59 +190,102 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-description: string
-selfLink: string
-id: string
-creationTimestamp: string
-name: string
-location: string
-linkType: string
-requestedLinkCount: integer
-interconnectType: string
-adminEnabled: boolean
-nocContactEmail: string
-customerName: string
-operationalStatus: string
-provisionedLinkCount: integer
-interconnectAttachments:
-  - type: string
-peerIpAddress: string
-googleIpAddress: string
-googleReferenceId: string
-expectedOutages:
-  - name: string
-    description: string
-    source: string
-    state: string
-    issueType: string
-    affectedCircuits:
-      - type: string
-    startTime: string
-    endTime: string
-circuitInfos:
-  - googleCircuitId: string
-    googleDemarcId: string
-    customerDemarcId: string
-labels: object
-labelFingerprint: string
-state: string
-satisfiesPzs: boolean
-macsec:
-  preSharedKeys:
-    - name: string
-      startTime: string
-  failOpen: boolean
-macsecEnabled: boolean
-remoteLocation: string
-requestedFeatures:
-  - type: string
-    enumDescriptions: string
-    enum: string
-availableFeatures:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: location
+      value: string
+    - name: linkType
+      value: string
+    - name: requestedLinkCount
+      value: integer
+    - name: interconnectType
+      value: string
+    - name: adminEnabled
+      value: boolean
+    - name: nocContactEmail
+      value: string
+    - name: customerName
+      value: string
+    - name: operationalStatus
+      value: string
+    - name: provisionedLinkCount
+      value: integer
+    - name: interconnectAttachments
+      value:
+        - string
+    - name: peerIpAddress
+      value: string
+    - name: googleIpAddress
+      value: string
+    - name: googleReferenceId
+      value: string
+    - name: expectedOutages
+      value:
+        - - name: name
+            value: string
+          - name: description
+            value: string
+          - name: source
+            value: string
+          - name: state
+            value: string
+          - name: issueType
+            value: string
+          - name: affectedCircuits
+            value:
+              - string
+          - name: startTime
+            value: string
+          - name: endTime
+            value: string
+    - name: circuitInfos
+      value:
+        - - name: googleCircuitId
+            value: string
+          - name: googleDemarcId
+            value: string
+          - name: customerDemarcId
+            value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: state
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: macsec
+      value:
+        - name: preSharedKeys
+          value:
+            - - name: name
+                value: string
+              - name: startTime
+                value: string
+        - name: failOpen
+          value: boolean
+    - name: macsecEnabled
+      value: boolean
+    - name: remoteLocation
+      value: string
+    - name: requestedFeatures
+      value:
+        - string
+    - name: availableFeatures
+      value:
+        - string
 
 ```
 </TabItem>

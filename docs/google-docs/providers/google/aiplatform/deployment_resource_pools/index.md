@@ -66,7 +66,7 @@ satisfiesPzs,
 serviceAccount
 FROM google.aiplatform.deployment_resource_pools
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,33 +101,61 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-deploymentResourcePool:
-  satisfiesPzi: boolean
-  satisfiesPzs: boolean
-  name: string
-  serviceAccount: string
-  disableContainerLogging: boolean
-  encryptionSpec:
-    kmsKeyName: string
-  dedicatedResources:
-    machineSpec:
-      acceleratorCount: integer
-      tpuTopology: string
-      machineType: string
-      acceleratorType: string
-      reservationAffinity:
-        reservationAffinityType: string
-        values:
-          - type: string
-        key: string
-    autoscalingMetricSpecs:
-      - target: integer
-        metricName: string
-    maxReplicaCount: integer
-    minReplicaCount: integer
-    spot: boolean
-  createTime: string
-deploymentResourcePoolId: string
+- name: your_resource_model_name
+  props:
+    - name: deploymentResourcePool
+      value:
+        - name: satisfiesPzi
+          value: boolean
+        - name: satisfiesPzs
+          value: boolean
+        - name: name
+          value: string
+        - name: serviceAccount
+          value: string
+        - name: disableContainerLogging
+          value: boolean
+        - name: encryptionSpec
+          value:
+            - name: kmsKeyName
+              value: string
+        - name: dedicatedResources
+          value:
+            - name: machineSpec
+              value:
+                - name: acceleratorCount
+                  value: integer
+                - name: tpuTopology
+                  value: string
+                - name: machineType
+                  value: string
+                - name: acceleratorType
+                  value: string
+                - name: reservationAffinity
+                  value:
+                    - name: reservationAffinityType
+                      value: string
+                    - name: values
+                      value:
+                        - string
+                    - name: key
+                      value: string
+            - name: autoscalingMetricSpecs
+              value:
+                - - name: target
+                    value: integer
+                  - name: metricName
+                    value: string
+            - name: maxReplicaCount
+              value: integer
+            - name: minReplicaCount
+              value: integer
+            - name: spot
+              value: boolean
+        - name: createTime
+          value: string
+    - name: deploymentResourcePoolId
+      value: string
 
 ```
 </TabItem>

@@ -54,7 +54,7 @@ role
 FROM google.gkebackup.backup_plans_iam_policies
 WHERE backupPlansId = '{{ backupPlansId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

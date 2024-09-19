@@ -53,7 +53,7 @@ members,
 role
 FROM google.secretmanager.secrets_iam_policies
 WHERE projectsId = '{{ projectsId }}'
-AND secretsId = '{{ secretsId }}'; 
+AND secretsId = '{{ secretsId }}';
 ```
 
 ## `REPLACE` example

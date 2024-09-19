@@ -88,5 +88,5 @@ violationType
 FROM google.assuredworkloads.violations
 WHERE locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND workloadsId = '{{ workloadsId }}'; 
+AND workloadsId = '{{ workloadsId }}';
 ```

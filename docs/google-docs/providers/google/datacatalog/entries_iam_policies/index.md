@@ -54,5 +54,5 @@ FROM google.datacatalog.entries_iam_policies
 WHERE entriesId = '{{ entriesId }}'
 AND entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -63,7 +63,7 @@ propertyDefinitions,
 updateTime
 FROM google.contentwarehouse.document_schemas
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -94,7 +94,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ propertyDefinitions }}',
-true|false,
+{{ documentIsFolder }},
 '{{ description }}',
 '{{ displayName }}',
 '{{ name }}'
@@ -104,47 +104,89 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-propertyDefinitions:
-  - mapTypeOptions: {}
-    isSearchable: boolean
-    isRequired: boolean
-    isRepeatable: boolean
-    isMetadata: boolean
-    dateTimeTypeOptions: {}
-    name: string
-    displayName: string
-    timestampTypeOptions: {}
-    floatTypeOptions: {}
-    retrievalImportance: string
-    integerTypeOptions: {}
-    textTypeOptions: {}
-    propertyTypeOptions:
-      propertyDefinitions:
-        - isSearchable: boolean
-          isRequired: boolean
-          isRepeatable: boolean
-          isMetadata: boolean
-          name: string
-          displayName: string
-          retrievalImportance: string
-          schemaSources:
-            - processorType: string
-              name: string
-          enumTypeOptions:
-            possibleValues:
-              - type: string
-            validationCheckDisabled: boolean
-          isFilterable: boolean
-    schemaSources:
-      - processorType: string
-        name: string
-    isFilterable: boolean
-documentIsFolder: boolean
-description: string
-displayName: string
-name: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: propertyDefinitions
+      value:
+        - - name: mapTypeOptions
+            value: []
+          - name: isSearchable
+            value: boolean
+          - name: isRequired
+            value: boolean
+          - name: isRepeatable
+            value: boolean
+          - name: isMetadata
+            value: boolean
+          - name: dateTimeTypeOptions
+            value: []
+          - name: name
+            value: string
+          - name: displayName
+            value: string
+          - name: timestampTypeOptions
+            value: []
+          - name: floatTypeOptions
+            value: []
+          - name: retrievalImportance
+            value: string
+          - name: integerTypeOptions
+            value: []
+          - name: textTypeOptions
+            value: []
+          - name: propertyTypeOptions
+            value:
+              - name: propertyDefinitions
+                value:
+                  - - name: isSearchable
+                      value: boolean
+                    - name: isRequired
+                      value: boolean
+                    - name: isRepeatable
+                      value: boolean
+                    - name: isMetadata
+                      value: boolean
+                    - name: name
+                      value: string
+                    - name: displayName
+                      value: string
+                    - name: retrievalImportance
+                      value: string
+                    - name: schemaSources
+                      value:
+                        - - name: processorType
+                            value: string
+                          - name: name
+                            value: string
+                    - name: enumTypeOptions
+                      value:
+                        - name: possibleValues
+                          value:
+                            - string
+                        - name: validationCheckDisabled
+                          value: boolean
+                    - name: isFilterable
+                      value: boolean
+          - name: schemaSources
+            value:
+              - - name: processorType
+                  value: string
+                - name: name
+                  value: string
+          - name: isFilterable
+            value: boolean
+    - name: documentIsFolder
+      value: boolean
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

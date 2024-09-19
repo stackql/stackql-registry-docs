@@ -58,7 +58,7 @@ shortName
 FROM google.compute.region_network_firewall_policies_association
 WHERE firewallPolicy = '{{ firewallPolicy }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -101,11 +101,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-attachmentTarget: string
-firewallPolicyId: string
-shortName: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: attachmentTarget
+      value: string
+    - name: firewallPolicyId
+      value: string
+    - name: shortName
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

@@ -87,7 +87,7 @@ FROM google.dataplex.entities
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND zonesId = '{{ zonesId }}'; 
+AND zonesId = '{{ zonesId }}';
 ```
 
 ## `INSERT` example
@@ -142,92 +142,179 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-createTime: string
-updateTime: string
-id: string
-etag: string
-type: string
-asset: string
-dataPath: string
-dataPathPattern: string
-catalogEntry: string
-system: string
-format:
-  format: string
-  compressionFormat: string
-  mimeType: string
-  csv:
-    encoding: string
-    headerRows: integer
-    delimiter: string
-    quote: string
-  json:
-    encoding: string
-  iceberg:
-    metadataLocation: string
-compatibility:
-  hiveMetastore:
-    compatible: boolean
-    reason: string
-access:
-  read: string
-uid: string
-schema:
-  userManaged: boolean
-  fields:
-    - name: string
-      description: string
-      type: string
-      mode: string
-      fields:
-        - name: string
-          description: string
-          type: string
-          mode: string
-          fields:
-            - name: string
-              description: string
-              type: string
-              mode: string
-              fields:
-                - name: string
-                  description: string
-                  type: string
-                  mode: string
-                  fields:
-                    - name: string
-                      description: string
-                      type: string
-                      mode: string
-                      fields:
-                        - name: string
-                          description: string
-                          type: string
-                          mode: string
-                          fields:
-                            - name: string
-                              description: string
-                              type: string
-                              mode: string
-                              fields:
-                                - name: string
-                                  description: string
-                                  type: string
-                                  mode: string
-                                  fields:
-                                    - name: string
-                                      description: string
-                                      type: string
-                                      mode: string
-                                      fields:
-                                        - {}
-  partitionFields:
-    - name: string
-      type: string
-  partitionStyle: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: id
+      value: string
+    - name: etag
+      value: string
+    - name: type
+      value: string
+    - name: asset
+      value: string
+    - name: dataPath
+      value: string
+    - name: dataPathPattern
+      value: string
+    - name: catalogEntry
+      value: string
+    - name: system
+      value: string
+    - name: format
+      value:
+        - name: format
+          value: string
+        - name: compressionFormat
+          value: string
+        - name: mimeType
+          value: string
+        - name: csv
+          value:
+            - name: encoding
+              value: string
+            - name: headerRows
+              value: integer
+            - name: delimiter
+              value: string
+            - name: quote
+              value: string
+        - name: json
+          value:
+            - name: encoding
+              value: string
+        - name: iceberg
+          value:
+            - name: metadataLocation
+              value: string
+    - name: compatibility
+      value:
+        - name: hiveMetastore
+          value:
+            - name: compatible
+              value: boolean
+            - name: reason
+              value: string
+    - name: access
+      value:
+        - name: read
+          value: string
+    - name: uid
+      value: string
+    - name: schema
+      value:
+        - name: userManaged
+          value: boolean
+        - name: fields
+          value:
+            - - name: name
+                value: string
+              - name: description
+                value: string
+              - name: type
+                value: string
+              - name: mode
+                value: string
+              - name: fields
+                value:
+                  - - name: name
+                      value: string
+                    - name: description
+                      value: string
+                    - name: type
+                      value: string
+                    - name: mode
+                      value: string
+                    - name: fields
+                      value:
+                        - - name: name
+                            value: string
+                          - name: description
+                            value: string
+                          - name: type
+                            value: string
+                          - name: mode
+                            value: string
+                          - name: fields
+                            value:
+                              - - name: name
+                                  value: string
+                                - name: description
+                                  value: string
+                                - name: type
+                                  value: string
+                                - name: mode
+                                  value: string
+                                - name: fields
+                                  value:
+                                    - - name: name
+                                        value: string
+                                      - name: description
+                                        value: string
+                                      - name: type
+                                        value: string
+                                      - name: mode
+                                        value: string
+                                      - name: fields
+                                        value:
+                                          - - name: name
+                                              value: string
+                                            - name: description
+                                              value: string
+                                            - name: type
+                                              value: string
+                                            - name: mode
+                                              value: string
+                                            - name: fields
+                                              value:
+                                                - - name: name
+                                                    value: string
+                                                  - name: description
+                                                    value: string
+                                                  - name: type
+                                                    value: string
+                                                  - name: mode
+                                                    value: string
+                                                  - name: fields
+                                                    value:
+                                                      - - name: name
+                                                          value: string
+                                                        - name: description
+                                                          value: string
+                                                        - name: type
+                                                          value: string
+                                                        - name: mode
+                                                          value: string
+                                                        - name: fields
+                                                          value:
+                                                            - - name: name
+                                                                value: string
+                                                              - name: description
+                                                                value: string
+                                                              - name: type
+                                                                value: string
+                                                              - name: mode
+                                                                value: string
+                                                              - name: fields
+                                                                value:
+                                                                  - []
+        - name: partitionFields
+          value:
+            - - name: name
+                value: string
+              - name: type
+                value: string
+        - name: partitionStyle
+          value: string
 
 ```
 </TabItem>

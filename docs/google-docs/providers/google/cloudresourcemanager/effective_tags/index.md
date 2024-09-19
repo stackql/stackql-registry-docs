@@ -56,5 +56,5 @@ tagKey,
 tagKeyParentName,
 tagValue
 FROM google.cloudresourcemanager.effective_tags
-WHERE  = '{{  }}'; 
+;
 ```

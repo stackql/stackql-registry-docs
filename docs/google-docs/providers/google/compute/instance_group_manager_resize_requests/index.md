@@ -74,7 +74,7 @@ zone
 FROM google.compute.instance_group_manager_resize_requests
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `INSERT` example
@@ -121,52 +121,99 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-zone: string
-resizeBy: integer
-requestedRunDuration:
-  seconds: string
-  nanos: integer
-state: string
-status:
-  error:
-    errors:
-      - code: string
-        location: string
-        message: string
-        errorDetails:
-          - errorInfo:
-              reason: string
-              domain: string
-              metadatas: object
-            quotaInfo:
-              metricName: string
-              limitName: string
-              dimensions: object
-              limit: number
-              futureLimit: number
-              rolloutStatus: string
-            help:
-              links:
-                - description: string
-                  url: string
-            localizedMessage:
-              locale: string
-              message: string
-  lastAttempt:
-    error:
-      errors:
-        - code: string
-          location: string
-          message: string
-          errorDetails:
-            - {}
-selfLink: string
-selfLinkWithId: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: zone
+      value: string
+    - name: resizeBy
+      value: integer
+    - name: requestedRunDuration
+      value:
+        - name: seconds
+          value: string
+        - name: nanos
+          value: integer
+    - name: state
+      value: string
+    - name: status
+      value:
+        - name: error
+          value:
+            - name: errors
+              value:
+                - - name: code
+                    value: string
+                  - name: location
+                    value: string
+                  - name: message
+                    value: string
+                  - name: errorDetails
+                    value:
+                      - - name: errorInfo
+                          value:
+                            - name: reason
+                              value: string
+                            - name: domain
+                              value: string
+                            - name: metadatas
+                              value: object
+                        - name: quotaInfo
+                          value:
+                            - name: metricName
+                              value: string
+                            - name: limitName
+                              value: string
+                            - name: dimensions
+                              value: object
+                            - name: limit
+                              value: number
+                            - name: futureLimit
+                              value: number
+                            - name: rolloutStatus
+                              value: string
+                        - name: help
+                          value:
+                            - name: links
+                              value:
+                                - - name: description
+                                    value: string
+                                  - name: url
+                                    value: string
+                        - name: localizedMessage
+                          value:
+                            - name: locale
+                              value: string
+                            - name: message
+                              value: string
+        - name: lastAttempt
+          value:
+            - name: error
+              value:
+                - name: errors
+                  value:
+                    - - name: code
+                        value: string
+                      - name: location
+                        value: string
+                      - name: message
+                        value: string
+                      - name: errorDetails
+                        value:
+                          - []
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
 
 ```
 </TabItem>

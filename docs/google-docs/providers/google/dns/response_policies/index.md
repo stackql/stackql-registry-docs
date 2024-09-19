@@ -63,7 +63,7 @@ labels,
 networks,
 responsePolicyName
 FROM google.dns.response_policies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -102,17 +102,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-responsePolicyName: string
-description: string
-networks:
-  - networkUrl: string
-    kind: string
-gkeClusters:
-  - gkeClusterName: string
-    kind: string
-labels: object
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: responsePolicyName
+      value: string
+    - name: description
+      value: string
+    - name: networks
+      value:
+        - - name: networkUrl
+            value: string
+          - name: kind
+            value: string
+    - name: gkeClusters
+      value:
+        - - name: gkeClusterName
+            value: string
+          - name: kind
+            value: string
+    - name: labels
+      value: object
+    - name: kind
+      value: string
 
 ```
 </TabItem>

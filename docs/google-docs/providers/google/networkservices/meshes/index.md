@@ -65,7 +65,7 @@ selfLink,
 updateTime
 FROM google.networkservices.meshes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,14 +106,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-selfLink: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-interceptionPort: integer
-envoyHeaders: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: selfLink
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: interceptionPort
+      value: integer
+    - name: envoyHeaders
+      value: string
 
 ```
 </TabItem>

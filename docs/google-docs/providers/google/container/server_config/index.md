@@ -57,5 +57,5 @@ validMasterVersions,
 validNodeVersions
 FROM google.container.server_config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

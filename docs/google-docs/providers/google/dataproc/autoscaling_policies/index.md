@@ -66,7 +66,7 @@ secondaryWorkerConfig,
 workerConfig
 FROM google.dataproc.autoscaling_policies
 WHERE projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `INSERT` example
@@ -105,28 +105,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-name: string
-basicAlgorithm:
-  yarnConfig:
-    gracefulDecommissionTimeout: string
-    scaleUpFactor: number
-    scaleDownFactor: number
-    scaleUpMinWorkerFraction: number
-    scaleDownMinWorkerFraction: number
-  sparkStandaloneConfig:
-    gracefulDecommissionTimeout: string
-    scaleUpFactor: number
-    scaleDownFactor: number
-    scaleUpMinWorkerFraction: number
-    scaleDownMinWorkerFraction: number
-    removeOnlyIdleWorkers: boolean
-  cooldownPeriod: string
-workerConfig:
-  minInstances: integer
-  maxInstances: integer
-  weight: integer
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: basicAlgorithm
+      value:
+        - name: yarnConfig
+          value:
+            - name: gracefulDecommissionTimeout
+              value: string
+            - name: scaleUpFactor
+              value: number
+            - name: scaleDownFactor
+              value: number
+            - name: scaleUpMinWorkerFraction
+              value: number
+            - name: scaleDownMinWorkerFraction
+              value: number
+        - name: sparkStandaloneConfig
+          value:
+            - name: gracefulDecommissionTimeout
+              value: string
+            - name: scaleUpFactor
+              value: number
+            - name: scaleDownFactor
+              value: number
+            - name: scaleUpMinWorkerFraction
+              value: number
+            - name: scaleDownMinWorkerFraction
+              value: number
+            - name: removeOnlyIdleWorkers
+              value: boolean
+        - name: cooldownPeriod
+          value: string
+    - name: workerConfig
+      value:
+        - name: minInstances
+          value: integer
+        - name: maxInstances
+          value: integer
+        - name: weight
+          value: integer
+    - name: labels
+      value: object
 
 ```
 </TabItem>

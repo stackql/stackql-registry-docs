@@ -67,7 +67,7 @@ displayName,
 frns,
 sasUserIds
 FROM google.prod_tt_sasportal.deployments
-WHERE nodesId = '{{ nodesId }}'; 
+WHERE nodesId = '{{ nodesId }}';
 ```
 
 ## `INSERT` example
@@ -100,12 +100,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-name: string
-frns:
-  - type: string
-sasUserIds:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: frns
+      value:
+        - string
+    - name: sasUserIds
+      value:
+        - string
 
 ```
 </TabItem>

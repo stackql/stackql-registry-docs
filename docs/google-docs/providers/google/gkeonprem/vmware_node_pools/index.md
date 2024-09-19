@@ -80,7 +80,7 @@ updateTime
 FROM google.gkeonprem.vmware_node_pools
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND vmwareClustersId = '{{ vmwareClustersId }}'; 
+AND vmwareClustersId = '{{ vmwareClustersId }}';
 ```
 
 ## `INSERT` example
@@ -127,53 +127,101 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-state: string
-reconciling: boolean
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-annotations: object
-nodePoolAutoscaling:
-  minReplicas: integer
-  maxReplicas: integer
-config:
-  cpus: string
-  memoryMb: string
-  replicas: string
-  imageType: string
-  image: string
-  bootDiskSizeGb: string
-  taints:
-    - key: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-      effect: string
-  labels: object
-  vsphereConfig:
-    datastore: string
-    tags:
-      - category: string
-        tag: string
-    hostGroups:
-      - type: string
-  enableLoadBalancer: boolean
-status:
-  errorMessage: string
-  conditions:
-    - type: string
-      reason: string
-      message: string
-      lastTransitionTime: string
-      state: string
-  version: string
-  versions:
-    versions:
-      - version: string
-        count: string
-onPremVersion: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: nodePoolAutoscaling
+      value:
+        - name: minReplicas
+          value: integer
+        - name: maxReplicas
+          value: integer
+    - name: config
+      value:
+        - name: cpus
+          value: string
+        - name: memoryMb
+          value: string
+        - name: replicas
+          value: string
+        - name: imageType
+          value: string
+        - name: image
+          value: string
+        - name: bootDiskSizeGb
+          value: string
+        - name: taints
+          value:
+            - - name: key
+                value: string
+              - name: value
+                value: string
+              - name: effect
+                value: string
+        - name: labels
+          value: object
+        - name: vsphereConfig
+          value:
+            - name: datastore
+              value: string
+            - name: tags
+              value:
+                - - name: category
+                    value: string
+                  - name: tag
+                    value: string
+            - name: hostGroups
+              value:
+                - string
+        - name: enableLoadBalancer
+          value: boolean
+    - name: status
+      value:
+        - name: errorMessage
+          value: string
+        - name: conditions
+          value:
+            - - name: type
+                value: string
+              - name: reason
+                value: string
+              - name: message
+                value: string
+              - name: lastTransitionTime
+                value: string
+              - name: state
+                value: string
+        - name: version
+          value: string
+        - name: versions
+          value:
+            - name: versions
+              value:
+                - - name: version
+                    value: string
+                  - name: count
+                    value: string
+    - name: onPremVersion
+      value: string
 
 ```
 </TabItem>

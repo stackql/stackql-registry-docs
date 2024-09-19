@@ -53,5 +53,5 @@ workloadProperties,
 workloadReference
 FROM google.apphub.discovered_workloads
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -89,7 +89,7 @@ sslPolicy,
 tlsEarlyData,
 urlMap
 FROM google.compute.target_https_proxies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -134,7 +134,7 @@ SELECT
 '{{ quicOverride }}',
 '{{ sslPolicy }}',
 '{{ region }}',
-true|false,
+{{ proxyBind }},
 '{{ serverTlsPolicy }}',
 '{{ authorizationPolicy }}',
 '{{ fingerprint }}',
@@ -146,25 +146,45 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-urlMap: string
-sslCertificates:
-  - type: string
-certificateMap: string
-quicOverride: string
-sslPolicy: string
-region: string
-proxyBind: boolean
-serverTlsPolicy: string
-authorizationPolicy: string
-fingerprint: string
-httpKeepAliveTimeoutSec: integer
-tlsEarlyData: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: urlMap
+      value: string
+    - name: sslCertificates
+      value:
+        - string
+    - name: certificateMap
+      value: string
+    - name: quicOverride
+      value: string
+    - name: sslPolicy
+      value: string
+    - name: region
+      value: string
+    - name: proxyBind
+      value: boolean
+    - name: serverTlsPolicy
+      value: string
+    - name: authorizationPolicy
+      value: string
+    - name: fingerprint
+      value: string
+    - name: httpKeepAliveTimeoutSec
+      value: integer
+    - name: tlsEarlyData
+      value: string
 
 ```
 </TabItem>

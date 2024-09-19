@@ -48,5 +48,5 @@ findingTypeStats
 FROM google.websecurityscanner.finding_type_stats
 WHERE projectsId = '{{ projectsId }}'
 AND scanConfigsId = '{{ scanConfigsId }}'
-AND scanRunsId = '{{ scanRunsId }}'; 
+AND scanRunsId = '{{ scanRunsId }}';
 ```

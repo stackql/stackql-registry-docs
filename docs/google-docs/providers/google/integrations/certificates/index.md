@@ -72,7 +72,7 @@ validEndTime,
 validStartTime
 FROM google.integrations.certificates
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,18 +115,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-credentialId: string
-rawCertificate:
-  passphrase: string
-  encryptedPrivateKey: string
-  sslCertificate: string
-validEndTime: string
-validStartTime: string
-description: string
-requestorId: string
-displayName: string
-name: string
-certificateStatus: string
+- name: your_resource_model_name
+  props:
+    - name: credentialId
+      value: string
+    - name: rawCertificate
+      value:
+        - name: passphrase
+          value: string
+        - name: encryptedPrivateKey
+          value: string
+        - name: sslCertificate
+          value: string
+    - name: validEndTime
+      value: string
+    - name: validStartTime
+      value: string
+    - name: description
+      value: string
+    - name: requestorId
+      value: string
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: certificateStatus
+      value: string
 
 ```
 </TabItem>

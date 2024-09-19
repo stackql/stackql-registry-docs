@@ -52,5 +52,5 @@ kind
 FROM google.compute.region_backend_services_health
 WHERE backendService = '{{ backendService }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

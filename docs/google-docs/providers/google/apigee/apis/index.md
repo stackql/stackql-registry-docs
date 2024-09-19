@@ -62,7 +62,7 @@ metaData,
 readOnly,
 revision
 FROM google.apigee.apis
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -97,11 +97,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-contentType: string
-data: string
-extensions:
-  - additionalProperties: any
-    type: string
+- name: your_resource_model_name
+  props:
+    - name: contentType
+      value: string
+    - name: data
+      value: string
+    - name: extensions
+      value:
+        - object
 
 ```
 </TabItem>

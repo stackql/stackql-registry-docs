@@ -76,7 +76,7 @@ upcomingMaintenance
 FROM google.compute.node_groups_nodes
 WHERE nodeGroup = '{{ nodeGroup }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `INSERT` example
@@ -111,7 +111,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-additionalNodeCount: integer
+- name: your_resource_model_name
+  props:
+    - name: additionalNodeCount
+      value: integer
 
 ```
 </TabItem>

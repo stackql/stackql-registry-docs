@@ -69,7 +69,7 @@ name,
 currentVersion,
 pendingVersions
 FROM google.dlp.stored_info_types
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,32 +104,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-storedInfoTypeId: string
-locationId: string
-config:
-  regex:
-    groupIndexes:
-      - format: string
-        type: string
-    pattern: string
-  dictionary:
-    wordList:
-      words:
-        - type: string
-    cloudStoragePath:
-      path: string
-  description: string
-  largeCustomDictionary:
-    cloudStorageFileSet:
-      url: string
-    bigQueryField:
-      table:
-        projectId: string
-        datasetId: string
-        tableId: string
-      field:
-        name: string
-  displayName: string
+- name: your_resource_model_name
+  props:
+    - name: storedInfoTypeId
+      value: string
+    - name: locationId
+      value: string
+    - name: config
+      value:
+        - name: regex
+          value:
+            - name: groupIndexes
+              value:
+                - integer
+            - name: pattern
+              value: string
+        - name: dictionary
+          value:
+            - name: wordList
+              value:
+                - name: words
+                  value:
+                    - string
+            - name: cloudStoragePath
+              value:
+                - name: path
+                  value: string
+        - name: description
+          value: string
+        - name: largeCustomDictionary
+          value:
+            - name: cloudStorageFileSet
+              value:
+                - name: url
+                  value: string
+            - name: bigQueryField
+              value:
+                - name: table
+                  value:
+                    - name: projectId
+                      value: string
+                    - name: datasetId
+                      value: string
+                    - name: tableId
+                      value: string
+                - name: field
+                  value:
+                    - name: name
+                      value: string
+        - name: displayName
+          value: string
 
 ```
 </TabItem>

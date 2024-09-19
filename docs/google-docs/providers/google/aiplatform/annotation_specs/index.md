@@ -57,5 +57,5 @@ FROM google.aiplatform.annotation_specs
 WHERE annotationSpecsId = '{{ annotationSpecsId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -73,7 +73,7 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ type }}',
-true|false,
+{{ isRequired }},
 '{{ description }}',
 '{{ order }}'
 ;
@@ -82,16 +82,28 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-type:
-  primitiveType: string
-  enumType:
-    allowedValues:
-      - displayName: string
-isRequired: boolean
-description: string
-order: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: type
+      value:
+        - name: primitiveType
+          value: string
+        - name: enumType
+          value:
+            - name: allowedValues
+              value:
+                - - name: displayName
+                    value: string
+    - name: isRequired
+      value: boolean
+    - name: description
+      value: string
+    - name: order
+      value: integer
 
 ```
 </TabItem>

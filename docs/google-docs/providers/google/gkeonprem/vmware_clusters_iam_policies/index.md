@@ -54,7 +54,7 @@ role
 FROM google.gkeonprem.vmware_clusters_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND vmwareClustersId = '{{ vmwareClustersId }}'; 
+AND vmwareClustersId = '{{ vmwareClustersId }}';
 ```
 
 ## `REPLACE` example

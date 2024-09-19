@@ -52,5 +52,5 @@ fieldSchema
 FROM google.integrations.runtime_entity_schemas
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

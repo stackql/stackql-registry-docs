@@ -74,7 +74,7 @@ FROM google.healthcare.consents
 WHERE consentStoresId = '{{ consentStoresId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,25 +125,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-revisionId: string
-revisionCreateTime: string
-userId: string
-policies:
-  - resourceAttributes:
-      - attributeDefinitionId: string
-        values:
-          - type: string
-    authorizationRule:
-      expression: string
-      title: string
-      description: string
-      location: string
-consentArtifact: string
-state: string
-expireTime: string
-ttl: string
-metadata: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: revisionId
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: userId
+      value: string
+    - name: policies
+      value:
+        - - name: resourceAttributes
+            value:
+              - - name: attributeDefinitionId
+                  value: string
+                - name: values
+                  value:
+                    - string
+          - name: authorizationRule
+            value:
+              - name: expression
+                value: string
+              - name: title
+                value: string
+              - name: description
+                value: string
+              - name: location
+                value: string
+    - name: consentArtifact
+      value: string
+    - name: state
+      value: string
+    - name: expireTime
+      value: string
+    - name: ttl
+      value: string
+    - name: metadata
+      value: object
 
 ```
 </TabItem>

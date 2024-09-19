@@ -53,7 +53,7 @@ SELECT
 producerProjectId,
 serviceName
 FROM google.servicemanagement.services
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -72,12 +72,10 @@ Use the following StackQL query and manifest file to create a new <code>services
 ```sql
 /*+ create */
 INSERT INTO google.servicemanagement.services (
-,
 serviceName,
 producerProjectId
 )
 SELECT 
-'{{  }}',
 '{{ serviceName }}',
 '{{ producerProjectId }}'
 ;
@@ -86,8 +84,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-serviceName: string
-producerProjectId: string
+- name: your_resource_model_name
+  props:
+    - name: serviceName
+      value: string
+    - name: producerProjectId
+      value: string
 
 ```
 </TabItem>

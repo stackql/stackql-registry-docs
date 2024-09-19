@@ -75,5 +75,5 @@ uid
 FROM google.dataplex.jobs
 WHERE dataScansId = '{{ dataScansId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
