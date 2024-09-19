@@ -62,5 +62,5 @@ provider,
 state,
 updateTime
 FROM google.cloudcommerceprocurement.accounts
-WHERE providersId = '{{ providersId }}'; 
+WHERE providersId = '{{ providersId }}';
 ```

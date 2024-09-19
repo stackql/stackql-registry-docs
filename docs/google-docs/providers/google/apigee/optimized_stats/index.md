@@ -48,5 +48,5 @@ Response
 FROM google.apigee.optimized_stats
 WHERE environmentsId = '{{ environmentsId }}'
 AND optimizedStatsId = '{{ optimizedStatsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

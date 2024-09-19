@@ -54,7 +54,7 @@ role
 FROM google.healthcare.datasets_iam_policies
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

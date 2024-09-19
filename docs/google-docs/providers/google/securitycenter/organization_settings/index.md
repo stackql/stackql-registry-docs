@@ -51,7 +51,7 @@ name,
 assetDiscoveryConfig,
 enableAssetDiscovery
 FROM google.securitycenter.organization_settings
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

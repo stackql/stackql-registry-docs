@@ -60,7 +60,7 @@ vlanId
 FROM google.vmwareengine.subnets
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

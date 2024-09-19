@@ -50,5 +50,5 @@ name,
 version
 FROM google.tpu.runtime_versions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -63,7 +63,7 @@ role
 FROM google.apigeeregistry.artifacts_iam_policies
 WHERE artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

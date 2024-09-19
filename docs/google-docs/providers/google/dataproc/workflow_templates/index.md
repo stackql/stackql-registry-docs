@@ -80,7 +80,7 @@ updateTime,
 version
 FROM google.dataproc.workflow_templates
 WHERE projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `INSERT` example
@@ -125,289 +125,524 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-name: string
-version: integer
-createTime: string
-updateTime: string
-labels: object
-placement:
-  managedCluster:
-    clusterName: string
-    config:
-      configBucket: string
-      tempBucket: string
-      gceClusterConfig:
-        zoneUri: string
-        networkUri: string
-        subnetworkUri: string
-        internalIpOnly: boolean
-        privateIpv6GoogleAccess: string
-        serviceAccount: string
-        serviceAccountScopes:
-          - type: string
-        tags:
-          - type: string
-        metadata: object
-        reservationAffinity:
-          consumeReservationType: string
-          key: string
-          values:
-            - type: string
-        nodeGroupAffinity:
-          nodeGroupUri: string
-        shieldedInstanceConfig:
-          enableSecureBoot: boolean
-          enableVtpm: boolean
-          enableIntegrityMonitoring: boolean
-        confidentialInstanceConfig:
-          enableConfidentialCompute: boolean
-      masterConfig:
-        numInstances: integer
-        instanceNames:
-          - type: string
-        instanceReferences:
-          - instanceName: string
-            instanceId: string
-            publicKey: string
-            publicEciesKey: string
-        imageUri: string
-        machineTypeUri: string
-        diskConfig:
-          bootDiskType: string
-          bootDiskSizeGb: integer
-          numLocalSsds: integer
-          localSsdInterface: string
-          bootDiskProvisionedIops: string
-          bootDiskProvisionedThroughput: string
-        isPreemptible: boolean
-        preemptibility: string
-        managedGroupConfig:
-          instanceTemplateName: string
-          instanceGroupManagerName: string
-          instanceGroupManagerUri: string
-        accelerators:
-          - acceleratorTypeUri: string
-            acceleratorCount: integer
-        minCpuPlatform: string
-        minNumInstances: integer
-        instanceFlexibilityPolicy:
-          instanceSelectionList:
-            - machineTypes:
-                - type: string
-              rank: integer
-          instanceSelectionResults:
-            - machineType: string
-              vmCount: integer
-        startupConfig:
-          requiredRegistrationFraction: number
-      softwareConfig:
-        imageVersion: string
-        properties: object
-        optionalComponents:
-          - type: string
-            enumDescriptions: string
-            enum: string
-      initializationActions:
-        - executableFile: string
-          executionTimeout: string
-      encryptionConfig:
-        gcePdKmsKeyName: string
-        kmsKey: string
-      autoscalingConfig:
-        policyUri: string
-      securityConfig:
-        kerberosConfig:
-          enableKerberos: boolean
-          rootPrincipalPasswordUri: string
-          kmsKeyUri: string
-          keystoreUri: string
-          truststoreUri: string
-          keystorePasswordUri: string
-          keyPasswordUri: string
-          truststorePasswordUri: string
-          crossRealmTrustRealm: string
-          crossRealmTrustKdc: string
-          crossRealmTrustAdminServer: string
-          crossRealmTrustSharedPasswordUri: string
-          kdcDbKeyUri: string
-          tgtLifetimeHours: integer
-          realm: string
-        identityConfig:
-          userServiceAccountMapping: object
-      lifecycleConfig:
-        idleDeleteTtl: string
-        autoDeleteTime: string
-        autoDeleteTtl: string
-        idleStartTime: string
-      endpointConfig:
-        httpPorts: object
-        enableHttpPortAccess: boolean
-      metastoreConfig:
-        dataprocMetastoreService: string
-      gkeClusterConfig:
-        namespacedGkeDeploymentTarget:
-          targetGkeCluster: string
-          clusterNamespace: string
-        gkeClusterTarget: string
-        nodePoolTarget:
-          - nodePool: string
-            roles:
-              - type: string
-                enumDescriptions: string
-                enum: string
-            nodePoolConfig:
-              config:
-                machineType: string
-                localSsdCount: integer
-                preemptible: boolean
-                accelerators:
-                  - acceleratorCount: string
-                    acceleratorType: string
-                    gpuPartitionSize: string
-                minCpuPlatform: string
-                bootDiskKmsKey: string
-                spot: boolean
-              locations:
-                - type: string
-              autoscaling:
-                minNodeCount: integer
-                maxNodeCount: integer
-      dataprocMetricConfig:
-        metrics:
-          - metricSource: string
-            metricOverrides:
-              - type: string
-      auxiliaryNodeGroups:
-        - nodeGroup:
-            name: string
-            roles:
-              - type: string
-                enumDescriptions: string
-                enum: string
-            labels: object
-          nodeGroupId: string
-    labels: object
-  clusterSelector:
-    zone: string
-    clusterLabels: object
-jobs:
-  - stepId: string
-    hadoopJob:
-      mainJarFileUri: string
-      mainClass: string
-      args:
-        - type: string
-      jarFileUris:
-        - type: string
-      fileUris:
-        - type: string
-      archiveUris:
-        - type: string
-      properties: object
-      loggingConfig:
-        driverLogLevels: object
-    sparkJob:
-      mainJarFileUri: string
-      mainClass: string
-      args:
-        - type: string
-      jarFileUris:
-        - type: string
-      fileUris:
-        - type: string
-      archiveUris:
-        - type: string
-      properties: object
-    pysparkJob:
-      mainPythonFileUri: string
-      args:
-        - type: string
-      pythonFileUris:
-        - type: string
-      jarFileUris:
-        - type: string
-      fileUris:
-        - type: string
-      archiveUris:
-        - type: string
-      properties: object
-    hiveJob:
-      queryFileUri: string
-      queryList:
-        queries:
-          - type: string
-      continueOnFailure: boolean
-      scriptVariables: object
-      properties: object
-      jarFileUris:
-        - type: string
-    pigJob:
-      queryFileUri: string
-      continueOnFailure: boolean
-      scriptVariables: object
-      properties: object
-      jarFileUris:
-        - type: string
-    sparkRJob:
-      mainRFileUri: string
-      args:
-        - type: string
-      fileUris:
-        - type: string
-      archiveUris:
-        - type: string
-      properties: object
-    sparkSqlJob:
-      queryFileUri: string
-      scriptVariables: object
-      properties: object
-      jarFileUris:
-        - type: string
-    prestoJob:
-      queryFileUri: string
-      continueOnFailure: boolean
-      outputFormat: string
-      clientTags:
-        - type: string
-      properties: object
-    trinoJob:
-      queryFileUri: string
-      continueOnFailure: boolean
-      outputFormat: string
-      clientTags:
-        - type: string
-      properties: object
-    flinkJob:
-      mainJarFileUri: string
-      mainClass: string
-      args:
-        - type: string
-      jarFileUris:
-        - type: string
-      savepointUri: string
-      properties: object
-    labels: object
-    scheduling:
-      maxFailuresPerHour: integer
-      maxFailuresTotal: integer
-    prerequisiteStepIds:
-      - type: string
-parameters:
-  - name: string
-    fields:
-      - type: string
-    description: string
-    validation:
-      regex:
-        regexes:
-          - type: string
-      values:
-        values:
-          - type: string
-dagTimeout: string
-encryptionConfig:
-  kmsKey: string
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: version
+      value: integer
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: placement
+      value:
+        - name: managedCluster
+          value:
+            - name: clusterName
+              value: string
+            - name: config
+              value:
+                - name: configBucket
+                  value: string
+                - name: tempBucket
+                  value: string
+                - name: gceClusterConfig
+                  value:
+                    - name: zoneUri
+                      value: string
+                    - name: networkUri
+                      value: string
+                    - name: subnetworkUri
+                      value: string
+                    - name: internalIpOnly
+                      value: boolean
+                    - name: privateIpv6GoogleAccess
+                      value: string
+                    - name: serviceAccount
+                      value: string
+                    - name: serviceAccountScopes
+                      value:
+                        - string
+                    - name: tags
+                      value:
+                        - string
+                    - name: metadata
+                      value: object
+                    - name: reservationAffinity
+                      value:
+                        - name: consumeReservationType
+                          value: string
+                        - name: key
+                          value: string
+                        - name: values
+                          value:
+                            - string
+                    - name: nodeGroupAffinity
+                      value:
+                        - name: nodeGroupUri
+                          value: string
+                    - name: shieldedInstanceConfig
+                      value:
+                        - name: enableSecureBoot
+                          value: boolean
+                        - name: enableVtpm
+                          value: boolean
+                        - name: enableIntegrityMonitoring
+                          value: boolean
+                    - name: confidentialInstanceConfig
+                      value:
+                        - name: enableConfidentialCompute
+                          value: boolean
+                - name: masterConfig
+                  value:
+                    - name: numInstances
+                      value: integer
+                    - name: instanceNames
+                      value:
+                        - string
+                    - name: instanceReferences
+                      value:
+                        - - name: instanceName
+                            value: string
+                          - name: instanceId
+                            value: string
+                          - name: publicKey
+                            value: string
+                          - name: publicEciesKey
+                            value: string
+                    - name: imageUri
+                      value: string
+                    - name: machineTypeUri
+                      value: string
+                    - name: diskConfig
+                      value:
+                        - name: bootDiskType
+                          value: string
+                        - name: bootDiskSizeGb
+                          value: integer
+                        - name: numLocalSsds
+                          value: integer
+                        - name: localSsdInterface
+                          value: string
+                        - name: bootDiskProvisionedIops
+                          value: string
+                        - name: bootDiskProvisionedThroughput
+                          value: string
+                    - name: isPreemptible
+                      value: boolean
+                    - name: preemptibility
+                      value: string
+                    - name: managedGroupConfig
+                      value:
+                        - name: instanceTemplateName
+                          value: string
+                        - name: instanceGroupManagerName
+                          value: string
+                        - name: instanceGroupManagerUri
+                          value: string
+                    - name: accelerators
+                      value:
+                        - - name: acceleratorTypeUri
+                            value: string
+                          - name: acceleratorCount
+                            value: integer
+                    - name: minCpuPlatform
+                      value: string
+                    - name: minNumInstances
+                      value: integer
+                    - name: instanceFlexibilityPolicy
+                      value:
+                        - name: instanceSelectionList
+                          value:
+                            - - name: machineTypes
+                                value:
+                                  - string
+                              - name: rank
+                                value: integer
+                        - name: instanceSelectionResults
+                          value:
+                            - - name: machineType
+                                value: string
+                              - name: vmCount
+                                value: integer
+                    - name: startupConfig
+                      value:
+                        - name: requiredRegistrationFraction
+                          value: number
+                - name: softwareConfig
+                  value:
+                    - name: imageVersion
+                      value: string
+                    - name: properties
+                      value: object
+                    - name: optionalComponents
+                      value:
+                        - string
+                - name: initializationActions
+                  value:
+                    - - name: executableFile
+                        value: string
+                      - name: executionTimeout
+                        value: string
+                - name: encryptionConfig
+                  value:
+                    - name: gcePdKmsKeyName
+                      value: string
+                    - name: kmsKey
+                      value: string
+                - name: autoscalingConfig
+                  value:
+                    - name: policyUri
+                      value: string
+                - name: securityConfig
+                  value:
+                    - name: kerberosConfig
+                      value:
+                        - name: enableKerberos
+                          value: boolean
+                        - name: rootPrincipalPasswordUri
+                          value: string
+                        - name: kmsKeyUri
+                          value: string
+                        - name: keystoreUri
+                          value: string
+                        - name: truststoreUri
+                          value: string
+                        - name: keystorePasswordUri
+                          value: string
+                        - name: keyPasswordUri
+                          value: string
+                        - name: truststorePasswordUri
+                          value: string
+                        - name: crossRealmTrustRealm
+                          value: string
+                        - name: crossRealmTrustKdc
+                          value: string
+                        - name: crossRealmTrustAdminServer
+                          value: string
+                        - name: crossRealmTrustSharedPasswordUri
+                          value: string
+                        - name: kdcDbKeyUri
+                          value: string
+                        - name: tgtLifetimeHours
+                          value: integer
+                        - name: realm
+                          value: string
+                    - name: identityConfig
+                      value:
+                        - name: userServiceAccountMapping
+                          value: object
+                - name: lifecycleConfig
+                  value:
+                    - name: idleDeleteTtl
+                      value: string
+                    - name: autoDeleteTime
+                      value: string
+                    - name: autoDeleteTtl
+                      value: string
+                    - name: idleStartTime
+                      value: string
+                - name: endpointConfig
+                  value:
+                    - name: httpPorts
+                      value: object
+                    - name: enableHttpPortAccess
+                      value: boolean
+                - name: metastoreConfig
+                  value:
+                    - name: dataprocMetastoreService
+                      value: string
+                - name: gkeClusterConfig
+                  value:
+                    - name: namespacedGkeDeploymentTarget
+                      value:
+                        - name: targetGkeCluster
+                          value: string
+                        - name: clusterNamespace
+                          value: string
+                    - name: gkeClusterTarget
+                      value: string
+                    - name: nodePoolTarget
+                      value:
+                        - - name: nodePool
+                            value: string
+                          - name: roles
+                            value:
+                              - string
+                          - name: nodePoolConfig
+                            value:
+                              - name: config
+                                value:
+                                  - name: machineType
+                                    value: string
+                                  - name: localSsdCount
+                                    value: integer
+                                  - name: preemptible
+                                    value: boolean
+                                  - name: accelerators
+                                    value:
+                                      - - name: acceleratorCount
+                                          value: string
+                                        - name: acceleratorType
+                                          value: string
+                                        - name: gpuPartitionSize
+                                          value: string
+                                  - name: minCpuPlatform
+                                    value: string
+                                  - name: bootDiskKmsKey
+                                    value: string
+                                  - name: spot
+                                    value: boolean
+                              - name: locations
+                                value:
+                                  - string
+                              - name: autoscaling
+                                value:
+                                  - name: minNodeCount
+                                    value: integer
+                                  - name: maxNodeCount
+                                    value: integer
+                - name: dataprocMetricConfig
+                  value:
+                    - name: metrics
+                      value:
+                        - - name: metricSource
+                            value: string
+                          - name: metricOverrides
+                            value:
+                              - string
+                - name: auxiliaryNodeGroups
+                  value:
+                    - - name: nodeGroup
+                        value:
+                          - name: name
+                            value: string
+                          - name: roles
+                            value:
+                              - string
+                          - name: labels
+                            value: object
+                      - name: nodeGroupId
+                        value: string
+            - name: labels
+              value: object
+        - name: clusterSelector
+          value:
+            - name: zone
+              value: string
+            - name: clusterLabels
+              value: object
+    - name: jobs
+      value:
+        - - name: stepId
+            value: string
+          - name: hadoopJob
+            value:
+              - name: mainJarFileUri
+                value: string
+              - name: mainClass
+                value: string
+              - name: args
+                value:
+                  - string
+              - name: jarFileUris
+                value:
+                  - string
+              - name: fileUris
+                value:
+                  - string
+              - name: archiveUris
+                value:
+                  - string
+              - name: properties
+                value: object
+              - name: loggingConfig
+                value:
+                  - name: driverLogLevels
+                    value: object
+          - name: sparkJob
+            value:
+              - name: mainJarFileUri
+                value: string
+              - name: mainClass
+                value: string
+              - name: args
+                value:
+                  - string
+              - name: jarFileUris
+                value:
+                  - string
+              - name: fileUris
+                value:
+                  - string
+              - name: archiveUris
+                value:
+                  - string
+              - name: properties
+                value: object
+          - name: pysparkJob
+            value:
+              - name: mainPythonFileUri
+                value: string
+              - name: args
+                value:
+                  - string
+              - name: pythonFileUris
+                value:
+                  - string
+              - name: jarFileUris
+                value:
+                  - string
+              - name: fileUris
+                value:
+                  - string
+              - name: archiveUris
+                value:
+                  - string
+              - name: properties
+                value: object
+          - name: hiveJob
+            value:
+              - name: queryFileUri
+                value: string
+              - name: queryList
+                value:
+                  - name: queries
+                    value:
+                      - string
+              - name: continueOnFailure
+                value: boolean
+              - name: scriptVariables
+                value: object
+              - name: properties
+                value: object
+              - name: jarFileUris
+                value:
+                  - string
+          - name: pigJob
+            value:
+              - name: queryFileUri
+                value: string
+              - name: continueOnFailure
+                value: boolean
+              - name: scriptVariables
+                value: object
+              - name: properties
+                value: object
+              - name: jarFileUris
+                value:
+                  - string
+          - name: sparkRJob
+            value:
+              - name: mainRFileUri
+                value: string
+              - name: args
+                value:
+                  - string
+              - name: fileUris
+                value:
+                  - string
+              - name: archiveUris
+                value:
+                  - string
+              - name: properties
+                value: object
+          - name: sparkSqlJob
+            value:
+              - name: queryFileUri
+                value: string
+              - name: scriptVariables
+                value: object
+              - name: properties
+                value: object
+              - name: jarFileUris
+                value:
+                  - string
+          - name: prestoJob
+            value:
+              - name: queryFileUri
+                value: string
+              - name: continueOnFailure
+                value: boolean
+              - name: outputFormat
+                value: string
+              - name: clientTags
+                value:
+                  - string
+              - name: properties
+                value: object
+          - name: trinoJob
+            value:
+              - name: queryFileUri
+                value: string
+              - name: continueOnFailure
+                value: boolean
+              - name: outputFormat
+                value: string
+              - name: clientTags
+                value:
+                  - string
+              - name: properties
+                value: object
+          - name: flinkJob
+            value:
+              - name: mainJarFileUri
+                value: string
+              - name: mainClass
+                value: string
+              - name: args
+                value:
+                  - string
+              - name: jarFileUris
+                value:
+                  - string
+              - name: savepointUri
+                value: string
+              - name: properties
+                value: object
+          - name: labels
+            value: object
+          - name: scheduling
+            value:
+              - name: maxFailuresPerHour
+                value: integer
+              - name: maxFailuresTotal
+                value: integer
+          - name: prerequisiteStepIds
+            value:
+              - string
+    - name: parameters
+      value:
+        - - name: name
+            value: string
+          - name: fields
+            value:
+              - string
+          - name: description
+            value: string
+          - name: validation
+            value:
+              - name: regex
+                value:
+                  - name: regexes
+                    value:
+                      - string
+              - name: values
+                value:
+                  - name: values
+                    value:
+                      - string
+    - name: dagTimeout
+      value: string
+    - name: encryptionConfig
+      value:
+        - name: kmsKey
+          value: string
 
 ```
 </TabItem>

@@ -74,7 +74,7 @@ service,
 sslCertificates,
 sslPolicy
 FROM google.compute.target_ssl_proxies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -117,18 +117,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-service: string
-sslCertificates:
-  - type: string
-certificateMap: string
-proxyHeader: string
-sslPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: service
+      value: string
+    - name: sslCertificates
+      value:
+        - string
+    - name: certificateMap
+      value: string
+    - name: proxyHeader
+      value: string
+    - name: sslPolicy
+      value: string
 
 ```
 </TabItem>

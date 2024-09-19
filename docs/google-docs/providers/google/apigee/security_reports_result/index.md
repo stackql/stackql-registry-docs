@@ -52,5 +52,5 @@ extensions
 FROM google.apigee.security_reports_result
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND securityReportsId = '{{ securityReportsId }}'; 
+AND securityReportsId = '{{ securityReportsId }}';
 ```

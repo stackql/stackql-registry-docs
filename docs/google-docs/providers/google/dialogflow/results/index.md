@@ -58,5 +58,5 @@ FROM google.dialogflow.results
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND testCasesId = '{{ testCasesId }}'; 
+AND testCasesId = '{{ testCasesId }}';
 ```

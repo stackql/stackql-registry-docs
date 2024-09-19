@@ -55,5 +55,5 @@ trainTrial
 FROM google.aiplatform.nas_trial_details
 WHERE locationsId = '{{ locationsId }}'
 AND nasJobsId = '{{ nasJobsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

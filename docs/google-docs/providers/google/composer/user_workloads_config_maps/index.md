@@ -54,7 +54,7 @@ data
 FROM google.composer.user_workloads_config_maps
 WHERE environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -91,8 +91,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-data: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: data
+      value: object
 
 ```
 </TabItem>

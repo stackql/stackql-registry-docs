@@ -55,7 +55,7 @@ FROM google.aiplatform.feature_views_iam_policies
 WHERE featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND featureViewsId = '{{ featureViewsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

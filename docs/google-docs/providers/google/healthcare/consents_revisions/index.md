@@ -68,5 +68,5 @@ WHERE consentStoresId = '{{ consentStoresId }}'
 AND consentsId = '{{ consentsId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

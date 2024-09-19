@@ -70,5 +70,5 @@ FROM google.apigee.revisions_deployments
 WHERE apisId = '{{ apisId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND revisionsId = '{{ revisionsId }}'; 
+AND revisionsId = '{{ revisionsId }}';
 ```

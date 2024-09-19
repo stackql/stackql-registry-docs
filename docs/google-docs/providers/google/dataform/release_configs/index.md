@@ -66,7 +66,7 @@ timeZone
 FROM google.dataform.release_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -106,39 +106,64 @@ SELECT
 '{{ cronSchedule }}',
 '{{ timeZone }}',
 '{{ releaseCompilationResult }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-gitCommitish: string
-codeCompilationConfig:
-  defaultDatabase: string
-  defaultSchema: string
-  defaultLocation: string
-  assertionSchema: string
-  vars: object
-  databaseSuffix: string
-  schemaSuffix: string
-  tablePrefix: string
-  defaultNotebookRuntimeOptions:
-    gcsOutputBucket: string
-cronSchedule: string
-timeZone: string
-recentScheduledReleaseRecords:
-  - compilationResult: string
-    errorStatus:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-    releaseTime: string
-releaseCompilationResult: string
-disabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: gitCommitish
+      value: string
+    - name: codeCompilationConfig
+      value:
+        - name: defaultDatabase
+          value: string
+        - name: defaultSchema
+          value: string
+        - name: defaultLocation
+          value: string
+        - name: assertionSchema
+          value: string
+        - name: vars
+          value: object
+        - name: databaseSuffix
+          value: string
+        - name: schemaSuffix
+          value: string
+        - name: tablePrefix
+          value: string
+        - name: defaultNotebookRuntimeOptions
+          value:
+            - name: gcsOutputBucket
+              value: string
+    - name: cronSchedule
+      value: string
+    - name: timeZone
+      value: string
+    - name: recentScheduledReleaseRecords
+      value:
+        - - name: compilationResult
+            value: string
+          - name: errorStatus
+            value:
+              - name: code
+                value: integer
+              - name: message
+                value: string
+              - name: details
+                value:
+                  - object
+          - name: releaseTime
+            value: string
+    - name: releaseCompilationResult
+      value: string
+    - name: disabled
+      value: boolean
 
 ```
 </TabItem>

@@ -73,7 +73,7 @@ updateTime
 FROM google.integrations.sfdc_channels
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sfdcInstancesId = '{{ sfdcInstancesId }}'; 
+AND sfdcInstancesId = '{{ sfdcInstancesId }}';
 ```
 
 ## `INSERT` example
@@ -108,7 +108,7 @@ SELECT
 '{{ sfdcInstancesId }}',
 '{{ description }}',
 '{{ name }}',
-true|false,
+{{ isActive }},
 '{{ displayName }}',
 '{{ lastReplayId }}',
 '{{ channelTopic }}'
@@ -118,15 +118,26 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-description: string
-name: string
-updateTime: string
-isActive: boolean
-displayName: string
-lastReplayId: string
-channelTopic: string
-deleteTime: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
+    - name: isActive
+      value: boolean
+    - name: displayName
+      value: string
+    - name: lastReplayId
+      value: string
+    - name: channelTopic
+      value: string
+    - name: deleteTime
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

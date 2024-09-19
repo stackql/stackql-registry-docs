@@ -60,7 +60,7 @@ userType
 FROM google.alloydb.users
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -94,19 +94,26 @@ SELECT
 '{{ password }}',
 '{{ databaseRoles }}',
 '{{ userType }}',
-true|false
+{{ keepExtraRoles }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-password: string
-databaseRoles:
-  - type: string
-userType: string
-keepExtraRoles: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: password
+      value: string
+    - name: databaseRoles
+      value:
+        - string
+    - name: userType
+      value: string
+    - name: keepExtraRoles
+      value: boolean
 
 ```
 </TabItem>

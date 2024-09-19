@@ -79,7 +79,7 @@ locationId,
 serviceAccount,
 servingStatus
 FROM google.appengine.apps
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```
 
 ## `INSERT` example
@@ -98,7 +98,6 @@ Use the following StackQL query and manifest file to create a new <code>apps</co
 ```sql
 /*+ create */
 INSERT INTO google.appengine.apps (
-,
 dispatchRules,
 authDomain,
 locationId,
@@ -111,7 +110,6 @@ featureSettings,
 generatedCustomerMetadata
 )
 SELECT 
-'{{  }}',
 '{{ dispatchRules }}',
 '{{ authDomain }}',
 '{{ locationId }}',
@@ -128,31 +126,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-id: string
-dispatchRules:
-  - domain: string
-    path: string
-    service: string
-authDomain: string
-locationId: string
-codeBucket: string
-defaultCookieExpiration: string
-servingStatus: string
-defaultHostname: string
-defaultBucket: string
-serviceAccount: string
-iap:
-  enabled: boolean
-  oauth2ClientId: string
-  oauth2ClientSecret: string
-  oauth2ClientSecretSha256: string
-gcrDomain: string
-databaseType: string
-featureSettings:
-  splitHealthChecks: boolean
-  useContainerOptimizedOs: boolean
-generatedCustomerMetadata: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: dispatchRules
+      value:
+        - - name: domain
+            value: string
+          - name: path
+            value: string
+          - name: service
+            value: string
+    - name: authDomain
+      value: string
+    - name: locationId
+      value: string
+    - name: codeBucket
+      value: string
+    - name: defaultCookieExpiration
+      value: string
+    - name: servingStatus
+      value: string
+    - name: defaultHostname
+      value: string
+    - name: defaultBucket
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: iap
+      value:
+        - name: enabled
+          value: boolean
+        - name: oauth2ClientId
+          value: string
+        - name: oauth2ClientSecret
+          value: string
+        - name: oauth2ClientSecretSha256
+          value: string
+    - name: gcrDomain
+      value: string
+    - name: databaseType
+      value: string
+    - name: featureSettings
+      value:
+        - name: splitHealthChecks
+          value: boolean
+        - name: useContainerOptimizedOs
+          value: boolean
+    - name: generatedCustomerMetadata
+      value: object
 
 ```
 </TabItem>

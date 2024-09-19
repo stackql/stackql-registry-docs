@@ -71,7 +71,7 @@ selfManaged,
 updateTime
 FROM google.certificatemanager.certificates
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,34 +114,61 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-selfManaged:
-  pemCertificate: string
-  pemPrivateKey: string
-managed:
-  domains:
-    - type: string
-  dnsAuthorizations:
-    - type: string
-  issuanceConfig: string
-  state: string
-  provisioningIssue:
-    reason: string
-    details: string
-  authorizationAttemptInfo:
-    - domain: string
-      state: string
-      failureReason: string
-      details: string
-sanDnsnames:
-  - type: string
-pemCertificate: string
-expireTime: string
-scope: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: selfManaged
+      value:
+        - name: pemCertificate
+          value: string
+        - name: pemPrivateKey
+          value: string
+    - name: managed
+      value:
+        - name: domains
+          value:
+            - string
+        - name: dnsAuthorizations
+          value:
+            - string
+        - name: issuanceConfig
+          value: string
+        - name: state
+          value: string
+        - name: provisioningIssue
+          value:
+            - name: reason
+              value: string
+            - name: details
+              value: string
+        - name: authorizationAttemptInfo
+          value:
+            - - name: domain
+                value: string
+              - name: state
+                value: string
+              - name: failureReason
+                value: string
+              - name: details
+                value: string
+    - name: sanDnsnames
+      value:
+        - string
+    - name: pemCertificate
+      value: string
+    - name: expireTime
+      value: string
+    - name: scope
+      value: string
 
 ```
 </TabItem>

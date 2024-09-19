@@ -69,7 +69,7 @@ selfLink,
 updateTime
 FROM google.networkservices.grpc_routes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,48 +114,88 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-selfLink: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-hostnames:
-  - type: string
-meshes:
-  - type: string
-gateways:
-  - type: string
-rules:
-  - matches:
-      - method:
-          type: string
-          grpcService: string
-          grpcMethod: string
-          caseSensitive: boolean
-        headers:
-          - type: string
-            key: string
-            value: string
-    action:
-      destinations:
-        - serviceName: string
-          weight: integer
-      faultInjectionPolicy:
-        delay:
-          fixedDelay: string
-          percentage: integer
-        abort:
-          httpStatus: integer
-          percentage: integer
-      timeout: string
-      retryPolicy:
-        retryConditions:
-          - type: string
-        numRetries: integer
-      statefulSessionAffinity:
-        cookieTtl: string
-      idleTimeout: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: selfLink
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: hostnames
+      value:
+        - string
+    - name: meshes
+      value:
+        - string
+    - name: gateways
+      value:
+        - string
+    - name: rules
+      value:
+        - - name: matches
+            value:
+              - - name: method
+                  value:
+                    - name: type
+                      value: string
+                    - name: grpcService
+                      value: string
+                    - name: grpcMethod
+                      value: string
+                    - name: caseSensitive
+                      value: boolean
+                - name: headers
+                  value:
+                    - - name: type
+                        value: string
+                      - name: key
+                        value: string
+                      - name: value
+                        value: string
+          - name: action
+            value:
+              - name: destinations
+                value:
+                  - - name: serviceName
+                      value: string
+                    - name: weight
+                      value: integer
+              - name: faultInjectionPolicy
+                value:
+                  - name: delay
+                    value:
+                      - name: fixedDelay
+                        value: string
+                      - name: percentage
+                        value: integer
+                  - name: abort
+                    value:
+                      - name: httpStatus
+                        value: integer
+                      - name: percentage
+                        value: integer
+              - name: timeout
+                value: string
+              - name: retryPolicy
+                value:
+                  - name: retryConditions
+                    value:
+                      - string
+                  - name: numRetries
+                    value: integer
+              - name: statefulSessionAffinity
+                value:
+                  - name: cookieTtl
+                    value: string
+              - name: idleTimeout
+                value: string
 
 ```
 </TabItem>

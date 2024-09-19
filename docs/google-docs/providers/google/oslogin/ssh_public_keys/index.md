@@ -56,7 +56,7 @@ fingerprint,
 key
 FROM google.oslogin.ssh_public_keys
 WHERE sshPublicKeysId = '{{ sshPublicKeysId }}'
-AND usersId = '{{ usersId }}'; 
+AND usersId = '{{ usersId }}';
 ```
 
 ## `INSERT` example
@@ -89,10 +89,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-key: string
-expirationTimeUsec: string
-fingerprint: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: key
+      value: string
+    - name: expirationTimeUsec
+      value: string
+    - name: fingerprint
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

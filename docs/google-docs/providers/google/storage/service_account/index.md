@@ -48,5 +48,5 @@ SELECT
 email_address,
 kind
 FROM google.storage.service_account
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```

@@ -69,7 +69,7 @@ uid,
 updateTime
 FROM google.clouddeploy.custom_target_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,32 +112,59 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-customTargetTypeId: string
-uid: string
-description: string
-annotations: object
-labels: object
-createTime: string
-updateTime: string
-etag: string
-customActions:
-  renderAction: string
-  deployAction: string
-  includeSkaffoldModules:
-    - configs:
-        - type: string
-      git:
-        repo: string
-        path: string
-        ref: string
-      googleCloudStorage:
-        source: string
-        path: string
-      googleCloudBuildRepo:
-        repository: string
-        path: string
-        ref: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: customTargetTypeId
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: customActions
+      value:
+        - name: renderAction
+          value: string
+        - name: deployAction
+          value: string
+        - name: includeSkaffoldModules
+          value:
+            - - name: configs
+                value:
+                  - string
+              - name: git
+                value:
+                  - name: repo
+                    value: string
+                  - name: path
+                    value: string
+                  - name: ref
+                    value: string
+              - name: googleCloudStorage
+                value:
+                  - name: source
+                    value: string
+                  - name: path
+                    value: string
+              - name: googleCloudBuildRepo
+                value:
+                  - name: repository
+                    value: string
+                  - name: path
+                    value: string
+                  - name: ref
+                    value: string
 
 ```
 </TabItem>

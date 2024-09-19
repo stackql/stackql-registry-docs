@@ -55,7 +55,7 @@ FROM google.dataform.workspaces_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND repositoriesId = '{{ repositoriesId }}'
-AND workspacesId = '{{ workspacesId }}'; 
+AND workspacesId = '{{ workspacesId }}';
 ```
 
 ## `REPLACE` example

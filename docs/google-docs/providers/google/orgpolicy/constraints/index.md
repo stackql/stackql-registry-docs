@@ -60,5 +60,5 @@ displayName,
 listConstraint,
 supportsDryRun
 FROM google.orgpolicy.constraints
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

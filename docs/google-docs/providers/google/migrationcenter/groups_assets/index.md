@@ -67,18 +67,24 @@ SELECT
 '{{ projectsId }}',
 '{{ requestId }}',
 '{{ assets }}',
-true|false
+{{ allowExisting }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-requestId: string
-assets:
-  assetIds:
-    - type: string
-allowExisting: boolean
+- name: your_resource_model_name
+  props:
+    - name: requestId
+      value: string
+    - name: assets
+      value:
+        - name: assetIds
+          value:
+            - string
+    - name: allowExisting
+      value: boolean
 
 ```
 </TabItem>

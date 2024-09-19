@@ -58,7 +58,7 @@ metadata,
 response
 FROM google.workstations.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

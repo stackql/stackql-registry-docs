@@ -69,5 +69,5 @@ revisionUpdateTime,
 scoringConfigs
 FROM google.apigee.security_profiles_revisions
 WHERE organizationsId = '{{ organizationsId }}'
-AND securityProfilesId = '{{ securityProfilesId }}'; 
+AND securityProfilesId = '{{ securityProfilesId }}';
 ```

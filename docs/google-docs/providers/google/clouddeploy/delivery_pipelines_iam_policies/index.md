@@ -54,7 +54,7 @@ role
 FROM google.clouddeploy.delivery_pipelines_iam_policies
 WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

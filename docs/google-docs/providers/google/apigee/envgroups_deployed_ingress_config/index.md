@@ -59,5 +59,5 @@ routingRules,
 uid
 FROM google.apigee.envgroups_deployed_ingress_config
 WHERE envgroupsId = '{{ envgroupsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

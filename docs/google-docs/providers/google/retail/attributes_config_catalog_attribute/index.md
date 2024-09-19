@@ -70,36 +70,65 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-catalogAttribute:
-  key: string
-  inUse: boolean
-  type: string
-  indexableOption: string
-  dynamicFacetableOption: string
-  searchableOption: string
-  exactSearchableOption: string
-  retrievableOption: string
-  facetConfig:
-    facetIntervals:
-      - minimum: number
-        exclusiveMinimum: number
-        maximum: number
-        exclusiveMaximum: number
-    ignoredFacetValues:
-      - values:
-          - type: string
-        startTime: string
-        endTime: string
-    mergedFacetValues:
-      - values:
-          - type: string
-        mergedValue: string
-    mergedFacet:
-      mergedFacetKey: string
-    rerankConfig:
-      rerankFacet: boolean
-      facetValues:
-        - type: string
+- name: your_resource_model_name
+  props:
+    - name: catalogAttribute
+      value:
+        - name: key
+          value: string
+        - name: inUse
+          value: boolean
+        - name: type
+          value: string
+        - name: indexableOption
+          value: string
+        - name: dynamicFacetableOption
+          value: string
+        - name: searchableOption
+          value: string
+        - name: exactSearchableOption
+          value: string
+        - name: retrievableOption
+          value: string
+        - name: facetConfig
+          value:
+            - name: facetIntervals
+              value:
+                - - name: minimum
+                    value: number
+                  - name: exclusiveMinimum
+                    value: number
+                  - name: maximum
+                    value: number
+                  - name: exclusiveMaximum
+                    value: number
+            - name: ignoredFacetValues
+              value:
+                - - name: values
+                    value:
+                      - string
+                  - name: startTime
+                    value: string
+                  - name: endTime
+                    value: string
+            - name: mergedFacetValues
+              value:
+                - - name: values
+                    value:
+                      - string
+                  - name: mergedValue
+                    value: string
+            - name: mergedFacet
+              value:
+                - name: mergedFacetKey
+                  value: string
+            - name: rerankConfig
+              value:
+                - name: rerankFacet
+                  value: boolean
+                - name: facetValues
+                  value:
+                    - string
 
 ```
 </TabItem>

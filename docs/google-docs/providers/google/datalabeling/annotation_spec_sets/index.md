@@ -57,7 +57,7 @@ annotationSpecs,
 blockingResources,
 displayName
 FROM google.datalabeling.annotation_spec_sets
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -88,16 +88,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-annotationSpecSet:
-  name: string
-  displayName: string
-  description: string
-  annotationSpecs:
-    - displayName: string
-      description: string
-      index: integer
-  blockingResources:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: annotationSpecSet
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: description
+          value: string
+        - name: annotationSpecs
+          value:
+            - - name: displayName
+                value: string
+              - name: description
+                value: string
+              - name: index
+                value: integer
+        - name: blockingResources
+          value:
+            - string
 
 ```
 </TabItem>

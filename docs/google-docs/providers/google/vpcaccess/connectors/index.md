@@ -71,7 +71,7 @@ state,
 subnet
 FROM google.vpcaccess.connectors
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,20 +120,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-network: string
-ipCidrRange: string
-state: string
-minThroughput: integer
-maxThroughput: integer
-connectedProjects:
-  - type: string
-subnet:
-  name: string
-  projectId: string
-machineType: string
-minInstances: integer
-maxInstances: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: network
+      value: string
+    - name: ipCidrRange
+      value: string
+    - name: state
+      value: string
+    - name: minThroughput
+      value: integer
+    - name: maxThroughput
+      value: integer
+    - name: connectedProjects
+      value:
+        - string
+    - name: subnet
+      value:
+        - name: name
+          value: string
+        - name: projectId
+          value: string
+    - name: machineType
+      value: string
+    - name: minInstances
+      value: integer
+    - name: maxInstances
+      value: integer
 
 ```
 </TabItem>

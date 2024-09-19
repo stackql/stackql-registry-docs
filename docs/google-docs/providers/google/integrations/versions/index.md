@@ -117,7 +117,7 @@ userLabel
 FROM google.integrations.versions
 WHERE integrationsId = '{{ integrationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -173,7 +173,7 @@ SELECT
 '{{ createdFromTemplate }}',
 '{{ description }}',
 '{{ teardown }}',
-true|false,
+{{ enableVariableMasking }},
 '{{ snapshotNumber }}',
 '{{ parentTemplateId }}',
 '{{ lastModifierEmail }}',
@@ -192,565 +192,1083 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-origin: string
-userLabel: string
-triggerConfigs:
-  - startTasks:
-      - displayName: string
-        taskId: string
-        taskConfigId: string
-        description: string
-        condition: string
-    alertConfig:
-      - alertThreshold: integer
-        thresholdType: string
-        durationThreshold: string
-        thresholdValue:
-          absolute: string
-          percentage: integer
-        metricType: string
-        aggregationPeriod: string
-        disableAlert: boolean
-        displayName: string
-        onlyFinalAttempt: boolean
-    properties: object
-    triggerId: string
-    nextTasksExecutionPolicy: string
-    label: string
-    position:
-      x: integer
-      'y': integer
-    cloudSchedulerConfig:
-      cronTab: string
-      location: string
-      serviceAccountEmail: string
-      errorMessage: string
-    description: string
-    trigger: string
-    triggerNumber: string
-    errorCatcherId: string
-    triggerType: string
-taskConfigs:
-  - taskTemplate: string
-    failurePolicy:
-      condition: string
-      intervalTime: string
-      maxRetries: integer
-      retryStrategy: string
-    taskId: string
-    nextTasksExecutionPolicy: string
-    description: string
-    conditionalFailurePolicies:
-      failurePolicies:
-        - condition: string
-          intervalTime: string
-          maxRetries: integer
-          retryStrategy: string
-    successPolicy:
-      finalState: string
-    parameters: object
-    taskExecutionStrategy: string
-    errorCatcherId: string
-    nextTasks:
-      - displayName: string
-        taskId: string
-        taskConfigId: string
-        description: string
-        condition: string
-    externalTaskType: string
-    displayName: string
-    jsonValidationOption: string
-    task: string
-triggerConfigsInternal:
-  - nextTasksExecutionPolicy: string
-    position:
-      'y': integer
-      x: integer
-    triggerName: string
-    startTasks:
-      - combinedConditions:
-          - conditions:
-              - value:
-                  stringValue: string
-                  intValue: string
-                  stringArray:
-                    values:
-                      - type: string
-                  intArray:
-                    values:
-                      - type: string
-                        format: string
-                  doubleValue: number
-                  booleanValue: boolean
-                  doubleArray:
-                    values:
-                      - type: string
-                        format: string
-                  protoValue: object
-                eventPropertyKey: string
-                operator: string
-        condition: string
-        taskNumber: string
-        taskConfigId: string
-        label: string
-        description: string
-    triggerNumber: string
-    triggerCriteria:
-      triggerCriteriaTaskImplementationClassName: string
-      parameters:
-        parameters:
-          - value:
-              protoArray:
-                protoValues:
-                  - type: string
-                    additionalProperties: any
-              doubleArray:
-                doubleValues:
-                  - type: string
-                    format: string
-              stringValue: string
-              intValue: string
-              doubleValue: number
-              booleanValue: boolean
-              serializedObjectValue:
-                objectValue: string
-              intArray:
-                intValues:
-                  - format: string
-                    type: string
-              booleanArray:
-                booleanValues:
-                  - type: string
-              stringArray:
-                stringValues:
-                  - type: string
-              protoValue: object
-            key: string
-            masked: boolean
-      condition: string
-    description: string
-    properties: object
-    pauseWorkflowExecutions: boolean
-    triggerType: string
-    alertConfig:
-      - alertName: string
-        durationThresholdMs: string
-        playbookUrl: string
-        warningEnumList:
-          filterType: string
-          enumStrings:
-            - type: string
-        onlyFinalAttempt: boolean
-        aggregationPeriod: string
-        metricType: string
-        numAggregationPeriods: integer
-        thresholdType: string
-        clientId: string
-        thresholdValue:
-          percentage: integer
-          absolute: string
-        alertDisabled: boolean
-    triggerId: string
-    enabledClients:
-      - type: string
-    errorCatcherId: string
-    cloudSchedulerConfig:
-      errorMessage: string
-      cronTab: string
-      location: string
-      serviceAccountEmail: string
-    label: string
-createTime: string
-createdFromTemplate: string
-description: string
-teardown:
-  teardownTaskConfigs:
-    - teardownTaskImplementationClassName: string
-      name: string
-      properties:
-        properties:
-          - key: string
-      creatorEmail: string
-      nextTeardownTask:
-        name: string
-enableVariableMasking: boolean
-snapshotNumber: string
-parentTemplateId: string
-lastModifierEmail: string
-state: string
-cloudLoggingDetails:
-  enableCloudLogging: boolean
-  cloudLoggingSeverity: string
-updateTime: string
-runAsServiceAccount: string
-integrationConfigParameters:
-  - value:
-      intArray:
-        intValues:
-          - format: string
-            type: string
-      doubleArray:
-        doubleValues:
-          - format: string
-            type: string
-      intValue: string
-      stringArray:
-        stringValues:
-          - type: string
-      doubleValue: number
-      stringValue: string
-      jsonValue: string
-      booleanArray:
-        booleanValues:
-          - type: string
-      booleanValue: boolean
-    parameter:
-      description: string
-      inputOutputType: string
-      isTransient: boolean
-      producer: string
-      dataType: string
-      jsonSchema: string
-      searchable: boolean
-      containsLargeData: boolean
-      masked: boolean
-      key: string
-      displayName: string
-errorCatcherConfigs:
-  - description: string
-    startErrorTasks:
-      - displayName: string
-        taskId: string
-        taskConfigId: string
-        description: string
-        condition: string
-    label: string
-    errorCatcherNumber: string
-    errorCatcherId: string
-status: string
-name: string
-databasePersistencePolicy: string
-lockHolder: string
-taskConfigsInternal:
-  - taskNumber: string
-    lastModifiedTime: string
-    taskType: string
-    nextTasks:
-      - combinedConditions:
-          - conditions:
-              - eventPropertyKey: string
-                operator: string
-        condition: string
-        taskNumber: string
-        taskConfigId: string
-        label: string
-        description: string
-    disableStrictTypeValidation: boolean
-    taskExecutionStrategy: string
-    errorCatcherId: string
-    failurePolicy:
-      retryStrategy: string
-      retryCondition: string
-      maxNumRetries: integer
-      intervalInSeconds: string
-    taskEntity:
-      taskType: string
-      stats:
-        dimensions:
-          triggerId: string
-          taskName: string
-          warningEnumString: string
-          clientId: string
-          errorEnumString: string
-          retryAttempt: string
-          workflowName: string
-          enumFilterType: string
-          taskNumber: string
-          workflowId: string
-        warningRate: number
-        qps: number
-        durationInSeconds: number
-        errorRate: number
-      paramSpecs:
-        parameters:
-          - config:
-              helpText: string
-              isHidden: boolean
-              label: string
-              uiPlaceholderText: string
-              subSectionLabel: string
-              parameterNameOption: string
-              inputDisplayOption: string
-              descriptivePhrase: string
-              hideDefaultValue: boolean
-            validationRule:
-              doubleRange:
-                max: number
-                min: number
-              intRange:
-                min: string
-                max: string
-              stringRegex:
-                regex: string
-                exclusive: boolean
-            protoDef:
-              fullName: string
-              path: string
-            isOutput: boolean
-            jsonSchema: string
-            key: string
-            dataType: string
-            collectionElementClassName: string
-            required: boolean
-            className: string
-            isDeprecated: boolean
-            defaultValue:
-              stringValue: string
-              doubleValue: number
-              protoValue: object
-              stringArray:
-                stringValues:
-                  - type: string
-              booleanValue: boolean
-              intArray:
-                intValues:
-                  - type: string
-                    format: string
-              jsonValue: string
-              serializedObjectValue:
-                objectValue: string
-              doubleArray:
-                doubleValues:
-                  - format: string
-                    type: string
-              booleanArray:
-                booleanValues:
-                  - type: string
-              protoArray:
-                protoValues:
-                  - type: string
-                    additionalProperties: any
-              intValue: string
-      uiConfig:
-        taskUiModuleConfigs:
-          - moduleId: string
-      metadata:
-        activeTaskName: string
-        externalDocHtml: string
-        isDeprecated: boolean
-        externalDocMarkdown: string
-        tags:
-          - type: string
-        externalDocLink: string
-        admins:
-          - googleGroupEmail: string
-            userEmail: string
-        externalCategorySequence: integer
-        iconLink: string
-        docMarkdown: string
-        descriptiveName: string
-        system: string
-        standaloneExternalDocHtml: string
-        defaultSpec: string
-        name: string
-        g3DocLink: string
-        category: string
-        externalCategory: string
-        codeSearchLink: string
-        defaultJsonValidationOption: string
-        status: string
-        description: string
-      disabledForVpcSc: boolean
-    jsonValidationOption: string
-    taskName: string
-    externalTaskType: string
-    alertConfigs:
-      - numAggregationPeriods: integer
-        alertName: string
-        thresholdType: string
-        alertDisabled: boolean
-        playbookUrl: string
-        aggregationPeriod: string
-        clientId: string
-        onlyFinalAttempt: boolean
-        metricType: string
-        durationThresholdMs: string
-    preconditionLabel: string
-    label: string
-    parameters: object
-    precondition: string
-    createTime: string
-    creatorEmail: string
-    conditionalFailurePolicies:
-      failurePolicies:
-        - retryStrategy: string
-          retryCondition: string
-          maxNumRetries: integer
-          intervalInSeconds: string
-    description: string
-    incomingEdgeCount: integer
-    successPolicy:
-      finalState: string
-    nextTasksExecutionPolicy: string
-    rollbackStrategy:
-      rollbackTaskImplementationClassName: string
-      parameters:
-        parameters:
-          - key: string
-            dataType: string
-            masked: boolean
-      taskNumbersToRollback:
-        - type: string
-    taskTemplateName: string
-    taskSpec: string
-integrationParametersInternal:
-  parameters:
-    - producer: string
-      producedBy:
-        elementIdentifier: string
-        elementType: string
-      containsLargeData: boolean
-      inOutType: string
-      required: boolean
-      key: string
-      dataType: string
-      attributes:
-        readOnly: boolean
-        dataType: string
-        searchable: string
-        isRequired: boolean
-        masked: boolean
-        isSearchable: boolean
-        logSettings:
-          seedPeriod: string
-          seedScope: string
-          logFieldName: string
-        taskVisibility:
-          - type: string
-      protoDefName: string
-      jsonSchema: string
-      protoDefPath: string
-      name: string
-      description: string
-      children:
-        - producer: string
-          containsLargeData: boolean
-          inOutType: string
-          required: boolean
-          key: string
-          dataType: string
-          protoDefName: string
-          jsonSchema: string
-          protoDefPath: string
-          name: string
-          description: string
-          children:
-            - producer: string
-              containsLargeData: boolean
-              inOutType: string
-              required: boolean
-              key: string
-              dataType: string
-              protoDefName: string
-              jsonSchema: string
-              protoDefPath: string
-              name: string
-              description: string
-              children:
-                - producer: string
-                  containsLargeData: boolean
-                  inOutType: string
-                  required: boolean
-                  key: string
-                  dataType: string
-                  protoDefName: string
-                  jsonSchema: string
-                  protoDefPath: string
-                  name: string
-                  description: string
-                  children:
-                    - producer: string
-                      containsLargeData: boolean
-                      inOutType: string
-                      required: boolean
-                      key: string
-                      dataType: string
-                      protoDefName: string
-                      jsonSchema: string
-                      protoDefPath: string
-                      name: string
-                      description: string
-                      children:
-                        - producer: string
-                          containsLargeData: boolean
-                          inOutType: string
-                          required: boolean
-                          key: string
-                          dataType: string
-                          protoDefName: string
-                          jsonSchema: string
-                          protoDefPath: string
-                          name: string
-                          description: string
-                          children:
-                            - producer: string
-                              containsLargeData: boolean
-                              inOutType: string
-                              required: boolean
-                              key: string
-                              dataType: string
-                              protoDefName: string
-                              jsonSchema: string
-                              protoDefPath: string
-                              name: string
-                              description: string
-                              children:
-                                - producer: string
-                                  containsLargeData: boolean
-                                  inOutType: string
-                                  required: boolean
-                                  key: string
-                                  dataType: string
-                                  protoDefName: string
-                                  jsonSchema: string
-                                  protoDefPath: string
-                                  name: string
-                                  description: string
-                                  children:
-                                    - producer: string
-                                      containsLargeData: boolean
-                                      inOutType: string
-                                      required: boolean
-                                      key: string
-                                      dataType: string
-                                      protoDefName: string
-                                      jsonSchema: string
-                                      protoDefPath: string
-                                      name: string
-                                      description: string
-                                      children:
-                                        - {}
-                                      isTransient: boolean
-                                  isTransient: boolean
-                              isTransient: boolean
-                          isTransient: boolean
-                      isTransient: boolean
-                  isTransient: boolean
-              isTransient: boolean
-          isTransient: boolean
-      isTransient: boolean
-integrationParameters:
-  - description: string
-    inputOutputType: string
-    isTransient: boolean
-    producer: string
-    dataType: string
-    jsonSchema: string
-    searchable: boolean
-    containsLargeData: boolean
-    masked: boolean
-    key: string
-    displayName: string
+- name: your_resource_model_name
+  props:
+    - name: origin
+      value: string
+    - name: userLabel
+      value: string
+    - name: triggerConfigs
+      value:
+        - - name: startTasks
+            value:
+              - - name: displayName
+                  value: string
+                - name: taskId
+                  value: string
+                - name: taskConfigId
+                  value: string
+                - name: description
+                  value: string
+                - name: condition
+                  value: string
+          - name: alertConfig
+            value:
+              - - name: alertThreshold
+                  value: integer
+                - name: thresholdType
+                  value: string
+                - name: durationThreshold
+                  value: string
+                - name: thresholdValue
+                  value:
+                    - name: absolute
+                      value: string
+                    - name: percentage
+                      value: integer
+                - name: metricType
+                  value: string
+                - name: aggregationPeriod
+                  value: string
+                - name: disableAlert
+                  value: boolean
+                - name: displayName
+                  value: string
+                - name: onlyFinalAttempt
+                  value: boolean
+          - name: properties
+            value: object
+          - name: triggerId
+            value: string
+          - name: nextTasksExecutionPolicy
+            value: string
+          - name: label
+            value: string
+          - name: position
+            value:
+              - name: x
+                value: integer
+              - name: 'y'
+                value: integer
+          - name: cloudSchedulerConfig
+            value:
+              - name: cronTab
+                value: string
+              - name: location
+                value: string
+              - name: serviceAccountEmail
+                value: string
+              - name: errorMessage
+                value: string
+          - name: description
+            value: string
+          - name: trigger
+            value: string
+          - name: triggerNumber
+            value: string
+          - name: errorCatcherId
+            value: string
+          - name: triggerType
+            value: string
+    - name: taskConfigs
+      value:
+        - - name: taskTemplate
+            value: string
+          - name: failurePolicy
+            value:
+              - name: condition
+                value: string
+              - name: intervalTime
+                value: string
+              - name: maxRetries
+                value: integer
+              - name: retryStrategy
+                value: string
+          - name: taskId
+            value: string
+          - name: nextTasksExecutionPolicy
+            value: string
+          - name: description
+            value: string
+          - name: conditionalFailurePolicies
+            value:
+              - name: failurePolicies
+                value:
+                  - - name: condition
+                      value: string
+                    - name: intervalTime
+                      value: string
+                    - name: maxRetries
+                      value: integer
+                    - name: retryStrategy
+                      value: string
+          - name: successPolicy
+            value:
+              - name: finalState
+                value: string
+          - name: parameters
+            value: object
+          - name: taskExecutionStrategy
+            value: string
+          - name: errorCatcherId
+            value: string
+          - name: nextTasks
+            value:
+              - - name: displayName
+                  value: string
+                - name: taskId
+                  value: string
+                - name: taskConfigId
+                  value: string
+                - name: description
+                  value: string
+                - name: condition
+                  value: string
+          - name: externalTaskType
+            value: string
+          - name: displayName
+            value: string
+          - name: jsonValidationOption
+            value: string
+          - name: task
+            value: string
+    - name: triggerConfigsInternal
+      value:
+        - - name: nextTasksExecutionPolicy
+            value: string
+          - name: position
+            value:
+              - name: 'y'
+                value: integer
+              - name: x
+                value: integer
+          - name: triggerName
+            value: string
+          - name: startTasks
+            value:
+              - - name: combinedConditions
+                  value:
+                    - - name: conditions
+                        value:
+                          - - name: value
+                              value:
+                                - name: stringValue
+                                  value: string
+                                - name: intValue
+                                  value: string
+                                - name: stringArray
+                                  value:
+                                    - name: values
+                                      value:
+                                        - string
+                                - name: intArray
+                                  value:
+                                    - name: values
+                                      value:
+                                        - string
+                                - name: doubleValue
+                                  value: number
+                                - name: booleanValue
+                                  value: boolean
+                                - name: doubleArray
+                                  value:
+                                    - name: values
+                                      value:
+                                        - number
+                                - name: protoValue
+                                  value: object
+                            - name: eventPropertyKey
+                              value: string
+                            - name: operator
+                              value: string
+                - name: condition
+                  value: string
+                - name: taskNumber
+                  value: string
+                - name: taskConfigId
+                  value: string
+                - name: label
+                  value: string
+                - name: description
+                  value: string
+          - name: triggerNumber
+            value: string
+          - name: triggerCriteria
+            value:
+              - name: triggerCriteriaTaskImplementationClassName
+                value: string
+              - name: parameters
+                value:
+                  - name: parameters
+                    value:
+                      - - name: value
+                          value:
+                            - name: protoArray
+                              value:
+                                - name: protoValues
+                                  value:
+                                    - object
+                            - name: doubleArray
+                              value:
+                                - name: doubleValues
+                                  value:
+                                    - number
+                            - name: stringValue
+                              value: string
+                            - name: intValue
+                              value: string
+                            - name: doubleValue
+                              value: number
+                            - name: booleanValue
+                              value: boolean
+                            - name: serializedObjectValue
+                              value:
+                                - name: objectValue
+                                  value: string
+                            - name: intArray
+                              value:
+                                - name: intValues
+                                  value:
+                                    - string
+                            - name: booleanArray
+                              value:
+                                - name: booleanValues
+                                  value:
+                                    - boolean
+                            - name: stringArray
+                              value:
+                                - name: stringValues
+                                  value:
+                                    - string
+                            - name: protoValue
+                              value: object
+                        - name: key
+                          value: string
+                        - name: masked
+                          value: boolean
+              - name: condition
+                value: string
+          - name: description
+            value: string
+          - name: properties
+            value: object
+          - name: pauseWorkflowExecutions
+            value: boolean
+          - name: triggerType
+            value: string
+          - name: alertConfig
+            value:
+              - - name: alertName
+                  value: string
+                - name: durationThresholdMs
+                  value: string
+                - name: playbookUrl
+                  value: string
+                - name: warningEnumList
+                  value:
+                    - name: filterType
+                      value: string
+                    - name: enumStrings
+                      value:
+                        - string
+                - name: onlyFinalAttempt
+                  value: boolean
+                - name: aggregationPeriod
+                  value: string
+                - name: metricType
+                  value: string
+                - name: numAggregationPeriods
+                  value: integer
+                - name: thresholdType
+                  value: string
+                - name: clientId
+                  value: string
+                - name: thresholdValue
+                  value:
+                    - name: percentage
+                      value: integer
+                    - name: absolute
+                      value: string
+                - name: alertDisabled
+                  value: boolean
+          - name: triggerId
+            value: string
+          - name: enabledClients
+            value:
+              - string
+          - name: errorCatcherId
+            value: string
+          - name: cloudSchedulerConfig
+            value:
+              - name: errorMessage
+                value: string
+              - name: cronTab
+                value: string
+              - name: location
+                value: string
+              - name: serviceAccountEmail
+                value: string
+          - name: label
+            value: string
+    - name: createTime
+      value: string
+    - name: createdFromTemplate
+      value: string
+    - name: description
+      value: string
+    - name: teardown
+      value:
+        - name: teardownTaskConfigs
+          value:
+            - - name: teardownTaskImplementationClassName
+                value: string
+              - name: name
+                value: string
+              - name: properties
+                value:
+                  - name: properties
+                    value:
+                      - - name: key
+                          value: string
+              - name: creatorEmail
+                value: string
+              - name: nextTeardownTask
+                value:
+                  - name: name
+                    value: string
+    - name: enableVariableMasking
+      value: boolean
+    - name: snapshotNumber
+      value: string
+    - name: parentTemplateId
+      value: string
+    - name: lastModifierEmail
+      value: string
+    - name: state
+      value: string
+    - name: cloudLoggingDetails
+      value:
+        - name: enableCloudLogging
+          value: boolean
+        - name: cloudLoggingSeverity
+          value: string
+    - name: updateTime
+      value: string
+    - name: runAsServiceAccount
+      value: string
+    - name: integrationConfigParameters
+      value:
+        - - name: value
+            value:
+              - name: intArray
+                value:
+                  - name: intValues
+                    value:
+                      - string
+              - name: doubleArray
+                value:
+                  - name: doubleValues
+                    value:
+                      - number
+              - name: intValue
+                value: string
+              - name: stringArray
+                value:
+                  - name: stringValues
+                    value:
+                      - string
+              - name: doubleValue
+                value: number
+              - name: stringValue
+                value: string
+              - name: jsonValue
+                value: string
+              - name: booleanArray
+                value:
+                  - name: booleanValues
+                    value:
+                      - boolean
+              - name: booleanValue
+                value: boolean
+          - name: parameter
+            value:
+              - name: description
+                value: string
+              - name: inputOutputType
+                value: string
+              - name: isTransient
+                value: boolean
+              - name: producer
+                value: string
+              - name: dataType
+                value: string
+              - name: jsonSchema
+                value: string
+              - name: searchable
+                value: boolean
+              - name: containsLargeData
+                value: boolean
+              - name: masked
+                value: boolean
+              - name: key
+                value: string
+              - name: displayName
+                value: string
+    - name: errorCatcherConfigs
+      value:
+        - - name: description
+            value: string
+          - name: startErrorTasks
+            value:
+              - - name: displayName
+                  value: string
+                - name: taskId
+                  value: string
+                - name: taskConfigId
+                  value: string
+                - name: description
+                  value: string
+                - name: condition
+                  value: string
+          - name: label
+            value: string
+          - name: errorCatcherNumber
+            value: string
+          - name: errorCatcherId
+            value: string
+    - name: status
+      value: string
+    - name: name
+      value: string
+    - name: databasePersistencePolicy
+      value: string
+    - name: lockHolder
+      value: string
+    - name: taskConfigsInternal
+      value:
+        - - name: taskNumber
+            value: string
+          - name: lastModifiedTime
+            value: string
+          - name: taskType
+            value: string
+          - name: nextTasks
+            value:
+              - - name: combinedConditions
+                  value:
+                    - - name: conditions
+                        value:
+                          - - name: eventPropertyKey
+                              value: string
+                            - name: operator
+                              value: string
+                - name: condition
+                  value: string
+                - name: taskNumber
+                  value: string
+                - name: taskConfigId
+                  value: string
+                - name: label
+                  value: string
+                - name: description
+                  value: string
+          - name: disableStrictTypeValidation
+            value: boolean
+          - name: taskExecutionStrategy
+            value: string
+          - name: errorCatcherId
+            value: string
+          - name: failurePolicy
+            value:
+              - name: retryStrategy
+                value: string
+              - name: retryCondition
+                value: string
+              - name: maxNumRetries
+                value: integer
+              - name: intervalInSeconds
+                value: string
+          - name: taskEntity
+            value:
+              - name: taskType
+                value: string
+              - name: stats
+                value:
+                  - name: dimensions
+                    value:
+                      - name: triggerId
+                        value: string
+                      - name: taskName
+                        value: string
+                      - name: warningEnumString
+                        value: string
+                      - name: clientId
+                        value: string
+                      - name: errorEnumString
+                        value: string
+                      - name: retryAttempt
+                        value: string
+                      - name: workflowName
+                        value: string
+                      - name: enumFilterType
+                        value: string
+                      - name: taskNumber
+                        value: string
+                      - name: workflowId
+                        value: string
+                  - name: warningRate
+                    value: number
+                  - name: qps
+                    value: number
+                  - name: durationInSeconds
+                    value: number
+                  - name: errorRate
+                    value: number
+              - name: paramSpecs
+                value:
+                  - name: parameters
+                    value:
+                      - - name: config
+                          value:
+                            - name: helpText
+                              value: string
+                            - name: isHidden
+                              value: boolean
+                            - name: label
+                              value: string
+                            - name: uiPlaceholderText
+                              value: string
+                            - name: subSectionLabel
+                              value: string
+                            - name: parameterNameOption
+                              value: string
+                            - name: inputDisplayOption
+                              value: string
+                            - name: descriptivePhrase
+                              value: string
+                            - name: hideDefaultValue
+                              value: boolean
+                        - name: validationRule
+                          value:
+                            - name: doubleRange
+                              value:
+                                - name: max
+                                  value: number
+                                - name: min
+                                  value: number
+                            - name: intRange
+                              value:
+                                - name: min
+                                  value: string
+                                - name: max
+                                  value: string
+                            - name: stringRegex
+                              value:
+                                - name: regex
+                                  value: string
+                                - name: exclusive
+                                  value: boolean
+                        - name: protoDef
+                          value:
+                            - name: fullName
+                              value: string
+                            - name: path
+                              value: string
+                        - name: isOutput
+                          value: boolean
+                        - name: jsonSchema
+                          value: string
+                        - name: key
+                          value: string
+                        - name: dataType
+                          value: string
+                        - name: collectionElementClassName
+                          value: string
+                        - name: required
+                          value: boolean
+                        - name: className
+                          value: string
+                        - name: isDeprecated
+                          value: boolean
+                        - name: defaultValue
+                          value:
+                            - name: stringValue
+                              value: string
+                            - name: doubleValue
+                              value: number
+                            - name: protoValue
+                              value: object
+                            - name: stringArray
+                              value:
+                                - name: stringValues
+                                  value:
+                                    - string
+                            - name: booleanValue
+                              value: boolean
+                            - name: intArray
+                              value:
+                                - name: intValues
+                                  value:
+                                    - string
+                            - name: jsonValue
+                              value: string
+                            - name: serializedObjectValue
+                              value:
+                                - name: objectValue
+                                  value: string
+                            - name: doubleArray
+                              value:
+                                - name: doubleValues
+                                  value:
+                                    - number
+                            - name: booleanArray
+                              value:
+                                - name: booleanValues
+                                  value:
+                                    - boolean
+                            - name: protoArray
+                              value:
+                                - name: protoValues
+                                  value:
+                                    - object
+                            - name: intValue
+                              value: string
+              - name: uiConfig
+                value:
+                  - name: taskUiModuleConfigs
+                    value:
+                      - - name: moduleId
+                          value: string
+              - name: metadata
+                value:
+                  - name: activeTaskName
+                    value: string
+                  - name: externalDocHtml
+                    value: string
+                  - name: isDeprecated
+                    value: boolean
+                  - name: externalDocMarkdown
+                    value: string
+                  - name: tags
+                    value:
+                      - string
+                  - name: externalDocLink
+                    value: string
+                  - name: admins
+                    value:
+                      - - name: googleGroupEmail
+                          value: string
+                        - name: userEmail
+                          value: string
+                  - name: externalCategorySequence
+                    value: integer
+                  - name: iconLink
+                    value: string
+                  - name: docMarkdown
+                    value: string
+                  - name: descriptiveName
+                    value: string
+                  - name: system
+                    value: string
+                  - name: standaloneExternalDocHtml
+                    value: string
+                  - name: defaultSpec
+                    value: string
+                  - name: name
+                    value: string
+                  - name: g3DocLink
+                    value: string
+                  - name: category
+                    value: string
+                  - name: externalCategory
+                    value: string
+                  - name: codeSearchLink
+                    value: string
+                  - name: defaultJsonValidationOption
+                    value: string
+                  - name: status
+                    value: string
+                  - name: description
+                    value: string
+              - name: disabledForVpcSc
+                value: boolean
+          - name: jsonValidationOption
+            value: string
+          - name: taskName
+            value: string
+          - name: externalTaskType
+            value: string
+          - name: alertConfigs
+            value:
+              - - name: numAggregationPeriods
+                  value: integer
+                - name: alertName
+                  value: string
+                - name: thresholdType
+                  value: string
+                - name: alertDisabled
+                  value: boolean
+                - name: playbookUrl
+                  value: string
+                - name: aggregationPeriod
+                  value: string
+                - name: clientId
+                  value: string
+                - name: onlyFinalAttempt
+                  value: boolean
+                - name: metricType
+                  value: string
+                - name: durationThresholdMs
+                  value: string
+          - name: preconditionLabel
+            value: string
+          - name: label
+            value: string
+          - name: parameters
+            value: object
+          - name: precondition
+            value: string
+          - name: createTime
+            value: string
+          - name: creatorEmail
+            value: string
+          - name: conditionalFailurePolicies
+            value:
+              - name: failurePolicies
+                value:
+                  - - name: retryStrategy
+                      value: string
+                    - name: retryCondition
+                      value: string
+                    - name: maxNumRetries
+                      value: integer
+                    - name: intervalInSeconds
+                      value: string
+          - name: description
+            value: string
+          - name: incomingEdgeCount
+            value: integer
+          - name: successPolicy
+            value:
+              - name: finalState
+                value: string
+          - name: nextTasksExecutionPolicy
+            value: string
+          - name: rollbackStrategy
+            value:
+              - name: rollbackTaskImplementationClassName
+                value: string
+              - name: parameters
+                value:
+                  - name: parameters
+                    value:
+                      - - name: key
+                          value: string
+                        - name: dataType
+                          value: string
+                        - name: masked
+                          value: boolean
+              - name: taskNumbersToRollback
+                value:
+                  - string
+          - name: taskTemplateName
+            value: string
+          - name: taskSpec
+            value: string
+    - name: integrationParametersInternal
+      value:
+        - name: parameters
+          value:
+            - - name: producer
+                value: string
+              - name: producedBy
+                value:
+                  - name: elementIdentifier
+                    value: string
+                  - name: elementType
+                    value: string
+              - name: containsLargeData
+                value: boolean
+              - name: inOutType
+                value: string
+              - name: required
+                value: boolean
+              - name: key
+                value: string
+              - name: dataType
+                value: string
+              - name: attributes
+                value:
+                  - name: readOnly
+                    value: boolean
+                  - name: dataType
+                    value: string
+                  - name: searchable
+                    value: string
+                  - name: isRequired
+                    value: boolean
+                  - name: masked
+                    value: boolean
+                  - name: isSearchable
+                    value: boolean
+                  - name: logSettings
+                    value:
+                      - name: seedPeriod
+                        value: string
+                      - name: seedScope
+                        value: string
+                      - name: logFieldName
+                        value: string
+                  - name: taskVisibility
+                    value:
+                      - string
+              - name: protoDefName
+                value: string
+              - name: jsonSchema
+                value: string
+              - name: protoDefPath
+                value: string
+              - name: name
+                value: string
+              - name: description
+                value: string
+              - name: children
+                value:
+                  - - name: producer
+                      value: string
+                    - name: containsLargeData
+                      value: boolean
+                    - name: inOutType
+                      value: string
+                    - name: required
+                      value: boolean
+                    - name: key
+                      value: string
+                    - name: dataType
+                      value: string
+                    - name: protoDefName
+                      value: string
+                    - name: jsonSchema
+                      value: string
+                    - name: protoDefPath
+                      value: string
+                    - name: name
+                      value: string
+                    - name: description
+                      value: string
+                    - name: children
+                      value:
+                        - - name: producer
+                            value: string
+                          - name: containsLargeData
+                            value: boolean
+                          - name: inOutType
+                            value: string
+                          - name: required
+                            value: boolean
+                          - name: key
+                            value: string
+                          - name: dataType
+                            value: string
+                          - name: protoDefName
+                            value: string
+                          - name: jsonSchema
+                            value: string
+                          - name: protoDefPath
+                            value: string
+                          - name: name
+                            value: string
+                          - name: description
+                            value: string
+                          - name: children
+                            value:
+                              - - name: producer
+                                  value: string
+                                - name: containsLargeData
+                                  value: boolean
+                                - name: inOutType
+                                  value: string
+                                - name: required
+                                  value: boolean
+                                - name: key
+                                  value: string
+                                - name: dataType
+                                  value: string
+                                - name: protoDefName
+                                  value: string
+                                - name: jsonSchema
+                                  value: string
+                                - name: protoDefPath
+                                  value: string
+                                - name: name
+                                  value: string
+                                - name: description
+                                  value: string
+                                - name: children
+                                  value:
+                                    - - name: producer
+                                        value: string
+                                      - name: containsLargeData
+                                        value: boolean
+                                      - name: inOutType
+                                        value: string
+                                      - name: required
+                                        value: boolean
+                                      - name: key
+                                        value: string
+                                      - name: dataType
+                                        value: string
+                                      - name: protoDefName
+                                        value: string
+                                      - name: jsonSchema
+                                        value: string
+                                      - name: protoDefPath
+                                        value: string
+                                      - name: name
+                                        value: string
+                                      - name: description
+                                        value: string
+                                      - name: children
+                                        value:
+                                          - - name: producer
+                                              value: string
+                                            - name: containsLargeData
+                                              value: boolean
+                                            - name: inOutType
+                                              value: string
+                                            - name: required
+                                              value: boolean
+                                            - name: key
+                                              value: string
+                                            - name: dataType
+                                              value: string
+                                            - name: protoDefName
+                                              value: string
+                                            - name: jsonSchema
+                                              value: string
+                                            - name: protoDefPath
+                                              value: string
+                                            - name: name
+                                              value: string
+                                            - name: description
+                                              value: string
+                                            - name: children
+                                              value:
+                                                - - name: producer
+                                                    value: string
+                                                  - name: containsLargeData
+                                                    value: boolean
+                                                  - name: inOutType
+                                                    value: string
+                                                  - name: required
+                                                    value: boolean
+                                                  - name: key
+                                                    value: string
+                                                  - name: dataType
+                                                    value: string
+                                                  - name: protoDefName
+                                                    value: string
+                                                  - name: jsonSchema
+                                                    value: string
+                                                  - name: protoDefPath
+                                                    value: string
+                                                  - name: name
+                                                    value: string
+                                                  - name: description
+                                                    value: string
+                                                  - name: children
+                                                    value:
+                                                      - - name: producer
+                                                          value: string
+                                                        - name: containsLargeData
+                                                          value: boolean
+                                                        - name: inOutType
+                                                          value: string
+                                                        - name: required
+                                                          value: boolean
+                                                        - name: key
+                                                          value: string
+                                                        - name: dataType
+                                                          value: string
+                                                        - name: protoDefName
+                                                          value: string
+                                                        - name: jsonSchema
+                                                          value: string
+                                                        - name: protoDefPath
+                                                          value: string
+                                                        - name: name
+                                                          value: string
+                                                        - name: description
+                                                          value: string
+                                                        - name: children
+                                                          value:
+                                                            - - name: producer
+                                                                value: string
+                                                              - name: containsLargeData
+                                                                value: boolean
+                                                              - name: inOutType
+                                                                value: string
+                                                              - name: required
+                                                                value: boolean
+                                                              - name: key
+                                                                value: string
+                                                              - name: dataType
+                                                                value: string
+                                                              - name: protoDefName
+                                                                value: string
+                                                              - name: jsonSchema
+                                                                value: string
+                                                              - name: protoDefPath
+                                                                value: string
+                                                              - name: name
+                                                                value: string
+                                                              - name: description
+                                                                value: string
+                                                              - name: children
+                                                                value:
+                                                                  - []
+                                                              - name: isTransient
+                                                                value: boolean
+                                                        - name: isTransient
+                                                          value: boolean
+                                                  - name: isTransient
+                                                    value: boolean
+                                            - name: isTransient
+                                              value: boolean
+                                      - name: isTransient
+                                        value: boolean
+                                - name: isTransient
+                                  value: boolean
+                          - name: isTransient
+                            value: boolean
+                    - name: isTransient
+                      value: boolean
+              - name: isTransient
+                value: boolean
+    - name: integrationParameters
+      value:
+        - - name: description
+            value: string
+          - name: inputOutputType
+            value: string
+          - name: isTransient
+            value: boolean
+          - name: producer
+            value: string
+          - name: dataType
+            value: string
+          - name: jsonSchema
+            value: string
+          - name: searchable
+            value: boolean
+          - name: containsLargeData
+            value: boolean
+          - name: masked
+            value: boolean
+          - name: key
+            value: string
+          - name: displayName
+            value: string
 
 ```
 </TabItem>

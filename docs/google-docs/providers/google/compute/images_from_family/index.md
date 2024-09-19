@@ -113,5 +113,5 @@ status,
 storageLocations
 FROM google.compute.images_from_family
 WHERE family = '{{ family }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

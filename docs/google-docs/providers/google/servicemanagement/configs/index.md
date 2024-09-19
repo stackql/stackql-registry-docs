@@ -103,7 +103,7 @@ title,
 types,
 usage
 FROM google.servicemanagement.configs
-WHERE serviceName = '{{ serviceName }}'; 
+WHERE serviceName = '{{ serviceName }}';
 ```
 
 ## `INSERT` example
@@ -186,457 +186,874 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-title: string
-producerProjectId: string
-id: string
-apis:
-  - name: string
-    methods:
-      - name: string
-        requestTypeUrl: string
-        requestStreaming: boolean
-        responseTypeUrl: string
-        responseStreaming: boolean
-        options:
-          - name: string
-            value: object
-        syntax: string
-    options:
-      - name: string
-        value: object
-    version: string
-    sourceContext:
-      fileName: string
-    mixins:
-      - name: string
-        root: string
-    syntax: string
-types:
-  - name: string
-    fields:
-      - kind: string
-        cardinality: string
-        number: integer
-        name: string
-        typeUrl: string
-        oneofIndex: integer
-        packed: boolean
-        options:
-          - name: string
-            value: object
-        jsonName: string
-        defaultValue: string
-    oneofs:
-      - type: string
-    options:
-      - name: string
-        value: object
-    syntax: string
-    edition: string
-enums:
-  - name: string
-    enumvalue:
-      - name: string
-        number: integer
-        options:
-          - name: string
-            value: object
-    options:
-      - name: string
-        value: object
-    syntax: string
-    edition: string
-documentation:
-  summary: string
-  pages:
-    - name: string
-      content: string
-      subpages:
-        - name: string
-          content: string
-          subpages:
-            - name: string
-              content: string
-              subpages:
-                - name: string
-                  content: string
-                  subpages:
-                    - name: string
-                      content: string
-                      subpages:
-                        - name: string
-                          content: string
-                          subpages:
-                            - name: string
-                              content: string
-                              subpages:
-                                - name: string
-                                  content: string
-                                  subpages:
-                                    - name: string
-                                      content: string
-                                      subpages:
-                                        - {}
-  rules:
-    - selector: string
-      description: string
-      deprecationDescription: string
-      disableReplacementWords: string
-  documentationRootUrl: string
-  serviceRootUrl: string
-  overview: string
-  sectionOverrides:
-    - name: string
-      content: string
-      subpages:
-        - name: string
-          content: string
-          subpages:
-            - name: string
-              content: string
-              subpages:
-                - name: string
-                  content: string
-                  subpages:
-                    - name: string
-                      content: string
-                      subpages:
-                        - name: string
-                          content: string
-                          subpages:
-                            - name: string
-                              content: string
-                              subpages:
-                                - name: string
-                                  content: string
-                                  subpages:
-                                    - name: string
-                                      content: string
-                                      subpages:
-                                        - {}
-backend:
-  rules:
-    - selector: string
-      address: string
-      deadline: number
-      minDeadline: number
-      operationDeadline: number
-      pathTranslation: string
-      jwtAudience: string
-      disableAuth: boolean
-      protocol: string
-      overridesByRequestProtocol: object
-http:
-  rules:
-    - selector: string
-      get: string
-      put: string
-      post: string
-      delete: string
-      patch: string
-      custom:
-        kind: string
-        path: string
-      body: string
-      responseBody: string
-      additionalBindings:
-        - selector: string
-          get: string
-          put: string
-          post: string
-          delete: string
-          patch: string
-          body: string
-          responseBody: string
-          additionalBindings:
-            - selector: string
-              get: string
-              put: string
-              post: string
-              delete: string
-              patch: string
-              body: string
-              responseBody: string
-              additionalBindings:
-                - selector: string
-                  get: string
-                  put: string
-                  post: string
-                  delete: string
-                  patch: string
-                  body: string
-                  responseBody: string
-                  additionalBindings:
-                    - selector: string
-                      get: string
-                      put: string
-                      post: string
-                      delete: string
-                      patch: string
-                      body: string
-                      responseBody: string
-                      additionalBindings:
-                        - selector: string
-                          get: string
-                          put: string
-                          post: string
-                          delete: string
-                          patch: string
-                          body: string
-                          responseBody: string
-                          additionalBindings:
-                            - selector: string
-                              get: string
-                              put: string
-                              post: string
-                              delete: string
-                              patch: string
-                              body: string
-                              responseBody: string
-                              additionalBindings:
-                                - selector: string
-                                  get: string
-                                  put: string
-                                  post: string
-                                  delete: string
-                                  patch: string
-                                  body: string
-                                  responseBody: string
-                                  additionalBindings:
-                                    - selector: string
-                                      get: string
-                                      put: string
-                                      post: string
-                                      delete: string
-                                      patch: string
-                                      body: string
-                                      responseBody: string
-                                      additionalBindings:
-                                        - {}
-  fullyDecodeReservedExpansion: boolean
-quota:
-  limits:
-    - name: string
-      description: string
-      defaultLimit: string
-      maxLimit: string
-      freeTier: string
-      duration: string
-      metric: string
-      unit: string
-      values: object
-      displayName: string
-  metricRules:
-    - selector: string
-      metricCosts: object
-authentication:
-  rules:
-    - selector: string
-      oauth:
-        canonicalScopes: string
-      allowWithoutCredential: boolean
-      requirements:
-        - providerId: string
-          audiences: string
-  providers:
-    - id: string
-      issuer: string
-      jwksUri: string
-      audiences: string
-      authorizationUrl: string
-      jwtLocations:
-        - header: string
-          query: string
-          cookie: string
-          valuePrefix: string
-context:
-  rules:
-    - selector: string
-      requested:
-        - type: string
-      provided:
-        - type: string
-      allowedRequestExtensions:
-        - type: string
-      allowedResponseExtensions:
-        - type: string
-usage:
-  requirements:
-    - type: string
-  rules:
-    - selector: string
-      allowUnregisteredCalls: boolean
-      skipServiceControl: boolean
-  producerNotificationChannel: string
-customError:
-  rules:
-    - selector: string
-      isErrorType: boolean
-  types:
-    - type: string
-endpoints:
-  - name: string
-    aliases:
-      - type: string
-    target: string
-    allowCors: boolean
-control:
-  environment: string
-  methodPolicies:
-    - selector: string
-      requestPolicies:
-        - selector: string
-          resourcePermission: string
-          resourceType: string
-logs:
-  - name: string
-    labels:
-      - key: string
-        valueType: string
-        description: string
-    description: string
-    displayName: string
-metrics:
-  - name: string
-    type: string
-    labels:
-      - key: string
-        valueType: string
-        description: string
-    metricKind: string
-    valueType: string
-    unit: string
-    description: string
-    displayName: string
-    metadata:
-      launchStage: string
-      samplePeriod: string
-      ingestDelay: string
-      timeSeriesResourceHierarchyLevel:
-        - type: string
-          enumDescriptions: string
-          enum: string
-    launchStage: string
-    monitoredResourceTypes:
-      - type: string
-monitoredResources:
-  - name: string
-    type: string
-    displayName: string
-    description: string
-    labels:
-      - key: string
-        valueType: string
-        description: string
-    launchStage: string
-billing:
-  consumerDestinations:
-    - monitoredResource: string
-      metrics:
-        - type: string
-logging:
-  producerDestinations:
-    - monitoredResource: string
-      logs:
-        - type: string
-  consumerDestinations:
-    - monitoredResource: string
-      logs:
-        - type: string
-monitoring:
-  producerDestinations:
-    - monitoredResource: string
-      metrics:
-        - type: string
-  consumerDestinations:
-    - monitoredResource: string
-      metrics:
-        - type: string
-systemParameters:
-  rules:
-    - selector: string
-      parameters:
-        - name: string
-          httpHeader: string
-          urlQueryParameter: string
-sourceInfo:
-  sourceFiles:
-    - type: string
-      additionalProperties: any
-publishing:
-  methodSettings:
-    - selector: string
-      longRunning:
-        initialPollDelay: string
-        pollDelayMultiplier: number
-        maxPollDelay: string
-        totalPollTimeout: string
-      autoPopulatedFields:
-        - type: string
-  newIssueUri: string
-  documentationUri: string
-  apiShortName: string
-  githubLabel: string
-  codeownerGithubTeams:
-    - type: string
-  docTagPrefix: string
-  organization: string
-  librarySettings:
-    - version: string
-      launchStage: string
-      restNumericEnums: boolean
-      javaSettings:
-        libraryPackage: string
-        serviceClassNames: object
-        common:
-          referenceDocsUri: string
-          destinations:
-            - type: string
-              enumDescriptions: string
-              enum: string
-      cppSettings: {}
-      phpSettings: {}
-      pythonSettings:
-        experimentalFeatures:
-          restAsyncIoEnabled: boolean
-      nodeSettings: {}
-      dotnetSettings:
-        renamedServices: object
-        renamedResources: object
-        ignoredResources:
-          - type: string
-        forcedNamespaceAliases:
-          - type: string
-        handwrittenSignatures:
-          - type: string
-      rubySettings: {}
-      goSettings: {}
-  protoReferenceDocumentationUri: string
-  restReferenceDocumentationUri: string
-systemTypes:
-  - name: string
-    fields:
-      - kind: string
-        cardinality: string
-        number: integer
-        name: string
-        typeUrl: string
-        oneofIndex: integer
-        packed: boolean
-        options:
-          - name: string
-            value: object
-        jsonName: string
-        defaultValue: string
-    oneofs:
-      - type: string
-    options:
-      - name: string
-        value: object
-    syntax: string
-    edition: string
-configVersion: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: title
+      value: string
+    - name: producerProjectId
+      value: string
+    - name: id
+      value: string
+    - name: apis
+      value:
+        - - name: name
+            value: string
+          - name: methods
+            value:
+              - - name: name
+                  value: string
+                - name: requestTypeUrl
+                  value: string
+                - name: requestStreaming
+                  value: boolean
+                - name: responseTypeUrl
+                  value: string
+                - name: responseStreaming
+                  value: boolean
+                - name: options
+                  value:
+                    - - name: name
+                        value: string
+                      - name: value
+                        value: object
+                - name: syntax
+                  value: string
+          - name: options
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: object
+          - name: version
+            value: string
+          - name: sourceContext
+            value:
+              - name: fileName
+                value: string
+          - name: mixins
+            value:
+              - - name: name
+                  value: string
+                - name: root
+                  value: string
+          - name: syntax
+            value: string
+    - name: types
+      value:
+        - - name: name
+            value: string
+          - name: fields
+            value:
+              - - name: kind
+                  value: string
+                - name: cardinality
+                  value: string
+                - name: number
+                  value: integer
+                - name: name
+                  value: string
+                - name: typeUrl
+                  value: string
+                - name: oneofIndex
+                  value: integer
+                - name: packed
+                  value: boolean
+                - name: options
+                  value:
+                    - - name: name
+                        value: string
+                      - name: value
+                        value: object
+                - name: jsonName
+                  value: string
+                - name: defaultValue
+                  value: string
+          - name: oneofs
+            value:
+              - string
+          - name: options
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: object
+          - name: syntax
+            value: string
+          - name: edition
+            value: string
+    - name: enums
+      value:
+        - - name: name
+            value: string
+          - name: enumvalue
+            value:
+              - - name: name
+                  value: string
+                - name: number
+                  value: integer
+                - name: options
+                  value:
+                    - - name: name
+                        value: string
+                      - name: value
+                        value: object
+          - name: options
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: object
+          - name: syntax
+            value: string
+          - name: edition
+            value: string
+    - name: documentation
+      value:
+        - name: summary
+          value: string
+        - name: pages
+          value:
+            - - name: name
+                value: string
+              - name: content
+                value: string
+              - name: subpages
+                value:
+                  - - name: name
+                      value: string
+                    - name: content
+                      value: string
+                    - name: subpages
+                      value:
+                        - - name: name
+                            value: string
+                          - name: content
+                            value: string
+                          - name: subpages
+                            value:
+                              - - name: name
+                                  value: string
+                                - name: content
+                                  value: string
+                                - name: subpages
+                                  value:
+                                    - - name: name
+                                        value: string
+                                      - name: content
+                                        value: string
+                                      - name: subpages
+                                        value:
+                                          - - name: name
+                                              value: string
+                                            - name: content
+                                              value: string
+                                            - name: subpages
+                                              value:
+                                                - - name: name
+                                                    value: string
+                                                  - name: content
+                                                    value: string
+                                                  - name: subpages
+                                                    value:
+                                                      - - name: name
+                                                          value: string
+                                                        - name: content
+                                                          value: string
+                                                        - name: subpages
+                                                          value:
+                                                            - - name: name
+                                                                value: string
+                                                              - name: content
+                                                                value: string
+                                                              - name: subpages
+                                                                value:
+                                                                  - []
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: description
+                value: string
+              - name: deprecationDescription
+                value: string
+              - name: disableReplacementWords
+                value: string
+        - name: documentationRootUrl
+          value: string
+        - name: serviceRootUrl
+          value: string
+        - name: overview
+          value: string
+        - name: sectionOverrides
+          value:
+            - - name: name
+                value: string
+              - name: content
+                value: string
+              - name: subpages
+                value:
+                  - - name: name
+                      value: string
+                    - name: content
+                      value: string
+                    - name: subpages
+                      value:
+                        - - name: name
+                            value: string
+                          - name: content
+                            value: string
+                          - name: subpages
+                            value:
+                              - - name: name
+                                  value: string
+                                - name: content
+                                  value: string
+                                - name: subpages
+                                  value:
+                                    - - name: name
+                                        value: string
+                                      - name: content
+                                        value: string
+                                      - name: subpages
+                                        value:
+                                          - - name: name
+                                              value: string
+                                            - name: content
+                                              value: string
+                                            - name: subpages
+                                              value:
+                                                - - name: name
+                                                    value: string
+                                                  - name: content
+                                                    value: string
+                                                  - name: subpages
+                                                    value:
+                                                      - - name: name
+                                                          value: string
+                                                        - name: content
+                                                          value: string
+                                                        - name: subpages
+                                                          value:
+                                                            - - name: name
+                                                                value: string
+                                                              - name: content
+                                                                value: string
+                                                              - name: subpages
+                                                                value:
+                                                                  - []
+    - name: backend
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: address
+                value: string
+              - name: deadline
+                value: number
+              - name: minDeadline
+                value: number
+              - name: operationDeadline
+                value: number
+              - name: pathTranslation
+                value: string
+              - name: jwtAudience
+                value: string
+              - name: disableAuth
+                value: boolean
+              - name: protocol
+                value: string
+              - name: overridesByRequestProtocol
+                value: object
+    - name: http
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: get
+                value: string
+              - name: put
+                value: string
+              - name: post
+                value: string
+              - name: delete
+                value: string
+              - name: patch
+                value: string
+              - name: custom
+                value:
+                  - name: kind
+                    value: string
+                  - name: path
+                    value: string
+              - name: body
+                value: string
+              - name: responseBody
+                value: string
+              - name: additionalBindings
+                value:
+                  - - name: selector
+                      value: string
+                    - name: get
+                      value: string
+                    - name: put
+                      value: string
+                    - name: post
+                      value: string
+                    - name: delete
+                      value: string
+                    - name: patch
+                      value: string
+                    - name: body
+                      value: string
+                    - name: responseBody
+                      value: string
+                    - name: additionalBindings
+                      value:
+                        - - name: selector
+                            value: string
+                          - name: get
+                            value: string
+                          - name: put
+                            value: string
+                          - name: post
+                            value: string
+                          - name: delete
+                            value: string
+                          - name: patch
+                            value: string
+                          - name: body
+                            value: string
+                          - name: responseBody
+                            value: string
+                          - name: additionalBindings
+                            value:
+                              - - name: selector
+                                  value: string
+                                - name: get
+                                  value: string
+                                - name: put
+                                  value: string
+                                - name: post
+                                  value: string
+                                - name: delete
+                                  value: string
+                                - name: patch
+                                  value: string
+                                - name: body
+                                  value: string
+                                - name: responseBody
+                                  value: string
+                                - name: additionalBindings
+                                  value:
+                                    - - name: selector
+                                        value: string
+                                      - name: get
+                                        value: string
+                                      - name: put
+                                        value: string
+                                      - name: post
+                                        value: string
+                                      - name: delete
+                                        value: string
+                                      - name: patch
+                                        value: string
+                                      - name: body
+                                        value: string
+                                      - name: responseBody
+                                        value: string
+                                      - name: additionalBindings
+                                        value:
+                                          - - name: selector
+                                              value: string
+                                            - name: get
+                                              value: string
+                                            - name: put
+                                              value: string
+                                            - name: post
+                                              value: string
+                                            - name: delete
+                                              value: string
+                                            - name: patch
+                                              value: string
+                                            - name: body
+                                              value: string
+                                            - name: responseBody
+                                              value: string
+                                            - name: additionalBindings
+                                              value:
+                                                - - name: selector
+                                                    value: string
+                                                  - name: get
+                                                    value: string
+                                                  - name: put
+                                                    value: string
+                                                  - name: post
+                                                    value: string
+                                                  - name: delete
+                                                    value: string
+                                                  - name: patch
+                                                    value: string
+                                                  - name: body
+                                                    value: string
+                                                  - name: responseBody
+                                                    value: string
+                                                  - name: additionalBindings
+                                                    value:
+                                                      - - name: selector
+                                                          value: string
+                                                        - name: get
+                                                          value: string
+                                                        - name: put
+                                                          value: string
+                                                        - name: post
+                                                          value: string
+                                                        - name: delete
+                                                          value: string
+                                                        - name: patch
+                                                          value: string
+                                                        - name: body
+                                                          value: string
+                                                        - name: responseBody
+                                                          value: string
+                                                        - name: additionalBindings
+                                                          value:
+                                                            - - name: selector
+                                                                value: string
+                                                              - name: get
+                                                                value: string
+                                                              - name: put
+                                                                value: string
+                                                              - name: post
+                                                                value: string
+                                                              - name: delete
+                                                                value: string
+                                                              - name: patch
+                                                                value: string
+                                                              - name: body
+                                                                value: string
+                                                              - name: responseBody
+                                                                value: string
+                                                              - name: additionalBindings
+                                                                value:
+                                                                  - []
+        - name: fullyDecodeReservedExpansion
+          value: boolean
+    - name: quota
+      value:
+        - name: limits
+          value:
+            - - name: name
+                value: string
+              - name: description
+                value: string
+              - name: defaultLimit
+                value: string
+              - name: maxLimit
+                value: string
+              - name: freeTier
+                value: string
+              - name: duration
+                value: string
+              - name: metric
+                value: string
+              - name: unit
+                value: string
+              - name: values
+                value: object
+              - name: displayName
+                value: string
+        - name: metricRules
+          value:
+            - - name: selector
+                value: string
+              - name: metricCosts
+                value: object
+    - name: authentication
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: oauth
+                value:
+                  - name: canonicalScopes
+                    value: string
+              - name: allowWithoutCredential
+                value: boolean
+              - name: requirements
+                value:
+                  - - name: providerId
+                      value: string
+                    - name: audiences
+                      value: string
+        - name: providers
+          value:
+            - - name: id
+                value: string
+              - name: issuer
+                value: string
+              - name: jwksUri
+                value: string
+              - name: audiences
+                value: string
+              - name: authorizationUrl
+                value: string
+              - name: jwtLocations
+                value:
+                  - - name: header
+                      value: string
+                    - name: query
+                      value: string
+                    - name: cookie
+                      value: string
+                    - name: valuePrefix
+                      value: string
+    - name: context
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: requested
+                value:
+                  - string
+              - name: provided
+                value:
+                  - string
+              - name: allowedRequestExtensions
+                value:
+                  - string
+              - name: allowedResponseExtensions
+                value:
+                  - string
+    - name: usage
+      value:
+        - name: requirements
+          value:
+            - string
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: allowUnregisteredCalls
+                value: boolean
+              - name: skipServiceControl
+                value: boolean
+        - name: producerNotificationChannel
+          value: string
+    - name: customError
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: isErrorType
+                value: boolean
+        - name: types
+          value:
+            - string
+    - name: endpoints
+      value:
+        - - name: name
+            value: string
+          - name: aliases
+            value:
+              - string
+          - name: target
+            value: string
+          - name: allowCors
+            value: boolean
+    - name: control
+      value:
+        - name: environment
+          value: string
+        - name: methodPolicies
+          value:
+            - - name: selector
+                value: string
+              - name: requestPolicies
+                value:
+                  - - name: selector
+                      value: string
+                    - name: resourcePermission
+                      value: string
+                    - name: resourceType
+                      value: string
+    - name: logs
+      value:
+        - - name: name
+            value: string
+          - name: labels
+            value:
+              - - name: key
+                  value: string
+                - name: valueType
+                  value: string
+                - name: description
+                  value: string
+          - name: description
+            value: string
+          - name: displayName
+            value: string
+    - name: metrics
+      value:
+        - - name: name
+            value: string
+          - name: type
+            value: string
+          - name: labels
+            value:
+              - - name: key
+                  value: string
+                - name: valueType
+                  value: string
+                - name: description
+                  value: string
+          - name: metricKind
+            value: string
+          - name: valueType
+            value: string
+          - name: unit
+            value: string
+          - name: description
+            value: string
+          - name: displayName
+            value: string
+          - name: metadata
+            value:
+              - name: launchStage
+                value: string
+              - name: samplePeriod
+                value: string
+              - name: ingestDelay
+                value: string
+              - name: timeSeriesResourceHierarchyLevel
+                value:
+                  - string
+          - name: launchStage
+            value: string
+          - name: monitoredResourceTypes
+            value:
+              - string
+    - name: monitoredResources
+      value:
+        - - name: name
+            value: string
+          - name: type
+            value: string
+          - name: displayName
+            value: string
+          - name: description
+            value: string
+          - name: labels
+            value:
+              - - name: key
+                  value: string
+                - name: valueType
+                  value: string
+                - name: description
+                  value: string
+          - name: launchStage
+            value: string
+    - name: billing
+      value:
+        - name: consumerDestinations
+          value:
+            - - name: monitoredResource
+                value: string
+              - name: metrics
+                value:
+                  - string
+    - name: logging
+      value:
+        - name: producerDestinations
+          value:
+            - - name: monitoredResource
+                value: string
+              - name: logs
+                value:
+                  - string
+        - name: consumerDestinations
+          value:
+            - - name: monitoredResource
+                value: string
+              - name: logs
+                value:
+                  - string
+    - name: monitoring
+      value:
+        - name: producerDestinations
+          value:
+            - - name: monitoredResource
+                value: string
+              - name: metrics
+                value:
+                  - string
+        - name: consumerDestinations
+          value:
+            - - name: monitoredResource
+                value: string
+              - name: metrics
+                value:
+                  - string
+    - name: systemParameters
+      value:
+        - name: rules
+          value:
+            - - name: selector
+                value: string
+              - name: parameters
+                value:
+                  - - name: name
+                      value: string
+                    - name: httpHeader
+                      value: string
+                    - name: urlQueryParameter
+                      value: string
+    - name: sourceInfo
+      value:
+        - name: sourceFiles
+          value:
+            - object
+    - name: publishing
+      value:
+        - name: methodSettings
+          value:
+            - - name: selector
+                value: string
+              - name: longRunning
+                value:
+                  - name: initialPollDelay
+                    value: string
+                  - name: pollDelayMultiplier
+                    value: number
+                  - name: maxPollDelay
+                    value: string
+                  - name: totalPollTimeout
+                    value: string
+              - name: autoPopulatedFields
+                value:
+                  - string
+        - name: newIssueUri
+          value: string
+        - name: documentationUri
+          value: string
+        - name: apiShortName
+          value: string
+        - name: githubLabel
+          value: string
+        - name: codeownerGithubTeams
+          value:
+            - string
+        - name: docTagPrefix
+          value: string
+        - name: organization
+          value: string
+        - name: librarySettings
+          value:
+            - - name: version
+                value: string
+              - name: launchStage
+                value: string
+              - name: restNumericEnums
+                value: boolean
+              - name: javaSettings
+                value:
+                  - name: libraryPackage
+                    value: string
+                  - name: serviceClassNames
+                    value: object
+                  - name: common
+                    value:
+                      - name: referenceDocsUri
+                        value: string
+                      - name: destinations
+                        value:
+                          - string
+              - name: cppSettings
+                value: []
+              - name: phpSettings
+                value: []
+              - name: pythonSettings
+                value:
+                  - name: experimentalFeatures
+                    value:
+                      - name: restAsyncIoEnabled
+                        value: boolean
+              - name: nodeSettings
+                value: []
+              - name: dotnetSettings
+                value:
+                  - name: renamedServices
+                    value: object
+                  - name: renamedResources
+                    value: object
+                  - name: ignoredResources
+                    value:
+                      - string
+                  - name: forcedNamespaceAliases
+                    value:
+                      - string
+                  - name: handwrittenSignatures
+                    value:
+                      - string
+              - name: rubySettings
+                value: []
+              - name: goSettings
+                value: []
+        - name: protoReferenceDocumentationUri
+          value: string
+        - name: restReferenceDocumentationUri
+          value: string
+    - name: systemTypes
+      value:
+        - - name: name
+            value: string
+          - name: fields
+            value:
+              - - name: kind
+                  value: string
+                - name: cardinality
+                  value: string
+                - name: number
+                  value: integer
+                - name: name
+                  value: string
+                - name: typeUrl
+                  value: string
+                - name: oneofIndex
+                  value: integer
+                - name: packed
+                  value: boolean
+                - name: options
+                  value:
+                    - - name: name
+                        value: string
+                      - name: value
+                        value: object
+                - name: jsonName
+                  value: string
+                - name: defaultValue
+                  value: string
+          - name: oneofs
+            value:
+              - string
+          - name: options
+            value:
+              - - name: name
+                  value: string
+                - name: value
+                  value: object
+          - name: syntax
+            value: string
+          - name: edition
+            value: string
+    - name: configVersion
+      value: integer
 
 ```
 </TabItem>

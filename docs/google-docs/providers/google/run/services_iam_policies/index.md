@@ -54,7 +54,7 @@ role
 FROM google.run.services_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `REPLACE` example

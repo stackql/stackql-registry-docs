@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.datalabeling.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

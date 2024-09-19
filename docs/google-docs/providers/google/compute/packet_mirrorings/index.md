@@ -75,7 +75,7 @@ priority,
 region,
 selfLink
 FROM google.compute.packet_mirrorings
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,36 +124,65 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-name: string
-description: string
-region: string
-network:
-  url: string
-  canonicalUrl: string
-priority: integer
-collectorIlb:
-  url: string
-  canonicalUrl: string
-mirroredResources:
-  subnetworks:
-    - url: string
-      canonicalUrl: string
-  instances:
-    - url: string
-      canonicalUrl: string
-  tags:
-    - type: string
-filter:
-  cidrRanges:
-    - type: string
-  IPProtocols:
-    - type: string
-  direction: string
-enable: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: network
+      value:
+        - name: url
+          value: string
+        - name: canonicalUrl
+          value: string
+    - name: priority
+      value: integer
+    - name: collectorIlb
+      value:
+        - name: url
+          value: string
+        - name: canonicalUrl
+          value: string
+    - name: mirroredResources
+      value:
+        - name: subnetworks
+          value:
+            - - name: url
+                value: string
+              - name: canonicalUrl
+                value: string
+        - name: instances
+          value:
+            - - name: url
+                value: string
+              - name: canonicalUrl
+                value: string
+        - name: tags
+          value:
+            - string
+    - name: filter
+      value:
+        - name: cidrRanges
+          value:
+            - string
+        - name: IPProtocols
+          value:
+            - string
+        - name: direction
+          value: string
+    - name: enable
+      value: string
 
 ```
 </TabItem>

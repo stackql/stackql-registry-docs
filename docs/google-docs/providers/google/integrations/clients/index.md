@@ -52,7 +52,7 @@ SELECT
 client
 FROM google.integrations.clients
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

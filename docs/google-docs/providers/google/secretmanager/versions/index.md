@@ -68,7 +68,7 @@ scheduledDestroyTime,
 state
 FROM google.secretmanager.versions
 WHERE projectsId = '{{ projectsId }}'
-AND secretsId = '{{ secretsId }}'; 
+AND secretsId = '{{ secretsId }}';
 ```
 
 ## `DELETE` example

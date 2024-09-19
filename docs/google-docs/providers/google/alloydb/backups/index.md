@@ -93,7 +93,7 @@ uid,
 updateTime
 FROM google.alloydb.backups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -140,34 +140,63 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-deleteTime: string
-labels: object
-state: string
-type: string
-description: string
-clusterUid: string
-clusterName: string
-reconciling: boolean
-encryptionConfig:
-  kmsKeyName: string
-encryptionInfo:
-  encryptionType: string
-  kmsKeyVersions:
-    - type: string
-etag: string
-annotations: object
-sizeBytes: string
-expiryTime: string
-expiryQuantity:
-  retentionCount: integer
-  totalRetentionCount: integer
-satisfiesPzs: boolean
-databaseVersion: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: type
+      value: string
+    - name: description
+      value: string
+    - name: clusterUid
+      value: string
+    - name: clusterName
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: encryptionConfig
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: encryptionInfo
+      value:
+        - name: encryptionType
+          value: string
+        - name: kmsKeyVersions
+          value:
+            - string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: sizeBytes
+      value: string
+    - name: expiryTime
+      value: string
+    - name: expiryQuantity
+      value:
+        - name: retentionCount
+          value: integer
+        - name: totalRetentionCount
+          value: integer
+    - name: satisfiesPzs
+      value: boolean
+    - name: databaseVersion
+      value: string
 
 ```
 </TabItem>

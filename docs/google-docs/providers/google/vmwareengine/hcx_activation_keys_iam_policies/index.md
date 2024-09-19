@@ -55,7 +55,7 @@ FROM google.vmwareengine.hcx_activation_keys_iam_policies
 WHERE hcxActivationKeysId = '{{ hcxActivationKeysId }}'
 AND locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

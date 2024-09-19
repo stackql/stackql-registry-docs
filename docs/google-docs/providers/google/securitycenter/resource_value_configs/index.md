@@ -70,7 +70,7 @@ sensitiveDataProtectionMapping,
 tagValues,
 updateTime
 FROM google.securitycenter.resource_value_configs
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -101,23 +101,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requests:
-  - parent: string
-    resourceValueConfig:
-      name: string
-      resourceValue: string
-      tagValues:
-        - type: string
-      resourceType: string
-      scope: string
-      resourceLabelsSelector: object
-      description: string
-      createTime: string
-      updateTime: string
-      cloudProvider: string
-      sensitiveDataProtectionMapping:
-        highSensitivityMapping: string
-        mediumSensitivityMapping: string
+- name: your_resource_model_name
+  props:
+    - name: requests
+      value:
+        - - name: parent
+            value: string
+          - name: resourceValueConfig
+            value:
+              - name: name
+                value: string
+              - name: resourceValue
+                value: string
+              - name: tagValues
+                value:
+                  - string
+              - name: resourceType
+                value: string
+              - name: scope
+                value: string
+              - name: resourceLabelsSelector
+                value: object
+              - name: description
+                value: string
+              - name: createTime
+                value: string
+              - name: updateTime
+                value: string
+              - name: cloudProvider
+                value: string
+              - name: sensitiveDataProtectionMapping
+                value:
+                  - name: highSensitivityMapping
+                    value: string
+                  - name: mediumSensitivityMapping
+                    value: string
 
 ```
 </TabItem>

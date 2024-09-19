@@ -67,10 +67,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-policyBinding:
-  - member: string
-    role: string
-consumerNetwork: string
+- name: your_resource_model_name
+  props:
+    - name: policyBinding
+      value:
+        - - name: member
+            value: string
+          - name: role
+            value: string
+    - name: consumerNetwork
+      value: string
 
 ```
 </TabItem>

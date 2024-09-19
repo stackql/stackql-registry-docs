@@ -83,7 +83,7 @@ FROM google.dialogflow.experiments
 WHERE agentsId = '{{ agentsId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -146,51 +146,98 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-state: string
-definition:
-  condition: string
-  versionVariants:
-    variants:
-      - version: string
-        trafficAllocation: number
-        isControlGroup: boolean
-rolloutConfig:
-  rolloutSteps:
-    - displayName: string
-      trafficPercent: integer
-      minDuration: string
-  rolloutCondition: string
-  failureCondition: string
-rolloutState:
-  step: string
-  stepIndex: integer
-  startTime: string
-rolloutFailureReason: string
-result:
-  versionMetrics:
-    - version: string
-      metrics:
-        - type: string
-          countType: string
-          ratio: number
-          count: number
-          confidenceInterval:
-            confidenceLevel: number
-            ratio: number
-            lowerBound: number
-            upperBound: number
-      sessionCount: integer
-  lastUpdateTime: string
-createTime: string
-startTime: string
-endTime: string
-lastUpdateTime: string
-experimentLength: string
-variantsHistory:
-  - updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: definition
+      value:
+        - name: condition
+          value: string
+        - name: versionVariants
+          value:
+            - name: variants
+              value:
+                - - name: version
+                    value: string
+                  - name: trafficAllocation
+                    value: number
+                  - name: isControlGroup
+                    value: boolean
+    - name: rolloutConfig
+      value:
+        - name: rolloutSteps
+          value:
+            - - name: displayName
+                value: string
+              - name: trafficPercent
+                value: integer
+              - name: minDuration
+                value: string
+        - name: rolloutCondition
+          value: string
+        - name: failureCondition
+          value: string
+    - name: rolloutState
+      value:
+        - name: step
+          value: string
+        - name: stepIndex
+          value: integer
+        - name: startTime
+          value: string
+    - name: rolloutFailureReason
+      value: string
+    - name: result
+      value:
+        - name: versionMetrics
+          value:
+            - - name: version
+                value: string
+              - name: metrics
+                value:
+                  - - name: type
+                      value: string
+                    - name: countType
+                      value: string
+                    - name: ratio
+                      value: number
+                    - name: count
+                      value: number
+                    - name: confidenceInterval
+                      value:
+                        - name: confidenceLevel
+                          value: number
+                        - name: ratio
+                          value: number
+                        - name: lowerBound
+                          value: number
+                        - name: upperBound
+                          value: number
+              - name: sessionCount
+                value: integer
+        - name: lastUpdateTime
+          value: string
+    - name: createTime
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: lastUpdateTime
+      value: string
+    - name: experimentLength
+      value: string
+    - name: variantsHistory
+      value:
+        - - name: updateTime
+            value: string
 
 ```
 </TabItem>

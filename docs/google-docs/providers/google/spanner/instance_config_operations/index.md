@@ -54,5 +54,5 @@ error,
 metadata,
 response
 FROM google.spanner.instance_config_operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

@@ -70,7 +70,7 @@ type,
 userLabels,
 verificationStatus
 FROM google.monitoring.notification_channels
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,7 +110,7 @@ SELECT
 '{{ labels }}',
 '{{ userLabels }}',
 '{{ verificationStatus }}',
-true|false,
+{{ enabled }},
 '{{ creationRecord }}',
 '{{ mutationRecords }}'
 ;
@@ -119,20 +119,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-type: string
-name: string
-displayName: string
-description: string
-labels: object
-userLabels: object
-verificationStatus: string
-enabled: boolean
-creationRecord:
-  mutateTime: string
-  mutatedBy: string
-mutationRecords:
-  - mutateTime: string
-    mutatedBy: string
+- name: your_resource_model_name
+  props:
+    - name: type
+      value: string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: userLabels
+      value: object
+    - name: verificationStatus
+      value: string
+    - name: enabled
+      value: boolean
+    - name: creationRecord
+      value:
+        - name: mutateTime
+          value: string
+        - name: mutatedBy
+          value: string
+    - name: mutationRecords
+      value:
+        - - name: mutateTime
+            value: string
+          - name: mutatedBy
+            value: string
 
 ```
 </TabItem>

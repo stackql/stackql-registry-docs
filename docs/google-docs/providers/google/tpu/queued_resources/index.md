@@ -65,7 +65,7 @@ state,
 tpu
 FROM google.tpu.queued_resources
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,94 +106,179 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-tpu:
-  nodeSpec:
-    - parent: string
-      nodeId: string
-      multisliceParams:
-        nodeCount: integer
-        nodeIdPrefix: string
-      node:
-        name: string
-        description: string
-        acceleratorType: string
-        state: string
-        healthDescription: string
-        runtimeVersion: string
-        networkConfig:
-          network: string
-          subnetwork: string
-          enableExternalIps: boolean
-          canIpForward: boolean
-          queueCount: integer
-        cidrBlock: string
-        serviceAccount:
-          email: string
-          scope:
-            - type: string
-        createTime: string
-        schedulingConfig:
-          preemptible: boolean
-          reserved: boolean
-          spot: boolean
-        networkEndpoints:
-          - ipAddress: string
-            port: integer
-            accessConfig:
-              externalIp: string
-        health: string
-        labels: object
-        metadata: object
-        tags:
-          - type: string
-        id: string
-        dataDisks:
-          - sourceDisk: string
-            mode: string
-        apiVersion: string
-        symptoms:
-          - createTime: string
-            symptomType: string
-            details: string
-            workerId: string
-        shieldedInstanceConfig:
-          enableSecureBoot: boolean
-        acceleratorConfig:
-          type: string
-          topology: string
-        queuedResource: string
-        multisliceNode: boolean
-spot: {}
-guaranteed:
-  minDuration: string
-queueingPolicy:
-  validUntilDuration: string
-  validUntilTime: string
-  validAfterDuration: string
-  validAfterTime: string
-  validInterval:
-    startTime: string
-    endTime: string
-state:
-  state: string
-  creatingData: {}
-  acceptedData: {}
-  provisioningData: {}
-  failedData:
-    error:
-      code: integer
-      message: string
-      details:
-        - type: string
-          additionalProperties: any
-  deletingData: {}
-  activeData: {}
-  suspendingData: {}
-  suspendedData: {}
-  stateInitiator: string
-reservationName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: tpu
+      value:
+        - name: nodeSpec
+          value:
+            - - name: parent
+                value: string
+              - name: nodeId
+                value: string
+              - name: multisliceParams
+                value:
+                  - name: nodeCount
+                    value: integer
+                  - name: nodeIdPrefix
+                    value: string
+              - name: node
+                value:
+                  - name: name
+                    value: string
+                  - name: description
+                    value: string
+                  - name: acceleratorType
+                    value: string
+                  - name: state
+                    value: string
+                  - name: healthDescription
+                    value: string
+                  - name: runtimeVersion
+                    value: string
+                  - name: networkConfig
+                    value:
+                      - name: network
+                        value: string
+                      - name: subnetwork
+                        value: string
+                      - name: enableExternalIps
+                        value: boolean
+                      - name: canIpForward
+                        value: boolean
+                      - name: queueCount
+                        value: integer
+                  - name: cidrBlock
+                    value: string
+                  - name: serviceAccount
+                    value:
+                      - name: email
+                        value: string
+                      - name: scope
+                        value:
+                          - string
+                  - name: createTime
+                    value: string
+                  - name: schedulingConfig
+                    value:
+                      - name: preemptible
+                        value: boolean
+                      - name: reserved
+                        value: boolean
+                      - name: spot
+                        value: boolean
+                  - name: networkEndpoints
+                    value:
+                      - - name: ipAddress
+                          value: string
+                        - name: port
+                          value: integer
+                        - name: accessConfig
+                          value:
+                            - name: externalIp
+                              value: string
+                  - name: health
+                    value: string
+                  - name: labels
+                    value: object
+                  - name: metadata
+                    value: object
+                  - name: tags
+                    value:
+                      - string
+                  - name: id
+                    value: string
+                  - name: dataDisks
+                    value:
+                      - - name: sourceDisk
+                          value: string
+                        - name: mode
+                          value: string
+                  - name: apiVersion
+                    value: string
+                  - name: symptoms
+                    value:
+                      - - name: createTime
+                          value: string
+                        - name: symptomType
+                          value: string
+                        - name: details
+                          value: string
+                        - name: workerId
+                          value: string
+                  - name: shieldedInstanceConfig
+                    value:
+                      - name: enableSecureBoot
+                        value: boolean
+                  - name: acceleratorConfig
+                    value:
+                      - name: type
+                        value: string
+                      - name: topology
+                        value: string
+                  - name: queuedResource
+                    value: string
+                  - name: multisliceNode
+                    value: boolean
+    - name: spot
+      value: []
+    - name: guaranteed
+      value:
+        - name: minDuration
+          value: string
+    - name: queueingPolicy
+      value:
+        - name: validUntilDuration
+          value: string
+        - name: validUntilTime
+          value: string
+        - name: validAfterDuration
+          value: string
+        - name: validAfterTime
+          value: string
+        - name: validInterval
+          value:
+            - name: startTime
+              value: string
+            - name: endTime
+              value: string
+    - name: state
+      value:
+        - name: state
+          value: string
+        - name: creatingData
+          value: []
+        - name: acceptedData
+          value: []
+        - name: provisioningData
+          value: []
+        - name: failedData
+          value:
+            - name: error
+              value:
+                - name: code
+                  value: integer
+                - name: message
+                  value: string
+                - name: details
+                  value:
+                    - object
+        - name: deletingData
+          value: []
+        - name: activeData
+          value: []
+        - name: suspendingData
+          value: []
+        - name: suspendedData
+          value: []
+        - name: stateInitiator
+          value: string
+    - name: reservationName
+      value: string
 
 ```
 </TabItem>

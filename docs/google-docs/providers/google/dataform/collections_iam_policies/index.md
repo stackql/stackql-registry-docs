@@ -54,7 +54,7 @@ role
 FROM google.dataform.collections_iam_policies
 WHERE collectionsId = '{{ collectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -72,5 +72,5 @@ wwid
 FROM google.baremetalsolution.luns
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND volumesId = '{{ volumesId }}'; 
+AND volumesId = '{{ volumesId }}';
 ```

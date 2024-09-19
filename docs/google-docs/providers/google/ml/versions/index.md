@@ -102,7 +102,7 @@ serviceAccount,
 state
 FROM google.ml.versions
 WHERE modelsId = '{{ modelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -152,7 +152,7 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ description }}',
-true|false,
+{{ isDefault }},
 '{{ deploymentUri }}',
 '{{ lastUseTime }}',
 '{{ runtimeVersion }}',
@@ -179,61 +179,115 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-isDefault: boolean
-deploymentUri: string
-createTime: string
-lastUseTime: string
-runtimeVersion: string
-machineType: string
-autoScaling:
-  minNodes: integer
-  maxNodes: integer
-  metrics:
-    - name: string
-      target: integer
-manualScaling:
-  nodes: integer
-state: string
-errorMessage: string
-predictionClass: string
-packageUris:
-  - type: string
-labels: object
-etag: string
-framework: string
-pythonVersion: string
-acceleratorConfig:
-  count: string
-  type: string
-serviceAccount: string
-requestLoggingConfig:
-  samplingPercentage: number
-  bigqueryTableName: string
-explanationConfig:
-  integratedGradientsAttribution:
-    numIntegralSteps: integer
-  sampledShapleyAttribution:
-    numPaths: integer
-  xraiAttribution:
-    numIntegralSteps: integer
-container:
-  image: string
-  command:
-    - type: string
-  args:
-    - type: string
-  ports:
-    - containerPort: integer
-  env:
-    - name: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-routes:
-  predict: string
-  health: string
-lastMigrationTime: string
-lastMigrationModelId: string
+    - name: description
+      value: string
+    - name: isDefault
+      value: boolean
+    - name: deploymentUri
+      value: string
+    - name: createTime
+      value: string
+    - name: lastUseTime
+      value: string
+    - name: runtimeVersion
+      value: string
+    - name: machineType
+      value: string
+    - name: autoScaling
+      value:
+        - name: minNodes
+          value: integer
+        - name: maxNodes
+          value: integer
+        - name: metrics
+          value:
+            - - name: name
+                value: string
+              - name: target
+                value: integer
+    - name: manualScaling
+      value:
+        - name: nodes
+          value: integer
+    - name: state
+      value: string
+    - name: errorMessage
+      value: string
+    - name: predictionClass
+      value: string
+    - name: packageUris
+      value:
+        - string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: framework
+      value: string
+    - name: pythonVersion
+      value: string
+    - name: acceleratorConfig
+      value:
+        - name: count
+          value: string
+        - name: type
+          value: string
+    - name: serviceAccount
+      value: string
+    - name: requestLoggingConfig
+      value:
+        - name: samplingPercentage
+          value: number
+        - name: bigqueryTableName
+          value: string
+    - name: explanationConfig
+      value:
+        - name: integratedGradientsAttribution
+          value:
+            - name: numIntegralSteps
+              value: integer
+        - name: sampledShapleyAttribution
+          value:
+            - name: numPaths
+              value: integer
+        - name: xraiAttribution
+          value:
+            - name: numIntegralSteps
+              value: integer
+    - name: container
+      value:
+        - name: image
+          value: string
+        - name: command
+          value:
+            - string
+        - name: args
+          value:
+            - string
+        - name: ports
+          value:
+            - - name: containerPort
+                value: integer
+        - name: env
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+    - name: routes
+      value:
+        - name: predict
+          value: string
+        - name: health
+          value: string
+    - name: lastMigrationTime
+      value: string
+    - name: lastMigrationModelId
+      value: string
 
 ```
 </TabItem>

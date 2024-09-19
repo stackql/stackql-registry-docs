@@ -75,7 +75,7 @@ testSpecification,
 timestamp
 FROM google.testing.test_matrices
 WHERE projectId = '{{ projectId }}'
-AND testMatrixId = '{{ testMatrixId }}'; 
+AND testMatrixId = '{{ testMatrixId }}';
 ```
 
 ## `INSERT` example
@@ -123,186 +123,344 @@ SELECT
 '{{ invalidMatrixDetails }}',
 '{{ flakyTestAttempts }}',
 '{{ outcomeSummary }}',
-true|false
+{{ failFast }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-testMatrixId: string
-projectId: string
-clientInfo:
-  name: string
-  clientInfoDetails:
-    - key: string
+- name: your_resource_model_name
+  props:
+    - name: testMatrixId
       value: string
-testSpecification:
-  testTimeout: string
-  testSetup:
-    filesToPush:
-      - obbFile:
-          obbFileName: string
-          obb:
-            gcsPath: string
-        regularFile:
-          devicePath: string
-    directoriesToPull:
-      - type: string
-    initialSetupApks:
-      - packageName: string
-    additionalApks:
-      - packageName: string
-    account:
-      googleAuto: {}
-    networkProfile: string
-    environmentVariables:
-      - key: string
-        value: string
-    systrace:
-      durationSeconds: integer
-    dontAutograntPermissions: boolean
-  iosTestSetup:
-    networkProfile: string
-    additionalIpas:
-      - gcsPath: string
-    pushFiles:
-      - bundleId: string
-        devicePath: string
-    pullDirectories:
-      - bundleId: string
-        devicePath: string
-  androidInstrumentationTest:
-    appBundle: {}
-    appPackageId: string
-    testPackageId: string
-    testRunnerClass: string
-    testTargets:
-      - type: string
-    orchestratorOption: string
-    shardingOption:
-      uniformSharding:
-        numShards: integer
-      manualSharding:
-        testTargetsForShard:
-          - testTargets:
-              - type: string
-      smartSharding:
-        targetedShardDuration: string
-  androidRoboTest:
-    appPackageId: string
-    appInitialActivity: string
-    maxDepth: integer
-    maxSteps: integer
-    roboDirectives:
-      - resourceName: string
-        inputText: string
-        actionType: string
-    roboMode: string
-    startingIntents:
-      - launcherActivity: {}
-        startActivity:
-          action: string
-          uri: string
-          categories:
-            - type: string
-        noActivity: {}
-        timeout: string
-  androidTestLoop:
-    appPackageId: string
-    scenarios:
-      - type: string
-        format: string
-    scenarioLabels:
-      - type: string
-  iosXcTest:
-    xcodeVersion: string
-    appBundleId: string
-    testSpecialEntitlements: boolean
-  iosTestLoop:
-    scenarios:
-      - type: string
-        format: string
-    appBundleId: string
-  iosRoboTest:
-    appBundleId: string
-  disableVideoRecording: boolean
-  disablePerformanceMetrics: boolean
-environmentMatrix:
-  androidMatrix:
-    androidModelIds:
-      - type: string
-    androidVersionIds:
-      - type: string
-    locales:
-      - type: string
-    orientations:
-      - type: string
-  androidDeviceList:
-    androidDevices:
-      - androidModelId: string
-        androidVersionId: string
-        locale: string
-        orientation: string
-  iosDeviceList:
-    iosDevices:
-      - iosModelId: string
-        iosVersionId: string
-        locale: string
-        orientation: string
-testExecutions:
-  - id: string
-    matrixId: string
-    projectId: string
-    shard:
-      shardIndex: integer
-      numShards: integer
-      testTargetsForShard:
-        testTargets:
-          - type: string
-      estimatedShardDuration: string
-    environment:
-      androidDevice:
-        androidModelId: string
-        androidVersionId: string
-        locale: string
-        orientation: string
-      iosDevice:
-        iosModelId: string
-        iosVersionId: string
-        locale: string
-        orientation: string
-    state: string
-    toolResultsStep:
-      projectId: string
-      historyId: string
-      executionId: string
-      stepId: string
-    timestamp: string
-    testDetails:
-      progressMessages:
-        - type: string
-      errorMessage: string
-resultStorage:
-  googleCloudStorage:
-    gcsPath: string
-  toolResultsHistory:
-    projectId: string
-    historyId: string
-  toolResultsExecution:
-    projectId: string
-    historyId: string
-    executionId: string
-  resultsUrl: string
-state: string
-timestamp: string
-invalidMatrixDetails: string
-extendedInvalidMatrixDetails:
-  - reason: string
-    message: string
-flakyTestAttempts: integer
-outcomeSummary: string
-failFast: boolean
+    - name: projectId
+      value: string
+    - name: clientInfo
+      value:
+        - name: name
+          value: string
+        - name: clientInfoDetails
+          value:
+            - - name: key
+                value: string
+              - name: value
+                value: string
+    - name: testSpecification
+      value:
+        - name: testTimeout
+          value: string
+        - name: testSetup
+          value:
+            - name: filesToPush
+              value:
+                - - name: obbFile
+                    value:
+                      - name: obbFileName
+                        value: string
+                      - name: obb
+                        value:
+                          - name: gcsPath
+                            value: string
+                  - name: regularFile
+                    value:
+                      - name: devicePath
+                        value: string
+            - name: directoriesToPull
+              value:
+                - string
+            - name: initialSetupApks
+              value:
+                - - name: packageName
+                    value: string
+            - name: additionalApks
+              value:
+                - - name: packageName
+                    value: string
+            - name: account
+              value:
+                - name: googleAuto
+                  value: []
+            - name: networkProfile
+              value: string
+            - name: environmentVariables
+              value:
+                - - name: key
+                    value: string
+                  - name: value
+                    value: string
+            - name: systrace
+              value:
+                - name: durationSeconds
+                  value: integer
+            - name: dontAutograntPermissions
+              value: boolean
+        - name: iosTestSetup
+          value:
+            - name: networkProfile
+              value: string
+            - name: additionalIpas
+              value:
+                - - name: gcsPath
+                    value: string
+            - name: pushFiles
+              value:
+                - - name: bundleId
+                    value: string
+                  - name: devicePath
+                    value: string
+            - name: pullDirectories
+              value:
+                - - name: bundleId
+                    value: string
+                  - name: devicePath
+                    value: string
+        - name: androidInstrumentationTest
+          value:
+            - name: appBundle
+              value: []
+            - name: appPackageId
+              value: string
+            - name: testPackageId
+              value: string
+            - name: testRunnerClass
+              value: string
+            - name: testTargets
+              value:
+                - string
+            - name: orchestratorOption
+              value: string
+            - name: shardingOption
+              value:
+                - name: uniformSharding
+                  value:
+                    - name: numShards
+                      value: integer
+                - name: manualSharding
+                  value:
+                    - name: testTargetsForShard
+                      value:
+                        - - name: testTargets
+                            value:
+                              - string
+                - name: smartSharding
+                  value:
+                    - name: targetedShardDuration
+                      value: string
+        - name: androidRoboTest
+          value:
+            - name: appPackageId
+              value: string
+            - name: appInitialActivity
+              value: string
+            - name: maxDepth
+              value: integer
+            - name: maxSteps
+              value: integer
+            - name: roboDirectives
+              value:
+                - - name: resourceName
+                    value: string
+                  - name: inputText
+                    value: string
+                  - name: actionType
+                    value: string
+            - name: roboMode
+              value: string
+            - name: startingIntents
+              value:
+                - - name: launcherActivity
+                    value: []
+                  - name: startActivity
+                    value:
+                      - name: action
+                        value: string
+                      - name: uri
+                        value: string
+                      - name: categories
+                        value:
+                          - string
+                  - name: noActivity
+                    value: []
+                  - name: timeout
+                    value: string
+        - name: androidTestLoop
+          value:
+            - name: appPackageId
+              value: string
+            - name: scenarios
+              value:
+                - integer
+            - name: scenarioLabels
+              value:
+                - string
+        - name: iosXcTest
+          value:
+            - name: xcodeVersion
+              value: string
+            - name: appBundleId
+              value: string
+            - name: testSpecialEntitlements
+              value: boolean
+        - name: iosTestLoop
+          value:
+            - name: scenarios
+              value:
+                - integer
+            - name: appBundleId
+              value: string
+        - name: iosRoboTest
+          value:
+            - name: appBundleId
+              value: string
+        - name: disableVideoRecording
+          value: boolean
+        - name: disablePerformanceMetrics
+          value: boolean
+    - name: environmentMatrix
+      value:
+        - name: androidMatrix
+          value:
+            - name: androidModelIds
+              value:
+                - string
+            - name: androidVersionIds
+              value:
+                - string
+            - name: locales
+              value:
+                - string
+            - name: orientations
+              value:
+                - string
+        - name: androidDeviceList
+          value:
+            - name: androidDevices
+              value:
+                - - name: androidModelId
+                    value: string
+                  - name: androidVersionId
+                    value: string
+                  - name: locale
+                    value: string
+                  - name: orientation
+                    value: string
+        - name: iosDeviceList
+          value:
+            - name: iosDevices
+              value:
+                - - name: iosModelId
+                    value: string
+                  - name: iosVersionId
+                    value: string
+                  - name: locale
+                    value: string
+                  - name: orientation
+                    value: string
+    - name: testExecutions
+      value:
+        - - name: id
+            value: string
+          - name: matrixId
+            value: string
+          - name: projectId
+            value: string
+          - name: shard
+            value:
+              - name: shardIndex
+                value: integer
+              - name: numShards
+                value: integer
+              - name: testTargetsForShard
+                value:
+                  - name: testTargets
+                    value:
+                      - string
+              - name: estimatedShardDuration
+                value: string
+          - name: environment
+            value:
+              - name: androidDevice
+                value:
+                  - name: androidModelId
+                    value: string
+                  - name: androidVersionId
+                    value: string
+                  - name: locale
+                    value: string
+                  - name: orientation
+                    value: string
+              - name: iosDevice
+                value:
+                  - name: iosModelId
+                    value: string
+                  - name: iosVersionId
+                    value: string
+                  - name: locale
+                    value: string
+                  - name: orientation
+                    value: string
+          - name: state
+            value: string
+          - name: toolResultsStep
+            value:
+              - name: projectId
+                value: string
+              - name: historyId
+                value: string
+              - name: executionId
+                value: string
+              - name: stepId
+                value: string
+          - name: timestamp
+            value: string
+          - name: testDetails
+            value:
+              - name: progressMessages
+                value:
+                  - string
+              - name: errorMessage
+                value: string
+    - name: resultStorage
+      value:
+        - name: googleCloudStorage
+          value:
+            - name: gcsPath
+              value: string
+        - name: toolResultsHistory
+          value:
+            - name: projectId
+              value: string
+            - name: historyId
+              value: string
+        - name: toolResultsExecution
+          value:
+            - name: projectId
+              value: string
+            - name: historyId
+              value: string
+            - name: executionId
+              value: string
+        - name: resultsUrl
+          value: string
+    - name: state
+      value: string
+    - name: timestamp
+      value: string
+    - name: invalidMatrixDetails
+      value: string
+    - name: extendedInvalidMatrixDetails
+      value:
+        - - name: reason
+            value: string
+          - name: message
+            value: string
+    - name: flakyTestAttempts
+      value: integer
+    - name: outcomeSummary
+      value: string
+    - name: failFast
+      value: boolean
 
 ```
 </TabItem>

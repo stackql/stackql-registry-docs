@@ -72,5 +72,5 @@ selfManaged,
 subjectAlternativeNames,
 type
 FROM google.compute.ssl_certificates_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

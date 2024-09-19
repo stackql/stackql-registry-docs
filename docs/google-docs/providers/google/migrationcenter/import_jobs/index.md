@@ -71,7 +71,7 @@ updateTime,
 validationReport
 FROM google.migrationcenter.import_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,39 +108,74 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-createTime: string
-updateTime: string
-completeTime: string
-state: string
-labels: object
-assetSource: string
-validationReport:
-  fileValidations:
-    - fileName: string
-      rowErrors:
-        - rowNumber: integer
-          vmName: string
-          vmUuid: string
-          errors:
-            - errorDetails: string
-              severity: string
-          csvError:
-            rowNumber: integer
-          xlsxError:
-            sheet: string
-            rowNumber: integer
-      partialReport: boolean
-      fileErrors:
-        - errorDetails: string
-          severity: string
-  jobErrors:
-    - errorDetails: string
-      severity: string
-executionReport:
-  framesReported: integer
-  totalRowsCount: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: completeTime
+      value: string
+    - name: state
+      value: string
+    - name: labels
+      value: object
+    - name: assetSource
+      value: string
+    - name: validationReport
+      value:
+        - name: fileValidations
+          value:
+            - - name: fileName
+                value: string
+              - name: rowErrors
+                value:
+                  - - name: rowNumber
+                      value: integer
+                    - name: vmName
+                      value: string
+                    - name: vmUuid
+                      value: string
+                    - name: errors
+                      value:
+                        - - name: errorDetails
+                            value: string
+                          - name: severity
+                            value: string
+                    - name: csvError
+                      value:
+                        - name: rowNumber
+                          value: integer
+                    - name: xlsxError
+                      value:
+                        - name: sheet
+                          value: string
+                        - name: rowNumber
+                          value: integer
+              - name: partialReport
+                value: boolean
+              - name: fileErrors
+                value:
+                  - - name: errorDetails
+                      value: string
+                    - name: severity
+                      value: string
+        - name: jobErrors
+          value:
+            - - name: errorDetails
+                value: string
+              - name: severity
+                value: string
+    - name: executionReport
+      value:
+        - name: framesReported
+          value: integer
+        - name: totalRowsCount
+          value: integer
 
 ```
 </TabItem>

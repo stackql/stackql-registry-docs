@@ -62,5 +62,5 @@ FROM google.vmwareengine.nodes
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

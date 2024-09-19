@@ -64,5 +64,5 @@ updateTime
 FROM google.datastream.objects
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND streamsId = '{{ streamsId }}'; 
+AND streamsId = '{{ streamsId }}';
 ```

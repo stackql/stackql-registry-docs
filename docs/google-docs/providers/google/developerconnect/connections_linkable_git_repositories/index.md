@@ -50,5 +50,5 @@ nextPageToken
 FROM google.developerconnect.connections_linkable_git_repositories
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

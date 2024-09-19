@@ -53,7 +53,7 @@ members,
 role
 FROM google.iam.service_accounts_iam_policies
 WHERE projectsId = '{{ projectsId }}'
-AND serviceAccountsId = '{{ serviceAccountsId }}'; 
+AND serviceAccountsId = '{{ serviceAccountsId }}';
 ```
 
 ## `REPLACE` example

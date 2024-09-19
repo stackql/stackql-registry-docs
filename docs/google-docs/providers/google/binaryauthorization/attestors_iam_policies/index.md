@@ -53,7 +53,7 @@ members,
 role
 FROM google.binaryauthorization.attestors_iam_policies
 WHERE attestorsId = '{{ attestorsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

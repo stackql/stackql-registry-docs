@@ -57,7 +57,7 @@ pemCsr
 FROM google.privateca.certificate_authorities
 WHERE caPoolsId = '{{ caPoolsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,133 +104,235 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-type: string
-config:
-  subjectConfig:
-    subject:
-      commonName: string
-      countryCode: string
-      organization: string
-      organizationalUnit: string
-      locality: string
-      province: string
-      streetAddress: string
-      postalCode: string
-    subjectAltName:
-      dnsNames:
-        - type: string
-      uris:
-        - type: string
-      emailAddresses:
-        - type: string
-      ipAddresses:
-        - type: string
-      customSans:
-        - objectId:
-            objectIdPath:
-              - type: string
-                format: string
-          critical: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: config
+      value:
+        - name: subjectConfig
+          value:
+            - name: subject
+              value:
+                - name: commonName
+                  value: string
+                - name: countryCode
+                  value: string
+                - name: organization
+                  value: string
+                - name: organizationalUnit
+                  value: string
+                - name: locality
+                  value: string
+                - name: province
+                  value: string
+                - name: streetAddress
+                  value: string
+                - name: postalCode
+                  value: string
+            - name: subjectAltName
+              value:
+                - name: dnsNames
+                  value:
+                    - string
+                - name: uris
+                  value:
+                    - string
+                - name: emailAddresses
+                  value:
+                    - string
+                - name: ipAddresses
+                  value:
+                    - string
+                - name: customSans
+                  value:
+                    - - name: objectId
+                        value:
+                          - name: objectIdPath
+                            value:
+                              - integer
+                      - name: critical
+                        value: boolean
+                      - name: value
+                        value: string
+        - name: x509Config
+          value:
+            - name: keyUsage
+              value:
+                - name: baseKeyUsage
+                  value:
+                    - name: digitalSignature
+                      value: boolean
+                    - name: contentCommitment
+                      value: boolean
+                    - name: keyEncipherment
+                      value: boolean
+                    - name: dataEncipherment
+                      value: boolean
+                    - name: keyAgreement
+                      value: boolean
+                    - name: certSign
+                      value: boolean
+                    - name: crlSign
+                      value: boolean
+                    - name: encipherOnly
+                      value: boolean
+                    - name: decipherOnly
+                      value: boolean
+                - name: extendedKeyUsage
+                  value:
+                    - name: serverAuth
+                      value: boolean
+                    - name: clientAuth
+                      value: boolean
+                    - name: codeSigning
+                      value: boolean
+                    - name: emailProtection
+                      value: boolean
+                    - name: timeStamping
+                      value: boolean
+                    - name: ocspSigning
+                      value: boolean
+                - name: unknownExtendedKeyUsages
+                  value:
+                    - - name: objectIdPath
+                        value:
+                          - integer
+            - name: caOptions
+              value:
+                - name: isCa
+                  value: boolean
+                - name: maxIssuerPathLength
+                  value: integer
+            - name: policyIds
+              value:
+                - - name: objectIdPath
+                    value:
+                      - integer
+            - name: aiaOcspServers
+              value:
+                - string
+            - name: nameConstraints
+              value:
+                - name: critical
+                  value: boolean
+                - name: permittedDnsNames
+                  value:
+                    - string
+                - name: excludedDnsNames
+                  value:
+                    - string
+                - name: permittedIpRanges
+                  value:
+                    - string
+                - name: excludedIpRanges
+                  value:
+                    - string
+                - name: permittedEmailAddresses
+                  value:
+                    - string
+                - name: excludedEmailAddresses
+                  value:
+                    - string
+                - name: permittedUris
+                  value:
+                    - string
+                - name: excludedUris
+                  value:
+                    - string
+            - name: additionalExtensions
+              value:
+                - - name: critical
+                    value: boolean
+                  - name: value
+                    value: string
+        - name: publicKey
+          value:
+            - name: key
+              value: string
+            - name: format
+              value: string
+        - name: subjectKeyId
+          value:
+            - name: keyId
+              value: string
+    - name: lifetime
+      value: string
+    - name: keySpec
+      value:
+        - name: cloudKmsKeyVersion
           value: string
-  x509Config:
-    keyUsage:
-      baseKeyUsage:
-        digitalSignature: boolean
-        contentCommitment: boolean
-        keyEncipherment: boolean
-        dataEncipherment: boolean
-        keyAgreement: boolean
-        certSign: boolean
-        crlSign: boolean
-        encipherOnly: boolean
-        decipherOnly: boolean
-      extendedKeyUsage:
-        serverAuth: boolean
-        clientAuth: boolean
-        codeSigning: boolean
-        emailProtection: boolean
-        timeStamping: boolean
-        ocspSigning: boolean
-      unknownExtendedKeyUsages:
-        - objectIdPath:
-            - type: string
-              format: string
-    caOptions:
-      isCa: boolean
-      maxIssuerPathLength: integer
-    policyIds:
-      - objectIdPath:
-          - type: string
-            format: string
-    aiaOcspServers:
-      - type: string
-    nameConstraints:
-      critical: boolean
-      permittedDnsNames:
-        - type: string
-      excludedDnsNames:
-        - type: string
-      permittedIpRanges:
-        - type: string
-      excludedIpRanges:
-        - type: string
-      permittedEmailAddresses:
-        - type: string
-      excludedEmailAddresses:
-        - type: string
-      permittedUris:
-        - type: string
-      excludedUris:
-        - type: string
-    additionalExtensions:
-      - critical: boolean
-        value: string
-  publicKey:
-    key: string
-    format: string
-  subjectKeyId:
-    keyId: string
-lifetime: string
-keySpec:
-  cloudKmsKeyVersion: string
-  algorithm: string
-subordinateConfig:
-  certificateAuthority: string
-  pemIssuerChain:
-    pemCertificates:
-      - type: string
-tier: string
-state: string
-pemCaCertificates:
-  - type: string
-caCertificateDescriptions:
-  - subjectDescription:
-      hexSerialNumber: string
-      lifetime: string
-      notBeforeTime: string
-      notAfterTime: string
-    subjectKeyId:
-      keyId: string
-    crlDistributionPoints:
-      - type: string
-    aiaIssuingCertificateUrls:
-      - type: string
-    certFingerprint:
-      sha256Hash: string
-    tbsCertificateDigest: string
-gcsBucket: string
-accessUrls:
-  caCertificateAccessUrl: string
-  crlAccessUrls:
-    - type: string
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
-labels: object
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+        - name: algorithm
+          value: string
+    - name: subordinateConfig
+      value:
+        - name: certificateAuthority
+          value: string
+        - name: pemIssuerChain
+          value:
+            - name: pemCertificates
+              value:
+                - string
+    - name: tier
+      value: string
+    - name: state
+      value: string
+    - name: pemCaCertificates
+      value:
+        - string
+    - name: caCertificateDescriptions
+      value:
+        - - name: subjectDescription
+            value:
+              - name: hexSerialNumber
+                value: string
+              - name: lifetime
+                value: string
+              - name: notBeforeTime
+                value: string
+              - name: notAfterTime
+                value: string
+          - name: subjectKeyId
+            value:
+              - name: keyId
+                value: string
+          - name: crlDistributionPoints
+            value:
+              - string
+          - name: aiaIssuingCertificateUrls
+            value:
+              - string
+          - name: certFingerprint
+            value:
+              - name: sha256Hash
+                value: string
+          - name: tbsCertificateDigest
+            value: string
+    - name: gcsBucket
+      value: string
+    - name: accessUrls
+      value:
+        - name: caCertificateAccessUrl
+          value: string
+        - name: crlAccessUrls
+          value:
+            - string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: labels
+      value: object
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

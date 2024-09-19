@@ -61,7 +61,7 @@ state,
 studySpec
 FROM google.aiplatform.studies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,77 +96,139 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-inactiveReason: string
-state: string
-studySpec:
-  parameters:
-    - discreteValueSpec:
-        values:
-          - type: string
-            format: string
-        defaultValue: number
-      categoricalValueSpec:
-        defaultValue: string
-        values:
-          - type: string
-      conditionalParameterSpecs:
-        - parentCategoricalValues:
-            values:
-              - type: string
-          parentDiscreteValues:
-            values:
-              - type: string
-                format: string
-          parameterSpec:
-            conditionalParameterSpecs:
-              - parentIntValues:
-                  values:
-                    - format: string
-                      type: string
-            scaleType: string
-            integerValueSpec:
-              maxValue: string
-              defaultValue: string
-              minValue: string
-            parameterId: string
-            doubleValueSpec:
-              defaultValue: number
-              maxValue: number
-              minValue: number
-      scaleType: string
-      parameterId: string
-  decayCurveStoppingSpec:
-    useElapsedDuration: boolean
-  observationNoise: string
-  measurementSelectionType: string
-  medianAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-  convexAutomatedStoppingSpec:
-    maxStepCount: string
-    updateAllStoppedTrials: boolean
-    minStepCount: string
-    learningRateParameterName: string
-    useElapsedDuration: boolean
-    minMeasurementCount: string
-  metrics:
-    - goal: string
-      metricId: string
-      safetyConfig:
-        desiredMinSafeTrialsFraction: number
-        safetyThreshold: number
-  studyStoppingConfig:
-    maxNumTrials: integer
-    maxNumTrialsNoProgress: integer
-    shouldStopAsap: boolean
-    maximumRuntimeConstraint:
-      maxDuration: string
-      endTime: string
-    minNumTrials: integer
-    maxDurationNoProgress: string
-  algorithm: string
-displayName: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: inactiveReason
+      value: string
+    - name: state
+      value: string
+    - name: studySpec
+      value:
+        - name: parameters
+          value:
+            - - name: discreteValueSpec
+                value:
+                  - name: values
+                    value:
+                      - number
+                  - name: defaultValue
+                    value: number
+              - name: categoricalValueSpec
+                value:
+                  - name: defaultValue
+                    value: string
+                  - name: values
+                    value:
+                      - string
+              - name: conditionalParameterSpecs
+                value:
+                  - - name: parentCategoricalValues
+                      value:
+                        - name: values
+                          value:
+                            - string
+                    - name: parentDiscreteValues
+                      value:
+                        - name: values
+                          value:
+                            - number
+                    - name: parameterSpec
+                      value:
+                        - name: conditionalParameterSpecs
+                          value:
+                            - - name: parentIntValues
+                                value:
+                                  - name: values
+                                    value:
+                                      - string
+                        - name: scaleType
+                          value: string
+                        - name: integerValueSpec
+                          value:
+                            - name: maxValue
+                              value: string
+                            - name: defaultValue
+                              value: string
+                            - name: minValue
+                              value: string
+                        - name: parameterId
+                          value: string
+                        - name: doubleValueSpec
+                          value:
+                            - name: defaultValue
+                              value: number
+                            - name: maxValue
+                              value: number
+                            - name: minValue
+                              value: number
+              - name: scaleType
+                value: string
+              - name: parameterId
+                value: string
+        - name: decayCurveStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: boolean
+        - name: observationNoise
+          value: string
+        - name: measurementSelectionType
+          value: string
+        - name: medianAutomatedStoppingSpec
+          value:
+            - name: useElapsedDuration
+              value: boolean
+        - name: convexAutomatedStoppingSpec
+          value:
+            - name: maxStepCount
+              value: string
+            - name: updateAllStoppedTrials
+              value: boolean
+            - name: minStepCount
+              value: string
+            - name: learningRateParameterName
+              value: string
+            - name: useElapsedDuration
+              value: boolean
+            - name: minMeasurementCount
+              value: string
+        - name: metrics
+          value:
+            - - name: goal
+                value: string
+              - name: metricId
+                value: string
+              - name: safetyConfig
+                value:
+                  - name: desiredMinSafeTrialsFraction
+                    value: number
+                  - name: safetyThreshold
+                    value: number
+        - name: studyStoppingConfig
+          value:
+            - name: maxNumTrials
+              value: integer
+            - name: maxNumTrialsNoProgress
+              value: integer
+            - name: shouldStopAsap
+              value: boolean
+            - name: maximumRuntimeConstraint
+              value:
+                - name: maxDuration
+                  value: string
+                - name: endTime
+                  value: string
+            - name: minNumTrials
+              value: integer
+            - name: maxDurationNoProgress
+              value: string
+        - name: algorithm
+          value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

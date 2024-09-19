@@ -53,5 +53,5 @@ FROM google.apigee.aliases_certificate
 WHERE aliasesId = '{{ aliasesId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND keystoresId = '{{ keystoresId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

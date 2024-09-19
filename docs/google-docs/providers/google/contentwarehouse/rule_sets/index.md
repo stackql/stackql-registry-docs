@@ -57,7 +57,7 @@ rules,
 source
 FROM google.contentwarehouse.rule_sets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,52 +96,96 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-source: string
-description: string
-name: string
-rules:
-  - description: string
-    ruleId: string
-    triggerType: string
-    condition: string
-    actions:
-      - actionId: string
-        publishToPubSub:
-          messages:
-            - type: string
-          topicId: string
-        accessControl:
-          policy:
-            etag: string
-            bindings:
-              - members:
-                  - type: string
-                role: string
-                condition:
-                  location: string
-                  expression: string
-                  title: string
-                  description: string
-            auditConfigs:
-              - service: string
-                auditLogConfigs:
-                  - exemptedMembers:
-                      - type: string
-                    logType: string
-            version: integer
-          operationType: string
-        deleteDocumentAction:
-          enableHardDelete: boolean
-        removeFromFolderAction:
-          condition: string
-          folder: string
-        dataValidation:
-          conditions: object
-        dataUpdate:
-          entries: object
-        addToFolder:
-          folders:
-            - type: string
+- name: your_resource_model_name
+  props:
+    - name: source
+      value: string
+    - name: description
+      value: string
+    - name: name
+      value: string
+    - name: rules
+      value:
+        - - name: description
+            value: string
+          - name: ruleId
+            value: string
+          - name: triggerType
+            value: string
+          - name: condition
+            value: string
+          - name: actions
+            value:
+              - - name: actionId
+                  value: string
+                - name: publishToPubSub
+                  value:
+                    - name: messages
+                      value:
+                        - string
+                    - name: topicId
+                      value: string
+                - name: accessControl
+                  value:
+                    - name: policy
+                      value:
+                        - name: etag
+                          value: string
+                        - name: bindings
+                          value:
+                            - - name: members
+                                value:
+                                  - string
+                              - name: role
+                                value: string
+                              - name: condition
+                                value:
+                                  - name: location
+                                    value: string
+                                  - name: expression
+                                    value: string
+                                  - name: title
+                                    value: string
+                                  - name: description
+                                    value: string
+                        - name: auditConfigs
+                          value:
+                            - - name: service
+                                value: string
+                              - name: auditLogConfigs
+                                value:
+                                  - - name: exemptedMembers
+                                      value:
+                                        - string
+                                    - name: logType
+                                      value: string
+                        - name: version
+                          value: integer
+                    - name: operationType
+                      value: string
+                - name: deleteDocumentAction
+                  value:
+                    - name: enableHardDelete
+                      value: boolean
+                - name: removeFromFolderAction
+                  value:
+                    - name: condition
+                      value: string
+                    - name: folder
+                      value: string
+                - name: dataValidation
+                  value:
+                    - name: conditions
+                      value: object
+                - name: dataUpdate
+                  value:
+                    - name: entries
+                      value: object
+                - name: addToFolder
+                  value:
+                    - name: folders
+                      value:
+                        - string
 
 ```
 </TabItem>

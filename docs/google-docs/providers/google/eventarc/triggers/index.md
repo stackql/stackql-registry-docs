@@ -77,7 +77,7 @@ uid,
 updateTime
 FROM google.eventarc.triggers
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -124,42 +124,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-eventFilters:
-  - attribute: string
-    value: string
-    operator: string
-serviceAccount: string
-destination:
-  cloudRun:
-    service: string
-    path: string
-    region: string
-  cloudFunction: string
-  gke:
-    cluster: string
-    location: string
-    namespace: string
-    service: string
-    path: string
-  workflow: string
-  httpEndpoint:
-    uri: string
-  networkConfig:
-    networkAttachment: string
-transport:
-  pubsub:
-    topic: string
-    subscription: string
-labels: object
-channel: string
-conditions: object
-eventDataContentType: string
-satisfiesPzs: boolean
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: eventFilters
+      value:
+        - - name: attribute
+            value: string
+          - name: value
+            value: string
+          - name: operator
+            value: string
+    - name: serviceAccount
+      value: string
+    - name: destination
+      value:
+        - name: cloudRun
+          value:
+            - name: service
+              value: string
+            - name: path
+              value: string
+            - name: region
+              value: string
+        - name: cloudFunction
+          value: string
+        - name: gke
+          value:
+            - name: cluster
+              value: string
+            - name: location
+              value: string
+            - name: namespace
+              value: string
+            - name: service
+              value: string
+            - name: path
+              value: string
+        - name: workflow
+          value: string
+        - name: httpEndpoint
+          value:
+            - name: uri
+              value: string
+        - name: networkConfig
+          value:
+            - name: networkAttachment
+              value: string
+    - name: transport
+      value:
+        - name: pubsub
+          value:
+            - name: topic
+              value: string
+            - name: subscription
+              value: string
+    - name: labels
+      value: object
+    - name: channel
+      value: string
+    - name: conditions
+      value: object
+    - name: eventDataContentType
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: etag
+      value: string
 
 ```
 </TabItem>

@@ -57,5 +57,5 @@ FROM google.iamv2beta.operations
 WHERE operationsId = '{{ operationsId }}'
 AND policiesId = '{{ policiesId }}'
 AND policiesId1 = '{{ policiesId1 }}'
-AND policiesId2 = '{{ policiesId2 }}'; 
+AND policiesId2 = '{{ policiesId2 }}';
 ```

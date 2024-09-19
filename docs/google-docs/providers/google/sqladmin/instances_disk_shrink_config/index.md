@@ -51,5 +51,5 @@ message,
 minimalTargetSizeGb
 FROM google.sqladmin.instances_disk_shrink_config
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

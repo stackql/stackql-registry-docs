@@ -82,7 +82,7 @@ state
 FROM google.documentai.processor_versions
 WHERE locationsId = '{{ locationsId }}'
 AND processorsId = '{{ processorsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

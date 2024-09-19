@@ -79,7 +79,7 @@ vpcScEnabled
 FROM google.baremetalsolution.provisioning_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND provisioningConfigsId = '{{ provisioningConfigsId }}'; 
+AND provisioningConfigsId = '{{ provisioningConfigsId }}';
 ```
 
 ## `INSERT` example
@@ -122,7 +122,7 @@ SELECT
 '{{ handoverServiceAccount }}',
 '{{ email }}',
 '{{ location }}',
-true|false,
+{{ vpcScEnabled }},
 '{{ statusMessage }}',
 '{{ customId }}',
 '{{ pod }}'
@@ -132,82 +132,158 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-instances:
-  - name: string
-    id: string
-    instanceType: string
-    hyperthreading: boolean
-    osImage: string
-    clientNetwork:
-      networkId: string
-      address: string
-      existingNetworkId: string
-    userNote: string
-    accountNetworksEnabled: boolean
-    networkConfig: string
-    networkTemplate: string
-    logicalInterfaces:
-      - logicalNetworkInterfaces:
-          - network: string
-            ipAddress: string
-            defaultGateway: boolean
-            networkType: string
-            id: string
-        name: string
-        interfaceIndex: integer
-    sshKeyNames:
-      - type: string
-    kmsKeyVersion: string
-networks:
-  - name: string
-    id: string
-    type: string
-    bandwidth: string
-    vlanAttachments:
-      - id: string
-        pairingKey: string
-    vrf: string
-    cidr: string
-    serviceCidr: string
-    userNote: string
-    gcpService: string
-    vlanSameProject: boolean
-    jumboFramesEnabled: boolean
-volumes:
-  - name: string
-    id: string
-    snapshotsEnabled: boolean
-    type: string
-    protocol: string
-    sizeGb: integer
-    lunRanges:
-      - quantity: integer
-        sizeGb: integer
-    machineIds:
-      - type: string
-    nfsExports:
-      - networkId: string
-        machineId: string
-        cidr: string
-        permissions: string
-        noRootSquash: boolean
-        allowSuid: boolean
-        allowDev: boolean
-    userNote: string
-    gcpService: string
-    performanceTier: string
-ticketId: string
-handoverServiceAccount: string
-email: string
-state: string
-location: string
-updateTime: string
-cloudConsoleUri: string
-vpcScEnabled: boolean
-statusMessage: string
-customId: string
-pod: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: instances
+      value:
+        - - name: name
+            value: string
+          - name: id
+            value: string
+          - name: instanceType
+            value: string
+          - name: hyperthreading
+            value: boolean
+          - name: osImage
+            value: string
+          - name: clientNetwork
+            value:
+              - name: networkId
+                value: string
+              - name: address
+                value: string
+              - name: existingNetworkId
+                value: string
+          - name: userNote
+            value: string
+          - name: accountNetworksEnabled
+            value: boolean
+          - name: networkConfig
+            value: string
+          - name: networkTemplate
+            value: string
+          - name: logicalInterfaces
+            value:
+              - - name: logicalNetworkInterfaces
+                  value:
+                    - - name: network
+                        value: string
+                      - name: ipAddress
+                        value: string
+                      - name: defaultGateway
+                        value: boolean
+                      - name: networkType
+                        value: string
+                      - name: id
+                        value: string
+                - name: name
+                  value: string
+                - name: interfaceIndex
+                  value: integer
+          - name: sshKeyNames
+            value:
+              - string
+          - name: kmsKeyVersion
+            value: string
+    - name: networks
+      value:
+        - - name: name
+            value: string
+          - name: id
+            value: string
+          - name: type
+            value: string
+          - name: bandwidth
+            value: string
+          - name: vlanAttachments
+            value:
+              - - name: id
+                  value: string
+                - name: pairingKey
+                  value: string
+          - name: vrf
+            value: string
+          - name: cidr
+            value: string
+          - name: serviceCidr
+            value: string
+          - name: userNote
+            value: string
+          - name: gcpService
+            value: string
+          - name: vlanSameProject
+            value: boolean
+          - name: jumboFramesEnabled
+            value: boolean
+    - name: volumes
+      value:
+        - - name: name
+            value: string
+          - name: id
+            value: string
+          - name: snapshotsEnabled
+            value: boolean
+          - name: type
+            value: string
+          - name: protocol
+            value: string
+          - name: sizeGb
+            value: integer
+          - name: lunRanges
+            value:
+              - - name: quantity
+                  value: integer
+                - name: sizeGb
+                  value: integer
+          - name: machineIds
+            value:
+              - string
+          - name: nfsExports
+            value:
+              - - name: networkId
+                  value: string
+                - name: machineId
+                  value: string
+                - name: cidr
+                  value: string
+                - name: permissions
+                  value: string
+                - name: noRootSquash
+                  value: boolean
+                - name: allowSuid
+                  value: boolean
+                - name: allowDev
+                  value: boolean
+          - name: userNote
+            value: string
+          - name: gcpService
+            value: string
+          - name: performanceTier
+            value: string
+    - name: ticketId
+      value: string
+    - name: handoverServiceAccount
+      value: string
+    - name: email
+      value: string
+    - name: state
+      value: string
+    - name: location
+      value: string
+    - name: updateTime
+      value: string
+    - name: cloudConsoleUri
+      value: string
+    - name: vpcScEnabled
+      value: boolean
+    - name: statusMessage
+      value: string
+    - name: customId
+      value: string
+    - name: pod
+      value: string
 
 ```
 </TabItem>

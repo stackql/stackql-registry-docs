@@ -54,7 +54,7 @@ role
 FROM google.aiplatform.models_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

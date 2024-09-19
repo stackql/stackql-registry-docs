@@ -102,7 +102,7 @@ statsAnomaliesBaseDirectory,
 updateTime
 FROM google.aiplatform.model_deployment_monitoring_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -143,7 +143,7 @@ SELECT
 '{{ projectsId }}',
 '{{ logTtl }}',
 '{{ statsAnomaliesBaseDirectory }}',
-true|false,
+{{ enableMonitoringPipelineLogs }},
 '{{ labels }}',
 '{{ modelDeploymentMonitoringScheduleConfig }}',
 '{{ encryptionSpec }}',
@@ -161,78 +161,146 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-logTtl: string
-createTime: string
-statsAnomaliesBaseDirectory:
-  outputUriPrefix: string
-enableMonitoringPipelineLogs: boolean
-latestMonitoringPipelineMetadata:
-  runTime: string
-  status:
-    code: integer
-    message: string
-    details:
-      - additionalProperties: any
-        type: string
-labels: object
-modelDeploymentMonitoringScheduleConfig:
-  monitorInterval: string
-  monitorWindow: string
-encryptionSpec:
-  kmsKeyName: string
-predictInstanceSchemaUri: string
-scheduleState: string
-satisfiesPzi: boolean
-analysisInstanceSchemaUri: string
-modelDeploymentMonitoringObjectiveConfigs:
-  - objectiveConfig:
-      trainingDataset:
-        dataset: string
-        bigquerySource:
-          inputUri: string
-        loggingSamplingStrategy:
-          randomSampleConfig:
-            sampleRate: number
-        gcsSource:
-          uris:
-            - type: string
-        targetField: string
-        dataFormat: string
-      explanationConfig:
-        explanationBaseline:
-          bigquery:
-            outputUri: string
-          predictionFormat: string
-        enableFeatureAttributes: boolean
-      trainingPredictionSkewDetectionConfig:
-        attributionScoreSkewThresholds: object
-        skewThresholds: object
-        defaultSkewThreshold:
-          value: number
-      predictionDriftDetectionConfig:
-        attributionScoreDriftThresholds: object
-        driftThresholds: object
-    deployedModelId: string
-samplePredictInstance: any
-state: string
-displayName: string
-name: string
-satisfiesPzs: boolean
-endpoint: string
-nextScheduleTime: string
-modelMonitoringAlertConfig:
-  enableLogging: boolean
-  notificationChannels:
-    - type: string
-  emailAlertConfig:
-    userEmails:
-      - type: string
-bigqueryTables:
-  - logSource: string
-    requestResponseLoggingSchemaVersion: string
-    logType: string
-    bigqueryTablePath: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: logTtl
+      value: string
+    - name: createTime
+      value: string
+    - name: statsAnomaliesBaseDirectory
+      value:
+        - name: outputUriPrefix
+          value: string
+    - name: enableMonitoringPipelineLogs
+      value: boolean
+    - name: latestMonitoringPipelineMetadata
+      value:
+        - name: runTime
+          value: string
+        - name: status
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+    - name: labels
+      value: object
+    - name: modelDeploymentMonitoringScheduleConfig
+      value:
+        - name: monitorInterval
+          value: string
+        - name: monitorWindow
+          value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: predictInstanceSchemaUri
+      value: string
+    - name: scheduleState
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: analysisInstanceSchemaUri
+      value: string
+    - name: modelDeploymentMonitoringObjectiveConfigs
+      value:
+        - - name: objectiveConfig
+            value:
+              - name: trainingDataset
+                value:
+                  - name: dataset
+                    value: string
+                  - name: bigquerySource
+                    value:
+                      - name: inputUri
+                        value: string
+                  - name: loggingSamplingStrategy
+                    value:
+                      - name: randomSampleConfig
+                        value:
+                          - name: sampleRate
+                            value: number
+                  - name: gcsSource
+                    value:
+                      - name: uris
+                        value:
+                          - string
+                  - name: targetField
+                    value: string
+                  - name: dataFormat
+                    value: string
+              - name: explanationConfig
+                value:
+                  - name: explanationBaseline
+                    value:
+                      - name: bigquery
+                        value:
+                          - name: outputUri
+                            value: string
+                      - name: predictionFormat
+                        value: string
+                  - name: enableFeatureAttributes
+                    value: boolean
+              - name: trainingPredictionSkewDetectionConfig
+                value:
+                  - name: attributionScoreSkewThresholds
+                    value: object
+                  - name: skewThresholds
+                    value: object
+                  - name: defaultSkewThreshold
+                    value:
+                      - name: value
+                        value: number
+              - name: predictionDriftDetectionConfig
+                value:
+                  - name: attributionScoreDriftThresholds
+                    value: object
+                  - name: driftThresholds
+                    value: object
+          - name: deployedModelId
+            value: string
+    - name: samplePredictInstance
+      value: any
+    - name: state
+      value: string
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: endpoint
+      value: string
+    - name: nextScheduleTime
+      value: string
+    - name: modelMonitoringAlertConfig
+      value:
+        - name: enableLogging
+          value: boolean
+        - name: notificationChannels
+          value:
+            - string
+        - name: emailAlertConfig
+          value:
+            - name: userEmails
+              value:
+                - string
+    - name: bigqueryTables
+      value:
+        - - name: logSource
+            value: string
+          - name: requestResponseLoggingSchemaVersion
+            value: string
+          - name: logType
+            value: string
+          - name: bigqueryTablePath
+            value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

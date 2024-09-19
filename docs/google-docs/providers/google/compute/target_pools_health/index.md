@@ -50,5 +50,5 @@ kind
 FROM google.compute.target_pools_health
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND targetPool = '{{ targetPool }}'; 
+AND targetPool = '{{ targetPool }}';
 ```

@@ -103,7 +103,7 @@ subscriptionEndTime,
 updateTime,
 usageReportingId
 FROM google.cloudcommerceprocurement.entitlements
-WHERE providersId = '{{ providersId }}'; 
+WHERE providersId = '{{ providersId }}';
 ```
 
 ## `UPDATE` example

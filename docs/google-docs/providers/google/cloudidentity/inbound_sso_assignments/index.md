@@ -64,7 +64,7 @@ ssoMode,
 targetGroup,
 targetOrgUnit
 FROM google.cloudidentity.inbound_sso_assignments
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -83,7 +83,6 @@ Use the following StackQL query and manifest file to create a new <code>inbound_
 ```sql
 /*+ create */
 INSERT INTO google.cloudidentity.inbound_sso_assignments (
-,
 targetGroup,
 targetOrgUnit,
 customer,
@@ -93,7 +92,6 @@ samlSsoInfo,
 signInBehavior
 )
 SELECT 
-'{{  }}',
 '{{ targetGroup }}',
 '{{ targetOrgUnit }}',
 '{{ customer }}',
@@ -107,16 +105,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-targetGroup: string
-targetOrgUnit: string
-name: string
-customer: string
-rank: integer
-ssoMode: string
-samlSsoInfo:
-  inboundSamlSsoProfile: string
-signInBehavior:
-  redirectCondition: string
+- name: your_resource_model_name
+  props:
+    - name: targetGroup
+      value: string
+    - name: targetOrgUnit
+      value: string
+    - name: name
+      value: string
+    - name: customer
+      value: string
+    - name: rank
+      value: integer
+    - name: ssoMode
+      value: string
+    - name: samlSsoInfo
+      value:
+        - name: inboundSamlSsoProfile
+          value: string
+    - name: signInBehavior
+      value:
+        - name: redirectCondition
+          value: string
 
 ```
 </TabItem>

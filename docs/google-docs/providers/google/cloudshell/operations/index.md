@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.cloudshell.operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

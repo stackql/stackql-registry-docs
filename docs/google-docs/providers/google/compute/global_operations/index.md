@@ -99,7 +99,7 @@ user,
 warnings,
 zone
 FROM google.compute.global_operations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `DELETE` example

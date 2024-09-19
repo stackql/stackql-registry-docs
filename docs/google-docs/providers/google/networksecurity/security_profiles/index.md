@@ -65,7 +65,7 @@ type,
 updateTime
 FROM google.networksecurity.security_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -106,21 +106,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-threatPreventionProfile:
-  severityOverrides:
-    - severity: string
-      action: string
-  threatOverrides:
-    - threatId: string
-      type: string
-      action: string
-name: string
-description: string
-createTime: string
-updateTime: string
-etag: string
-labels: object
-type: string
+- name: your_resource_model_name
+  props:
+    - name: threatPreventionProfile
+      value:
+        - name: severityOverrides
+          value:
+            - - name: severity
+                value: string
+              - name: action
+                value: string
+        - name: threatOverrides
+          value:
+            - - name: threatId
+                value: string
+              - name: type
+                value: string
+              - name: action
+                value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: labels
+      value: object
+    - name: type
+      value: string
 
 ```
 </TabItem>

@@ -53,7 +53,7 @@ members,
 role
 FROM google.deploymentmanager.deployments_iam_policies
 WHERE project = '{{ project }}'
-AND resource = '{{ resource }}'; 
+AND resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

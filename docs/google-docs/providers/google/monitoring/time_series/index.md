@@ -64,7 +64,7 @@ resource,
 unit,
 valueType
 FROM google.monitoring.time_series
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -95,58 +95,103 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-timeSeries:
-  - metric:
-      type: string
-      labels: object
-    resource:
-      type: string
-      labels: object
-    metadata:
-      systemLabels: object
-      userLabels: object
-    metricKind: string
-    valueType: string
-    points:
-      - interval:
-          endTime: string
-          startTime: string
-        value:
-          boolValue: boolean
-          int64Value: string
-          doubleValue: number
-          stringValue: string
-          distributionValue:
-            count: string
-            mean: number
-            sumOfSquaredDeviation: number
-            range:
-              min: number
-              max: number
-            bucketOptions:
-              linearBuckets:
-                numFiniteBuckets: integer
-                width: number
-                offset: number
-              exponentialBuckets:
-                numFiniteBuckets: integer
-                growthFactor: number
-                scale: number
-              explicitBuckets:
-                bounds:
-                  - type: string
-                    format: string
-            bucketCounts:
-              - type: string
-                format: string
-            exemplars:
-              - value: number
-                timestamp: string
-                attachments:
-                  - type: string
-                    additionalProperties: any
-    unit: string
-    description: string
+- name: your_resource_model_name
+  props:
+    - name: timeSeries
+      value:
+        - - name: metric
+            value:
+              - name: type
+                value: string
+              - name: labels
+                value: object
+          - name: resource
+            value:
+              - name: type
+                value: string
+              - name: labels
+                value: object
+          - name: metadata
+            value:
+              - name: systemLabels
+                value: object
+              - name: userLabels
+                value: object
+          - name: metricKind
+            value: string
+          - name: valueType
+            value: string
+          - name: points
+            value:
+              - - name: interval
+                  value:
+                    - name: endTime
+                      value: string
+                    - name: startTime
+                      value: string
+                - name: value
+                  value:
+                    - name: boolValue
+                      value: boolean
+                    - name: int64Value
+                      value: string
+                    - name: doubleValue
+                      value: number
+                    - name: stringValue
+                      value: string
+                    - name: distributionValue
+                      value:
+                        - name: count
+                          value: string
+                        - name: mean
+                          value: number
+                        - name: sumOfSquaredDeviation
+                          value: number
+                        - name: range
+                          value:
+                            - name: min
+                              value: number
+                            - name: max
+                              value: number
+                        - name: bucketOptions
+                          value:
+                            - name: linearBuckets
+                              value:
+                                - name: numFiniteBuckets
+                                  value: integer
+                                - name: width
+                                  value: number
+                                - name: offset
+                                  value: number
+                            - name: exponentialBuckets
+                              value:
+                                - name: numFiniteBuckets
+                                  value: integer
+                                - name: growthFactor
+                                  value: number
+                                - name: scale
+                                  value: number
+                            - name: explicitBuckets
+                              value:
+                                - name: bounds
+                                  value:
+                                    - number
+                        - name: bucketCounts
+                          value:
+                            - string
+                        - name: exemplars
+                          value:
+                            - - name: value
+                                value: number
+                              - name: timestamp
+                                value: string
+                              - name: attachments
+                                value:
+                                  - object
+          - name: unit
+            value: string
+          - name: description
+            value: string
 
 ```
 </TabItem>

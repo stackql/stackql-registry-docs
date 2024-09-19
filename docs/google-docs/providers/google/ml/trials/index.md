@@ -73,7 +73,7 @@ trialInfeasible
 FROM google.ml.trials
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND studiesId = '{{ studiesId }}'; 
+AND studiesId = '{{ studiesId }}';
 ```
 
 ## `INSERT` example
@@ -114,30 +114,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-parameters:
-  - parameter: string
-    floatValue: number
-    intValue: string
-    stringValue: string
-finalMeasurement:
-  elapsedTime: string
-  stepCount: string
-  metrics:
-    - metric: string
-      value: number
-measurements:
-  - elapsedTime: string
-    stepCount: string
-    metrics:
-      - metric: string
-        value: number
-startTime: string
-endTime: string
-clientId: string
-trialInfeasible: boolean
-infeasibleReason: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: parameters
+      value:
+        - - name: parameter
+            value: string
+          - name: floatValue
+            value: number
+          - name: intValue
+            value: string
+          - name: stringValue
+            value: string
+    - name: finalMeasurement
+      value:
+        - name: elapsedTime
+          value: string
+        - name: stepCount
+          value: string
+        - name: metrics
+          value:
+            - - name: metric
+                value: string
+              - name: value
+                value: number
+    - name: measurements
+      value:
+        - - name: elapsedTime
+            value: string
+          - name: stepCount
+            value: string
+          - name: metrics
+            value:
+              - - name: metric
+                  value: string
+                - name: value
+                  value: number
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: clientId
+      value: string
+    - name: trialInfeasible
+      value: boolean
+    - name: infeasibleReason
+      value: string
 
 ```
 </TabItem>

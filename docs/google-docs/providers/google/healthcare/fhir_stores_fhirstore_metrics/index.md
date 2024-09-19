@@ -51,5 +51,5 @@ FROM google.healthcare.fhir_stores_fhirstore_metrics
 WHERE datasetsId = '{{ datasetsId }}'
 AND fhirStoresId = '{{ fhirStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -54,7 +54,7 @@ condition,
 members,
 role
 FROM google.compute.firewall_policies_iam_policies
-WHERE resource = '{{ resource }}'; 
+WHERE resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

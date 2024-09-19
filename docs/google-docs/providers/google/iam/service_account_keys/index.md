@@ -75,7 +75,7 @@ validAfterTime,
 validBeforeTime
 FROM google.iam.service_account_keys
 WHERE projectsId = '{{ projectsId }}'
-AND serviceAccountsId = '{{ serviceAccountsId }}'; 
+AND serviceAccountsId = '{{ serviceAccountsId }}';
 ```
 
 ## `INSERT` example
@@ -110,8 +110,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-privateKeyType: string
-keyAlgorithm: string
+- name: your_resource_model_name
+  props:
+    - name: privateKeyType
+      value: string
+    - name: keyAlgorithm
+      value: string
 
 ```
 </TabItem>

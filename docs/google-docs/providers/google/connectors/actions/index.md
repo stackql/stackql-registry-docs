@@ -62,5 +62,5 @@ resultMetadata
 FROM google.connectors.actions
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

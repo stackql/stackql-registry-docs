@@ -80,7 +80,7 @@ startTime,
 state,
 type
 FROM google.dlp.dlp_jobs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,172 +117,317 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-jobId: string
-inspectJob:
-  inspectConfig:
-    contentOptions:
-      - type: string
-        enum: string
-        enumDescriptions: string
-    infoTypes:
-      - sensitivityScore:
-          score: string
-        version: string
-        name: string
-    minLikelihood: string
-    includeQuote: boolean
-    minLikelihoodPerInfoType:
-      - minLikelihood: string
-        infoType:
-          version: string
-          name: string
-    limits:
-      maxFindingsPerRequest: integer
-      maxFindingsPerItem: integer
-      maxFindingsPerInfoType:
-        - maxFindings: integer
-    customInfoTypes:
-      - exclusionType: string
-        storedType:
-          createTime: string
-          name: string
-        surrogateType: {}
-        regex:
-          groupIndexes:
-            - format: string
-              type: string
-          pattern: string
-        detectionRules:
-          - hotwordRule:
-              proximity:
-                windowBefore: integer
-                windowAfter: integer
-              likelihoodAdjustment:
-                relativeLikelihood: integer
-                fixedLikelihood: string
-        dictionary:
-          wordList:
-            words:
-              - type: string
-          cloudStoragePath:
-            path: string
-        likelihood: string
-    excludeInfoTypes: boolean
-    ruleSet:
-      - rules:
-          - exclusionRule:
-              matchingType: string
-              excludeInfoTypes:
-                infoTypes:
-                  - version: string
-                    name: string
-              excludeByHotword: {}
-        infoTypes:
-          - version: string
-            name: string
-  actions:
-    - pubSub:
-        topic: string
-      jobNotificationEmails: {}
-      deidentify:
-        fileTypesToTransform:
-          - enumDescriptions: string
-            enum: string
-            type: string
-        transformationDetailsStorageConfig:
-          table:
-            projectId: string
-            datasetId: string
-            tableId: string
-        transformationConfig:
-          deidentifyTemplate: string
-          structuredDeidentifyTemplate: string
-          imageRedactTemplate: string
-        cloudStorageOutput: string
-      publishFindingsToCloudDataCatalog: {}
-      publishToStackdriver: {}
-      publishSummaryToCscc: {}
-      saveFindings:
-        outputConfig:
-          outputSchema: string
-  storageConfig:
-    cloudStorageOptions:
-      fileTypes:
-        - enum: string
-          enumDescriptions: string
-          type: string
-      bytesLimitPerFile: string
-      filesLimitPercent: integer
-      bytesLimitPerFilePercent: integer
-      fileSet:
-        regexFileSet:
-          excludeRegex:
-            - type: string
-          bucketName: string
-          includeRegex:
-            - type: string
-        url: string
-      sampleMethod: string
-    hybridOptions:
-      description: string
-      labels: object
-      tableOptions:
-        identifyingFields:
-          - name: string
-      requiredFindingLabelKeys:
-        - type: string
-    datastoreOptions:
-      partitionId:
-        namespaceId: string
-        projectId: string
-      kind:
-        name: string
-    bigQueryOptions:
-      rowsLimit: string
-      includedFields:
-        - name: string
-      sampleMethod: string
-      identifyingFields:
-        - name: string
-      excludedFields:
-        - name: string
-      rowsLimitPercent: integer
-    timespanConfig:
-      startTime: string
-      timestampField:
-        name: string
-      endTime: string
-      enableAutoPopulationOfTimespanConfig: boolean
-  inspectTemplateName: string
-locationId: string
-riskJob:
-  actions:
-    - {}
-  privacyMetric:
-    categoricalStatsConfig: {}
-    numericalStatsConfig: {}
-    deltaPresenceEstimationConfig:
-      auxiliaryTables:
-        - quasiIds:
-            - customTag: string
-      quasiIds:
-        - customTag: string
-          inferred: {}
-      regionCode: string
-    lDiversityConfig:
-      quasiIds:
-        - name: string
-    kMapEstimationConfig:
-      quasiIds:
-        - customTag: string
-      regionCode: string
-      auxiliaryTables:
-        - quasiIds:
-            - customTag: string
-    kAnonymityConfig:
-      entityId: {}
-      quasiIds:
-        - name: string
+- name: your_resource_model_name
+  props:
+    - name: jobId
+      value: string
+    - name: inspectJob
+      value:
+        - name: inspectConfig
+          value:
+            - name: contentOptions
+              value:
+                - string
+            - name: infoTypes
+              value:
+                - - name: sensitivityScore
+                    value:
+                      - name: score
+                        value: string
+                  - name: version
+                    value: string
+                  - name: name
+                    value: string
+            - name: minLikelihood
+              value: string
+            - name: includeQuote
+              value: boolean
+            - name: minLikelihoodPerInfoType
+              value:
+                - - name: minLikelihood
+                    value: string
+                  - name: infoType
+                    value:
+                      - name: version
+                        value: string
+                      - name: name
+                        value: string
+            - name: limits
+              value:
+                - name: maxFindingsPerRequest
+                  value: integer
+                - name: maxFindingsPerItem
+                  value: integer
+                - name: maxFindingsPerInfoType
+                  value:
+                    - - name: maxFindings
+                        value: integer
+            - name: customInfoTypes
+              value:
+                - - name: exclusionType
+                    value: string
+                  - name: storedType
+                    value:
+                      - name: createTime
+                        value: string
+                      - name: name
+                        value: string
+                  - name: surrogateType
+                    value: []
+                  - name: regex
+                    value:
+                      - name: groupIndexes
+                        value:
+                          - integer
+                      - name: pattern
+                        value: string
+                  - name: detectionRules
+                    value:
+                      - - name: hotwordRule
+                          value:
+                            - name: proximity
+                              value:
+                                - name: windowBefore
+                                  value: integer
+                                - name: windowAfter
+                                  value: integer
+                            - name: likelihoodAdjustment
+                              value:
+                                - name: relativeLikelihood
+                                  value: integer
+                                - name: fixedLikelihood
+                                  value: string
+                  - name: dictionary
+                    value:
+                      - name: wordList
+                        value:
+                          - name: words
+                            value:
+                              - string
+                      - name: cloudStoragePath
+                        value:
+                          - name: path
+                            value: string
+                  - name: likelihood
+                    value: string
+            - name: excludeInfoTypes
+              value: boolean
+            - name: ruleSet
+              value:
+                - - name: rules
+                    value:
+                      - - name: exclusionRule
+                          value:
+                            - name: matchingType
+                              value: string
+                            - name: excludeInfoTypes
+                              value:
+                                - name: infoTypes
+                                  value:
+                                    - - name: version
+                                        value: string
+                                      - name: name
+                                        value: string
+                            - name: excludeByHotword
+                              value: []
+                  - name: infoTypes
+                    value:
+                      - - name: version
+                          value: string
+                        - name: name
+                          value: string
+        - name: actions
+          value:
+            - - name: pubSub
+                value:
+                  - name: topic
+                    value: string
+              - name: jobNotificationEmails
+                value: []
+              - name: deidentify
+                value:
+                  - name: fileTypesToTransform
+                    value:
+                      - string
+                  - name: transformationDetailsStorageConfig
+                    value:
+                      - name: table
+                        value:
+                          - name: projectId
+                            value: string
+                          - name: datasetId
+                            value: string
+                          - name: tableId
+                            value: string
+                  - name: transformationConfig
+                    value:
+                      - name: deidentifyTemplate
+                        value: string
+                      - name: structuredDeidentifyTemplate
+                        value: string
+                      - name: imageRedactTemplate
+                        value: string
+                  - name: cloudStorageOutput
+                    value: string
+              - name: publishFindingsToCloudDataCatalog
+                value: []
+              - name: publishToStackdriver
+                value: []
+              - name: publishSummaryToCscc
+                value: []
+              - name: saveFindings
+                value:
+                  - name: outputConfig
+                    value:
+                      - name: outputSchema
+                        value: string
+        - name: storageConfig
+          value:
+            - name: cloudStorageOptions
+              value:
+                - name: fileTypes
+                  value:
+                    - string
+                - name: bytesLimitPerFile
+                  value: string
+                - name: filesLimitPercent
+                  value: integer
+                - name: bytesLimitPerFilePercent
+                  value: integer
+                - name: fileSet
+                  value:
+                    - name: regexFileSet
+                      value:
+                        - name: excludeRegex
+                          value:
+                            - string
+                        - name: bucketName
+                          value: string
+                        - name: includeRegex
+                          value:
+                            - string
+                    - name: url
+                      value: string
+                - name: sampleMethod
+                  value: string
+            - name: hybridOptions
+              value:
+                - name: description
+                  value: string
+                - name: labels
+                  value: object
+                - name: tableOptions
+                  value:
+                    - name: identifyingFields
+                      value:
+                        - - name: name
+                            value: string
+                - name: requiredFindingLabelKeys
+                  value:
+                    - string
+            - name: datastoreOptions
+              value:
+                - name: partitionId
+                  value:
+                    - name: namespaceId
+                      value: string
+                    - name: projectId
+                      value: string
+                - name: kind
+                  value:
+                    - name: name
+                      value: string
+            - name: bigQueryOptions
+              value:
+                - name: rowsLimit
+                  value: string
+                - name: includedFields
+                  value:
+                    - - name: name
+                        value: string
+                - name: sampleMethod
+                  value: string
+                - name: identifyingFields
+                  value:
+                    - - name: name
+                        value: string
+                - name: excludedFields
+                  value:
+                    - - name: name
+                        value: string
+                - name: rowsLimitPercent
+                  value: integer
+            - name: timespanConfig
+              value:
+                - name: startTime
+                  value: string
+                - name: timestampField
+                  value:
+                    - name: name
+                      value: string
+                - name: endTime
+                  value: string
+                - name: enableAutoPopulationOfTimespanConfig
+                  value: boolean
+        - name: inspectTemplateName
+          value: string
+    - name: locationId
+      value: string
+    - name: riskJob
+      value:
+        - name: actions
+          value:
+            - []
+        - name: privacyMetric
+          value:
+            - name: categoricalStatsConfig
+              value: []
+            - name: numericalStatsConfig
+              value: []
+            - name: deltaPresenceEstimationConfig
+              value:
+                - name: auxiliaryTables
+                  value:
+                    - - name: quasiIds
+                        value:
+                          - - name: customTag
+                              value: string
+                - name: quasiIds
+                  value:
+                    - - name: customTag
+                        value: string
+                      - name: inferred
+                        value: []
+                - name: regionCode
+                  value: string
+            - name: lDiversityConfig
+              value:
+                - name: quasiIds
+                  value:
+                    - - name: name
+                        value: string
+            - name: kMapEstimationConfig
+              value:
+                - name: quasiIds
+                  value:
+                    - - name: customTag
+                        value: string
+                - name: regionCode
+                  value: string
+                - name: auxiliaryTables
+                  value:
+                    - - name: quasiIds
+                        value:
+                          - - name: customTag
+                              value: string
+            - name: kAnonymityConfig
+              value:
+                - name: entityId
+                  value: []
+                - name: quasiIds
+                  value:
+                    - - name: name
+                        value: string
 
 ```
 </TabItem>

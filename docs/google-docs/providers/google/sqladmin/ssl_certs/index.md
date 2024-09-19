@@ -66,7 +66,7 @@ selfLink,
 sha1Fingerprint
 FROM google.sqladmin.ssl_certs
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -99,7 +99,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-commonName: string
+- name: your_resource_model_name
+  props:
+    - name: commonName
+      value: string
 
 ```
 </TabItem>

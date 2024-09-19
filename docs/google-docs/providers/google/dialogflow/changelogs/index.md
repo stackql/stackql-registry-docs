@@ -63,5 +63,5 @@ userEmail
 FROM google.dialogflow.changelogs
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

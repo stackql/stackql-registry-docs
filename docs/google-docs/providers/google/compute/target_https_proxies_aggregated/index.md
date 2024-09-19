@@ -80,5 +80,5 @@ sslPolicy,
 tlsEarlyData,
 urlMap
 FROM google.compute.target_https_proxies_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

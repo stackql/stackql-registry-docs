@@ -54,7 +54,7 @@ status
 FROM google.compute.instance_groups_instances
 WHERE instanceGroup = '{{ instanceGroup }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `INSERT` example
@@ -89,8 +89,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-instances:
-  - instance: string
+- name: your_resource_model_name
+  props:
+    - name: instances
+      value:
+        - - name: instance
+            value: string
 
 ```
 </TabItem>

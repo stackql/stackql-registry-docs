@@ -66,5 +66,5 @@ kubernetesNamespaceAdmissionRules,
 kubernetesServiceAccountAdmissionRules,
 updateTime
 FROM google.binaryauthorization.systempolicy_policy
-WHERE locationsId = '{{ locationsId }}'; 
+WHERE locationsId = '{{ locationsId }}';
 ```

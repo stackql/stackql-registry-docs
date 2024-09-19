@@ -56,5 +56,5 @@ state
 FROM google.apigee.security_reports_result_view
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND securityReportsId = '{{ securityReportsId }}'; 
+AND securityReportsId = '{{ securityReportsId }}';
 ```

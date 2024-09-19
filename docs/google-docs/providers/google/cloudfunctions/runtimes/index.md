@@ -47,5 +47,5 @@ SELECT
 runtimes
 FROM google.cloudfunctions.runtimes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

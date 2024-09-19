@@ -63,7 +63,7 @@ name,
 value
 FROM google.apigee.entries
 WHERE keyvaluemapsId = '{{ keyvaluemapsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -98,8 +98,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-value: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: value
+      value: string
 
 ```
 </TabItem>

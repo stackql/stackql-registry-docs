@@ -60,5 +60,5 @@ FROM google.dialogflow.deployments
 WHERE agentsId = '{{ agentsId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

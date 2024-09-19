@@ -86,7 +86,7 @@ SELECT
 '{{ timeEvents }}',
 '{{ links }}',
 '{{ status }}',
-true|false,
+{{ sameProcessAsParentSpan }},
 '{{ childSpanCount }}',
 '{{ spanKind }}'
 ;
@@ -95,51 +95,95 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-spanId: string
-parentSpanId: string
-displayName:
-  value: string
-  truncatedByteCount: integer
-startTime: string
-endTime: string
-attributes:
-  attributeMap: object
-  droppedAttributesCount: integer
-stackTrace:
-  stackFrames:
-    frame:
-      - lineNumber: string
-        columnNumber: string
-        loadModule: {}
-    droppedFramesCount: integer
-  stackTraceHashId: string
-timeEvents:
-  timeEvent:
-    - time: string
-      annotation: {}
-      messageEvent:
-        type: string
-        id: string
-        uncompressedSizeBytes: string
-        compressedSizeBytes: string
-  droppedAnnotationsCount: integer
-  droppedMessageEventsCount: integer
-links:
-  link:
-    - traceId: string
-      spanId: string
-      type: string
-  droppedLinksCount: integer
-status:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-sameProcessAsParentSpan: boolean
-childSpanCount: integer
-spanKind: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: spanId
+      value: string
+    - name: parentSpanId
+      value: string
+    - name: displayName
+      value:
+        - name: value
+          value: string
+        - name: truncatedByteCount
+          value: integer
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: attributes
+      value:
+        - name: attributeMap
+          value: object
+        - name: droppedAttributesCount
+          value: integer
+    - name: stackTrace
+      value:
+        - name: stackFrames
+          value:
+            - name: frame
+              value:
+                - - name: lineNumber
+                    value: string
+                  - name: columnNumber
+                    value: string
+                  - name: loadModule
+                    value: []
+            - name: droppedFramesCount
+              value: integer
+        - name: stackTraceHashId
+          value: string
+    - name: timeEvents
+      value:
+        - name: timeEvent
+          value:
+            - - name: time
+                value: string
+              - name: annotation
+                value: []
+              - name: messageEvent
+                value:
+                  - name: type
+                    value: string
+                  - name: id
+                    value: string
+                  - name: uncompressedSizeBytes
+                    value: string
+                  - name: compressedSizeBytes
+                    value: string
+        - name: droppedAnnotationsCount
+          value: integer
+        - name: droppedMessageEventsCount
+          value: integer
+    - name: links
+      value:
+        - name: link
+          value:
+            - - name: traceId
+                value: string
+              - name: spanId
+                value: string
+              - name: type
+                value: string
+        - name: droppedLinksCount
+          value: integer
+    - name: status
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: sameProcessAsParentSpan
+      value: boolean
+    - name: childSpanCount
+      value: integer
+    - name: spanKind
+      value: string
 
 ```
 </TabItem>

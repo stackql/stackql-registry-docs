@@ -72,7 +72,7 @@ includedPermissions,
 stage,
 title
 FROM google.iam.roles
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -105,16 +105,27 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-roleId: string
-role:
-  name: string
-  title: string
-  description: string
-  includedPermissions:
-    - type: string
-  stage: string
-  etag: string
-  deleted: boolean
+- name: your_resource_model_name
+  props:
+    - name: roleId
+      value: string
+    - name: role
+      value:
+        - name: name
+          value: string
+        - name: title
+          value: string
+        - name: description
+          value: string
+        - name: includedPermissions
+          value:
+            - string
+        - name: stage
+          value: string
+        - name: etag
+          value: string
+        - name: deleted
+          value: boolean
 
 ```
 </TabItem>

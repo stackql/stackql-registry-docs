@@ -51,7 +51,7 @@ name,
 createTime
 FROM google.cloudkms.key_rings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -82,8 +82,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

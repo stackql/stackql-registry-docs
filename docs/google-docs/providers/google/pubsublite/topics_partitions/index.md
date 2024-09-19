@@ -48,5 +48,5 @@ partitionCount
 FROM google.pubsublite.topics_partitions
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND topicsId = '{{ topicsId }}'; 
+AND topicsId = '{{ topicsId }}';
 ```

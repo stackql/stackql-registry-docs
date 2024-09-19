@@ -110,7 +110,7 @@ versions,
 zone
 FROM google.compute.region_instance_group_managers
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -179,93 +179,173 @@ SELECT
 '{{ namedPorts }}',
 '{{ statefulPolicy }}',
 '{{ instanceLifecyclePolicy }}',
-true|false,
-true|false
+{{ satisfiesPzi }},
+{{ satisfiesPzs }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-zone: string
-region: string
-distributionPolicy:
-  zones:
-    - zone: string
-  targetShape: string
-instanceTemplate: string
-versions:
-  - name: string
-    instanceTemplate: string
-    targetSize:
-      fixed: integer
-      percent: integer
-      calculated: integer
-allInstancesConfig:
-  properties:
-    metadata: object
-    labels: object
-instanceGroup: string
-targetPools:
-  - type: string
-baseInstanceName: string
-fingerprint: string
-currentActions:
-  none: integer
-  creating: integer
-  creatingWithoutRetries: integer
-  verifying: integer
-  recreating: integer
-  deleting: integer
-  abandoning: integer
-  restarting: integer
-  refreshing: integer
-  suspending: integer
-  resuming: integer
-  stopping: integer
-  starting: integer
-status:
-  isStable: boolean
-  allInstancesConfig:
-    effective: boolean
-    currentRevision: string
-  versionTarget:
-    isReached: boolean
-  stateful:
-    hasStatefulConfig: boolean
-    perInstanceConfigs:
-      allEffective: boolean
-  autoscaler: string
-targetSize: integer
-listManagedInstancesResults: string
-selfLink: string
-autoHealingPolicies:
-  - healthCheck: string
-    initialDelaySec: integer
-updatePolicy:
-  type: string
-  instanceRedistributionType: string
-  minimalAction: string
-  mostDisruptiveAllowedAction: string
-  replacementMethod: string
-namedPorts:
-  - name: string
-    port: integer
-statefulPolicy:
-  preservedState:
-    disks: object
-    internalIPs: object
-    externalIPs: object
-instanceLifecyclePolicy:
-  forceUpdateOnRepair: string
-  defaultActionOnFailure: string
-satisfiesPzi: boolean
-satisfiesPzs: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: zone
+      value: string
+    - name: region
+      value: string
+    - name: distributionPolicy
+      value:
+        - name: zones
+          value:
+            - - name: zone
+                value: string
+        - name: targetShape
+          value: string
+    - name: instanceTemplate
+      value: string
+    - name: versions
+      value:
+        - - name: name
+            value: string
+          - name: instanceTemplate
+            value: string
+          - name: targetSize
+            value:
+              - name: fixed
+                value: integer
+              - name: percent
+                value: integer
+              - name: calculated
+                value: integer
+    - name: allInstancesConfig
+      value:
+        - name: properties
+          value:
+            - name: metadata
+              value: object
+            - name: labels
+              value: object
+    - name: instanceGroup
+      value: string
+    - name: targetPools
+      value:
+        - string
+    - name: baseInstanceName
+      value: string
+    - name: fingerprint
+      value: string
+    - name: currentActions
+      value:
+        - name: none
+          value: integer
+        - name: creating
+          value: integer
+        - name: creatingWithoutRetries
+          value: integer
+        - name: verifying
+          value: integer
+        - name: recreating
+          value: integer
+        - name: deleting
+          value: integer
+        - name: abandoning
+          value: integer
+        - name: restarting
+          value: integer
+        - name: refreshing
+          value: integer
+        - name: suspending
+          value: integer
+        - name: resuming
+          value: integer
+        - name: stopping
+          value: integer
+        - name: starting
+          value: integer
+    - name: status
+      value:
+        - name: isStable
+          value: boolean
+        - name: allInstancesConfig
+          value:
+            - name: effective
+              value: boolean
+            - name: currentRevision
+              value: string
+        - name: versionTarget
+          value:
+            - name: isReached
+              value: boolean
+        - name: stateful
+          value:
+            - name: hasStatefulConfig
+              value: boolean
+            - name: perInstanceConfigs
+              value:
+                - name: allEffective
+                  value: boolean
+        - name: autoscaler
+          value: string
+    - name: targetSize
+      value: integer
+    - name: listManagedInstancesResults
+      value: string
+    - name: selfLink
+      value: string
+    - name: autoHealingPolicies
+      value:
+        - - name: healthCheck
+            value: string
+          - name: initialDelaySec
+            value: integer
+    - name: updatePolicy
+      value:
+        - name: type
+          value: string
+        - name: instanceRedistributionType
+          value: string
+        - name: minimalAction
+          value: string
+        - name: mostDisruptiveAllowedAction
+          value: string
+        - name: replacementMethod
+          value: string
+    - name: namedPorts
+      value:
+        - - name: name
+            value: string
+          - name: port
+            value: integer
+    - name: statefulPolicy
+      value:
+        - name: preservedState
+          value:
+            - name: disks
+              value: object
+            - name: internalIPs
+              value: object
+            - name: externalIPs
+              value: object
+    - name: instanceLifecyclePolicy
+      value:
+        - name: forceUpdateOnRepair
+          value: string
+        - name: defaultActionOnFailure
+          value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
 
 ```
 </TabItem>

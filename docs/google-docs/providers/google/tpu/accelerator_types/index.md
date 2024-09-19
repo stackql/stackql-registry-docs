@@ -52,5 +52,5 @@ acceleratorConfigs,
 type
 FROM google.tpu.accelerator_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

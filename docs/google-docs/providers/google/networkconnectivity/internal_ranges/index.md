@@ -75,7 +75,7 @@ usage,
 users
 FROM google.networkconnectivity.internal_ranges
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -126,24 +126,37 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-ipCidrRange: string
-network: string
-usage: string
-peering: string
-prefixLength: integer
-targetCidrRange:
-  - type: string
-users:
-  - type: string
-overlaps:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: ipCidrRange
+      value: string
+    - name: network
+      value: string
+    - name: usage
+      value: string
+    - name: peering
+      value: string
+    - name: prefixLength
+      value: integer
+    - name: targetCidrRange
+      value:
+        - string
+    - name: users
+      value:
+        - string
+    - name: overlaps
+      value:
+        - string
 
 ```
 </TabItem>

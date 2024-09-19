@@ -47,5 +47,5 @@ SELECT
 transferParameters
 FROM google.domains.registrations_transfer_parameters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

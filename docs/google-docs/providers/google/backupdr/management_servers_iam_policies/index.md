@@ -54,7 +54,7 @@ role
 FROM google.backupdr.management_servers_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND managementServersId = '{{ managementServersId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -94,7 +94,7 @@ textToSpeechSettings,
 timeZone
 FROM google.dialogflow.agents
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -150,10 +150,10 @@ SELECT
 '{{ speechToTextSettings }}',
 '{{ startFlow }}',
 '{{ securitySettings }}',
-true|false,
-true|false,
-true|false,
-true|false,
+{{ enableStackdriverLogging }},
+{{ enableSpellCorrection }},
+{{ enableMultiLanguageTraining }},
+{{ locked }},
 '{{ advancedSettings }}',
 '{{ gitIntegrationSettings }}',
 '{{ textToSpeechSettings }}',
@@ -167,60 +167,114 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-defaultLanguageCode: string
-supportedLanguageCodes:
-  - type: string
-timeZone: string
-description: string
-avatarUri: string
-speechToTextSettings:
-  enableSpeechAdaptation: boolean
-startFlow: string
-securitySettings: string
-enableStackdriverLogging: boolean
-enableSpellCorrection: boolean
-enableMultiLanguageTraining: boolean
-locked: boolean
-advancedSettings:
-  audioExportGcsDestination:
-    uri: string
-  speechSettings:
-    endpointerSensitivity: integer
-    noSpeechTimeout: string
-    useTimeoutBasedEndpointing: boolean
-    models: object
-  dtmfSettings:
-    enabled: boolean
-    maxDigits: integer
-    finishDigit: string
-    interdigitTimeoutDuration: string
-    endpointingTimeoutDuration: string
-  loggingSettings:
-    enableStackdriverLogging: boolean
-    enableInteractionLogging: boolean
-    enableConsentBasedRedaction: boolean
-gitIntegrationSettings:
-  githubSettings:
-    displayName: string
-    repositoryUri: string
-    trackingBranch: string
-    accessToken: string
-    branches:
-      - type: string
-textToSpeechSettings:
-  synthesizeSpeechConfigs: object
-genAppBuilderSettings:
-  engine: string
-answerFeedbackSettings:
-  enableAnswerFeedback: boolean
-personalizationSettings:
-  defaultEndUserMetadata: object
-clientCertificateSettings:
-  sslCertificate: string
-  privateKey: string
-  passphrase: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: defaultLanguageCode
+      value: string
+    - name: supportedLanguageCodes
+      value:
+        - string
+    - name: timeZone
+      value: string
+    - name: description
+      value: string
+    - name: avatarUri
+      value: string
+    - name: speechToTextSettings
+      value:
+        - name: enableSpeechAdaptation
+          value: boolean
+    - name: startFlow
+      value: string
+    - name: securitySettings
+      value: string
+    - name: enableStackdriverLogging
+      value: boolean
+    - name: enableSpellCorrection
+      value: boolean
+    - name: enableMultiLanguageTraining
+      value: boolean
+    - name: locked
+      value: boolean
+    - name: advancedSettings
+      value:
+        - name: audioExportGcsDestination
+          value:
+            - name: uri
+              value: string
+        - name: speechSettings
+          value:
+            - name: endpointerSensitivity
+              value: integer
+            - name: noSpeechTimeout
+              value: string
+            - name: useTimeoutBasedEndpointing
+              value: boolean
+            - name: models
+              value: object
+        - name: dtmfSettings
+          value:
+            - name: enabled
+              value: boolean
+            - name: maxDigits
+              value: integer
+            - name: finishDigit
+              value: string
+            - name: interdigitTimeoutDuration
+              value: string
+            - name: endpointingTimeoutDuration
+              value: string
+        - name: loggingSettings
+          value:
+            - name: enableStackdriverLogging
+              value: boolean
+            - name: enableInteractionLogging
+              value: boolean
+            - name: enableConsentBasedRedaction
+              value: boolean
+    - name: gitIntegrationSettings
+      value:
+        - name: githubSettings
+          value:
+            - name: displayName
+              value: string
+            - name: repositoryUri
+              value: string
+            - name: trackingBranch
+              value: string
+            - name: accessToken
+              value: string
+            - name: branches
+              value:
+                - string
+    - name: textToSpeechSettings
+      value:
+        - name: synthesizeSpeechConfigs
+          value: object
+    - name: genAppBuilderSettings
+      value:
+        - name: engine
+          value: string
+    - name: answerFeedbackSettings
+      value:
+        - name: enableAnswerFeedback
+          value: boolean
+    - name: personalizationSettings
+      value:
+        - name: defaultEndUserMetadata
+          value: object
+    - name: clientCertificateSettings
+      value:
+        - name: sslCertificate
+          value: string
+        - name: privateKey
+          value: string
+        - name: passphrase
+          value: string
 
 ```
 </TabItem>

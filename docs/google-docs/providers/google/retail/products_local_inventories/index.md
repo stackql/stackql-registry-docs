@@ -73,34 +73,56 @@ SELECT
 '{{ localInventories }}',
 '{{ addMask }}',
 '{{ addTime }}',
-true|false
+{{ allowMissing }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-localInventories:
-  - placeId: string
-    priceInfo:
-      currencyCode: string
-      price: number
-      originalPrice: number
-      cost: number
-      priceEffectiveTime: string
-      priceExpireTime: string
-      priceRange:
-        price:
-          minimum: number
-          exclusiveMinimum: number
-          maximum: number
-          exclusiveMaximum: number
-    attributes: object
-    fulfillmentTypes:
-      - type: string
-addMask: string
-addTime: string
-allowMissing: boolean
+- name: your_resource_model_name
+  props:
+    - name: localInventories
+      value:
+        - - name: placeId
+            value: string
+          - name: priceInfo
+            value:
+              - name: currencyCode
+                value: string
+              - name: price
+                value: number
+              - name: originalPrice
+                value: number
+              - name: cost
+                value: number
+              - name: priceEffectiveTime
+                value: string
+              - name: priceExpireTime
+                value: string
+              - name: priceRange
+                value:
+                  - name: price
+                    value:
+                      - name: minimum
+                        value: number
+                      - name: exclusiveMinimum
+                        value: number
+                      - name: maximum
+                        value: number
+                      - name: exclusiveMaximum
+                        value: number
+          - name: attributes
+            value: object
+          - name: fulfillmentTypes
+            value:
+              - string
+    - name: addMask
+      value: string
+    - name: addTime
+      value: string
+    - name: allowMissing
+      value: boolean
 
 ```
 </TabItem>

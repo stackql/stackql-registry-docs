@@ -55,5 +55,5 @@ error,
 metadata,
 response
 FROM google.servicemanagement.operations
-WHERE  = '{{  }}'; 
+;
 ```

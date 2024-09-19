@@ -74,7 +74,7 @@ state,
 trainingInput,
 trainingOutput
 FROM google.ml.jobs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,121 +125,229 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-jobId: string
-trainingInput:
-  scaleTier: string
-  masterType: string
-  masterConfig:
-    acceleratorConfig:
-      count: string
-      type: string
-    imageUri: string
-    tpuTfVersion: string
-    diskConfig:
-      bootDiskType: string
-      bootDiskSizeGb: integer
-    containerCommand:
-      - type: string
-    containerArgs:
-      - type: string
-  workerType: string
-  parameterServerType: string
-  evaluatorType: string
-  workerCount: string
-  parameterServerCount: string
-  evaluatorCount: string
-  packageUris:
-    - type: string
-  pythonModule: string
-  args:
-    - type: string
-  hyperparameters:
-    goal: string
-    params:
-      - parameterName: string
-        type: string
-        minValue: number
-        maxValue: number
-        categoricalValues:
-          - type: string
-        discreteValues:
-          - type: string
-            format: string
-        scaleType: string
-    maxTrials: integer
-    maxParallelTrials: integer
-    maxFailedTrials: integer
-    hyperparameterMetricTag: string
-    resumePreviousJobId: string
-    enableTrialEarlyStopping: boolean
-    algorithm: string
-  region: string
-  jobDir: string
-  runtimeVersion: string
-  pythonVersion: string
-  encryptionConfig:
-    kmsKeyName: string
-  scheduling:
-    maxRunningTime: string
-    maxWaitTime: string
-    priority: integer
-  network: string
-  serviceAccount: string
-  useChiefInTfConfig: boolean
-  enableWebAccess: boolean
-predictionInput:
-  modelName: string
-  versionName: string
-  uri: string
-  dataFormat: string
-  outputDataFormat: string
-  inputPaths:
-    - type: string
-  outputPath: string
-  maxWorkerCount: string
-  region: string
-  runtimeVersion: string
-  batchSize: string
-  signatureName: string
-createTime: string
-startTime: string
-endTime: string
-state: string
-errorMessage: string
-trainingOutput:
-  completedTrialCount: string
-  trials:
-    - trialId: string
-      hyperparameters: object
-      startTime: string
-      endTime: string
-      state: string
-      finalMetric:
-        trainingStep: string
-        objectiveValue: number
-      isTrialStoppedEarly: boolean
-      allMetrics:
-        - trainingStep: string
-          objectiveValue: number
-      builtInAlgorithmOutput:
-        framework: string
-        runtimeVersion: string
-        pythonVersion: string
-        modelPath: string
-      webAccessUris: object
-  consumedMLUnits: number
-  isHyperparameterTuningJob: boolean
-  isBuiltInAlgorithmJob: boolean
-  hyperparameterMetricTag: string
-  webAccessUris: object
-predictionOutput:
-  outputPath: string
-  predictionCount: string
-  errorCount: string
-  nodeHours: number
-labels: object
-etag: string
-jobPosition: string
+- name: your_resource_model_name
+  props:
+    - name: jobId
+      value: string
+    - name: trainingInput
+      value:
+        - name: scaleTier
+          value: string
+        - name: masterType
+          value: string
+        - name: masterConfig
+          value:
+            - name: acceleratorConfig
+              value:
+                - name: count
+                  value: string
+                - name: type
+                  value: string
+            - name: imageUri
+              value: string
+            - name: tpuTfVersion
+              value: string
+            - name: diskConfig
+              value:
+                - name: bootDiskType
+                  value: string
+                - name: bootDiskSizeGb
+                  value: integer
+            - name: containerCommand
+              value:
+                - string
+            - name: containerArgs
+              value:
+                - string
+        - name: workerType
+          value: string
+        - name: parameterServerType
+          value: string
+        - name: evaluatorType
+          value: string
+        - name: workerCount
+          value: string
+        - name: parameterServerCount
+          value: string
+        - name: evaluatorCount
+          value: string
+        - name: packageUris
+          value:
+            - string
+        - name: pythonModule
+          value: string
+        - name: args
+          value:
+            - string
+        - name: hyperparameters
+          value:
+            - name: goal
+              value: string
+            - name: params
+              value:
+                - - name: parameterName
+                    value: string
+                  - name: type
+                    value: string
+                  - name: minValue
+                    value: number
+                  - name: maxValue
+                    value: number
+                  - name: categoricalValues
+                    value:
+                      - string
+                  - name: discreteValues
+                    value:
+                      - number
+                  - name: scaleType
+                    value: string
+            - name: maxTrials
+              value: integer
+            - name: maxParallelTrials
+              value: integer
+            - name: maxFailedTrials
+              value: integer
+            - name: hyperparameterMetricTag
+              value: string
+            - name: resumePreviousJobId
+              value: string
+            - name: enableTrialEarlyStopping
+              value: boolean
+            - name: algorithm
+              value: string
+        - name: region
+          value: string
+        - name: jobDir
+          value: string
+        - name: runtimeVersion
+          value: string
+        - name: pythonVersion
+          value: string
+        - name: encryptionConfig
+          value:
+            - name: kmsKeyName
+              value: string
+        - name: scheduling
+          value:
+            - name: maxRunningTime
+              value: string
+            - name: maxWaitTime
+              value: string
+            - name: priority
+              value: integer
+        - name: network
+          value: string
+        - name: serviceAccount
+          value: string
+        - name: useChiefInTfConfig
+          value: boolean
+        - name: enableWebAccess
+          value: boolean
+    - name: predictionInput
+      value:
+        - name: modelName
+          value: string
+        - name: versionName
+          value: string
+        - name: uri
+          value: string
+        - name: dataFormat
+          value: string
+        - name: outputDataFormat
+          value: string
+        - name: inputPaths
+          value:
+            - string
+        - name: outputPath
+          value: string
+        - name: maxWorkerCount
+          value: string
+        - name: region
+          value: string
+        - name: runtimeVersion
+          value: string
+        - name: batchSize
+          value: string
+        - name: signatureName
+          value: string
+    - name: createTime
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: state
+      value: string
+    - name: errorMessage
+      value: string
+    - name: trainingOutput
+      value:
+        - name: completedTrialCount
+          value: string
+        - name: trials
+          value:
+            - - name: trialId
+                value: string
+              - name: hyperparameters
+                value: object
+              - name: startTime
+                value: string
+              - name: endTime
+                value: string
+              - name: state
+                value: string
+              - name: finalMetric
+                value:
+                  - name: trainingStep
+                    value: string
+                  - name: objectiveValue
+                    value: number
+              - name: isTrialStoppedEarly
+                value: boolean
+              - name: allMetrics
+                value:
+                  - - name: trainingStep
+                      value: string
+                    - name: objectiveValue
+                      value: number
+              - name: builtInAlgorithmOutput
+                value:
+                  - name: framework
+                    value: string
+                  - name: runtimeVersion
+                    value: string
+                  - name: pythonVersion
+                    value: string
+                  - name: modelPath
+                    value: string
+              - name: webAccessUris
+                value: object
+        - name: consumedMLUnits
+          value: number
+        - name: isHyperparameterTuningJob
+          value: boolean
+        - name: isBuiltInAlgorithmJob
+          value: boolean
+        - name: hyperparameterMetricTag
+          value: string
+        - name: webAccessUris
+          value: object
+    - name: predictionOutput
+      value:
+        - name: outputPath
+          value: string
+        - name: predictionCount
+          value: string
+        - name: errorCount
+          value: string
+        - name: nodeHours
+          value: number
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: jobPosition
+      value: string
 
 ```
 </TabItem>

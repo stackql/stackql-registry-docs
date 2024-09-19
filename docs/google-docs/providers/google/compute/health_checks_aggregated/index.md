@@ -84,5 +84,5 @@ timeoutSec,
 type,
 unhealthyThreshold
 FROM google.compute.health_checks_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

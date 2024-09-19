@@ -75,7 +75,7 @@ deidentifyConfig,
 displayName,
 updateTime
 FROM google.dlp.deidentify_templates
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,109 +110,211 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-deidentifyTemplate:
-  deidentifyConfig:
-    transformationErrorHandling:
-      leaveUntransformed: {}
-      throwError: {}
-    recordTransformations:
-      fieldTransformations:
-        - infoTypeTransformations:
-            transformations:
-              - primitiveTransformation:
-                  fixedSizeBucketingConfig:
-                    bucketSize: number
-                    lowerBound:
-                      integerValue: string
-                      dayOfWeekValue: string
-                      floatValue: number
-                      stringValue: string
-                      timestampValue: string
-                      dateValue:
-                        day: integer
-                        year: integer
-                        month: integer
-                      booleanValue: boolean
-                      timeValue:
-                        hours: integer
-                        minutes: integer
-                        seconds: integer
-                        nanos: integer
-                  dateShiftConfig:
-                    cryptoKey:
-                      transient:
-                        name: string
-                      unwrapped:
-                        key: string
-                      kmsWrapped:
-                        cryptoKeyName: string
-                        wrappedKey: string
-                    context:
-                      name: string
-                    upperBoundDays: integer
-                    lowerBoundDays: integer
-                  redactConfig: {}
-                  cryptoDeterministicConfig:
-                    surrogateInfoType:
-                      sensitivityScore:
-                        score: string
-                      version: string
-                      name: string
-                  replaceDictionaryConfig:
-                    wordList:
-                      words:
-                        - type: string
-                  characterMaskConfig:
-                    numberToMask: integer
-                    reverseOrder: boolean
-                    charactersToIgnore:
-                      - commonCharactersToIgnore: string
-                        charactersToSkip: string
-                    maskingCharacter: string
-                  cryptoHashConfig: {}
-                  bucketingConfig:
-                    buckets:
-                      - {}
-                  replaceConfig: {}
-                  cryptoReplaceFfxFpeConfig:
-                    customAlphabet: string
-                    commonAlphabet: string
-                    radix: integer
-                  timePartConfig:
-                    partToExtract: string
-                  replaceWithInfoTypeConfig: {}
-                infoTypes:
-                  - version: string
-                    name: string
-          condition:
-            expressions:
-              conditions:
-                conditions:
-                  - operator: string
-              logicalOperator: string
-          fields:
-            - name: string
-      recordSuppressions:
-        - {}
-    imageTransformations:
-      transforms:
-        - allInfoTypes: {}
-          selectedInfoTypes:
-            infoTypes:
-              - version: string
-                name: string
-          allText: {}
-          redactionColor:
-            blue: number
-            red: number
-            green: number
-  displayName: string
-  description: string
-  createTime: string
-  updateTime: string
-  name: string
-templateId: string
-locationId: string
+- name: your_resource_model_name
+  props:
+    - name: deidentifyTemplate
+      value:
+        - name: deidentifyConfig
+          value:
+            - name: transformationErrorHandling
+              value:
+                - name: leaveUntransformed
+                  value: []
+                - name: throwError
+                  value: []
+            - name: recordTransformations
+              value:
+                - name: fieldTransformations
+                  value:
+                    - - name: infoTypeTransformations
+                        value:
+                          - name: transformations
+                            value:
+                              - - name: primitiveTransformation
+                                  value:
+                                    - name: fixedSizeBucketingConfig
+                                      value:
+                                        - name: bucketSize
+                                          value: number
+                                        - name: lowerBound
+                                          value:
+                                            - name: integerValue
+                                              value: string
+                                            - name: dayOfWeekValue
+                                              value: string
+                                            - name: floatValue
+                                              value: number
+                                            - name: stringValue
+                                              value: string
+                                            - name: timestampValue
+                                              value: string
+                                            - name: dateValue
+                                              value:
+                                                - name: day
+                                                  value: integer
+                                                - name: year
+                                                  value: integer
+                                                - name: month
+                                                  value: integer
+                                            - name: booleanValue
+                                              value: boolean
+                                            - name: timeValue
+                                              value:
+                                                - name: hours
+                                                  value: integer
+                                                - name: minutes
+                                                  value: integer
+                                                - name: seconds
+                                                  value: integer
+                                                - name: nanos
+                                                  value: integer
+                                    - name: dateShiftConfig
+                                      value:
+                                        - name: cryptoKey
+                                          value:
+                                            - name: transient
+                                              value:
+                                                - name: name
+                                                  value: string
+                                            - name: unwrapped
+                                              value:
+                                                - name: key
+                                                  value: string
+                                            - name: kmsWrapped
+                                              value:
+                                                - name: cryptoKeyName
+                                                  value: string
+                                                - name: wrappedKey
+                                                  value: string
+                                        - name: context
+                                          value:
+                                            - name: name
+                                              value: string
+                                        - name: upperBoundDays
+                                          value: integer
+                                        - name: lowerBoundDays
+                                          value: integer
+                                    - name: redactConfig
+                                      value: []
+                                    - name: cryptoDeterministicConfig
+                                      value:
+                                        - name: surrogateInfoType
+                                          value:
+                                            - name: sensitivityScore
+                                              value:
+                                                - name: score
+                                                  value: string
+                                            - name: version
+                                              value: string
+                                            - name: name
+                                              value: string
+                                    - name: replaceDictionaryConfig
+                                      value:
+                                        - name: wordList
+                                          value:
+                                            - name: words
+                                              value:
+                                                - string
+                                    - name: characterMaskConfig
+                                      value:
+                                        - name: numberToMask
+                                          value: integer
+                                        - name: reverseOrder
+                                          value: boolean
+                                        - name: charactersToIgnore
+                                          value:
+                                            - - name: commonCharactersToIgnore
+                                                value: string
+                                              - name: charactersToSkip
+                                                value: string
+                                        - name: maskingCharacter
+                                          value: string
+                                    - name: cryptoHashConfig
+                                      value: []
+                                    - name: bucketingConfig
+                                      value:
+                                        - name: buckets
+                                          value:
+                                            - []
+                                    - name: replaceConfig
+                                      value: []
+                                    - name: cryptoReplaceFfxFpeConfig
+                                      value:
+                                        - name: customAlphabet
+                                          value: string
+                                        - name: commonAlphabet
+                                          value: string
+                                        - name: radix
+                                          value: integer
+                                    - name: timePartConfig
+                                      value:
+                                        - name: partToExtract
+                                          value: string
+                                    - name: replaceWithInfoTypeConfig
+                                      value: []
+                                - name: infoTypes
+                                  value:
+                                    - - name: version
+                                        value: string
+                                      - name: name
+                                        value: string
+                      - name: condition
+                        value:
+                          - name: expressions
+                            value:
+                              - name: conditions
+                                value:
+                                  - name: conditions
+                                    value:
+                                      - - name: operator
+                                          value: string
+                              - name: logicalOperator
+                                value: string
+                      - name: fields
+                        value:
+                          - - name: name
+                              value: string
+                - name: recordSuppressions
+                  value:
+                    - []
+            - name: imageTransformations
+              value:
+                - name: transforms
+                  value:
+                    - - name: allInfoTypes
+                        value: []
+                      - name: selectedInfoTypes
+                        value:
+                          - name: infoTypes
+                            value:
+                              - - name: version
+                                  value: string
+                                - name: name
+                                  value: string
+                      - name: allText
+                        value: []
+                      - name: redactionColor
+                        value:
+                          - name: blue
+                            value: number
+                          - name: red
+                            value: number
+                          - name: green
+                            value: number
+        - name: displayName
+          value: string
+        - name: description
+          value: string
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: name
+          value: string
+    - name: templateId
+      value: string
+    - name: locationId
+      value: string
 
 ```
 </TabItem>

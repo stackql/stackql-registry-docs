@@ -54,7 +54,7 @@ role
 FROM google.managedidentities.backups_iam_policies
 WHERE backupsId = '{{ backupsId }}'
 AND domainsId = '{{ domainsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

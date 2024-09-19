@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.servicenetworking.operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

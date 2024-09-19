@@ -50,5 +50,5 @@ nextPageToken
 FROM google.compute.instance_group_managers_managed_instances
 WHERE instanceGroupManager = '{{ instanceGroupManager }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

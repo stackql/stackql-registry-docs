@@ -46,5 +46,5 @@ Gets the metadata info for the requested client
 SELECT
 properties
 FROM google.integrations.clientmetadata
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

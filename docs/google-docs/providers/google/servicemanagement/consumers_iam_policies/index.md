@@ -53,7 +53,7 @@ members,
 role
 FROM google.servicemanagement.consumers_iam_policies
 WHERE consumersId = '{{ consumersId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `REPLACE` example

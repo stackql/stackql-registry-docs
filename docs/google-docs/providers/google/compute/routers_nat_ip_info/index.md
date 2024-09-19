@@ -48,5 +48,5 @@ result
 FROM google.compute.routers_nat_ip_info
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND router = '{{ router }}'; 
+AND router = '{{ router }}';
 ```

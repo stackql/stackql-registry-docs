@@ -55,5 +55,5 @@ labels,
 properties
 FROM google.oracledatabase.autonomous_database_backups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

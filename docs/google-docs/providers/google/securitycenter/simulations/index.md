@@ -53,5 +53,5 @@ createTime,
 resourceValueConfigsMetadata
 FROM google.securitycenter.simulations
 WHERE organizationsId = '{{ organizationsId }}'
-AND simulationsId = '{{ simulationsId }}'; 
+AND simulationsId = '{{ simulationsId }}';
 ```

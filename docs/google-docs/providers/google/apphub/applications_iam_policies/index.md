@@ -54,7 +54,7 @@ role
 FROM google.apphub.applications_iam_policies
 WHERE applicationsId = '{{ applicationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

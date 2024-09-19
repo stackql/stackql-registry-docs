@@ -69,7 +69,7 @@ labelStats,
 metadata
 FROM google.datalabeling.annotated_datasets
 WHERE datasetsId = '{{ datasetsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

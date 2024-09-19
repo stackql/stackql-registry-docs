@@ -57,5 +57,5 @@ integrationConfig,
 monetizationConfig
 FROM google.apigee.environments_addons_config
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

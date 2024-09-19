@@ -58,7 +58,7 @@ metadata,
 response
 FROM google.datafusion.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

@@ -75,7 +75,7 @@ state,
 type
 FROM google.documentai.processors
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,19 +114,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-satisfiesPzi: boolean
-processEndpoint: string
-satisfiesPzs: boolean
-defaultProcessorVersion: string
-state: string
-createTime: string
-processorVersionAliases:
-  - processorVersion: string
-    alias: string
-kmsKeyName: string
-name: string
-type: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: satisfiesPzi
+      value: boolean
+    - name: processEndpoint
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: defaultProcessorVersion
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: processorVersionAliases
+      value:
+        - - name: processorVersion
+            value: string
+          - name: alias
+            value: string
+    - name: kmsKeyName
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

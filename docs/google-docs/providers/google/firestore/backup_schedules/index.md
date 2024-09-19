@@ -61,7 +61,7 @@ updateTime,
 weeklyRecurrence
 FROM google.firestore.backup_schedules
 WHERE databasesId = '{{ databasesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -98,13 +98,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-retention: string
-dailyRecurrence: {}
-weeklyRecurrence:
-  day: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: retention
+      value: string
+    - name: dailyRecurrence
+      value: []
+    - name: weeklyRecurrence
+      value:
+        - name: day
+          value: string
 
 ```
 </TabItem>

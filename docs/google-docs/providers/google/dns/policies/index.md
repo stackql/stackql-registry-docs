@@ -65,7 +65,7 @@ enableLogging,
 kind,
 networks
 FROM google.dns.policies
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -95,33 +95,51 @@ enableLogging
 SELECT 
 '{{ project }}',
 '{{ name }}',
-true|false,
+{{ enableInboundForwarding }},
 '{{ description }}',
 '{{ networks }}',
 '{{ alternativeNameServerConfig }}',
-true|false
+{{ enableLogging }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-id: string
-name: string
-enableInboundForwarding: boolean
-description: string
-networks:
-  - networkUrl: string
-    kind: string
-alternativeNameServerConfig:
-  targetNameServers:
-    - ipv4Address: string
-      forwardingPath: string
-      ipv6Address: string
-      kind: string
-  kind: string
-enableLogging: boolean
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: enableInboundForwarding
+      value: boolean
+    - name: description
+      value: string
+    - name: networks
+      value:
+        - - name: networkUrl
+            value: string
+          - name: kind
+            value: string
+    - name: alternativeNameServerConfig
+      value:
+        - name: targetNameServers
+          value:
+            - - name: ipv4Address
+                value: string
+              - name: forwardingPath
+                value: string
+              - name: ipv6Address
+                value: string
+              - name: kind
+                value: string
+        - name: kind
+          value: string
+    - name: enableLogging
+      value: boolean
+    - name: kind
+      value: string
 
 ```
 </TabItem>

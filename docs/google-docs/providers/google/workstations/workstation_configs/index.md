@@ -102,7 +102,7 @@ updateTime
 FROM google.workstations.workstation_configs
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workstationClustersId = '{{ workstationClustersId }}'; 
+AND workstationClustersId = '{{ workstationClustersId }}';
 ```
 
 ## `INSERT` example
@@ -163,98 +163,174 @@ SELECT
 '{{ encryptionKey }}',
 '{{ readinessChecks }}',
 '{{ replicaZones }}',
-true|false,
-true|false,
+{{ enableAuditAgent }},
+{{ disableTcpConnections }},
 '{{ allowedPorts }}',
-true|false
+{{ grantWorkstationAdminRoleOnCreate }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-reconciling: boolean
-annotations: object
-labels: object
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-idleTimeout: string
-runningTimeout: string
-maxUsableWorkstations: integer
-host:
-  gceInstance:
-    machineType: string
-    serviceAccount: string
-    serviceAccountScopes:
-      - type: string
-    tags:
-      - type: string
-    poolSize: integer
-    pooledInstances: integer
-    disablePublicIpAddresses: boolean
-    enableNestedVirtualization: boolean
-    shieldedInstanceConfig:
-      enableSecureBoot: boolean
-      enableVtpm: boolean
-      enableIntegrityMonitoring: boolean
-    confidentialInstanceConfig:
-      enableConfidentialCompute: boolean
-    bootDiskSizeGb: integer
-    accelerators:
-      - type: string
-        count: integer
-    disableSsh: boolean
-    vmTags: object
-persistentDirectories:
-  - gcePd:
-      sizeGb: integer
-      fsType: string
-      diskType: string
-      sourceSnapshot: string
-      reclaimPolicy: string
-    mountPath: string
-ephemeralDirectories:
-  - gcePd:
-      diskType: string
-      sourceSnapshot: string
-      sourceImage: string
-      readOnly: boolean
-    mountPath: string
-container:
-  image: string
-  command:
-    - type: string
-  args:
-    - type: string
-  env: object
-  workingDir: string
-  runAsUser: integer
-encryptionKey:
-  kmsKey: string
-  kmsKeyServiceAccount: string
-readinessChecks:
-  - path: string
-    port: integer
-replicaZones:
-  - type: string
-degraded: boolean
-conditions:
-  - code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-enableAuditAgent: boolean
-disableTcpConnections: boolean
-allowedPorts:
-  - first: integer
-    last: integer
-grantWorkstationAdminRoleOnCreate: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: idleTimeout
+      value: string
+    - name: runningTimeout
+      value: string
+    - name: maxUsableWorkstations
+      value: integer
+    - name: host
+      value:
+        - name: gceInstance
+          value:
+            - name: machineType
+              value: string
+            - name: serviceAccount
+              value: string
+            - name: serviceAccountScopes
+              value:
+                - string
+            - name: tags
+              value:
+                - string
+            - name: poolSize
+              value: integer
+            - name: pooledInstances
+              value: integer
+            - name: disablePublicIpAddresses
+              value: boolean
+            - name: enableNestedVirtualization
+              value: boolean
+            - name: shieldedInstanceConfig
+              value:
+                - name: enableSecureBoot
+                  value: boolean
+                - name: enableVtpm
+                  value: boolean
+                - name: enableIntegrityMonitoring
+                  value: boolean
+            - name: confidentialInstanceConfig
+              value:
+                - name: enableConfidentialCompute
+                  value: boolean
+            - name: bootDiskSizeGb
+              value: integer
+            - name: accelerators
+              value:
+                - - name: type
+                    value: string
+                  - name: count
+                    value: integer
+            - name: disableSsh
+              value: boolean
+            - name: vmTags
+              value: object
+    - name: persistentDirectories
+      value:
+        - - name: gcePd
+            value:
+              - name: sizeGb
+                value: integer
+              - name: fsType
+                value: string
+              - name: diskType
+                value: string
+              - name: sourceSnapshot
+                value: string
+              - name: reclaimPolicy
+                value: string
+          - name: mountPath
+            value: string
+    - name: ephemeralDirectories
+      value:
+        - - name: gcePd
+            value:
+              - name: diskType
+                value: string
+              - name: sourceSnapshot
+                value: string
+              - name: sourceImage
+                value: string
+              - name: readOnly
+                value: boolean
+          - name: mountPath
+            value: string
+    - name: container
+      value:
+        - name: image
+          value: string
+        - name: command
+          value:
+            - string
+        - name: args
+          value:
+            - string
+        - name: env
+          value: object
+        - name: workingDir
+          value: string
+        - name: runAsUser
+          value: integer
+    - name: encryptionKey
+      value:
+        - name: kmsKey
+          value: string
+        - name: kmsKeyServiceAccount
+          value: string
+    - name: readinessChecks
+      value:
+        - - name: path
+            value: string
+          - name: port
+            value: integer
+    - name: replicaZones
+      value:
+        - string
+    - name: degraded
+      value: boolean
+    - name: conditions
+      value:
+        - - name: code
+            value: integer
+          - name: message
+            value: string
+          - name: details
+            value:
+              - object
+    - name: enableAuditAgent
+      value: boolean
+    - name: disableTcpConnections
+      value: boolean
+    - name: allowedPorts
+      value:
+        - - name: first
+            value: integer
+          - name: last
+            value: integer
+    - name: grantWorkstationAdminRoleOnCreate
+      value: boolean
 
 ```
 </TabItem>

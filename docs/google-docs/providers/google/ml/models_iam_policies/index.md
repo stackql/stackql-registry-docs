@@ -53,7 +53,7 @@ members,
 role
 FROM google.ml.models_iam_policies
 WHERE modelsId = '{{ modelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

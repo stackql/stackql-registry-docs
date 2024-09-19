@@ -55,7 +55,7 @@ members,
 role
 FROM google.compute.backend_buckets_iam_policies
 WHERE project = '{{ project }}'
-AND resource = '{{ resource }}'; 
+AND resource = '{{ resource }}';
 ```
 
 ## `REPLACE` example

@@ -75,7 +75,7 @@ rolloutState,
 uid
 FROM google.osconfig.os_policy_assignments
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,103 +118,197 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-osPolicies:
-  - id: string
-    description: string
-    mode: string
-    resourceGroups:
-      - inventoryFilters:
-          - osShortName: string
-            osVersion: string
-        resources:
-          - id: string
-            pkg:
-              desiredState: string
-              apt:
-                name: string
-              deb:
-                source:
-                  remote:
-                    uri: string
-                    sha256Checksum: string
-                  gcs:
-                    bucket: string
-                    object: string
-                    generation: string
-                  localPath: string
-                  allowInsecure: boolean
-                pullDeps: boolean
-              yum:
-                name: string
-              zypper:
-                name: string
-              rpm:
-                pullDeps: boolean
-              googet:
-                name: string
-              msi:
-                properties:
-                  - type: string
-            repository:
-              apt:
-                archiveType: string
-                uri: string
-                distribution: string
-                components:
-                  - type: string
-                gpgKey: string
-              yum:
-                id: string
-                displayName: string
-                baseUrl: string
-                gpgKeys:
-                  - type: string
-              zypper:
-                id: string
-                displayName: string
-                baseUrl: string
-                gpgKeys:
-                  - type: string
-              goo:
-                name: string
-                url: string
-            exec:
-              validate:
-                script: string
-                args:
-                  - type: string
-                interpreter: string
-                outputFilePath: string
-            file:
-              content: string
-              path: string
-              state: string
-              permissions: string
-    allowNoResourceGroupMatch: boolean
-instanceFilter:
-  all: boolean
-  inclusionLabels:
-    - labels: object
-  exclusionLabels:
-    - labels: object
-  inventories:
-    - osShortName: string
-      osVersion: string
-rollout:
-  disruptionBudget:
-    fixed: integer
-    percent: integer
-  minWaitDuration: string
-revisionId: string
-revisionCreateTime: string
-etag: string
-rolloutState: string
-baseline: boolean
-deleted: boolean
-reconciling: boolean
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: osPolicies
+      value:
+        - - name: id
+            value: string
+          - name: description
+            value: string
+          - name: mode
+            value: string
+          - name: resourceGroups
+            value:
+              - - name: inventoryFilters
+                  value:
+                    - - name: osShortName
+                        value: string
+                      - name: osVersion
+                        value: string
+                - name: resources
+                  value:
+                    - - name: id
+                        value: string
+                      - name: pkg
+                        value:
+                          - name: desiredState
+                            value: string
+                          - name: apt
+                            value:
+                              - name: name
+                                value: string
+                          - name: deb
+                            value:
+                              - name: source
+                                value:
+                                  - name: remote
+                                    value:
+                                      - name: uri
+                                        value: string
+                                      - name: sha256Checksum
+                                        value: string
+                                  - name: gcs
+                                    value:
+                                      - name: bucket
+                                        value: string
+                                      - name: object
+                                        value: string
+                                      - name: generation
+                                        value: string
+                                  - name: localPath
+                                    value: string
+                                  - name: allowInsecure
+                                    value: boolean
+                              - name: pullDeps
+                                value: boolean
+                          - name: yum
+                            value:
+                              - name: name
+                                value: string
+                          - name: zypper
+                            value:
+                              - name: name
+                                value: string
+                          - name: rpm
+                            value:
+                              - name: pullDeps
+                                value: boolean
+                          - name: googet
+                            value:
+                              - name: name
+                                value: string
+                          - name: msi
+                            value:
+                              - name: properties
+                                value:
+                                  - string
+                      - name: repository
+                        value:
+                          - name: apt
+                            value:
+                              - name: archiveType
+                                value: string
+                              - name: uri
+                                value: string
+                              - name: distribution
+                                value: string
+                              - name: components
+                                value:
+                                  - string
+                              - name: gpgKey
+                                value: string
+                          - name: yum
+                            value:
+                              - name: id
+                                value: string
+                              - name: displayName
+                                value: string
+                              - name: baseUrl
+                                value: string
+                              - name: gpgKeys
+                                value:
+                                  - string
+                          - name: zypper
+                            value:
+                              - name: id
+                                value: string
+                              - name: displayName
+                                value: string
+                              - name: baseUrl
+                                value: string
+                              - name: gpgKeys
+                                value:
+                                  - string
+                          - name: goo
+                            value:
+                              - name: name
+                                value: string
+                              - name: url
+                                value: string
+                      - name: exec
+                        value:
+                          - name: validate
+                            value:
+                              - name: script
+                                value: string
+                              - name: args
+                                value:
+                                  - string
+                              - name: interpreter
+                                value: string
+                              - name: outputFilePath
+                                value: string
+                      - name: file
+                        value:
+                          - name: content
+                            value: string
+                          - name: path
+                            value: string
+                          - name: state
+                            value: string
+                          - name: permissions
+                            value: string
+          - name: allowNoResourceGroupMatch
+            value: boolean
+    - name: instanceFilter
+      value:
+        - name: all
+          value: boolean
+        - name: inclusionLabels
+          value:
+            - - name: labels
+                value: object
+        - name: exclusionLabels
+          value:
+            - - name: labels
+                value: object
+        - name: inventories
+          value:
+            - - name: osShortName
+                value: string
+              - name: osVersion
+                value: string
+    - name: rollout
+      value:
+        - name: disruptionBudget
+          value:
+            - name: fixed
+              value: integer
+            - name: percent
+              value: integer
+        - name: minWaitDuration
+          value: string
+    - name: revisionId
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: etag
+      value: string
+    - name: rolloutState
+      value: string
+    - name: baseline
+      value: boolean
+    - name: deleted
+      value: boolean
+    - name: reconciling
+      value: boolean
+    - name: uid
+      value: string
 
 ```
 </TabItem>

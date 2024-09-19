@@ -67,7 +67,7 @@ lastModifierEmail,
 updateTime
 FROM google.integrations.integrations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

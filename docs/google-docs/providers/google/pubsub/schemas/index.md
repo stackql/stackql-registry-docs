@@ -61,7 +61,7 @@ revisionCreateTime,
 revisionId,
 type
 FROM google.pubsub.schemas
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,11 +96,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-type: string
-definition: string
-revisionId: string
-revisionCreateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: definition
+      value: string
+    - name: revisionId
+      value: string
+    - name: revisionCreateTime
+      value: string
 
 ```
 </TabItem>

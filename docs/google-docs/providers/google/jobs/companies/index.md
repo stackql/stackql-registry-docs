@@ -75,7 +75,7 @@ suspended,
 websiteUri
 FROM google.jobs.companies
 WHERE projectsId = '{{ projectsId }}'
-AND tenantsId = '{{ tenantsId }}'; 
+AND tenantsId = '{{ tenantsId }}';
 ```
 
 ## `INSERT` example
@@ -116,7 +116,7 @@ SELECT
 '{{ externalId }}',
 '{{ size }}',
 '{{ headquartersAddress }}',
-true|false,
+{{ hiringAgency }},
 '{{ eeoText }}',
 '{{ websiteUri }}',
 '{{ careerSiteUri }}',
@@ -128,40 +128,73 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-externalId: string
-size: string
-headquartersAddress: string
-hiringAgency: boolean
-eeoText: string
-websiteUri: string
-careerSiteUri: string
-imageUri: string
-keywordSearchableJobCustomAttributes:
-  - type: string
-derivedInfo:
-  headquartersLocation:
-    locationType: string
-    postalAddress:
-      revision: integer
-      regionCode: string
-      languageCode: string
-      postalCode: string
-      sortingCode: string
-      administrativeArea: string
-      locality: string
-      sublocality: string
-      addressLines:
-        - type: string
-      recipients:
-        - type: string
-      organization: string
-    latLng:
-      latitude: number
-      longitude: number
-    radiusMiles: number
-suspended: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: externalId
+      value: string
+    - name: size
+      value: string
+    - name: headquartersAddress
+      value: string
+    - name: hiringAgency
+      value: boolean
+    - name: eeoText
+      value: string
+    - name: websiteUri
+      value: string
+    - name: careerSiteUri
+      value: string
+    - name: imageUri
+      value: string
+    - name: keywordSearchableJobCustomAttributes
+      value:
+        - string
+    - name: derivedInfo
+      value:
+        - name: headquartersLocation
+          value:
+            - name: locationType
+              value: string
+            - name: postalAddress
+              value:
+                - name: revision
+                  value: integer
+                - name: regionCode
+                  value: string
+                - name: languageCode
+                  value: string
+                - name: postalCode
+                  value: string
+                - name: sortingCode
+                  value: string
+                - name: administrativeArea
+                  value: string
+                - name: locality
+                  value: string
+                - name: sublocality
+                  value: string
+                - name: addressLines
+                  value:
+                    - string
+                - name: recipients
+                  value:
+                    - string
+                - name: organization
+                  value: string
+            - name: latLng
+              value:
+                - name: latitude
+                  value: number
+                - name: longitude
+                  value: number
+            - name: radiusMiles
+              value: number
+    - name: suspended
+      value: boolean
 
 ```
 </TabItem>

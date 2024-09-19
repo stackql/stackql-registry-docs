@@ -53,7 +53,7 @@ role
 FROM google.clouddeploy.custom_target_types_iam_policies
 WHERE customTargetTypesId = '{{ customTargetTypesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -55,5 +55,5 @@ metadata,
 response
 FROM google.jobs.operations
 WHERE operationsId = '{{ operationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

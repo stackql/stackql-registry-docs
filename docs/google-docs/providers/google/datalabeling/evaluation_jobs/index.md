@@ -70,7 +70,7 @@ modelVersion,
 schedule,
 state
 FROM google.datalabeling.evaluation_jobs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,68 +101,128 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-job:
-  name: string
-  description: string
-  state: string
-  schedule: string
-  modelVersion: string
-  evaluationJobConfig:
-    imageClassificationConfig:
-      annotationSpecSet: string
-      allowMultiLabel: boolean
-      answerAggregationType: string
-    boundingPolyConfig:
-      annotationSpecSet: string
-      instructionMessage: string
-    textClassificationConfig:
-      allowMultiLabel: boolean
-      annotationSpecSet: string
-      sentimentConfig:
-        enableLabelSentimentSelection: boolean
-    inputConfig:
-      textMetadata:
-        languageCode: string
-      gcsSource:
-        inputUri: string
-        mimeType: string
-      bigquerySource:
-        inputUri: string
-      dataType: string
-      annotationType: string
-      classificationMetadata:
-        isMultiLabel: boolean
-    evaluationConfig:
-      boundingBoxEvaluationOptions:
-        iouThreshold: number
-    humanAnnotationConfig:
-      instruction: string
-      annotatedDatasetDisplayName: string
-      annotatedDatasetDescription: string
-      labelGroup: string
-      languageCode: string
-      replicaCount: integer
-      questionDuration: string
-      contributorEmails:
-        - type: string
-      userEmailAddress: string
-    bigqueryImportKeys: object
-    exampleCount: integer
-    exampleSamplePercentage: number
-    evaluationJobAlertConfig:
-      email: string
-      minAcceptableMeanAveragePrecision: number
-  annotationSpecSet: string
-  labelMissingGroundTruth: boolean
-  attempts:
-    - attemptTime: string
-      partialFailures:
-        - code: integer
-          message: string
-          details:
-            - type: string
-              additionalProperties: any
-  createTime: string
+- name: your_resource_model_name
+  props:
+    - name: job
+      value:
+        - name: name
+          value: string
+        - name: description
+          value: string
+        - name: state
+          value: string
+        - name: schedule
+          value: string
+        - name: modelVersion
+          value: string
+        - name: evaluationJobConfig
+          value:
+            - name: imageClassificationConfig
+              value:
+                - name: annotationSpecSet
+                  value: string
+                - name: allowMultiLabel
+                  value: boolean
+                - name: answerAggregationType
+                  value: string
+            - name: boundingPolyConfig
+              value:
+                - name: annotationSpecSet
+                  value: string
+                - name: instructionMessage
+                  value: string
+            - name: textClassificationConfig
+              value:
+                - name: allowMultiLabel
+                  value: boolean
+                - name: annotationSpecSet
+                  value: string
+                - name: sentimentConfig
+                  value:
+                    - name: enableLabelSentimentSelection
+                      value: boolean
+            - name: inputConfig
+              value:
+                - name: textMetadata
+                  value:
+                    - name: languageCode
+                      value: string
+                - name: gcsSource
+                  value:
+                    - name: inputUri
+                      value: string
+                    - name: mimeType
+                      value: string
+                - name: bigquerySource
+                  value:
+                    - name: inputUri
+                      value: string
+                - name: dataType
+                  value: string
+                - name: annotationType
+                  value: string
+                - name: classificationMetadata
+                  value:
+                    - name: isMultiLabel
+                      value: boolean
+            - name: evaluationConfig
+              value:
+                - name: boundingBoxEvaluationOptions
+                  value:
+                    - name: iouThreshold
+                      value: number
+            - name: humanAnnotationConfig
+              value:
+                - name: instruction
+                  value: string
+                - name: annotatedDatasetDisplayName
+                  value: string
+                - name: annotatedDatasetDescription
+                  value: string
+                - name: labelGroup
+                  value: string
+                - name: languageCode
+                  value: string
+                - name: replicaCount
+                  value: integer
+                - name: questionDuration
+                  value: string
+                - name: contributorEmails
+                  value:
+                    - string
+                - name: userEmailAddress
+                  value: string
+            - name: bigqueryImportKeys
+              value: object
+            - name: exampleCount
+              value: integer
+            - name: exampleSamplePercentage
+              value: number
+            - name: evaluationJobAlertConfig
+              value:
+                - name: email
+                  value: string
+                - name: minAcceptableMeanAveragePrecision
+                  value: number
+        - name: annotationSpecSet
+          value: string
+        - name: labelMissingGroundTruth
+          value: boolean
+        - name: attempts
+          value:
+            - - name: attemptTime
+                value: string
+              - name: partialFailures
+                value:
+                  - - name: code
+                      value: integer
+                    - name: message
+                      value: string
+                    - name: details
+                      value:
+                        - object
+        - name: createTime
+          value: string
 
 ```
 </TabItem>

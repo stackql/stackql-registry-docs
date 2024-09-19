@@ -47,5 +47,5 @@ Returns a list of the sensitive information types that DLP API supports. See htt
 SELECT
 infoTypes
 FROM google.dlp.info_types
-WHERE  = '{{  }}'; 
+;
 ```

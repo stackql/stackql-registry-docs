@@ -54,7 +54,7 @@ role
 FROM google.datacatalog.tag_templates_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND tagTemplatesId = '{{ tagTemplatesId }}'; 
+AND tagTemplatesId = '{{ tagTemplatesId }}';
 ```
 
 ## `REPLACE` example

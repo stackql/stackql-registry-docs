@@ -82,7 +82,7 @@ vrf,
 vrfAttachment
 FROM google.baremetalsolution.networks
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

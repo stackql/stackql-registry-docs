@@ -74,7 +74,7 @@ updateTime
 FROM google.aiplatform.contexts
 WHERE locationsId = '{{ locationsId }}'
 AND metadataStoresId = '{{ metadataStoresId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -123,18 +123,31 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-parentContexts:
-  - type: string
-schemaVersion: string
-etag: string
-schemaTitle: string
-description: string
-updateTime: string
-name: string
-labels: object
-displayName: string
-metadata: object
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: parentContexts
+      value:
+        - string
+    - name: schemaVersion
+      value: string
+    - name: etag
+      value: string
+    - name: schemaTitle
+      value: string
+    - name: description
+      value: string
+    - name: updateTime
+      value: string
+    - name: name
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: metadata
+      value: object
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

@@ -49,7 +49,7 @@ SELECT
 name,
 memberRestriction
 FROM google.cloudidentity.groups_security_settings
-WHERE groupsId = '{{ groupsId }}'; 
+WHERE groupsId = '{{ groupsId }}';
 ```
 
 ## `UPDATE` example

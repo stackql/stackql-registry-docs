@@ -52,7 +52,7 @@ enabled,
 updateTime
 FROM google.apigee.environments_security_actions_config
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

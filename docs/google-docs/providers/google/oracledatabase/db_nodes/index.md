@@ -50,5 +50,5 @@ properties
 FROM google.oracledatabase.db_nodes
 WHERE cloudVmClustersId = '{{ cloudVmClustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

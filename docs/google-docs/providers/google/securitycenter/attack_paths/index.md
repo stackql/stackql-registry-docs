@@ -53,5 +53,5 @@ edges,
 pathNodes
 FROM google.securitycenter.attack_paths
 WHERE organizationsId = '{{ organizationsId }}'
-AND simulationsId = '{{ simulationsId }}'; 
+AND simulationsId = '{{ simulationsId }}';
 ```

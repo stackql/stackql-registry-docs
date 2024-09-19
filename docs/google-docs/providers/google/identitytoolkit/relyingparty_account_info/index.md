@@ -48,5 +48,5 @@ SELECT
 kind,
 users
 FROM google.identitytoolkit.relyingparty_account_info
-WHERE  = '{{  }}'; 
+;
 ```

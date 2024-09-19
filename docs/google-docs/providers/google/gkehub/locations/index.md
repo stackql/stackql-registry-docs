@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.gkehub.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

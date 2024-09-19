@@ -68,5 +68,5 @@ usedBytes
 FROM google.compute.storage_pools_disks
 WHERE project = '{{ project }}'
 AND storagePool = '{{ storagePool }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

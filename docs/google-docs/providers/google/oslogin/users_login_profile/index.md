@@ -50,5 +50,5 @@ name,
 posixAccounts,
 sshPublicKeys
 FROM google.oslogin.users_login_profile
-WHERE usersId = '{{ usersId }}'; 
+WHERE usersId = '{{ usersId }}';
 ```

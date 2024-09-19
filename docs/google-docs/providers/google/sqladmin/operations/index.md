@@ -82,5 +82,5 @@ targetLink,
 targetProject,
 user
 FROM google.sqladmin.operations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

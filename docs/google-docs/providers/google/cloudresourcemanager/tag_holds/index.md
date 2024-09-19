@@ -56,7 +56,7 @@ helpLink,
 holder,
 origin
 FROM google.cloudresourcemanager.tag_holds
-WHERE tagValuesId = '{{ tagValuesId }}'; 
+WHERE tagValuesId = '{{ tagValuesId }}';
 ```
 
 ## `INSERT` example
@@ -91,11 +91,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-holder: string
-origin: string
-helpLink: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: holder
+      value: string
+    - name: origin
+      value: string
+    - name: helpLink
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

@@ -80,7 +80,7 @@ revisionUpdateTime
 FROM google.apigeeregistry.deployments
 WHERE apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -133,20 +133,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-revisionId: string
-createTime: string
-revisionCreateTime: string
-revisionUpdateTime: string
-apiSpecRevision: string
-endpointUri: string
-externalChannelUri: string
-intendedAudience: string
-accessGuidance: string
-labels: object
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: revisionId
+      value: string
+    - name: createTime
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: revisionUpdateTime
+      value: string
+    - name: apiSpecRevision
+      value: string
+    - name: endpointUri
+      value: string
+    - name: externalChannelUri
+      value: string
+    - name: intendedAudience
+      value: string
+    - name: accessGuidance
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

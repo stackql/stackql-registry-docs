@@ -73,7 +73,7 @@ state,
 updated
 FROM google.apigee.queries
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -126,23 +126,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-metrics:
-  - function: string
-    name: string
-    value: string
-    operator: string
-    alias: string
-filter: string
-envgroupHostname: string
-timeRange: any
-limit: integer
-csvDelimiter: string
-reportDefinitionId: string
-dimensions:
-  - type: string
-outputFormat: string
-groupByTimeUnit: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: metrics
+      value:
+        - - name: function
+            value: string
+          - name: name
+            value: string
+          - name: value
+            value: string
+          - name: operator
+            value: string
+          - name: alias
+            value: string
+    - name: filter
+      value: string
+    - name: envgroupHostname
+      value: string
+    - name: timeRange
+      value: any
+    - name: limit
+      value: integer
+    - name: csvDelimiter
+      value: string
+    - name: reportDefinitionId
+      value: string
+    - name: dimensions
+      value:
+        - string
+    - name: outputFormat
+      value: string
+    - name: groupByTimeUnit
+      value: string
 
 ```
 </TabItem>

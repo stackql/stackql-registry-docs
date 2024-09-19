@@ -97,7 +97,7 @@ upgrade,
 vulnerability,
 vulnerabilityAssessment
 FROM google.containeranalysis.notes
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,7 +128,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-notes: object
+- name: your_resource_model_name
+  props:
+    - name: notes
+      value: object
 
 ```
 </TabItem>

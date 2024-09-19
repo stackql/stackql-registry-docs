@@ -77,31 +77,54 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-kind: string
-displayName: string
-annotations: object
-etag: string
-createTime: string
-updateTime: string
-deleteTime: string
-rules:
-  - denyRule:
-      deniedPrincipals:
-        - type: string
-      exceptionPrincipals:
-        - type: string
-      deniedPermissions:
-        - type: string
-      exceptionPermissions:
-        - type: string
-      denialCondition:
-        expression: string
-        title: string
-        description: string
-        location: string
-    description: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: kind
+      value: string
+    - name: displayName
+      value: string
+    - name: annotations
+      value: object
+    - name: etag
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: rules
+      value:
+        - - name: denyRule
+            value:
+              - name: deniedPrincipals
+                value:
+                  - string
+              - name: exceptionPrincipals
+                value:
+                  - string
+              - name: deniedPermissions
+                value:
+                  - string
+              - name: exceptionPermissions
+                value:
+                  - string
+              - name: denialCondition
+                value:
+                  - name: expression
+                    value: string
+                  - name: title
+                    value: string
+                  - name: description
+                    value: string
+                  - name: location
+                    value: string
+          - name: description
+            value: string
 
 ```
 </TabItem>

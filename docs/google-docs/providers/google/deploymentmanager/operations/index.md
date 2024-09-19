@@ -97,5 +97,5 @@ user,
 warnings,
 zone
 FROM google.deploymentmanager.operations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

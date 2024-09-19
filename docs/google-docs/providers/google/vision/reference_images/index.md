@@ -55,7 +55,7 @@ uri
 FROM google.vision.reference_images
 WHERE locationsId = '{{ locationsId }}'
 AND productsId = '{{ productsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -94,15 +94,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uri: string
-boundingPolys:
-  - vertices:
-      - x: integer
-        'y': integer
-    normalizedVertices:
-      - x: number
-        'y': number
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uri
+      value: string
+    - name: boundingPolys
+      value:
+        - - name: vertices
+            value:
+              - - name: x
+                  value: integer
+                - name: 'y'
+                  value: integer
+          - name: normalizedVertices
+            value:
+              - - name: x
+                  value: number
+                - name: 'y'
+                  value: number
 
 ```
 </TabItem>

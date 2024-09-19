@@ -66,5 +66,5 @@ manifestSizeLimitBytes,
 selfLink
 FROM google.deploymentmanager.manifests
 WHERE deployment = '{{ deployment }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

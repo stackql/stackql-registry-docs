@@ -81,5 +81,5 @@ error,
 metadata,
 response
 FROM google.discoveryengine.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

@@ -56,7 +56,7 @@ encryptionSpec,
 timeZone
 FROM google.healthcare.datasets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,10 +93,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-timeZone: string
-encryptionSpec:
-  kmsKeyName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: timeZone
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
 
 ```
 </TabItem>

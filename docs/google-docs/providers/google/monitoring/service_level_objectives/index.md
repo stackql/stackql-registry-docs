@@ -62,7 +62,7 @@ rollingPeriod,
 serviceLevelIndicator,
 userLabels
 FROM google.monitoring.service_level_objectives
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```
 
 ## `INSERT` example
@@ -97,7 +97,7 @@ SELECT
 '{{ name }}',
 '{{ displayName }}',
 '{{ serviceLevelIndicator }}',
-number,
+{{ goal }},
 '{{ rollingPeriod }}',
 '{{ calendarPeriod }}',
 '{{ userLabels }}'
@@ -107,40 +107,73 @@ number,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-serviceLevelIndicator:
-  basicSli:
-    method:
-      - type: string
-    location:
-      - type: string
-    version:
-      - type: string
-    availability: {}
-    latency:
-      threshold: string
-  requestBased:
-    goodTotalRatio:
-      goodServiceFilter: string
-      badServiceFilter: string
-      totalServiceFilter: string
-    distributionCut:
-      distributionFilter: string
-      range:
-        min: number
-        max: number
-  windowsBased:
-    goodBadMetricFilter: string
-    goodTotalRatioThreshold:
-      threshold: number
-    metricMeanInRange:
-      timeSeries: string
-    windowPeriod: string
-goal: number
-rollingPeriod: string
-calendarPeriod: string
-userLabels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: serviceLevelIndicator
+      value:
+        - name: basicSli
+          value:
+            - name: method
+              value:
+                - string
+            - name: location
+              value:
+                - string
+            - name: version
+              value:
+                - string
+            - name: availability
+              value: []
+            - name: latency
+              value:
+                - name: threshold
+                  value: string
+        - name: requestBased
+          value:
+            - name: goodTotalRatio
+              value:
+                - name: goodServiceFilter
+                  value: string
+                - name: badServiceFilter
+                  value: string
+                - name: totalServiceFilter
+                  value: string
+            - name: distributionCut
+              value:
+                - name: distributionFilter
+                  value: string
+                - name: range
+                  value:
+                    - name: min
+                      value: number
+                    - name: max
+                      value: number
+        - name: windowsBased
+          value:
+            - name: goodBadMetricFilter
+              value: string
+            - name: goodTotalRatioThreshold
+              value:
+                - name: threshold
+                  value: number
+            - name: metricMeanInRange
+              value:
+                - name: timeSeries
+                  value: string
+            - name: windowPeriod
+              value: string
+    - name: goal
+      value: number
+    - name: rollingPeriod
+      value: string
+    - name: calendarPeriod
+      value: string
+    - name: userLabels
+      value: object
 
 ```
 </TabItem>

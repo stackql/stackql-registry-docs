@@ -63,7 +63,7 @@ updateTime
 FROM google.artifactregistry.files
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `DELETE` example

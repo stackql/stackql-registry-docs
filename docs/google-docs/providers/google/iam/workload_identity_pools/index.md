@@ -62,7 +62,7 @@ expireTime,
 state
 FROM google.iam.workload_identity_pools
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -92,19 +92,27 @@ SELECT
 '{{ projectsId }}',
 '{{ displayName }}',
 '{{ description }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-state: string
-disabled: boolean
-expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: disabled
+      value: boolean
+    - name: expireTime
+      value: string
 
 ```
 </TabItem>

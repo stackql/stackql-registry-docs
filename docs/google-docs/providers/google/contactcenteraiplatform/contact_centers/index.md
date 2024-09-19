@@ -87,7 +87,7 @@ uris,
 userEmail
 FROM google.contactcenteraiplatform.contact_centers
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -133,7 +133,7 @@ SELECT
 '{{ instanceConfig }}',
 '{{ samlParams }}',
 '{{ userEmail }}',
-true|false,
+{{ ccaipManagedUsers }},
 '{{ adminUser }}',
 '{{ kmsKey }}',
 '{{ privateAccess }}',
@@ -146,66 +146,113 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-uris:
-  rootUri: string
-  mediaUri: string
-  virtualAgentStreamingServiceUri: string
-  chatBotUri: string
-state: string
-customerDomainPrefix: string
-displayName: string
-instanceConfig:
-  instanceSize: string
-samlParams:
-  ssoUri: string
-  entityId: string
-  certificate: string
-  userEmail: string
-  emailMapping: string
-  authenticationContexts:
-    - type: string
-      enumDescriptions: string
-      enum: string
-userEmail: string
-ccaipManagedUsers: boolean
-adminUser:
-  givenName: string
-  familyName: string
-kmsKey: string
-privateComponents:
-  - type: string
-privateAccess:
-  ingressSettings:
-    - name: string
-      serviceAttachmentNames:
-        - type: string
-  egressSettings:
-    - name: string
-      serviceAttachmentNames:
-        - type: string
-  pscSetting:
-    allowedConsumerProjectIds:
-      - type: string
-    producerProjectIds:
-      - type: string
-early: {}
-normal: {}
-critical:
-  peakHours:
-    - days:
-        - type: string
-          enumDescriptions: string
-          enum: string
-      startTime:
-        hours: integer
-        minutes: integer
-        seconds: integer
-        nanos: integer
-      duration: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: uris
+      value:
+        - name: rootUri
+          value: string
+        - name: mediaUri
+          value: string
+        - name: virtualAgentStreamingServiceUri
+          value: string
+        - name: chatBotUri
+          value: string
+    - name: state
+      value: string
+    - name: customerDomainPrefix
+      value: string
+    - name: displayName
+      value: string
+    - name: instanceConfig
+      value:
+        - name: instanceSize
+          value: string
+    - name: samlParams
+      value:
+        - name: ssoUri
+          value: string
+        - name: entityId
+          value: string
+        - name: certificate
+          value: string
+        - name: userEmail
+          value: string
+        - name: emailMapping
+          value: string
+        - name: authenticationContexts
+          value:
+            - string
+    - name: userEmail
+      value: string
+    - name: ccaipManagedUsers
+      value: boolean
+    - name: adminUser
+      value:
+        - name: givenName
+          value: string
+        - name: familyName
+          value: string
+    - name: kmsKey
+      value: string
+    - name: privateComponents
+      value:
+        - string
+    - name: privateAccess
+      value:
+        - name: ingressSettings
+          value:
+            - - name: name
+                value: string
+              - name: serviceAttachmentNames
+                value:
+                  - string
+        - name: egressSettings
+          value:
+            - - name: name
+                value: string
+              - name: serviceAttachmentNames
+                value:
+                  - string
+        - name: pscSetting
+          value:
+            - name: allowedConsumerProjectIds
+              value:
+                - string
+            - name: producerProjectIds
+              value:
+                - string
+    - name: early
+      value: []
+    - name: normal
+      value: []
+    - name: critical
+      value:
+        - name: peakHours
+          value:
+            - - name: days
+                value:
+                  - string
+              - name: startTime
+                value:
+                  - name: hours
+                    value: integer
+                  - name: minutes
+                    value: integer
+                  - name: seconds
+                    value: integer
+                  - name: nanos
+                    value: integer
+              - name: duration
+                value: string
 
 ```
 </TabItem>

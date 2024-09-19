@@ -55,7 +55,7 @@ apiProxy,
 samplingConfig
 FROM google.apigee.overrides
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -92,11 +92,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-apiProxy: string
-samplingConfig:
-  sampler: string
-  samplingRate: number
-name: string
+- name: your_resource_model_name
+  props:
+    - name: apiProxy
+      value: string
+    - name: samplingConfig
+      value:
+        - name: sampler
+          value: string
+        - name: samplingRate
+          value: number
+    - name: name
+      value: string
 
 ```
 </TabItem>

@@ -46,5 +46,5 @@ Gets effective IAM policies for a batch of resources.
 SELECT
 policyResults
 FROM google.cloudasset.effective_iam_policies
-WHERE scope = '{{ scope }}'; 
+WHERE scope = '{{ scope }}';
 ```

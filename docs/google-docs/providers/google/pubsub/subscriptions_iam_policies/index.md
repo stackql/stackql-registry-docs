@@ -53,7 +53,7 @@ members,
 role
 FROM google.pubsub.subscriptions_iam_policies
 WHERE projectsId = '{{ projectsId }}'
-AND subscriptionsId = '{{ subscriptionsId }}'; 
+AND subscriptionsId = '{{ subscriptionsId }}';
 ```
 
 ## `REPLACE` example

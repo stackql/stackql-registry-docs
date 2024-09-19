@@ -78,7 +78,7 @@ statusDetails,
 target,
 zone
 FROM google.compute.autoscalers
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -129,44 +129,84 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-target: string
-autoscalingPolicy:
-  minNumReplicas: integer
-  maxNumReplicas: integer
-  scaleInControl:
-    maxScaledInReplicas:
-      fixed: integer
-      percent: integer
-      calculated: integer
-    timeWindowSec: integer
-  coolDownPeriodSec: integer
-  cpuUtilization:
-    utilizationTarget: number
-    predictiveMethod: string
-  customMetricUtilizations:
-    - metric: string
-      filter: string
-      utilizationTarget: number
-      singleInstanceAssignment: number
-      utilizationTargetType: string
-  loadBalancingUtilization:
-    utilizationTarget: number
-  mode: string
-  scalingSchedules: object
-zone: string
-region: string
-selfLink: string
-status: string
-statusDetails:
-  - message: string
-    type: string
-recommendedSize: integer
-scalingScheduleStatus: object
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: target
+      value: string
+    - name: autoscalingPolicy
+      value:
+        - name: minNumReplicas
+          value: integer
+        - name: maxNumReplicas
+          value: integer
+        - name: scaleInControl
+          value:
+            - name: maxScaledInReplicas
+              value:
+                - name: fixed
+                  value: integer
+                - name: percent
+                  value: integer
+                - name: calculated
+                  value: integer
+            - name: timeWindowSec
+              value: integer
+        - name: coolDownPeriodSec
+          value: integer
+        - name: cpuUtilization
+          value:
+            - name: utilizationTarget
+              value: number
+            - name: predictiveMethod
+              value: string
+        - name: customMetricUtilizations
+          value:
+            - - name: metric
+                value: string
+              - name: filter
+                value: string
+              - name: utilizationTarget
+                value: number
+              - name: singleInstanceAssignment
+                value: number
+              - name: utilizationTargetType
+                value: string
+        - name: loadBalancingUtilization
+          value:
+            - name: utilizationTarget
+              value: number
+        - name: mode
+          value: string
+        - name: scalingSchedules
+          value: object
+    - name: zone
+      value: string
+    - name: region
+      value: string
+    - name: selfLink
+      value: string
+    - name: status
+      value: string
+    - name: statusDetails
+      value:
+        - - name: message
+            value: string
+          - name: type
+            value: string
+    - name: recommendedSize
+      value: integer
+    - name: scalingScheduleStatus
+      value: object
 
 ```
 </TabItem>

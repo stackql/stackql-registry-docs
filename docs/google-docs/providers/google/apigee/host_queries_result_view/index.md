@@ -55,5 +55,5 @@ rows,
 state
 FROM google.apigee.host_queries_result_view
 WHERE hostQueriesId = '{{ hostQueriesId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

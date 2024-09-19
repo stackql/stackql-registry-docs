@@ -72,7 +72,7 @@ updateTime
 FROM google.apigateway.configs
 WHERE apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,25 +117,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-gatewayServiceAccount: string
-serviceConfigId: string
-state: string
-openapiDocuments:
-  - document:
-      path: string
-      contents: string
-grpcServices:
-  - source:
-      - path: string
-        contents: string
-managedServiceConfigs:
-  - path: string
-    contents: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: gatewayServiceAccount
+      value: string
+    - name: serviceConfigId
+      value: string
+    - name: state
+      value: string
+    - name: openapiDocuments
+      value:
+        - - name: document
+            value:
+              - name: path
+                value: string
+              - name: contents
+                value: string
+    - name: grpcServices
+      value:
+        - - name: source
+            value:
+              - - name: path
+                  value: string
+                - name: contents
+                  value: string
+    - name: managedServiceConfigs
+      value:
+        - - name: path
+            value: string
+          - name: contents
+            value: string
 
 ```
 </TabItem>

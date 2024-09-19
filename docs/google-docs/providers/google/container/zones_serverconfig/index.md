@@ -57,5 +57,5 @@ validMasterVersions,
 validNodeVersions
 FROM google.container.zones_serverconfig
 WHERE projectId = '{{ projectId }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

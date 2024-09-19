@@ -54,5 +54,5 @@ messageText,
 time
 FROM google.dataflow.messages
 WHERE jobId = '{{ jobId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

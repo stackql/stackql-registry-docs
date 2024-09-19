@@ -87,7 +87,7 @@ sourceDiskId,
 status,
 zone
 FROM google.compute.instant_snapshots
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -135,7 +135,7 @@ SELECT
 '{{ labelFingerprint }}',
 '{{ zone }}',
 '{{ region }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ architecture }}',
 '{{ resourceStatus }}'
 ;
@@ -144,26 +144,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-status: string
-sourceDisk: string
-sourceDiskId: string
-diskSizeGb: string
-selfLink: string
-selfLinkWithId: string
-labels: object
-labelFingerprint: string
-zone: string
-region: string
-satisfiesPzs: boolean
-architecture: string
-resourceStatus:
-  storageSizeBytes: string
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: status
+      value: string
+    - name: sourceDisk
+      value: string
+    - name: sourceDiskId
+      value: string
+    - name: diskSizeGb
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: zone
+      value: string
+    - name: region
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: architecture
+      value: string
+    - name: resourceStatus
+      value:
+        - name: storageSizeBytes
+          value: string
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

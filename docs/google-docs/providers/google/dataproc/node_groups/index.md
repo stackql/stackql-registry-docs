@@ -58,7 +58,7 @@ FROM google.dataproc.node_groups
 WHERE clustersId = '{{ clustersId }}'
 AND nodeGroupsId = '{{ nodeGroupsId }}'
 AND projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `INSERT` example
@@ -99,51 +99,91 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-roles:
-  - type: string
-    enumDescriptions: string
-    enum: string
-nodeGroupConfig:
-  numInstances: integer
-  instanceNames:
-    - type: string
-  instanceReferences:
-    - instanceName: string
-      instanceId: string
-      publicKey: string
-      publicEciesKey: string
-  imageUri: string
-  machineTypeUri: string
-  diskConfig:
-    bootDiskType: string
-    bootDiskSizeGb: integer
-    numLocalSsds: integer
-    localSsdInterface: string
-    bootDiskProvisionedIops: string
-    bootDiskProvisionedThroughput: string
-  isPreemptible: boolean
-  preemptibility: string
-  managedGroupConfig:
-    instanceTemplateName: string
-    instanceGroupManagerName: string
-    instanceGroupManagerUri: string
-  accelerators:
-    - acceleratorTypeUri: string
-      acceleratorCount: integer
-  minCpuPlatform: string
-  minNumInstances: integer
-  instanceFlexibilityPolicy:
-    instanceSelectionList:
-      - machineTypes:
-          - type: string
-        rank: integer
-    instanceSelectionResults:
-      - machineType: string
-        vmCount: integer
-  startupConfig:
-    requiredRegistrationFraction: number
-labels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: roles
+      value:
+        - string
+    - name: nodeGroupConfig
+      value:
+        - name: numInstances
+          value: integer
+        - name: instanceNames
+          value:
+            - string
+        - name: instanceReferences
+          value:
+            - - name: instanceName
+                value: string
+              - name: instanceId
+                value: string
+              - name: publicKey
+                value: string
+              - name: publicEciesKey
+                value: string
+        - name: imageUri
+          value: string
+        - name: machineTypeUri
+          value: string
+        - name: diskConfig
+          value:
+            - name: bootDiskType
+              value: string
+            - name: bootDiskSizeGb
+              value: integer
+            - name: numLocalSsds
+              value: integer
+            - name: localSsdInterface
+              value: string
+            - name: bootDiskProvisionedIops
+              value: string
+            - name: bootDiskProvisionedThroughput
+              value: string
+        - name: isPreemptible
+          value: boolean
+        - name: preemptibility
+          value: string
+        - name: managedGroupConfig
+          value:
+            - name: instanceTemplateName
+              value: string
+            - name: instanceGroupManagerName
+              value: string
+            - name: instanceGroupManagerUri
+              value: string
+        - name: accelerators
+          value:
+            - - name: acceleratorTypeUri
+                value: string
+              - name: acceleratorCount
+                value: integer
+        - name: minCpuPlatform
+          value: string
+        - name: minNumInstances
+          value: integer
+        - name: instanceFlexibilityPolicy
+          value:
+            - name: instanceSelectionList
+              value:
+                - - name: machineTypes
+                    value:
+                      - string
+                  - name: rank
+                    value: integer
+            - name: instanceSelectionResults
+              value:
+                - - name: machineType
+                    value: string
+                  - name: vmCount
+                    value: integer
+        - name: startupConfig
+          value:
+            - name: requiredRegistrationFraction
+              value: number
+    - name: labels
+      value: object
 
 ```
 </TabItem>

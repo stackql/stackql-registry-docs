@@ -89,7 +89,7 @@ state,
 updateTime
 FROM google.aiplatform.schedules
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,7 +125,7 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ displayName }}',
-true|false,
+{{ allowQueueing }},
 '{{ cron }}',
 '{{ endTime }}',
 '{{ createNotebookExecutionJobRequest }}',
@@ -140,136 +140,260 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-lastPauseTime: string
-displayName: string
-nextRunTime: string
-lastScheduledRunResponse:
-  runResponse: string
-  scheduledRunTime: string
-allowQueueing: boolean
-createTime: string
-startedRunCount: string
-lastResumeTime: string
-cron: string
-endTime: string
-createNotebookExecutionJobRequest:
-  notebookExecutionJobId: string
-  parent: string
-  notebookExecutionJob:
-    scheduleResourceName: string
-    executionTimeout: string
-    notebookRuntimeTemplateResourceName: string
-    createTime: string
-    labels: object
-    directNotebookSource:
-      content: string
-    name: string
-    displayName: string
-    updateTime: string
-    serviceAccount: string
-    status:
-      code: integer
-      message: string
-      details:
-        - additionalProperties: any
-          type: string
-    jobState: string
-    gcsNotebookSource:
-      uri: string
-      generation: string
-    executionUser: string
-    gcsOutputUri: string
-    encryptionSpec:
-      kmsKeyName: string
-    dataformRepositorySource:
-      commitSha: string
-      dataformRepositoryResourceName: string
-catchUp: boolean
-maxConcurrentRunCount: string
-state: string
-maxRunCount: string
-startTime: string
-name: string
-createPipelineJobRequest:
-  pipelineJobId: string
-  parent: string
-  pipelineJob:
-    pipelineSpec: object
-    displayName: string
-    templateMetadata:
-      version: string
-    network: string
-    preflightValidations: boolean
-    startTime: string
-    labels: object
-    createTime: string
-    updateTime: string
-    templateUri: string
-    scheduleName: string
-    name: string
-    endTime: string
-    state: string
-    jobDetail:
-      pipelineRunContext:
-        parentContexts:
-          - type: string
-        schemaVersion: string
-        etag: string
-        schemaTitle: string
-        description: string
-        updateTime: string
-        name: string
-        labels: object
-        displayName: string
-        metadata: object
-        createTime: string
-      taskDetails:
-        - executorDetail:
-            containerDetail:
-              failedPreCachingCheckJobs:
-                - type: string
-              mainJob: string
-              preCachingCheckJob: string
-              failedMainJobs:
-                - type: string
-            customJobDetail:
-              failedJobs:
-                - type: string
-              job: string
-          inputs: object
-          execution:
-            schemaVersion: string
-            metadata: object
-            createTime: string
-            labels: object
-            name: string
-            updateTime: string
-            displayName: string
-            description: string
-            state: string
-            schemaTitle: string
-            etag: string
-          pipelineTaskStatus:
-            - updateTime: string
-              state: string
-          taskName: string
-          createTime: string
-          outputs: object
-          endTime: string
-          parentTaskId: string
-          state: string
-          startTime: string
-          taskId: string
-    serviceAccount: string
-    reservedIpRanges:
-      - type: string
-    runtimeConfig:
-      failurePolicy: string
-      inputArtifacts: object
-      parameters: object
-      parameterValues: object
-      gcsOutputDirectory: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: lastPauseTime
+      value: string
+    - name: displayName
+      value: string
+    - name: nextRunTime
+      value: string
+    - name: lastScheduledRunResponse
+      value:
+        - name: runResponse
+          value: string
+        - name: scheduledRunTime
+          value: string
+    - name: allowQueueing
+      value: boolean
+    - name: createTime
+      value: string
+    - name: startedRunCount
+      value: string
+    - name: lastResumeTime
+      value: string
+    - name: cron
+      value: string
+    - name: endTime
+      value: string
+    - name: createNotebookExecutionJobRequest
+      value:
+        - name: notebookExecutionJobId
+          value: string
+        - name: parent
+          value: string
+        - name: notebookExecutionJob
+          value:
+            - name: scheduleResourceName
+              value: string
+            - name: executionTimeout
+              value: string
+            - name: notebookRuntimeTemplateResourceName
+              value: string
+            - name: createTime
+              value: string
+            - name: labels
+              value: object
+            - name: directNotebookSource
+              value:
+                - name: content
+                  value: string
+            - name: name
+              value: string
+            - name: displayName
+              value: string
+            - name: updateTime
+              value: string
+            - name: serviceAccount
+              value: string
+            - name: status
+              value:
+                - name: code
+                  value: integer
+                - name: message
+                  value: string
+                - name: details
+                  value:
+                    - object
+            - name: jobState
+              value: string
+            - name: gcsNotebookSource
+              value:
+                - name: uri
+                  value: string
+                - name: generation
+                  value: string
+            - name: executionUser
+              value: string
+            - name: gcsOutputUri
+              value: string
+            - name: encryptionSpec
+              value:
+                - name: kmsKeyName
+                  value: string
+            - name: dataformRepositorySource
+              value:
+                - name: commitSha
+                  value: string
+                - name: dataformRepositoryResourceName
+                  value: string
+    - name: catchUp
+      value: boolean
+    - name: maxConcurrentRunCount
+      value: string
+    - name: state
+      value: string
+    - name: maxRunCount
+      value: string
+    - name: startTime
+      value: string
+    - name: name
+      value: string
+    - name: createPipelineJobRequest
+      value:
+        - name: pipelineJobId
+          value: string
+        - name: parent
+          value: string
+        - name: pipelineJob
+          value:
+            - name: pipelineSpec
+              value: object
+            - name: displayName
+              value: string
+            - name: templateMetadata
+              value:
+                - name: version
+                  value: string
+            - name: network
+              value: string
+            - name: preflightValidations
+              value: boolean
+            - name: startTime
+              value: string
+            - name: labels
+              value: object
+            - name: createTime
+              value: string
+            - name: updateTime
+              value: string
+            - name: templateUri
+              value: string
+            - name: scheduleName
+              value: string
+            - name: name
+              value: string
+            - name: endTime
+              value: string
+            - name: state
+              value: string
+            - name: jobDetail
+              value:
+                - name: pipelineRunContext
+                  value:
+                    - name: parentContexts
+                      value:
+                        - string
+                    - name: schemaVersion
+                      value: string
+                    - name: etag
+                      value: string
+                    - name: schemaTitle
+                      value: string
+                    - name: description
+                      value: string
+                    - name: updateTime
+                      value: string
+                    - name: name
+                      value: string
+                    - name: labels
+                      value: object
+                    - name: displayName
+                      value: string
+                    - name: metadata
+                      value: object
+                    - name: createTime
+                      value: string
+                - name: taskDetails
+                  value:
+                    - - name: executorDetail
+                        value:
+                          - name: containerDetail
+                            value:
+                              - name: failedPreCachingCheckJobs
+                                value:
+                                  - string
+                              - name: mainJob
+                                value: string
+                              - name: preCachingCheckJob
+                                value: string
+                              - name: failedMainJobs
+                                value:
+                                  - string
+                          - name: customJobDetail
+                            value:
+                              - name: failedJobs
+                                value:
+                                  - string
+                              - name: job
+                                value: string
+                      - name: inputs
+                        value: object
+                      - name: execution
+                        value:
+                          - name: schemaVersion
+                            value: string
+                          - name: metadata
+                            value: object
+                          - name: createTime
+                            value: string
+                          - name: labels
+                            value: object
+                          - name: name
+                            value: string
+                          - name: updateTime
+                            value: string
+                          - name: displayName
+                            value: string
+                          - name: description
+                            value: string
+                          - name: state
+                            value: string
+                          - name: schemaTitle
+                            value: string
+                          - name: etag
+                            value: string
+                      - name: pipelineTaskStatus
+                        value:
+                          - - name: updateTime
+                              value: string
+                            - name: state
+                              value: string
+                      - name: taskName
+                        value: string
+                      - name: createTime
+                        value: string
+                      - name: outputs
+                        value: object
+                      - name: endTime
+                        value: string
+                      - name: parentTaskId
+                        value: string
+                      - name: state
+                        value: string
+                      - name: startTime
+                        value: string
+                      - name: taskId
+                        value: string
+            - name: serviceAccount
+              value: string
+            - name: reservedIpRanges
+              value:
+                - string
+            - name: runtimeConfig
+              value:
+                - name: failurePolicy
+                  value: string
+                - name: inputArtifacts
+                  value: object
+                - name: parameters
+                  value: object
+                - name: parameterValues
+                  value: object
+                - name: gcsOutputDirectory
+                  value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

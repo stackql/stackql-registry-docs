@@ -54,7 +54,7 @@ role
 FROM google.metastore.federations_iam_policies
 WHERE federationsId = '{{ federationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

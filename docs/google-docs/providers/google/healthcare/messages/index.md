@@ -72,7 +72,7 @@ FROM google.healthcare.messages
 WHERE datasetsId = '{{ datasetsId }}'
 AND hl7V2StoresId = '{{ hl7V2StoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -109,25 +109,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-message:
-  name: string
-  data: string
-  createTime: string
-  sendFacility: string
-  sendTime: string
-  messageType: string
-  patientIds:
-    - value: string
-      type: string
-  labels: object
-  parsedData:
-    segments:
-      - segmentId: string
-        setId: string
-        fields: object
-  schematizedData:
-    data: string
-    error: string
+- name: your_resource_model_name
+  props:
+    - name: message
+      value:
+        - name: name
+          value: string
+        - name: data
+          value: string
+        - name: createTime
+          value: string
+        - name: sendFacility
+          value: string
+        - name: sendTime
+          value: string
+        - name: messageType
+          value: string
+        - name: patientIds
+          value:
+            - - name: value
+                value: string
+              - name: type
+                value: string
+        - name: labels
+          value: object
+        - name: parsedData
+          value:
+            - name: segments
+              value:
+                - - name: segmentId
+                    value: string
+                  - name: setId
+                    value: string
+                  - name: fields
+                    value: object
+        - name: schematizedData
+          value:
+            - name: data
+              value: string
+            - name: error
+              value: string
 
 ```
 </TabItem>

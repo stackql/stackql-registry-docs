@@ -49,5 +49,5 @@ FROM google.dataform.workspaces_file_diff
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND repositoriesId = '{{ repositoriesId }}'
-AND workspacesId = '{{ workspacesId }}'; 
+AND workspacesId = '{{ workspacesId }}';
 ```

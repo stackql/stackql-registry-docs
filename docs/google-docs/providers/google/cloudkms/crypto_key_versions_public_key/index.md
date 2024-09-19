@@ -58,5 +58,5 @@ WHERE cryptoKeyVersionsId = '{{ cryptoKeyVersionsId }}'
 AND cryptoKeysId = '{{ cryptoKeysId }}'
 AND keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

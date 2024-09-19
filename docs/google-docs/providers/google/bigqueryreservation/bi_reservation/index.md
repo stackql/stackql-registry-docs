@@ -54,7 +54,7 @@ size,
 updateTime
 FROM google.bigqueryreservation.bi_reservation
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

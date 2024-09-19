@@ -80,5 +80,5 @@ waitUntilTime
 FROM google.clouddeploy.automation_runs
 WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

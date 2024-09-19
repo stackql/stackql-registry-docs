@@ -56,7 +56,7 @@ members,
 role
 FROM google.containeranalysis.notes_iam_policies
 WHERE notesId = '{{ notesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

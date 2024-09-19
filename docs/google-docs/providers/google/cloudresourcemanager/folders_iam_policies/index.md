@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.cloudresourcemanager.folders_iam_policies
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `REPLACE` example

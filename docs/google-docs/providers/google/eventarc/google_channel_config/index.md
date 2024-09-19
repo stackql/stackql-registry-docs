@@ -52,7 +52,7 @@ cryptoKeyName,
 updateTime
 FROM google.eventarc.google_channel_config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

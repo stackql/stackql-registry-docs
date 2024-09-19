@@ -79,7 +79,7 @@ selfLink,
 selfLinkWithId,
 subnetworks
 FROM google.compute.network_attachments
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -130,32 +130,56 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-selfLinkWithId: string
-region: string
-connectionPreference: string
-connectionEndpoints:
-  - status: string
-    projectIdOrNum: string
-    subnetwork: string
-    ipAddress: string
-    ipv6Address: string
-    secondaryIpCidrRanges:
-      - type: string
-    subnetworkCidrRange: string
-subnetworks:
-  - type: string
-producerRejectLists:
-  - type: string
-producerAcceptLists:
-  - type: string
-fingerprint: string
-network: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: selfLinkWithId
+      value: string
+    - name: region
+      value: string
+    - name: connectionPreference
+      value: string
+    - name: connectionEndpoints
+      value:
+        - - name: status
+            value: string
+          - name: projectIdOrNum
+            value: string
+          - name: subnetwork
+            value: string
+          - name: ipAddress
+            value: string
+          - name: ipv6Address
+            value: string
+          - name: secondaryIpCidrRanges
+            value:
+              - string
+          - name: subnetworkCidrRange
+            value: string
+    - name: subnetworks
+      value:
+        - string
+    - name: producerRejectLists
+      value:
+        - string
+    - name: producerAcceptLists
+      value:
+        - string
+    - name: fingerprint
+      value: string
+    - name: network
+      value: string
 
 ```
 </TabItem>

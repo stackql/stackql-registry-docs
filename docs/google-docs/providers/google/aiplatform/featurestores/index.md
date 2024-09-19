@@ -73,7 +73,7 @@ state,
 updateTime
 FROM google.aiplatform.featurestores
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,23 +114,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-onlineStorageTtlDays: integer
-updateTime: string
-satisfiesPzs: boolean
-labels: object
-encryptionSpec:
-  kmsKeyName: string
-etag: string
-satisfiesPzi: boolean
-state: string
-name: string
-onlineServingConfig:
-  fixedNodeCount: integer
-  scaling:
-    cpuUtilizationTarget: integer
-    minNodeCount: integer
-    maxNodeCount: integer
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: onlineStorageTtlDays
+      value: integer
+    - name: updateTime
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: labels
+      value: object
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: etag
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: state
+      value: string
+    - name: name
+      value: string
+    - name: onlineServingConfig
+      value:
+        - name: fixedNodeCount
+          value: integer
+        - name: scaling
+          value:
+            - name: cpuUtilizationTarget
+              value: integer
+            - name: minNodeCount
+              value: integer
+            - name: maxNodeCount
+              value: integer
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

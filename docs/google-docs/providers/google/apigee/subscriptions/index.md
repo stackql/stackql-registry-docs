@@ -60,7 +60,7 @@ lastModifiedAt,
 startTime
 FROM google.apigee.subscriptions
 WHERE developersId = '{{ developersId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -97,12 +97,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
-lastModifiedAt: string
-endTime: string
-startTime: string
-name: string
-apiproduct: string
+- name: your_resource_model_name
+  props:
+    - name: createdAt
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: endTime
+      value: string
+    - name: startTime
+      value: string
+    - name: name
+      value: string
+    - name: apiproduct
+      value: string
 
 ```
 </TabItem>

@@ -68,7 +68,7 @@ FROM google.vmmigration.clone_jobs
 WHERE locationsId = '{{ locationsId }}'
 AND migratingVmsId = '{{ migratingVmsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```
 
 ## `INSERT` example
@@ -103,71 +103,132 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-computeEngineTargetDetails:
-  vmName: string
-  project: string
-  zone: string
-  machineTypeSeries: string
-  machineType: string
-  networkTags:
-    - type: string
-  networkInterfaces:
-    - network: string
-      subnetwork: string
-      internalIp: string
-      externalIp: string
-      networkTier: string
-  serviceAccount: string
-  diskType: string
-  labels: object
-  licenseType: string
-  appliedLicense:
-    type: string
-    osLicense: string
-  computeScheduling:
-    onHostMaintenance: string
-    restartType: string
-    nodeAffinities:
-      - key: string
-        operator: string
-        values:
-          - type: string
-    minNodeCpus: integer
-  secureBoot: boolean
-  enableVtpm: boolean
-  enableIntegrityMonitoring: boolean
-  bootOption: string
-  metadata: object
-  additionalLicenses:
-    - type: string
-  hostname: string
-  encryption:
-    kmsKey: string
-  bootConversion: string
-computeEngineDisksTargetDetails:
-  disksTargetDetails: {}
-  vmTargetDetails:
-    vmUri: string
-  disks:
-    - sourceDiskNumber: integer
-      diskUri: string
-createTime: string
-endTime: string
-name: string
-state: string
-stateTime: string
-error:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-steps:
-  - adaptingOs: {}
-    preparingVmDisks: {}
-    instantiatingMigratedVm: {}
-    startTime: string
-    endTime: string
+- name: your_resource_model_name
+  props:
+    - name: computeEngineTargetDetails
+      value:
+        - name: vmName
+          value: string
+        - name: project
+          value: string
+        - name: zone
+          value: string
+        - name: machineTypeSeries
+          value: string
+        - name: machineType
+          value: string
+        - name: networkTags
+          value:
+            - string
+        - name: networkInterfaces
+          value:
+            - - name: network
+                value: string
+              - name: subnetwork
+                value: string
+              - name: internalIp
+                value: string
+              - name: externalIp
+                value: string
+              - name: networkTier
+                value: string
+        - name: serviceAccount
+          value: string
+        - name: diskType
+          value: string
+        - name: labels
+          value: object
+        - name: licenseType
+          value: string
+        - name: appliedLicense
+          value:
+            - name: type
+              value: string
+            - name: osLicense
+              value: string
+        - name: computeScheduling
+          value:
+            - name: onHostMaintenance
+              value: string
+            - name: restartType
+              value: string
+            - name: nodeAffinities
+              value:
+                - - name: key
+                    value: string
+                  - name: operator
+                    value: string
+                  - name: values
+                    value:
+                      - string
+            - name: minNodeCpus
+              value: integer
+        - name: secureBoot
+          value: boolean
+        - name: enableVtpm
+          value: boolean
+        - name: enableIntegrityMonitoring
+          value: boolean
+        - name: bootOption
+          value: string
+        - name: metadata
+          value: object
+        - name: additionalLicenses
+          value:
+            - string
+        - name: hostname
+          value: string
+        - name: encryption
+          value:
+            - name: kmsKey
+              value: string
+        - name: bootConversion
+          value: string
+    - name: computeEngineDisksTargetDetails
+      value:
+        - name: disksTargetDetails
+          value: []
+        - name: vmTargetDetails
+          value:
+            - name: vmUri
+              value: string
+        - name: disks
+          value:
+            - - name: sourceDiskNumber
+                value: integer
+              - name: diskUri
+                value: string
+    - name: createTime
+      value: string
+    - name: endTime
+      value: string
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: stateTime
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: steps
+      value:
+        - - name: adaptingOs
+            value: []
+          - name: preparingVmDisks
+            value: []
+          - name: instantiatingMigratedVm
+            value: []
+          - name: startTime
+            value: string
+          - name: endTime
+            value: string
 
 ```
 </TabItem>

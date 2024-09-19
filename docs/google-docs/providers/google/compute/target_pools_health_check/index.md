@@ -70,8 +70,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-healthChecks:
-  - healthCheck: string
+- name: your_resource_model_name
+  props:
+    - name: healthChecks
+      value:
+        - - name: healthCheck
+            value: string
 
 ```
 </TabItem>

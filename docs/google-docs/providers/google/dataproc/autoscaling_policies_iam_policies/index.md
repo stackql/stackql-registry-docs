@@ -57,7 +57,7 @@ role
 FROM google.dataproc.autoscaling_policies_iam_policies
 WHERE autoscalingPoliciesId = '{{ autoscalingPoliciesId }}'
 AND projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `REPLACE` example

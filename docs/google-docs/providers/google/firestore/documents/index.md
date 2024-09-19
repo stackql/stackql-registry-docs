@@ -68,7 +68,7 @@ fields,
 updateTime
 FROM google.firestore.documents
 WHERE databasesId = '{{ databasesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,10 +107,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-fields: object
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: fields
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

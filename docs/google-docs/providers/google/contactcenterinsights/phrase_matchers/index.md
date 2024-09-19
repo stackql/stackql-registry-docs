@@ -71,7 +71,7 @@ updateTime,
 versionTag
 FROM google.contactcenterinsights.phrase_matchers
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,7 +105,7 @@ SELECT
 '{{ projectsId }}',
 '{{ phraseMatchRuleGroups }}',
 '{{ name }}',
-true|false,
+{{ active }},
 '{{ displayName }}',
 '{{ type }}',
 '{{ versionTag }}',
@@ -116,24 +116,44 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-phraseMatchRuleGroups:
-  - phraseMatchRules:
-      - negated: boolean
-        config:
-          exactMatchConfig:
-            caseSensitive: boolean
-        query: string
-    type: string
-name: string
-active: boolean
-displayName: string
-type: string
-revisionCreateTime: string
-updateTime: string
-revisionId: string
-versionTag: string
-activationUpdateTime: string
-roleMatch: string
+- name: your_resource_model_name
+  props:
+    - name: phraseMatchRuleGroups
+      value:
+        - - name: phraseMatchRules
+            value:
+              - - name: negated
+                  value: boolean
+                - name: config
+                  value:
+                    - name: exactMatchConfig
+                      value:
+                        - name: caseSensitive
+                          value: boolean
+                - name: query
+                  value: string
+          - name: type
+            value: string
+    - name: name
+      value: string
+    - name: active
+      value: boolean
+    - name: displayName
+      value: string
+    - name: type
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: revisionId
+      value: string
+    - name: versionTag
+      value: string
+    - name: activationUpdateTime
+      value: string
+    - name: roleMatch
+      value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ type,
 updateTime
 FROM google.migrationcenter.sources
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,24 +105,37 @@ SELECT
 '{{ description }}',
 '{{ type }}',
 '{{ priority }}',
-true|false
+{{ managed }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-displayName: string
-description: string
-type: string
-priority: integer
-managed: boolean
-pendingFrameCount: integer
-errorFrameCount: integer
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: type
+      value: string
+    - name: priority
+      value: integer
+    - name: managed
+      value: boolean
+    - name: pendingFrameCount
+      value: integer
+    - name: errorFrameCount
+      value: integer
+    - name: state
+      value: string
 
 ```
 </TabItem>

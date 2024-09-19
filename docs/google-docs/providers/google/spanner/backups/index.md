@@ -86,7 +86,7 @@ state,
 versionTime
 FROM google.spanner.backups
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,37 +125,64 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-database: string
-versionTime: string
-expireTime: string
-name: string
-createTime: string
-sizeBytes: string
-freeableSizeBytes: string
-exclusiveSizeBytes: string
-state: string
-referencingDatabases:
-  - type: string
-encryptionInfo:
-  encryptionType: string
-  encryptionStatus:
-    code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-  kmsKeyVersion: string
-encryptionInformation:
-  - encryptionType: string
-    kmsKeyVersion: string
-databaseDialect: string
-referencingBackups:
-  - type: string
-maxExpireTime: string
-backupSchedules:
-  - type: string
-incrementalBackupChainId: string
-oldestVersionTime: string
+- name: your_resource_model_name
+  props:
+    - name: database
+      value: string
+    - name: versionTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: sizeBytes
+      value: string
+    - name: freeableSizeBytes
+      value: string
+    - name: exclusiveSizeBytes
+      value: string
+    - name: state
+      value: string
+    - name: referencingDatabases
+      value:
+        - string
+    - name: encryptionInfo
+      value:
+        - name: encryptionType
+          value: string
+        - name: encryptionStatus
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+        - name: kmsKeyVersion
+          value: string
+    - name: encryptionInformation
+      value:
+        - - name: encryptionType
+            value: string
+          - name: kmsKeyVersion
+            value: string
+    - name: databaseDialect
+      value: string
+    - name: referencingBackups
+      value:
+        - string
+    - name: maxExpireTime
+      value: string
+    - name: backupSchedules
+      value:
+        - string
+    - name: incrementalBackupChainId
+      value: string
+    - name: oldestVersionTime
+      value: string
 
 ```
 </TabItem>

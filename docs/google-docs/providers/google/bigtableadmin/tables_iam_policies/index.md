@@ -54,7 +54,7 @@ role
 FROM google.bigtableadmin.tables_iam_policies
 WHERE instancesId = '{{ instancesId }}'
 AND projectsId = '{{ projectsId }}'
-AND tablesId = '{{ tablesId }}'; 
+AND tablesId = '{{ tablesId }}';
 ```
 
 ## `REPLACE` example

@@ -63,7 +63,7 @@ sSLInfo
 FROM google.apigee.targetservers
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND targetserversId = '{{ targetserversId }}'; 
+AND targetserversId = '{{ targetserversId }}';
 ```
 
 ## `INSERT` example
@@ -95,7 +95,7 @@ name
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-true|false,
+{{ isEnabled }},
 '{{ port }}',
 '{{ description }}',
 '{{ sSLInfo }}',
@@ -108,27 +108,48 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-isEnabled: boolean
-port: integer
-description: string
-sSLInfo:
-  trustStore: string
-  commonName:
-    value: string
-    wildcardMatch: boolean
-  keyAlias: string
-  ignoreValidationErrors: boolean
-  ciphers:
-    - type: string
-  protocols:
-    - type: string
-  enforce: boolean
-  clientAuthEnabled: boolean
-  enabled: boolean
-  keyStore: string
-host: string
-protocol: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: isEnabled
+      value: boolean
+    - name: port
+      value: integer
+    - name: description
+      value: string
+    - name: sSLInfo
+      value:
+        - name: trustStore
+          value: string
+        - name: commonName
+          value:
+            - name: value
+              value: string
+            - name: wildcardMatch
+              value: boolean
+        - name: keyAlias
+          value: string
+        - name: ignoreValidationErrors
+          value: boolean
+        - name: ciphers
+          value:
+            - string
+        - name: protocols
+          value:
+            - string
+        - name: enforce
+          value: boolean
+        - name: clientAuthEnabled
+          value: boolean
+        - name: enabled
+          value: boolean
+        - name: keyStore
+          value: string
+    - name: host
+      value: string
+    - name: protocol
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

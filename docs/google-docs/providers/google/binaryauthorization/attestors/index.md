@@ -59,7 +59,7 @@ etag,
 updateTime,
 userOwnedGrafeasNote
 FROM google.binaryauthorization.attestors
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,21 +96,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-userOwnedGrafeasNote:
-  noteReference: string
-  publicKeys:
-    - comment: string
-      id: string
-      asciiArmoredPgpPublicKey: string
-      pkixPublicKey:
-        publicKeyPem: string
-        signatureAlgorithm: string
-        keyId: string
-  delegationServiceAccountEmail: string
-updateTime: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: userOwnedGrafeasNote
+      value:
+        - name: noteReference
+          value: string
+        - name: publicKeys
+          value:
+            - - name: comment
+                value: string
+              - name: id
+                value: string
+              - name: asciiArmoredPgpPublicKey
+                value: string
+              - name: pkixPublicKey
+                value:
+                  - name: publicKeyPem
+                    value: string
+                  - name: signatureAlgorithm
+                    value: string
+                  - name: keyId
+                    value: string
+        - name: delegationServiceAccountEmail
+          value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

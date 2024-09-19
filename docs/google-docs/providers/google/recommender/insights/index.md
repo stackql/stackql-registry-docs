@@ -81,5 +81,5 @@ targetResources
 FROM google.recommender.insights
 WHERE foldersId = '{{ foldersId }}'
 AND insightTypesId = '{{ insightTypesId }}'
-AND locationsId = '{{ locationsId }}'; 
+AND locationsId = '{{ locationsId }}';
 ```

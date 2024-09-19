@@ -85,7 +85,7 @@ updateTime,
 userEnvVars
 FROM google.workflows.workflows
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -134,28 +134,50 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-state: string
-revisionId: string
-createTime: string
-updateTime: string
-revisionCreateTime: string
-labels: object
-serviceAccount: string
-sourceContents: string
-cryptoKeyName: string
-stateError:
-  details: string
-  type: string
-callLogLevel: string
-userEnvVars: object
-executionHistoryLevel: string
-allKmsKeys:
-  - type: string
-allKmsKeysVersions:
-  - type: string
-cryptoKeyVersion: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: revisionId
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: revisionCreateTime
+      value: string
+    - name: labels
+      value: object
+    - name: serviceAccount
+      value: string
+    - name: sourceContents
+      value: string
+    - name: cryptoKeyName
+      value: string
+    - name: stateError
+      value:
+        - name: details
+          value: string
+        - name: type
+          value: string
+    - name: callLogLevel
+      value: string
+    - name: userEnvVars
+      value: object
+    - name: executionHistoryLevel
+      value: string
+    - name: allKmsKeys
+      value:
+        - string
+    - name: allKmsKeysVersions
+      value:
+        - string
+    - name: cryptoKeyVersion
+      value: string
 
 ```
 </TabItem>

@@ -51,5 +51,5 @@ name,
 principals
 FROM google.vmwareengine.dns_bind_permission
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -91,7 +91,7 @@ templateUri,
 updateTime
 FROM google.aiplatform.pipeline_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -129,7 +129,7 @@ SELECT
 '{{ pipelineSpec }}',
 '{{ displayName }}',
 '{{ network }}',
-true|false,
+{{ preflightValidations }},
 '{{ labels }}',
 '{{ templateUri }}',
 '{{ serviceAccount }}',
@@ -142,89 +142,166 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-pipelineSpec: object
-displayName: string
-templateMetadata:
-  version: string
-network: string
-preflightValidations: boolean
-startTime: string
-labels: object
-createTime: string
-updateTime: string
-templateUri: string
-scheduleName: string
-name: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-endTime: string
-state: string
-jobDetail:
-  pipelineRunContext:
-    parentContexts:
-      - type: string
-    schemaVersion: string
-    etag: string
-    schemaTitle: string
-    description: string
-    updateTime: string
-    name: string
-    labels: object
-    displayName: string
-    metadata: object
-    createTime: string
-  taskDetails:
-    - executorDetail:
-        containerDetail:
-          failedPreCachingCheckJobs:
-            - type: string
-          mainJob: string
-          preCachingCheckJob: string
-          failedMainJobs:
-            - type: string
-        customJobDetail:
-          failedJobs:
-            - type: string
-          job: string
-      inputs: object
-      execution:
-        schemaVersion: string
-        metadata: object
-        createTime: string
-        labels: object
-        name: string
-        updateTime: string
-        displayName: string
-        description: string
-        state: string
-        schemaTitle: string
-        etag: string
-      pipelineTaskStatus:
-        - updateTime: string
-          state: string
-      taskName: string
-      createTime: string
-      outputs: object
-      endTime: string
-      parentTaskId: string
-      state: string
-      startTime: string
-      taskId: string
-serviceAccount: string
-reservedIpRanges:
-  - type: string
-encryptionSpec:
-  kmsKeyName: string
-runtimeConfig:
-  failurePolicy: string
-  inputArtifacts: object
-  parameters: object
-  parameterValues: object
-  gcsOutputDirectory: string
+- name: your_resource_model_name
+  props:
+    - name: pipelineSpec
+      value: object
+    - name: displayName
+      value: string
+    - name: templateMetadata
+      value:
+        - name: version
+          value: string
+    - name: network
+      value: string
+    - name: preflightValidations
+      value: boolean
+    - name: startTime
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: templateUri
+      value: string
+    - name: scheduleName
+      value: string
+    - name: name
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: endTime
+      value: string
+    - name: state
+      value: string
+    - name: jobDetail
+      value:
+        - name: pipelineRunContext
+          value:
+            - name: parentContexts
+              value:
+                - string
+            - name: schemaVersion
+              value: string
+            - name: etag
+              value: string
+            - name: schemaTitle
+              value: string
+            - name: description
+              value: string
+            - name: updateTime
+              value: string
+            - name: name
+              value: string
+            - name: labels
+              value: object
+            - name: displayName
+              value: string
+            - name: metadata
+              value: object
+            - name: createTime
+              value: string
+        - name: taskDetails
+          value:
+            - - name: executorDetail
+                value:
+                  - name: containerDetail
+                    value:
+                      - name: failedPreCachingCheckJobs
+                        value:
+                          - string
+                      - name: mainJob
+                        value: string
+                      - name: preCachingCheckJob
+                        value: string
+                      - name: failedMainJobs
+                        value:
+                          - string
+                  - name: customJobDetail
+                    value:
+                      - name: failedJobs
+                        value:
+                          - string
+                      - name: job
+                        value: string
+              - name: inputs
+                value: object
+              - name: execution
+                value:
+                  - name: schemaVersion
+                    value: string
+                  - name: metadata
+                    value: object
+                  - name: createTime
+                    value: string
+                  - name: labels
+                    value: object
+                  - name: name
+                    value: string
+                  - name: updateTime
+                    value: string
+                  - name: displayName
+                    value: string
+                  - name: description
+                    value: string
+                  - name: state
+                    value: string
+                  - name: schemaTitle
+                    value: string
+                  - name: etag
+                    value: string
+              - name: pipelineTaskStatus
+                value:
+                  - - name: updateTime
+                      value: string
+                    - name: state
+                      value: string
+              - name: taskName
+                value: string
+              - name: createTime
+                value: string
+              - name: outputs
+                value: object
+              - name: endTime
+                value: string
+              - name: parentTaskId
+                value: string
+              - name: state
+                value: string
+              - name: startTime
+                value: string
+              - name: taskId
+                value: string
+    - name: serviceAccount
+      value: string
+    - name: reservedIpRanges
+      value:
+        - string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: runtimeConfig
+      value:
+        - name: failurePolicy
+          value: string
+        - name: inputArtifacts
+          value: object
+        - name: parameters
+          value: object
+        - name: parameterValues
+          value: object
+        - name: gcsOutputDirectory
+          value: string
 
 ```
 </TabItem>

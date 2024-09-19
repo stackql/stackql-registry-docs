@@ -55,5 +55,5 @@ FROM google.workflowexecutions.callbacks
 WHERE executionsId = '{{ executionsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workflowsId = '{{ workflowsId }}'; 
+AND workflowsId = '{{ workflowsId }}';
 ```

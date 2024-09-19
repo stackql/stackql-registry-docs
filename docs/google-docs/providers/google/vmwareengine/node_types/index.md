@@ -68,5 +68,5 @@ totalCoreCount,
 virtualCpuCount
 FROM google.vmwareengine.node_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

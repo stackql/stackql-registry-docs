@@ -60,5 +60,5 @@ metadata,
 response,
 selfLink
 FROM google.storage.operations
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```

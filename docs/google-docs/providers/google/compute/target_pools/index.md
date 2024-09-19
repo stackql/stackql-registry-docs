@@ -76,7 +76,7 @@ securityPolicy,
 selfLink,
 sessionAffinity
 FROM google.compute.target_pools
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -116,7 +116,7 @@ SELECT
 '{{ healthChecks }}',
 '{{ instances }}',
 '{{ sessionAffinity }}',
-number,
+{{ failoverRatio }},
 '{{ backupPool }}',
 '{{ securityPolicy }}'
 ;
@@ -125,21 +125,36 @@ number,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-healthChecks:
-  - type: string
-instances:
-  - type: string
-sessionAffinity: string
-failoverRatio: number
-backupPool: string
-selfLink: string
-securityPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: healthChecks
+      value:
+        - string
+    - name: instances
+      value:
+        - string
+    - name: sessionAffinity
+      value: string
+    - name: failoverRatio
+      value: number
+    - name: backupPool
+      value: string
+    - name: selfLink
+      value: string
+    - name: securityPolicy
+      value: string
 
 ```
 </TabItem>

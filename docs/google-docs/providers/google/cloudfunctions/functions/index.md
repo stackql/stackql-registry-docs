@@ -86,7 +86,7 @@ upgradeInfo,
 url
 FROM google.cloudfunctions.functions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -133,94 +133,184 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-buildConfig:
-  automaticUpdatePolicy: {}
-  onDeployUpdatePolicy:
-    runtimeVersion: string
-  build: string
-  runtime: string
-  entryPoint: string
-  source:
-    storageSource:
-      bucket: string
-      object: string
-      generation: string
-      sourceUploadUrl: string
-    repoSource:
-      branchName: string
-      tagName: string
-      commitSha: string
-      projectId: string
-      repoName: string
-      dir: string
-    gitUri: string
-  sourceProvenance:
-    gitUri: string
-  workerPool: string
-  environmentVariables: object
-  dockerRegistry: string
-  dockerRepository: string
-  serviceAccount: string
-  sourceToken: string
-serviceConfig:
-  service: string
-  timeoutSeconds: integer
-  availableMemory: string
-  availableCpu: string
-  environmentVariables: object
-  maxInstanceCount: integer
-  minInstanceCount: integer
-  vpcConnector: string
-  vpcConnectorEgressSettings: string
-  ingressSettings: string
-  uri: string
-  serviceAccountEmail: string
-  allTrafficOnLatestRevision: boolean
-  secretEnvironmentVariables:
-    - key: string
-      projectId: string
-      secret: string
-      version: string
-  secretVolumes:
-    - mountPath: string
-      projectId: string
-      secret: string
-      versions:
-        - version: string
-          path: string
-  revision: string
-  maxInstanceRequestConcurrency: integer
-  securityLevel: string
-  binaryAuthorizationPolicy: string
-eventTrigger:
-  trigger: string
-  triggerRegion: string
-  eventType: string
-  eventFilters:
-    - attribute: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-      operator: string
-  pubsubTopic: string
-  serviceAccountEmail: string
-  retryPolicy: string
-  channel: string
-  service: string
-state: string
-updateTime: string
-labels: object
-stateMessages:
-  - severity: string
-    type: string
-    message: string
-environment: string
-upgradeInfo:
-  upgradeState: string
-url: string
-kmsKeyName: string
-satisfiesPzs: boolean
-createTime: string
+    - name: description
+      value: string
+    - name: buildConfig
+      value:
+        - name: automaticUpdatePolicy
+          value: []
+        - name: onDeployUpdatePolicy
+          value:
+            - name: runtimeVersion
+              value: string
+        - name: build
+          value: string
+        - name: runtime
+          value: string
+        - name: entryPoint
+          value: string
+        - name: source
+          value:
+            - name: storageSource
+              value:
+                - name: bucket
+                  value: string
+                - name: object
+                  value: string
+                - name: generation
+                  value: string
+                - name: sourceUploadUrl
+                  value: string
+            - name: repoSource
+              value:
+                - name: branchName
+                  value: string
+                - name: tagName
+                  value: string
+                - name: commitSha
+                  value: string
+                - name: projectId
+                  value: string
+                - name: repoName
+                  value: string
+                - name: dir
+                  value: string
+            - name: gitUri
+              value: string
+        - name: sourceProvenance
+          value:
+            - name: gitUri
+              value: string
+        - name: workerPool
+          value: string
+        - name: environmentVariables
+          value: object
+        - name: dockerRegistry
+          value: string
+        - name: dockerRepository
+          value: string
+        - name: serviceAccount
+          value: string
+        - name: sourceToken
+          value: string
+    - name: serviceConfig
+      value:
+        - name: service
+          value: string
+        - name: timeoutSeconds
+          value: integer
+        - name: availableMemory
+          value: string
+        - name: availableCpu
+          value: string
+        - name: environmentVariables
+          value: object
+        - name: maxInstanceCount
+          value: integer
+        - name: minInstanceCount
+          value: integer
+        - name: vpcConnector
+          value: string
+        - name: vpcConnectorEgressSettings
+          value: string
+        - name: ingressSettings
+          value: string
+        - name: uri
+          value: string
+        - name: serviceAccountEmail
+          value: string
+        - name: allTrafficOnLatestRevision
+          value: boolean
+        - name: secretEnvironmentVariables
+          value:
+            - - name: key
+                value: string
+              - name: projectId
+                value: string
+              - name: secret
+                value: string
+              - name: version
+                value: string
+        - name: secretVolumes
+          value:
+            - - name: mountPath
+                value: string
+              - name: projectId
+                value: string
+              - name: secret
+                value: string
+              - name: versions
+                value:
+                  - - name: version
+                      value: string
+                    - name: path
+                      value: string
+        - name: revision
+          value: string
+        - name: maxInstanceRequestConcurrency
+          value: integer
+        - name: securityLevel
+          value: string
+        - name: binaryAuthorizationPolicy
+          value: string
+    - name: eventTrigger
+      value:
+        - name: trigger
+          value: string
+        - name: triggerRegion
+          value: string
+        - name: eventType
+          value: string
+        - name: eventFilters
+          value:
+            - - name: attribute
+                value: string
+              - name: value
+                value: string
+              - name: operator
+                value: string
+        - name: pubsubTopic
+          value: string
+        - name: serviceAccountEmail
+          value: string
+        - name: retryPolicy
+          value: string
+        - name: channel
+          value: string
+        - name: service
+          value: string
+    - name: state
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: stateMessages
+      value:
+        - - name: severity
+            value: string
+          - name: type
+            value: string
+          - name: message
+            value: string
+    - name: environment
+      value: string
+    - name: upgradeInfo
+      value:
+        - name: upgradeState
+          value: string
+    - name: url
+      value: string
+    - name: kmsKeyName
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

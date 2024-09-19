@@ -58,7 +58,7 @@ state,
 uid
 FROM google.apphub.service_project_attachments
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,11 +93,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-serviceProject: string
-createTime: string
-uid: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: serviceProject
+      value: string
+    - name: createTime
+      value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

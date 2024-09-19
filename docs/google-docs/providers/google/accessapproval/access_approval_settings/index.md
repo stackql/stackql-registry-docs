@@ -76,7 +76,7 @@ preferredRequestExpirationDays,
 requestScopeMaxWidthPreference,
 requireCustomerVisibleJustification
 FROM google.accessapproval.access_approval_settings
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

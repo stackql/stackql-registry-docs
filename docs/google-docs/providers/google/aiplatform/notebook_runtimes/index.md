@@ -92,7 +92,7 @@ updateTime,
 version
 FROM google.aiplatform.notebook_runtimes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

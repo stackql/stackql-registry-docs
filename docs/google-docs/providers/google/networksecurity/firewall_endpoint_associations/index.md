@@ -69,7 +69,7 @@ tlsInspectionPolicy,
 updateTime
 FROM google.networksecurity.firewall_endpoint_associations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,23 +105,35 @@ SELECT
 '{{ network }}',
 '{{ firewallEndpoint }}',
 '{{ tlsInspectionPolicy }}',
-true|false
+{{ disabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-state: string
-network: string
-firewallEndpoint: string
-tlsInspectionPolicy: string
-reconciling: boolean
-disabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: network
+      value: string
+    - name: firewallEndpoint
+      value: string
+    - name: tlsInspectionPolicy
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: disabled
+      value: boolean
 
 ```
 </TabItem>

@@ -54,7 +54,7 @@ role
 FROM google.networksecurity.authz_policies_iam_policies
 WHERE authzPoliciesId = '{{ authzPoliciesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

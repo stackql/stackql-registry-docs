@@ -60,7 +60,7 @@ gkePolicy,
 updateTime
 FROM google.binaryauthorization.policies
 WHERE platformsId = '{{ platformsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -97,61 +97,110 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-gkePolicy:
-  imageAllowlist:
-    allowPattern:
-      - type: string
-  checkSets:
-    - displayName: string
-      scope:
-        kubernetesServiceAccount: string
-        kubernetesNamespace: string
-      checks:
-        - displayName: string
-          alwaysDeny: boolean
-          simpleSigningAttestationCheck:
-            attestationAuthenticators:
-              - displayName: string
-                pkixPublicKeySet:
-                  pkixPublicKeys:
-                    - publicKeyPem: string
-                      signatureAlgorithm: string
-                      keyId: string
-            containerAnalysisAttestationProjects:
-              - type: string
-          trustedDirectoryCheck:
-            trustedDirPatterns:
-              - type: string
-          imageFreshnessCheck:
-            maxUploadAgeDays: integer
-          vulnerabilityCheck:
-            allowedCves:
-              - type: string
-            blockedCves:
-              - type: string
-            maximumUnfixableSeverity: string
-            maximumFixableSeverity: string
-            containerAnalysisVulnerabilityProjects:
-              - type: string
-          slsaCheck:
-            rules:
-              - trustedBuilder: string
-                attestationSource:
-                  containerAnalysisAttestationProjects:
-                    - type: string
-                configBasedBuildRequired: boolean
-                trustedSourceRepoPatterns:
-                  - type: string
-          sigstoreSignatureCheck:
-            sigstoreAuthorities:
-              - displayName: string
-                publicKeySet:
-                  publicKeys:
-                    - publicKeyPem: string
-updateTime: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: gkePolicy
+      value:
+        - name: imageAllowlist
+          value:
+            - name: allowPattern
+              value:
+                - string
+        - name: checkSets
+          value:
+            - - name: displayName
+                value: string
+              - name: scope
+                value:
+                  - name: kubernetesServiceAccount
+                    value: string
+                  - name: kubernetesNamespace
+                    value: string
+              - name: checks
+                value:
+                  - - name: displayName
+                      value: string
+                    - name: alwaysDeny
+                      value: boolean
+                    - name: simpleSigningAttestationCheck
+                      value:
+                        - name: attestationAuthenticators
+                          value:
+                            - - name: displayName
+                                value: string
+                              - name: pkixPublicKeySet
+                                value:
+                                  - name: pkixPublicKeys
+                                    value:
+                                      - - name: publicKeyPem
+                                          value: string
+                                        - name: signatureAlgorithm
+                                          value: string
+                                        - name: keyId
+                                          value: string
+                        - name: containerAnalysisAttestationProjects
+                          value:
+                            - string
+                    - name: trustedDirectoryCheck
+                      value:
+                        - name: trustedDirPatterns
+                          value:
+                            - string
+                    - name: imageFreshnessCheck
+                      value:
+                        - name: maxUploadAgeDays
+                          value: integer
+                    - name: vulnerabilityCheck
+                      value:
+                        - name: allowedCves
+                          value:
+                            - string
+                        - name: blockedCves
+                          value:
+                            - string
+                        - name: maximumUnfixableSeverity
+                          value: string
+                        - name: maximumFixableSeverity
+                          value: string
+                        - name: containerAnalysisVulnerabilityProjects
+                          value:
+                            - string
+                    - name: slsaCheck
+                      value:
+                        - name: rules
+                          value:
+                            - - name: trustedBuilder
+                                value: string
+                              - name: attestationSource
+                                value:
+                                  - name: containerAnalysisAttestationProjects
+                                    value:
+                                      - string
+                              - name: configBasedBuildRequired
+                                value: boolean
+                              - name: trustedSourceRepoPatterns
+                                value:
+                                  - string
+                    - name: sigstoreSignatureCheck
+                      value:
+                        - name: sigstoreAuthorities
+                          value:
+                            - - name: displayName
+                                value: string
+                              - name: publicKeySet
+                                value:
+                                  - name: publicKeys
+                                    value:
+                                      - - name: publicKeyPem
+                                          value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

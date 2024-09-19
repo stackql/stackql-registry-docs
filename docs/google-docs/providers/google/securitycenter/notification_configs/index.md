@@ -68,7 +68,7 @@ pubsubTopic,
 serviceAccount,
 streamingConfig
 FROM google.securitycenter.notification_configs
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -105,12 +105,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-pubsubTopic: string
-serviceAccount: string
-streamingConfig:
-  filter: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: pubsubTopic
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: streamingConfig
+      value:
+        - name: filter
+          value: string
 
 ```
 </TabItem>

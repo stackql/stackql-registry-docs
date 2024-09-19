@@ -55,7 +55,7 @@ FROM google.bigtableadmin.backups_iam_policies
 WHERE backupsId = '{{ backupsId }}'
 AND clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

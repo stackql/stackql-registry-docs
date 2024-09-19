@@ -56,5 +56,5 @@ state,
 updateTime
 FROM google.managedidentities.sql_integrations
 WHERE domainsId = '{{ domainsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

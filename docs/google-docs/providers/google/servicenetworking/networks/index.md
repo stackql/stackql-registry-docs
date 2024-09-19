@@ -72,5 +72,5 @@ vpcScReferenceArchitectureEnabled
 FROM google.servicenetworking.networks
 WHERE networksId = '{{ networksId }}'
 AND projectsId = '{{ projectsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```

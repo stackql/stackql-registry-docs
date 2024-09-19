@@ -47,5 +47,5 @@ SELECT
 assets
 FROM google.cloudasset.cloudasset_assets_history
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```

@@ -53,7 +53,7 @@ SELECT
 name,
 externalId
 FROM google.jobs.tenants
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -86,8 +86,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-externalId: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: externalId
+      value: string
 
 ```
 </TabItem>

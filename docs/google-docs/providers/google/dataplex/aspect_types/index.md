@@ -69,7 +69,7 @@ uid,
 updateTime
 FROM google.dataplex.aspect_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,118 +112,230 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-displayName: string
-labels: object
-etag: string
-authorization:
-  alternateUsePermission: string
-metadataTemplate:
-  index: integer
-  name: string
-  type: string
-  recordFields:
-    - index: integer
-      name: string
-      type: string
-      recordFields:
-        - index: integer
-          name: string
-          type: string
-          recordFields:
-            - index: integer
-              name: string
-              type: string
-              recordFields:
-                - index: integer
-                  name: string
-                  type: string
-                  recordFields:
-                    - index: integer
-                      name: string
-                      type: string
-                      recordFields:
-                        - index: integer
-                          name: string
-                          type: string
-                          recordFields:
-                            - index: integer
-                              name: string
-                              type: string
-                              recordFields:
-                                - index: integer
-                                  name: string
-                                  type: string
-                                  recordFields:
-                                    - index: integer
-                                      name: string
-                                      type: string
-                                      recordFields:
-                                        - {}
-                                      enumValues:
-                                        - {}
-                                      typeId: string
-                                      typeRef: string
-                                      constraints: {}
-                                      annotations: {}
-                                  enumValues:
-                                    - index: integer
-                                      name: string
-                                      deprecated: string
-                                  typeId: string
-                                  typeRef: string
-                              enumValues:
-                                - index: integer
-                                  name: string
-                                  deprecated: string
-                              typeId: string
-                              typeRef: string
-                          enumValues:
-                            - index: integer
-                              name: string
-                              deprecated: string
-                          typeId: string
-                          typeRef: string
-                      enumValues:
-                        - index: integer
-                          name: string
-                          deprecated: string
-                      typeId: string
-                      typeRef: string
-                  enumValues:
-                    - index: integer
-                      name: string
-                      deprecated: string
-                  typeId: string
-                  typeRef: string
-              enumValues:
-                - index: integer
-                  name: string
-                  deprecated: string
-              typeId: string
-              typeRef: string
-          enumValues:
-            - index: integer
-              name: string
-              deprecated: string
-          typeId: string
-          typeRef: string
-      enumValues:
-        - index: integer
-          name: string
-          deprecated: string
-      typeId: string
-      typeRef: string
-  enumValues:
-    - index: integer
-      name: string
-      deprecated: string
-  typeId: string
-  typeRef: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: authorization
+      value:
+        - name: alternateUsePermission
+          value: string
+    - name: metadataTemplate
+      value:
+        - name: index
+          value: integer
+        - name: name
+          value: string
+        - name: type
+          value: string
+        - name: recordFields
+          value:
+            - - name: index
+                value: integer
+              - name: name
+                value: string
+              - name: type
+                value: string
+              - name: recordFields
+                value:
+                  - - name: index
+                      value: integer
+                    - name: name
+                      value: string
+                    - name: type
+                      value: string
+                    - name: recordFields
+                      value:
+                        - - name: index
+                            value: integer
+                          - name: name
+                            value: string
+                          - name: type
+                            value: string
+                          - name: recordFields
+                            value:
+                              - - name: index
+                                  value: integer
+                                - name: name
+                                  value: string
+                                - name: type
+                                  value: string
+                                - name: recordFields
+                                  value:
+                                    - - name: index
+                                        value: integer
+                                      - name: name
+                                        value: string
+                                      - name: type
+                                        value: string
+                                      - name: recordFields
+                                        value:
+                                          - - name: index
+                                              value: integer
+                                            - name: name
+                                              value: string
+                                            - name: type
+                                              value: string
+                                            - name: recordFields
+                                              value:
+                                                - - name: index
+                                                    value: integer
+                                                  - name: name
+                                                    value: string
+                                                  - name: type
+                                                    value: string
+                                                  - name: recordFields
+                                                    value:
+                                                      - - name: index
+                                                          value: integer
+                                                        - name: name
+                                                          value: string
+                                                        - name: type
+                                                          value: string
+                                                        - name: recordFields
+                                                          value:
+                                                            - - name: index
+                                                                value: integer
+                                                              - name: name
+                                                                value: string
+                                                              - name: type
+                                                                value: string
+                                                              - name: recordFields
+                                                                value:
+                                                                  - []
+                                                              - name: enumValues
+                                                                value:
+                                                                  - []
+                                                              - name: typeId
+                                                                value: string
+                                                              - name: typeRef
+                                                                value: string
+                                                              - name: constraints
+                                                                value: []
+                                                              - name: annotations
+                                                                value: []
+                                                        - name: enumValues
+                                                          value:
+                                                            - - name: index
+                                                                value: integer
+                                                              - name: name
+                                                                value: string
+                                                              - name: deprecated
+                                                                value: string
+                                                        - name: typeId
+                                                          value: string
+                                                        - name: typeRef
+                                                          value: string
+                                                  - name: enumValues
+                                                    value:
+                                                      - - name: index
+                                                          value: integer
+                                                        - name: name
+                                                          value: string
+                                                        - name: deprecated
+                                                          value: string
+                                                  - name: typeId
+                                                    value: string
+                                                  - name: typeRef
+                                                    value: string
+                                            - name: enumValues
+                                              value:
+                                                - - name: index
+                                                    value: integer
+                                                  - name: name
+                                                    value: string
+                                                  - name: deprecated
+                                                    value: string
+                                            - name: typeId
+                                              value: string
+                                            - name: typeRef
+                                              value: string
+                                      - name: enumValues
+                                        value:
+                                          - - name: index
+                                              value: integer
+                                            - name: name
+                                              value: string
+                                            - name: deprecated
+                                              value: string
+                                      - name: typeId
+                                        value: string
+                                      - name: typeRef
+                                        value: string
+                                - name: enumValues
+                                  value:
+                                    - - name: index
+                                        value: integer
+                                      - name: name
+                                        value: string
+                                      - name: deprecated
+                                        value: string
+                                - name: typeId
+                                  value: string
+                                - name: typeRef
+                                  value: string
+                          - name: enumValues
+                            value:
+                              - - name: index
+                                  value: integer
+                                - name: name
+                                  value: string
+                                - name: deprecated
+                                  value: string
+                          - name: typeId
+                            value: string
+                          - name: typeRef
+                            value: string
+                    - name: enumValues
+                      value:
+                        - - name: index
+                            value: integer
+                          - name: name
+                            value: string
+                          - name: deprecated
+                            value: string
+                    - name: typeId
+                      value: string
+                    - name: typeRef
+                      value: string
+              - name: enumValues
+                value:
+                  - - name: index
+                      value: integer
+                    - name: name
+                      value: string
+                    - name: deprecated
+                      value: string
+              - name: typeId
+                value: string
+              - name: typeRef
+                value: string
+        - name: enumValues
+          value:
+            - - name: index
+                value: integer
+              - name: name
+                value: string
+              - name: deprecated
+                value: string
+        - name: typeId
+          value: string
+        - name: typeRef
+          value: string
 
 ```
 </TabItem>

@@ -73,7 +73,7 @@ slotCount,
 state
 FROM google.bigqueryreservation.capacity_commitments
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,7 +106,7 @@ SELECT
 '{{ slotCount }}',
 '{{ plan }}',
 '{{ renewalPlan }}',
-true|false,
+{{ multiRegionAuxiliary }},
 '{{ edition }}'
 ;
 ```
@@ -114,22 +114,37 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-slotCount: string
-plan: string
-state: string
-commitmentStartTime: string
-commitmentEndTime: string
-failureStatus:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-renewalPlan: string
-multiRegionAuxiliary: boolean
-edition: string
-isFlatRate: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: slotCount
+      value: string
+    - name: plan
+      value: string
+    - name: state
+      value: string
+    - name: commitmentStartTime
+      value: string
+    - name: commitmentEndTime
+      value: string
+    - name: failureStatus
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: renewalPlan
+      value: string
+    - name: multiRegionAuxiliary
+      value: boolean
+    - name: edition
+      value: string
+    - name: isFlatRate
+      value: boolean
 
 ```
 </TabItem>

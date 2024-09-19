@@ -78,7 +78,7 @@ metadata,
 response
 FROM google.spanner.operations
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

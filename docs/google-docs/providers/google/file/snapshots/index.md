@@ -64,7 +64,7 @@ tags
 FROM google.file.snapshots
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -103,13 +103,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-state: string
-createTime: string
-labels: object
-filesystemUsedBytes: string
-tags: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: filesystemUsedBytes
+      value: string
+    - name: tags
+      value: object
 
 ```
 </TabItem>

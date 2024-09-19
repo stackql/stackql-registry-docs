@@ -54,7 +54,7 @@ SELECT
 column_anon
 FROM google.pubsublite.subscriptions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,16 +93,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-topic: string
-deliveryConfig:
-  deliveryRequirement: string
-exportConfig:
-  desiredState: string
-  currentState: string
-  deadLetterTopic: string
-  pubsubConfig:
-    topic: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: topic
+      value: string
+    - name: deliveryConfig
+      value:
+        - name: deliveryRequirement
+          value: string
+    - name: exportConfig
+      value:
+        - name: desiredState
+          value: string
+        - name: currentState
+          value: string
+        - name: deadLetterTopic
+          value: string
+        - name: pubsubConfig
+          value:
+            - name: topic
+              value: string
 
 ```
 </TabItem>

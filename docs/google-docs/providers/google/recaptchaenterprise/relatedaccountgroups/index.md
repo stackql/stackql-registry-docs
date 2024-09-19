@@ -46,5 +46,5 @@ List groups of related accounts.
 SELECT
 name
 FROM google.recaptchaenterprise.relatedaccountgroups
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

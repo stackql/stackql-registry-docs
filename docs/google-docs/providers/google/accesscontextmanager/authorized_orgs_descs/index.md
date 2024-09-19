@@ -58,7 +58,7 @@ authorizationDirection,
 authorizationType,
 orgs
 FROM google.accesscontextmanager.authorized_orgs_descs
-WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
+WHERE accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `INSERT` example
@@ -97,12 +97,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-authorizationType: string
-assetType: string
-authorizationDirection: string
-orgs:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: authorizationType
+      value: string
+    - name: assetType
+      value: string
+    - name: authorizationDirection
+      value: string
+    - name: orgs
+      value:
+        - string
 
 ```
 </TabItem>

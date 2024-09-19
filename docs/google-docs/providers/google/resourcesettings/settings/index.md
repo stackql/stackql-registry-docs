@@ -62,7 +62,7 @@ etag,
 localValue,
 metadata
 FROM google.resourcesettings.settings
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

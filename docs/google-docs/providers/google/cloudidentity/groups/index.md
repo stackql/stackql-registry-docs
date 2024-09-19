@@ -70,7 +70,7 @@ labels,
 parent,
 updateTime
 FROM google.cloudidentity.groups
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -89,7 +89,6 @@ Use the following StackQL query and manifest file to create a new <code>groups</
 ```sql
 /*+ create */
 INSERT INTO google.cloudidentity.groups (
-,
 groupKey,
 parent,
 displayName,
@@ -98,7 +97,6 @@ labels,
 dynamicGroupMetadata
 )
 SELECT 
-'{{  }}',
 '{{ groupKey }}',
 '{{ parent }}',
 '{{ displayName }}',
@@ -111,26 +109,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-groupKey:
-  id: string
-  namespace: string
-additionalGroupKeys:
-  - id: string
-    namespace: string
-parent: string
-displayName: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-dynamicGroupMetadata:
-  queries:
-    - resourceType: string
-      query: string
-  status:
-    status: string
-    statusTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: groupKey
+      value:
+        - name: id
+          value: string
+        - name: namespace
+          value: string
+    - name: additionalGroupKeys
+      value:
+        - - name: id
+            value: string
+          - name: namespace
+            value: string
+    - name: parent
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: dynamicGroupMetadata
+      value:
+        - name: queries
+          value:
+            - - name: resourceType
+                value: string
+              - name: query
+                value: string
+        - name: status
+          value:
+            - name: status
+              value: string
+            - name: statusTime
+              value: string
 
 ```
 </TabItem>

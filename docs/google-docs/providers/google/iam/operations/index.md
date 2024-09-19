@@ -65,5 +65,5 @@ response
 FROM google.iam.operations
 WHERE locationsId = '{{ locationsId }}'
 AND operationsId = '{{ operationsId }}'
-AND workforcePoolsId = '{{ workforcePoolsId }}'; 
+AND workforcePoolsId = '{{ workforcePoolsId }}';
 ```

@@ -60,7 +60,7 @@ state,
 updateTime
 FROM google.apim.observation_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -95,12 +95,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-sources:
-  - type: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: sources
+      value:
+        - string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

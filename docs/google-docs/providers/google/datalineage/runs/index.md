@@ -62,7 +62,7 @@ state
 FROM google.datalineage.runs
 WHERE locationsId = '{{ locationsId }}'
 AND processesId = '{{ processesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,12 +107,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-startTime: string
-name: string
-attributes: object
-state: string
-endTime: string
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: string
+    - name: startTime
+      value: string
+    - name: name
+      value: string
+    - name: attributes
+      value: object
+    - name: state
+      value: string
+    - name: endTime
+      value: string
 
 ```
 </TabItem>

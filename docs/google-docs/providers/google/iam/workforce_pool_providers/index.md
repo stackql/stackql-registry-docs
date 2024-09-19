@@ -72,7 +72,7 @@ saml,
 state
 FROM google.iam.workforce_pool_providers
 WHERE locationsId = '{{ locationsId }}'
-AND workforcePoolsId = '{{ workforcePoolsId }}'; 
+AND workforcePoolsId = '{{ workforcePoolsId }}';
 ```
 
 ## `INSERT` example
@@ -107,7 +107,7 @@ SELECT
 '{{ workforcePoolsId }}',
 '{{ displayName }}',
 '{{ description }}',
-true|false,
+{{ disabled }},
 '{{ attributeMapping }}',
 '{{ attributeCondition }}',
 '{{ saml }}',
@@ -119,35 +119,65 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-state: string
-disabled: boolean
-attributeMapping: object
-attributeCondition: string
-saml:
-  idpMetadataXml: string
-oidc:
-  issuerUri: string
-  clientId: string
-  clientSecret:
-    value:
-      plainText: string
-      thumbprint: string
-  webSsoConfig:
-    responseType: string
-    assertionClaimsBehavior: string
-    additionalScopes:
-      - type: string
-  jwksJson: string
-expireTime: string
-extraAttributesOauth2Client:
-  issuerUri: string
-  clientId: string
-  attributesType: string
-  queryParameters:
-    filter: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: disabled
+      value: boolean
+    - name: attributeMapping
+      value: object
+    - name: attributeCondition
+      value: string
+    - name: saml
+      value:
+        - name: idpMetadataXml
+          value: string
+    - name: oidc
+      value:
+        - name: issuerUri
+          value: string
+        - name: clientId
+          value: string
+        - name: clientSecret
+          value:
+            - name: value
+              value:
+                - name: plainText
+                  value: string
+                - name: thumbprint
+                  value: string
+        - name: webSsoConfig
+          value:
+            - name: responseType
+              value: string
+            - name: assertionClaimsBehavior
+              value: string
+            - name: additionalScopes
+              value:
+                - string
+        - name: jwksJson
+          value: string
+    - name: expireTime
+      value: string
+    - name: extraAttributesOauth2Client
+      value:
+        - name: issuerUri
+          value: string
+        - name: clientId
+          value: string
+        - name: attributesType
+          value: string
+        - name: queryParameters
+          value:
+            - name: filter
+              value: string
 
 ```
 </TabItem>

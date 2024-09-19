@@ -49,5 +49,5 @@ domains,
 nextPageToken
 FROM google.domains.registrations_importable_domains
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

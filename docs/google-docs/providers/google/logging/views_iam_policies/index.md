@@ -62,7 +62,7 @@ FROM google.logging.views_iam_policies
 WHERE bucketsId = '{{ bucketsId }}'
 AND foldersId = '{{ foldersId }}'
 AND locationsId = '{{ locationsId }}'
-AND viewsId = '{{ viewsId }}'; 
+AND viewsId = '{{ viewsId }}';
 ```
 
 ## `REPLACE` example

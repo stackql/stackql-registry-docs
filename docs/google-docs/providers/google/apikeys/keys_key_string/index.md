@@ -48,5 +48,5 @@ keyString
 FROM google.apikeys.keys_key_string
 WHERE keysId = '{{ keysId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

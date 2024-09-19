@@ -79,5 +79,5 @@ updateTime
 FROM google.networkconnectivity.routes
 WHERE hubsId = '{{ hubsId }}'
 AND projectsId = '{{ projectsId }}'
-AND routeTablesId = '{{ routeTablesId }}'; 
+AND routeTablesId = '{{ routeTablesId }}';
 ```

@@ -46,5 +46,5 @@ Gets the details of an Android application APK.
 SELECT
 apkDetail
 FROM google.testing.application_detail_service_apk_details
-WHERE  = '{{  }}'; 
+;
 ```

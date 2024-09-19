@@ -75,7 +75,7 @@ userPseudoId
 FROM google.discoveryengine.conversations
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,47 +116,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-userPseudoId: string
-messages:
-  - userInput:
-      input: string
-      context:
-        contextDocuments:
-          - type: string
-        activeDocument: string
-    reply:
-      summary:
-        summaryText: string
-        summarySkippedReasons:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        safetyAttributes:
-          categories:
-            - type: string
-          scores:
-            - type: string
-              format: string
-        summaryWithMetadata:
-          summary: string
-          citationMetadata:
-            citations:
-              - startIndex: string
-                endIndex: string
-                sources:
-                  - referenceIndex: string
-          references:
-            - title: string
-              document: string
-              uri: string
-              chunkContents:
-                - content: string
-                  pageIdentifier: string
-    createTime: string
-startTime: string
-endTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: userPseudoId
+      value: string
+    - name: messages
+      value:
+        - - name: userInput
+            value:
+              - name: input
+                value: string
+              - name: context
+                value:
+                  - name: contextDocuments
+                    value:
+                      - string
+                  - name: activeDocument
+                    value: string
+          - name: reply
+            value:
+              - name: summary
+                value:
+                  - name: summaryText
+                    value: string
+                  - name: summarySkippedReasons
+                    value:
+                      - string
+                  - name: safetyAttributes
+                    value:
+                      - name: categories
+                        value:
+                          - string
+                      - name: scores
+                        value:
+                          - number
+                  - name: summaryWithMetadata
+                    value:
+                      - name: summary
+                        value: string
+                      - name: citationMetadata
+                        value:
+                          - name: citations
+                            value:
+                              - - name: startIndex
+                                  value: string
+                                - name: endIndex
+                                  value: string
+                                - name: sources
+                                  value:
+                                    - - name: referenceIndex
+                                        value: string
+                      - name: references
+                        value:
+                          - - name: title
+                              value: string
+                            - name: document
+                              value: string
+                            - name: uri
+                              value: string
+                            - name: chunkContents
+                              value:
+                                - - name: content
+                                    value: string
+                                  - name: pageIdentifier
+                                    value: string
+          - name: createTime
+            value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
 
 ```
 </TabItem>

@@ -78,7 +78,7 @@ satisfiesPzs,
 updateTime
 FROM google.aiplatform.tensorboards
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,7 +113,7 @@ SELECT
 '{{ displayName }}',
 '{{ labels }}',
 '{{ description }}',
-true|false,
+{{ isDefault }},
 '{{ encryptionSpec }}'
 ;
 ```
@@ -121,20 +121,36 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-blobStoragePathPrefix: string
-runCount: integer
-satisfiesPzi: boolean
-name: string
-etag: string
-updateTime: string
-satisfiesPzs: boolean
-displayName: string
-labels: object
-description: string
-createTime: string
-isDefault: boolean
-encryptionSpec:
-  kmsKeyName: string
+- name: your_resource_model_name
+  props:
+    - name: blobStoragePathPrefix
+      value: string
+    - name: runCount
+      value: integer
+    - name: satisfiesPzi
+      value: boolean
+    - name: name
+      value: string
+    - name: etag
+      value: string
+    - name: updateTime
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: isDefault
+      value: boolean
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
 
 ```
 </TabItem>

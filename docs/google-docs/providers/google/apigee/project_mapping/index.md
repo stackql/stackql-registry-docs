@@ -52,5 +52,5 @@ organization,
 projectId,
 projectIds
 FROM google.apigee.project_mapping
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

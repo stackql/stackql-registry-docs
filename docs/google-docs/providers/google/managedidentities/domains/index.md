@@ -85,7 +85,7 @@ statusMessage,
 trusts,
 updateTime
 FROM google.managedidentities.domains
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,40 +121,66 @@ SELECT
 '{{ reservedIpRange }}',
 '{{ locations }}',
 '{{ admin }}',
-true|false
+{{ auditLogsEnabled }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-labels: object
-authorizedNetworks:
-  - type: string
-reservedIpRange: string
-locations:
-  - type: string
-admin: string
-fqdn: string
-createTime: string
-updateTime: string
-state: string
-statusMessage: string
-trusts:
-  - targetDomainName: string
-    trustType: string
-    trustDirection: string
-    selectiveAuthentication: boolean
-    targetDnsIpAddresses:
-      - type: string
-    trustHandshakeSecret: string
-    createTime: string
-    updateTime: string
-    state: string
-    stateDescription: string
-    lastTrustHeartbeatTime: string
-auditLogsEnabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: labels
+      value: object
+    - name: authorizedNetworks
+      value:
+        - string
+    - name: reservedIpRange
+      value: string
+    - name: locations
+      value:
+        - string
+    - name: admin
+      value: string
+    - name: fqdn
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: statusMessage
+      value: string
+    - name: trusts
+      value:
+        - - name: targetDomainName
+            value: string
+          - name: trustType
+            value: string
+          - name: trustDirection
+            value: string
+          - name: selectiveAuthentication
+            value: boolean
+          - name: targetDnsIpAddresses
+            value:
+              - string
+          - name: trustHandshakeSecret
+            value: string
+          - name: createTime
+            value: string
+          - name: updateTime
+            value: string
+          - name: state
+            value: string
+          - name: stateDescription
+            value: string
+          - name: lastTrustHeartbeatTime
+            value: string
+    - name: auditLogsEnabled
+      value: boolean
 
 ```
 </TabItem>

@@ -59,7 +59,7 @@ requestId,
 status
 FROM google.apigee.apidocs
 WHERE organizationsId = '{{ organizationsId }}'
-AND sitesId = '{{ sitesId }}'; 
+AND sitesId = '{{ sitesId }}';
 ```
 
 ## `INSERT` example
@@ -100,13 +100,13 @@ SELECT
 '{{ sitesId }}',
 '{{ apiProductName }}',
 '{{ graphqlSchema }}',
-true|false,
+{{ anonAllowed }},
 '{{ description }}',
 '{{ edgeAPIProductName }}',
-true|false,
-true|false,
+{{ published }},
+{{ visibility }},
 '{{ title }}',
-true|false,
+{{ requireCallbackUrl }},
 '{{ categoryIds }}',
 '{{ imageUrl }}',
 '{{ specId }}',
@@ -118,24 +118,43 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-apiProductName: string
-graphqlSchema: string
-modified: string
-anonAllowed: boolean
-id: string
-description: string
-edgeAPIProductName: string
-published: boolean
-visibility: boolean
-title: string
-requireCallbackUrl: boolean
-categoryIds:
-  - type: string
-imageUrl: string
-siteId: string
-specId: string
-graphqlSchemaDisplayName: string
-graphqlEndpointUrl: string
+- name: your_resource_model_name
+  props:
+    - name: apiProductName
+      value: string
+    - name: graphqlSchema
+      value: string
+    - name: modified
+      value: string
+    - name: anonAllowed
+      value: boolean
+    - name: id
+      value: string
+    - name: description
+      value: string
+    - name: edgeAPIProductName
+      value: string
+    - name: published
+      value: boolean
+    - name: visibility
+      value: boolean
+    - name: title
+      value: string
+    - name: requireCallbackUrl
+      value: boolean
+    - name: categoryIds
+      value:
+        - string
+    - name: imageUrl
+      value: string
+    - name: siteId
+      value: string
+    - name: specId
+      value: string
+    - name: graphqlSchemaDisplayName
+      value: string
+    - name: graphqlEndpointUrl
+      value: string
 
 ```
 </TabItem>

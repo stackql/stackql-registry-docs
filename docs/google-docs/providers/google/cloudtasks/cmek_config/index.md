@@ -50,7 +50,7 @@ name,
 kmsKey
 FROM google.cloudtasks.cmek_config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

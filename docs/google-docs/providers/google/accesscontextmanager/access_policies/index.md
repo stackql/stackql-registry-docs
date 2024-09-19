@@ -58,7 +58,7 @@ parent,
 scopes,
 title
 FROM google.accesscontextmanager.access_policies
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -77,14 +77,12 @@ Use the following StackQL query and manifest file to create a new <code>access_p
 ```sql
 /*+ create */
 INSERT INTO google.accesscontextmanager.access_policies (
-,
 name,
 parent,
 title,
 scopes
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ parent }}',
 '{{ title }}',
@@ -95,12 +93,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-title: string
-scopes:
-  - type: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: title
+      value: string
+    - name: scopes
+      value:
+        - string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

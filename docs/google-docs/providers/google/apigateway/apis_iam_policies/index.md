@@ -54,7 +54,7 @@ role
 FROM google.apigateway.apis_iam_policies
 WHERE apisId = '{{ apisId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -52,5 +52,5 @@ analyticsBucket,
 tenantProjectId,
 traceBucket
 FROM google.apigee.runtime_config
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

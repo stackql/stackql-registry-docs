@@ -55,7 +55,7 @@ cidrs,
 fqdns
 FROM google.iap.dest_groups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -92,11 +92,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-cidrs:
-  - type: string
-fqdns:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: cidrs
+      value:
+        - string
+    - name: fqdns
+      value:
+        - string
 
 ```
 </TabItem>

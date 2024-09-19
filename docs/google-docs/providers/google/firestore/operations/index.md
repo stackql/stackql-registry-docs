@@ -58,7 +58,7 @@ metadata,
 response
 FROM google.firestore.operations
 WHERE databasesId = '{{ databasesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

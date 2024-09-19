@@ -66,5 +66,5 @@ region,
 selfLink,
 urlMap
 FROM google.compute.target_http_proxies_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

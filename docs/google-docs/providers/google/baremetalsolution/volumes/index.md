@@ -98,7 +98,7 @@ storageType,
 workloadProfile
 FROM google.baremetalsolution.volumes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

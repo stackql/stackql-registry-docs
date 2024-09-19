@@ -54,7 +54,7 @@ role
 FROM google.cloudbuild.connections_iam_policies
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

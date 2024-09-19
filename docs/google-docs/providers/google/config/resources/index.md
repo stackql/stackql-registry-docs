@@ -58,5 +58,5 @@ FROM google.config.resources
 WHERE deploymentsId = '{{ deploymentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND revisionsId = '{{ revisionsId }}'; 
+AND revisionsId = '{{ revisionsId }}';
 ```

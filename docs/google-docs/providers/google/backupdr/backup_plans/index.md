@@ -70,7 +70,7 @@ state,
 updateTime
 FROM google.backupdr.backup_plans
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,40 +113,63 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-labels: object
-createTime: string
-updateTime: string
-backupRules:
-  - ruleId: string
-    backupRetentionDays: integer
-    standardSchedule:
-      recurrenceType: string
-      hourlyFrequency: integer
-      daysOfWeek:
-        - type: string
-          enumDescriptions: string
-          enum: string
-      daysOfMonth:
-        - type: string
-          format: string
-      weekDayOfMonth:
-        weekOfMonth: string
-        dayOfWeek: string
-      months:
-        - type: string
-          enumDescriptions: string
-          enum: string
-      backupWindow:
-        startHourOfDay: integer
-        endHourOfDay: integer
-      timeZone: string
-state: string
-resourceType: string
-etag: string
-backupVault: string
-backupVaultServiceAccount: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: backupRules
+      value:
+        - - name: ruleId
+            value: string
+          - name: backupRetentionDays
+            value: integer
+          - name: standardSchedule
+            value:
+              - name: recurrenceType
+                value: string
+              - name: hourlyFrequency
+                value: integer
+              - name: daysOfWeek
+                value:
+                  - string
+              - name: daysOfMonth
+                value:
+                  - integer
+              - name: weekDayOfMonth
+                value:
+                  - name: weekOfMonth
+                    value: string
+                  - name: dayOfWeek
+                    value: string
+              - name: months
+                value:
+                  - string
+              - name: backupWindow
+                value:
+                  - name: startHourOfDay
+                    value: integer
+                  - name: endHourOfDay
+                    value: integer
+              - name: timeZone
+                value: string
+    - name: state
+      value: string
+    - name: resourceType
+      value: string
+    - name: etag
+      value: string
+    - name: backupVault
+      value: string
+    - name: backupVaultServiceAccount
+      value: string
 
 ```
 </TabItem>

@@ -51,5 +51,5 @@ accountId,
 hashedAccountId
 FROM google.recaptchaenterprise.memberships
 WHERE projectsId = '{{ projectsId }}'
-AND relatedaccountgroupsId = '{{ relatedaccountgroupsId }}'; 
+AND relatedaccountgroupsId = '{{ relatedaccountgroupsId }}';
 ```

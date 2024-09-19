@@ -107,7 +107,7 @@ unmanagedContainerModel,
 updateTime
 FROM google.aiplatform.batch_prediction_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -148,14 +148,14 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ labels }}',
-true|false,
+{{ generateExplanation }},
 '{{ dedicatedResources }}',
 '{{ explanationSpec }}',
 '{{ inputConfig }}',
 '{{ instanceConfig }}',
 '{{ outputConfig }}',
 '{{ encryptionSpec }}',
-true|false,
+{{ disableContainerLogging }},
 '{{ displayName }}',
 '{{ modelParameters }}',
 '{{ serviceAccount }}',
@@ -168,144 +168,270 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-labels: object
-generateExplanation: boolean
-updateTime: string
-state: string
-startTime: string
-dedicatedResources:
-  startingReplicaCount: integer
-  maxReplicaCount: integer
-  machineSpec:
-    acceleratorCount: integer
-    tpuTopology: string
-    machineType: string
-    acceleratorType: string
-    reservationAffinity:
-      reservationAffinityType: string
-      values:
-        - type: string
-      key: string
-satisfiesPzi: boolean
-resourcesConsumed:
-  replicaHours: number
-createTime: string
-completionStats:
-  successfulForecastPointCount: string
-  failedCount: string
-  successfulCount: string
-  incompleteCount: string
-explanationSpec:
-  metadata:
-    latentSpaceSource: string
-    featureAttributionsSchemaUri: string
-    outputs: object
-    inputs: object
-  parameters:
-    integratedGradientsAttribution:
-      blurBaselineConfig:
-        maxBlurSigma: number
-      smoothGradConfig:
-        featureNoiseSigma:
-          noiseSigma:
-            - name: string
-              sigma: number
-        noisySampleCount: integer
-        noiseSigma: number
-      stepCount: integer
-    topK: integer
-    outputIndices:
-      - type: string
-    sampledShapleyAttribution:
-      pathCount: integer
-    xraiAttribution:
-      stepCount: integer
-    examples:
-      nearestNeighborSearchConfig: any
-      neighborCount: integer
-      exampleGcsSource:
-        gcsSource:
-          uris:
-            - type: string
-        dataFormat: string
-      presets:
-        modality: string
-        query: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-inputConfig:
-  instancesFormat: string
-  bigquerySource:
-    inputUri: string
-instanceConfig:
-  excludedFields:
-    - type: string
-  instanceType: string
-  includedFields:
-    - type: string
-  keyField: string
-outputConfig:
-  bigqueryDestination:
-    outputUri: string
-  predictionsFormat: string
-  gcsDestination:
-    outputUriPrefix: string
-encryptionSpec:
-  kmsKeyName: string
-endTime: string
-disableContainerLogging: boolean
-displayName: string
-modelParameters: any
-serviceAccount: string
-partialFailures:
-  - code: integer
-    message: string
-    details:
-      - additionalProperties: any
-        type: string
-manualBatchTuningParameters:
-  batchSize: integer
-outputInfo:
-  bigqueryOutputTable: string
-  bigqueryOutputDataset: string
-  gcsOutputDirectory: string
-name: string
-unmanagedContainerModel:
-  artifactUri: string
-  containerSpec:
-    imageUri: string
-    healthRoute: string
-    env:
-      - value: string
-        name: string
-    ports:
-      - containerPort: integer
-    args:
-      - type: string
-    command:
-      - type: string
-    deploymentTimeout: string
-    startupProbe:
-      exec:
-        command:
-          - type: string
-      timeoutSeconds: integer
-      periodSeconds: integer
-    grpcPorts:
-      - containerPort: integer
-    sharedMemorySizeMb: string
-    predictRoute: string
-  predictSchemata:
-    instanceSchemaUri: string
-    predictionSchemaUri: string
-    parametersSchemaUri: string
-model: string
-satisfiesPzs: boolean
-modelVersionId: string
+- name: your_resource_model_name
+  props:
+    - name: labels
+      value: object
+    - name: generateExplanation
+      value: boolean
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: startTime
+      value: string
+    - name: dedicatedResources
+      value:
+        - name: startingReplicaCount
+          value: integer
+        - name: maxReplicaCount
+          value: integer
+        - name: machineSpec
+          value:
+            - name: acceleratorCount
+              value: integer
+            - name: tpuTopology
+              value: string
+            - name: machineType
+              value: string
+            - name: acceleratorType
+              value: string
+            - name: reservationAffinity
+              value:
+                - name: reservationAffinityType
+                  value: string
+                - name: values
+                  value:
+                    - string
+                - name: key
+                  value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: resourcesConsumed
+      value:
+        - name: replicaHours
+          value: number
+    - name: createTime
+      value: string
+    - name: completionStats
+      value:
+        - name: successfulForecastPointCount
+          value: string
+        - name: failedCount
+          value: string
+        - name: successfulCount
+          value: string
+        - name: incompleteCount
+          value: string
+    - name: explanationSpec
+      value:
+        - name: metadata
+          value:
+            - name: latentSpaceSource
+              value: string
+            - name: featureAttributionsSchemaUri
+              value: string
+            - name: outputs
+              value: object
+            - name: inputs
+              value: object
+        - name: parameters
+          value:
+            - name: integratedGradientsAttribution
+              value:
+                - name: blurBaselineConfig
+                  value:
+                    - name: maxBlurSigma
+                      value: number
+                - name: smoothGradConfig
+                  value:
+                    - name: featureNoiseSigma
+                      value:
+                        - name: noiseSigma
+                          value:
+                            - - name: name
+                                value: string
+                              - name: sigma
+                                value: number
+                    - name: noisySampleCount
+                      value: integer
+                    - name: noiseSigma
+                      value: number
+                - name: stepCount
+                  value: integer
+            - name: topK
+              value: integer
+            - name: outputIndices
+              value:
+                - any
+            - name: sampledShapleyAttribution
+              value:
+                - name: pathCount
+                  value: integer
+            - name: xraiAttribution
+              value:
+                - name: stepCount
+                  value: integer
+            - name: examples
+              value:
+                - name: nearestNeighborSearchConfig
+                  value: any
+                - name: neighborCount
+                  value: integer
+                - name: exampleGcsSource
+                  value:
+                    - name: gcsSource
+                      value:
+                        - name: uris
+                          value:
+                            - string
+                    - name: dataFormat
+                      value: string
+                - name: presets
+                  value:
+                    - name: modality
+                      value: string
+                    - name: query
+                      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: inputConfig
+      value:
+        - name: instancesFormat
+          value: string
+        - name: bigquerySource
+          value:
+            - name: inputUri
+              value: string
+    - name: instanceConfig
+      value:
+        - name: excludedFields
+          value:
+            - string
+        - name: instanceType
+          value: string
+        - name: includedFields
+          value:
+            - string
+        - name: keyField
+          value: string
+    - name: outputConfig
+      value:
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: string
+        - name: predictionsFormat
+          value: string
+        - name: gcsDestination
+          value:
+            - name: outputUriPrefix
+              value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: endTime
+      value: string
+    - name: disableContainerLogging
+      value: boolean
+    - name: displayName
+      value: string
+    - name: modelParameters
+      value: any
+    - name: serviceAccount
+      value: string
+    - name: partialFailures
+      value:
+        - - name: code
+            value: integer
+          - name: message
+            value: string
+          - name: details
+            value:
+              - object
+    - name: manualBatchTuningParameters
+      value:
+        - name: batchSize
+          value: integer
+    - name: outputInfo
+      value:
+        - name: bigqueryOutputTable
+          value: string
+        - name: bigqueryOutputDataset
+          value: string
+        - name: gcsOutputDirectory
+          value: string
+    - name: name
+      value: string
+    - name: unmanagedContainerModel
+      value:
+        - name: artifactUri
+          value: string
+        - name: containerSpec
+          value:
+            - name: imageUri
+              value: string
+            - name: healthRoute
+              value: string
+            - name: env
+              value:
+                - - name: value
+                    value: string
+                  - name: name
+                    value: string
+            - name: ports
+              value:
+                - - name: containerPort
+                    value: integer
+            - name: args
+              value:
+                - string
+            - name: command
+              value:
+                - string
+            - name: deploymentTimeout
+              value: string
+            - name: startupProbe
+              value:
+                - name: exec
+                  value:
+                    - name: command
+                      value:
+                        - string
+                - name: timeoutSeconds
+                  value: integer
+                - name: periodSeconds
+                  value: integer
+            - name: grpcPorts
+              value:
+                - - name: containerPort
+                    value: integer
+            - name: sharedMemorySizeMb
+              value: string
+            - name: predictRoute
+              value: string
+        - name: predictSchemata
+          value:
+            - name: instanceSchemaUri
+              value: string
+            - name: predictionSchemaUri
+              value: string
+            - name: parametersSchemaUri
+              value: string
+    - name: model
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: modelVersionId
+      value: string
 
 ```
 </TabItem>

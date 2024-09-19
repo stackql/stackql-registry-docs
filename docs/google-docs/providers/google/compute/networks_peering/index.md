@@ -67,7 +67,7 @@ SELECT
 '{{ project }}',
 '{{ name }}',
 '{{ peerNetwork }}',
-true|false,
+{{ autoCreateRoutes }},
 '{{ networkPeering }}'
 ;
 ```
@@ -75,22 +75,40 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-peerNetwork: string
-autoCreateRoutes: boolean
-networkPeering:
-  name: string
-  network: string
-  state: string
-  stateDetails: string
-  autoCreateRoutes: boolean
-  exportCustomRoutes: boolean
-  importCustomRoutes: boolean
-  exchangeSubnetRoutes: boolean
-  exportSubnetRoutesWithPublicIp: boolean
-  importSubnetRoutesWithPublicIp: boolean
-  peerMtu: integer
-  stackType: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: peerNetwork
+      value: string
+    - name: autoCreateRoutes
+      value: boolean
+    - name: networkPeering
+      value:
+        - name: name
+          value: string
+        - name: network
+          value: string
+        - name: state
+          value: string
+        - name: stateDetails
+          value: string
+        - name: autoCreateRoutes
+          value: boolean
+        - name: exportCustomRoutes
+          value: boolean
+        - name: importCustomRoutes
+          value: boolean
+        - name: exchangeSubnetRoutes
+          value: boolean
+        - name: exportSubnetRoutesWithPublicIp
+          value: boolean
+        - name: importSubnetRoutesWithPublicIp
+          value: boolean
+        - name: peerMtu
+          value: integer
+        - name: stackType
+          value: string
 
 ```
 </TabItem>

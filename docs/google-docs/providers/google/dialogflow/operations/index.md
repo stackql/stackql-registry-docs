@@ -59,5 +59,5 @@ error,
 metadata,
 response
 FROM google.dialogflow.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

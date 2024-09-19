@@ -54,7 +54,7 @@ role
 FROM google.cloudkms.key_rings_iam_policies
 WHERE keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

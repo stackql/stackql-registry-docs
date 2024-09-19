@@ -66,7 +66,7 @@ riskLevel,
 trafficCount
 FROM google.apigee.security_incidents
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `UPDATE` example

@@ -65,7 +65,7 @@ FROM google.dialogflow.versions
 WHERE agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,15 +106,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-nluSettings:
-  modelType: string
-  classificationThreshold: number
-  modelTrainingMode: string
-createTime: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: nluSettings
+      value:
+        - name: modelType
+          value: string
+        - name: classificationThreshold
+          value: number
+        - name: modelTrainingMode
+          value: string
+    - name: createTime
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

@@ -101,7 +101,7 @@ selfLink,
 stackType,
 state
 FROM google.compute.subnetworks
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -154,10 +154,10 @@ SELECT
 '{{ reservedInternalRange }}',
 '{{ gatewayAddress }}',
 '{{ region }}',
-true|false,
+{{ privateIpGoogleAccess }},
 '{{ secondaryIpRanges }}',
 '{{ fingerprint }}',
-true|false,
+{{ enableFlowLogs }},
 '{{ privateIpv6GoogleAccess }}',
 '{{ ipv6CidrRange }}',
 '{{ externalIpv6Prefix }}',
@@ -174,41 +174,77 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-network: string
-ipCidrRange: string
-reservedInternalRange: string
-gatewayAddress: string
-region: string
-selfLink: string
-privateIpGoogleAccess: boolean
-secondaryIpRanges:
-  - rangeName: string
-    ipCidrRange: string
-    reservedInternalRange: string
-fingerprint: string
-enableFlowLogs: boolean
-privateIpv6GoogleAccess: string
-ipv6CidrRange: string
-externalIpv6Prefix: string
-internalIpv6Prefix: string
-purpose: string
-role: string
-state: string
-logConfig:
-  enable: boolean
-  aggregationInterval: string
-  flowSampling: number
-  metadata: string
-  metadataFields:
-    - type: string
-  filterExpr: string
-stackType: string
-ipv6AccessType: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: ipCidrRange
+      value: string
+    - name: reservedInternalRange
+      value: string
+    - name: gatewayAddress
+      value: string
+    - name: region
+      value: string
+    - name: selfLink
+      value: string
+    - name: privateIpGoogleAccess
+      value: boolean
+    - name: secondaryIpRanges
+      value:
+        - - name: rangeName
+            value: string
+          - name: ipCidrRange
+            value: string
+          - name: reservedInternalRange
+            value: string
+    - name: fingerprint
+      value: string
+    - name: enableFlowLogs
+      value: boolean
+    - name: privateIpv6GoogleAccess
+      value: string
+    - name: ipv6CidrRange
+      value: string
+    - name: externalIpv6Prefix
+      value: string
+    - name: internalIpv6Prefix
+      value: string
+    - name: purpose
+      value: string
+    - name: role
+      value: string
+    - name: state
+      value: string
+    - name: logConfig
+      value:
+        - name: enable
+          value: boolean
+        - name: aggregationInterval
+          value: string
+        - name: flowSampling
+          value: number
+        - name: metadata
+          value: string
+        - name: metadataFields
+          value:
+            - string
+        - name: filterExpr
+          value: string
+    - name: stackType
+      value: string
+    - name: ipv6AccessType
+      value: string
 
 ```
 </TabItem>

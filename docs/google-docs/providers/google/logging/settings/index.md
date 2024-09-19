@@ -62,7 +62,7 @@ kmsServiceAccountId,
 loggingServiceAccountId,
 storageLocation
 FROM google.logging.settings
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

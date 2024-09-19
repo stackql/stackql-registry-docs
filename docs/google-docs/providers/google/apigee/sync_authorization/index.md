@@ -48,5 +48,5 @@ SELECT
 etag,
 identities
 FROM google.apigee.sync_authorization
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

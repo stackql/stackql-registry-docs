@@ -57,5 +57,5 @@ videoPayload
 FROM google.datalabeling.examples
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

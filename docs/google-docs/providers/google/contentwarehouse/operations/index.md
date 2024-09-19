@@ -56,5 +56,5 @@ response
 FROM google.contentwarehouse.operations
 WHERE locationsId = '{{ locationsId }}'
 AND operationsId = '{{ operationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

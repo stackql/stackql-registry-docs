@@ -71,7 +71,7 @@ FROM google.dialogflow.pages
 WHERE agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -126,113 +126,219 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-entryFulfillment:
-  messages:
-    - text:
-        text:
-          - type: string
-        allowPlaybackInterruption: boolean
-      payload: object
-      conversationSuccess:
-        metadata: object
-      outputAudioText:
-        text: string
-        ssml: string
-        allowPlaybackInterruption: boolean
-      liveAgentHandoff:
-        metadata: object
-      endInteraction: {}
-      playAudio:
-        audioUri: string
-        allowPlaybackInterruption: boolean
-      mixedAudio:
-        segments:
-          - audio: string
-            uri: string
-            allowPlaybackInterruption: boolean
-      telephonyTransferCall:
-        phoneNumber: string
-      knowledgeInfoCard: {}
-      responseType: string
-      channel: string
-  webhook: string
-  returnPartialResponses: boolean
-  tag: string
-  setParameterActions:
-    - parameter: string
-      value: any
-  conditionalCases:
-    - cases:
-        - condition: string
-          caseContent:
-            - message:
-                payload: object
-                responseType: string
-                channel: string
-              additionalCases:
-                cases:
-                  - condition: string
-                    caseContent:
-                      - {}
-  advancedSettings:
-    audioExportGcsDestination:
-      uri: string
-    speechSettings:
-      endpointerSensitivity: integer
-      noSpeechTimeout: string
-      useTimeoutBasedEndpointing: boolean
-      models: object
-    dtmfSettings:
-      enabled: boolean
-      maxDigits: integer
-      finishDigit: string
-      interdigitTimeoutDuration: string
-      endpointingTimeoutDuration: string
-    loggingSettings:
-      enableStackdriverLogging: boolean
-      enableInteractionLogging: boolean
-      enableConsentBasedRedaction: boolean
-  enableGenerativeFallback: boolean
-form:
-  parameters:
-    - displayName: string
-      required: boolean
-      entityType: string
-      isList: boolean
-      fillBehavior:
-        repromptEventHandlers:
-          - name: string
-            event: string
-            targetPage: string
-            targetFlow: string
-            targetPlaybook: string
-      defaultValue: any
-      redact: boolean
-transitionRouteGroups:
-  - type: string
-transitionRoutes:
-  - name: string
-    description: string
-    intent: string
-    condition: string
-    targetPage: string
-    targetFlow: string
-eventHandlers:
-  - name: string
-    event: string
-    targetPage: string
-    targetFlow: string
-    targetPlaybook: string
-knowledgeConnectorSettings:
-  enabled: boolean
-  targetPage: string
-  targetFlow: string
-  dataStoreConnections:
-    - dataStoreType: string
-      dataStore: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: entryFulfillment
+      value:
+        - name: messages
+          value:
+            - - name: text
+                value:
+                  - name: text
+                    value:
+                      - string
+                  - name: allowPlaybackInterruption
+                    value: boolean
+              - name: payload
+                value: object
+              - name: conversationSuccess
+                value:
+                  - name: metadata
+                    value: object
+              - name: outputAudioText
+                value:
+                  - name: text
+                    value: string
+                  - name: ssml
+                    value: string
+                  - name: allowPlaybackInterruption
+                    value: boolean
+              - name: liveAgentHandoff
+                value:
+                  - name: metadata
+                    value: object
+              - name: endInteraction
+                value: []
+              - name: playAudio
+                value:
+                  - name: audioUri
+                    value: string
+                  - name: allowPlaybackInterruption
+                    value: boolean
+              - name: mixedAudio
+                value:
+                  - name: segments
+                    value:
+                      - - name: audio
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: allowPlaybackInterruption
+                          value: boolean
+              - name: telephonyTransferCall
+                value:
+                  - name: phoneNumber
+                    value: string
+              - name: knowledgeInfoCard
+                value: []
+              - name: responseType
+                value: string
+              - name: channel
+                value: string
+        - name: webhook
+          value: string
+        - name: returnPartialResponses
+          value: boolean
+        - name: tag
+          value: string
+        - name: setParameterActions
+          value:
+            - - name: parameter
+                value: string
+              - name: value
+                value: any
+        - name: conditionalCases
+          value:
+            - - name: cases
+                value:
+                  - - name: condition
+                      value: string
+                    - name: caseContent
+                      value:
+                        - - name: message
+                            value:
+                              - name: payload
+                                value: object
+                              - name: responseType
+                                value: string
+                              - name: channel
+                                value: string
+                          - name: additionalCases
+                            value:
+                              - name: cases
+                                value:
+                                  - - name: condition
+                                      value: string
+                                    - name: caseContent
+                                      value:
+                                        - []
+        - name: advancedSettings
+          value:
+            - name: audioExportGcsDestination
+              value:
+                - name: uri
+                  value: string
+            - name: speechSettings
+              value:
+                - name: endpointerSensitivity
+                  value: integer
+                - name: noSpeechTimeout
+                  value: string
+                - name: useTimeoutBasedEndpointing
+                  value: boolean
+                - name: models
+                  value: object
+            - name: dtmfSettings
+              value:
+                - name: enabled
+                  value: boolean
+                - name: maxDigits
+                  value: integer
+                - name: finishDigit
+                  value: string
+                - name: interdigitTimeoutDuration
+                  value: string
+                - name: endpointingTimeoutDuration
+                  value: string
+            - name: loggingSettings
+              value:
+                - name: enableStackdriverLogging
+                  value: boolean
+                - name: enableInteractionLogging
+                  value: boolean
+                - name: enableConsentBasedRedaction
+                  value: boolean
+        - name: enableGenerativeFallback
+          value: boolean
+    - name: form
+      value:
+        - name: parameters
+          value:
+            - - name: displayName
+                value: string
+              - name: required
+                value: boolean
+              - name: entityType
+                value: string
+              - name: isList
+                value: boolean
+              - name: fillBehavior
+                value:
+                  - name: repromptEventHandlers
+                    value:
+                      - - name: name
+                          value: string
+                        - name: event
+                          value: string
+                        - name: targetPage
+                          value: string
+                        - name: targetFlow
+                          value: string
+                        - name: targetPlaybook
+                          value: string
+              - name: defaultValue
+                value: any
+              - name: redact
+                value: boolean
+    - name: transitionRouteGroups
+      value:
+        - string
+    - name: transitionRoutes
+      value:
+        - - name: name
+            value: string
+          - name: description
+            value: string
+          - name: intent
+            value: string
+          - name: condition
+            value: string
+          - name: targetPage
+            value: string
+          - name: targetFlow
+            value: string
+    - name: eventHandlers
+      value:
+        - - name: name
+            value: string
+          - name: event
+            value: string
+          - name: targetPage
+            value: string
+          - name: targetFlow
+            value: string
+          - name: targetPlaybook
+            value: string
+    - name: knowledgeConnectorSettings
+      value:
+        - name: enabled
+          value: boolean
+        - name: targetPage
+          value: string
+        - name: targetFlow
+          value: string
+        - name: dataStoreConnections
+          value:
+            - - name: dataStoreType
+                value: string
+              - name: dataStore
+                value: string
 
 ```
 </TabItem>

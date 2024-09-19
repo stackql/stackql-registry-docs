@@ -72,7 +72,7 @@ createTime,
 lifecycleState
 FROM google.logging.links
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```
 
 ## `INSERT` example
@@ -107,12 +107,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-lifecycleState: string
-bigqueryDataset:
-  datasetId: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: lifecycleState
+      value: string
+    - name: bigqueryDataset
+      value:
+        - name: datasetId
+          value: string
 
 ```
 </TabItem>

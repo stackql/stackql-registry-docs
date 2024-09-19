@@ -49,7 +49,7 @@ SELECT
 name,
 patchAndConfigFeatureSet
 FROM google.osconfig.global_project_feature_settings
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

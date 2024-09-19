@@ -54,7 +54,7 @@ role
 FROM google.spanner.backups_iam_policies
 WHERE backupsId = '{{ backupsId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

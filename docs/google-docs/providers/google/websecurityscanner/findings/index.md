@@ -83,5 +83,5 @@ xxe
 FROM google.websecurityscanner.findings
 WHERE projectsId = '{{ projectsId }}'
 AND scanConfigsId = '{{ scanConfigsId }}'
-AND scanRunsId = '{{ scanRunsId }}'; 
+AND scanRunsId = '{{ scanRunsId }}';
 ```

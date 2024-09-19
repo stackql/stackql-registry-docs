@@ -53,7 +53,7 @@ members,
 role
 FROM google.networkconnectivity.hubs_iam_policies
 WHERE hubsId = '{{ hubsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

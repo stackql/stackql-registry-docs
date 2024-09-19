@@ -52,5 +52,5 @@ FROM google.batch.tasks
 WHERE jobsId = '{{ jobsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND taskGroupsId = '{{ taskGroupsId }}'; 
+AND taskGroupsId = '{{ taskGroupsId }}';
 ```

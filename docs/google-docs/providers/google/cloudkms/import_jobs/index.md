@@ -68,7 +68,7 @@ state
 FROM google.cloudkms.import_jobs
 WHERE keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,26 +105,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-importMethod: string
-protectionLevel: string
-createTime: string
-generateTime: string
-expireTime: string
-expireEventTime: string
-state: string
-publicKey:
-  pem: string
-attestation:
-  format: string
-  content: string
-  certChains:
-    caviumCerts:
-      - type: string
-    googleCardCerts:
-      - type: string
-    googlePartitionCerts:
-      - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: importMethod
+      value: string
+    - name: protectionLevel
+      value: string
+    - name: createTime
+      value: string
+    - name: generateTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: expireEventTime
+      value: string
+    - name: state
+      value: string
+    - name: publicKey
+      value:
+        - name: pem
+          value: string
+    - name: attestation
+      value:
+        - name: format
+          value: string
+        - name: content
+          value: string
+        - name: certChains
+          value:
+            - name: caviumCerts
+              value:
+                - string
+            - name: googleCardCerts
+              value:
+                - string
+            - name: googlePartitionCerts
+              value:
+                - string
 
 ```
 </TabItem>

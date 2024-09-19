@@ -50,5 +50,5 @@ emailForwardings
 FROM google.domains.registrations_google_domains_forwarding_config
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND registrationsId = '{{ registrationsId }}'; 
+AND registrationsId = '{{ registrationsId }}';
 ```

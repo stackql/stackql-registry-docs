@@ -53,5 +53,5 @@ severity
 FROM google.bigquerydatatransfer.transfer_logs
 WHERE projectsId = '{{ projectsId }}'
 AND runsId = '{{ runsId }}'
-AND transferConfigsId = '{{ transferConfigsId }}'; 
+AND transferConfigsId = '{{ transferConfigsId }}';
 ```

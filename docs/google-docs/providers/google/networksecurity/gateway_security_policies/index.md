@@ -59,7 +59,7 @@ tlsInspectionPolicy,
 updateTime
 FROM google.networksecurity.gateway_security_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,11 +96,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-description: string
-tlsInspectionPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: tlsInspectionPolicy
+      value: string
 
 ```
 </TabItem>

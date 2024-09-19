@@ -77,7 +77,7 @@ updateTime,
 virtualMachine,
 warnings
 FROM google.networkconnectivity.policy_based_routes
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -126,31 +126,57 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-virtualMachine:
-  tags:
-    - type: string
-interconnectAttachment:
-  region: string
-nextHopIlbIp: string
-nextHopOtherRoutes: string
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-network: string
-filter:
-  ipProtocol: string
-  srcRange: string
-  destRange: string
-  protocolVersion: string
-priority: integer
-warnings:
-  - code: string
-    data: object
-    warningMessage: string
-selfLink: string
-kind: string
+- name: your_resource_model_name
+  props:
+    - name: virtualMachine
+      value:
+        - name: tags
+          value:
+            - string
+    - name: interconnectAttachment
+      value:
+        - name: region
+          value: string
+    - name: nextHopIlbIp
+      value: string
+    - name: nextHopOtherRoutes
+      value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: filter
+      value:
+        - name: ipProtocol
+          value: string
+        - name: srcRange
+          value: string
+        - name: destRange
+          value: string
+        - name: protocolVersion
+          value: string
+    - name: priority
+      value: integer
+    - name: warnings
+      value:
+        - - name: code
+            value: string
+          - name: data
+            value: object
+          - name: warningMessage
+            value: string
+    - name: selfLink
+      value: string
+    - name: kind
+      value: string
 
 ```
 </TabItem>

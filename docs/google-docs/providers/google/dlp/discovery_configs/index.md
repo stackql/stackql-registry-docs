@@ -76,7 +76,7 @@ targets,
 updateTime
 FROM google.dlp.discovery_configs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -111,161 +111,266 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-configId: string
-discoveryConfig:
-  displayName: string
-  name: string
-  status: string
-  actions:
-    - publishToScc: {}
-      pubSubNotification:
-        topic: string
-        pubsubCondition:
-          expressions:
-            conditions:
-              - minimumSensitivityScore: string
-                minimumRiskScore: string
-            logicalOperator: string
-        detailOfMessage: string
-        event: string
-      publishToChronicle: {}
-      exportData:
-        profileTable:
-          projectId: string
-          datasetId: string
-          tableId: string
-      tagResources:
-        lowerDataRiskToLow: boolean
-        tagConditions:
-          - sensitivityScore:
-              score: string
-            tag:
-              namespacedValue: string
-        profileGenerationsToTag:
-          - type: string
-            enumDescriptions: string
-            enum: string
-  createTime: string
-  targets:
-    - cloudSqlTarget:
-        conditions:
-          types:
-            - enum: string
-              type: string
-              enumDescriptions: string
-          databaseEngines:
-            - enum: string
-              enumDescriptions: string
-              type: string
-        generationCadence:
-          refreshFrequency: string
-          inspectTemplateModifiedCadence:
-            frequency: string
-          schemaModifiedCadence:
-            types:
-              - enumDescriptions: string
-                type: string
-                enum: string
-            frequency: string
-        filter:
-          databaseResourceReference:
-            instance: string
-            projectId: string
-            database: string
-            databaseResource: string
-          collection:
-            includeRegexes:
-              patterns:
-                - databaseRegex: string
-                  instanceRegex: string
-                  projectIdRegex: string
-                  databaseResourceNameRegex: string
-          others: {}
-        disabled: {}
-      secretsTarget: {}
-      bigQueryTarget:
-        filter:
-          otherTables: {}
-          tableReference:
-            datasetId: string
-            tableId: string
-          tables:
-            includeRegexes:
-              patterns:
-                - tableIdRegex: string
-                  datasetIdRegex: string
-                  projectIdRegex: string
-        cadence:
-          tableModifiedCadence:
-            frequency: string
-            types:
-              - enumDescriptions: string
-                enum: string
-                type: string
-          refreshFrequency: string
-          schemaModifiedCadence:
-            types:
-              - enum: string
-                type: string
-                enumDescriptions: string
-            frequency: string
-        conditions:
-          types:
-            types:
-              - enum: string
-                enumDescriptions: string
-                type: string
-          orConditions:
-            minRowCount: integer
-            minAge: string
-          typeCollection: string
-          createdAfter: string
-      cloudStorageTarget:
-        generationCadence:
-          refreshFrequency: string
-        conditions:
-          cloudStorageConditions:
-            includedBucketAttributes:
-              - enumDescriptions: string
-                enum: string
-                type: string
-            includedObjectAttributes:
-              - type: string
-                enum: string
-                enumDescriptions: string
-          minAge: string
-          createdAfter: string
-        filter:
-          collection:
-            includeRegexes:
-              patterns:
-                - cloudStorageRegex:
-                    projectIdRegex: string
-                    bucketNameRegex: string
-          cloudStorageResourceReference:
-            projectId: string
-            bucketName: string
-          others: {}
-  orgConfig:
-    projectId: string
-    location:
-      organizationId: string
-      folderId: string
-  lastRunTime: string
-  inspectTemplates:
-    - type: string
-  errors:
-    - details:
-        details:
-          - additionalProperties: any
-            type: string
-        code: integer
-        message: string
-      timestamps:
-        - type: string
-          format: string
-      extraInfo: string
-  updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: configId
+      value: string
+    - name: discoveryConfig
+      value:
+        - name: displayName
+          value: string
+        - name: name
+          value: string
+        - name: status
+          value: string
+        - name: actions
+          value:
+            - - name: publishToScc
+                value: []
+              - name: pubSubNotification
+                value:
+                  - name: topic
+                    value: string
+                  - name: pubsubCondition
+                    value:
+                      - name: expressions
+                        value:
+                          - name: conditions
+                            value:
+                              - - name: minimumSensitivityScore
+                                  value: string
+                                - name: minimumRiskScore
+                                  value: string
+                          - name: logicalOperator
+                            value: string
+                  - name: detailOfMessage
+                    value: string
+                  - name: event
+                    value: string
+              - name: publishToChronicle
+                value: []
+              - name: exportData
+                value:
+                  - name: profileTable
+                    value:
+                      - name: projectId
+                        value: string
+                      - name: datasetId
+                        value: string
+                      - name: tableId
+                        value: string
+              - name: tagResources
+                value:
+                  - name: lowerDataRiskToLow
+                    value: boolean
+                  - name: tagConditions
+                    value:
+                      - - name: sensitivityScore
+                          value:
+                            - name: score
+                              value: string
+                        - name: tag
+                          value:
+                            - name: namespacedValue
+                              value: string
+                  - name: profileGenerationsToTag
+                    value:
+                      - string
+        - name: createTime
+          value: string
+        - name: targets
+          value:
+            - - name: cloudSqlTarget
+                value:
+                  - name: conditions
+                    value:
+                      - name: types
+                        value:
+                          - string
+                      - name: databaseEngines
+                        value:
+                          - string
+                  - name: generationCadence
+                    value:
+                      - name: refreshFrequency
+                        value: string
+                      - name: inspectTemplateModifiedCadence
+                        value:
+                          - name: frequency
+                            value: string
+                      - name: schemaModifiedCadence
+                        value:
+                          - name: types
+                            value:
+                              - string
+                          - name: frequency
+                            value: string
+                  - name: filter
+                    value:
+                      - name: databaseResourceReference
+                        value:
+                          - name: instance
+                            value: string
+                          - name: projectId
+                            value: string
+                          - name: database
+                            value: string
+                          - name: databaseResource
+                            value: string
+                      - name: collection
+                        value:
+                          - name: includeRegexes
+                            value:
+                              - name: patterns
+                                value:
+                                  - - name: databaseRegex
+                                      value: string
+                                    - name: instanceRegex
+                                      value: string
+                                    - name: projectIdRegex
+                                      value: string
+                                    - name: databaseResourceNameRegex
+                                      value: string
+                      - name: others
+                        value: []
+                  - name: disabled
+                    value: []
+              - name: secretsTarget
+                value: []
+              - name: bigQueryTarget
+                value:
+                  - name: filter
+                    value:
+                      - name: otherTables
+                        value: []
+                      - name: tableReference
+                        value:
+                          - name: datasetId
+                            value: string
+                          - name: tableId
+                            value: string
+                      - name: tables
+                        value:
+                          - name: includeRegexes
+                            value:
+                              - name: patterns
+                                value:
+                                  - - name: tableIdRegex
+                                      value: string
+                                    - name: datasetIdRegex
+                                      value: string
+                                    - name: projectIdRegex
+                                      value: string
+                  - name: cadence
+                    value:
+                      - name: tableModifiedCadence
+                        value:
+                          - name: frequency
+                            value: string
+                          - name: types
+                            value:
+                              - string
+                      - name: refreshFrequency
+                        value: string
+                      - name: schemaModifiedCadence
+                        value:
+                          - name: types
+                            value:
+                              - string
+                          - name: frequency
+                            value: string
+                  - name: conditions
+                    value:
+                      - name: types
+                        value:
+                          - name: types
+                            value:
+                              - string
+                      - name: orConditions
+                        value:
+                          - name: minRowCount
+                            value: integer
+                          - name: minAge
+                            value: string
+                      - name: typeCollection
+                        value: string
+                      - name: createdAfter
+                        value: string
+              - name: cloudStorageTarget
+                value:
+                  - name: generationCadence
+                    value:
+                      - name: refreshFrequency
+                        value: string
+                  - name: conditions
+                    value:
+                      - name: cloudStorageConditions
+                        value:
+                          - name: includedBucketAttributes
+                            value:
+                              - string
+                          - name: includedObjectAttributes
+                            value:
+                              - string
+                      - name: minAge
+                        value: string
+                      - name: createdAfter
+                        value: string
+                  - name: filter
+                    value:
+                      - name: collection
+                        value:
+                          - name: includeRegexes
+                            value:
+                              - name: patterns
+                                value:
+                                  - - name: cloudStorageRegex
+                                      value:
+                                        - name: projectIdRegex
+                                          value: string
+                                        - name: bucketNameRegex
+                                          value: string
+                      - name: cloudStorageResourceReference
+                        value:
+                          - name: projectId
+                            value: string
+                          - name: bucketName
+                            value: string
+                      - name: others
+                        value: []
+        - name: orgConfig
+          value:
+            - name: projectId
+              value: string
+            - name: location
+              value:
+                - name: organizationId
+                  value: string
+                - name: folderId
+                  value: string
+        - name: lastRunTime
+          value: string
+        - name: inspectTemplates
+          value:
+            - string
+        - name: errors
+          value:
+            - - name: details
+                value:
+                  - name: details
+                    value:
+                      - object
+                  - name: code
+                    value: integer
+                  - name: message
+                    value: string
+              - name: timestamps
+                value:
+                  - string
+              - name: extraInfo
+                value: string
+        - name: updateTime
+          value: string
 
 ```
 </TabItem>

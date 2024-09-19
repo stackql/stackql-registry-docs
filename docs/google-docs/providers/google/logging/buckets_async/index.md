@@ -75,8 +75,8 @@ SELECT
 '{{ locationsId }}',
 '{{ description }}',
 '{{ retentionDays }}',
-true|false,
-true|false,
+{{ locked }},
+{{ analyticsEnabled }},
 '{{ restrictedFields }}',
 '{{ indexConfigs }}',
 '{{ cmekSettings }}'
@@ -86,25 +86,45 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-retentionDays: integer
-locked: boolean
-lifecycleState: string
-analyticsEnabled: boolean
-restrictedFields:
-  - type: string
-indexConfigs:
-  - fieldPath: string
-    type: string
-    createTime: string
-cmekSettings:
-  name: string
-  kmsKeyName: string
-  kmsKeyVersionName: string
-  serviceAccountId: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: retentionDays
+      value: integer
+    - name: locked
+      value: boolean
+    - name: lifecycleState
+      value: string
+    - name: analyticsEnabled
+      value: boolean
+    - name: restrictedFields
+      value:
+        - string
+    - name: indexConfigs
+      value:
+        - - name: fieldPath
+            value: string
+          - name: type
+            value: string
+          - name: createTime
+            value: string
+    - name: cmekSettings
+      value:
+        - name: name
+          value: string
+        - name: kmsKeyName
+          value: string
+        - name: kmsKeyVersionName
+          value: string
+        - name: serviceAccountId
+          value: string
 
 ```
 </TabItem>

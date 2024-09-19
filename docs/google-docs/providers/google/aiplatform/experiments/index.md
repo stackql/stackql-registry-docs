@@ -68,7 +68,7 @@ updateTime
 FROM google.aiplatform.experiments
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND tensorboardsId = '{{ tensorboardsId }}'; 
+AND tensorboardsId = '{{ tensorboardsId }}';
 ```
 
 ## `INSERT` example
@@ -111,14 +111,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-labels: object
-source: string
-updateTime: string
-description: string
-displayName: string
-etag: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: source
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: etag
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

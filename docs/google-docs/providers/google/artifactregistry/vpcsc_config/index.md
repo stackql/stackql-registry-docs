@@ -50,7 +50,7 @@ name,
 vpcscPolicy
 FROM google.artifactregistry.vpcsc_config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

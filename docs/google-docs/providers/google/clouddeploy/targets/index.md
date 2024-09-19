@@ -83,7 +83,7 @@ uid,
 updateTime
 FROM google.clouddeploy.targets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,7 +125,7 @@ SELECT
 '{{ description }}',
 '{{ annotations }}',
 '{{ labels }}',
-true|false,
+{{ requireApproval }},
 '{{ gke }}',
 '{{ anthosCluster }}',
 '{{ run }}',
@@ -140,47 +140,84 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-targetId: string
-uid: string
-description: string
-annotations: object
-labels: object
-requireApproval: boolean
-createTime: string
-updateTime: string
-gke:
-  cluster: string
-  internalIp: boolean
-  proxyUrl: string
-anthosCluster:
-  membership: string
-run:
-  location: string
-multiTarget:
-  targetIds:
-    - type: string
-customTarget:
-  customTargetType: string
-etag: string
-executionConfigs:
-  - usages:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    defaultPool:
-      serviceAccount: string
-      artifactStorage: string
-    privatePool:
-      workerPool: string
-      serviceAccount: string
-      artifactStorage: string
-    workerPool: string
-    serviceAccount: string
-    artifactStorage: string
-    executionTimeout: string
-    verbose: boolean
-deployParameters: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: targetId
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: requireApproval
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: gke
+      value:
+        - name: cluster
+          value: string
+        - name: internalIp
+          value: boolean
+        - name: proxyUrl
+          value: string
+    - name: anthosCluster
+      value:
+        - name: membership
+          value: string
+    - name: run
+      value:
+        - name: location
+          value: string
+    - name: multiTarget
+      value:
+        - name: targetIds
+          value:
+            - string
+    - name: customTarget
+      value:
+        - name: customTargetType
+          value: string
+    - name: etag
+      value: string
+    - name: executionConfigs
+      value:
+        - - name: usages
+            value:
+              - string
+          - name: defaultPool
+            value:
+              - name: serviceAccount
+                value: string
+              - name: artifactStorage
+                value: string
+          - name: privatePool
+            value:
+              - name: workerPool
+                value: string
+              - name: serviceAccount
+                value: string
+              - name: artifactStorage
+                value: string
+          - name: workerPool
+            value: string
+          - name: serviceAccount
+            value: string
+          - name: artifactStorage
+            value: string
+          - name: executionTimeout
+            value: string
+          - name: verbose
+            value: boolean
+    - name: deployParameters
+      value: object
 
 ```
 </TabItem>

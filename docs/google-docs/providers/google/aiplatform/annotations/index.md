@@ -63,5 +63,5 @@ FROM google.aiplatform.annotations
 WHERE dataItemsId = '{{ dataItemsId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

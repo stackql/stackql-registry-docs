@@ -64,7 +64,7 @@ updateTime,
 vpcPeeringConfig
 FROM google.datastream.private_connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,21 +101,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-state: string
-error:
-  reason: string
-  errorUuid: string
-  message: string
-  errorTime: string
-  details: object
-vpcPeeringConfig:
-  vpc: string
-  subnet: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: error
+      value:
+        - name: reason
+          value: string
+        - name: errorUuid
+          value: string
+        - name: message
+          value: string
+        - name: errorTime
+          value: string
+        - name: details
+          value: object
+    - name: vpcPeeringConfig
+      value:
+        - name: vpc
+          value: string
+        - name: subnet
+          value: string
 
 ```
 </TabItem>

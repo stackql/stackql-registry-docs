@@ -67,7 +67,7 @@ workflowConfig
 FROM google.dataform.workflow_invocations
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -106,27 +106,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-compilationResult: string
-workflowConfig: string
-name: string
-invocationConfig:
-  includedTargets:
-    - database: string
-      schema: string
-      name: string
-  includedTags:
-    - type: string
-  transitiveDependenciesIncluded: boolean
-  transitiveDependentsIncluded: boolean
-  fullyRefreshIncrementalTablesEnabled: boolean
-  serviceAccount: string
-state: string
-invocationTiming:
-  startTime: string
-  endTime: string
-resolvedCompilationResult: string
-dataEncryptionState:
-  kmsKeyVersionName: string
+- name: your_resource_model_name
+  props:
+    - name: compilationResult
+      value: string
+    - name: workflowConfig
+      value: string
+    - name: name
+      value: string
+    - name: invocationConfig
+      value:
+        - name: includedTargets
+          value:
+            - - name: database
+                value: string
+              - name: schema
+                value: string
+              - name: name
+                value: string
+        - name: includedTags
+          value:
+            - string
+        - name: transitiveDependenciesIncluded
+          value: boolean
+        - name: transitiveDependentsIncluded
+          value: boolean
+        - name: fullyRefreshIncrementalTablesEnabled
+          value: boolean
+        - name: serviceAccount
+          value: string
+    - name: state
+      value: string
+    - name: invocationTiming
+      value:
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+    - name: resolvedCompilationResult
+      value: string
+    - name: dataEncryptionState
+      value:
+        - name: kmsKeyVersionName
+          value: string
 
 ```
 </TabItem>

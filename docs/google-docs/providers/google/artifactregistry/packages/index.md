@@ -59,7 +59,7 @@ updateTime
 FROM google.artifactregistry.packages
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `UPDATE` example

@@ -66,7 +66,7 @@ expireTime,
 managedCertificate,
 visibleDomainMappings
 FROM google.appengine.authorized_certificates
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```
 
 ## `INSERT` example
@@ -111,21 +111,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-id: string
-displayName: string
-domainNames:
-  - type: string
-expireTime: string
-certificateRawData:
-  publicCertificate: string
-  privateKey: string
-managedCertificate:
-  lastRenewalTime: string
-  status: string
-visibleDomainMappings:
-  - type: string
-domainMappingsCount: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: displayName
+      value: string
+    - name: domainNames
+      value:
+        - string
+    - name: expireTime
+      value: string
+    - name: certificateRawData
+      value:
+        - name: publicCertificate
+          value: string
+        - name: privateKey
+          value: string
+    - name: managedCertificate
+      value:
+        - name: lastRenewalTime
+          value: string
+        - name: status
+          value: string
+    - name: visibleDomainMappings
+      value:
+        - string
+    - name: domainMappingsCount
+      value: integer
 
 ```
 </TabItem>

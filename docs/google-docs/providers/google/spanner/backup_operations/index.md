@@ -55,5 +55,5 @@ metadata,
 response
 FROM google.spanner.backup_operations
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -59,7 +59,7 @@ parent,
 reason,
 restrictions
 FROM google.cloudresourcemanager.liens
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -78,7 +78,6 @@ Use the following StackQL query and manifest file to create a new <code>liens</c
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.liens (
-,
 name,
 parent,
 restrictions,
@@ -86,7 +85,6 @@ reason,
 origin
 )
 SELECT 
-'{{  }}',
 '{{ name }}',
 '{{ parent }}',
 '{{ restrictions }}',
@@ -98,13 +96,21 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-restrictions:
-  - type: string
-reason: string
-origin: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: restrictions
+      value:
+        - string
+    - name: reason
+      value: string
+    - name: origin
+      value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

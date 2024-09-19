@@ -50,5 +50,5 @@ config,
 serviceAccount,
 serviceAccountProject
 FROM google.ml.config
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

@@ -58,5 +58,5 @@ FROM google.apim.api_operations
 WHERE apiObservationsId = '{{ apiObservationsId }}'
 AND locationsId = '{{ locationsId }}'
 AND observationJobsId = '{{ observationJobsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

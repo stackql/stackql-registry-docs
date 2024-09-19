@@ -55,7 +55,7 @@ FROM google.artifactregistry.tags
 WHERE locationsId = '{{ locationsId }}'
 AND packagesId = '{{ packagesId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -94,8 +94,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-version: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: version
+      value: string
 
 ```
 </TabItem>

@@ -70,7 +70,7 @@ sourceJobId,
 state,
 ttl
 FROM google.dataflow.snapshots
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `DELETE` example

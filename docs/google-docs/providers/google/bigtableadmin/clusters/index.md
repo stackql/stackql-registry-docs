@@ -64,7 +64,7 @@ serveNodes,
 state
 FROM google.bigtableadmin.clusters
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,21 +107,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-location: string
-state: string
-serveNodes: integer
-clusterConfig:
-  clusterAutoscalingConfig:
-    autoscalingLimits:
-      minServeNodes: integer
-      maxServeNodes: integer
-    autoscalingTargets:
-      cpuUtilizationPercent: integer
-      storageUtilizationGibPerNode: integer
-defaultStorageType: string
-encryptionConfig:
-  kmsKeyName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: location
+      value: string
+    - name: state
+      value: string
+    - name: serveNodes
+      value: integer
+    - name: clusterConfig
+      value:
+        - name: clusterAutoscalingConfig
+          value:
+            - name: autoscalingLimits
+              value:
+                - name: minServeNodes
+                  value: integer
+                - name: maxServeNodes
+                  value: integer
+            - name: autoscalingTargets
+              value:
+                - name: cpuUtilizationPercent
+                  value: integer
+                - name: storageUtilizationGibPerNode
+                  value: integer
+    - name: defaultStorageType
+      value: string
+    - name: encryptionConfig
+      value:
+        - name: kmsKeyName
+          value: string
 
 ```
 </TabItem>

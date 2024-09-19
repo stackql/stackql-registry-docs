@@ -69,7 +69,7 @@ type,
 unit,
 valueType
 FROM google.monitoring.metric_descriptors
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -120,28 +120,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-type: string
-labels:
-  - key: string
-    valueType: string
-    description: string
-metricKind: string
-valueType: string
-unit: string
-description: string
-displayName: string
-metadata:
-  launchStage: string
-  samplePeriod: string
-  ingestDelay: string
-  timeSeriesResourceHierarchyLevel:
-    - type: string
-      enumDescriptions: string
-      enum: string
-launchStage: string
-monitoredResourceTypes:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: labels
+      value:
+        - - name: key
+            value: string
+          - name: valueType
+            value: string
+          - name: description
+            value: string
+    - name: metricKind
+      value: string
+    - name: valueType
+      value: string
+    - name: unit
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: metadata
+      value:
+        - name: launchStage
+          value: string
+        - name: samplePeriod
+          value: string
+        - name: ingestDelay
+          value: string
+        - name: timeSeriesResourceHierarchyLevel
+          value:
+            - string
+    - name: launchStage
+      value: string
+    - name: monitoredResourceTypes
+      value:
+        - string
 
 ```
 </TabItem>

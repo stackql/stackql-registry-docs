@@ -57,7 +57,7 @@ dataCatalogTimestamps,
 displayName
 FROM google.datacatalog.entry_groups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -94,13 +94,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-dataCatalogTimestamps:
-  createTime: string
-  updateTime: string
-  expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: dataCatalogTimestamps
+      value:
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: expireTime
+          value: string
 
 ```
 </TabItem>

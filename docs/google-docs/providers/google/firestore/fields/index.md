@@ -54,7 +54,7 @@ ttlConfig
 FROM google.firestore.fields
 WHERE collectionGroupsId = '{{ collectionGroupsId }}'
 AND databasesId = '{{ databasesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

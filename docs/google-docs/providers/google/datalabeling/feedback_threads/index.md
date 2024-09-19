@@ -52,7 +52,7 @@ feedbackThreadMetadata
 FROM google.datalabeling.feedback_threads
 WHERE annotatedDatasetsId = '{{ annotatedDatasetsId }}'
 AND datasetsId = '{{ datasetsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

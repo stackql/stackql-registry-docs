@@ -57,5 +57,5 @@ metadata,
 response
 FROM google.contactcenterinsights.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

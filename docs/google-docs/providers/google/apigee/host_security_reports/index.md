@@ -72,7 +72,7 @@ self,
 state,
 updated
 FROM google.apigee.host_security_reports
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -123,23 +123,41 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-envgroupHostname: string
-displayName: string
-groupByTimeUnit: string
-limit: integer
-timeRange: any
-reportDefinitionId: string
-filter: string
-csvDelimiter: string
-metrics:
-  - alias: string
-    name: string
-    aggregationFunction: string
-    value: string
-    operator: string
-dimensions:
-  - type: string
-mimeType: string
+- name: your_resource_model_name
+  props:
+    - name: envgroupHostname
+      value: string
+    - name: displayName
+      value: string
+    - name: groupByTimeUnit
+      value: string
+    - name: limit
+      value: integer
+    - name: timeRange
+      value: any
+    - name: reportDefinitionId
+      value: string
+    - name: filter
+      value: string
+    - name: csvDelimiter
+      value: string
+    - name: metrics
+      value:
+        - - name: alias
+            value: string
+          - name: name
+            value: string
+          - name: aggregationFunction
+            value: string
+          - name: value
+            value: string
+          - name: operator
+            value: string
+    - name: dimensions
+      value:
+        - string
+    - name: mimeType
+      value: string
 
 ```
 </TabItem>

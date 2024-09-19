@@ -52,5 +52,5 @@ properties
 FROM google.oracledatabase.db_servers
 WHERE cloudExadataInfrastructuresId = '{{ cloudExadataInfrastructuresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

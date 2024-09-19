@@ -74,7 +74,7 @@ ttl,
 versionAliases,
 versionDestroyTtl
 FROM google.secretmanager.secrets
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -125,27 +125,50 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-replication:
-  automatic:
-    customerManagedEncryption:
-      kmsKeyName: string
-  userManaged:
-    replicas:
-      - location: string
-createTime: string
-labels: object
-topics:
-  - name: string
-expireTime: string
-ttl: string
-etag: string
-rotation:
-  nextRotationTime: string
-  rotationPeriod: string
-versionAliases: object
-annotations: object
-versionDestroyTtl: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: replication
+      value:
+        - name: automatic
+          value:
+            - name: customerManagedEncryption
+              value:
+                - name: kmsKeyName
+                  value: string
+        - name: userManaged
+          value:
+            - name: replicas
+              value:
+                - - name: location
+                    value: string
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: topics
+      value:
+        - - name: name
+            value: string
+    - name: expireTime
+      value: string
+    - name: ttl
+      value: string
+    - name: etag
+      value: string
+    - name: rotation
+      value:
+        - name: nextRotationTime
+          value: string
+        - name: rotationPeriod
+          value: string
+    - name: versionAliases
+      value: object
+    - name: annotations
+      value: object
+    - name: versionDestroyTtl
+      value: string
 
 ```
 </TabItem>

@@ -68,7 +68,7 @@ updateTime
 FROM google.iamv2beta.policies
 WHERE policiesId = '{{ policiesId }}'
 AND policiesId1 = '{{ policiesId1 }}'
-AND policiesId2 = '{{ policiesId2 }}'; 
+AND policiesId2 = '{{ policiesId2 }}';
 ```
 
 ## `REPLACE` example

@@ -62,7 +62,7 @@ updateTime
 FROM google.apigeeregistry.instances
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -97,18 +97,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-state: string
-stateMessage: string
-config:
-  location: string
-  cmekKeyName: string
-build:
-  repo: string
-  commitId: string
-  commitTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: state
+      value: string
+    - name: stateMessage
+      value: string
+    - name: config
+      value:
+        - name: location
+          value: string
+        - name: cmekKeyName
+          value: string
+    - name: build
+      value:
+        - name: repo
+          value: string
+        - name: commitId
+          value: string
+        - name: commitTime
+          value: string
 
 ```
 </TabItem>

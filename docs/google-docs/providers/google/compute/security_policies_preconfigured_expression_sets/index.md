@@ -46,5 +46,5 @@ Gets the current list of preconfigured Web Application Firewall (WAF) expression
 SELECT
 preconfiguredExpressionSets
 FROM google.compute.security_policies_preconfigured_expression_sets
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

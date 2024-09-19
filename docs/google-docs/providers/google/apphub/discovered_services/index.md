@@ -53,5 +53,5 @@ serviceProperties,
 serviceReference
 FROM google.apphub.discovered_services
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

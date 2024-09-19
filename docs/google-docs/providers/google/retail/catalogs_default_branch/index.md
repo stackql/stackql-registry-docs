@@ -52,5 +52,5 @@ setTime
 FROM google.retail.catalogs_default_branch
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

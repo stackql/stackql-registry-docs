@@ -67,7 +67,7 @@ roles,
 type,
 updateTime
 FROM google.cloudidentity.memberships
-WHERE groupsId = '{{ groupsId }}'; 
+WHERE groupsId = '{{ groupsId }}';
 ```
 
 ## `INSERT` example
@@ -100,21 +100,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-preferredMemberKey:
-  id: string
-  namespace: string
-createTime: string
-updateTime: string
-roles:
-  - name: string
-    expiryDetail:
-      expireTime: string
-    restrictionEvaluations:
-      memberRestrictionEvaluation:
-        state: string
-type: string
-deliverySetting: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: preferredMemberKey
+      value:
+        - name: id
+          value: string
+        - name: namespace
+          value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: roles
+      value:
+        - - name: name
+            value: string
+          - name: expiryDetail
+            value:
+              - name: expireTime
+                value: string
+          - name: restrictionEvaluations
+            value:
+              - name: memberRestrictionEvaluation
+                value:
+                  - name: state
+                    value: string
+    - name: type
+      value: string
+    - name: deliverySetting
+      value: string
 
 ```
 </TabItem>

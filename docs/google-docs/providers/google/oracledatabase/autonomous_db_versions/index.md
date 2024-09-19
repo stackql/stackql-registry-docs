@@ -53,5 +53,5 @@ version,
 workloadUri
 FROM google.oracledatabase.autonomous_db_versions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

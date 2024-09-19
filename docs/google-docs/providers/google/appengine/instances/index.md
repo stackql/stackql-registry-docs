@@ -83,7 +83,7 @@ vmZoneName
 FROM google.appengine.instances
 WHERE appsId = '{{ appsId }}'
 AND servicesId = '{{ servicesId }}'
-AND versionsId = '{{ versionsId }}'; 
+AND versionsId = '{{ versionsId }}';
 ```
 
 ## `DELETE` example

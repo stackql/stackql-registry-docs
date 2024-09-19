@@ -61,7 +61,7 @@ productCategory,
 productLabels
 FROM google.vision.products
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -102,13 +102,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-productCategory: string
-productLabels:
-  - key: string
-    value: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: productCategory
+      value: string
+    - name: productLabels
+      value:
+        - - name: key
+            value: string
+          - name: value
+            value: string
 
 ```
 </TabItem>

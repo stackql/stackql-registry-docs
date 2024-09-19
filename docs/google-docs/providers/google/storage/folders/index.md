@@ -66,7 +66,7 @@ pendingRenameInfo,
 selfLink,
 updateTime
 FROM google.storage.folders
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `INSERT` example
@@ -103,16 +103,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-bucket: string
-id: string
-kind: string
-metageneration: string
-name: string
-selfLink: string
-createTime: string
-updateTime: string
-pendingRenameInfo:
-  operationId: string
+- name: your_resource_model_name
+  props:
+    - name: bucket
+      value: string
+    - name: id
+      value: string
+    - name: kind
+      value: string
+    - name: metageneration
+      value: string
+    - name: name
+      value: string
+    - name: selfLink
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: pendingRenameInfo
+      value:
+        - name: operationId
+          value: string
 
 ```
 </TabItem>

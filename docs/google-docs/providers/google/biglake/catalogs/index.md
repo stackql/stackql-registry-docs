@@ -58,7 +58,7 @@ expireTime,
 updateTime
 FROM google.biglake.catalogs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -89,11 +89,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
 
 ```
 </TabItem>

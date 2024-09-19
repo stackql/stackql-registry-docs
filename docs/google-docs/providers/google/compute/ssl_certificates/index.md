@@ -75,7 +75,7 @@ selfManaged,
 subjectAlternativeNames,
 type
 FROM google.compute.ssl_certificates
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,27 +124,48 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-certificate: string
-privateKey: string
-managed:
-  domains:
-    - type: string
-  status: string
-  domainStatus: object
-selfManaged:
-  certificate: string
-  privateKey: string
-type: string
-subjectAlternativeNames:
-  - type: string
-expireTime: string
-region: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: certificate
+      value: string
+    - name: privateKey
+      value: string
+    - name: managed
+      value:
+        - name: domains
+          value:
+            - string
+        - name: status
+          value: string
+        - name: domainStatus
+          value: object
+    - name: selfManaged
+      value:
+        - name: certificate
+          value: string
+        - name: privateKey
+          value: string
+    - name: type
+      value: string
+    - name: subjectAlternativeNames
+      value:
+        - string
+    - name: expireTime
+      value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

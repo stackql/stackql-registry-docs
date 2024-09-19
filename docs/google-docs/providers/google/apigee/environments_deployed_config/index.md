@@ -91,5 +91,5 @@ traceConfig,
 uid
 FROM google.apigee.environments_deployed_config
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

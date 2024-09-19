@@ -49,5 +49,5 @@ ip,
 overrideType
 FROM google.recaptchaenterprise.keys_ip_overrides
 WHERE keysId = '{{ keysId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

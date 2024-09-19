@@ -56,7 +56,7 @@ members,
 role
 FROM google.containeranalysis.occurrences_iam_policies
 WHERE occurrencesId = '{{ occurrencesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

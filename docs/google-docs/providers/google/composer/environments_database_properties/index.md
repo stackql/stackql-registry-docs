@@ -52,5 +52,5 @@ secondaryGceZone
 FROM google.composer.environments_database_properties
 WHERE environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

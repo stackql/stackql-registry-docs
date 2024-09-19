@@ -49,5 +49,5 @@ FROM google.discoveryengine.custom_models
 WHERE collectionsId = '{{ collectionsId }}'
 AND dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

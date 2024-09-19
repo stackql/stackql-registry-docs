@@ -62,5 +62,5 @@ labels,
 locationId,
 metadata
 FROM google.translate.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

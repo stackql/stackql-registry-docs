@@ -75,7 +75,7 @@ updateTime,
 uri
 FROM google.beyondcorp.app_gateways
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,21 +116,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-uid: string
-type: string
-state: string
-uri: string
-allocatedConnections:
-  - pscUri: string
-    ingressPort: integer
-hostType: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: type
+      value: string
+    - name: state
+      value: string
+    - name: uri
+      value: string
+    - name: allocatedConnections
+      value:
+        - - name: pscUri
+            value: string
+          - name: ingressPort
+            value: integer
+    - name: hostType
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

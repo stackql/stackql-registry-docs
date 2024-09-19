@@ -64,5 +64,5 @@ sensitivityScore,
 tableDataProfileCount
 FROM google.dlp.project_data_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

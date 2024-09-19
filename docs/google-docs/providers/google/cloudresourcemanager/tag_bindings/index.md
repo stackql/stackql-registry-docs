@@ -54,7 +54,7 @@ parent,
 tagValue,
 tagValueNamespacedName
 FROM google.cloudresourcemanager.tag_bindings
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -73,13 +73,11 @@ Use the following StackQL query and manifest file to create a new <code>tag_bind
 ```sql
 /*+ create */
 INSERT INTO google.cloudresourcemanager.tag_bindings (
-,
 parent,
 tagValue,
 tagValueNamespacedName
 )
 SELECT 
-'{{  }}',
 '{{ parent }}',
 '{{ tagValue }}',
 '{{ tagValueNamespacedName }}'
@@ -89,10 +87,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parent: string
-tagValue: string
-tagValueNamespacedName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parent
+      value: string
+    - name: tagValue
+      value: string
+    - name: tagValueNamespacedName
+      value: string
 
 ```
 </TabItem>

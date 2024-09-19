@@ -52,5 +52,5 @@ contactCenterCountLimit,
 contactCenterCountSum,
 quotas
 FROM google.contactcenteraiplatform.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

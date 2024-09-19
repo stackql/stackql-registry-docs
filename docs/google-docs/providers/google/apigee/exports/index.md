@@ -65,7 +65,7 @@ state,
 updated
 FROM google.apigee.exports
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -108,14 +108,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-description: string
-csvDelimiter: string
-outputFormat: string
-datastoreName: string
-name: string
-dateRange:
-  end: string
-  start: string
+- name: your_resource_model_name
+  props:
+    - name: description
+      value: string
+    - name: csvDelimiter
+      value: string
+    - name: outputFormat
+      value: string
+    - name: datastoreName
+      value: string
+    - name: name
+      value: string
+    - name: dateRange
+      value:
+        - name: end
+          value: string
+        - name: start
+          value: string
 
 ```
 </TabItem>

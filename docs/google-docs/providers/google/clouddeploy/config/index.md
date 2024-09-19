@@ -51,5 +51,5 @@ defaultSkaffoldVersion,
 supportedVersions
 FROM google.clouddeploy.config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

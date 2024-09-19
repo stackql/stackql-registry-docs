@@ -65,7 +65,7 @@ displayName,
 inputConfigs,
 lastMigrateTime
 FROM google.datalabeling.datasets
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,27 +96,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-dataset:
-  name: string
-  displayName: string
-  description: string
-  createTime: string
-  inputConfigs:
-    - textMetadata:
-        languageCode: string
-      gcsSource:
-        inputUri: string
-        mimeType: string
-      bigquerySource:
-        inputUri: string
-      dataType: string
-      annotationType: string
-      classificationMetadata:
-        isMultiLabel: boolean
-  blockingResources:
-    - type: string
-  dataItemCount: string
-  lastMigrateTime: string
+- name: your_resource_model_name
+  props:
+    - name: dataset
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: description
+          value: string
+        - name: createTime
+          value: string
+        - name: inputConfigs
+          value:
+            - - name: textMetadata
+                value:
+                  - name: languageCode
+                    value: string
+              - name: gcsSource
+                value:
+                  - name: inputUri
+                    value: string
+                  - name: mimeType
+                    value: string
+              - name: bigquerySource
+                value:
+                  - name: inputUri
+                    value: string
+              - name: dataType
+                value: string
+              - name: annotationType
+                value: string
+              - name: classificationMetadata
+                value:
+                  - name: isMultiLabel
+                    value: boolean
+        - name: blockingResources
+          value:
+            - string
+        - name: dataItemCount
+          value: string
+        - name: lastMigrateTime
+          value: string
 
 ```
 </TabItem>

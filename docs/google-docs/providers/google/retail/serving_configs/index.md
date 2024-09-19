@@ -92,7 +92,7 @@ twowaySynonymsControlIds
 FROM google.retail.serving_configs
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -156,7 +156,7 @@ SELECT
 '{{ diversityLevel }}',
 '{{ diversityType }}',
 '{{ enableCategoryFilterLevel }}',
-true|false,
+{{ ignoreRecsDenylist }},
 '{{ personalizationSpec }}',
 '{{ solutionTypes }}'
 ;
@@ -165,40 +165,62 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-modelId: string
-priceRerankingLevel: string
-facetControlIds:
-  - type: string
-dynamicFacetSpec:
-  mode: string
-boostControlIds:
-  - type: string
-filterControlIds:
-  - type: string
-redirectControlIds:
-  - type: string
-twowaySynonymsControlIds:
-  - type: string
-onewaySynonymsControlIds:
-  - type: string
-doNotAssociateControlIds:
-  - type: string
-replacementControlIds:
-  - type: string
-ignoreControlIds:
-  - type: string
-diversityLevel: string
-diversityType: string
-enableCategoryFilterLevel: string
-ignoreRecsDenylist: boolean
-personalizationSpec:
-  mode: string
-solutionTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: modelId
+      value: string
+    - name: priceRerankingLevel
+      value: string
+    - name: facetControlIds
+      value:
+        - string
+    - name: dynamicFacetSpec
+      value:
+        - name: mode
+          value: string
+    - name: boostControlIds
+      value:
+        - string
+    - name: filterControlIds
+      value:
+        - string
+    - name: redirectControlIds
+      value:
+        - string
+    - name: twowaySynonymsControlIds
+      value:
+        - string
+    - name: onewaySynonymsControlIds
+      value:
+        - string
+    - name: doNotAssociateControlIds
+      value:
+        - string
+    - name: replacementControlIds
+      value:
+        - string
+    - name: ignoreControlIds
+      value:
+        - string
+    - name: diversityLevel
+      value: string
+    - name: diversityType
+      value: string
+    - name: enableCategoryFilterLevel
+      value: string
+    - name: ignoreRecsDenylist
+      value: boolean
+    - name: personalizationSpec
+      value:
+        - name: mode
+          value: string
+    - name: solutionTypes
+      value:
+        - string
 
 ```
 </TabItem>

@@ -55,5 +55,5 @@ operations
 FROM google.connectors.entity_types
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

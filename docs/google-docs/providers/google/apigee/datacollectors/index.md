@@ -58,7 +58,7 @@ createdAt,
 lastModifiedAt,
 type
 FROM google.apigee.datacollectors
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -93,11 +93,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
-type: string
-description: string
-lastModifiedAt: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: createdAt
+      value: string
+    - name: type
+      value: string
+    - name: description
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

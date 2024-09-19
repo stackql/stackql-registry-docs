@@ -85,5 +85,5 @@ supportsMultipleTransfers,
 transferType,
 updateDeadlineSeconds
 FROM google.bigquerydatatransfer.data_sources
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

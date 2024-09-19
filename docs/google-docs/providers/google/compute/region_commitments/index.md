@@ -90,7 +90,7 @@ status,
 statusMessage,
 type
 FROM google.compute.region_commitments
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -145,7 +145,7 @@ SELECT
 '{{ reservations }}',
 '{{ category }}',
 '{{ licenseResource }}',
-true|false,
+{{ autoRenew }},
 '{{ mergeSourceCommitments }}',
 '{{ splitSourceCommitment }}',
 '{{ existingReservations }}'
@@ -155,77 +155,147 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-selfLink: string
-status: string
-statusMessage: string
-plan: string
-startTimestamp: string
-endTimestamp: string
-resources:
-  - type: string
-    amount: string
-    acceleratorType: string
-type: string
-reservations:
-  - kind: string
-    id: string
-    creationTimestamp: string
-    selfLink: string
-    zone: string
-    description: string
-    name: string
-    specificReservation:
-      instanceProperties:
-        machineType: string
-        guestAccelerators:
-          - acceleratorType: string
-            acceleratorCount: integer
-        minCpuPlatform: string
-        localSsds:
-          - diskSizeGb: string
-            interface: string
-        locationHint: string
-      count: string
-      inUseCount: string
-      assuredCount: string
-      sourceInstanceTemplate: string
-    aggregateReservation:
-      vmFamily: string
-      reservedResources:
-        - accelerator:
-            acceleratorCount: integer
-            acceleratorType: string
-      inUseResources:
-        - {}
-      workloadType: string
-    commitment: string
-    specificReservationRequired: boolean
-    status: string
-    shareSettings:
-      shareType: string
-      projectMap: object
-    satisfiesPzs: boolean
-    resourcePolicies: object
-    resourceStatus:
-      specificSkuAllocation:
-        sourceInstanceTemplateId: string
-category: string
-licenseResource:
-  license: string
-  amount: string
-  coresPerLicense: string
-autoRenew: boolean
-mergeSourceCommitments:
-  - type: string
-splitSourceCommitment: string
-existingReservations:
-  - type: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: selfLink
+      value: string
+    - name: status
+      value: string
+    - name: statusMessage
+      value: string
+    - name: plan
+      value: string
+    - name: startTimestamp
+      value: string
+    - name: endTimestamp
+      value: string
+    - name: resources
+      value:
+        - - name: type
+            value: string
+          - name: amount
+            value: string
+          - name: acceleratorType
+            value: string
+    - name: type
+      value: string
+    - name: reservations
+      value:
+        - - name: kind
+            value: string
+          - name: id
+            value: string
+          - name: creationTimestamp
+            value: string
+          - name: selfLink
+            value: string
+          - name: zone
+            value: string
+          - name: description
+            value: string
+          - name: name
+            value: string
+          - name: specificReservation
+            value:
+              - name: instanceProperties
+                value:
+                  - name: machineType
+                    value: string
+                  - name: guestAccelerators
+                    value:
+                      - - name: acceleratorType
+                          value: string
+                        - name: acceleratorCount
+                          value: integer
+                  - name: minCpuPlatform
+                    value: string
+                  - name: localSsds
+                    value:
+                      - - name: diskSizeGb
+                          value: string
+                        - name: interface
+                          value: string
+                  - name: locationHint
+                    value: string
+              - name: count
+                value: string
+              - name: inUseCount
+                value: string
+              - name: assuredCount
+                value: string
+              - name: sourceInstanceTemplate
+                value: string
+          - name: aggregateReservation
+            value:
+              - name: vmFamily
+                value: string
+              - name: reservedResources
+                value:
+                  - - name: accelerator
+                      value:
+                        - name: acceleratorCount
+                          value: integer
+                        - name: acceleratorType
+                          value: string
+              - name: inUseResources
+                value:
+                  - []
+              - name: workloadType
+                value: string
+          - name: commitment
+            value: string
+          - name: specificReservationRequired
+            value: boolean
+          - name: status
+            value: string
+          - name: shareSettings
+            value:
+              - name: shareType
+                value: string
+              - name: projectMap
+                value: object
+          - name: satisfiesPzs
+            value: boolean
+          - name: resourcePolicies
+            value: object
+          - name: resourceStatus
+            value:
+              - name: specificSkuAllocation
+                value:
+                  - name: sourceInstanceTemplateId
+                    value: string
+    - name: category
+      value: string
+    - name: licenseResource
+      value:
+        - name: license
+          value: string
+        - name: amount
+          value: string
+        - name: coresPerLicense
+          value: string
+    - name: autoRenew
+      value: boolean
+    - name: mergeSourceCommitments
+      value:
+        - string
+    - name: splitSourceCommitment
+      value: string
+    - name: existingReservations
+      value:
+        - string
 
 ```
 </TabItem>

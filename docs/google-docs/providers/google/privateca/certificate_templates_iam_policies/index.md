@@ -54,7 +54,7 @@ role
 FROM google.privateca.certificate_templates_iam_policies
 WHERE certificateTemplatesId = '{{ certificateTemplatesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

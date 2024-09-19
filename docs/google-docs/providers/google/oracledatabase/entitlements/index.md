@@ -53,5 +53,5 @@ entitlementId,
 state
 FROM google.oracledatabase.entitlements
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

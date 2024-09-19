@@ -64,7 +64,7 @@ status,
 title,
 useExplicitDryRunSpec
 FROM google.accesscontextmanager.service_perimeters
-WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
+WHERE accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `INSERT` example
@@ -100,63 +100,106 @@ SELECT
 '{{ perimeterType }}',
 '{{ status }}',
 '{{ spec }}',
-true|false
+{{ useExplicitDryRunSpec }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-title: string
-description: string
-perimeterType: string
-status:
-  resources:
-    - type: string
-  accessLevels:
-    - type: string
-  restrictedServices:
-    - type: string
-  vpcAccessibleServices:
-    enableRestriction: boolean
-    allowedServices:
-      - type: string
-  ingressPolicies:
-    - ingressFrom:
-        sources:
-          - accessLevel: string
-            resource: string
-        identities:
-          - type: string
-        identityType: string
-      ingressTo:
-        operations:
-          - serviceName: string
-            methodSelectors:
-              - method: string
-                permission: string
-        resources:
-          - type: string
-  egressPolicies:
-    - egressFrom:
-        identities:
-          - type: string
-        identityType: string
-        sources:
-          - accessLevel: string
-        sourceRestriction: string
-      egressTo:
-        resources:
-          - type: string
-        operations:
-          - serviceName: string
-            methodSelectors:
-              - method: string
-                permission: string
-        externalResources:
-          - type: string
-useExplicitDryRunSpec: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: title
+      value: string
+    - name: description
+      value: string
+    - name: perimeterType
+      value: string
+    - name: status
+      value:
+        - name: resources
+          value:
+            - string
+        - name: accessLevels
+          value:
+            - string
+        - name: restrictedServices
+          value:
+            - string
+        - name: vpcAccessibleServices
+          value:
+            - name: enableRestriction
+              value: boolean
+            - name: allowedServices
+              value:
+                - string
+        - name: ingressPolicies
+          value:
+            - - name: ingressFrom
+                value:
+                  - name: sources
+                    value:
+                      - - name: accessLevel
+                          value: string
+                        - name: resource
+                          value: string
+                  - name: identities
+                    value:
+                      - string
+                  - name: identityType
+                    value: string
+              - name: ingressTo
+                value:
+                  - name: operations
+                    value:
+                      - - name: serviceName
+                          value: string
+                        - name: methodSelectors
+                          value:
+                            - - name: method
+                                value: string
+                              - name: permission
+                                value: string
+                  - name: resources
+                    value:
+                      - string
+        - name: egressPolicies
+          value:
+            - - name: egressFrom
+                value:
+                  - name: identities
+                    value:
+                      - string
+                  - name: identityType
+                    value: string
+                  - name: sources
+                    value:
+                      - - name: accessLevel
+                          value: string
+                  - name: sourceRestriction
+                    value: string
+              - name: egressTo
+                value:
+                  - name: resources
+                    value:
+                      - string
+                  - name: operations
+                    value:
+                      - - name: serviceName
+                          value: string
+                        - name: methodSelectors
+                          value:
+                            - - name: method
+                                value: string
+                              - name: permission
+                                value: string
+                  - name: externalResources
+                    value:
+                      - string
+    - name: useExplicitDryRunSpec
+      value: boolean
 
 ```
 </TabItem>

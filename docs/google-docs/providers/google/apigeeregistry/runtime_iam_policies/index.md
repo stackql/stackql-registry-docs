@@ -53,7 +53,7 @@ members,
 role
 FROM google.apigeeregistry.runtime_iam_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

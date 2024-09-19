@@ -54,7 +54,7 @@ role
 FROM google.datamigration.migration_jobs_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND migrationJobsId = '{{ migrationJobsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

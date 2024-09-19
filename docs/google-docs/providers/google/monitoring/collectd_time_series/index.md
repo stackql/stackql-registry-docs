@@ -69,55 +69,97 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-resource:
-  type: string
-  labels: object
-collectdVersion: string
-collectdPayloads:
-  - values:
-      - dataSourceName: string
-        dataSourceType: string
-        value:
-          boolValue: boolean
-          int64Value: string
-          doubleValue: number
-          stringValue: string
-          distributionValue:
-            count: string
-            mean: number
-            sumOfSquaredDeviation: number
-            range:
-              min: number
-              max: number
-            bucketOptions:
-              linearBuckets:
-                numFiniteBuckets: integer
-                width: number
-                offset: number
-              exponentialBuckets:
-                numFiniteBuckets: integer
-                growthFactor: number
-                scale: number
-              explicitBuckets:
-                bounds:
-                  - type: string
-                    format: string
-            bucketCounts:
-              - type: string
-                format: string
-            exemplars:
-              - value: number
-                timestamp: string
-                attachments:
-                  - type: string
-                    additionalProperties: any
-    startTime: string
-    endTime: string
-    plugin: string
-    pluginInstance: string
-    type: string
-    typeInstance: string
-    metadata: object
+- name: your_resource_model_name
+  props:
+    - name: resource
+      value:
+        - name: type
+          value: string
+        - name: labels
+          value: object
+    - name: collectdVersion
+      value: string
+    - name: collectdPayloads
+      value:
+        - - name: values
+            value:
+              - - name: dataSourceName
+                  value: string
+                - name: dataSourceType
+                  value: string
+                - name: value
+                  value:
+                    - name: boolValue
+                      value: boolean
+                    - name: int64Value
+                      value: string
+                    - name: doubleValue
+                      value: number
+                    - name: stringValue
+                      value: string
+                    - name: distributionValue
+                      value:
+                        - name: count
+                          value: string
+                        - name: mean
+                          value: number
+                        - name: sumOfSquaredDeviation
+                          value: number
+                        - name: range
+                          value:
+                            - name: min
+                              value: number
+                            - name: max
+                              value: number
+                        - name: bucketOptions
+                          value:
+                            - name: linearBuckets
+                              value:
+                                - name: numFiniteBuckets
+                                  value: integer
+                                - name: width
+                                  value: number
+                                - name: offset
+                                  value: number
+                            - name: exponentialBuckets
+                              value:
+                                - name: numFiniteBuckets
+                                  value: integer
+                                - name: growthFactor
+                                  value: number
+                                - name: scale
+                                  value: number
+                            - name: explicitBuckets
+                              value:
+                                - name: bounds
+                                  value:
+                                    - number
+                        - name: bucketCounts
+                          value:
+                            - string
+                        - name: exemplars
+                          value:
+                            - - name: value
+                                value: number
+                              - name: timestamp
+                                value: string
+                              - name: attachments
+                                value:
+                                  - object
+          - name: startTime
+            value: string
+          - name: endTime
+            value: string
+          - name: plugin
+            value: string
+          - name: pluginInstance
+            value: string
+          - name: type
+            value: string
+          - name: typeInstance
+            value: string
+          - name: metadata
+            value: object
 
 ```
 </TabItem>

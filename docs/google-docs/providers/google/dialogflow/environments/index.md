@@ -67,7 +67,7 @@ webhookConfig
 FROM google.dialogflow.environments
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,44 +112,79 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-versionConfigs:
-  - version: string
-updateTime: string
-testCasesConfig:
-  testCases:
-    - type: string
-  enableContinuousRun: boolean
-  enablePredeploymentRun: boolean
-webhookConfig:
-  webhookOverrides:
-    - name: string
-      displayName: string
-      genericWebService:
-        uri: string
-        username: string
-        password: string
-        requestHeaders: object
-        allowedCaCerts:
-          - type: string
-            format: string
-        oauthConfig:
-          clientId: string
-          clientSecret: string
-          tokenEndpoint: string
-          scopes:
-            - type: string
-        serviceAgentAuth: string
-        webhookType: string
-        httpMethod: string
-        requestBody: string
-        parameterMapping: object
-      serviceDirectory:
-        service: string
-      timeout: string
-      disabled: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: versionConfigs
+      value:
+        - - name: version
+            value: string
+    - name: updateTime
+      value: string
+    - name: testCasesConfig
+      value:
+        - name: testCases
+          value:
+            - string
+        - name: enableContinuousRun
+          value: boolean
+        - name: enablePredeploymentRun
+          value: boolean
+    - name: webhookConfig
+      value:
+        - name: webhookOverrides
+          value:
+            - - name: name
+                value: string
+              - name: displayName
+                value: string
+              - name: genericWebService
+                value:
+                  - name: uri
+                    value: string
+                  - name: username
+                    value: string
+                  - name: password
+                    value: string
+                  - name: requestHeaders
+                    value: object
+                  - name: allowedCaCerts
+                    value:
+                      - string
+                  - name: oauthConfig
+                    value:
+                      - name: clientId
+                        value: string
+                      - name: clientSecret
+                        value: string
+                      - name: tokenEndpoint
+                        value: string
+                      - name: scopes
+                        value:
+                          - string
+                  - name: serviceAgentAuth
+                    value: string
+                  - name: webhookType
+                    value: string
+                  - name: httpMethod
+                    value: string
+                  - name: requestBody
+                    value: string
+                  - name: parameterMapping
+                    value: object
+              - name: serviceDirectory
+                value:
+                  - name: service
+                    value: string
+              - name: timeout
+                value: string
+              - name: disabled
+                value: boolean
 
 ```
 </TabItem>

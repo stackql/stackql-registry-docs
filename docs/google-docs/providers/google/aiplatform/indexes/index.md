@@ -80,7 +80,7 @@ satisfiesPzs,
 updateTime
 FROM google.aiplatform.indexes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -127,28 +127,52 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-metadataSchemaUri: string
-indexStats:
-  sparseVectorsCount: string
-  shardsCount: integer
-  vectorsCount: string
-indexUpdateMethod: string
-labels: object
-createTime: string
-satisfiesPzi: boolean
-etag: string
-encryptionSpec:
-  kmsKeyName: string
-updateTime: string
-deployedIndexes:
-  - deployedIndexId: string
-    displayName: string
-    indexEndpoint: string
-displayName: string
-satisfiesPzs: boolean
-description: string
-metadata: any
-name: string
+- name: your_resource_model_name
+  props:
+    - name: metadataSchemaUri
+      value: string
+    - name: indexStats
+      value:
+        - name: sparseVectorsCount
+          value: string
+        - name: shardsCount
+          value: integer
+        - name: vectorsCount
+          value: string
+    - name: indexUpdateMethod
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: satisfiesPzi
+      value: boolean
+    - name: etag
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: updateTime
+      value: string
+    - name: deployedIndexes
+      value:
+        - - name: deployedIndexId
+            value: string
+          - name: displayName
+            value: string
+          - name: indexEndpoint
+            value: string
+    - name: displayName
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: description
+      value: string
+    - name: metadata
+      value: any
+    - name: name
+      value: string
 
 ```
 </TabItem>

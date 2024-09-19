@@ -80,5 +80,5 @@ targetLink,
 zone
 FROM google.container.operations
 WHERE projectId = '{{ projectId }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

@@ -64,5 +64,5 @@ serverCaCert,
 serverCaMode
 FROM google.sqladmin.connect
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

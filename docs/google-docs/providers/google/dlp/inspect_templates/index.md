@@ -75,7 +75,7 @@ displayName,
 inspectConfig,
 updateTime
 FROM google.dlp.inspect_templates
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,75 +110,137 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-inspectTemplate:
-  updateTime: string
-  inspectConfig:
-    contentOptions:
-      - type: string
-        enum: string
-        enumDescriptions: string
-    infoTypes:
-      - sensitivityScore:
-          score: string
-        version: string
-        name: string
-    minLikelihood: string
-    includeQuote: boolean
-    minLikelihoodPerInfoType:
-      - minLikelihood: string
-        infoType:
-          version: string
-          name: string
-    limits:
-      maxFindingsPerRequest: integer
-      maxFindingsPerItem: integer
-      maxFindingsPerInfoType:
-        - maxFindings: integer
-    customInfoTypes:
-      - exclusionType: string
-        storedType:
-          createTime: string
-          name: string
-        surrogateType: {}
-        regex:
-          groupIndexes:
-            - format: string
-              type: string
-          pattern: string
-        detectionRules:
-          - hotwordRule:
-              proximity:
-                windowBefore: integer
-                windowAfter: integer
-              likelihoodAdjustment:
-                relativeLikelihood: integer
-                fixedLikelihood: string
-        dictionary:
-          wordList:
-            words:
-              - type: string
-          cloudStoragePath:
-            path: string
-        likelihood: string
-    excludeInfoTypes: boolean
-    ruleSet:
-      - rules:
-          - exclusionRule:
-              matchingType: string
-              excludeInfoTypes:
-                infoTypes:
-                  - version: string
-                    name: string
-              excludeByHotword: {}
-        infoTypes:
-          - version: string
-            name: string
-  displayName: string
-  name: string
-  description: string
-  createTime: string
-templateId: string
-locationId: string
+- name: your_resource_model_name
+  props:
+    - name: inspectTemplate
+      value:
+        - name: updateTime
+          value: string
+        - name: inspectConfig
+          value:
+            - name: contentOptions
+              value:
+                - string
+            - name: infoTypes
+              value:
+                - - name: sensitivityScore
+                    value:
+                      - name: score
+                        value: string
+                  - name: version
+                    value: string
+                  - name: name
+                    value: string
+            - name: minLikelihood
+              value: string
+            - name: includeQuote
+              value: boolean
+            - name: minLikelihoodPerInfoType
+              value:
+                - - name: minLikelihood
+                    value: string
+                  - name: infoType
+                    value:
+                      - name: version
+                        value: string
+                      - name: name
+                        value: string
+            - name: limits
+              value:
+                - name: maxFindingsPerRequest
+                  value: integer
+                - name: maxFindingsPerItem
+                  value: integer
+                - name: maxFindingsPerInfoType
+                  value:
+                    - - name: maxFindings
+                        value: integer
+            - name: customInfoTypes
+              value:
+                - - name: exclusionType
+                    value: string
+                  - name: storedType
+                    value:
+                      - name: createTime
+                        value: string
+                      - name: name
+                        value: string
+                  - name: surrogateType
+                    value: []
+                  - name: regex
+                    value:
+                      - name: groupIndexes
+                        value:
+                          - integer
+                      - name: pattern
+                        value: string
+                  - name: detectionRules
+                    value:
+                      - - name: hotwordRule
+                          value:
+                            - name: proximity
+                              value:
+                                - name: windowBefore
+                                  value: integer
+                                - name: windowAfter
+                                  value: integer
+                            - name: likelihoodAdjustment
+                              value:
+                                - name: relativeLikelihood
+                                  value: integer
+                                - name: fixedLikelihood
+                                  value: string
+                  - name: dictionary
+                    value:
+                      - name: wordList
+                        value:
+                          - name: words
+                            value:
+                              - string
+                      - name: cloudStoragePath
+                        value:
+                          - name: path
+                            value: string
+                  - name: likelihood
+                    value: string
+            - name: excludeInfoTypes
+              value: boolean
+            - name: ruleSet
+              value:
+                - - name: rules
+                    value:
+                      - - name: exclusionRule
+                          value:
+                            - name: matchingType
+                              value: string
+                            - name: excludeInfoTypes
+                              value:
+                                - name: infoTypes
+                                  value:
+                                    - - name: version
+                                        value: string
+                                      - name: name
+                                        value: string
+                            - name: excludeByHotword
+                              value: []
+                  - name: infoTypes
+                    value:
+                      - - name: version
+                          value: string
+                        - name: name
+                          value: string
+        - name: displayName
+          value: string
+        - name: name
+          value: string
+        - name: description
+          value: string
+        - name: createTime
+          value: string
+    - name: templateId
+      value: string
+    - name: locationId
+      value: string
 
 ```
 </TabItem>

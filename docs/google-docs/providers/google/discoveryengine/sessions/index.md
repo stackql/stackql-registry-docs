@@ -72,7 +72,7 @@ userPseudoId
 FROM google.discoveryengine.sessions
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,16 +113,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-userPseudoId: string
-turns:
-  - query:
-      text: string
-      queryId: string
-    answer: string
-startTime: string
-endTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: userPseudoId
+      value: string
+    - name: turns
+      value:
+        - - name: query
+            value:
+              - name: text
+                value: string
+              - name: queryId
+                value: string
+          - name: answer
+            value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
 
 ```
 </TabItem>

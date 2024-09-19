@@ -67,5 +67,5 @@ selfLink,
 status,
 supportsPzs
 FROM google.compute.zones
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

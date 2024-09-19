@@ -80,5 +80,5 @@ scratchDisks,
 selfLink,
 zone
 FROM google.compute.machine_types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

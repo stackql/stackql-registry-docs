@@ -76,7 +76,7 @@ replicas,
 state,
 storageLimitPerProcessingUnit
 FROM google.spanner.instance_configs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,37 +104,62 @@ SELECT
 '{{ projectsId }}',
 '{{ instanceConfigId }}',
 '{{ instanceConfig }}',
-true|false
+{{ validateOnly }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-instanceConfigId: string
-instanceConfig:
-  name: string
-  displayName: string
-  configType: string
-  replicas:
-    - location: string
-      type: string
-      defaultLeaderLocation: boolean
-  optionalReplicas:
-    - location: string
-      type: string
-      defaultLeaderLocation: boolean
-  baseConfig: string
-  labels: object
-  etag: string
-  leaderOptions:
-    - type: string
-  reconciling: boolean
-  state: string
-  freeInstanceAvailability: string
-  quorumType: string
-  storageLimitPerProcessingUnit: string
-validateOnly: boolean
+- name: your_resource_model_name
+  props:
+    - name: instanceConfigId
+      value: string
+    - name: instanceConfig
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: configType
+          value: string
+        - name: replicas
+          value:
+            - - name: location
+                value: string
+              - name: type
+                value: string
+              - name: defaultLeaderLocation
+                value: boolean
+        - name: optionalReplicas
+          value:
+            - - name: location
+                value: string
+              - name: type
+                value: string
+              - name: defaultLeaderLocation
+                value: boolean
+        - name: baseConfig
+          value: string
+        - name: labels
+          value: object
+        - name: etag
+          value: string
+        - name: leaderOptions
+          value:
+            - string
+        - name: reconciling
+          value: boolean
+        - name: state
+          value: string
+        - name: freeInstanceAvailability
+          value: string
+        - name: quorumType
+          value: string
+        - name: storageLimitPerProcessingUnit
+          value: string
+    - name: validateOnly
+      value: boolean
 
 ```
 </TabItem>

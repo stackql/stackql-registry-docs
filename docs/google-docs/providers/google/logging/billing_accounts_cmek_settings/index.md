@@ -52,5 +52,5 @@ kmsKeyName,
 kmsKeyVersionName,
 serviceAccountId
 FROM google.logging.billing_accounts_cmek_settings
-WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+WHERE billingAccountsId = '{{ billingAccountsId }}';
 ```

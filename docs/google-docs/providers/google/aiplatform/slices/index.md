@@ -61,5 +61,5 @@ FROM google.aiplatform.slices
 WHERE evaluationsId = '{{ evaluationsId }}'
 AND locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -59,7 +59,7 @@ project,
 updateTime
 FROM google.vmmigration.target_projects
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -94,11 +94,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-project: string
-description: string
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: project
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

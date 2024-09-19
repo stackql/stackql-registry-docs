@@ -67,9 +67,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-payload:
-  data: string
-  dataCrc32c: string
+- name: your_resource_model_name
+  props:
+    - name: payload
+      value:
+        - name: data
+          value: string
+        - name: dataCrc32c
+          value: string
 
 ```
 </TabItem>

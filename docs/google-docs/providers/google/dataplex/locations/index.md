@@ -57,5 +57,5 @@ labels,
 locationId,
 metadata
 FROM google.dataplex.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

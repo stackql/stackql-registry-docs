@@ -74,7 +74,7 @@ updateTime
 FROM google.clouddeploy.automations
 WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,7 +113,7 @@ SELECT
 '{{ annotations }}',
 '{{ labels }}',
 '{{ etag }}',
-true|false,
+{{ suspended }},
 '{{ serviceAccount }}',
 '{{ selector }}',
 '{{ rules }}'
@@ -123,41 +123,75 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-description: string
-createTime: string
-updateTime: string
-annotations: object
-labels: object
-etag: string
-suspended: boolean
-serviceAccount: string
-selector:
-  targets:
-    - id: string
-      labels: object
-rules:
-  - promoteReleaseRule:
-      id: string
-      wait: string
-      destinationTargetId: string
-      condition:
-        targetsPresentCondition:
-          status: boolean
-          missingTargets:
-            - type: string
-          updateTime: string
-      destinationPhase: string
-    advanceRolloutRule:
-      id: string
-      sourcePhases:
-        - type: string
-      wait: string
-    repairRolloutRule:
-      id: string
-      jobs:
-        - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: suspended
+      value: boolean
+    - name: serviceAccount
+      value: string
+    - name: selector
+      value:
+        - name: targets
+          value:
+            - - name: id
+                value: string
+              - name: labels
+                value: object
+    - name: rules
+      value:
+        - - name: promoteReleaseRule
+            value:
+              - name: id
+                value: string
+              - name: wait
+                value: string
+              - name: destinationTargetId
+                value: string
+              - name: condition
+                value:
+                  - name: targetsPresentCondition
+                    value:
+                      - name: status
+                        value: boolean
+                      - name: missingTargets
+                        value:
+                          - string
+                      - name: updateTime
+                        value: string
+              - name: destinationPhase
+                value: string
+          - name: advanceRolloutRule
+            value:
+              - name: id
+                value: string
+              - name: sourcePhases
+                value:
+                  - string
+              - name: wait
+                value: string
+          - name: repairRolloutRule
+            value:
+              - name: id
+                value: string
+              - name: jobs
+                value:
+                  - string
 
 ```
 </TabItem>

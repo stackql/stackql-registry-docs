@@ -69,7 +69,7 @@ uid,
 updateTime
 FROM google.beyondcorp.app_connectors
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,68 +110,131 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-uid: string
-state: string
-principalInfo:
-  serviceAccount:
-    email: string
-resourceInfo:
-  id: string
-  status: string
-  resource: object
-  time: string
-  sub:
-    - id: string
-      status: string
-      resource: object
-      time: string
-      sub:
-        - id: string
-          status: string
-          resource: object
-          time: string
-          sub:
-            - id: string
-              status: string
-              resource: object
-              time: string
-              sub:
-                - id: string
-                  status: string
-                  resource: object
-                  time: string
-                  sub:
-                    - id: string
-                      status: string
-                      resource: object
-                      time: string
-                      sub:
-                        - id: string
-                          status: string
-                          resource: object
-                          time: string
-                          sub:
-                            - id: string
-                              status: string
-                              resource: object
-                              time: string
-                              sub:
-                                - id: string
-                                  status: string
-                                  resource: object
-                                  time: string
-                                  sub:
-                                    - id: string
-                                      status: string
-                                      resource: object
-                                      time: string
-                                      sub:
-                                        - {}
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
+    - name: principalInfo
+      value:
+        - name: serviceAccount
+          value:
+            - name: email
+              value: string
+    - name: resourceInfo
+      value:
+        - name: id
+          value: string
+        - name: status
+          value: string
+        - name: resource
+          value: object
+        - name: time
+          value: string
+        - name: sub
+          value:
+            - - name: id
+                value: string
+              - name: status
+                value: string
+              - name: resource
+                value: object
+              - name: time
+                value: string
+              - name: sub
+                value:
+                  - - name: id
+                      value: string
+                    - name: status
+                      value: string
+                    - name: resource
+                      value: object
+                    - name: time
+                      value: string
+                    - name: sub
+                      value:
+                        - - name: id
+                            value: string
+                          - name: status
+                            value: string
+                          - name: resource
+                            value: object
+                          - name: time
+                            value: string
+                          - name: sub
+                            value:
+                              - - name: id
+                                  value: string
+                                - name: status
+                                  value: string
+                                - name: resource
+                                  value: object
+                                - name: time
+                                  value: string
+                                - name: sub
+                                  value:
+                                    - - name: id
+                                        value: string
+                                      - name: status
+                                        value: string
+                                      - name: resource
+                                        value: object
+                                      - name: time
+                                        value: string
+                                      - name: sub
+                                        value:
+                                          - - name: id
+                                              value: string
+                                            - name: status
+                                              value: string
+                                            - name: resource
+                                              value: object
+                                            - name: time
+                                              value: string
+                                            - name: sub
+                                              value:
+                                                - - name: id
+                                                    value: string
+                                                  - name: status
+                                                    value: string
+                                                  - name: resource
+                                                    value: object
+                                                  - name: time
+                                                    value: string
+                                                  - name: sub
+                                                    value:
+                                                      - - name: id
+                                                          value: string
+                                                        - name: status
+                                                          value: string
+                                                        - name: resource
+                                                          value: object
+                                                        - name: time
+                                                          value: string
+                                                        - name: sub
+                                                          value:
+                                                            - - name: id
+                                                                value: string
+                                                              - name: status
+                                                                value: string
+                                                              - name: resource
+                                                                value: object
+                                                              - name: time
+                                                                value: string
+                                                              - name: sub
+                                                                value:
+                                                                  - []
 
 ```
 </TabItem>

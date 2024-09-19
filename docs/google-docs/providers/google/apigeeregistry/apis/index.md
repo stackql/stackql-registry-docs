@@ -69,7 +69,7 @@ recommendedVersion,
 updateTime
 FROM google.apigeeregistry.apis
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,16 +116,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-createTime: string
-updateTime: string
-availability: string
-recommendedVersion: string
-recommendedDeployment: string
-labels: object
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: availability
+      value: string
+    - name: recommendedVersion
+      value: string
+    - name: recommendedDeployment
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

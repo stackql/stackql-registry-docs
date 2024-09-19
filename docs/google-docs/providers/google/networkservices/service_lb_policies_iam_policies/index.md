@@ -54,7 +54,7 @@ role
 FROM google.networkservices.service_lb_policies_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND serviceLbPoliciesId = '{{ serviceLbPoliciesId }}'; 
+AND serviceLbPoliciesId = '{{ serviceLbPoliciesId }}';
 ```
 
 ## `REPLACE` example

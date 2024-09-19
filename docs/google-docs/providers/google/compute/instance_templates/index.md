@@ -67,7 +67,7 @@ selfLink,
 sourceInstance,
 sourceInstanceParams
 FROM google.compute.instance_templates
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -108,186 +108,359 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-properties:
-  description: string
-  tags:
-    items:
-      - type: string
-    fingerprint: string
-  resourceManagerTags: object
-  machineType: string
-  canIpForward: boolean
-  networkInterfaces:
-    - kind: string
-      network: string
-      subnetwork: string
-      networkIP: string
-      ipv6Address: string
-      internalIpv6PrefixLength: integer
-      name: string
-      accessConfigs:
-        - kind: string
-          type: string
-          name: string
-          natIP: string
-          externalIpv6: string
-          externalIpv6PrefixLength: integer
-          setPublicPtr: boolean
-          publicPtrDomainName: string
-          networkTier: string
-          securityPolicy: string
-      ipv6AccessConfigs:
-        - kind: string
-          type: string
-          name: string
-          natIP: string
-          externalIpv6: string
-          externalIpv6PrefixLength: integer
-          setPublicPtr: boolean
-          publicPtrDomainName: string
-          networkTier: string
-          securityPolicy: string
-      aliasIpRanges:
-        - ipCidrRange: string
-          subnetworkRangeName: string
-      fingerprint: string
-      stackType: string
-      ipv6AccessType: string
-      queueCount: integer
-      nicType: string
-      networkAttachment: string
-  disks:
-    - kind: string
-      type: string
-      mode: string
-      savedState: string
-      source: string
-      deviceName: string
-      index: integer
-      boot: boolean
-      initializeParams:
-        diskName: string
-        sourceImage: string
-        diskSizeGb: string
-        diskType: string
-        sourceImageEncryptionKey:
-          rawKey: string
-          rsaEncryptedKey: string
-          kmsKeyName: string
-          sha256: string
-          kmsKeyServiceAccount: string
-        labels: object
-        sourceSnapshot: string
-        description: string
-        replicaZones:
-          - type: string
-        resourcePolicies:
-          - type: string
-        onUpdateAction: string
-        provisionedIops: string
-        licenses:
-          - type: string
-        architecture: string
-        resourceManagerTags: object
-        provisionedThroughput: string
-        enableConfidentialCompute: boolean
-        storagePool: string
-      autoDelete: boolean
-      licenses:
-        - type: string
-      interface: string
-      guestOsFeatures:
-        - type: string
-      diskSizeGb: string
-      shieldedInstanceInitialState:
-        pk:
-          content: string
-          fileType: string
-        keks:
-          - content: string
-            fileType: string
-        dbs:
-          - content: string
-            fileType: string
-        dbxs:
-          - content: string
-            fileType: string
-      forceAttach: boolean
-      architecture: string
-  metadata:
-    kind: string
-    fingerprint: string
-    items:
-      - key: string
-        value: string
-  serviceAccounts:
-    - email: string
-      scopes:
-        - type: string
-  scheduling:
-    onHostMaintenance: string
-    automaticRestart: boolean
-    preemptible: boolean
-    nodeAffinities:
-      - key: string
-        operator: string
-        values:
-          - type: string
-    minNodeCpus: integer
-    locationHint: string
-    availabilityDomain: integer
-    provisioningModel: string
-    instanceTerminationAction: string
-    maxRunDuration:
-      seconds: string
-      nanos: integer
-    terminationTime: string
-    onInstanceStopAction:
-      discardLocalSsd: boolean
-  labels: object
-  guestAccelerators:
-    - acceleratorType: string
-      acceleratorCount: integer
-  minCpuPlatform: string
-  reservationAffinity:
-    consumeReservationType: string
-    key: string
-    values:
-      - type: string
-  shieldedInstanceConfig:
-    enableSecureBoot: boolean
-    enableVtpm: boolean
-    enableIntegrityMonitoring: boolean
-  resourcePolicies:
-    - type: string
-  confidentialInstanceConfig:
-    enableConfidentialCompute: boolean
-    confidentialInstanceType: string
-  privateIpv6GoogleAccess: string
-  advancedMachineFeatures:
-    enableNestedVirtualization: boolean
-    threadsPerCore: integer
-    visibleCoreCount: integer
-    enableUefiNetworking: boolean
-    performanceMonitoringUnit: string
-    turboMode: string
-  networkPerformanceConfig:
-    totalEgressBandwidthTier: string
-  keyRevocationActionType: string
-selfLink: string
-sourceInstance: string
-sourceInstanceParams:
-  diskConfigs:
-    - deviceName: string
-      instantiateFrom: string
-      autoDelete: boolean
-      customImage: string
-region: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: properties
+      value:
+        - name: description
+          value: string
+        - name: tags
+          value:
+            - name: items
+              value:
+                - string
+            - name: fingerprint
+              value: string
+        - name: resourceManagerTags
+          value: object
+        - name: machineType
+          value: string
+        - name: canIpForward
+          value: boolean
+        - name: networkInterfaces
+          value:
+            - - name: kind
+                value: string
+              - name: network
+                value: string
+              - name: subnetwork
+                value: string
+              - name: networkIP
+                value: string
+              - name: ipv6Address
+                value: string
+              - name: internalIpv6PrefixLength
+                value: integer
+              - name: name
+                value: string
+              - name: accessConfigs
+                value:
+                  - - name: kind
+                      value: string
+                    - name: type
+                      value: string
+                    - name: name
+                      value: string
+                    - name: natIP
+                      value: string
+                    - name: externalIpv6
+                      value: string
+                    - name: externalIpv6PrefixLength
+                      value: integer
+                    - name: setPublicPtr
+                      value: boolean
+                    - name: publicPtrDomainName
+                      value: string
+                    - name: networkTier
+                      value: string
+                    - name: securityPolicy
+                      value: string
+              - name: ipv6AccessConfigs
+                value:
+                  - - name: kind
+                      value: string
+                    - name: type
+                      value: string
+                    - name: name
+                      value: string
+                    - name: natIP
+                      value: string
+                    - name: externalIpv6
+                      value: string
+                    - name: externalIpv6PrefixLength
+                      value: integer
+                    - name: setPublicPtr
+                      value: boolean
+                    - name: publicPtrDomainName
+                      value: string
+                    - name: networkTier
+                      value: string
+                    - name: securityPolicy
+                      value: string
+              - name: aliasIpRanges
+                value:
+                  - - name: ipCidrRange
+                      value: string
+                    - name: subnetworkRangeName
+                      value: string
+              - name: fingerprint
+                value: string
+              - name: stackType
+                value: string
+              - name: ipv6AccessType
+                value: string
+              - name: queueCount
+                value: integer
+              - name: nicType
+                value: string
+              - name: networkAttachment
+                value: string
+        - name: disks
+          value:
+            - - name: kind
+                value: string
+              - name: type
+                value: string
+              - name: mode
+                value: string
+              - name: savedState
+                value: string
+              - name: source
+                value: string
+              - name: deviceName
+                value: string
+              - name: index
+                value: integer
+              - name: boot
+                value: boolean
+              - name: initializeParams
+                value:
+                  - name: diskName
+                    value: string
+                  - name: sourceImage
+                    value: string
+                  - name: diskSizeGb
+                    value: string
+                  - name: diskType
+                    value: string
+                  - name: sourceImageEncryptionKey
+                    value:
+                      - name: rawKey
+                        value: string
+                      - name: rsaEncryptedKey
+                        value: string
+                      - name: kmsKeyName
+                        value: string
+                      - name: sha256
+                        value: string
+                      - name: kmsKeyServiceAccount
+                        value: string
+                  - name: labels
+                    value: object
+                  - name: sourceSnapshot
+                    value: string
+                  - name: description
+                    value: string
+                  - name: replicaZones
+                    value:
+                      - string
+                  - name: resourcePolicies
+                    value:
+                      - string
+                  - name: onUpdateAction
+                    value: string
+                  - name: provisionedIops
+                    value: string
+                  - name: licenses
+                    value:
+                      - string
+                  - name: architecture
+                    value: string
+                  - name: resourceManagerTags
+                    value: object
+                  - name: provisionedThroughput
+                    value: string
+                  - name: enableConfidentialCompute
+                    value: boolean
+                  - name: storagePool
+                    value: string
+              - name: autoDelete
+                value: boolean
+              - name: licenses
+                value:
+                  - string
+              - name: interface
+                value: string
+              - name: guestOsFeatures
+                value:
+                  - - name: type
+                      value: string
+              - name: diskSizeGb
+                value: string
+              - name: shieldedInstanceInitialState
+                value:
+                  - name: pk
+                    value:
+                      - name: content
+                        value: string
+                      - name: fileType
+                        value: string
+                  - name: keks
+                    value:
+                      - - name: content
+                          value: string
+                        - name: fileType
+                          value: string
+                  - name: dbs
+                    value:
+                      - - name: content
+                          value: string
+                        - name: fileType
+                          value: string
+                  - name: dbxs
+                    value:
+                      - - name: content
+                          value: string
+                        - name: fileType
+                          value: string
+              - name: forceAttach
+                value: boolean
+              - name: architecture
+                value: string
+        - name: metadata
+          value:
+            - name: kind
+              value: string
+            - name: fingerprint
+              value: string
+            - name: items
+              value:
+                - - name: key
+                    value: string
+                  - name: value
+                    value: string
+        - name: serviceAccounts
+          value:
+            - - name: email
+                value: string
+              - name: scopes
+                value:
+                  - string
+        - name: scheduling
+          value:
+            - name: onHostMaintenance
+              value: string
+            - name: automaticRestart
+              value: boolean
+            - name: preemptible
+              value: boolean
+            - name: nodeAffinities
+              value:
+                - - name: key
+                    value: string
+                  - name: operator
+                    value: string
+                  - name: values
+                    value:
+                      - string
+            - name: minNodeCpus
+              value: integer
+            - name: locationHint
+              value: string
+            - name: availabilityDomain
+              value: integer
+            - name: provisioningModel
+              value: string
+            - name: instanceTerminationAction
+              value: string
+            - name: maxRunDuration
+              value:
+                - name: seconds
+                  value: string
+                - name: nanos
+                  value: integer
+            - name: terminationTime
+              value: string
+            - name: onInstanceStopAction
+              value:
+                - name: discardLocalSsd
+                  value: boolean
+        - name: labels
+          value: object
+        - name: guestAccelerators
+          value:
+            - - name: acceleratorType
+                value: string
+              - name: acceleratorCount
+                value: integer
+        - name: minCpuPlatform
+          value: string
+        - name: reservationAffinity
+          value:
+            - name: consumeReservationType
+              value: string
+            - name: key
+              value: string
+            - name: values
+              value:
+                - string
+        - name: shieldedInstanceConfig
+          value:
+            - name: enableSecureBoot
+              value: boolean
+            - name: enableVtpm
+              value: boolean
+            - name: enableIntegrityMonitoring
+              value: boolean
+        - name: resourcePolicies
+          value:
+            - string
+        - name: confidentialInstanceConfig
+          value:
+            - name: enableConfidentialCompute
+              value: boolean
+            - name: confidentialInstanceType
+              value: string
+        - name: privateIpv6GoogleAccess
+          value: string
+        - name: advancedMachineFeatures
+          value:
+            - name: enableNestedVirtualization
+              value: boolean
+            - name: threadsPerCore
+              value: integer
+            - name: visibleCoreCount
+              value: integer
+            - name: enableUefiNetworking
+              value: boolean
+            - name: performanceMonitoringUnit
+              value: string
+            - name: turboMode
+              value: string
+        - name: networkPerformanceConfig
+          value:
+            - name: totalEgressBandwidthTier
+              value: string
+        - name: keyRevocationActionType
+          value: string
+    - name: selfLink
+      value: string
+    - name: sourceInstance
+      value: string
+    - name: sourceInstanceParams
+      value:
+        - name: diskConfigs
+          value:
+            - - name: deviceName
+                value: string
+              - name: instantiateFrom
+                value: string
+              - name: autoDelete
+                value: boolean
+              - name: customImage
+                value: string
+    - name: region
+      value: string
 
 ```
 </TabItem>

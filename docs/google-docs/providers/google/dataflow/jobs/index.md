@@ -110,7 +110,7 @@ tempFiles,
 transformNameMapping,
 type
 FROM google.dataflow.jobs
-WHERE projectId = '{{ projectId }}'; 
+WHERE projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -179,7 +179,7 @@ SELECT
 '{{ jobMetadata }}',
 '{{ startTime }}',
 '{{ createdFromSnapshotId }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ runtimeUpdatableParams }}'
 ;
 ```
@@ -187,223 +187,428 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-id: string
-projectId: string
-name: string
-type: string
-environment:
-  tempStoragePrefix: string
-  clusterManagerApiService: string
-  experiments:
-    - type: string
-  serviceOptions:
-    - type: string
-  serviceKmsKeyName: string
-  workerPools:
-    - kind: string
-      numWorkers: integer
-      packages:
-        - name: string
-          location: string
-      defaultPackageSet: string
-      machineType: string
-      teardownPolicy: string
-      diskSizeGb: integer
-      diskType: string
-      diskSourceImage: string
-      zone: string
-      taskrunnerSettings:
-        taskUser: string
-        taskGroup: string
-        oauthScopes:
-          - type: string
-        baseUrl: string
-        dataflowApiVersion: string
-        parallelWorkerSettings:
-          baseUrl: string
-          reportingEnabled: boolean
-          servicePath: string
-          shuffleServicePath: string
-          workerId: string
-          tempStoragePrefix: string
-        baseTaskDir: string
-        continueOnException: boolean
-        logToSerialconsole: boolean
-        alsologtostderr: boolean
-        logUploadLocation: string
-        logDir: string
-        tempStoragePrefix: string
-        harnessCommand: string
-        workflowFileName: string
-        commandlinesFileName: string
-        vmId: string
-        languageHint: string
-        streamingWorkerMainClass: string
-      onHostMaintenance: string
-      dataDisks:
-        - sizeGb: integer
-          diskType: string
-          mountPoint: string
-      metadata: object
-      autoscalingSettings:
-        algorithm: string
-        maxNumWorkers: integer
-      poolArgs: object
-      network: string
-      subnetwork: string
-      workerHarnessContainerImage: string
-      numThreadsPerWorker: integer
-      ipConfiguration: string
-      sdkHarnessContainerImages:
-        - containerImage: string
-          useSingleCorePerContainer: boolean
-          environmentId: string
-          capabilities:
-            - type: string
-  userAgent: object
-  version: object
-  dataset: string
-  sdkPipelineOptions: object
-  internalExperiments: object
-  serviceAccountEmail: string
-  flexResourceSchedulingGoal: string
-  workerRegion: string
-  workerZone: string
-  shuffleMode: string
-  debugOptions:
-    enableHotKeyLogging: boolean
-    dataSampling:
-      behaviors:
-        - type: string
-          enumDescriptions: string
-          enum: string
-  useStreamingEngineResourceBasedBilling: boolean
-  streamingMode: string
-steps:
-  - kind: string
-    name: string
-    properties: object
-stepsLocation: string
-currentState: string
-currentStateTime: string
-requestedState: string
-executionInfo:
-  stages: object
-createTime: string
-replaceJobId: string
-transformNameMapping: object
-clientRequestId: string
-replacedByJobId: string
-tempFiles:
-  - type: string
-labels: object
-location: string
-pipelineDescription:
-  originalPipelineTransform:
-    - kind: string
-      id: string
-      name: string
-      displayData:
-        - key: string
-          namespace: string
-          strValue: string
-          int64Value: string
-          floatValue: number
-          javaClassValue: string
-          timestampValue: string
-          durationValue: string
-          boolValue: boolean
-          shortStrValue: string
-          url: string
-          label: string
-      outputCollectionName:
-        - type: string
-      inputCollectionName:
-        - type: string
-  executionPipelineStage:
-    - name: string
-      id: string
-      kind: string
-      inputSource:
-        - userName: string
-          name: string
-          originalTransformOrCollection: string
-          sizeBytes: string
-      outputSource:
-        - userName: string
-          name: string
-          originalTransformOrCollection: string
-          sizeBytes: string
-      prerequisiteStage:
-        - type: string
-      componentTransform:
-        - userName: string
-          name: string
-          originalTransform: string
-      componentSource:
-        - userName: string
-          name: string
-          originalTransformOrCollection: string
-  displayData:
-    - key: string
-      namespace: string
-      strValue: string
-      int64Value: string
-      floatValue: number
-      javaClassValue: string
-      timestampValue: string
-      durationValue: string
-      boolValue: boolean
-      shortStrValue: string
-      url: string
-      label: string
-  stepNamesHash: string
-stageStates:
-  - executionStageName: string
-    executionStageState: string
-    currentStateTime: string
-jobMetadata:
-  sdkVersion:
-    version: string
-    versionDisplayName: string
-    sdkSupportStatus: string
-    bugs:
-      - type: string
-        severity: string
-        uri: string
-  spannerDetails:
-    - projectId: string
-      instanceId: string
-      databaseId: string
-  bigqueryDetails:
-    - table: string
-      dataset: string
-      projectId: string
-      query: string
-  bigTableDetails:
-    - projectId: string
-      instanceId: string
-      tableId: string
-  pubsubDetails:
-    - topic: string
-      subscription: string
-  fileDetails:
-    - filePattern: string
-  datastoreDetails:
-    - namespace: string
-      projectId: string
-  userDisplayProperties: object
-startTime: string
-createdFromSnapshotId: string
-satisfiesPzs: boolean
-runtimeUpdatableParams:
-  maxNumWorkers: integer
-  minNumWorkers: integer
-  workerUtilizationHint: number
-satisfiesPzi: boolean
-serviceResources:
-  zones:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: projectId
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: environment
+      value:
+        - name: tempStoragePrefix
+          value: string
+        - name: clusterManagerApiService
+          value: string
+        - name: experiments
+          value:
+            - string
+        - name: serviceOptions
+          value:
+            - string
+        - name: serviceKmsKeyName
+          value: string
+        - name: workerPools
+          value:
+            - - name: kind
+                value: string
+              - name: numWorkers
+                value: integer
+              - name: packages
+                value:
+                  - - name: name
+                      value: string
+                    - name: location
+                      value: string
+              - name: defaultPackageSet
+                value: string
+              - name: machineType
+                value: string
+              - name: teardownPolicy
+                value: string
+              - name: diskSizeGb
+                value: integer
+              - name: diskType
+                value: string
+              - name: diskSourceImage
+                value: string
+              - name: zone
+                value: string
+              - name: taskrunnerSettings
+                value:
+                  - name: taskUser
+                    value: string
+                  - name: taskGroup
+                    value: string
+                  - name: oauthScopes
+                    value:
+                      - string
+                  - name: baseUrl
+                    value: string
+                  - name: dataflowApiVersion
+                    value: string
+                  - name: parallelWorkerSettings
+                    value:
+                      - name: baseUrl
+                        value: string
+                      - name: reportingEnabled
+                        value: boolean
+                      - name: servicePath
+                        value: string
+                      - name: shuffleServicePath
+                        value: string
+                      - name: workerId
+                        value: string
+                      - name: tempStoragePrefix
+                        value: string
+                  - name: baseTaskDir
+                    value: string
+                  - name: continueOnException
+                    value: boolean
+                  - name: logToSerialconsole
+                    value: boolean
+                  - name: alsologtostderr
+                    value: boolean
+                  - name: logUploadLocation
+                    value: string
+                  - name: logDir
+                    value: string
+                  - name: tempStoragePrefix
+                    value: string
+                  - name: harnessCommand
+                    value: string
+                  - name: workflowFileName
+                    value: string
+                  - name: commandlinesFileName
+                    value: string
+                  - name: vmId
+                    value: string
+                  - name: languageHint
+                    value: string
+                  - name: streamingWorkerMainClass
+                    value: string
+              - name: onHostMaintenance
+                value: string
+              - name: dataDisks
+                value:
+                  - - name: sizeGb
+                      value: integer
+                    - name: diskType
+                      value: string
+                    - name: mountPoint
+                      value: string
+              - name: metadata
+                value: object
+              - name: autoscalingSettings
+                value:
+                  - name: algorithm
+                    value: string
+                  - name: maxNumWorkers
+                    value: integer
+              - name: poolArgs
+                value: object
+              - name: network
+                value: string
+              - name: subnetwork
+                value: string
+              - name: workerHarnessContainerImage
+                value: string
+              - name: numThreadsPerWorker
+                value: integer
+              - name: ipConfiguration
+                value: string
+              - name: sdkHarnessContainerImages
+                value:
+                  - - name: containerImage
+                      value: string
+                    - name: useSingleCorePerContainer
+                      value: boolean
+                    - name: environmentId
+                      value: string
+                    - name: capabilities
+                      value:
+                        - string
+        - name: userAgent
+          value: object
+        - name: version
+          value: object
+        - name: dataset
+          value: string
+        - name: sdkPipelineOptions
+          value: object
+        - name: internalExperiments
+          value: object
+        - name: serviceAccountEmail
+          value: string
+        - name: flexResourceSchedulingGoal
+          value: string
+        - name: workerRegion
+          value: string
+        - name: workerZone
+          value: string
+        - name: shuffleMode
+          value: string
+        - name: debugOptions
+          value:
+            - name: enableHotKeyLogging
+              value: boolean
+            - name: dataSampling
+              value:
+                - name: behaviors
+                  value:
+                    - string
+        - name: useStreamingEngineResourceBasedBilling
+          value: boolean
+        - name: streamingMode
+          value: string
+    - name: steps
+      value:
+        - - name: kind
+            value: string
+          - name: name
+            value: string
+          - name: properties
+            value: object
+    - name: stepsLocation
+      value: string
+    - name: currentState
+      value: string
+    - name: currentStateTime
+      value: string
+    - name: requestedState
+      value: string
+    - name: executionInfo
+      value:
+        - name: stages
+          value: object
+    - name: createTime
+      value: string
+    - name: replaceJobId
+      value: string
+    - name: transformNameMapping
+      value: object
+    - name: clientRequestId
+      value: string
+    - name: replacedByJobId
+      value: string
+    - name: tempFiles
+      value:
+        - string
+    - name: labels
+      value: object
+    - name: location
+      value: string
+    - name: pipelineDescription
+      value:
+        - name: originalPipelineTransform
+          value:
+            - - name: kind
+                value: string
+              - name: id
+                value: string
+              - name: name
+                value: string
+              - name: displayData
+                value:
+                  - - name: key
+                      value: string
+                    - name: namespace
+                      value: string
+                    - name: strValue
+                      value: string
+                    - name: int64Value
+                      value: string
+                    - name: floatValue
+                      value: number
+                    - name: javaClassValue
+                      value: string
+                    - name: timestampValue
+                      value: string
+                    - name: durationValue
+                      value: string
+                    - name: boolValue
+                      value: boolean
+                    - name: shortStrValue
+                      value: string
+                    - name: url
+                      value: string
+                    - name: label
+                      value: string
+              - name: outputCollectionName
+                value:
+                  - string
+              - name: inputCollectionName
+                value:
+                  - string
+        - name: executionPipelineStage
+          value:
+            - - name: name
+                value: string
+              - name: id
+                value: string
+              - name: kind
+                value: string
+              - name: inputSource
+                value:
+                  - - name: userName
+                      value: string
+                    - name: name
+                      value: string
+                    - name: originalTransformOrCollection
+                      value: string
+                    - name: sizeBytes
+                      value: string
+              - name: outputSource
+                value:
+                  - - name: userName
+                      value: string
+                    - name: name
+                      value: string
+                    - name: originalTransformOrCollection
+                      value: string
+                    - name: sizeBytes
+                      value: string
+              - name: prerequisiteStage
+                value:
+                  - string
+              - name: componentTransform
+                value:
+                  - - name: userName
+                      value: string
+                    - name: name
+                      value: string
+                    - name: originalTransform
+                      value: string
+              - name: componentSource
+                value:
+                  - - name: userName
+                      value: string
+                    - name: name
+                      value: string
+                    - name: originalTransformOrCollection
+                      value: string
+        - name: displayData
+          value:
+            - - name: key
+                value: string
+              - name: namespace
+                value: string
+              - name: strValue
+                value: string
+              - name: int64Value
+                value: string
+              - name: floatValue
+                value: number
+              - name: javaClassValue
+                value: string
+              - name: timestampValue
+                value: string
+              - name: durationValue
+                value: string
+              - name: boolValue
+                value: boolean
+              - name: shortStrValue
+                value: string
+              - name: url
+                value: string
+              - name: label
+                value: string
+        - name: stepNamesHash
+          value: string
+    - name: stageStates
+      value:
+        - - name: executionStageName
+            value: string
+          - name: executionStageState
+            value: string
+          - name: currentStateTime
+            value: string
+    - name: jobMetadata
+      value:
+        - name: sdkVersion
+          value:
+            - name: version
+              value: string
+            - name: versionDisplayName
+              value: string
+            - name: sdkSupportStatus
+              value: string
+            - name: bugs
+              value:
+                - - name: type
+                    value: string
+                  - name: severity
+                    value: string
+                  - name: uri
+                    value: string
+        - name: spannerDetails
+          value:
+            - - name: projectId
+                value: string
+              - name: instanceId
+                value: string
+              - name: databaseId
+                value: string
+        - name: bigqueryDetails
+          value:
+            - - name: table
+                value: string
+              - name: dataset
+                value: string
+              - name: projectId
+                value: string
+              - name: query
+                value: string
+        - name: bigTableDetails
+          value:
+            - - name: projectId
+                value: string
+              - name: instanceId
+                value: string
+              - name: tableId
+                value: string
+        - name: pubsubDetails
+          value:
+            - - name: topic
+                value: string
+              - name: subscription
+                value: string
+        - name: fileDetails
+          value:
+            - - name: filePattern
+                value: string
+        - name: datastoreDetails
+          value:
+            - - name: namespace
+                value: string
+              - name: projectId
+                value: string
+        - name: userDisplayProperties
+          value: object
+    - name: startTime
+      value: string
+    - name: createdFromSnapshotId
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: runtimeUpdatableParams
+      value:
+        - name: maxNumWorkers
+          value: integer
+        - name: minNumWorkers
+          value: integer
+        - name: workerUtilizationHint
+          value: number
+    - name: satisfiesPzi
+      value: boolean
+    - name: serviceResources
+      value:
+        - name: zones
+          value:
+            - string
 
 ```
 </TabItem>

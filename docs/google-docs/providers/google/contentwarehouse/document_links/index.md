@@ -72,27 +72,49 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requestMetadata:
-  userInfo:
-    groupIds:
-      - type: string
-    id: string
-documentLink:
-  updateTime: string
-  name: string
-  createTime: string
-  state: string
-  description: string
-  targetDocumentReference:
-    createTime: string
-    documentIsLegalHoldFolder: boolean
-    documentIsRetentionFolder: boolean
-    documentIsFolder: boolean
-    documentName: string
-    updateTime: string
-    snippet: string
-    displayName: string
-    deleteTime: string
+- name: your_resource_model_name
+  props:
+    - name: requestMetadata
+      value:
+        - name: userInfo
+          value:
+            - name: groupIds
+              value:
+                - string
+            - name: id
+              value: string
+    - name: documentLink
+      value:
+        - name: updateTime
+          value: string
+        - name: name
+          value: string
+        - name: createTime
+          value: string
+        - name: state
+          value: string
+        - name: description
+          value: string
+        - name: targetDocumentReference
+          value:
+            - name: createTime
+              value: string
+            - name: documentIsLegalHoldFolder
+              value: boolean
+            - name: documentIsRetentionFolder
+              value: boolean
+            - name: documentIsFolder
+              value: boolean
+            - name: documentName
+              value: string
+            - name: updateTime
+              value: string
+            - name: snippet
+              value: string
+            - name: displayName
+              value: string
+            - name: deleteTime
+              value: string
 
 ```
 </TabItem>

@@ -71,7 +71,7 @@ ownerType,
 scoreReason
 FROM google.cloudidentity.client_states
 WHERE deviceUsersId = '{{ deviceUsersId }}'
-AND devicesId = '{{ devicesId }}'; 
+AND devicesId = '{{ devicesId }}';
 ```
 
 ## `UPDATE` example

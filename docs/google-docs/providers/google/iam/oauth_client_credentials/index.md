@@ -58,7 +58,7 @@ displayName
 FROM google.iam.oauth_client_credentials
 WHERE locationsId = '{{ locationsId }}'
 AND oauthClientsId = '{{ oauthClientsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -89,7 +89,7 @@ SELECT
 '{{ oauthClientsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-true|false,
+{{ disabled }},
 '{{ displayName }}'
 ;
 ```
@@ -97,10 +97,16 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-disabled: boolean
-clientSecret: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: disabled
+      value: boolean
+    - name: clientSecret
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

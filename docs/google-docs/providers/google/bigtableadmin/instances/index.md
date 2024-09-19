@@ -65,7 +65,7 @@ satisfiesPzs,
 state,
 type
 FROM google.bigtableadmin.instances
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -102,18 +102,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-parent: string
-instanceId: string
-instance:
-  name: string
-  displayName: string
-  state: string
-  type: string
-  labels: object
-  createTime: string
-  satisfiesPzs: boolean
-  satisfiesPzi: boolean
-clusters: object
+- name: your_resource_model_name
+  props:
+    - name: parent
+      value: string
+    - name: instanceId
+      value: string
+    - name: instance
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: state
+          value: string
+        - name: type
+          value: string
+        - name: labels
+          value: object
+        - name: createTime
+          value: string
+        - name: satisfiesPzs
+          value: boolean
+        - name: satisfiesPzi
+          value: boolean
+    - name: clusters
+      value: object
 
 ```
 </TabItem>

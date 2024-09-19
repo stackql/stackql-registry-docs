@@ -106,7 +106,7 @@ uid,
 updateTime
 FROM google.metastore.services
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -162,88 +162,165 @@ SELECT
 '{{ telemetryConfig }}',
 '{{ scalingConfig }}',
 '{{ scheduledBackup }}',
-true|false
+{{ deletionProtection }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-hiveMetastoreConfig:
-  version: string
-  configOverrides: object
-  kerberosConfig:
-    keytab:
-      cloudSecret: string
-    principal: string
-    krb5ConfigGcsUri: string
-  endpointProtocol: string
-  auxiliaryVersions: object
-name: string
-createTime: string
-updateTime: string
-labels: object
-network: string
-endpointUri: string
-port: integer
-state: string
-stateMessage: string
-artifactGcsUri: string
-tier: string
-metadataIntegration:
-  dataCatalogConfig:
-    enabled: boolean
-maintenanceWindow:
-  hourOfDay: integer
-  dayOfWeek: string
-uid: string
-metadataManagementActivity:
-  metadataExports:
-    - destinationGcsUri: string
-      startTime: string
-      endTime: string
-      state: string
-      databaseDumpType: string
-  restores:
-    - startTime: string
-      endTime: string
-      state: string
-      backup: string
-      type: string
-      details: string
-      backupLocation: string
-releaseChannel: string
-encryptionConfig:
-  kmsKey: string
-networkConfig:
-  consumers:
-    - subnetwork: string
-      endpointUri: string
-      endpointLocation: string
-databaseType: string
-telemetryConfig:
-  logFormat: string
-scalingConfig:
-  instanceSize: string
-  scalingFactor: number
-  autoscalingConfig:
-    autoscalingFactor: number
-    autoscalingEnabled: boolean
-    limitConfig:
-      maxScalingFactor: number
-      minScalingFactor: number
-scheduledBackup:
-  enabled: boolean
-  cronSchedule: string
-  timeZone: string
-  nextScheduledTime: string
-  backupLocation: string
-  latestBackup:
-    backupId: string
-    startTime: string
-    state: string
-    duration: string
-deletionProtection: boolean
+- name: your_resource_model_name
+  props:
+    - name: hiveMetastoreConfig
+      value:
+        - name: version
+          value: string
+        - name: configOverrides
+          value: object
+        - name: kerberosConfig
+          value:
+            - name: keytab
+              value:
+                - name: cloudSecret
+                  value: string
+            - name: principal
+              value: string
+            - name: krb5ConfigGcsUri
+              value: string
+        - name: endpointProtocol
+          value: string
+        - name: auxiliaryVersions
+          value: object
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: network
+      value: string
+    - name: endpointUri
+      value: string
+    - name: port
+      value: integer
+    - name: state
+      value: string
+    - name: stateMessage
+      value: string
+    - name: artifactGcsUri
+      value: string
+    - name: tier
+      value: string
+    - name: metadataIntegration
+      value:
+        - name: dataCatalogConfig
+          value:
+            - name: enabled
+              value: boolean
+    - name: maintenanceWindow
+      value:
+        - name: hourOfDay
+          value: integer
+        - name: dayOfWeek
+          value: string
+    - name: uid
+      value: string
+    - name: metadataManagementActivity
+      value:
+        - name: metadataExports
+          value:
+            - - name: destinationGcsUri
+                value: string
+              - name: startTime
+                value: string
+              - name: endTime
+                value: string
+              - name: state
+                value: string
+              - name: databaseDumpType
+                value: string
+        - name: restores
+          value:
+            - - name: startTime
+                value: string
+              - name: endTime
+                value: string
+              - name: state
+                value: string
+              - name: backup
+                value: string
+              - name: type
+                value: string
+              - name: details
+                value: string
+              - name: backupLocation
+                value: string
+    - name: releaseChannel
+      value: string
+    - name: encryptionConfig
+      value:
+        - name: kmsKey
+          value: string
+    - name: networkConfig
+      value:
+        - name: consumers
+          value:
+            - - name: subnetwork
+                value: string
+              - name: endpointUri
+                value: string
+              - name: endpointLocation
+                value: string
+    - name: databaseType
+      value: string
+    - name: telemetryConfig
+      value:
+        - name: logFormat
+          value: string
+    - name: scalingConfig
+      value:
+        - name: instanceSize
+          value: string
+        - name: scalingFactor
+          value: number
+        - name: autoscalingConfig
+          value:
+            - name: autoscalingFactor
+              value: number
+            - name: autoscalingEnabled
+              value: boolean
+            - name: limitConfig
+              value:
+                - name: maxScalingFactor
+                  value: number
+                - name: minScalingFactor
+                  value: number
+    - name: scheduledBackup
+      value:
+        - name: enabled
+          value: boolean
+        - name: cronSchedule
+          value: string
+        - name: timeZone
+          value: string
+        - name: nextScheduledTime
+          value: string
+        - name: backupLocation
+          value: string
+        - name: latestBackup
+          value:
+            - name: backupId
+              value: string
+            - name: startTime
+              value: string
+            - name: state
+              value: string
+            - name: duration
+              value: string
+    - name: deletionProtection
+      value: boolean
 
 ```
 </TabItem>

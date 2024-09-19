@@ -71,5 +71,5 @@ FROM google.analyticshub.listings_subscriptions
 WHERE dataExchangesId = '{{ dataExchangesId }}'
 AND listingsId = '{{ listingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

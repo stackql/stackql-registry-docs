@@ -56,7 +56,7 @@ role
 FROM google.compute.instant_snapshots_iam_policies
 WHERE project = '{{ project }}'
 AND resource = '{{ resource }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `REPLACE` example

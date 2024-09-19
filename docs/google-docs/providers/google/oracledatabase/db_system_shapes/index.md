@@ -69,5 +69,5 @@ minStorageCount,
 shape
 FROM google.oracledatabase.db_system_shapes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

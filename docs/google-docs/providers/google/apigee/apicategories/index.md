@@ -59,7 +59,7 @@ requestId,
 status
 FROM google.apigee.apicategories
 WHERE organizationsId = '{{ organizationsId }}'
-AND sitesId = '{{ sitesId }}'; 
+AND sitesId = '{{ sitesId }}';
 ```
 
 ## `INSERT` example
@@ -94,10 +94,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-updateTime: string
-name: string
-siteId: string
-id: string
+- name: your_resource_model_name
+  props:
+    - name: updateTime
+      value: string
+    - name: name
+      value: string
+    - name: siteId
+      value: string
+    - name: id
+      value: string
 
 ```
 </TabItem>

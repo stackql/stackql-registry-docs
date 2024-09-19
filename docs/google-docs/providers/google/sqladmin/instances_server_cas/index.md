@@ -51,5 +51,5 @@ certs,
 kind
 FROM google.sqladmin.instances_server_cas
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

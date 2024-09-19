@@ -65,7 +65,7 @@ dataEncryptionState
 FROM google.dataform.workspaces
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -100,9 +100,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-dataEncryptionState:
-  kmsKeyVersionName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: dataEncryptionState
+      value:
+        - name: kmsKeyVersionName
+          value: string
 
 ```
 </TabItem>

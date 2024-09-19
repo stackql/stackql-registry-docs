@@ -83,7 +83,7 @@ uid,
 updateTime
 FROM google.dataplex.data_scans
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,158 +128,303 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-description: string
-displayName: string
-labels: object
-state: string
-createTime: string
-updateTime: string
-data:
-  entity: string
-  resource: string
-executionSpec:
-  trigger:
-    onDemand: {}
-    schedule:
-      cron: string
-  field: string
-executionStatus:
-  latestJobStartTime: string
-  latestJobEndTime: string
-  latestJobCreateTime: string
-type: string
-dataQualitySpec:
-  rules:
-    - rangeExpectation:
-        minValue: string
-        maxValue: string
-        strictMinEnabled: boolean
-        strictMaxEnabled: boolean
-      nonNullExpectation: {}
-      setExpectation:
-        values:
-          - type: string
-      regexExpectation:
-        regex: string
-      uniquenessExpectation: {}
-      statisticRangeExpectation:
-        statistic: string
-        minValue: string
-        maxValue: string
-        strictMinEnabled: boolean
-        strictMaxEnabled: boolean
-      rowConditionExpectation:
-        sqlExpression: string
-      tableConditionExpectation:
-        sqlExpression: string
-      sqlAssertion:
-        sqlStatement: string
-      column: string
-      ignoreNull: boolean
-      dimension: string
-      threshold: number
-      name: string
-      description: string
-      suspended: boolean
-  samplingPercent: number
-  rowFilter: string
-  postScanActions:
-    bigqueryExport:
-      resultsTable: string
-    notificationReport:
-      recipients:
-        emails:
-          - type: string
-      scoreThresholdTrigger:
-        scoreThreshold: number
-      jobFailureTrigger: {}
-      jobEndTrigger: {}
-dataProfileSpec:
-  samplingPercent: number
-  rowFilter: string
-  postScanActions:
-    bigqueryExport:
-      resultsTable: string
-  includeFields:
-    fieldNames:
-      - type: string
-dataQualityResult:
-  passed: boolean
-  score: number
-  dimensions:
-    - dimension:
-        name: string
-      passed: boolean
-      score: number
-  columns:
-    - column: string
-      score: number
-  rules:
-    - rule:
-        column: string
-        ignoreNull: boolean
-        dimension: string
-        threshold: number
-        name: string
-        description: string
-        suspended: boolean
-      passed: boolean
-      evaluatedCount: string
-      passedCount: string
-      nullCount: string
-      passRatio: number
-      failingRowsQuery: string
-      assertionRowCount: string
-  rowCount: string
-  scannedData:
-    incrementalField:
-      field: string
-      start: string
-      end: string
-  postScanActionsResult:
-    bigqueryExportResult:
-      state: string
-      message: string
-dataProfileResult:
-  rowCount: string
-  profile:
-    fields:
-      - name: string
-        type: string
-        mode: string
-        profile:
-          nullRatio: number
-          distinctRatio: number
-          topNValues:
-            - value: string
-              count: string
-              ratio: number
-          stringProfile:
-            minLength: string
-            maxLength: string
-            averageLength: number
-          integerProfile:
-            average: number
-            standardDeviation: number
-            min: string
-            quartiles:
-              - type: string
-                format: string
-            max: string
-          doubleProfile:
-            average: number
-            standardDeviation: number
-            min: number
-            quartiles:
-              - type: string
-                format: string
-            max: number
-  postScanActionsResult:
-    bigqueryExportResult:
-      state: string
-      message: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: data
+      value:
+        - name: entity
+          value: string
+        - name: resource
+          value: string
+    - name: executionSpec
+      value:
+        - name: trigger
+          value:
+            - name: onDemand
+              value: []
+            - name: schedule
+              value:
+                - name: cron
+                  value: string
+        - name: field
+          value: string
+    - name: executionStatus
+      value:
+        - name: latestJobStartTime
+          value: string
+        - name: latestJobEndTime
+          value: string
+        - name: latestJobCreateTime
+          value: string
+    - name: type
+      value: string
+    - name: dataQualitySpec
+      value:
+        - name: rules
+          value:
+            - - name: rangeExpectation
+                value:
+                  - name: minValue
+                    value: string
+                  - name: maxValue
+                    value: string
+                  - name: strictMinEnabled
+                    value: boolean
+                  - name: strictMaxEnabled
+                    value: boolean
+              - name: nonNullExpectation
+                value: []
+              - name: setExpectation
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: regexExpectation
+                value:
+                  - name: regex
+                    value: string
+              - name: uniquenessExpectation
+                value: []
+              - name: statisticRangeExpectation
+                value:
+                  - name: statistic
+                    value: string
+                  - name: minValue
+                    value: string
+                  - name: maxValue
+                    value: string
+                  - name: strictMinEnabled
+                    value: boolean
+                  - name: strictMaxEnabled
+                    value: boolean
+              - name: rowConditionExpectation
+                value:
+                  - name: sqlExpression
+                    value: string
+              - name: tableConditionExpectation
+                value:
+                  - name: sqlExpression
+                    value: string
+              - name: sqlAssertion
+                value:
+                  - name: sqlStatement
+                    value: string
+              - name: column
+                value: string
+              - name: ignoreNull
+                value: boolean
+              - name: dimension
+                value: string
+              - name: threshold
+                value: number
+              - name: name
+                value: string
+              - name: description
+                value: string
+              - name: suspended
+                value: boolean
+        - name: samplingPercent
+          value: number
+        - name: rowFilter
+          value: string
+        - name: postScanActions
+          value:
+            - name: bigqueryExport
+              value:
+                - name: resultsTable
+                  value: string
+            - name: notificationReport
+              value:
+                - name: recipients
+                  value:
+                    - name: emails
+                      value:
+                        - string
+                - name: scoreThresholdTrigger
+                  value:
+                    - name: scoreThreshold
+                      value: number
+                - name: jobFailureTrigger
+                  value: []
+                - name: jobEndTrigger
+                  value: []
+    - name: dataProfileSpec
+      value:
+        - name: samplingPercent
+          value: number
+        - name: rowFilter
+          value: string
+        - name: postScanActions
+          value:
+            - name: bigqueryExport
+              value:
+                - name: resultsTable
+                  value: string
+        - name: includeFields
+          value:
+            - name: fieldNames
+              value:
+                - string
+    - name: dataQualityResult
+      value:
+        - name: passed
+          value: boolean
+        - name: score
+          value: number
+        - name: dimensions
+          value:
+            - - name: dimension
+                value:
+                  - name: name
+                    value: string
+              - name: passed
+                value: boolean
+              - name: score
+                value: number
+        - name: columns
+          value:
+            - - name: column
+                value: string
+              - name: score
+                value: number
+        - name: rules
+          value:
+            - - name: rule
+                value:
+                  - name: column
+                    value: string
+                  - name: ignoreNull
+                    value: boolean
+                  - name: dimension
+                    value: string
+                  - name: threshold
+                    value: number
+                  - name: name
+                    value: string
+                  - name: description
+                    value: string
+                  - name: suspended
+                    value: boolean
+              - name: passed
+                value: boolean
+              - name: evaluatedCount
+                value: string
+              - name: passedCount
+                value: string
+              - name: nullCount
+                value: string
+              - name: passRatio
+                value: number
+              - name: failingRowsQuery
+                value: string
+              - name: assertionRowCount
+                value: string
+        - name: rowCount
+          value: string
+        - name: scannedData
+          value:
+            - name: incrementalField
+              value:
+                - name: field
+                  value: string
+                - name: start
+                  value: string
+                - name: end
+                  value: string
+        - name: postScanActionsResult
+          value:
+            - name: bigqueryExportResult
+              value:
+                - name: state
+                  value: string
+                - name: message
+                  value: string
+    - name: dataProfileResult
+      value:
+        - name: rowCount
+          value: string
+        - name: profile
+          value:
+            - name: fields
+              value:
+                - - name: name
+                    value: string
+                  - name: type
+                    value: string
+                  - name: mode
+                    value: string
+                  - name: profile
+                    value:
+                      - name: nullRatio
+                        value: number
+                      - name: distinctRatio
+                        value: number
+                      - name: topNValues
+                        value:
+                          - - name: value
+                              value: string
+                            - name: count
+                              value: string
+                            - name: ratio
+                              value: number
+                      - name: stringProfile
+                        value:
+                          - name: minLength
+                            value: string
+                          - name: maxLength
+                            value: string
+                          - name: averageLength
+                            value: number
+                      - name: integerProfile
+                        value:
+                          - name: average
+                            value: number
+                          - name: standardDeviation
+                            value: number
+                          - name: min
+                            value: string
+                          - name: quartiles
+                            value:
+                              - string
+                          - name: max
+                            value: string
+                      - name: doubleProfile
+                        value:
+                          - name: average
+                            value: number
+                          - name: standardDeviation
+                            value: number
+                          - name: min
+                            value: number
+                          - name: quartiles
+                            value:
+                              - number
+                          - name: max
+                            value: number
+        - name: postScanActionsResult
+          value:
+            - name: bigqueryExportResult
+              value:
+                - name: state
+                  value: string
+                - name: message
+                  value: string
 
 ```
 </TabItem>

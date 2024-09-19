@@ -57,5 +57,5 @@ updateTime
 FROM google.translate.adaptive_mt_sentences
 WHERE adaptiveMtDatasetsId = '{{ adaptiveMtDatasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

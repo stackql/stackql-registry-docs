@@ -54,7 +54,7 @@ role
 FROM google.beyondcorp.proxy_configs_iam_policies
 WHERE organizationsId = '{{ organizationsId }}'
 AND partnerTenantsId = '{{ partnerTenantsId }}'
-AND proxyConfigsId = '{{ proxyConfigsId }}'; 
+AND proxyConfigsId = '{{ proxyConfigsId }}';
 ```
 
 ## `REPLACE` example

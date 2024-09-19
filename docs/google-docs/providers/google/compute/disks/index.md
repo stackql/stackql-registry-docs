@@ -155,7 +155,7 @@ type,
 users,
 zone
 FROM google.compute.disks
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -188,7 +188,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-sourceConsistencyGroupPolicy: string
+- name: your_resource_model_name
+  props:
+    - name: sourceConsistencyGroupPolicy
+      value: string
 
 ```
 </TabItem>

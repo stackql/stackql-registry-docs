@@ -73,7 +73,7 @@ uid,
 updateTime
 FROM google.gkebackup.restore_plans
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,70 +114,133 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-description: string
-backupPlan: string
-cluster: string
-restoreConfig:
-  volumeDataRestorePolicy: string
-  clusterResourceConflictPolicy: string
-  namespacedResourceRestoreMode: string
-  clusterResourceRestoreScope:
-    selectedGroupKinds:
-      - resourceGroup: string
-        resourceKind: string
-    excludedGroupKinds:
-      - resourceGroup: string
-        resourceKind: string
-    allGroupKinds: boolean
-    noGroupKinds: boolean
-  allNamespaces: boolean
-  selectedNamespaces:
-    namespaces:
-      - type: string
-  selectedApplications:
-    namespacedNames:
-      - namespace: string
-        name: string
-  noNamespaces: boolean
-  substitutionRules:
-    - targetNamespaces:
-        - type: string
-      targetGroupKinds:
-        - resourceGroup: string
-          resourceKind: string
-      targetJsonPath: string
-      originalValuePattern: string
-      newValue: string
-  transformationRules:
-    - fieldActions:
-        - op: string
-          fromPath: string
-          path: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: backupPlan
+      value: string
+    - name: cluster
+      value: string
+    - name: restoreConfig
+      value:
+        - name: volumeDataRestorePolicy
           value: string
-      resourceFilter:
-        namespaces:
-          - type: string
-        groupKinds:
-          - resourceGroup: string
-            resourceKind: string
-        jsonPath: string
-      description: string
-  volumeDataRestorePolicyBindings:
-    - policy: string
-      volumeType: string
-  restoreOrder:
-    groupKindDependencies:
-      - satisfying:
-          resourceGroup: string
-          resourceKind: string
-labels: object
-etag: string
-state: string
-stateReason: string
+        - name: clusterResourceConflictPolicy
+          value: string
+        - name: namespacedResourceRestoreMode
+          value: string
+        - name: clusterResourceRestoreScope
+          value:
+            - name: selectedGroupKinds
+              value:
+                - - name: resourceGroup
+                    value: string
+                  - name: resourceKind
+                    value: string
+            - name: excludedGroupKinds
+              value:
+                - - name: resourceGroup
+                    value: string
+                  - name: resourceKind
+                    value: string
+            - name: allGroupKinds
+              value: boolean
+            - name: noGroupKinds
+              value: boolean
+        - name: allNamespaces
+          value: boolean
+        - name: selectedNamespaces
+          value:
+            - name: namespaces
+              value:
+                - string
+        - name: selectedApplications
+          value:
+            - name: namespacedNames
+              value:
+                - - name: namespace
+                    value: string
+                  - name: name
+                    value: string
+        - name: noNamespaces
+          value: boolean
+        - name: substitutionRules
+          value:
+            - - name: targetNamespaces
+                value:
+                  - string
+              - name: targetGroupKinds
+                value:
+                  - - name: resourceGroup
+                      value: string
+                    - name: resourceKind
+                      value: string
+              - name: targetJsonPath
+                value: string
+              - name: originalValuePattern
+                value: string
+              - name: newValue
+                value: string
+        - name: transformationRules
+          value:
+            - - name: fieldActions
+                value:
+                  - - name: op
+                      value: string
+                    - name: fromPath
+                      value: string
+                    - name: path
+                      value: string
+                    - name: value
+                      value: string
+              - name: resourceFilter
+                value:
+                  - name: namespaces
+                    value:
+                      - string
+                  - name: groupKinds
+                    value:
+                      - - name: resourceGroup
+                          value: string
+                        - name: resourceKind
+                          value: string
+                  - name: jsonPath
+                    value: string
+              - name: description
+                value: string
+        - name: volumeDataRestorePolicyBindings
+          value:
+            - - name: policy
+                value: string
+              - name: volumeType
+                value: string
+        - name: restoreOrder
+          value:
+            - name: groupKindDependencies
+              value:
+                - - name: satisfying
+                    value:
+                      - name: resourceGroup
+                        value: string
+                      - name: resourceKind
+                        value: string
+    - name: labels
+      value: object
+    - name: etag
+      value: string
+    - name: state
+      value: string
+    - name: stateReason
+      value: string
 
 ```
 </TabItem>

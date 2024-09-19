@@ -77,7 +77,7 @@ source,
 updateTime
 FROM google.datamigration.conversion_workspaces
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,17 +118,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-source:
-  engine: string
-  version: string
-globalSettings: object
-hasUncommittedChanges: boolean
-latestCommitId: string
-latestCommitTime: string
-createTime: string
-updateTime: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: source
+      value:
+        - name: engine
+          value: string
+        - name: version
+          value: string
+    - name: globalSettings
+      value: object
+    - name: hasUncommittedChanges
+      value: boolean
+    - name: latestCommitId
+      value: string
+    - name: latestCommitTime
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

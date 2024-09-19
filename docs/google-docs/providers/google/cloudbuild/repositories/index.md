@@ -66,7 +66,7 @@ webhookId
 FROM google.cloudbuild.repositories
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,17 +101,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requests:
-  - repositoryId: string
-    repository:
-      updateTime: string
-      name: string
-      annotations: object
-      etag: string
-      webhookId: string
-      createTime: string
-      remoteUri: string
-    parent: string
+- name: your_resource_model_name
+  props:
+    - name: requests
+      value:
+        - - name: repositoryId
+            value: string
+          - name: repository
+            value:
+              - name: updateTime
+                value: string
+              - name: name
+                value: string
+              - name: annotations
+                value: object
+              - name: etag
+                value: string
+              - name: webhookId
+                value: string
+              - name: createTime
+                value: string
+              - name: remoteUri
+                value: string
+          - name: parent
+            value: string
 
 ```
 </TabItem>

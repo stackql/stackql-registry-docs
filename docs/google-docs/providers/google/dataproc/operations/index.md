@@ -62,7 +62,7 @@ metadata,
 response
 FROM google.dataproc.operations
 WHERE projectsId = '{{ projectsId }}'
-AND regionsId = '{{ regionsId }}'; 
+AND regionsId = '{{ regionsId }}';
 ```
 
 ## `DELETE` example

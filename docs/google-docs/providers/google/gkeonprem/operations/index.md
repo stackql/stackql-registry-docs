@@ -70,7 +70,7 @@ metadata,
 response
 FROM google.gkeonprem.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

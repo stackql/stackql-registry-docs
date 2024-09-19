@@ -116,7 +116,7 @@ userSpecifiedType
 FROM google.datacatalog.entries
 WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -197,231 +197,453 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-linkedResource: string
-fullyQualifiedName: string
-type: string
-userSpecifiedType: string
-integratedSystem: string
-userSpecifiedSystem: string
-sqlDatabaseSystemSpec:
-  sqlEngine: string
-  databaseVersion: string
-  instanceHost: string
-lookerSystemSpec:
-  parentInstanceId: string
-  parentInstanceDisplayName: string
-  parentModelId: string
-  parentModelDisplayName: string
-  parentViewId: string
-  parentViewDisplayName: string
-cloudBigtableSystemSpec:
-  instanceDisplayName: string
-gcsFilesetSpec:
-  filePatterns:
-    - type: string
-  sampleGcsFileSpecs:
-    - filePath: string
-      gcsTimestamps:
-        createTime: string
-        updateTime: string
-        expireTime: string
-      sizeBytes: string
-bigqueryTableSpec:
-  tableSourceType: string
-  viewSpec:
-    viewQuery: string
-  tableSpec:
-    groupedEntry: string
-bigqueryDateShardedSpec:
-  dataset: string
-  tablePrefix: string
-  shardCount: string
-  latestShardResource: string
-databaseTableSpec:
-  type: string
-  dataplexTable:
-    externalTables:
-      - system: string
-        fullyQualifiedName: string
-        googleCloudResource: string
-        dataCatalogEntry: string
-    dataplexSpec:
-      asset: string
-      dataFormat:
-        avro:
-          text: string
-        thrift:
-          text: string
-        protobuf:
-          text: string
-        parquet: {}
-        orc: {}
-        csv: {}
-      compressionFormat: string
-      projectId: string
-    userManaged: boolean
-  databaseViewSpec:
-    viewType: string
-    baseTable: string
-    sqlQuery: string
-dataSourceConnectionSpec:
-  bigqueryConnectionSpec:
-    connectionType: string
-    cloudSql:
-      instanceId: string
-      database: string
-      type: string
-    hasCredential: boolean
-routineSpec:
-  routineType: string
-  language: string
-  routineArguments:
-    - name: string
-      mode: string
-      type: string
-  returnType: string
-  definitionBody: string
-  bigqueryRoutineSpec:
-    importedLibraries:
-      - type: string
-datasetSpec:
-  vertexDatasetSpec:
-    dataItemCount: string
-    dataType: string
-filesetSpec:
-  dataplexFileset: {}
-serviceSpec:
-  cloudBigtableInstanceSpec:
-    cloudBigtableClusterSpecs:
-      - displayName: string
-        location: string
-        type: string
-        linkedResource: string
-modelSpec:
-  vertexModelSpec:
-    versionId: string
-    versionAliases:
-      - type: string
-    versionDescription: string
-    vertexModelSourceInfo:
-      sourceType: string
-      copy: boolean
-    containerImageUri: string
-featureOnlineStoreSpec:
-  storageType: string
-displayName: string
-description: string
-businessContext:
-  entryOverview:
-    overview: string
-  contacts:
-    people:
-      - designation: string
-        email: string
-schema:
-  columns:
-    - column: string
-      type: string
-      description: string
-      mode: string
-      defaultValue: string
-      ordinalPosition: integer
-      highestIndexingType: string
-      subcolumns:
-        - column: string
-          type: string
-          description: string
-          mode: string
-          defaultValue: string
-          ordinalPosition: integer
-          highestIndexingType: string
-          subcolumns:
-            - column: string
-              type: string
-              description: string
-              mode: string
-              defaultValue: string
-              ordinalPosition: integer
-              highestIndexingType: string
-              subcolumns:
-                - column: string
-                  type: string
-                  description: string
-                  mode: string
-                  defaultValue: string
-                  ordinalPosition: integer
-                  highestIndexingType: string
-                  subcolumns:
-                    - column: string
-                      type: string
-                      description: string
-                      mode: string
-                      defaultValue: string
-                      ordinalPosition: integer
-                      highestIndexingType: string
-                      subcolumns:
-                        - column: string
-                          type: string
-                          description: string
-                          mode: string
-                          defaultValue: string
-                          ordinalPosition: integer
-                          highestIndexingType: string
-                          subcolumns:
-                            - column: string
-                              type: string
-                              description: string
-                              mode: string
-                              defaultValue: string
-                              ordinalPosition: integer
-                              highestIndexingType: string
-                              subcolumns:
-                                - column: string
-                                  type: string
-                                  description: string
-                                  mode: string
-                                  defaultValue: string
-                                  ordinalPosition: integer
-                                  highestIndexingType: string
-                                  subcolumns:
-                                    - column: string
-                                      type: string
-                                      description: string
-                                      mode: string
-                                      defaultValue: string
-                                      ordinalPosition: integer
-                                      highestIndexingType: string
-                                      subcolumns:
-                                        - {}
-                                      lookerColumnSpec: {}
-                                      rangeElementType: {}
-                                      gcRule: string
-                                  gcRule: string
-                              gcRule: string
-                          gcRule: string
-                      gcRule: string
-                  gcRule: string
-              gcRule: string
-          gcRule: string
-      gcRule: string
-usageSignal:
-  updateTime: string
-  usageWithinTimeRange: object
-  commonUsageWithinTimeRange: object
-  favoriteCount: string
-labels: object
-dataSource:
-  service: string
-  resource: string
-  sourceEntry: string
-  storageProperties:
-    filePattern:
-      - type: string
-    fileType: string
-personalDetails:
-  starred: boolean
-  starTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: linkedResource
+      value: string
+    - name: fullyQualifiedName
+      value: string
+    - name: type
+      value: string
+    - name: userSpecifiedType
+      value: string
+    - name: integratedSystem
+      value: string
+    - name: userSpecifiedSystem
+      value: string
+    - name: sqlDatabaseSystemSpec
+      value:
+        - name: sqlEngine
+          value: string
+        - name: databaseVersion
+          value: string
+        - name: instanceHost
+          value: string
+    - name: lookerSystemSpec
+      value:
+        - name: parentInstanceId
+          value: string
+        - name: parentInstanceDisplayName
+          value: string
+        - name: parentModelId
+          value: string
+        - name: parentModelDisplayName
+          value: string
+        - name: parentViewId
+          value: string
+        - name: parentViewDisplayName
+          value: string
+    - name: cloudBigtableSystemSpec
+      value:
+        - name: instanceDisplayName
+          value: string
+    - name: gcsFilesetSpec
+      value:
+        - name: filePatterns
+          value:
+            - string
+        - name: sampleGcsFileSpecs
+          value:
+            - - name: filePath
+                value: string
+              - name: gcsTimestamps
+                value:
+                  - name: createTime
+                    value: string
+                  - name: updateTime
+                    value: string
+                  - name: expireTime
+                    value: string
+              - name: sizeBytes
+                value: string
+    - name: bigqueryTableSpec
+      value:
+        - name: tableSourceType
+          value: string
+        - name: viewSpec
+          value:
+            - name: viewQuery
+              value: string
+        - name: tableSpec
+          value:
+            - name: groupedEntry
+              value: string
+    - name: bigqueryDateShardedSpec
+      value:
+        - name: dataset
+          value: string
+        - name: tablePrefix
+          value: string
+        - name: shardCount
+          value: string
+        - name: latestShardResource
+          value: string
+    - name: databaseTableSpec
+      value:
+        - name: type
+          value: string
+        - name: dataplexTable
+          value:
+            - name: externalTables
+              value:
+                - - name: system
+                    value: string
+                  - name: fullyQualifiedName
+                    value: string
+                  - name: googleCloudResource
+                    value: string
+                  - name: dataCatalogEntry
+                    value: string
+            - name: dataplexSpec
+              value:
+                - name: asset
+                  value: string
+                - name: dataFormat
+                  value:
+                    - name: avro
+                      value:
+                        - name: text
+                          value: string
+                    - name: thrift
+                      value:
+                        - name: text
+                          value: string
+                    - name: protobuf
+                      value:
+                        - name: text
+                          value: string
+                    - name: parquet
+                      value: []
+                    - name: orc
+                      value: []
+                    - name: csv
+                      value: []
+                - name: compressionFormat
+                  value: string
+                - name: projectId
+                  value: string
+            - name: userManaged
+              value: boolean
+        - name: databaseViewSpec
+          value:
+            - name: viewType
+              value: string
+            - name: baseTable
+              value: string
+            - name: sqlQuery
+              value: string
+    - name: dataSourceConnectionSpec
+      value:
+        - name: bigqueryConnectionSpec
+          value:
+            - name: connectionType
+              value: string
+            - name: cloudSql
+              value:
+                - name: instanceId
+                  value: string
+                - name: database
+                  value: string
+                - name: type
+                  value: string
+            - name: hasCredential
+              value: boolean
+    - name: routineSpec
+      value:
+        - name: routineType
+          value: string
+        - name: language
+          value: string
+        - name: routineArguments
+          value:
+            - - name: name
+                value: string
+              - name: mode
+                value: string
+              - name: type
+                value: string
+        - name: returnType
+          value: string
+        - name: definitionBody
+          value: string
+        - name: bigqueryRoutineSpec
+          value:
+            - name: importedLibraries
+              value:
+                - string
+    - name: datasetSpec
+      value:
+        - name: vertexDatasetSpec
+          value:
+            - name: dataItemCount
+              value: string
+            - name: dataType
+              value: string
+    - name: filesetSpec
+      value:
+        - name: dataplexFileset
+          value: []
+    - name: serviceSpec
+      value:
+        - name: cloudBigtableInstanceSpec
+          value:
+            - name: cloudBigtableClusterSpecs
+              value:
+                - - name: displayName
+                    value: string
+                  - name: location
+                    value: string
+                  - name: type
+                    value: string
+                  - name: linkedResource
+                    value: string
+    - name: modelSpec
+      value:
+        - name: vertexModelSpec
+          value:
+            - name: versionId
+              value: string
+            - name: versionAliases
+              value:
+                - string
+            - name: versionDescription
+              value: string
+            - name: vertexModelSourceInfo
+              value:
+                - name: sourceType
+                  value: string
+                - name: copy
+                  value: boolean
+            - name: containerImageUri
+              value: string
+    - name: featureOnlineStoreSpec
+      value:
+        - name: storageType
+          value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: businessContext
+      value:
+        - name: entryOverview
+          value:
+            - name: overview
+              value: string
+        - name: contacts
+          value:
+            - name: people
+              value:
+                - - name: designation
+                    value: string
+                  - name: email
+                    value: string
+    - name: schema
+      value:
+        - name: columns
+          value:
+            - - name: column
+                value: string
+              - name: type
+                value: string
+              - name: description
+                value: string
+              - name: mode
+                value: string
+              - name: defaultValue
+                value: string
+              - name: ordinalPosition
+                value: integer
+              - name: highestIndexingType
+                value: string
+              - name: subcolumns
+                value:
+                  - - name: column
+                      value: string
+                    - name: type
+                      value: string
+                    - name: description
+                      value: string
+                    - name: mode
+                      value: string
+                    - name: defaultValue
+                      value: string
+                    - name: ordinalPosition
+                      value: integer
+                    - name: highestIndexingType
+                      value: string
+                    - name: subcolumns
+                      value:
+                        - - name: column
+                            value: string
+                          - name: type
+                            value: string
+                          - name: description
+                            value: string
+                          - name: mode
+                            value: string
+                          - name: defaultValue
+                            value: string
+                          - name: ordinalPosition
+                            value: integer
+                          - name: highestIndexingType
+                            value: string
+                          - name: subcolumns
+                            value:
+                              - - name: column
+                                  value: string
+                                - name: type
+                                  value: string
+                                - name: description
+                                  value: string
+                                - name: mode
+                                  value: string
+                                - name: defaultValue
+                                  value: string
+                                - name: ordinalPosition
+                                  value: integer
+                                - name: highestIndexingType
+                                  value: string
+                                - name: subcolumns
+                                  value:
+                                    - - name: column
+                                        value: string
+                                      - name: type
+                                        value: string
+                                      - name: description
+                                        value: string
+                                      - name: mode
+                                        value: string
+                                      - name: defaultValue
+                                        value: string
+                                      - name: ordinalPosition
+                                        value: integer
+                                      - name: highestIndexingType
+                                        value: string
+                                      - name: subcolumns
+                                        value:
+                                          - - name: column
+                                              value: string
+                                            - name: type
+                                              value: string
+                                            - name: description
+                                              value: string
+                                            - name: mode
+                                              value: string
+                                            - name: defaultValue
+                                              value: string
+                                            - name: ordinalPosition
+                                              value: integer
+                                            - name: highestIndexingType
+                                              value: string
+                                            - name: subcolumns
+                                              value:
+                                                - - name: column
+                                                    value: string
+                                                  - name: type
+                                                    value: string
+                                                  - name: description
+                                                    value: string
+                                                  - name: mode
+                                                    value: string
+                                                  - name: defaultValue
+                                                    value: string
+                                                  - name: ordinalPosition
+                                                    value: integer
+                                                  - name: highestIndexingType
+                                                    value: string
+                                                  - name: subcolumns
+                                                    value:
+                                                      - - name: column
+                                                          value: string
+                                                        - name: type
+                                                          value: string
+                                                        - name: description
+                                                          value: string
+                                                        - name: mode
+                                                          value: string
+                                                        - name: defaultValue
+                                                          value: string
+                                                        - name: ordinalPosition
+                                                          value: integer
+                                                        - name: highestIndexingType
+                                                          value: string
+                                                        - name: subcolumns
+                                                          value:
+                                                            - - name: column
+                                                                value: string
+                                                              - name: type
+                                                                value: string
+                                                              - name: description
+                                                                value: string
+                                                              - name: mode
+                                                                value: string
+                                                              - name: defaultValue
+                                                                value: string
+                                                              - name: ordinalPosition
+                                                                value: integer
+                                                              - name: highestIndexingType
+                                                                value: string
+                                                              - name: subcolumns
+                                                                value:
+                                                                  - []
+                                                              - name: lookerColumnSpec
+                                                                value: []
+                                                              - name: rangeElementType
+                                                                value: []
+                                                              - name: gcRule
+                                                                value: string
+                                                        - name: gcRule
+                                                          value: string
+                                                  - name: gcRule
+                                                    value: string
+                                            - name: gcRule
+                                              value: string
+                                      - name: gcRule
+                                        value: string
+                                - name: gcRule
+                                  value: string
+                          - name: gcRule
+                            value: string
+                    - name: gcRule
+                      value: string
+              - name: gcRule
+                value: string
+    - name: usageSignal
+      value:
+        - name: updateTime
+          value: string
+        - name: usageWithinTimeRange
+          value: object
+        - name: commonUsageWithinTimeRange
+          value: object
+        - name: favoriteCount
+          value: string
+    - name: labels
+      value: object
+    - name: dataSource
+      value:
+        - name: service
+          value: string
+        - name: resource
+          value: string
+        - name: sourceEntry
+          value: string
+        - name: storageProperties
+          value:
+            - name: filePattern
+              value:
+                - string
+            - name: fileType
+              value: string
+    - name: personalDetails
+      value:
+        - name: starred
+          value: boolean
+        - name: starTime
+          value: string
 
 ```
 </TabItem>

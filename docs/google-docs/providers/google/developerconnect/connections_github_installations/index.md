@@ -48,5 +48,5 @@ installations
 FROM google.developerconnect.connections_github_installations
 WHERE connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

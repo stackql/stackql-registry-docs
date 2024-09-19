@@ -61,7 +61,7 @@ reservationConfig,
 retentionConfig
 FROM google.pubsublite.topics
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -100,18 +100,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-partitionConfig:
-  count: string
-  scale: integer
-  capacity:
-    publishMibPerSec: integer
-    subscribeMibPerSec: integer
-retentionConfig:
-  perPartitionBytes: string
-  period: string
-reservationConfig:
-  throughputReservation: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: partitionConfig
+      value:
+        - name: count
+          value: string
+        - name: scale
+          value: integer
+        - name: capacity
+          value:
+            - name: publishMibPerSec
+              value: integer
+            - name: subscribeMibPerSec
+              value: integer
+    - name: retentionConfig
+      value:
+        - name: perPartitionBytes
+          value: string
+        - name: period
+          value: string
+    - name: reservationConfig
+      value:
+        - name: throughputReservation
+          value: string
 
 ```
 </TabItem>

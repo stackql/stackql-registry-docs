@@ -53,7 +53,7 @@ kmsKey,
 resourceTypeSelector
 FROM google.cloudkms.key_handles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -88,9 +88,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-kmsKey: string
-resourceTypeSelector: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: kmsKey
+      value: string
+    - name: resourceTypeSelector
+      value: string
 
 ```
 </TabItem>

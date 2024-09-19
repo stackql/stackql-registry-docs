@@ -54,7 +54,7 @@ FROM google.dataform.comment_threads_iam_policies
 WHERE commentThreadsId = '{{ commentThreadsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `REPLACE` example

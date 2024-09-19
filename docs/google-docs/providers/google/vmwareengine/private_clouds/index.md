@@ -82,7 +82,7 @@ updateTime,
 vcenter
 FROM google.vmwareengine.private_clouds
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -121,42 +121,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
-state: string
-networkConfig:
-  managementCidr: string
-  vmwareEngineNetwork: string
-  vmwareEngineNetworkCanonical: string
-  managementIpAddressLayoutVersion: integer
-  dnsServerIp: string
-managementCluster:
-  clusterId: string
-  nodeTypeConfigs: object
-  stretchedClusterConfig:
-    preferredLocation: string
-    secondaryLocation: string
-description: string
-hcx:
-  internalIp: string
-  version: string
-  state: string
-  fqdn: string
-nsx:
-  internalIp: string
-  version: string
-  state: string
-  fqdn: string
-vcenter:
-  internalIp: string
-  version: string
-  state: string
-  fqdn: string
-uid: string
-type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: state
+      value: string
+    - name: networkConfig
+      value:
+        - name: managementCidr
+          value: string
+        - name: vmwareEngineNetwork
+          value: string
+        - name: vmwareEngineNetworkCanonical
+          value: string
+        - name: managementIpAddressLayoutVersion
+          value: integer
+        - name: dnsServerIp
+          value: string
+    - name: managementCluster
+      value:
+        - name: clusterId
+          value: string
+        - name: nodeTypeConfigs
+          value: object
+        - name: stretchedClusterConfig
+          value:
+            - name: preferredLocation
+              value: string
+            - name: secondaryLocation
+              value: string
+    - name: description
+      value: string
+    - name: hcx
+      value:
+        - name: internalIp
+          value: string
+        - name: version
+          value: string
+        - name: state
+          value: string
+        - name: fqdn
+          value: string
+    - name: nsx
+      value:
+        - name: internalIp
+          value: string
+        - name: version
+          value: string
+        - name: state
+          value: string
+        - name: fqdn
+          value: string
+    - name: vcenter
+      value:
+        - name: internalIp
+          value: string
+        - name: version
+          value: string
+        - name: state
+          value: string
+        - name: fqdn
+          value: string
+    - name: uid
+      value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

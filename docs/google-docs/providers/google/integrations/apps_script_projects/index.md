@@ -70,8 +70,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-appsScriptProject: string
-authConfigId: string
+- name: your_resource_model_name
+  props:
+    - name: appsScriptProject
+      value: string
+    - name: authConfigId
+      value: string
 
 ```
 </TabItem>

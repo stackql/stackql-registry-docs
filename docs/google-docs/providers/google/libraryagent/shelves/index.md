@@ -49,5 +49,5 @@ SELECT
 name,
 theme
 FROM google.libraryagent.shelves
-WHERE  = '{{  }}'; 
+;
 ```

@@ -69,7 +69,7 @@ state,
 updateTime
 FROM google.networksecurity.firewall_endpoints
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -108,19 +108,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-state: string
-reconciling: boolean
-associatedNetworks:
-  - type: string
-associations:
-  - name: string
-    network: string
-billingProjectId: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: state
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: associatedNetworks
+      value:
+        - string
+    - name: associations
+      value:
+        - - name: name
+            value: string
+          - name: network
+            value: string
+    - name: billingProjectId
+      value: string
 
 ```
 </TabItem>

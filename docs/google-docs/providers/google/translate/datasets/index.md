@@ -70,7 +70,7 @@ updateTime,
 validateExampleCount
 FROM google.translate.datasets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -109,16 +109,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-sourceLanguageCode: string
-targetLanguageCode: string
-exampleCount: integer
-trainExampleCount: integer
-validateExampleCount: integer
-testExampleCount: integer
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: sourceLanguageCode
+      value: string
+    - name: targetLanguageCode
+      value: string
+    - name: exampleCount
+      value: integer
+    - name: trainExampleCount
+      value: integer
+    - name: validateExampleCount
+      value: integer
+    - name: testExampleCount
+      value: integer
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

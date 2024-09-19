@@ -95,7 +95,7 @@ trinoJob,
 yarnApplications
 FROM google.dataproc.jobs
 WHERE projectId = '{{ projectId }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `UPDATE` example

@@ -63,7 +63,7 @@ org,
 self,
 targetType
 FROM google.apigee.datastores
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -98,18 +98,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-datastoreConfig:
-  path: string
-  projectId: string
-  bucketName: string
-  datasetName: string
-  tablePrefix: string
-displayName: string
-org: string
-lastUpdateTime: string
-self: string
-createTime: string
-targetType: string
+- name: your_resource_model_name
+  props:
+    - name: datastoreConfig
+      value:
+        - name: path
+          value: string
+        - name: projectId
+          value: string
+        - name: bucketName
+          value: string
+        - name: datasetName
+          value: string
+        - name: tablePrefix
+          value: string
+    - name: displayName
+      value: string
+    - name: org
+      value: string
+    - name: lastUpdateTime
+      value: string
+    - name: self
+      value: string
+    - name: createTime
+      value: string
+    - name: targetType
+      value: string
 
 ```
 </TabItem>

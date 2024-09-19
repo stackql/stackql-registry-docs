@@ -57,7 +57,7 @@ error,
 metadata,
 response
 FROM google.datastore.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

@@ -74,7 +74,7 @@ ttl,
 updateTime,
 zone
 FROM google.storage.anywhere_caches
-WHERE bucket = '{{ bucket }}'; 
+WHERE bucket = '{{ bucket }}';
 ```
 
 ## `INSERT` example
@@ -110,25 +110,39 @@ SELECT
 '{{ state }}',
 '{{ ttl }}',
 '{{ admissionPolicy }}',
-true|false
+{{ pendingUpdate }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-selfLink: string
-bucket: string
-anywhereCacheId: string
-zone: string
-state: string
-createTime: string
-updateTime: string
-ttl: string
-admissionPolicy: string
-pendingUpdate: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: selfLink
+      value: string
+    - name: bucket
+      value: string
+    - name: anywhereCacheId
+      value: string
+    - name: zone
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: ttl
+      value: string
+    - name: admissionPolicy
+      value: string
+    - name: pendingUpdate
+      value: boolean
 
 ```
 </TabItem>

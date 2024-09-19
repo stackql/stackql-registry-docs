@@ -53,7 +53,7 @@ members,
 role
 FROM google.apigee.environments_iam_policies
 WHERE environmentsId = '{{ environmentsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `REPLACE` example

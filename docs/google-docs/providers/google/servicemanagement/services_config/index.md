@@ -100,5 +100,5 @@ title,
 types,
 usage
 FROM google.servicemanagement.services_config
-WHERE serviceName = '{{ serviceName }}'; 
+WHERE serviceName = '{{ serviceName }}';
 ```

@@ -52,7 +52,7 @@ etag,
 notificationSettings
 FROM google.advisorynotifications.settings
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

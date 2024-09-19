@@ -63,7 +63,7 @@ rejectDuplicateMessage
 FROM google.healthcare.hl7_v2_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -99,45 +99,79 @@ SELECT
 '{{ parserConfig }}',
 '{{ labels }}',
 '{{ notificationConfigs }}',
-true|false
+{{ rejectDuplicateMessage }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-parserConfig:
-  allowNullHeader: boolean
-  segmentTerminator: string
-  schema:
-    schematizedParsingType: string
-    schemas:
-      - version:
-          - mshField: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: parserConfig
+      value:
+        - name: allowNullHeader
+          value: boolean
+        - name: segmentTerminator
+          value: string
+        - name: schema
+          value:
+            - name: schematizedParsingType
+              value: string
+            - name: schemas
+              value:
+                - - name: version
+                    value:
+                      - - name: mshField
+                          value: string
+                        - name: value
+                          value: string
+                  - name: messageSchemaConfigs
+                    value: object
+            - name: types
+              value:
+                - - name: version
+                    value:
+                      - - name: mshField
+                          value: string
+                        - name: value
+                          value: string
+                  - name: type
+                    value:
+                      - - name: name
+                          value: string
+                        - name: primitive
+                          value: string
+                        - name: fields
+                          value:
+                            - - name: name
+                                value: string
+                              - name: type
+                                value: string
+                              - name: table
+                                value: string
+                              - name: minOccurs
+                                value: integer
+                              - name: maxOccurs
+                                value: integer
+            - name: ignoreMinOccurs
+              value: boolean
+            - name: unexpectedSegmentHandling
+              value: string
+        - name: version
+          value: string
+    - name: labels
+      value: object
+    - name: notificationConfigs
+      value:
+        - - name: pubsubTopic
             value: string
-        messageSchemaConfigs: object
-    types:
-      - version:
-          - mshField: string
+          - name: filter
             value: string
-        type:
-          - name: string
-            primitive: string
-            fields:
-              - name: string
-                type: string
-                table: string
-                minOccurs: integer
-                maxOccurs: integer
-    ignoreMinOccurs: boolean
-    unexpectedSegmentHandling: string
-  version: string
-labels: object
-notificationConfigs:
-  - pubsubTopic: string
-    filter: string
-rejectDuplicateMessage: boolean
+    - name: rejectDuplicateMessage
+      value: boolean
 
 ```
 </TabItem>

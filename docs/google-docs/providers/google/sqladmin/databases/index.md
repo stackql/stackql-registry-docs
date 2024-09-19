@@ -68,7 +68,7 @@ selfLink,
 sqlserverDatabaseDetails
 FROM google.sqladmin.databases
 WHERE instance = '{{ instance }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -113,17 +113,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-charset: string
-collation: string
-etag: string
-name: string
-instance: string
-selfLink: string
-project: string
-sqlserverDatabaseDetails:
-  compatibilityLevel: integer
-  recoveryModel: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: charset
+      value: string
+    - name: collation
+      value: string
+    - name: etag
+      value: string
+    - name: name
+      value: string
+    - name: instance
+      value: string
+    - name: selfLink
+      value: string
+    - name: project
+      value: string
+    - name: sqlserverDatabaseDetails
+      value:
+        - name: compatibilityLevel
+          value: integer
+        - name: recoveryModel
+          value: string
 
 ```
 </TabItem>

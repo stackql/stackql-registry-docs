@@ -58,7 +58,7 @@ indexError,
 indexTime
 FROM google.vision.product_sets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,15 +93,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-indexTime: string
-indexError:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: indexTime
+      value: string
+    - name: indexError
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
 
 ```
 </TabItem>

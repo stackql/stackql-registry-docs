@@ -53,7 +53,7 @@ members,
 role
 FROM google.networkconnectivity.policy_based_routes_iam_policies
 WHERE policyBasedRoutesId = '{{ policyBasedRoutesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -55,5 +55,5 @@ error,
 metadata,
 response
 FROM google.apigee.operations
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

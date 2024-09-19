@@ -58,7 +58,7 @@ displayName,
 idpConfig,
 spConfig
 FROM google.cloudidentity.inbound_saml_sso_profiles
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -77,14 +77,12 @@ Use the following StackQL query and manifest file to create a new <code>inbound_
 ```sql
 /*+ create */
 INSERT INTO google.cloudidentity.inbound_saml_sso_profiles (
-,
 customer,
 displayName,
 idpConfig,
 spConfig
 )
 SELECT 
-'{{  }}',
 '{{ customer }}',
 '{{ displayName }}',
 '{{ idpConfig }}',
@@ -95,17 +93,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-customer: string
-displayName: string
-idpConfig:
-  entityId: string
-  singleSignOnServiceUri: string
-  logoutRedirectUri: string
-  changePasswordUri: string
-spConfig:
-  entityId: string
-  assertionConsumerServiceUri: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: customer
+      value: string
+    - name: displayName
+      value: string
+    - name: idpConfig
+      value:
+        - name: entityId
+          value: string
+        - name: singleSignOnServiceUri
+          value: string
+        - name: logoutRedirectUri
+          value: string
+        - name: changePasswordUri
+          value: string
+    - name: spConfig
+      value:
+        - name: entityId
+          value: string
+        - name: assertionConsumerServiceUri
+          value: string
 
 ```
 </TabItem>

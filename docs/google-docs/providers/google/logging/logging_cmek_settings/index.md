@@ -53,7 +53,7 @@ kmsKeyName,
 kmsKeyVersionName,
 serviceAccountId
 FROM google.logging.logging_cmek_settings
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```
 
 ## `UPDATE` example

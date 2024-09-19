@@ -69,7 +69,7 @@ title
 FROM google.recommendationengine.catalog_items
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,35 +118,64 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-categoryHierarchies:
-  - categories:
-      - type: string
-title: string
-description: string
-itemAttributes:
-  categoricalFeatures: object
-  numericalFeatures: object
-languageCode: string
-tags:
-  - type: string
-itemGroupId: string
-productMetadata:
-  exactPrice:
-    displayPrice: number
-    originalPrice: number
-  priceRange:
-    min: number
-    max: number
-  costs: object
-  currencyCode: string
-  stockState: string
-  availableQuantity: string
-  canonicalProductUri: string
-  images:
-    - uri: string
-      height: integer
-      width: integer
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: categoryHierarchies
+      value:
+        - - name: categories
+            value:
+              - string
+    - name: title
+      value: string
+    - name: description
+      value: string
+    - name: itemAttributes
+      value:
+        - name: categoricalFeatures
+          value: object
+        - name: numericalFeatures
+          value: object
+    - name: languageCode
+      value: string
+    - name: tags
+      value:
+        - string
+    - name: itemGroupId
+      value: string
+    - name: productMetadata
+      value:
+        - name: exactPrice
+          value:
+            - name: displayPrice
+              value: number
+            - name: originalPrice
+              value: number
+        - name: priceRange
+          value:
+            - name: min
+              value: number
+            - name: max
+              value: number
+        - name: costs
+          value: object
+        - name: currencyCode
+          value: string
+        - name: stockState
+          value: string
+        - name: availableQuantity
+          value: string
+        - name: canonicalProductUri
+          value: string
+        - name: images
+          value:
+            - - name: uri
+                value: string
+              - name: height
+                value: integer
+              - name: width
+                value: integer
 
 ```
 </TabItem>

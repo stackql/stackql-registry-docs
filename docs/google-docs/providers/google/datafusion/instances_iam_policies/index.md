@@ -54,7 +54,7 @@ role
 FROM google.datafusion.instances_iam_policies
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

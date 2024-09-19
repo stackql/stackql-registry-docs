@@ -54,7 +54,7 @@ role
 FROM google.dataplex.data_taxonomies_iam_policies
 WHERE dataTaxonomiesId = '{{ dataTaxonomiesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -58,7 +58,7 @@ state,
 studyConfig
 FROM google.ml.studies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -91,82 +91,148 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-studyConfig:
-  metrics:
-    - goal: string
-      metric: string
-  parameters:
-    - parameter: string
-      type: string
-      doubleValueSpec:
-        minValue: number
-        maxValue: number
-      integerValueSpec:
-        minValue: string
-        maxValue: string
-      categoricalValueSpec:
-        values:
-          - type: string
-      discreteValueSpec:
-        values:
-          - type: string
-            format: string
-      scaleType: string
-      parentDiscreteValues:
-        values:
-          - type: string
-            format: string
-      parentIntValues:
-        values:
-          - type: string
-            format: string
-      parentCategoricalValues:
-        values:
-          - type: string
-      childParameterSpecs:
-        - parameter: string
-          type: string
-          scaleType: string
-          childParameterSpecs:
-            - parameter: string
-              type: string
-              scaleType: string
-              childParameterSpecs:
-                - parameter: string
-                  type: string
-                  scaleType: string
-                  childParameterSpecs:
-                    - parameter: string
-                      type: string
-                      scaleType: string
-                      childParameterSpecs:
-                        - parameter: string
-                          type: string
-                          scaleType: string
-                          childParameterSpecs:
-                            - parameter: string
-                              type: string
-                              scaleType: string
-                              childParameterSpecs:
-                                - parameter: string
-                                  type: string
-                                  scaleType: string
-                                  childParameterSpecs:
-                                    - parameter: string
-                                      type: string
-                                      scaleType: string
-                                      childParameterSpecs:
-                                        - {}
-  algorithm: string
-  automatedStoppingConfig:
-    decayCurveStoppingConfig:
-      useElapsedTime: boolean
-    medianAutomatedStoppingConfig:
-      useElapsedTime: boolean
-state: string
-createTime: string
-inactiveReason: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: studyConfig
+      value:
+        - name: metrics
+          value:
+            - - name: goal
+                value: string
+              - name: metric
+                value: string
+        - name: parameters
+          value:
+            - - name: parameter
+                value: string
+              - name: type
+                value: string
+              - name: doubleValueSpec
+                value:
+                  - name: minValue
+                    value: number
+                  - name: maxValue
+                    value: number
+              - name: integerValueSpec
+                value:
+                  - name: minValue
+                    value: string
+                  - name: maxValue
+                    value: string
+              - name: categoricalValueSpec
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: discreteValueSpec
+                value:
+                  - name: values
+                    value:
+                      - number
+              - name: scaleType
+                value: string
+              - name: parentDiscreteValues
+                value:
+                  - name: values
+                    value:
+                      - number
+              - name: parentIntValues
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: parentCategoricalValues
+                value:
+                  - name: values
+                    value:
+                      - string
+              - name: childParameterSpecs
+                value:
+                  - - name: parameter
+                      value: string
+                    - name: type
+                      value: string
+                    - name: scaleType
+                      value: string
+                    - name: childParameterSpecs
+                      value:
+                        - - name: parameter
+                            value: string
+                          - name: type
+                            value: string
+                          - name: scaleType
+                            value: string
+                          - name: childParameterSpecs
+                            value:
+                              - - name: parameter
+                                  value: string
+                                - name: type
+                                  value: string
+                                - name: scaleType
+                                  value: string
+                                - name: childParameterSpecs
+                                  value:
+                                    - - name: parameter
+                                        value: string
+                                      - name: type
+                                        value: string
+                                      - name: scaleType
+                                        value: string
+                                      - name: childParameterSpecs
+                                        value:
+                                          - - name: parameter
+                                              value: string
+                                            - name: type
+                                              value: string
+                                            - name: scaleType
+                                              value: string
+                                            - name: childParameterSpecs
+                                              value:
+                                                - - name: parameter
+                                                    value: string
+                                                  - name: type
+                                                    value: string
+                                                  - name: scaleType
+                                                    value: string
+                                                  - name: childParameterSpecs
+                                                    value:
+                                                      - - name: parameter
+                                                          value: string
+                                                        - name: type
+                                                          value: string
+                                                        - name: scaleType
+                                                          value: string
+                                                        - name: childParameterSpecs
+                                                          value:
+                                                            - - name: parameter
+                                                                value: string
+                                                              - name: type
+                                                                value: string
+                                                              - name: scaleType
+                                                                value: string
+                                                              - name: childParameterSpecs
+                                                                value:
+                                                                  - []
+        - name: algorithm
+          value: string
+        - name: automatedStoppingConfig
+          value:
+            - name: decayCurveStoppingConfig
+              value:
+                - name: useElapsedTime
+                  value: boolean
+            - name: medianAutomatedStoppingConfig
+              value:
+                - name: useElapsedTime
+                  value: boolean
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: inactiveReason
+      value: string
 
 ```
 </TabItem>

@@ -77,7 +77,7 @@ processingUnits,
 state,
 updateTime
 FROM google.spanner.instances
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,34 +110,63 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-instanceId: string
-instance:
-  name: string
-  config: string
-  displayName: string
-  nodeCount: integer
-  processingUnits: integer
-  autoscalingConfig:
-    autoscalingLimits:
-      minNodes: integer
-      minProcessingUnits: integer
-      maxNodes: integer
-      maxProcessingUnits: integer
-    autoscalingTargets:
-      highPriorityCpuUtilizationPercent: integer
-      storageUtilizationPercent: integer
-  state: string
-  labels: object
-  instanceType: string
-  endpointUris:
-    - type: string
-  createTime: string
-  updateTime: string
-  freeInstanceMetadata:
-    expireTime: string
-    upgradeTime: string
-    expireBehavior: string
-  edition: string
+- name: your_resource_model_name
+  props:
+    - name: instanceId
+      value: string
+    - name: instance
+      value:
+        - name: name
+          value: string
+        - name: config
+          value: string
+        - name: displayName
+          value: string
+        - name: nodeCount
+          value: integer
+        - name: processingUnits
+          value: integer
+        - name: autoscalingConfig
+          value:
+            - name: autoscalingLimits
+              value:
+                - name: minNodes
+                  value: integer
+                - name: minProcessingUnits
+                  value: integer
+                - name: maxNodes
+                  value: integer
+                - name: maxProcessingUnits
+                  value: integer
+            - name: autoscalingTargets
+              value:
+                - name: highPriorityCpuUtilizationPercent
+                  value: integer
+                - name: storageUtilizationPercent
+                  value: integer
+        - name: state
+          value: string
+        - name: labels
+          value: object
+        - name: instanceType
+          value: string
+        - name: endpointUris
+          value:
+            - string
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: freeInstanceMetadata
+          value:
+            - name: expireTime
+              value: string
+            - name: upgradeTime
+              value: string
+            - name: expireBehavior
+              value: string
+        - name: edition
+          value: string
 
 ```
 </TabItem>

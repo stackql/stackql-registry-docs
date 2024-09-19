@@ -55,7 +55,7 @@ criteria,
 displayName,
 interval
 FROM google.monitoring.snoozes
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -92,14 +92,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-criteria:
-  policies:
-    - type: string
-interval:
-  endTime: string
-  startTime: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: criteria
+      value:
+        - name: policies
+          value:
+            - string
+    - name: interval
+      value:
+        - name: endTime
+          value: string
+        - name: startTime
+          value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

@@ -129,5 +129,5 @@ timeoutSec,
 usedBy
 FROM google.compute.region_backend_services_usable
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

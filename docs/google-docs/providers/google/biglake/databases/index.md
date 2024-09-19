@@ -64,7 +64,7 @@ updateTime
 FROM google.biglake.databases
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,15 +101,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-hiveOptions:
-  locationUri: string
-  parameters: object
-name: string
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
-type: string
+- name: your_resource_model_name
+  props:
+    - name: hiveOptions
+      value:
+        - name: locationUri
+          value: string
+        - name: parameters
+          value: object
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

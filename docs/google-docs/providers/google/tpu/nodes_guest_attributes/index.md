@@ -48,5 +48,5 @@ guestAttributes
 FROM google.tpu.nodes_guest_attributes
 WHERE locationsId = '{{ locationsId }}'
 AND nodesId = '{{ nodesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

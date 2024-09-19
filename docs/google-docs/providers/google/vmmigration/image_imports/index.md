@@ -62,7 +62,7 @@ machineImageTargetDefaults,
 recentImageImportJobs
 FROM google.vmmigration.image_imports
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,81 +101,150 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-cloudStorageUri: string
-diskImageTargetDefaults:
-  osAdaptationParameters:
-    generalize: boolean
-    licenseType: string
-  dataDiskImageImport: {}
-  imageName: string
-  targetProject: string
-  description: string
-  familyName: string
-  labels: object
-  additionalLicenses:
-    - type: string
-  singleRegionStorage: boolean
-  encryption:
-    kmsKey: string
-machineImageTargetDefaults:
-  skipOsAdaptation: {}
-  machineImageName: string
-  targetProject: string
-  description: string
-  singleRegionStorage: boolean
-  machineImageParametersOverrides:
-    machineType: string
-  serviceAccount:
-    email: string
-    scopes:
-      - type: string
-  additionalLicenses:
-    - type: string
-  labels: object
-  tags:
-    - type: string
-  shieldedInstanceConfig:
-    secureBoot: string
-    enableVtpm: boolean
-    enableIntegrityMonitoring: boolean
-  networkInterfaces:
-    - network: string
-      subnetwork: string
-      internalIp: string
-      externalIp: string
-      networkTier: string
-name: string
-createTime: string
-recentImageImportJobs:
-  - cloudStorageUri: string
-    name: string
-    createdResources:
-      - type: string
-    state: string
-    createTime: string
-    endTime: string
-    errors:
-      - code: integer
-        message: string
-        details:
-          - type: string
-            additionalProperties: any
-    warnings:
-      - code: string
-        warningMessage:
-          locale: string
-          message: string
-        helpLinks:
-          - description: string
-            url: string
-        warningTime: string
-    steps:
-      - initializing: {}
-        loadingSourceFiles: {}
-        adaptingOs: {}
-        creatingImage: {}
-        startTime: string
-        endTime: string
+- name: your_resource_model_name
+  props:
+    - name: cloudStorageUri
+      value: string
+    - name: diskImageTargetDefaults
+      value:
+        - name: osAdaptationParameters
+          value:
+            - name: generalize
+              value: boolean
+            - name: licenseType
+              value: string
+        - name: dataDiskImageImport
+          value: []
+        - name: imageName
+          value: string
+        - name: targetProject
+          value: string
+        - name: description
+          value: string
+        - name: familyName
+          value: string
+        - name: labels
+          value: object
+        - name: additionalLicenses
+          value:
+            - string
+        - name: singleRegionStorage
+          value: boolean
+        - name: encryption
+          value:
+            - name: kmsKey
+              value: string
+    - name: machineImageTargetDefaults
+      value:
+        - name: skipOsAdaptation
+          value: []
+        - name: machineImageName
+          value: string
+        - name: targetProject
+          value: string
+        - name: description
+          value: string
+        - name: singleRegionStorage
+          value: boolean
+        - name: machineImageParametersOverrides
+          value:
+            - name: machineType
+              value: string
+        - name: serviceAccount
+          value:
+            - name: email
+              value: string
+            - name: scopes
+              value:
+                - string
+        - name: additionalLicenses
+          value:
+            - string
+        - name: labels
+          value: object
+        - name: tags
+          value:
+            - string
+        - name: shieldedInstanceConfig
+          value:
+            - name: secureBoot
+              value: string
+            - name: enableVtpm
+              value: boolean
+            - name: enableIntegrityMonitoring
+              value: boolean
+        - name: networkInterfaces
+          value:
+            - - name: network
+                value: string
+              - name: subnetwork
+                value: string
+              - name: internalIp
+                value: string
+              - name: externalIp
+                value: string
+              - name: networkTier
+                value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: recentImageImportJobs
+      value:
+        - - name: cloudStorageUri
+            value: string
+          - name: name
+            value: string
+          - name: createdResources
+            value:
+              - string
+          - name: state
+            value: string
+          - name: createTime
+            value: string
+          - name: endTime
+            value: string
+          - name: errors
+            value:
+              - - name: code
+                  value: integer
+                - name: message
+                  value: string
+                - name: details
+                  value:
+                    - object
+          - name: warnings
+            value:
+              - - name: code
+                  value: string
+                - name: warningMessage
+                  value:
+                    - name: locale
+                      value: string
+                    - name: message
+                      value: string
+                - name: helpLinks
+                  value:
+                    - - name: description
+                        value: string
+                      - name: url
+                        value: string
+                - name: warningTime
+                  value: string
+          - name: steps
+            value:
+              - - name: initializing
+                  value: []
+                - name: loadingSourceFiles
+                  value: []
+                - name: adaptingOs
+                  value: []
+                - name: creatingImage
+                  value: []
+                - name: startTime
+                  value: string
+                - name: endTime
+                  value: string
 
 ```
 </TabItem>

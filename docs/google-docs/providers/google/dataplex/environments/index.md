@@ -74,7 +74,7 @@ updateTime
 FROM google.dataplex.environments
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,34 +117,62 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-state: string
-infrastructureSpec:
-  compute:
-    diskSizeGb: integer
-    nodeCount: integer
-    maxNodeCount: integer
-  osImage:
-    imageVersion: string
-    javaLibraries:
-      - type: string
-    pythonPackages:
-      - type: string
-    properties: object
-sessionSpec:
-  maxIdleDuration: string
-  enableFastStartup: boolean
-sessionStatus:
-  active: boolean
-endpoints:
-  notebooks: string
-  sql: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: infrastructureSpec
+      value:
+        - name: compute
+          value:
+            - name: diskSizeGb
+              value: integer
+            - name: nodeCount
+              value: integer
+            - name: maxNodeCount
+              value: integer
+        - name: osImage
+          value:
+            - name: imageVersion
+              value: string
+            - name: javaLibraries
+              value:
+                - string
+            - name: pythonPackages
+              value:
+                - string
+            - name: properties
+              value: object
+    - name: sessionSpec
+      value:
+        - name: maxIdleDuration
+          value: string
+        - name: enableFastStartup
+          value: boolean
+    - name: sessionStatus
+      value:
+        - name: active
+          value: boolean
+    - name: endpoints
+      value:
+        - name: notebooks
+          value: string
+        - name: sql
+          value: string
 
 ```
 </TabItem>

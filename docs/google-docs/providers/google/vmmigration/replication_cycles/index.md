@@ -68,5 +68,5 @@ FROM google.vmmigration.replication_cycles
 WHERE locationsId = '{{ locationsId }}'
 AND migratingVmsId = '{{ migratingVmsId }}'
 AND projectsId = '{{ projectsId }}'
-AND sourcesId = '{{ sourcesId }}'; 
+AND sourcesId = '{{ sourcesId }}';
 ```

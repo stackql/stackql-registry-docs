@@ -64,5 +64,5 @@ purposeData,
 shortName,
 updateTime
 FROM google.cloudresourcemanager.tag_keys_namespaced
-WHERE  = '{{  }}'; 
+;
 ```

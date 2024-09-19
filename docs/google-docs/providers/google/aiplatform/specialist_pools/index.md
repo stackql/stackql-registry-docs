@@ -61,7 +61,7 @@ specialistManagersCount,
 specialistWorkerEmails
 FROM google.aiplatform.specialist_pools
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -100,15 +100,23 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-specialistManagerEmails:
-  - type: string
-displayName: string
-name: string
-pendingDataLabelingJobs:
-  - type: string
-specialistWorkerEmails:
-  - type: string
-specialistManagersCount: integer
+- name: your_resource_model_name
+  props:
+    - name: specialistManagerEmails
+      value:
+        - string
+    - name: displayName
+      value: string
+    - name: name
+      value: string
+    - name: pendingDataLabelingJobs
+      value:
+        - string
+    - name: specialistWorkerEmails
+      value:
+        - string
+    - name: specialistManagersCount
+      value: integer
 
 ```
 </TabItem>

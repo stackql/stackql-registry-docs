@@ -79,7 +79,7 @@ salesforceDataCloud,
 spark
 FROM google.bigqueryconnection.connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -132,69 +132,134 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-friendlyName: string
-description: string
-cloudSql:
-  instanceId: string
-  database: string
-  type: string
-  credential:
-    username: string
-    password: string
-  serviceAccountId: string
-aws:
-  accessRole:
-    iamRoleId: string
-    identity: string
-azure:
-  application: string
-  clientId: string
-  objectId: string
-  customerTenantId: string
-  redirectUri: string
-  federatedApplicationClientId: string
-  identity: string
-cloudSpanner:
-  database: string
-  useParallelism: boolean
-  maxParallelism: integer
-  useServerlessAnalytics: boolean
-  useDataBoost: boolean
-  databaseRole: string
-cloudResource:
-  serviceAccountId: string
-spark:
-  serviceAccountId: string
-  metastoreServiceConfig:
-    metastoreService: string
-  sparkHistoryServerConfig:
-    dataprocCluster: string
-salesforceDataCloud:
-  instanceUri: string
-  identity: string
-  tenantId: string
-configuration:
-  connectorId: string
-  endpoint:
-    hostPort: string
-  authentication:
-    usernamePassword:
-      username: string
-      password:
-        plaintext: string
-        secretType: string
-    serviceAccount: string
-  network:
-    privateServiceConnect:
-      networkAttachment: string
-  asset:
-    database: string
-    googleCloudResource: string
-creationTime: string
-lastModifiedTime: string
-hasCredential: boolean
-kmsKeyName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: friendlyName
+      value: string
+    - name: description
+      value: string
+    - name: cloudSql
+      value:
+        - name: instanceId
+          value: string
+        - name: database
+          value: string
+        - name: type
+          value: string
+        - name: credential
+          value:
+            - name: username
+              value: string
+            - name: password
+              value: string
+        - name: serviceAccountId
+          value: string
+    - name: aws
+      value:
+        - name: accessRole
+          value:
+            - name: iamRoleId
+              value: string
+            - name: identity
+              value: string
+    - name: azure
+      value:
+        - name: application
+          value: string
+        - name: clientId
+          value: string
+        - name: objectId
+          value: string
+        - name: customerTenantId
+          value: string
+        - name: redirectUri
+          value: string
+        - name: federatedApplicationClientId
+          value: string
+        - name: identity
+          value: string
+    - name: cloudSpanner
+      value:
+        - name: database
+          value: string
+        - name: useParallelism
+          value: boolean
+        - name: maxParallelism
+          value: integer
+        - name: useServerlessAnalytics
+          value: boolean
+        - name: useDataBoost
+          value: boolean
+        - name: databaseRole
+          value: string
+    - name: cloudResource
+      value:
+        - name: serviceAccountId
+          value: string
+    - name: spark
+      value:
+        - name: serviceAccountId
+          value: string
+        - name: metastoreServiceConfig
+          value:
+            - name: metastoreService
+              value: string
+        - name: sparkHistoryServerConfig
+          value:
+            - name: dataprocCluster
+              value: string
+    - name: salesforceDataCloud
+      value:
+        - name: instanceUri
+          value: string
+        - name: identity
+          value: string
+        - name: tenantId
+          value: string
+    - name: configuration
+      value:
+        - name: connectorId
+          value: string
+        - name: endpoint
+          value:
+            - name: hostPort
+              value: string
+        - name: authentication
+          value:
+            - name: usernamePassword
+              value:
+                - name: username
+                  value: string
+                - name: password
+                  value:
+                    - name: plaintext
+                      value: string
+                    - name: secretType
+                      value: string
+            - name: serviceAccount
+              value: string
+        - name: network
+          value:
+            - name: privateServiceConnect
+              value:
+                - name: networkAttachment
+                  value: string
+        - name: asset
+          value:
+            - name: database
+              value: string
+            - name: googleCloudResource
+              value: string
+    - name: creationTime
+      value: string
+    - name: lastModifiedTime
+      value: string
+    - name: hasCredential
+      value: boolean
+    - name: kmsKeyName
+      value: string
 
 ```
 </TabItem>

@@ -107,11 +107,11 @@ SELECT
 '{{ labelFingerprint }}',
 '{{ licenseCodes }}',
 '{{ storageLocations }}',
-true|false,
+{{ autoCreated }},
 '{{ guestOsFeatures }}',
 '{{ downloadBytes }}',
 '{{ chainName }}',
-true|false,
+{{ satisfiesPzs }},
 '{{ locationHint }}',
 '{{ sourceSnapshotSchedulePolicy }}',
 '{{ sourceSnapshotSchedulePolicyId }}',
@@ -120,7 +120,7 @@ true|false,
 '{{ architecture }}',
 '{{ snapshotType }}',
 '{{ creationSizeBytes }}',
-true|false,
+{{ enableConfidentialCompute }},
 '{{ sourceDiskForRecoveryCheckpoint }}',
 '{{ sourceInstantSnapshotEncryptionKey }}'
 ;
@@ -129,50 +129,91 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-status: string
-sourceDisk: string
-sourceDiskId: string
-diskSizeGb: string
-storageBytes: string
-storageBytesStatus: string
-licenses:
-  - type: string
-snapshotEncryptionKey:
-  rawKey: string
-  rsaEncryptedKey: string
-  kmsKeyName: string
-  sha256: string
-  kmsKeyServiceAccount: string
-selfLink: string
-labels: object
-labelFingerprint: string
-licenseCodes:
-  - type: string
-    format: string
-storageLocations:
-  - type: string
-autoCreated: boolean
-guestOsFeatures:
-  - type: string
-downloadBytes: string
-chainName: string
-satisfiesPzs: boolean
-locationHint: string
-sourceSnapshotSchedulePolicy: string
-sourceSnapshotSchedulePolicyId: string
-sourceInstantSnapshot: string
-sourceInstantSnapshotId: string
-architecture: string
-snapshotType: string
-creationSizeBytes: string
-enableConfidentialCompute: boolean
-sourceDiskForRecoveryCheckpoint: string
-satisfiesPzi: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: status
+      value: string
+    - name: sourceDisk
+      value: string
+    - name: sourceDiskId
+      value: string
+    - name: diskSizeGb
+      value: string
+    - name: storageBytes
+      value: string
+    - name: storageBytesStatus
+      value: string
+    - name: licenses
+      value:
+        - string
+    - name: snapshotEncryptionKey
+      value:
+        - name: rawKey
+          value: string
+        - name: rsaEncryptedKey
+          value: string
+        - name: kmsKeyName
+          value: string
+        - name: sha256
+          value: string
+        - name: kmsKeyServiceAccount
+          value: string
+    - name: selfLink
+      value: string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
+    - name: licenseCodes
+      value:
+        - string
+    - name: storageLocations
+      value:
+        - string
+    - name: autoCreated
+      value: boolean
+    - name: guestOsFeatures
+      value:
+        - - name: type
+            value: string
+    - name: downloadBytes
+      value: string
+    - name: chainName
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: locationHint
+      value: string
+    - name: sourceSnapshotSchedulePolicy
+      value: string
+    - name: sourceSnapshotSchedulePolicyId
+      value: string
+    - name: sourceInstantSnapshot
+      value: string
+    - name: sourceInstantSnapshotId
+      value: string
+    - name: architecture
+      value: string
+    - name: snapshotType
+      value: string
+    - name: creationSizeBytes
+      value: string
+    - name: enableConfidentialCompute
+      value: boolean
+    - name: sourceDiskForRecoveryCheckpoint
+      value: string
+    - name: satisfiesPzi
+      value: boolean
 
 ```
 </TabItem>

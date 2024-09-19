@@ -77,7 +77,7 @@ FROM google.dataplex.assets
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND zonesId = '{{ zonesId }}'; 
+AND zonesId = '{{ zonesId }}';
 ```
 
 ## `INSERT` example
@@ -122,53 +122,100 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-state: string
-resourceSpec:
-  name: string
-  type: string
-  readAccessMode: string
-resourceStatus:
-  state: string
-  message: string
-  updateTime: string
-  managedAccessIdentity: string
-securityStatus:
-  state: string
-  message: string
-  updateTime: string
-discoverySpec:
-  enabled: boolean
-  includePatterns:
-    - type: string
-  excludePatterns:
-    - type: string
-  csvOptions:
-    headerRows: integer
-    delimiter: string
-    encoding: string
-    disableTypeInference: boolean
-  jsonOptions:
-    encoding: string
-    disableTypeInference: boolean
-  schedule: string
-discoveryStatus:
-  state: string
-  message: string
-  updateTime: string
-  lastRunTime: string
-  stats:
-    dataItems: string
-    dataSize: string
-    tables: string
-    filesets: string
-  lastRunDuration: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: resourceSpec
+      value:
+        - name: name
+          value: string
+        - name: type
+          value: string
+        - name: readAccessMode
+          value: string
+    - name: resourceStatus
+      value:
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: updateTime
+          value: string
+        - name: managedAccessIdentity
+          value: string
+    - name: securityStatus
+      value:
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: updateTime
+          value: string
+    - name: discoverySpec
+      value:
+        - name: enabled
+          value: boolean
+        - name: includePatterns
+          value:
+            - string
+        - name: excludePatterns
+          value:
+            - string
+        - name: csvOptions
+          value:
+            - name: headerRows
+              value: integer
+            - name: delimiter
+              value: string
+            - name: encoding
+              value: string
+            - name: disableTypeInference
+              value: boolean
+        - name: jsonOptions
+          value:
+            - name: encoding
+              value: string
+            - name: disableTypeInference
+              value: boolean
+        - name: schedule
+          value: string
+    - name: discoveryStatus
+      value:
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: updateTime
+          value: string
+        - name: lastRunTime
+          value: string
+        - name: stats
+          value:
+            - name: dataItems
+              value: string
+            - name: dataSize
+              value: string
+            - name: tables
+              value: string
+            - name: filesets
+              value: string
+        - name: lastRunDuration
+          value: string
 
 ```
 </TabItem>

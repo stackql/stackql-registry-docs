@@ -51,7 +51,7 @@ Lists the existing snapshots. Snapshots are used in [Seek]( https://cloud.google
 SELECT
 column_anon
 FROM google.pubsub.snapshots
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

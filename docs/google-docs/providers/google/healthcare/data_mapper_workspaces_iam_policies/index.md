@@ -55,7 +55,7 @@ FROM google.healthcare.data_mapper_workspaces_iam_policies
 WHERE dataMapperWorkspacesId = '{{ dataMapperWorkspacesId }}'
 AND datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

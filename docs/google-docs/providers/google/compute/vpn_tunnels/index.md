@@ -97,7 +97,7 @@ targetVpnGateway,
 vpnGateway,
 vpnGatewayInterface
 FROM google.compute.vpn_tunnels
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -168,32 +168,58 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-region: string
-targetVpnGateway: string
-vpnGateway: string
-vpnGatewayInterface: integer
-peerExternalGateway: string
-peerExternalGatewayInterface: integer
-peerGcpGateway: string
-router: string
-peerIp: string
-sharedSecret: string
-sharedSecretHash: string
-status: string
-selfLink: string
-ikeVersion: integer
-detailedStatus: string
-localTrafficSelector:
-  - type: string
-remoteTrafficSelector:
-  - type: string
-labels: object
-labelFingerprint: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: targetVpnGateway
+      value: string
+    - name: vpnGateway
+      value: string
+    - name: vpnGatewayInterface
+      value: integer
+    - name: peerExternalGateway
+      value: string
+    - name: peerExternalGatewayInterface
+      value: integer
+    - name: peerGcpGateway
+      value: string
+    - name: router
+      value: string
+    - name: peerIp
+      value: string
+    - name: sharedSecret
+      value: string
+    - name: sharedSecretHash
+      value: string
+    - name: status
+      value: string
+    - name: selfLink
+      value: string
+    - name: ikeVersion
+      value: integer
+    - name: detailedStatus
+      value: string
+    - name: localTrafficSelector
+      value:
+        - string
+    - name: remoteTrafficSelector
+      value:
+        - string
+    - name: labels
+      value: object
+    - name: labelFingerprint
+      value: string
 
 ```
 </TabItem>

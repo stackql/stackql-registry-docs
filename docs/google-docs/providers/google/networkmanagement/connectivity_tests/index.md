@@ -75,7 +75,7 @@ relatedProjects,
 source,
 updateTime
 FROM google.networkmanagement.connectivity_tests
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -113,282 +113,539 @@ SELECT
 '{{ protocol }}',
 '{{ relatedProjects }}',
 '{{ labels }}',
-true|false
+{{ bypassFirewallChecks }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-source:
-  ipAddress: string
-  port: integer
-  instance: string
-  forwardingRule: string
-  forwardingRuleTarget: string
-  loadBalancerId: string
-  loadBalancerType: string
-  gkeMasterCluster: string
-  cloudSqlInstance: string
-  cloudFunction:
-    uri: string
-  appEngineVersion:
-    uri: string
-  cloudRunRevision:
-    uri: string
-  network: string
-  networkType: string
-  projectId: string
-protocol: string
-relatedProjects:
-  - type: string
-displayName: string
-labels: object
-createTime: string
-updateTime: string
-reachabilityDetails:
-  result: string
-  verifyTime: string
-  error:
-    code: integer
-    message: string
-    details:
-      - type: string
-        additionalProperties: any
-  traces:
-    - endpointInfo:
-        sourceIp: string
-        destinationIp: string
-        protocol: string
-        sourcePort: integer
-        destinationPort: integer
-        sourceNetworkUri: string
-        destinationNetworkUri: string
-        sourceAgentUri: string
-      steps:
-        - description: string
-          state: string
-          causesDrop: boolean
-          projectId: string
-          instance:
-            displayName: string
-            uri: string
-            interface: string
-            networkUri: string
-            internalIp: string
-            externalIp: string
-            networkTags:
-              - type: string
-            serviceAccount: string
-            pscNetworkAttachmentUri: string
-          firewall:
-            displayName: string
-            uri: string
-            direction: string
-            action: string
-            priority: integer
-            networkUri: string
-            targetTags:
-              - type: string
-            targetServiceAccounts:
-              - type: string
-            policy: string
-            policyUri: string
-            firewallRuleType: string
-          route:
-            routeType: string
-            nextHopType: string
-            routeScope: string
-            displayName: string
-            uri: string
-            destIpRange: string
-            nextHop: string
-            networkUri: string
-            priority: integer
-            instanceTags:
-              - type: string
-            srcIpRange: string
-            destPortRanges:
-              - type: string
-            srcPortRanges:
-              - type: string
-            protocols:
-              - type: string
-            nccHubUri: string
-            nccSpokeUri: string
-          googleService:
-            sourceIp: string
-            googleServiceType: string
-          forwardingRule:
-            displayName: string
-            uri: string
-            matchedProtocol: string
-            matchedPortRange: string
-            vip: string
-            target: string
-            networkUri: string
-            region: string
-            loadBalancerName: string
-            pscServiceAttachmentUri: string
-            pscGoogleApiTarget: string
-          vpnGateway:
-            displayName: string
-            uri: string
-            networkUri: string
-            ipAddress: string
-            vpnTunnelUri: string
-            region: string
-          vpnTunnel:
-            displayName: string
-            uri: string
-            sourceGateway: string
-            remoteGateway: string
-            remoteGatewayIp: string
-            sourceGatewayIp: string
-            networkUri: string
-            region: string
-            routingType: string
-          vpcConnector:
-            displayName: string
-            uri: string
-            location: string
-          deliver:
-            target: string
-            resourceUri: string
-            ipAddress: string
-            storageBucket: string
-            pscGoogleApiTarget: string
-          forward:
-            target: string
-            resourceUri: string
-            ipAddress: string
-          abort:
-            cause: string
-            resourceUri: string
-            ipAddress: string
-            projectsMissingPermission:
-              - type: string
-          drop:
-            cause: string
-            resourceUri: string
-            sourceIp: string
-            destinationIp: string
-            region: string
-          loadBalancer:
-            loadBalancerType: string
-            healthCheckUri: string
-            backends:
-              - displayName: string
-                uri: string
-                healthCheckFirewallState: string
-                healthCheckAllowingFirewallRules:
-                  - type: string
-                healthCheckBlockingFirewallRules:
-                  - type: string
-            backendType: string
-            backendUri: string
-          network:
-            displayName: string
-            uri: string
-            matchedIpRange: string
-          gkeMaster:
-            clusterUri: string
-            clusterNetworkUri: string
-            internalIp: string
-            externalIp: string
-          cloudSqlInstance:
-            displayName: string
-            uri: string
-            networkUri: string
-            internalIp: string
-            externalIp: string
-            region: string
-          redisInstance:
-            displayName: string
-            uri: string
-            networkUri: string
-            primaryEndpointIp: string
-            readEndpointIp: string
-            region: string
-          redisCluster:
-            displayName: string
-            uri: string
-            networkUri: string
-            discoveryEndpointIpAddress: string
-            secondaryEndpointIpAddress: string
-            location: string
-          cloudFunction:
-            displayName: string
-            uri: string
-            location: string
-            versionId: string
-          appEngineVersion:
-            displayName: string
-            uri: string
-            runtime: string
-            environment: string
-          cloudRunRevision:
-            displayName: string
-            uri: string
-            location: string
-            serviceUri: string
-          nat:
-            type: string
-            protocol: string
-            networkUri: string
-            oldSourceIp: string
-            newSourceIp: string
-            oldDestinationIp: string
-            newDestinationIp: string
-            oldSourcePort: integer
-            newSourcePort: integer
-            oldDestinationPort: integer
-            newDestinationPort: integer
-            routerUri: string
-            natGatewayName: string
-          proxyConnection:
-            protocol: string
-            oldSourceIp: string
-            newSourceIp: string
-            oldDestinationIp: string
-            newDestinationIp: string
-            oldSourcePort: integer
-            newSourcePort: integer
-            oldDestinationPort: integer
-            newDestinationPort: integer
-            subnetUri: string
-            networkUri: string
-          loadBalancerBackendInfo:
-            name: string
-            instanceUri: string
-            backendServiceUri: string
-            instanceGroupUri: string
-            networkEndpointGroupUri: string
-            backendBucketUri: string
-            pscServiceAttachmentUri: string
-            pscGoogleApiTarget: string
-            healthCheckUri: string
-            healthCheckFirewallsConfigState: string
-          storageBucket:
-            bucket: string
-          serverlessNeg:
-            negUri: string
-      forwardTraceId: integer
-probingDetails:
-  result: string
-  verifyTime: string
-  abortCause: string
-  sentProbeCount: integer
-  successfulProbeCount: integer
-  probingLatency:
-    latencyPercentiles:
-      - percent: integer
-        latencyMicros: string
-  destinationEgressLocation:
-    metropolitanArea: string
-bypassFirewallChecks: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: source
+      value:
+        - name: ipAddress
+          value: string
+        - name: port
+          value: integer
+        - name: instance
+          value: string
+        - name: forwardingRule
+          value: string
+        - name: forwardingRuleTarget
+          value: string
+        - name: loadBalancerId
+          value: string
+        - name: loadBalancerType
+          value: string
+        - name: gkeMasterCluster
+          value: string
+        - name: cloudSqlInstance
+          value: string
+        - name: cloudFunction
+          value:
+            - name: uri
+              value: string
+        - name: appEngineVersion
+          value:
+            - name: uri
+              value: string
+        - name: cloudRunRevision
+          value:
+            - name: uri
+              value: string
+        - name: network
+          value: string
+        - name: networkType
+          value: string
+        - name: projectId
+          value: string
+    - name: protocol
+      value: string
+    - name: relatedProjects
+      value:
+        - string
+    - name: displayName
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: reachabilityDetails
+      value:
+        - name: result
+          value: string
+        - name: verifyTime
+          value: string
+        - name: error
+          value:
+            - name: code
+              value: integer
+            - name: message
+              value: string
+            - name: details
+              value:
+                - object
+        - name: traces
+          value:
+            - - name: endpointInfo
+                value:
+                  - name: sourceIp
+                    value: string
+                  - name: destinationIp
+                    value: string
+                  - name: protocol
+                    value: string
+                  - name: sourcePort
+                    value: integer
+                  - name: destinationPort
+                    value: integer
+                  - name: sourceNetworkUri
+                    value: string
+                  - name: destinationNetworkUri
+                    value: string
+                  - name: sourceAgentUri
+                    value: string
+              - name: steps
+                value:
+                  - - name: description
+                      value: string
+                    - name: state
+                      value: string
+                    - name: causesDrop
+                      value: boolean
+                    - name: projectId
+                      value: string
+                    - name: instance
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: interface
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: internalIp
+                          value: string
+                        - name: externalIp
+                          value: string
+                        - name: networkTags
+                          value:
+                            - string
+                        - name: serviceAccount
+                          value: string
+                        - name: pscNetworkAttachmentUri
+                          value: string
+                    - name: firewall
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: direction
+                          value: string
+                        - name: action
+                          value: string
+                        - name: priority
+                          value: integer
+                        - name: networkUri
+                          value: string
+                        - name: targetTags
+                          value:
+                            - string
+                        - name: targetServiceAccounts
+                          value:
+                            - string
+                        - name: policy
+                          value: string
+                        - name: policyUri
+                          value: string
+                        - name: firewallRuleType
+                          value: string
+                    - name: route
+                      value:
+                        - name: routeType
+                          value: string
+                        - name: nextHopType
+                          value: string
+                        - name: routeScope
+                          value: string
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: destIpRange
+                          value: string
+                        - name: nextHop
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: priority
+                          value: integer
+                        - name: instanceTags
+                          value:
+                            - string
+                        - name: srcIpRange
+                          value: string
+                        - name: destPortRanges
+                          value:
+                            - string
+                        - name: srcPortRanges
+                          value:
+                            - string
+                        - name: protocols
+                          value:
+                            - string
+                        - name: nccHubUri
+                          value: string
+                        - name: nccSpokeUri
+                          value: string
+                    - name: googleService
+                      value:
+                        - name: sourceIp
+                          value: string
+                        - name: googleServiceType
+                          value: string
+                    - name: forwardingRule
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: matchedProtocol
+                          value: string
+                        - name: matchedPortRange
+                          value: string
+                        - name: vip
+                          value: string
+                        - name: target
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: region
+                          value: string
+                        - name: loadBalancerName
+                          value: string
+                        - name: pscServiceAttachmentUri
+                          value: string
+                        - name: pscGoogleApiTarget
+                          value: string
+                    - name: vpnGateway
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: ipAddress
+                          value: string
+                        - name: vpnTunnelUri
+                          value: string
+                        - name: region
+                          value: string
+                    - name: vpnTunnel
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: sourceGateway
+                          value: string
+                        - name: remoteGateway
+                          value: string
+                        - name: remoteGatewayIp
+                          value: string
+                        - name: sourceGatewayIp
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: region
+                          value: string
+                        - name: routingType
+                          value: string
+                    - name: vpcConnector
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: location
+                          value: string
+                    - name: deliver
+                      value:
+                        - name: target
+                          value: string
+                        - name: resourceUri
+                          value: string
+                        - name: ipAddress
+                          value: string
+                        - name: storageBucket
+                          value: string
+                        - name: pscGoogleApiTarget
+                          value: string
+                    - name: forward
+                      value:
+                        - name: target
+                          value: string
+                        - name: resourceUri
+                          value: string
+                        - name: ipAddress
+                          value: string
+                    - name: abort
+                      value:
+                        - name: cause
+                          value: string
+                        - name: resourceUri
+                          value: string
+                        - name: ipAddress
+                          value: string
+                        - name: projectsMissingPermission
+                          value:
+                            - string
+                    - name: drop
+                      value:
+                        - name: cause
+                          value: string
+                        - name: resourceUri
+                          value: string
+                        - name: sourceIp
+                          value: string
+                        - name: destinationIp
+                          value: string
+                        - name: region
+                          value: string
+                    - name: loadBalancer
+                      value:
+                        - name: loadBalancerType
+                          value: string
+                        - name: healthCheckUri
+                          value: string
+                        - name: backends
+                          value:
+                            - - name: displayName
+                                value: string
+                              - name: uri
+                                value: string
+                              - name: healthCheckFirewallState
+                                value: string
+                              - name: healthCheckAllowingFirewallRules
+                                value:
+                                  - string
+                              - name: healthCheckBlockingFirewallRules
+                                value:
+                                  - string
+                        - name: backendType
+                          value: string
+                        - name: backendUri
+                          value: string
+                    - name: network
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: matchedIpRange
+                          value: string
+                    - name: gkeMaster
+                      value:
+                        - name: clusterUri
+                          value: string
+                        - name: clusterNetworkUri
+                          value: string
+                        - name: internalIp
+                          value: string
+                        - name: externalIp
+                          value: string
+                    - name: cloudSqlInstance
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: internalIp
+                          value: string
+                        - name: externalIp
+                          value: string
+                        - name: region
+                          value: string
+                    - name: redisInstance
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: primaryEndpointIp
+                          value: string
+                        - name: readEndpointIp
+                          value: string
+                        - name: region
+                          value: string
+                    - name: redisCluster
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: discoveryEndpointIpAddress
+                          value: string
+                        - name: secondaryEndpointIpAddress
+                          value: string
+                        - name: location
+                          value: string
+                    - name: cloudFunction
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: location
+                          value: string
+                        - name: versionId
+                          value: string
+                    - name: appEngineVersion
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: runtime
+                          value: string
+                        - name: environment
+                          value: string
+                    - name: cloudRunRevision
+                      value:
+                        - name: displayName
+                          value: string
+                        - name: uri
+                          value: string
+                        - name: location
+                          value: string
+                        - name: serviceUri
+                          value: string
+                    - name: nat
+                      value:
+                        - name: type
+                          value: string
+                        - name: protocol
+                          value: string
+                        - name: networkUri
+                          value: string
+                        - name: oldSourceIp
+                          value: string
+                        - name: newSourceIp
+                          value: string
+                        - name: oldDestinationIp
+                          value: string
+                        - name: newDestinationIp
+                          value: string
+                        - name: oldSourcePort
+                          value: integer
+                        - name: newSourcePort
+                          value: integer
+                        - name: oldDestinationPort
+                          value: integer
+                        - name: newDestinationPort
+                          value: integer
+                        - name: routerUri
+                          value: string
+                        - name: natGatewayName
+                          value: string
+                    - name: proxyConnection
+                      value:
+                        - name: protocol
+                          value: string
+                        - name: oldSourceIp
+                          value: string
+                        - name: newSourceIp
+                          value: string
+                        - name: oldDestinationIp
+                          value: string
+                        - name: newDestinationIp
+                          value: string
+                        - name: oldSourcePort
+                          value: integer
+                        - name: newSourcePort
+                          value: integer
+                        - name: oldDestinationPort
+                          value: integer
+                        - name: newDestinationPort
+                          value: integer
+                        - name: subnetUri
+                          value: string
+                        - name: networkUri
+                          value: string
+                    - name: loadBalancerBackendInfo
+                      value:
+                        - name: name
+                          value: string
+                        - name: instanceUri
+                          value: string
+                        - name: backendServiceUri
+                          value: string
+                        - name: instanceGroupUri
+                          value: string
+                        - name: networkEndpointGroupUri
+                          value: string
+                        - name: backendBucketUri
+                          value: string
+                        - name: pscServiceAttachmentUri
+                          value: string
+                        - name: pscGoogleApiTarget
+                          value: string
+                        - name: healthCheckUri
+                          value: string
+                        - name: healthCheckFirewallsConfigState
+                          value: string
+                    - name: storageBucket
+                      value:
+                        - name: bucket
+                          value: string
+                    - name: serverlessNeg
+                      value:
+                        - name: negUri
+                          value: string
+              - name: forwardTraceId
+                value: integer
+    - name: probingDetails
+      value:
+        - name: result
+          value: string
+        - name: verifyTime
+          value: string
+        - name: abortCause
+          value: string
+        - name: sentProbeCount
+          value: integer
+        - name: successfulProbeCount
+          value: integer
+        - name: probingLatency
+          value:
+            - name: latencyPercentiles
+              value:
+                - - name: percent
+                    value: integer
+                  - name: latencyMicros
+                    value: string
+        - name: destinationEgressLocation
+          value:
+            - name: metropolitanArea
+              value: string
+    - name: bypassFirewallChecks
+      value: boolean
 
 ```
 </TabItem>

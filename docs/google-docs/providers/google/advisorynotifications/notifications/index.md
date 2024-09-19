@@ -56,5 +56,5 @@ notificationType,
 subject
 FROM google.advisorynotifications.notifications
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

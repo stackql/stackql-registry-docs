@@ -65,7 +65,7 @@ loadBalancingAlgorithm,
 updateTime
 FROM google.networkservices.service_lb_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,16 +108,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-loadBalancingAlgorithm: string
-autoCapacityDrain:
-  enable: boolean
-failoverConfig:
-  failoverHealthThreshold: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: loadBalancingAlgorithm
+      value: string
+    - name: autoCapacityDrain
+      value:
+        - name: enable
+          value: boolean
+    - name: failoverConfig
+      value:
+        - name: failoverHealthThreshold
+          value: integer
 
 ```
 </TabItem>

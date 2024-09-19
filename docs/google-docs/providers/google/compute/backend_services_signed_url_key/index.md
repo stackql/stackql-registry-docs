@@ -70,8 +70,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-keyName: string
-keyValue: string
+- name: your_resource_model_name
+  props:
+    - name: keyName
+      value: string
+    - name: keyValue
+      value: string
 
 ```
 </TabItem>

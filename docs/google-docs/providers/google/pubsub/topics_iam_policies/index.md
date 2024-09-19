@@ -53,7 +53,7 @@ members,
 role
 FROM google.pubsub.topics_iam_policies
 WHERE projectsId = '{{ projectsId }}'
-AND topicsId = '{{ topicsId }}'; 
+AND topicsId = '{{ topicsId }}';
 ```
 
 ## `REPLACE` example

@@ -69,7 +69,7 @@ FROM google.privateca.certificate_revocation_lists
 WHERE caPoolsId = '{{ caPoolsId }}'
 AND certificateAuthoritiesId = '{{ certificateAuthoritiesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

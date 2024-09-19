@@ -54,7 +54,7 @@ role
 FROM google.datamigration.conversion_workspaces_iam_policies
 WHERE conversionWorkspacesId = '{{ conversionWorkspacesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

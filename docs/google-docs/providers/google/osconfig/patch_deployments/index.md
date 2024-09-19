@@ -74,7 +74,7 @@ rollout,
 state,
 updateTime
 FROM google.osconfig.patch_deployments
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -119,100 +119,175 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-instanceFilter:
-  all: boolean
-  groupLabels:
-    - labels: object
-  zones:
-    - type: string
-  instances:
-    - type: string
-  instanceNamePrefixes:
-    - type: string
-patchConfig:
-  rebootConfig: string
-  apt:
-    type: string
-    excludes:
-      - type: string
-    exclusivePackages:
-      - type: string
-  yum:
-    security: boolean
-    minimal: boolean
-    excludes:
-      - type: string
-    exclusivePackages:
-      - type: string
-  goo: {}
-  zypper:
-    withOptional: boolean
-    withUpdate: boolean
-    categories:
-      - type: string
-    severities:
-      - type: string
-    excludes:
-      - type: string
-    exclusivePatches:
-      - type: string
-  windowsUpdate:
-    classifications:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    excludes:
-      - type: string
-    exclusivePatches:
-      - type: string
-  preStep:
-    linuxExecStepConfig:
-      localPath: string
-      gcsObject:
-        bucket: string
-        object: string
-        generationNumber: string
-      allowedSuccessCodes:
-        - type: string
-          format: string
-      interpreter: string
-  migInstancesAllowed: boolean
-duration: string
-oneTimeSchedule:
-  executeTime: string
-recurringSchedule:
-  timeZone:
-    id: string
-    version: string
-  startTime: string
-  endTime: string
-  timeOfDay:
-    hours: integer
-    minutes: integer
-    seconds: integer
-    nanos: integer
-  frequency: string
-  weekly:
-    dayOfWeek: string
-  monthly:
-    weekDayOfMonth:
-      weekOrdinal: integer
-      dayOfWeek: string
-      dayOffset: integer
-    monthDay: integer
-  lastExecuteTime: string
-  nextExecuteTime: string
-createTime: string
-updateTime: string
-lastExecuteTime: string
-rollout:
-  mode: string
-  disruptionBudget:
-    fixed: integer
-    percent: integer
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: instanceFilter
+      value:
+        - name: all
+          value: boolean
+        - name: groupLabels
+          value:
+            - - name: labels
+                value: object
+        - name: zones
+          value:
+            - string
+        - name: instances
+          value:
+            - string
+        - name: instanceNamePrefixes
+          value:
+            - string
+    - name: patchConfig
+      value:
+        - name: rebootConfig
+          value: string
+        - name: apt
+          value:
+            - name: type
+              value: string
+            - name: excludes
+              value:
+                - string
+            - name: exclusivePackages
+              value:
+                - string
+        - name: yum
+          value:
+            - name: security
+              value: boolean
+            - name: minimal
+              value: boolean
+            - name: excludes
+              value:
+                - string
+            - name: exclusivePackages
+              value:
+                - string
+        - name: goo
+          value: []
+        - name: zypper
+          value:
+            - name: withOptional
+              value: boolean
+            - name: withUpdate
+              value: boolean
+            - name: categories
+              value:
+                - string
+            - name: severities
+              value:
+                - string
+            - name: excludes
+              value:
+                - string
+            - name: exclusivePatches
+              value:
+                - string
+        - name: windowsUpdate
+          value:
+            - name: classifications
+              value:
+                - string
+            - name: excludes
+              value:
+                - string
+            - name: exclusivePatches
+              value:
+                - string
+        - name: preStep
+          value:
+            - name: linuxExecStepConfig
+              value:
+                - name: localPath
+                  value: string
+                - name: gcsObject
+                  value:
+                    - name: bucket
+                      value: string
+                    - name: object
+                      value: string
+                    - name: generationNumber
+                      value: string
+                - name: allowedSuccessCodes
+                  value:
+                    - integer
+                - name: interpreter
+                  value: string
+        - name: migInstancesAllowed
+          value: boolean
+    - name: duration
+      value: string
+    - name: oneTimeSchedule
+      value:
+        - name: executeTime
+          value: string
+    - name: recurringSchedule
+      value:
+        - name: timeZone
+          value:
+            - name: id
+              value: string
+            - name: version
+              value: string
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: timeOfDay
+          value:
+            - name: hours
+              value: integer
+            - name: minutes
+              value: integer
+            - name: seconds
+              value: integer
+            - name: nanos
+              value: integer
+        - name: frequency
+          value: string
+        - name: weekly
+          value:
+            - name: dayOfWeek
+              value: string
+        - name: monthly
+          value:
+            - name: weekDayOfMonth
+              value:
+                - name: weekOrdinal
+                  value: integer
+                - name: dayOfWeek
+                  value: string
+                - name: dayOffset
+                  value: integer
+            - name: monthDay
+              value: integer
+        - name: lastExecuteTime
+          value: string
+        - name: nextExecuteTime
+          value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: lastExecuteTime
+      value: string
+    - name: rollout
+      value:
+        - name: mode
+          value: string
+        - name: disruptionBudget
+          value:
+            - name: fixed
+              value: integer
+            - name: percent
+              value: integer
+    - name: state
+      value: string
 
 ```
 </TabItem>

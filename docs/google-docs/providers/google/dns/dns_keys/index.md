@@ -68,5 +68,5 @@ publicKey,
 type
 FROM google.dns.dns_keys
 WHERE managedZone = '{{ managedZone }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

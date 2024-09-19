@@ -55,7 +55,7 @@ FROM google.cloudkms.crypto_keys_iam_policies
 WHERE cryptoKeysId = '{{ cryptoKeysId }}'
 AND keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

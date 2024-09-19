@@ -64,5 +64,5 @@ maximumCardsPerInstance,
 selfLink,
 zone
 FROM google.compute.accelerator_types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

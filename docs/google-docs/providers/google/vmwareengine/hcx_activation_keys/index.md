@@ -58,7 +58,7 @@ uid
 FROM google.vmwareengine.hcx_activation_keys
 WHERE locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -91,11 +91,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-state: string
-activationKey: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: state
+      value: string
+    - name: activationKey
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

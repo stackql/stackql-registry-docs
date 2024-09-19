@@ -75,7 +75,7 @@ size,
 subnetwork,
 zone
 FROM google.compute.instance_groups
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -124,21 +124,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-namedPorts:
-  - name: string
-    port: integer
-network: string
-fingerprint: string
-zone: string
-selfLink: string
-size: integer
-region: string
-subnetwork: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: namedPorts
+      value:
+        - - name: name
+            value: string
+          - name: port
+            value: integer
+    - name: network
+      value: string
+    - name: fingerprint
+      value: string
+    - name: zone
+      value: string
+    - name: selfLink
+      value: string
+    - name: size
+      value: integer
+    - name: region
+      value: string
+    - name: subnetwork
+      value: string
 
 ```
 </TabItem>

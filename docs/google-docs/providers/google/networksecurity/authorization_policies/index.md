@@ -63,7 +63,7 @@ rules,
 updateTime
 FROM google.networksecurity.authorization_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -104,29 +104,47 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-action: string
-rules:
-  - sources:
-      - principals:
-          - type: string
-        ipBlocks:
-          - type: string
-    destinations:
-      - hosts:
-          - type: string
-        ports:
-          - type: string
-            format: string
-        methods:
-          - type: string
-        httpHeaderMatch:
-          regexMatch: string
-          headerName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: action
+      value: string
+    - name: rules
+      value:
+        - - name: sources
+            value:
+              - - name: principals
+                  value:
+                    - string
+                - name: ipBlocks
+                  value:
+                    - string
+          - name: destinations
+            value:
+              - - name: hosts
+                  value:
+                    - string
+                - name: ports
+                  value:
+                    - integer
+                - name: methods
+                  value:
+                    - string
+                - name: httpHeaderMatch
+                  value:
+                    - name: regexMatch
+                      value: string
+                    - name: headerName
+                      value: string
 
 ```
 </TabItem>

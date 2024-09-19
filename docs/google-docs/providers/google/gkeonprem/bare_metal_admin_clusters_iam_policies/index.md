@@ -54,7 +54,7 @@ role
 FROM google.gkeonprem.bare_metal_admin_clusters_iam_policies
 WHERE bareMetalAdminClustersId = '{{ bareMetalAdminClustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

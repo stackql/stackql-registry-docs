@@ -50,5 +50,5 @@ firewalls
 FROM google.compute.region_network_firewall_policies_effective_firewalls
 WHERE network = '{{ network }}'
 AND project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```

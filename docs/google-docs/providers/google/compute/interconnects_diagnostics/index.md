@@ -47,5 +47,5 @@ SELECT
 result
 FROM google.compute.interconnects_diagnostics
 WHERE interconnect = '{{ interconnect }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

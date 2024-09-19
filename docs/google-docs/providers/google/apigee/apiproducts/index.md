@@ -87,7 +87,7 @@ quotaInterval,
 quotaTimeUnit,
 scopes
 FROM google.apigee.apiproducts
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -152,62 +152,113 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-quota: string
-lastModifiedAt: string
-environments:
-  - type: string
-scopes:
-  - type: string
-attributes:
-  - name: string
-    value: string
-quotaTimeUnit: string
-quotaInterval: string
-description: string
-grpcOperationGroup:
-  operationConfigs:
-    - apiSource: string
-      methods:
-        - type: string
-      service: string
-      quota:
-        timeUnit: string
-        interval: string
-        limit: string
-      attributes:
-        - name: string
+- name: your_resource_model_name
+  props:
+    - name: quota
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: environments
+      value:
+        - string
+    - name: scopes
+      value:
+        - string
+    - name: attributes
+      value:
+        - - name: name
+            value: string
+          - name: value
+            value: string
+    - name: quotaTimeUnit
+      value: string
+    - name: quotaInterval
+      value: string
+    - name: description
+      value: string
+    - name: grpcOperationGroup
+      value:
+        - name: operationConfigs
+          value:
+            - - name: apiSource
+                value: string
+              - name: methods
+                value:
+                  - string
+              - name: service
+                value: string
+              - name: quota
+                value:
+                  - name: timeUnit
+                    value: string
+                  - name: interval
+                    value: string
+                  - name: limit
+                    value: string
+              - name: attributes
+                value:
+                  - - name: name
+                      value: string
+                    - name: value
+                      value: string
+    - name: operationGroup
+      value:
+        - name: operationConfigs
+          value:
+            - - name: apiSource
+                value: string
+              - name: operations
+                value:
+                  - - name: resource
+                      value: string
+                    - name: methods
+                      value:
+                        - string
+              - name: attributes
+                value:
+                  - - name: name
+                      value: string
+                    - name: value
+                      value: string
+        - name: operationConfigType
           value: string
-operationGroup:
-  operationConfigs:
-    - apiSource: string
-      operations:
-        - resource: string
-          methods:
-            - type: string
-      attributes:
-        - name: string
+    - name: createdAt
+      value: string
+    - name: graphqlOperationGroup
+      value:
+        - name: operationConfigType
           value: string
-  operationConfigType: string
-createdAt: string
-graphqlOperationGroup:
-  operationConfigType: string
-  operationConfigs:
-    - attributes:
-        - name: string
-          value: string
-      apiSource: string
-      operations:
-        - operation: string
-          operationTypes:
-            - type: string
-name: string
-approvalType: string
-apiResources:
-  - type: string
-proxies:
-  - type: string
-quotaCounterScope: string
-displayName: string
+        - name: operationConfigs
+          value:
+            - - name: attributes
+                value:
+                  - - name: name
+                      value: string
+                    - name: value
+                      value: string
+              - name: apiSource
+                value: string
+              - name: operations
+                value:
+                  - - name: operation
+                      value: string
+                    - name: operationTypes
+                      value:
+                        - string
+    - name: name
+      value: string
+    - name: approvalType
+      value: string
+    - name: apiResources
+      value:
+        - string
+    - name: proxies
+      value:
+        - string
+    - name: quotaCounterScope
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

@@ -54,7 +54,7 @@ role
 FROM google.dataplex.entry_groups_iam_policies
 WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

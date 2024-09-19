@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.cloudresourcemanager.organizations_iam_policies
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `REPLACE` example

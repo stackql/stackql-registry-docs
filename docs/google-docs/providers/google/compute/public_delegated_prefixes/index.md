@@ -83,7 +83,7 @@ region,
 selfLink,
 status
 FROM google.compute.public_delegated_prefixes
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -127,7 +127,7 @@ SELECT
 '{{ status }}',
 '{{ parentPrefix }}',
 '{{ publicDelegatedSubPrefixs }}',
-true|false,
+{{ isLiveMigration }},
 '{{ fingerprint }}',
 '{{ mode }}',
 '{{ allocatablePrefixLength }}',
@@ -138,31 +138,58 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-region: string
-ipCidrRange: string
-status: string
-parentPrefix: string
-publicDelegatedSubPrefixs:
-  - name: string
-    description: string
-    region: string
-    status: string
-    ipCidrRange: string
-    delegateeProject: string
-    isAddress: boolean
-    mode: string
-    allocatablePrefixLength: integer
-isLiveMigration: boolean
-fingerprint: string
-mode: string
-allocatablePrefixLength: integer
-byoipApiVersion: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: region
+      value: string
+    - name: ipCidrRange
+      value: string
+    - name: status
+      value: string
+    - name: parentPrefix
+      value: string
+    - name: publicDelegatedSubPrefixs
+      value:
+        - - name: name
+            value: string
+          - name: description
+            value: string
+          - name: region
+            value: string
+          - name: status
+            value: string
+          - name: ipCidrRange
+            value: string
+          - name: delegateeProject
+            value: string
+          - name: isAddress
+            value: boolean
+          - name: mode
+            value: string
+          - name: allocatablePrefixLength
+            value: integer
+    - name: isLiveMigration
+      value: boolean
+    - name: fingerprint
+      value: string
+    - name: mode
+      value: string
+    - name: allocatablePrefixLength
+      value: integer
+    - name: byoipApiVersion
+      value: string
 
 ```
 </TabItem>

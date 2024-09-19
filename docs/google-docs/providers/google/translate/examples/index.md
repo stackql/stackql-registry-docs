@@ -54,5 +54,5 @@ usage
 FROM google.translate.examples
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

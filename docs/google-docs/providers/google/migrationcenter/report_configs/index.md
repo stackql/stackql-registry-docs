@@ -60,7 +60,7 @@ groupPreferencesetAssignments,
 updateTime
 FROM google.migrationcenter.report_configs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -97,14 +97,24 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-displayName: string
-description: string
-groupPreferencesetAssignments:
-  - group: string
-    preferenceSet: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: groupPreferencesetAssignments
+      value:
+        - - name: group
+            value: string
+          - name: preferenceSet
+            value: string
 
 ```
 </TabItem>

@@ -68,5 +68,5 @@ purpose,
 rotationPeriod,
 versionTemplate
 FROM google.kmsinventory.crypto_keys
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

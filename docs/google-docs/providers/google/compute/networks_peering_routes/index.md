@@ -55,5 +55,5 @@ priority,
 type
 FROM google.compute.networks_peering_routes
 WHERE network = '{{ network }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

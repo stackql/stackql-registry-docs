@@ -53,7 +53,7 @@ members,
 role
 FROM google.iam.workforce_pools_iam_policies
 WHERE locationsId = '{{ locationsId }}'
-AND workforcePoolsId = '{{ workforcePoolsId }}'; 
+AND workforcePoolsId = '{{ workforcePoolsId }}';
 ```
 
 ## `REPLACE` example

@@ -102,7 +102,7 @@ uid,
 updateTime
 FROM google.run.jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -153,139 +153,269 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-generation: string
-labels: object
-annotations: object
-createTime: string
-updateTime: string
-deleteTime: string
-expireTime: string
-creator: string
-lastModifier: string
-client: string
-clientVersion: string
-launchStage: string
-binaryAuthorization:
-  useDefault: boolean
-  policy: string
-  breakglassJustification: string
-template:
-  labels: object
-  annotations: object
-  parallelism: integer
-  taskCount: integer
-  template:
-    containers:
-      - name: string
-        image: string
-        command:
-          - type: string
-        args:
-          - type: string
-        env:
-          - name: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: generation
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: expireTime
+      value: string
+    - name: creator
+      value: string
+    - name: lastModifier
+      value: string
+    - name: client
+      value: string
+    - name: clientVersion
+      value: string
+    - name: launchStage
+      value: string
+    - name: binaryAuthorization
+      value:
+        - name: useDefault
+          value: boolean
+        - name: policy
+          value: string
+        - name: breakglassJustification
+          value: string
+    - name: template
+      value:
+        - name: labels
+          value: object
+        - name: annotations
+          value: object
+        - name: parallelism
+          value: integer
+        - name: taskCount
+          value: integer
+        - name: template
+          value:
+            - name: containers
+              value:
+                - - name: name
+                    value: string
+                  - name: image
+                    value: string
+                  - name: command
+                    value:
+                      - string
+                  - name: args
+                    value:
+                      - string
+                  - name: env
+                    value:
+                      - - name: name
+                          value: string
+                        - name: value
+                          value: string
+                        - name: valueSource
+                          value:
+                            - name: secretKeyRef
+                              value:
+                                - name: secret
+                                  value: string
+                                - name: version
+                                  value: string
+                  - name: resources
+                    value:
+                      - name: limits
+                        value: object
+                      - name: cpuIdle
+                        value: boolean
+                      - name: startupCpuBoost
+                        value: boolean
+                  - name: ports
+                    value:
+                      - - name: name
+                          value: string
+                        - name: containerPort
+                          value: integer
+                  - name: volumeMounts
+                    value:
+                      - - name: name
+                          value: string
+                        - name: mountPath
+                          value: string
+                  - name: workingDir
+                    value: string
+                  - name: livenessProbe
+                    value:
+                      - name: initialDelaySeconds
+                        value: integer
+                      - name: timeoutSeconds
+                        value: integer
+                      - name: periodSeconds
+                        value: integer
+                      - name: failureThreshold
+                        value: integer
+                      - name: httpGet
+                        value:
+                          - name: path
+                            value: string
+                          - name: httpHeaders
+                            value:
+                              - - name: name
+                                  value: string
+                                - name: value
+                                  value: string
+                          - name: port
+                            value: integer
+                      - name: tcpSocket
+                        value:
+                          - name: port
+                            value: integer
+                      - name: grpc
+                        value:
+                          - name: port
+                            value: integer
+                          - name: service
+                            value: string
+                  - name: dependsOn
+                    value:
+                      - string
+            - name: volumes
+              value:
+                - - name: name
+                    value: string
+                  - name: secret
+                    value:
+                      - name: secret
+                        value: string
+                      - name: items
+                        value:
+                          - - name: path
+                              value: string
+                            - name: version
+                              value: string
+                            - name: mode
+                              value: integer
+                      - name: defaultMode
+                        value: integer
+                  - name: cloudSqlInstance
+                    value:
+                      - name: instances
+                        value:
+                          - string
+                  - name: emptyDir
+                    value:
+                      - name: medium
+                        value: string
+                      - name: sizeLimit
+                        value: string
+                  - name: nfs
+                    value:
+                      - name: server
+                        value: string
+                      - name: path
+                        value: string
+                      - name: readOnly
+                        value: boolean
+                  - name: gcs
+                    value:
+                      - name: bucket
+                        value: string
+                      - name: readOnly
+                        value: boolean
+            - name: maxRetries
+              value: integer
+            - name: timeout
+              value: string
+            - name: serviceAccount
+              value: string
+            - name: executionEnvironment
+              value: string
+            - name: encryptionKey
+              value: string
+            - name: vpcAccess
+              value:
+                - name: connector
+                  value: string
+                - name: egress
+                  value: string
+                - name: networkInterfaces
+                  value:
+                    - - name: network
+                        value: string
+                      - name: subnetwork
+                        value: string
+                      - name: tags
+                        value:
+                          - string
+    - name: observedGeneration
+      value: string
+    - name: terminalCondition
+      value:
+        - name: type
+          value: string
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: lastTransitionTime
+          value: string
+        - name: severity
+          value: string
+        - name: reason
+          value: string
+        - name: revisionReason
+          value: string
+        - name: executionReason
+          value: string
+    - name: conditions
+      value:
+        - - name: type
             value: string
-            valueSource:
-              secretKeyRef:
-                secret: string
-                version: string
-        resources:
-          limits: object
-          cpuIdle: boolean
-          startupCpuBoost: boolean
-        ports:
-          - name: string
-            containerPort: integer
-        volumeMounts:
-          - name: string
-            mountPath: string
-        workingDir: string
-        livenessProbe:
-          initialDelaySeconds: integer
-          timeoutSeconds: integer
-          periodSeconds: integer
-          failureThreshold: integer
-          httpGet:
-            path: string
-            httpHeaders:
-              - name: string
-                value: string
-            port: integer
-          tcpSocket:
-            port: integer
-          grpc:
-            port: integer
-            service: string
-        dependsOn:
-          - type: string
-    volumes:
-      - name: string
-        secret:
-          secret: string
-          items:
-            - path: string
-              version: string
-              mode: integer
-          defaultMode: integer
-        cloudSqlInstance:
-          instances:
-            - type: string
-        emptyDir:
-          medium: string
-          sizeLimit: string
-        nfs:
-          server: string
-          path: string
-          readOnly: boolean
-        gcs:
-          bucket: string
-          readOnly: boolean
-    maxRetries: integer
-    timeout: string
-    serviceAccount: string
-    executionEnvironment: string
-    encryptionKey: string
-    vpcAccess:
-      connector: string
-      egress: string
-      networkInterfaces:
-        - network: string
-          subnetwork: string
-          tags:
-            - type: string
-observedGeneration: string
-terminalCondition:
-  type: string
-  state: string
-  message: string
-  lastTransitionTime: string
-  severity: string
-  reason: string
-  revisionReason: string
-  executionReason: string
-conditions:
-  - type: string
-    state: string
-    message: string
-    lastTransitionTime: string
-    severity: string
-    reason: string
-    revisionReason: string
-    executionReason: string
-executionCount: integer
-latestCreatedExecution:
-  name: string
-  createTime: string
-  completionTime: string
-  deleteTime: string
-  completionStatus: string
-reconciling: boolean
-satisfiesPzs: boolean
-startExecutionToken: string
-runExecutionToken: string
-etag: string
+          - name: state
+            value: string
+          - name: message
+            value: string
+          - name: lastTransitionTime
+            value: string
+          - name: severity
+            value: string
+          - name: reason
+            value: string
+          - name: revisionReason
+            value: string
+          - name: executionReason
+            value: string
+    - name: executionCount
+      value: integer
+    - name: latestCreatedExecution
+      value:
+        - name: name
+          value: string
+        - name: createTime
+          value: string
+        - name: completionTime
+          value: string
+        - name: deleteTime
+          value: string
+        - name: completionStatus
+          value: string
+    - name: reconciling
+      value: boolean
+    - name: satisfiesPzs
+      value: boolean
+    - name: startExecutionToken
+      value: string
+    - name: runExecutionToken
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

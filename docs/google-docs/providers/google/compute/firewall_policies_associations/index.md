@@ -48,5 +48,5 @@ SELECT
 associations,
 kind
 FROM google.compute.firewall_policies_associations
-WHERE  = '{{  }}'; 
+;
 ```

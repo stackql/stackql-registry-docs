@@ -50,5 +50,5 @@ name,
 kmsKey
 FROM google.contactcenterinsights.encryption_spec
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -59,5 +59,5 @@ response
 FROM google.recommendationengine.operations
 WHERE catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

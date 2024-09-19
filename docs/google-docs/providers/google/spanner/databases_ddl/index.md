@@ -51,7 +51,7 @@ statements
 FROM google.spanner.databases_ddl
 WHERE databasesId = '{{ databasesId }}'
 AND instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

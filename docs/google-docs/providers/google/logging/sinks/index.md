@@ -100,7 +100,7 @@ resourceName,
 updateTime,
 writerIdentity
 FROM google.logging.sinks
-WHERE sinkName = '{{ sinkName }}'; 
+WHERE sinkName = '{{ sinkName }}';
 ```
 
 ## `INSERT` example
@@ -135,11 +135,11 @@ SELECT
 '{{ destination }}',
 '{{ filter }}',
 '{{ description }}',
-true|false,
+{{ disabled }},
 '{{ exclusions }}',
 '{{ outputVersionFormat }}',
-true|false,
-true|false,
+{{ includeChildren }},
+{{ interceptChildren }},
 '{{ bigqueryOptions }}'
 ;
 ```
@@ -147,28 +147,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-resourceName: string
-destination: string
-filter: string
-description: string
-disabled: boolean
-exclusions:
-  - name: string
-    description: string
-    filter: string
-    disabled: boolean
-    createTime: string
-    updateTime: string
-outputVersionFormat: string
-writerIdentity: string
-includeChildren: boolean
-interceptChildren: boolean
-bigqueryOptions:
-  usePartitionedTables: boolean
-  usesTimestampColumnPartitioning: boolean
-createTime: string
-updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: resourceName
+      value: string
+    - name: destination
+      value: string
+    - name: filter
+      value: string
+    - name: description
+      value: string
+    - name: disabled
+      value: boolean
+    - name: exclusions
+      value:
+        - - name: name
+            value: string
+          - name: description
+            value: string
+          - name: filter
+            value: string
+          - name: disabled
+            value: boolean
+          - name: createTime
+            value: string
+          - name: updateTime
+            value: string
+    - name: outputVersionFormat
+      value: string
+    - name: writerIdentity
+      value: string
+    - name: includeChildren
+      value: boolean
+    - name: interceptChildren
+      value: boolean
+    - name: bigqueryOptions
+      value:
+        - name: usePartitionedTables
+          value: boolean
+        - name: usesTimestampColumnPartitioning
+          value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
 
 ```
 </TabItem>

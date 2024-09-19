@@ -65,5 +65,5 @@ workloadOnboardingState
 FROM google.cloudcontrolspartner.workloads
 WHERE customersId = '{{ customersId }}'
 AND locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

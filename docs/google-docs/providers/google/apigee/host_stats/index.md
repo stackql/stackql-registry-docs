@@ -51,5 +51,5 @@ hosts,
 metaData
 FROM google.apigee.host_stats
 WHERE hostStatsId = '{{ hostStatsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

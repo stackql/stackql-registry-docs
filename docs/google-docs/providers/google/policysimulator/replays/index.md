@@ -59,7 +59,7 @@ state
 FROM google.policysimulator.replays
 WHERE foldersId = '{{ foldersId }}'
 AND locationsId = '{{ locationsId }}'
-AND replaysId = '{{ replaysId }}'; 
+AND replaysId = '{{ replaysId }}';
 ```
 
 ## `INSERT` example
@@ -92,20 +92,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-state: string
-config:
-  policyOverlay: object
-  logSource: string
-resultsSummary:
-  errorCount: integer
-  unchangedCount: integer
-  logCount: integer
-  oldestDate:
-    month: integer
-    year: integer
-    day: integer
-  differenceCount: integer
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: state
+      value: string
+    - name: config
+      value:
+        - name: policyOverlay
+          value: object
+        - name: logSource
+          value: string
+    - name: resultsSummary
+      value:
+        - name: errorCount
+          value: integer
+        - name: unchangedCount
+          value: integer
+        - name: logCount
+          value: integer
+        - name: oldestDate
+          value:
+            - name: month
+              value: integer
+            - name: year
+              value: integer
+            - name: day
+              value: integer
+        - name: differenceCount
+          value: integer
 
 ```
 </TabItem>

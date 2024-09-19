@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.cloudbilling.billing_accounts_iam_policies
-WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+WHERE billingAccountsId = '{{ billingAccountsId }}';
 ```
 
 ## `REPLACE` example

@@ -69,7 +69,7 @@ workspace
 FROM google.dataform.compilation_results
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND repositoriesId = '{{ repositoriesId }}'; 
+AND repositoriesId = '{{ repositoriesId }}';
 ```
 
 ## `INSERT` example
@@ -110,34 +110,64 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-gitCommitish: string
-workspace: string
-releaseConfig: string
-name: string
-codeCompilationConfig:
-  defaultDatabase: string
-  defaultSchema: string
-  defaultLocation: string
-  assertionSchema: string
-  vars: object
-  databaseSuffix: string
-  schemaSuffix: string
-  tablePrefix: string
-  defaultNotebookRuntimeOptions:
-    gcsOutputBucket: string
-resolvedGitCommitSha: string
-dataformCoreVersion: string
-compilationErrors:
-  - message: string
-    stack: string
-    path: string
-    actionTarget:
-      database: string
-      schema: string
-      name: string
-dataEncryptionState:
-  kmsKeyVersionName: string
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: gitCommitish
+      value: string
+    - name: workspace
+      value: string
+    - name: releaseConfig
+      value: string
+    - name: name
+      value: string
+    - name: codeCompilationConfig
+      value:
+        - name: defaultDatabase
+          value: string
+        - name: defaultSchema
+          value: string
+        - name: defaultLocation
+          value: string
+        - name: assertionSchema
+          value: string
+        - name: vars
+          value: object
+        - name: databaseSuffix
+          value: string
+        - name: schemaSuffix
+          value: string
+        - name: tablePrefix
+          value: string
+        - name: defaultNotebookRuntimeOptions
+          value:
+            - name: gcsOutputBucket
+              value: string
+    - name: resolvedGitCommitSha
+      value: string
+    - name: dataformCoreVersion
+      value: string
+    - name: compilationErrors
+      value:
+        - - name: message
+            value: string
+          - name: stack
+            value: string
+          - name: path
+            value: string
+          - name: actionTarget
+            value:
+              - name: database
+                value: string
+              - name: schema
+                value: string
+              - name: name
+                value: string
+    - name: dataEncryptionState
+      value:
+        - name: kmsKeyVersionName
+          value: string
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

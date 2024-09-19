@@ -62,7 +62,7 @@ reauthSettings,
 restrictedClientApplications,
 scopedAccessSettings
 FROM google.accesscontextmanager.gcp_user_access_bindings
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -105,30 +105,53 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-groupKey: string
-accessLevels:
-  - type: string
-dryRunAccessLevels:
-  - type: string
-reauthSettings:
-  reauthMethod: string
-  sessionLength: string
-  maxInactivity: string
-  useOidcMaxAge: boolean
-  sessionLengthEnabled: boolean
-restrictedClientApplications:
-  - clientId: string
-    name: string
-scopedAccessSettings:
-  - scope:
-      clientScope:
-        restrictedClientApplication:
-          clientId: string
-          name: string
-    activeSettings:
-      accessLevels:
-        - type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: groupKey
+      value: string
+    - name: accessLevels
+      value:
+        - string
+    - name: dryRunAccessLevels
+      value:
+        - string
+    - name: reauthSettings
+      value:
+        - name: reauthMethod
+          value: string
+        - name: sessionLength
+          value: string
+        - name: maxInactivity
+          value: string
+        - name: useOidcMaxAge
+          value: boolean
+        - name: sessionLengthEnabled
+          value: boolean
+    - name: restrictedClientApplications
+      value:
+        - - name: clientId
+            value: string
+          - name: name
+            value: string
+    - name: scopedAccessSettings
+      value:
+        - - name: scope
+            value:
+              - name: clientScope
+                value:
+                  - name: restrictedClientApplication
+                    value:
+                      - name: clientId
+                        value: string
+                      - name: name
+                        value: string
+          - name: activeSettings
+            value:
+              - name: accessLevels
+                value:
+                  - string
 
 ```
 </TabItem>

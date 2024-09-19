@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.apim.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

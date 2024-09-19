@@ -67,7 +67,7 @@ state
 FROM google.workloadmanager.executions
 WHERE evaluationsId = '{{ evaluationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

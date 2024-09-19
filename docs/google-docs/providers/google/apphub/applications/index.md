@@ -67,7 +67,7 @@ uid,
 updateTime
 FROM google.apphub.applications
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,29 +108,54 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-attributes:
-  criticality:
-    type: string
-  environment:
-    type: string
-  developerOwners:
-    - displayName: string
-      email: string
-  operatorOwners:
-    - displayName: string
-      email: string
-  businessOwners:
-    - displayName: string
-      email: string
-createTime: string
-updateTime: string
-scope:
-  type: string
-uid: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: attributes
+      value:
+        - name: criticality
+          value:
+            - name: type
+              value: string
+        - name: environment
+          value:
+            - name: type
+              value: string
+        - name: developerOwners
+          value:
+            - - name: displayName
+                value: string
+              - name: email
+                value: string
+        - name: operatorOwners
+          value:
+            - - name: displayName
+                value: string
+              - name: email
+                value: string
+        - name: businessOwners
+          value:
+            - - name: displayName
+                value: string
+              - name: email
+                value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: scope
+      value:
+        - name: type
+          value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

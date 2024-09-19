@@ -56,5 +56,5 @@ Lists all deployments of API proxies or shared flows.
 SELECT
 deployments
 FROM google.apigee.deployments
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```

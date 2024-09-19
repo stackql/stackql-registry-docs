@@ -62,5 +62,5 @@ maskUrl,
 monthlyFluxUrl,
 rgbUrl
 FROM google.solar.data_layers
-WHERE  = '{{  }}'; 
+;
 ```

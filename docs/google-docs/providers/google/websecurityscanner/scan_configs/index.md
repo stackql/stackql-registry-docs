@@ -75,7 +75,7 @@ startingUrls,
 staticIpScan,
 userAgent
 FROM google.websecurityscanner.scan_configs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,9 +116,9 @@ SELECT
 '{{ riskLevel }}',
 '{{ displayName }}',
 '{{ blacklistPatterns }}',
-true|false,
-true|false,
-true|false,
+{{ ignoreHttpStatusErrors }},
+{{ staticIpScan }},
+{{ managedScan }},
 '{{ name }}',
 '{{ userAgent }}',
 '{{ maxQps }}',
@@ -130,33 +130,60 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-startingUrls:
-  - type: string
-authentication:
-  googleAccount:
-    username: string
-    password: string
-  iapCredential:
-    iapTestServiceAccountInfo:
-      targetAudienceClientId: string
-  customAccount:
-    username: string
-    password: string
-    loginUrl: string
-riskLevel: string
-displayName: string
-blacklistPatterns:
-  - type: string
-ignoreHttpStatusErrors: boolean
-staticIpScan: boolean
-managedScan: boolean
-name: string
-userAgent: string
-maxQps: integer
-schedule:
-  scheduleTime: string
-  intervalDurationDays: integer
-exportToSecurityCommandCenter: string
+- name: your_resource_model_name
+  props:
+    - name: startingUrls
+      value:
+        - string
+    - name: authentication
+      value:
+        - name: googleAccount
+          value:
+            - name: username
+              value: string
+            - name: password
+              value: string
+        - name: iapCredential
+          value:
+            - name: iapTestServiceAccountInfo
+              value:
+                - name: targetAudienceClientId
+                  value: string
+        - name: customAccount
+          value:
+            - name: username
+              value: string
+            - name: password
+              value: string
+            - name: loginUrl
+              value: string
+    - name: riskLevel
+      value: string
+    - name: displayName
+      value: string
+    - name: blacklistPatterns
+      value:
+        - string
+    - name: ignoreHttpStatusErrors
+      value: boolean
+    - name: staticIpScan
+      value: boolean
+    - name: managedScan
+      value: boolean
+    - name: name
+      value: string
+    - name: userAgent
+      value: string
+    - name: maxQps
+      value: integer
+    - name: schedule
+      value:
+        - name: scheduleTime
+          value: string
+        - name: intervalDurationDays
+          value: integer
+    - name: exportToSecurityCommandCenter
+      value: string
 
 ```
 </TabItem>

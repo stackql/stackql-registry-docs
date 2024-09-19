@@ -70,5 +70,5 @@ memoryMb,
 selfLink,
 zone
 FROM google.compute.node_types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

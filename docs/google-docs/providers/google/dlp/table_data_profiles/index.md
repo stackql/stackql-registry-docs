@@ -102,7 +102,7 @@ tableId,
 tableSizeBytes
 FROM google.dlp.table_data_profiles
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

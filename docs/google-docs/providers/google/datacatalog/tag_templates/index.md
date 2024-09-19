@@ -59,7 +59,7 @@ isPubliclyReadable
 FROM google.datacatalog.tag_templates
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND tagTemplatesId = '{{ tagTemplatesId }}'; 
+AND tagTemplatesId = '{{ tagTemplatesId }}';
 ```
 
 ## `INSERT` example
@@ -91,7 +91,7 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ displayName }}',
-true|false,
+{{ isPubliclyReadable }},
 '{{ fields }}',
 '{{ dataplexTransferStatus }}'
 ;
@@ -100,11 +100,18 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-isPubliclyReadable: boolean
-fields: object
-dataplexTransferStatus: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: isPubliclyReadable
+      value: boolean
+    - name: fields
+      value: object
+    - name: dataplexTransferStatus
+      value: string
 
 ```
 </TabItem>

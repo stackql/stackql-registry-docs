@@ -49,5 +49,5 @@ name
 FROM google.discoveryengine.data_stores_site_search_engine
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

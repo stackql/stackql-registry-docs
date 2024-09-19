@@ -55,5 +55,5 @@ labels,
 locationId,
 metadata
 FROM google.datastream.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

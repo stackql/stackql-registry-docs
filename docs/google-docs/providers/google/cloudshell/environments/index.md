@@ -65,5 +65,5 @@ state,
 webHost
 FROM google.cloudshell.environments
 WHERE environmentsId = '{{ environmentsId }}'
-AND usersId = '{{ usersId }}'; 
+AND usersId = '{{ usersId }}';
 ```

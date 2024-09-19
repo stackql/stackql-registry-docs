@@ -59,7 +59,7 @@ uid
 FROM google.servicedirectory.services
 WHERE locationsId = '{{ locationsId }}'
 AND namespacesId = '{{ namespacesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,16 +96,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-annotations: object
-endpoints:
-  - name: string
-    address: string
-    port: integer
-    annotations: object
-    network: string
-    uid: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: annotations
+      value: object
+    - name: endpoints
+      value:
+        - - name: name
+            value: string
+          - name: address
+            value: string
+          - name: port
+            value: integer
+          - name: annotations
+            value: object
+          - name: network
+            value: string
+          - name: uid
+            value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

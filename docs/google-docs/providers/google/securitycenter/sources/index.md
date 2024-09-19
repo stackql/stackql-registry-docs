@@ -57,7 +57,7 @@ description,
 canonicalName,
 displayName
 FROM google.securitycenter.sources
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -94,10 +94,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-canonicalName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: canonicalName
+      value: string
 
 ```
 </TabItem>

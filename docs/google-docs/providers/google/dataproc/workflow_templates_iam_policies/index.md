@@ -57,7 +57,7 @@ role
 FROM google.dataproc.workflow_templates_iam_policies
 WHERE projectsId = '{{ projectsId }}'
 AND regionsId = '{{ regionsId }}'
-AND workflowTemplatesId = '{{ workflowTemplatesId }}'; 
+AND workflowTemplatesId = '{{ workflowTemplatesId }}';
 ```
 
 ## `REPLACE` example

@@ -58,7 +58,7 @@ state
 FROM google.bigqueryreservation.assignments
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND reservationsId = '{{ reservationsId }}'; 
+AND reservationsId = '{{ reservationsId }}';
 ```
 
 ## `INSERT` example
@@ -95,10 +95,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-assignee: string
-jobType: string
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: assignee
+      value: string
+    - name: jobType
+      value: string
+    - name: state
+      value: string
 
 ```
 </TabItem>

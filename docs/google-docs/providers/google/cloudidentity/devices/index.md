@@ -113,7 +113,7 @@ serialNumber,
 unifiedDeviceId,
 wifiMacAddresses
 FROM google.cloudidentity.devices
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `INSERT` example
@@ -132,7 +132,6 @@ Use the following StackQL query and manifest file to create a new <code>devices<
 ```sql
 /*+ create */
 INSERT INTO google.cloudidentity.devices (
-,
 lastSyncTime,
 serialNumber,
 assetTag,
@@ -141,7 +140,6 @@ deviceId,
 hostname
 )
 SELECT 
-'{{  }}',
 '{{ lastSyncTime }}',
 '{{ serialNumber }}',
 '{{ assetTag }}',
@@ -154,80 +152,154 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-lastSyncTime: string
-ownerType: string
-model: string
-osVersion: string
-deviceType: string
-serialNumber: string
-assetTag: string
-imei: string
-meid: string
-wifiMacAddresses:
-  - type: string
-networkOperator: string
-manufacturer: string
-releaseVersion: string
-brand: string
-buildNumber: string
-kernelVersion: string
-basebandVersion: string
-enabledDeveloperOptions: boolean
-otherAccounts:
-  - type: string
-enabledUsbDebugging: boolean
-securityPatchTime: string
-bootloaderVersion: string
-encryptionState: string
-androidSpecificAttributes:
-  enabledUnknownSources: boolean
-  supportsWorkProfile: boolean
-  ownerProfileAccount: boolean
-  ownershipPrivilege: string
-  verifiedBoot: boolean
-  ctsProfileMatch: boolean
-  verifyAppsEnabled: boolean
-  hasPotentiallyHarmfulApps: boolean
-managementState: string
-compromisedState: string
-deviceId: string
-unifiedDeviceId: string
-endpointVerificationSpecificAttributes:
-  certificateAttributes:
-    - fingerprint: string
-      thumbprint: string
-      validationState: string
-      serialNumber: string
-      validityStartTime: string
-      validityExpirationTime: string
-      issuer: string
-      subject: string
-      certificateTemplate:
-        id: string
-        majorVersion: integer
-        minorVersion: integer
-  browserAttributes:
-    - lastProfileSyncTime: string
-      chromeBrowserInfo:
-        browserVersion: string
-        browserManagementState: string
-        isFileUploadAnalysisEnabled: boolean
-        isFileDownloadAnalysisEnabled: boolean
-        isBulkDataEntryAnalysisEnabled: boolean
-        isSecurityEventAnalysisEnabled: boolean
-        isRealtimeUrlCheckEnabled: boolean
-        safeBrowsingProtectionLevel: string
-        isSiteIsolationEnabled: boolean
-        isBuiltInDnsClientEnabled: boolean
-        passwordProtectionWarningTrigger: string
-        isChromeRemoteDesktopAppBlocked: boolean
-        isChromeCleanupEnabled: boolean
-        isThirdPartyBlockingEnabled: boolean
-      chromeProfileId: string
-  additionalSignals: object
-hostname: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: lastSyncTime
+      value: string
+    - name: ownerType
+      value: string
+    - name: model
+      value: string
+    - name: osVersion
+      value: string
+    - name: deviceType
+      value: string
+    - name: serialNumber
+      value: string
+    - name: assetTag
+      value: string
+    - name: imei
+      value: string
+    - name: meid
+      value: string
+    - name: wifiMacAddresses
+      value:
+        - string
+    - name: networkOperator
+      value: string
+    - name: manufacturer
+      value: string
+    - name: releaseVersion
+      value: string
+    - name: brand
+      value: string
+    - name: buildNumber
+      value: string
+    - name: kernelVersion
+      value: string
+    - name: basebandVersion
+      value: string
+    - name: enabledDeveloperOptions
+      value: boolean
+    - name: otherAccounts
+      value:
+        - string
+    - name: enabledUsbDebugging
+      value: boolean
+    - name: securityPatchTime
+      value: string
+    - name: bootloaderVersion
+      value: string
+    - name: encryptionState
+      value: string
+    - name: androidSpecificAttributes
+      value:
+        - name: enabledUnknownSources
+          value: boolean
+        - name: supportsWorkProfile
+          value: boolean
+        - name: ownerProfileAccount
+          value: boolean
+        - name: ownershipPrivilege
+          value: string
+        - name: verifiedBoot
+          value: boolean
+        - name: ctsProfileMatch
+          value: boolean
+        - name: verifyAppsEnabled
+          value: boolean
+        - name: hasPotentiallyHarmfulApps
+          value: boolean
+    - name: managementState
+      value: string
+    - name: compromisedState
+      value: string
+    - name: deviceId
+      value: string
+    - name: unifiedDeviceId
+      value: string
+    - name: endpointVerificationSpecificAttributes
+      value:
+        - name: certificateAttributes
+          value:
+            - - name: fingerprint
+                value: string
+              - name: thumbprint
+                value: string
+              - name: validationState
+                value: string
+              - name: serialNumber
+                value: string
+              - name: validityStartTime
+                value: string
+              - name: validityExpirationTime
+                value: string
+              - name: issuer
+                value: string
+              - name: subject
+                value: string
+              - name: certificateTemplate
+                value:
+                  - name: id
+                    value: string
+                  - name: majorVersion
+                    value: integer
+                  - name: minorVersion
+                    value: integer
+        - name: browserAttributes
+          value:
+            - - name: lastProfileSyncTime
+                value: string
+              - name: chromeBrowserInfo
+                value:
+                  - name: browserVersion
+                    value: string
+                  - name: browserManagementState
+                    value: string
+                  - name: isFileUploadAnalysisEnabled
+                    value: boolean
+                  - name: isFileDownloadAnalysisEnabled
+                    value: boolean
+                  - name: isBulkDataEntryAnalysisEnabled
+                    value: boolean
+                  - name: isSecurityEventAnalysisEnabled
+                    value: boolean
+                  - name: isRealtimeUrlCheckEnabled
+                    value: boolean
+                  - name: safeBrowsingProtectionLevel
+                    value: string
+                  - name: isSiteIsolationEnabled
+                    value: boolean
+                  - name: isBuiltInDnsClientEnabled
+                    value: boolean
+                  - name: passwordProtectionWarningTrigger
+                    value: string
+                  - name: isChromeRemoteDesktopAppBlocked
+                    value: boolean
+                  - name: isChromeCleanupEnabled
+                    value: boolean
+                  - name: isThirdPartyBlockingEnabled
+                    value: boolean
+              - name: chromeProfileId
+                value: string
+        - name: additionalSignals
+          value: object
+    - name: hostname
+      value: string
 
 ```
 </TabItem>

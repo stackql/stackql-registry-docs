@@ -55,7 +55,7 @@ FROM google.aiplatform.entity_types_iam_policies
 WHERE entityTypesId = '{{ entityTypesId }}'
 AND featurestoresId = '{{ featurestoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

@@ -80,5 +80,5 @@ zone
 FROM google.dataplex.actions
 WHERE lakesId = '{{ lakesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

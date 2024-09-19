@@ -50,5 +50,5 @@ managedServerCa
 FROM google.redis.clusters_certificate_authority
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

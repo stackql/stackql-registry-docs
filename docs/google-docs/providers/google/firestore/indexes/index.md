@@ -59,7 +59,7 @@ state
 FROM google.firestore.indexes
 WHERE collectionGroupsId = '{{ collectionGroupsId }}'
 AND databasesId = '{{ databasesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -102,17 +102,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-queryScope: string
-apiScope: string
-fields:
-  - fieldPath: string
-    order: string
-    arrayConfig: string
-    vectorConfig:
-      dimension: integer
-      flat: {}
-state: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: queryScope
+      value: string
+    - name: apiScope
+      value: string
+    - name: fields
+      value:
+        - - name: fieldPath
+            value: string
+          - name: order
+            value: string
+          - name: arrayConfig
+            value: string
+          - name: vectorConfig
+            value:
+              - name: dimension
+                value: integer
+              - name: flat
+                value: []
+    - name: state
+      value: string
 
 ```
 </TabItem>

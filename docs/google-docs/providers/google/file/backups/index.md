@@ -81,7 +81,7 @@ storageBytes,
 tags
 FROM google.file.backups
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -124,22 +124,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-state: string
-createTime: string
-labels: object
-capacityGb: string
-storageBytes: string
-sourceInstance: string
-sourceFileShare: string
-sourceInstanceTier: string
-downloadBytes: string
-satisfiesPzs: boolean
-satisfiesPzi: boolean
-kmsKey: string
-tags: object
-fileSystemProtocol: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: capacityGb
+      value: string
+    - name: storageBytes
+      value: string
+    - name: sourceInstance
+      value: string
+    - name: sourceFileShare
+      value: string
+    - name: sourceInstanceTier
+      value: string
+    - name: downloadBytes
+      value: string
+    - name: satisfiesPzs
+      value: boolean
+    - name: satisfiesPzi
+      value: boolean
+    - name: kmsKey
+      value: string
+    - name: tags
+      value: object
+    - name: fileSystemProtocol
+      value: string
 
 ```
 </TabItem>

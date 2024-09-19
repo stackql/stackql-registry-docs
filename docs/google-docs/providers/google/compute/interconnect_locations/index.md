@@ -81,5 +81,5 @@ selfLink,
 status,
 supportsPzs
 FROM google.compute.interconnect_locations
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

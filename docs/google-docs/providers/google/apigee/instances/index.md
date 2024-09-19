@@ -81,7 +81,7 @@ runtimeVersion,
 serviceAttachment,
 state
 FROM google.apigee.instances
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -128,25 +128,45 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-location: string
-createdAt: string
-consumerAcceptList:
-  - type: string
-ipRange: string
-name: string
-serviceAttachment: string
-accessLoggingConfig:
-  filter: string
-  enabled: boolean
-state: string
-runtimeVersion: string
-host: string
-diskEncryptionKeyName: string
-description: string
-port: string
-lastModifiedAt: string
-peeringCidrRange: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: location
+      value: string
+    - name: createdAt
+      value: string
+    - name: consumerAcceptList
+      value:
+        - string
+    - name: ipRange
+      value: string
+    - name: name
+      value: string
+    - name: serviceAttachment
+      value: string
+    - name: accessLoggingConfig
+      value:
+        - name: filter
+          value: string
+        - name: enabled
+          value: boolean
+    - name: state
+      value: string
+    - name: runtimeVersion
+      value: string
+    - name: host
+      value: string
+    - name: diskEncryptionKeyName
+      value: string
+    - name: description
+      value: string
+    - name: port
+      value: string
+    - name: lastModifiedAt
+      value: string
+    - name: peeringCidrRange
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

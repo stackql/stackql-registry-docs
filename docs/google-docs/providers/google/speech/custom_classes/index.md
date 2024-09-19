@@ -51,7 +51,7 @@ SELECT
 value
 FROM google.speech.custom_classes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -86,22 +86,40 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-customClassId: string
-customClass:
-  name: string
-  customClassId: string
-  items:
-    - value: string
-  kmsKeyName: string
-  kmsKeyVersionName: string
-  uid: string
-  displayName: string
-  state: string
-  deleteTime: string
-  expireTime: string
-  annotations: object
-  etag: string
-  reconciling: boolean
+- name: your_resource_model_name
+  props:
+    - name: customClassId
+      value: string
+    - name: customClass
+      value:
+        - name: name
+          value: string
+        - name: customClassId
+          value: string
+        - name: items
+          value:
+            - - name: value
+                value: string
+        - name: kmsKeyName
+          value: string
+        - name: kmsKeyVersionName
+          value: string
+        - name: uid
+          value: string
+        - name: displayName
+          value: string
+        - name: state
+          value: string
+        - name: deleteTime
+          value: string
+        - name: expireTime
+          value: string
+        - name: annotations
+          value: object
+        - name: etag
+          value: string
+        - name: reconciling
+          value: boolean
 
 ```
 </TabItem>

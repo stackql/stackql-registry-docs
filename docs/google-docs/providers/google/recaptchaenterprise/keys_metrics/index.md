@@ -53,5 +53,5 @@ scoreMetrics,
 startTime
 FROM google.recaptchaenterprise.keys_metrics
 WHERE keysId = '{{ keysId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

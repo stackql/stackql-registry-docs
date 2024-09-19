@@ -54,7 +54,7 @@ role
 FROM google.domains.registrations_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND registrationsId = '{{ registrationsId }}'; 
+AND registrationsId = '{{ registrationsId }}';
 ```
 
 ## `REPLACE` example

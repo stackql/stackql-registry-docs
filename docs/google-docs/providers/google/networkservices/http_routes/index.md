@@ -69,7 +69,7 @@ selfLink,
 updateTime
 FROM google.networkservices.http_routes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -114,99 +114,184 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-selfLink: string
-description: string
-createTime: string
-updateTime: string
-hostnames:
-  - type: string
-meshes:
-  - type: string
-gateways:
-  - type: string
-labels: object
-rules:
-  - matches:
-      - fullPathMatch: string
-        prefixMatch: string
-        regexMatch: string
-        ignoreCase: boolean
-        headers:
-          - exactMatch: string
-            regexMatch: string
-            prefixMatch: string
-            presentMatch: boolean
-            suffixMatch: string
-            rangeMatch:
-              start: integer
-              end: integer
-            header: string
-            invertMatch: boolean
-        queryParameters:
-          - exactMatch: string
-            regexMatch: string
-            presentMatch: boolean
-            queryParameter: string
-    action:
-      destinations:
-        - serviceName: string
-          weight: integer
-          requestHeaderModifier:
-            set: object
-            add: object
-            remove:
-              - type: string
-      redirect:
-        hostRedirect: string
-        pathRedirect: string
-        prefixRewrite: string
-        responseCode: string
-        httpsRedirect: boolean
-        stripQuery: boolean
-        portRedirect: integer
-      faultInjectionPolicy:
-        delay:
-          fixedDelay: string
-          percentage: integer
-        abort:
-          httpStatus: integer
-          percentage: integer
-      urlRewrite:
-        pathPrefixRewrite: string
-        hostRewrite: string
-      timeout: string
-      retryPolicy:
-        retryConditions:
-          - type: string
-        numRetries: integer
-        perTryTimeout: string
-      requestMirrorPolicy:
-        destination:
-          serviceName: string
-          weight: integer
-        mirrorPercent: number
-      corsPolicy:
-        allowOrigins:
-          - type: string
-        allowOriginRegexes:
-          - type: string
-        allowMethods:
-          - type: string
-        allowHeaders:
-          - type: string
-        exposeHeaders:
-          - type: string
-        maxAge: string
-        allowCredentials: boolean
-        disabled: boolean
-      statefulSessionAffinity:
-        cookieTtl: string
-      directResponse:
-        stringBody: string
-        bytesBody: string
-        status: integer
-      idleTimeout: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: selfLink
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: hostnames
+      value:
+        - string
+    - name: meshes
+      value:
+        - string
+    - name: gateways
+      value:
+        - string
+    - name: labels
+      value: object
+    - name: rules
+      value:
+        - - name: matches
+            value:
+              - - name: fullPathMatch
+                  value: string
+                - name: prefixMatch
+                  value: string
+                - name: regexMatch
+                  value: string
+                - name: ignoreCase
+                  value: boolean
+                - name: headers
+                  value:
+                    - - name: exactMatch
+                        value: string
+                      - name: regexMatch
+                        value: string
+                      - name: prefixMatch
+                        value: string
+                      - name: presentMatch
+                        value: boolean
+                      - name: suffixMatch
+                        value: string
+                      - name: rangeMatch
+                        value:
+                          - name: start
+                            value: integer
+                          - name: end
+                            value: integer
+                      - name: header
+                        value: string
+                      - name: invertMatch
+                        value: boolean
+                - name: queryParameters
+                  value:
+                    - - name: exactMatch
+                        value: string
+                      - name: regexMatch
+                        value: string
+                      - name: presentMatch
+                        value: boolean
+                      - name: queryParameter
+                        value: string
+          - name: action
+            value:
+              - name: destinations
+                value:
+                  - - name: serviceName
+                      value: string
+                    - name: weight
+                      value: integer
+                    - name: requestHeaderModifier
+                      value:
+                        - name: set
+                          value: object
+                        - name: add
+                          value: object
+                        - name: remove
+                          value:
+                            - string
+              - name: redirect
+                value:
+                  - name: hostRedirect
+                    value: string
+                  - name: pathRedirect
+                    value: string
+                  - name: prefixRewrite
+                    value: string
+                  - name: responseCode
+                    value: string
+                  - name: httpsRedirect
+                    value: boolean
+                  - name: stripQuery
+                    value: boolean
+                  - name: portRedirect
+                    value: integer
+              - name: faultInjectionPolicy
+                value:
+                  - name: delay
+                    value:
+                      - name: fixedDelay
+                        value: string
+                      - name: percentage
+                        value: integer
+                  - name: abort
+                    value:
+                      - name: httpStatus
+                        value: integer
+                      - name: percentage
+                        value: integer
+              - name: urlRewrite
+                value:
+                  - name: pathPrefixRewrite
+                    value: string
+                  - name: hostRewrite
+                    value: string
+              - name: timeout
+                value: string
+              - name: retryPolicy
+                value:
+                  - name: retryConditions
+                    value:
+                      - string
+                  - name: numRetries
+                    value: integer
+                  - name: perTryTimeout
+                    value: string
+              - name: requestMirrorPolicy
+                value:
+                  - name: destination
+                    value:
+                      - name: serviceName
+                        value: string
+                      - name: weight
+                        value: integer
+                  - name: mirrorPercent
+                    value: number
+              - name: corsPolicy
+                value:
+                  - name: allowOrigins
+                    value:
+                      - string
+                  - name: allowOriginRegexes
+                    value:
+                      - string
+                  - name: allowMethods
+                    value:
+                      - string
+                  - name: allowHeaders
+                    value:
+                      - string
+                  - name: exposeHeaders
+                    value:
+                      - string
+                  - name: maxAge
+                    value: string
+                  - name: allowCredentials
+                    value: boolean
+                  - name: disabled
+                    value: boolean
+              - name: statefulSessionAffinity
+                value:
+                  - name: cookieTtl
+                    value: string
+              - name: directResponse
+                value:
+                  - name: stringBody
+                    value: string
+                  - name: bytesBody
+                    value: string
+                  - name: status
+                    value: integer
+              - name: idleTimeout
+                value: string
 
 ```
 </TabItem>

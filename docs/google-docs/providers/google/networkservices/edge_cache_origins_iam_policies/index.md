@@ -54,7 +54,7 @@ role
 FROM google.networkservices.edge_cache_origins_iam_policies
 WHERE edgeCacheOriginsId = '{{ edgeCacheOriginsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

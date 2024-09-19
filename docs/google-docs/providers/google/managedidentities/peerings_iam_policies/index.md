@@ -53,7 +53,7 @@ members,
 role
 FROM google.managedidentities.peerings_iam_policies
 WHERE peeringsId = '{{ peeringsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

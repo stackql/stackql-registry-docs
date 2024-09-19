@@ -58,7 +58,7 @@ FROM google.datalineage.lineage_events
 WHERE locationsId = '{{ locationsId }}'
 AND processesId = '{{ processesId }}'
 AND projectsId = '{{ projectsId }}'
-AND runsId = '{{ runsId }}'; 
+AND runsId = '{{ runsId }}';
 ```
 
 ## `INSERT` example
@@ -101,12 +101,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-startTime: string
-name: string
-endTime: string
-links:
-  - target:
-      fullyQualifiedName: string
+- name: your_resource_model_name
+  props:
+    - name: startTime
+      value: string
+    - name: name
+      value: string
+    - name: endTime
+      value: string
+    - name: links
+      value:
+        - - name: target
+            value:
+              - name: fullyQualifiedName
+                value: string
 
 ```
 </TabItem>

@@ -65,7 +65,7 @@ uid,
 updateTime
 FROM google.networkconnectivity.groups
 WHERE hubsId = '{{ hubsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

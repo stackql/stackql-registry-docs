@@ -55,7 +55,7 @@ FROM google.vmwareengine.clusters_iam_policies
 WHERE clustersId = '{{ clustersId }}'
 AND locationsId = '{{ locationsId }}'
 AND privateCloudsId = '{{ privateCloudsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

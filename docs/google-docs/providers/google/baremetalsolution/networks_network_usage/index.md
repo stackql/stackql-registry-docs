@@ -47,5 +47,5 @@ SELECT
 networks
 FROM google.baremetalsolution.networks_network_usage
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

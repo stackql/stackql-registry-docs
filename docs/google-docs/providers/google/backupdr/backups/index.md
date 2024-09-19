@@ -85,7 +85,7 @@ FROM google.backupdr.backups
 WHERE backupVaultsId = '{{ backupVaultsId }}'
 AND dataSourcesId = '{{ dataSourcesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

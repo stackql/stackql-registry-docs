@@ -87,7 +87,7 @@ sizeBytes,
 updateTime
 FROM google.apigeeregistry.artifacts
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,15 +128,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-mimeType: string
-sizeBytes: integer
-hash: string
-contents: string
-labels: object
-annotations: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: mimeType
+      value: string
+    - name: sizeBytes
+      value: integer
+    - name: hash
+      value: string
+    - name: contents
+      value: string
+    - name: labels
+      value: object
+    - name: annotations
+      value: object
 
 ```
 </TabItem>

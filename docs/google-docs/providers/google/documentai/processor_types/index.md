@@ -61,5 +61,5 @@ sampleDocumentUris,
 type
 FROM google.documentai.processor_types
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

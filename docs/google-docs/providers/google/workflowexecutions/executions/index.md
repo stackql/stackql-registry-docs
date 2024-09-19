@@ -82,7 +82,7 @@ workflowRevisionId
 FROM google.workflowexecutions.executions
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND workflowsId = '{{ workflowsId }}'; 
+AND workflowsId = '{{ workflowsId }}';
 ```
 
 ## `INSERT` example
@@ -117,7 +117,7 @@ SELECT
 '{{ argument }}',
 '{{ callLogLevel }}',
 '{{ labels }}',
-true|false,
+{{ disableConcurrencyQuotaOverflowBuffering }},
 '{{ executionHistoryLevel }}'
 ;
 ```
@@ -125,37 +125,70 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-startTime: string
-endTime: string
-duration: string
-state: string
-argument: string
-result: string
-error:
-  payload: string
-  context: string
-  stackTrace:
-    elements:
-      - step: string
-        routine: string
-        position:
-          line: string
-          column: string
-          length: string
-workflowRevisionId: string
-callLogLevel: string
-status:
-  currentSteps:
-    - routine: string
-      step: string
-labels: object
-stateError:
-  details: string
-  type: string
-disableConcurrencyQuotaOverflowBuffering: boolean
-executionHistoryLevel: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: startTime
+      value: string
+    - name: endTime
+      value: string
+    - name: duration
+      value: string
+    - name: state
+      value: string
+    - name: argument
+      value: string
+    - name: result
+      value: string
+    - name: error
+      value:
+        - name: payload
+          value: string
+        - name: context
+          value: string
+        - name: stackTrace
+          value:
+            - name: elements
+              value:
+                - - name: step
+                    value: string
+                  - name: routine
+                    value: string
+                  - name: position
+                    value:
+                      - name: line
+                        value: string
+                      - name: column
+                        value: string
+                      - name: length
+                        value: string
+    - name: workflowRevisionId
+      value: string
+    - name: callLogLevel
+      value: string
+    - name: status
+      value:
+        - name: currentSteps
+          value:
+            - - name: routine
+                value: string
+              - name: step
+                value: string
+    - name: labels
+      value: object
+    - name: stateError
+      value:
+        - name: details
+          value: string
+        - name: type
+          value: string
+    - name: disableConcurrencyQuotaOverflowBuffering
+      value: boolean
+    - name: executionHistoryLevel
+      value: string
 
 ```
 </TabItem>

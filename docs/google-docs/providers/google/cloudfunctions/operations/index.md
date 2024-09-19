@@ -56,5 +56,5 @@ metadata,
 response
 FROM google.cloudfunctions.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -64,7 +64,7 @@ notificationsRule,
 ownershipScope,
 thresholdRules
 FROM google.billingbudgets.budgets
-WHERE billingAccountsId = '{{ billingAccountsId }}'; 
+WHERE billingAccountsId = '{{ billingAccountsId }}';
 ```
 
 ## `INSERT` example
@@ -107,45 +107,80 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-amount:
-  specifiedAmount:
-    nanos: integer
-    currencyCode: string
-    units: string
-  lastPeriodAmount: {}
-etag: string
-budgetFilter:
-  projects:
-    - type: string
-  services:
-    - type: string
-  resourceAncestors:
-    - type: string
-  calendarPeriod: string
-  subaccounts:
-    - type: string
-  labels: object
-  customPeriod:
-    endDate:
-      year: integer
-      month: integer
-      day: integer
-  creditTypes:
-    - type: string
-  creditTypesTreatment: string
-notificationsRule:
-  schemaVersion: string
-  enableProjectLevelRecipients: boolean
-  pubsubTopic: string
-  disableDefaultIamRecipients: boolean
-  monitoringNotificationChannels:
-    - type: string
-thresholdRules:
-  - thresholdPercent: number
-    spendBasis: string
-displayName: string
-ownershipScope: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: amount
+      value:
+        - name: specifiedAmount
+          value:
+            - name: nanos
+              value: integer
+            - name: currencyCode
+              value: string
+            - name: units
+              value: string
+        - name: lastPeriodAmount
+          value: []
+    - name: etag
+      value: string
+    - name: budgetFilter
+      value:
+        - name: projects
+          value:
+            - string
+        - name: services
+          value:
+            - string
+        - name: resourceAncestors
+          value:
+            - string
+        - name: calendarPeriod
+          value: string
+        - name: subaccounts
+          value:
+            - string
+        - name: labels
+          value: object
+        - name: customPeriod
+          value:
+            - name: endDate
+              value:
+                - name: year
+                  value: integer
+                - name: month
+                  value: integer
+                - name: day
+                  value: integer
+        - name: creditTypes
+          value:
+            - string
+        - name: creditTypesTreatment
+          value: string
+    - name: notificationsRule
+      value:
+        - name: schemaVersion
+          value: string
+        - name: enableProjectLevelRecipients
+          value: boolean
+        - name: pubsubTopic
+          value: string
+        - name: disableDefaultIamRecipients
+          value: boolean
+        - name: monitoringNotificationChannels
+          value:
+            - string
+    - name: thresholdRules
+      value:
+        - - name: thresholdPercent
+            value: number
+          - name: spendBasis
+            value: string
+    - name: displayName
+      value: string
+    - name: ownershipScope
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

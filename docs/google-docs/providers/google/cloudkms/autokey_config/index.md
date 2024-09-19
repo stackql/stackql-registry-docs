@@ -51,7 +51,7 @@ name,
 keyProject,
 state
 FROM google.cloudkms.autokey_config
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `UPDATE` example

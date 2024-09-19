@@ -51,7 +51,7 @@ FROM google.recommendationengine.prediction_api_key_registrations
 WHERE catalogsId = '{{ catalogsId }}'
 AND eventStoresId = '{{ eventStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -88,8 +88,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-predictionApiKeyRegistration:
-  apiKey: string
+- name: your_resource_model_name
+  props:
+    - name: predictionApiKeyRegistration
+      value:
+        - name: apiKey
+          value: string
 
 ```
 </TabItem>

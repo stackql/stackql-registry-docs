@@ -54,7 +54,7 @@ role
 FROM google.dataplex.data_attribute_bindings_iam_policies
 WHERE dataAttributeBindingsId = '{{ dataAttributeBindingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

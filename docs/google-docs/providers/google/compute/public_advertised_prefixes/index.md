@@ -78,7 +78,7 @@ selfLink,
 sharedSecret,
 status
 FROM google.compute.public_advertised_prefixes
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -127,25 +127,46 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-ipCidrRange: string
-dnsVerificationIp: string
-sharedSecret: string
-status: string
-pdpScope: string
-publicDelegatedPrefixs:
-  - name: string
-    region: string
-    project: string
-    status: string
-    ipRange: string
-fingerprint: string
-byoipApiVersion: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: ipCidrRange
+      value: string
+    - name: dnsVerificationIp
+      value: string
+    - name: sharedSecret
+      value: string
+    - name: status
+      value: string
+    - name: pdpScope
+      value: string
+    - name: publicDelegatedPrefixs
+      value:
+        - - name: name
+            value: string
+          - name: region
+            value: string
+          - name: project
+            value: string
+          - name: status
+            value: string
+          - name: ipRange
+            value: string
+    - name: fingerprint
+      value: string
+    - name: byoipApiVersion
+      value: string
 
 ```
 </TabItem>

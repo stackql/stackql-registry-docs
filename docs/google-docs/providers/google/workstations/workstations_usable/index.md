@@ -77,5 +77,5 @@ FROM google.workstations.workstations_usable
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND workstationClustersId = '{{ workstationClustersId }}'
-AND workstationConfigsId = '{{ workstationConfigsId }}'; 
+AND workstationConfigsId = '{{ workstationConfigsId }}';
 ```

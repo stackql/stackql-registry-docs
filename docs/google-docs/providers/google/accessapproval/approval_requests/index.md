@@ -80,5 +80,5 @@ requestedReason,
 requestedResourceName,
 requestedResourceProperties
 FROM google.accessapproval.approval_requests
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

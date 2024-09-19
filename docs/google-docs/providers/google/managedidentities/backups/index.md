@@ -63,7 +63,7 @@ type,
 updateTime
 FROM google.managedidentities.backups
 WHERE domainsId = '{{ domainsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,13 +96,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-labels: object
-createTime: string
-updateTime: string
-type: string
-state: string
-statusMessage: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: type
+      value: string
+    - name: state
+      value: string
+    - name: statusMessage
+      value: string
 
 ```
 </TabItem>

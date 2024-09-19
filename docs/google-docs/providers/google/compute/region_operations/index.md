@@ -100,7 +100,7 @@ warnings,
 zone
 FROM google.compute.region_operations
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `DELETE` example

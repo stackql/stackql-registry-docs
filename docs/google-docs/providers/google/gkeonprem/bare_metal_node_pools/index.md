@@ -78,7 +78,7 @@ upgradePolicy
 FROM google.gkeonprem.bare_metal_node_pools
 WHERE bareMetalClustersId = '{{ bareMetalClustersId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -123,47 +123,90 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-uid: string
-state: string
-reconciling: boolean
-createTime: string
-updateTime: string
-deleteTime: string
-etag: string
-annotations: object
-nodePoolConfig:
-  nodeConfigs:
-    - nodeIp: string
-      labels: object
-  operatingSystem: string
-  taints:
-    - key: string
+- name: your_resource_model_name
+  props:
+    - name: name
       value: string
-      effect: string
-  labels: object
-  kubeletConfig:
-    registryPullQps: integer
-    registryBurst: integer
-    serializeImagePullsDisabled: boolean
-status:
-  errorMessage: string
-  conditions:
-    - type: string
-      reason: string
-      message: string
-      lastTransitionTime: string
-      state: string
-  version: string
-  versions:
-    versions:
-      - version: string
-        count: string
-upgradePolicy:
-  parallelUpgradeConfig:
-    concurrentNodes: integer
-    minimumAvailableNodes: integer
+    - name: displayName
+      value: string
+    - name: uid
+      value: string
+    - name: state
+      value: string
+    - name: reconciling
+      value: boolean
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: etag
+      value: string
+    - name: annotations
+      value: object
+    - name: nodePoolConfig
+      value:
+        - name: nodeConfigs
+          value:
+            - - name: nodeIp
+                value: string
+              - name: labels
+                value: object
+        - name: operatingSystem
+          value: string
+        - name: taints
+          value:
+            - - name: key
+                value: string
+              - name: value
+                value: string
+              - name: effect
+                value: string
+        - name: labels
+          value: object
+        - name: kubeletConfig
+          value:
+            - name: registryPullQps
+              value: integer
+            - name: registryBurst
+              value: integer
+            - name: serializeImagePullsDisabled
+              value: boolean
+    - name: status
+      value:
+        - name: errorMessage
+          value: string
+        - name: conditions
+          value:
+            - - name: type
+                value: string
+              - name: reason
+                value: string
+              - name: message
+                value: string
+              - name: lastTransitionTime
+                value: string
+              - name: state
+                value: string
+        - name: version
+          value: string
+        - name: versions
+          value:
+            - name: versions
+              value:
+                - - name: version
+                    value: string
+                  - name: count
+                    value: string
+    - name: upgradePolicy
+      value:
+        - name: parallelUpgradeConfig
+          value:
+            - name: concurrentNodes
+              value: integer
+            - name: minimumAvailableNodes
+              value: integer
 
 ```
 </TabItem>

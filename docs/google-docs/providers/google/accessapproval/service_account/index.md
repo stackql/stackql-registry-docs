@@ -50,5 +50,5 @@ SELECT
 name,
 accountEmail
 FROM google.accessapproval.service_account
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

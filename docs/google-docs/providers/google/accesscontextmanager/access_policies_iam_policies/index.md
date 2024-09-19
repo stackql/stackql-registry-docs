@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.accesscontextmanager.access_policies_iam_policies
-WHERE accessPoliciesId = '{{ accessPoliciesId }}'; 
+WHERE accessPoliciesId = '{{ accessPoliciesId }}';
 ```
 
 ## `REPLACE` example

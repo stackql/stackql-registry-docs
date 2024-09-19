@@ -59,7 +59,7 @@ extensions
 FROM google.apigee.revisions
 WHERE apisId = '{{ apisId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND revisionsId = '{{ revisionsId }}'; 
+AND revisionsId = '{{ revisionsId }}';
 ```
 
 ## `DELETE` example

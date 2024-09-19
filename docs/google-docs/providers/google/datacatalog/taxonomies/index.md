@@ -66,7 +66,7 @@ service,
 taxonomyTimestamps
 FROM google.datacatalog.taxonomies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -105,21 +105,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-description: string
-policyTagCount: integer
-taxonomyTimestamps:
-  createTime: string
-  updateTime: string
-  expireTime: string
-activatedPolicyTypes:
-  - type: string
-    enumDescriptions: string
-    enum: string
-service:
-  name: string
-  identity: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: policyTagCount
+      value: integer
+    - name: taxonomyTimestamps
+      value:
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: expireTime
+          value: string
+    - name: activatedPolicyTypes
+      value:
+        - string
+    - name: service
+      value:
+        - name: name
+          value: string
+        - name: identity
+          value: string
 
 ```
 </TabItem>

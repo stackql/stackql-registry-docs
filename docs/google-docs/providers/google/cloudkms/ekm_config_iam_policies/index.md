@@ -53,7 +53,7 @@ members,
 role
 FROM google.cloudkms.ekm_config_iam_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

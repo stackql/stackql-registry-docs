@@ -57,5 +57,5 @@ mimeType,
 sizeBytes
 FROM google.cloudsupport.attachments
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```

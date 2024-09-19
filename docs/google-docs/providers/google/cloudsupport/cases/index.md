@@ -78,7 +78,7 @@ testCase,
 timeZone,
 updateTime
 FROM google.cloudsupport.cases
-WHERE name = '{{ name }}'; 
+WHERE name = '{{ name }}';
 ```
 
 ## `INSERT` example
@@ -118,11 +118,11 @@ SELECT
 '{{ languageCode }}',
 '{{ classification }}',
 '{{ contactEmail }}',
-true|false,
+{{ escalated }},
 '{{ description }}',
 '{{ priority }}',
 '{{ name }}',
-true|false,
+{{ testCase }},
 '{{ timeZone }}',
 '{{ creator }}',
 '{{ subscriberEmailAddresses }}',
@@ -133,28 +133,51 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-languageCode: string
-classification:
-  id: string
-  displayName: string
-contactEmail: string
-escalated: boolean
-description: string
-updateTime: string
-priority: string
-name: string
-testCase: boolean
-timeZone: string
-state: string
-createTime: string
-creator:
-  displayName: string
-  email: string
-  googleSupport: boolean
-  username: string
-subscriberEmailAddresses:
-  - type: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: languageCode
+      value: string
+    - name: classification
+      value:
+        - name: id
+          value: string
+        - name: displayName
+          value: string
+    - name: contactEmail
+      value: string
+    - name: escalated
+      value: boolean
+    - name: description
+      value: string
+    - name: updateTime
+      value: string
+    - name: priority
+      value: string
+    - name: name
+      value: string
+    - name: testCase
+      value: boolean
+    - name: timeZone
+      value: string
+    - name: state
+      value: string
+    - name: createTime
+      value: string
+    - name: creator
+      value:
+        - name: displayName
+          value: string
+        - name: email
+          value: string
+        - name: googleSupport
+          value: boolean
+        - name: username
+          value: string
+    - name: subscriberEmailAddresses
+      value:
+        - string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

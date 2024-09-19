@@ -59,7 +59,7 @@ updateTime,
 value
 FROM google.contactcenterinsights.views
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,11 +96,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-updateTime: string
-name: string
-displayName: string
-createTime: string
-value: string
+- name: your_resource_model_name
+  props:
+    - name: updateTime
+      value: string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: createTime
+      value: string
+    - name: value
+      value: string
 
 ```
 </TabItem>

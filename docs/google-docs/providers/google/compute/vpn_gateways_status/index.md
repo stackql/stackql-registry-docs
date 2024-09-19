@@ -48,5 +48,5 @@ result
 FROM google.compute.vpn_gateways_status
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND vpnGateway = '{{ vpnGateway }}'; 
+AND vpnGateway = '{{ vpnGateway }}';
 ```

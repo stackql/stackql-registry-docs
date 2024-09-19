@@ -54,5 +54,5 @@ insertTime,
 operation,
 selfLink
 FROM google.deploymentmanager.types
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

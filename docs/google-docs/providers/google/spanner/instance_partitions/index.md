@@ -71,7 +71,7 @@ state,
 updateTime
 FROM google.spanner.instance_partitions
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,21 +106,36 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-instancePartitionId: string
-instancePartition:
-  name: string
-  config: string
-  displayName: string
-  nodeCount: integer
-  processingUnits: integer
-  state: string
-  createTime: string
-  updateTime: string
-  referencingDatabases:
-    - type: string
-  referencingBackups:
-    - type: string
-  etag: string
+- name: your_resource_model_name
+  props:
+    - name: instancePartitionId
+      value: string
+    - name: instancePartition
+      value:
+        - name: name
+          value: string
+        - name: config
+          value: string
+        - name: displayName
+          value: string
+        - name: nodeCount
+          value: integer
+        - name: processingUnits
+          value: integer
+        - name: state
+          value: string
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: referencingDatabases
+          value:
+            - string
+        - name: referencingBackups
+          value:
+            - string
+        - name: etag
+          value: string
 
 ```
 </TabItem>

@@ -56,5 +56,5 @@ rowAccessPolicyReference
 FROM google.bigquery.row_access_policies
 WHERE +datasetId = '{{ +datasetId }}'
 AND +tableId = '{{ +tableId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

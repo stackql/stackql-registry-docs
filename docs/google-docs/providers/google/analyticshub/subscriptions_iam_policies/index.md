@@ -53,7 +53,7 @@ role
 FROM google.analyticshub.subscriptions_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND subscriptionsId = '{{ subscriptionsId }}'; 
+AND subscriptionsId = '{{ subscriptionsId }}';
 ```
 
 ## `REPLACE` example

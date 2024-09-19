@@ -54,5 +54,5 @@ kind,
 region,
 tier
 FROM google.sqladmin.tiers
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

@@ -55,5 +55,5 @@ metadata,
 response
 FROM google.spanner.instance_partition_operations
 WHERE instancesId = '{{ instancesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

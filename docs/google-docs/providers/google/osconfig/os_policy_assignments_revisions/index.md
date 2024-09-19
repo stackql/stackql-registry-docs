@@ -72,5 +72,5 @@ uid
 FROM google.osconfig.os_policy_assignments_revisions
 WHERE locationsId = '{{ locationsId }}'
 AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

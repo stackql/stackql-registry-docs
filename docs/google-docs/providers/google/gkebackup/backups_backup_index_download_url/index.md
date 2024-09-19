@@ -49,5 +49,5 @@ FROM google.gkebackup.backups_backup_index_download_url
 WHERE backupPlansId = '{{ backupPlansId }}'
 AND backupsId = '{{ backupsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

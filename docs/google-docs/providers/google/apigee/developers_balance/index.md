@@ -47,5 +47,5 @@ SELECT
 wallets
 FROM google.apigee.developers_balance
 WHERE developersId = '{{ developersId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

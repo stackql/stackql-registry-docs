@@ -73,7 +73,7 @@ region,
 selfLink
 FROM google.compute.region_health_check_services
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -120,21 +120,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-selfLink: string
-name: string
-description: string
-region: string
-healthStatusAggregationPolicy: string
-healthChecks:
-  - type: string
-networkEndpointGroups:
-  - type: string
-notificationEndpoints:
-  - type: string
-fingerprint: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: selfLink
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: region
+      value: string
+    - name: healthStatusAggregationPolicy
+      value: string
+    - name: healthChecks
+      value:
+        - string
+    - name: networkEndpointGroups
+      value:
+        - string
+    - name: notificationEndpoints
+      value:
+        - string
+    - name: fingerprint
+      value: string
 
 ```
 </TabItem>

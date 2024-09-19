@@ -65,7 +65,7 @@ type,
 updateTime
 FROM google.certificatemanager.dns_authorizations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,17 +106,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-domain: string
-dnsResourceRecord:
-  name: string
-  type: string
-  data: string
-type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: domain
+      value: string
+    - name: dnsResourceRecord
+      value:
+        - name: name
+          value: string
+        - name: type
+          value: string
+        - name: data
+          value: string
+    - name: type
+      value: string
 
 ```
 </TabItem>

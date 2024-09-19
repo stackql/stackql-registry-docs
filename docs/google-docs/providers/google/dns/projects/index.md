@@ -52,5 +52,5 @@ kind,
 number,
 quota
 FROM google.dns.projects
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

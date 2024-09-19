@@ -64,5 +64,5 @@ error,
 metadata,
 response
 FROM google.policysimulator.operations
-WHERE  = '{{  }}'; 
+;
 ```

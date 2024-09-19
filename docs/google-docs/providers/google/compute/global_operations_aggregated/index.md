@@ -96,5 +96,5 @@ user,
 warnings,
 zone
 FROM google.compute.global_operations_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

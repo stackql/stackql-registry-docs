@@ -82,7 +82,7 @@ status,
 updateTime
 FROM google.aiplatform.notebook_execution_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -135,34 +135,61 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-scheduleResourceName: string
-executionTimeout: string
-notebookRuntimeTemplateResourceName: string
-createTime: string
-labels: object
-directNotebookSource:
-  content: string
-name: string
-displayName: string
-updateTime: string
-serviceAccount: string
-status:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-jobState: string
-gcsNotebookSource:
-  uri: string
-  generation: string
-executionUser: string
-gcsOutputUri: string
-encryptionSpec:
-  kmsKeyName: string
-dataformRepositorySource:
-  commitSha: string
-  dataformRepositoryResourceName: string
+- name: your_resource_model_name
+  props:
+    - name: scheduleResourceName
+      value: string
+    - name: executionTimeout
+      value: string
+    - name: notebookRuntimeTemplateResourceName
+      value: string
+    - name: createTime
+      value: string
+    - name: labels
+      value: object
+    - name: directNotebookSource
+      value:
+        - name: content
+          value: string
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: updateTime
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: status
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: jobState
+      value: string
+    - name: gcsNotebookSource
+      value:
+        - name: uri
+          value: string
+        - name: generation
+          value: string
+    - name: executionUser
+      value: string
+    - name: gcsOutputUri
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: dataformRepositorySource
+      value:
+        - name: commitSha
+          value: string
+        - name: dataformRepositoryResourceName
+          value: string
 
 ```
 </TabItem>

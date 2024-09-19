@@ -58,7 +58,7 @@ metadata,
 response
 FROM google.apigeeregistry.operations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example

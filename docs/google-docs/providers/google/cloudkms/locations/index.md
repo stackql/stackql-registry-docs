@@ -56,5 +56,5 @@ labels,
 locationId,
 metadata
 FROM google.cloudkms.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

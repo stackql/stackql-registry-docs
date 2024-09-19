@@ -73,18 +73,24 @@ SELECT
 '{{ type }}',
 '{{ placeIds }}',
 '{{ addTime }}',
-true|false
+{{ allowMissing }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-type: string
-placeIds:
-  - type: string
-addTime: string
-allowMissing: boolean
+- name: your_resource_model_name
+  props:
+    - name: type
+      value: string
+    - name: placeIds
+      value:
+        - string
+    - name: addTime
+      value: string
+    - name: allowMissing
+      value: boolean
 
 ```
 </TabItem>

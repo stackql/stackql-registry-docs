@@ -133,7 +133,7 @@ vpcAccessConnector,
 zones
 FROM google.appengine.versions
 WHERE appsId = '{{ appsId }}'
-AND servicesId = '{{ servicesId }}'; 
+AND servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -204,10 +204,10 @@ SELECT
 '{{ resources }}',
 '{{ runtime }}',
 '{{ runtimeChannel }}',
-true|false,
-true|false,
+{{ threadsafe }},
+{{ vm }},
 '{{ flexibleRuntimeSettings }}',
-true|false,
+{{ appEngineApis }},
 '{{ betaSettings }}',
 '{{ env }}',
 '{{ servingStatus }}',
@@ -236,165 +236,319 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-id: string
-automaticScaling:
-  coolDownPeriod: string
-  cpuUtilization:
-    aggregationWindowLength: string
-    targetUtilization: number
-  maxConcurrentRequests: integer
-  maxIdleInstances: integer
-  maxTotalInstances: integer
-  maxPendingLatency: string
-  minIdleInstances: integer
-  minTotalInstances: integer
-  minPendingLatency: string
-  requestUtilization:
-    targetRequestCountPerSecond: integer
-    targetConcurrentRequests: integer
-  diskUtilization:
-    targetWriteBytesPerSecond: integer
-    targetWriteOpsPerSecond: integer
-    targetReadBytesPerSecond: integer
-    targetReadOpsPerSecond: integer
-  networkUtilization:
-    targetSentBytesPerSecond: integer
-    targetSentPacketsPerSecond: integer
-    targetReceivedBytesPerSecond: integer
-    targetReceivedPacketsPerSecond: integer
-  standardSchedulerSettings:
-    targetCpuUtilization: number
-    targetThroughputUtilization: number
-    minInstances: integer
-    maxInstances: integer
-basicScaling:
-  idleTimeout: string
-  maxInstances: integer
-manualScaling:
-  instances: integer
-inboundServices:
-  - type: string
-    enumDescriptions: string
-    enum: string
-instanceClass: string
-network:
-  forwardedPorts:
-    - type: string
-  instanceTag: string
-  name: string
-  subnetworkName: string
-  sessionAffinity: boolean
-  instanceIpMode: string
-zones:
-  - type: string
-resources:
-  cpu: number
-  diskGb: number
-  memoryGb: number
-  volumes:
-    - name: string
-      volumeType: string
-      sizeGb: number
-  kmsKeyReference: string
-runtime: string
-runtimeChannel: string
-threadsafe: boolean
-vm: boolean
-flexibleRuntimeSettings:
-  operatingSystem: string
-  runtimeVersion: string
-appEngineApis: boolean
-betaSettings: object
-env: string
-servingStatus: string
-createdBy: string
-createTime: string
-diskUsageBytes: string
-runtimeApiVersion: string
-runtimeMainExecutablePath: string
-serviceAccount: string
-handlers:
-  - urlRegex: string
-    staticFiles:
-      path: string
-      uploadPathRegex: string
-      httpHeaders: object
-      mimeType: string
-      expiration: string
-      requireMatchingFile: boolean
-      applicationReadable: boolean
-    script:
-      scriptPath: string
-    apiEndpoint:
-      scriptPath: string
-    securityLevel: string
-    login: string
-    authFailAction: string
-    redirectHttpResponseCode: string
-errorHandlers:
-  - errorCode: string
-    staticFile: string
-    mimeType: string
-libraries:
-  - name: string
-    version: string
-apiConfig:
-  authFailAction: string
-  login: string
-  script: string
-  securityLevel: string
-  url: string
-envVariables: object
-buildEnvVariables: object
-defaultExpiration: string
-healthCheck:
-  disableHealthCheck: boolean
-  host: string
-  healthyThreshold: integer
-  unhealthyThreshold: integer
-  restartThreshold: integer
-  checkInterval: string
-  timeout: string
-readinessCheck:
-  path: string
-  host: string
-  failureThreshold: integer
-  successThreshold: integer
-  checkInterval: string
-  timeout: string
-  appStartTimeout: string
-livenessCheck:
-  path: string
-  host: string
-  failureThreshold: integer
-  successThreshold: integer
-  checkInterval: string
-  timeout: string
-  initialDelay: string
-nobuildFilesRegex: string
-deployment:
-  files: object
-  container:
-    image: string
-  zip:
-    sourceUrl: string
-    filesCount: integer
-  cloudBuildOptions:
-    appYamlPath: string
-    cloudBuildTimeout: string
-versionUrl: string
-endpointsApiService:
-  name: string
-  configId: string
-  rolloutStrategy: string
-  disableTraceSampling: boolean
-entrypoint:
-  shell: string
-vpcAccessConnector:
-  name: string
-  egressSetting: string
-generatedCustomerMetadata: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: automaticScaling
+      value:
+        - name: coolDownPeriod
+          value: string
+        - name: cpuUtilization
+          value:
+            - name: aggregationWindowLength
+              value: string
+            - name: targetUtilization
+              value: number
+        - name: maxConcurrentRequests
+          value: integer
+        - name: maxIdleInstances
+          value: integer
+        - name: maxTotalInstances
+          value: integer
+        - name: maxPendingLatency
+          value: string
+        - name: minIdleInstances
+          value: integer
+        - name: minTotalInstances
+          value: integer
+        - name: minPendingLatency
+          value: string
+        - name: requestUtilization
+          value:
+            - name: targetRequestCountPerSecond
+              value: integer
+            - name: targetConcurrentRequests
+              value: integer
+        - name: diskUtilization
+          value:
+            - name: targetWriteBytesPerSecond
+              value: integer
+            - name: targetWriteOpsPerSecond
+              value: integer
+            - name: targetReadBytesPerSecond
+              value: integer
+            - name: targetReadOpsPerSecond
+              value: integer
+        - name: networkUtilization
+          value:
+            - name: targetSentBytesPerSecond
+              value: integer
+            - name: targetSentPacketsPerSecond
+              value: integer
+            - name: targetReceivedBytesPerSecond
+              value: integer
+            - name: targetReceivedPacketsPerSecond
+              value: integer
+        - name: standardSchedulerSettings
+          value:
+            - name: targetCpuUtilization
+              value: number
+            - name: targetThroughputUtilization
+              value: number
+            - name: minInstances
+              value: integer
+            - name: maxInstances
+              value: integer
+    - name: basicScaling
+      value:
+        - name: idleTimeout
+          value: string
+        - name: maxInstances
+          value: integer
+    - name: manualScaling
+      value:
+        - name: instances
+          value: integer
+    - name: inboundServices
+      value:
+        - string
+    - name: instanceClass
+      value: string
+    - name: network
+      value:
+        - name: forwardedPorts
+          value:
+            - string
+        - name: instanceTag
+          value: string
+        - name: name
+          value: string
+        - name: subnetworkName
+          value: string
+        - name: sessionAffinity
+          value: boolean
+        - name: instanceIpMode
+          value: string
+    - name: zones
+      value:
+        - string
+    - name: resources
+      value:
+        - name: cpu
+          value: number
+        - name: diskGb
+          value: number
+        - name: memoryGb
+          value: number
+        - name: volumes
+          value:
+            - - name: name
+                value: string
+              - name: volumeType
+                value: string
+              - name: sizeGb
+                value: number
+        - name: kmsKeyReference
+          value: string
+    - name: runtime
+      value: string
+    - name: runtimeChannel
+      value: string
+    - name: threadsafe
+      value: boolean
+    - name: vm
+      value: boolean
+    - name: flexibleRuntimeSettings
+      value:
+        - name: operatingSystem
+          value: string
+        - name: runtimeVersion
+          value: string
+    - name: appEngineApis
+      value: boolean
+    - name: betaSettings
+      value: object
+    - name: env
+      value: string
+    - name: servingStatus
+      value: string
+    - name: createdBy
+      value: string
+    - name: createTime
+      value: string
+    - name: diskUsageBytes
+      value: string
+    - name: runtimeApiVersion
+      value: string
+    - name: runtimeMainExecutablePath
+      value: string
+    - name: serviceAccount
+      value: string
+    - name: handlers
+      value:
+        - - name: urlRegex
+            value: string
+          - name: staticFiles
+            value:
+              - name: path
+                value: string
+              - name: uploadPathRegex
+                value: string
+              - name: httpHeaders
+                value: object
+              - name: mimeType
+                value: string
+              - name: expiration
+                value: string
+              - name: requireMatchingFile
+                value: boolean
+              - name: applicationReadable
+                value: boolean
+          - name: script
+            value:
+              - name: scriptPath
+                value: string
+          - name: apiEndpoint
+            value:
+              - name: scriptPath
+                value: string
+          - name: securityLevel
+            value: string
+          - name: login
+            value: string
+          - name: authFailAction
+            value: string
+          - name: redirectHttpResponseCode
+            value: string
+    - name: errorHandlers
+      value:
+        - - name: errorCode
+            value: string
+          - name: staticFile
+            value: string
+          - name: mimeType
+            value: string
+    - name: libraries
+      value:
+        - - name: name
+            value: string
+          - name: version
+            value: string
+    - name: apiConfig
+      value:
+        - name: authFailAction
+          value: string
+        - name: login
+          value: string
+        - name: script
+          value: string
+        - name: securityLevel
+          value: string
+        - name: url
+          value: string
+    - name: envVariables
+      value: object
+    - name: buildEnvVariables
+      value: object
+    - name: defaultExpiration
+      value: string
+    - name: healthCheck
+      value:
+        - name: disableHealthCheck
+          value: boolean
+        - name: host
+          value: string
+        - name: healthyThreshold
+          value: integer
+        - name: unhealthyThreshold
+          value: integer
+        - name: restartThreshold
+          value: integer
+        - name: checkInterval
+          value: string
+        - name: timeout
+          value: string
+    - name: readinessCheck
+      value:
+        - name: path
+          value: string
+        - name: host
+          value: string
+        - name: failureThreshold
+          value: integer
+        - name: successThreshold
+          value: integer
+        - name: checkInterval
+          value: string
+        - name: timeout
+          value: string
+        - name: appStartTimeout
+          value: string
+    - name: livenessCheck
+      value:
+        - name: path
+          value: string
+        - name: host
+          value: string
+        - name: failureThreshold
+          value: integer
+        - name: successThreshold
+          value: integer
+        - name: checkInterval
+          value: string
+        - name: timeout
+          value: string
+        - name: initialDelay
+          value: string
+    - name: nobuildFilesRegex
+      value: string
+    - name: deployment
+      value:
+        - name: files
+          value: object
+        - name: container
+          value:
+            - name: image
+              value: string
+        - name: zip
+          value:
+            - name: sourceUrl
+              value: string
+            - name: filesCount
+              value: integer
+        - name: cloudBuildOptions
+          value:
+            - name: appYamlPath
+              value: string
+            - name: cloudBuildTimeout
+              value: string
+    - name: versionUrl
+      value: string
+    - name: endpointsApiService
+      value:
+        - name: name
+          value: string
+        - name: configId
+          value: string
+        - name: rolloutStrategy
+          value: string
+        - name: disableTraceSampling
+          value: boolean
+    - name: entrypoint
+      value:
+        - name: shell
+          value: string
+    - name: vpcAccessConnector
+      value:
+        - name: name
+          value: string
+        - name: egressSetting
+          value: string
+    - name: generatedCustomerMetadata
+      value: object
 
 ```
 </TabItem>

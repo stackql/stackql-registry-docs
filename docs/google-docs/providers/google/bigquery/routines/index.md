@@ -85,7 +85,7 @@ sparkOptions,
 strictMode
 FROM google.bigquery.routines
 WHERE +datasetId = '{{ +datasetId }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```
 
 ## `INSERT` example
@@ -139,63 +139,110 @@ SELECT
 '{{ routineType }}',
 '{{ securityMode }}',
 '{{ sparkOptions }}',
-true|false
+{{ strictMode }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-arguments:
-  - argumentKind: string
-    dataType:
-      structType:
-        fields:
-          - name: string
-      typeKind: string
-    isAggregate: boolean
-    mode: string
-    name: string
-creationTime: string
-dataGovernanceType: string
-definitionBody: string
-description: string
-determinismLevel: string
-etag: string
-importedLibraries:
-  - type: string
-language: string
-lastModifiedTime: string
-remoteFunctionOptions:
-  connection: string
-  endpoint: string
-  maxBatchingRows: string
-  userDefinedContext: object
-returnTableType:
-  columns:
-    - name: string
-routineReference:
-  datasetId: string
-  projectId: string
-  routineId: string
-routineType: string
-securityMode: string
-sparkOptions:
-  archiveUris:
-    - type: string
-  connection: string
-  containerImage: string
-  fileUris:
-    - type: string
-  jarUris:
-    - type: string
-  mainClass: string
-  mainFileUri: string
-  properties: object
-  pyFileUris:
-    - type: string
-  runtimeVersion: string
-strictMode: boolean
+- name: your_resource_model_name
+  props:
+    - name: arguments
+      value:
+        - - name: argumentKind
+            value: string
+          - name: dataType
+            value:
+              - name: structType
+                value:
+                  - name: fields
+                    value:
+                      - - name: name
+                          value: string
+              - name: typeKind
+                value: string
+          - name: isAggregate
+            value: boolean
+          - name: mode
+            value: string
+          - name: name
+            value: string
+    - name: creationTime
+      value: string
+    - name: dataGovernanceType
+      value: string
+    - name: definitionBody
+      value: string
+    - name: description
+      value: string
+    - name: determinismLevel
+      value: string
+    - name: etag
+      value: string
+    - name: importedLibraries
+      value:
+        - string
+    - name: language
+      value: string
+    - name: lastModifiedTime
+      value: string
+    - name: remoteFunctionOptions
+      value:
+        - name: connection
+          value: string
+        - name: endpoint
+          value: string
+        - name: maxBatchingRows
+          value: string
+        - name: userDefinedContext
+          value: object
+    - name: returnTableType
+      value:
+        - name: columns
+          value:
+            - - name: name
+                value: string
+    - name: routineReference
+      value:
+        - name: datasetId
+          value: string
+        - name: projectId
+          value: string
+        - name: routineId
+          value: string
+    - name: routineType
+      value: string
+    - name: securityMode
+      value: string
+    - name: sparkOptions
+      value:
+        - name: archiveUris
+          value:
+            - string
+        - name: connection
+          value: string
+        - name: containerImage
+          value: string
+        - name: fileUris
+          value:
+            - string
+        - name: jarUris
+          value:
+            - string
+        - name: mainClass
+          value: string
+        - name: mainFileUri
+          value: string
+        - name: properties
+          value: object
+        - name: pyFileUris
+          value:
+            - string
+        - name: runtimeVersion
+          value: string
+    - name: strictMode
+      value: boolean
 
 ```
 </TabItem>

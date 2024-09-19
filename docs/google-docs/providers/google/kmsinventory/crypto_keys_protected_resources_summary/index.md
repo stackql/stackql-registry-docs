@@ -59,5 +59,5 @@ FROM google.kmsinventory.crypto_keys_protected_resources_summary
 WHERE cryptoKeysId = '{{ cryptoKeysId }}'
 AND keyRingsId = '{{ keyRingsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

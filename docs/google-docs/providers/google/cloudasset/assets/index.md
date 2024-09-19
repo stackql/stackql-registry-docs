@@ -71,5 +71,5 @@ servicePerimeter,
 updateTime
 FROM google.cloudasset.assets
 WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+AND parentType = '{{ parentType }}';
 ```

@@ -69,5 +69,5 @@ status,
 supportsPzs,
 zones
 FROM google.compute.regions
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

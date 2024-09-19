@@ -55,5 +55,5 @@ FROM google.alloydb.instances_connection_info
 WHERE clustersId = '{{ clustersId }}'
 AND instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

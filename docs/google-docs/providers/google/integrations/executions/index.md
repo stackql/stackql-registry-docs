@@ -83,5 +83,5 @@ updateTime
 FROM google.integrations.executions
 WHERE integrationsId = '{{ integrationsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

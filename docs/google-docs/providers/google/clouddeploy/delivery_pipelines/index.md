@@ -72,7 +72,7 @@ uid,
 updateTime
 FROM google.clouddeploy.delivery_pipelines
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -110,86 +110,150 @@ SELECT
 '{{ labels }}',
 '{{ serialPipeline }}',
 '{{ etag }}',
-true|false
+{{ suspended }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-description: string
-annotations: object
-labels: object
-createTime: string
-updateTime: string
-serialPipeline:
-  stages:
-    - targetId: string
-      profiles:
-        - type: string
-      strategy:
-        standard:
-          verify: boolean
-          predeploy:
-            actions:
-              - type: string
-          postdeploy:
-            actions:
-              - type: string
-        canary:
-          runtimeConfig:
-            kubernetes:
-              gatewayServiceMesh:
-                httpRoute: string
-                service: string
-                deployment: string
-                routeUpdateWaitTime: string
-                stableCutbackDuration: string
-                podSelectorLabel: string
-              serviceNetworking:
-                service: string
-                deployment: string
-                disablePodOverprovisioning: boolean
-                podSelectorLabel: string
-            cloudRun:
-              automaticTrafficControl: boolean
-              canaryRevisionTags:
-                - type: string
-              priorRevisionTags:
-                - type: string
-              stableRevisionTags:
-                - type: string
-          canaryDeployment:
-            percentages:
-              - type: string
-                format: string
-            verify: boolean
-          customCanaryDeployment:
-            phaseConfigs:
-              - phaseId: string
-                percentage: integer
-                profiles:
-                  - type: string
-                verify: boolean
-      deployParameters:
-        - values: object
-          matchTargetLabels: object
-condition:
-  pipelineReadyCondition:
-    status: boolean
-    updateTime: string
-  targetsPresentCondition:
-    status: boolean
-    missingTargets:
-      - type: string
-    updateTime: string
-  targetsTypeCondition:
-    status: boolean
-    errorDetails: string
-etag: string
-suspended: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: serialPipeline
+      value:
+        - name: stages
+          value:
+            - - name: targetId
+                value: string
+              - name: profiles
+                value:
+                  - string
+              - name: strategy
+                value:
+                  - name: standard
+                    value:
+                      - name: verify
+                        value: boolean
+                      - name: predeploy
+                        value:
+                          - name: actions
+                            value:
+                              - string
+                      - name: postdeploy
+                        value:
+                          - name: actions
+                            value:
+                              - string
+                  - name: canary
+                    value:
+                      - name: runtimeConfig
+                        value:
+                          - name: kubernetes
+                            value:
+                              - name: gatewayServiceMesh
+                                value:
+                                  - name: httpRoute
+                                    value: string
+                                  - name: service
+                                    value: string
+                                  - name: deployment
+                                    value: string
+                                  - name: routeUpdateWaitTime
+                                    value: string
+                                  - name: stableCutbackDuration
+                                    value: string
+                                  - name: podSelectorLabel
+                                    value: string
+                              - name: serviceNetworking
+                                value:
+                                  - name: service
+                                    value: string
+                                  - name: deployment
+                                    value: string
+                                  - name: disablePodOverprovisioning
+                                    value: boolean
+                                  - name: podSelectorLabel
+                                    value: string
+                          - name: cloudRun
+                            value:
+                              - name: automaticTrafficControl
+                                value: boolean
+                              - name: canaryRevisionTags
+                                value:
+                                  - string
+                              - name: priorRevisionTags
+                                value:
+                                  - string
+                              - name: stableRevisionTags
+                                value:
+                                  - string
+                      - name: canaryDeployment
+                        value:
+                          - name: percentages
+                            value:
+                              - integer
+                          - name: verify
+                            value: boolean
+                      - name: customCanaryDeployment
+                        value:
+                          - name: phaseConfigs
+                            value:
+                              - - name: phaseId
+                                  value: string
+                                - name: percentage
+                                  value: integer
+                                - name: profiles
+                                  value:
+                                    - string
+                                - name: verify
+                                  value: boolean
+              - name: deployParameters
+                value:
+                  - - name: values
+                      value: object
+                    - name: matchTargetLabels
+                      value: object
+    - name: condition
+      value:
+        - name: pipelineReadyCondition
+          value:
+            - name: status
+              value: boolean
+            - name: updateTime
+              value: string
+        - name: targetsPresentCondition
+          value:
+            - name: status
+              value: boolean
+            - name: missingTargets
+              value:
+                - string
+            - name: updateTime
+              value: string
+        - name: targetsTypeCondition
+          value:
+            - name: status
+              value: boolean
+            - name: errorDetails
+              value: string
+    - name: etag
+      value: string
+    - name: suspended
+      value: boolean
 
 ```
 </TabItem>

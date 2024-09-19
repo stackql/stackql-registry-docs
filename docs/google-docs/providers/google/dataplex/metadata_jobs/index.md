@@ -66,7 +66,7 @@ uid,
 updateTime
 FROM google.dataplex.metadata_jobs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -103,37 +103,67 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-createTime: string
-updateTime: string
-labels: object
-type: string
-importSpec:
-  sourceStorageUri: string
-  sourceCreateTime: string
-  scope:
-    entryGroups:
-      - type: string
-    entryTypes:
-      - type: string
-    aspectTypes:
-      - type: string
-  entrySyncMode: string
-  aspectSyncMode: string
-  logLevel: string
-importResult:
-  deletedEntries: string
-  updatedEntries: string
-  createdEntries: string
-  unchangedEntries: string
-  recreatedEntries: string
-  updateTime: string
-status:
-  state: string
-  message: string
-  completionPercent: integer
-  updateTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: type
+      value: string
+    - name: importSpec
+      value:
+        - name: sourceStorageUri
+          value: string
+        - name: sourceCreateTime
+          value: string
+        - name: scope
+          value:
+            - name: entryGroups
+              value:
+                - string
+            - name: entryTypes
+              value:
+                - string
+            - name: aspectTypes
+              value:
+                - string
+        - name: entrySyncMode
+          value: string
+        - name: aspectSyncMode
+          value: string
+        - name: logLevel
+          value: string
+    - name: importResult
+      value:
+        - name: deletedEntries
+          value: string
+        - name: updatedEntries
+          value: string
+        - name: createdEntries
+          value: string
+        - name: unchangedEntries
+          value: string
+        - name: recreatedEntries
+          value: string
+        - name: updateTime
+          value: string
+    - name: status
+      value:
+        - name: state
+          value: string
+        - name: message
+          value: string
+        - name: completionPercent
+          value: integer
+        - name: updateTime
+          value: string
 
 ```
 </TabItem>

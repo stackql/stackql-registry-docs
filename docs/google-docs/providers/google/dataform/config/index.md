@@ -50,7 +50,7 @@ name,
 defaultKmsKeyName
 FROM google.dataform.config
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `UPDATE` example

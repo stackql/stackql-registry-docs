@@ -60,5 +60,5 @@ error,
 metadata,
 response
 FROM google.retail.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

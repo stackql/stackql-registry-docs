@@ -78,7 +78,7 @@ tcpCheck,
 timeout,
 userLabels
 FROM google.monitoring.uptime_check_configs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -128,7 +128,7 @@ SELECT
 '{{ contentMatchers }}',
 '{{ checkerType }}',
 '{{ selectedRegions }}',
-true|false,
+{{ isInternal }},
 '{{ internalCheckers }}',
 '{{ userLabels }}'
 ;
@@ -137,62 +137,115 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-monitoredResource:
-  type: string
-  labels: object
-resourceGroup:
-  groupId: string
-  resourceType: string
-syntheticMonitor:
-  cloudFunctionV2:
-    name: string
-httpCheck:
-  requestMethod: string
-  useSsl: boolean
-  path: string
-  port: integer
-  authInfo:
-    username: string
-    password: string
-  maskHeaders: boolean
-  headers: object
-  contentType: string
-  customContentType: string
-  validateSsl: boolean
-  body: string
-  acceptedResponseStatusCodes:
-    - statusValue: integer
-      statusClass: string
-  pingConfig:
-    pingsCount: integer
-  serviceAgentAuthentication:
-    type: string
-tcpCheck:
-  port: integer
-period: string
-timeout: string
-contentMatchers:
-  - content: string
-    matcher: string
-    jsonPathMatcher:
-      jsonPath: string
-      jsonMatcher: string
-checkerType: string
-selectedRegions:
-  - type: string
-    enumDescriptions: string
-    enum: string
-isInternal: boolean
-internalCheckers:
-  - name: string
-    displayName: string
-    network: string
-    gcpZone: string
-    peerProjectId: string
-    state: string
-userLabels: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: monitoredResource
+      value:
+        - name: type
+          value: string
+        - name: labels
+          value: object
+    - name: resourceGroup
+      value:
+        - name: groupId
+          value: string
+        - name: resourceType
+          value: string
+    - name: syntheticMonitor
+      value:
+        - name: cloudFunctionV2
+          value:
+            - name: name
+              value: string
+    - name: httpCheck
+      value:
+        - name: requestMethod
+          value: string
+        - name: useSsl
+          value: boolean
+        - name: path
+          value: string
+        - name: port
+          value: integer
+        - name: authInfo
+          value:
+            - name: username
+              value: string
+            - name: password
+              value: string
+        - name: maskHeaders
+          value: boolean
+        - name: headers
+          value: object
+        - name: contentType
+          value: string
+        - name: customContentType
+          value: string
+        - name: validateSsl
+          value: boolean
+        - name: body
+          value: string
+        - name: acceptedResponseStatusCodes
+          value:
+            - - name: statusValue
+                value: integer
+              - name: statusClass
+                value: string
+        - name: pingConfig
+          value:
+            - name: pingsCount
+              value: integer
+        - name: serviceAgentAuthentication
+          value:
+            - name: type
+              value: string
+    - name: tcpCheck
+      value:
+        - name: port
+          value: integer
+    - name: period
+      value: string
+    - name: timeout
+      value: string
+    - name: contentMatchers
+      value:
+        - - name: content
+            value: string
+          - name: matcher
+            value: string
+          - name: jsonPathMatcher
+            value:
+              - name: jsonPath
+                value: string
+              - name: jsonMatcher
+                value: string
+    - name: checkerType
+      value: string
+    - name: selectedRegions
+      value:
+        - string
+    - name: isInternal
+      value: boolean
+    - name: internalCheckers
+      value:
+        - - name: name
+            value: string
+          - name: displayName
+            value: string
+          - name: network
+            value: string
+          - name: gcpZone
+            value: string
+          - name: peerProjectId
+            value: string
+          - name: state
+            value: string
+    - name: userLabels
+      value: object
 
 ```
 </TabItem>

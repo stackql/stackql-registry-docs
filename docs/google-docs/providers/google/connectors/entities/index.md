@@ -55,7 +55,7 @@ FROM google.connectors.entities
 WHERE connectionsId = '{{ connectionsId }}'
 AND entityTypesId = '{{ entityTypesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -92,8 +92,12 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-fields: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: fields
+      value: object
 
 ```
 </TabItem>

@@ -56,5 +56,5 @@ labels,
 launchStage,
 type
 FROM google.logging.monitored_resource_descriptors
-WHERE  = '{{  }}'; 
+;
 ```

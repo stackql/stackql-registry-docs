@@ -83,7 +83,7 @@ trainingTaskMetadata,
 updateTime
 FROM google.aiplatform.training_pipelines
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -132,176 +132,327 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-state: string
-labels: object
-modelId: string
-updateTime: string
-error:
-  code: integer
-  message: string
-  details:
-    - additionalProperties: any
-      type: string
-createTime: string
-trainingTaskMetadata: any
-modelToUpload:
-  pipelineJob: string
-  explanationSpec:
-    metadata:
-      latentSpaceSource: string
-      featureAttributionsSchemaUri: string
-      outputs: object
-      inputs: object
-    parameters:
-      integratedGradientsAttribution:
-        blurBaselineConfig:
-          maxBlurSigma: number
-        smoothGradConfig:
-          featureNoiseSigma:
-            noiseSigma:
-              - name: string
-                sigma: number
-          noisySampleCount: integer
-          noiseSigma: number
-        stepCount: integer
-      topK: integer
-      outputIndices:
-        - type: string
-      sampledShapleyAttribution:
-        pathCount: integer
-      xraiAttribution:
-        stepCount: integer
-      examples:
-        nearestNeighborSearchConfig: any
-        neighborCount: integer
-        exampleGcsSource:
-          gcsSource:
-            uris:
-              - type: string
-          dataFormat: string
-        presets:
-          modality: string
-          query: string
-  supportedOutputStorageFormats:
-    - type: string
-  name: string
-  versionDescription: string
-  encryptionSpec:
-    kmsKeyName: string
-  originalModelInfo:
-    model: string
-  satisfiesPzs: boolean
-  supportedInputStorageFormats:
-    - type: string
-  artifactUri: string
-  metadataArtifact: string
-  predictSchemata:
-    instanceSchemaUri: string
-    predictionSchemaUri: string
-    parametersSchemaUri: string
-  createTime: string
-  etag: string
-  containerSpec:
-    imageUri: string
-    healthRoute: string
-    env:
-      - value: string
-        name: string
-    ports:
-      - containerPort: integer
-    args:
-      - type: string
-    command:
-      - type: string
-    deploymentTimeout: string
-    startupProbe:
-      exec:
-        command:
-          - type: string
-      timeoutSeconds: integer
-      periodSeconds: integer
-    grpcPorts:
-      - containerPort: integer
-    sharedMemorySizeMb: string
-    predictRoute: string
-  baseModelSource:
-    genieSource:
-      baseModelUri: string
-    modelGardenSource:
-      publicModelName: string
-  labels: object
-  versionUpdateTime: string
-  satisfiesPzi: boolean
-  deployedModels:
-    - endpoint: string
-      deployedModelId: string
-  dataStats:
-    validationDataItemsCount: string
-    testDataItemsCount: string
-    validationAnnotationsCount: string
-    testAnnotationsCount: string
-    trainingDataItemsCount: string
-    trainingAnnotationsCount: string
-  description: string
-  versionAliases:
-    - type: string
-  metadataSchemaUri: string
-  metadata: any
-  supportedDeploymentResourcesTypes:
-    - enumDescriptions: string
-      enum: string
-      type: string
-  displayName: string
-  versionCreateTime: string
-  versionId: string
-  supportedExportFormats:
-    - exportableContents:
-        - enumDescriptions: string
-          enum: string
-          type: string
-      id: string
-  updateTime: string
-  trainingPipeline: string
-  modelSourceInfo:
-    sourceType: string
-    copy: boolean
-name: string
-inputDataConfig:
-  stratifiedSplit:
-    testFraction: number
-    key: string
-    validationFraction: number
-    trainingFraction: number
-  fractionSplit:
-    trainingFraction: number
-    validationFraction: number
-    testFraction: number
-  datasetId: string
-  savedQueryId: string
-  filterSplit:
-    trainingFilter: string
-    validationFilter: string
-    testFilter: string
-  annotationSchemaUri: string
-  persistMlUseAssignment: boolean
-  gcsDestination:
-    outputUriPrefix: string
-  bigqueryDestination:
-    outputUri: string
-  predefinedSplit:
-    key: string
-  timestampSplit:
-    trainingFraction: number
-    key: string
-    validationFraction: number
-    testFraction: number
-  annotationsFilter: string
-startTime: string
-trainingTaskDefinition: string
-endTime: string
-parentModel: string
-trainingTaskInputs: any
+- name: your_resource_model_name
+  props:
+    - name: displayName
+      value: string
+    - name: state
+      value: string
+    - name: labels
+      value: object
+    - name: modelId
+      value: string
+    - name: updateTime
+      value: string
+    - name: error
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: createTime
+      value: string
+    - name: trainingTaskMetadata
+      value: any
+    - name: modelToUpload
+      value:
+        - name: pipelineJob
+          value: string
+        - name: explanationSpec
+          value:
+            - name: metadata
+              value:
+                - name: latentSpaceSource
+                  value: string
+                - name: featureAttributionsSchemaUri
+                  value: string
+                - name: outputs
+                  value: object
+                - name: inputs
+                  value: object
+            - name: parameters
+              value:
+                - name: integratedGradientsAttribution
+                  value:
+                    - name: blurBaselineConfig
+                      value:
+                        - name: maxBlurSigma
+                          value: number
+                    - name: smoothGradConfig
+                      value:
+                        - name: featureNoiseSigma
+                          value:
+                            - name: noiseSigma
+                              value:
+                                - - name: name
+                                    value: string
+                                  - name: sigma
+                                    value: number
+                        - name: noisySampleCount
+                          value: integer
+                        - name: noiseSigma
+                          value: number
+                    - name: stepCount
+                      value: integer
+                - name: topK
+                  value: integer
+                - name: outputIndices
+                  value:
+                    - any
+                - name: sampledShapleyAttribution
+                  value:
+                    - name: pathCount
+                      value: integer
+                - name: xraiAttribution
+                  value:
+                    - name: stepCount
+                      value: integer
+                - name: examples
+                  value:
+                    - name: nearestNeighborSearchConfig
+                      value: any
+                    - name: neighborCount
+                      value: integer
+                    - name: exampleGcsSource
+                      value:
+                        - name: gcsSource
+                          value:
+                            - name: uris
+                              value:
+                                - string
+                        - name: dataFormat
+                          value: string
+                    - name: presets
+                      value:
+                        - name: modality
+                          value: string
+                        - name: query
+                          value: string
+        - name: supportedOutputStorageFormats
+          value:
+            - string
+        - name: name
+          value: string
+        - name: versionDescription
+          value: string
+        - name: encryptionSpec
+          value:
+            - name: kmsKeyName
+              value: string
+        - name: originalModelInfo
+          value:
+            - name: model
+              value: string
+        - name: satisfiesPzs
+          value: boolean
+        - name: supportedInputStorageFormats
+          value:
+            - string
+        - name: artifactUri
+          value: string
+        - name: metadataArtifact
+          value: string
+        - name: predictSchemata
+          value:
+            - name: instanceSchemaUri
+              value: string
+            - name: predictionSchemaUri
+              value: string
+            - name: parametersSchemaUri
+              value: string
+        - name: createTime
+          value: string
+        - name: etag
+          value: string
+        - name: containerSpec
+          value:
+            - name: imageUri
+              value: string
+            - name: healthRoute
+              value: string
+            - name: env
+              value:
+                - - name: value
+                    value: string
+                  - name: name
+                    value: string
+            - name: ports
+              value:
+                - - name: containerPort
+                    value: integer
+            - name: args
+              value:
+                - string
+            - name: command
+              value:
+                - string
+            - name: deploymentTimeout
+              value: string
+            - name: startupProbe
+              value:
+                - name: exec
+                  value:
+                    - name: command
+                      value:
+                        - string
+                - name: timeoutSeconds
+                  value: integer
+                - name: periodSeconds
+                  value: integer
+            - name: grpcPorts
+              value:
+                - - name: containerPort
+                    value: integer
+            - name: sharedMemorySizeMb
+              value: string
+            - name: predictRoute
+              value: string
+        - name: baseModelSource
+          value:
+            - name: genieSource
+              value:
+                - name: baseModelUri
+                  value: string
+            - name: modelGardenSource
+              value:
+                - name: publicModelName
+                  value: string
+        - name: labels
+          value: object
+        - name: versionUpdateTime
+          value: string
+        - name: satisfiesPzi
+          value: boolean
+        - name: deployedModels
+          value:
+            - - name: endpoint
+                value: string
+              - name: deployedModelId
+                value: string
+        - name: dataStats
+          value:
+            - name: validationDataItemsCount
+              value: string
+            - name: testDataItemsCount
+              value: string
+            - name: validationAnnotationsCount
+              value: string
+            - name: testAnnotationsCount
+              value: string
+            - name: trainingDataItemsCount
+              value: string
+            - name: trainingAnnotationsCount
+              value: string
+        - name: description
+          value: string
+        - name: versionAliases
+          value:
+            - string
+        - name: metadataSchemaUri
+          value: string
+        - name: metadata
+          value: any
+        - name: supportedDeploymentResourcesTypes
+          value:
+            - string
+        - name: displayName
+          value: string
+        - name: versionCreateTime
+          value: string
+        - name: versionId
+          value: string
+        - name: supportedExportFormats
+          value:
+            - - name: exportableContents
+                value:
+                  - string
+              - name: id
+                value: string
+        - name: updateTime
+          value: string
+        - name: trainingPipeline
+          value: string
+        - name: modelSourceInfo
+          value:
+            - name: sourceType
+              value: string
+            - name: copy
+              value: boolean
+    - name: name
+      value: string
+    - name: inputDataConfig
+      value:
+        - name: stratifiedSplit
+          value:
+            - name: testFraction
+              value: number
+            - name: key
+              value: string
+            - name: validationFraction
+              value: number
+            - name: trainingFraction
+              value: number
+        - name: fractionSplit
+          value:
+            - name: trainingFraction
+              value: number
+            - name: validationFraction
+              value: number
+            - name: testFraction
+              value: number
+        - name: datasetId
+          value: string
+        - name: savedQueryId
+          value: string
+        - name: filterSplit
+          value:
+            - name: trainingFilter
+              value: string
+            - name: validationFilter
+              value: string
+            - name: testFilter
+              value: string
+        - name: annotationSchemaUri
+          value: string
+        - name: persistMlUseAssignment
+          value: boolean
+        - name: gcsDestination
+          value:
+            - name: outputUriPrefix
+              value: string
+        - name: bigqueryDestination
+          value:
+            - name: outputUri
+              value: string
+        - name: predefinedSplit
+          value:
+            - name: key
+              value: string
+        - name: timestampSplit
+          value:
+            - name: trainingFraction
+              value: number
+            - name: key
+              value: string
+            - name: validationFraction
+              value: number
+            - name: testFraction
+              value: number
+        - name: annotationsFilter
+          value: string
+    - name: startTime
+      value: string
+    - name: trainingTaskDefinition
+      value: string
+    - name: endTime
+      value: string
+    - name: parentModel
+      value: string
+    - name: trainingTaskInputs
+      value: any
 
 ```
 </TabItem>

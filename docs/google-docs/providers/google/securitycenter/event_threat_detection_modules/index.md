@@ -70,7 +70,7 @@ lastEditor,
 type,
 updateTime
 FROM google.securitycenter.event_threat_detection_modules
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `INSERT` example
@@ -111,15 +111,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-config: object
-ancestorModule: string
-enablementState: string
-type: string
-displayName: string
-description: string
-updateTime: string
-lastEditor: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: config
+      value: object
+    - name: ancestorModule
+      value: string
+    - name: enablementState
+      value: string
+    - name: type
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: updateTime
+      value: string
+    - name: lastEditor
+      value: string
 
 ```
 </TabItem>

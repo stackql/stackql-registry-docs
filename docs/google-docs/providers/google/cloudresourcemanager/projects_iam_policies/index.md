@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.cloudresourcemanager.projects_iam_policies
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

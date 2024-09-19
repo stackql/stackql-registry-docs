@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.iap.iap_iam_policies
-WHERE v1Id = '{{ v1Id }}'; 
+WHERE v1Id = '{{ v1Id }}';
 ```
 
 ## `REPLACE` example

@@ -48,5 +48,5 @@ SELECT
 metadata,
 policy
 FROM google.contentwarehouse.acl
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

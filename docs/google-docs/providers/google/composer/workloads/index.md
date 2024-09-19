@@ -52,5 +52,5 @@ type
 FROM google.composer.workloads
 WHERE environmentsId = '{{ environmentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

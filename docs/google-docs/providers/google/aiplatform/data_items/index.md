@@ -62,5 +62,5 @@ updateTime
 FROM google.aiplatform.data_items
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

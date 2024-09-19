@@ -54,7 +54,7 @@ role
 FROM google.privateca.ca_pools_iam_policies
 WHERE caPoolsId = '{{ caPoolsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

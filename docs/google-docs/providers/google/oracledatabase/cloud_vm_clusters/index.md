@@ -68,7 +68,7 @@ network,
 properties
 FROM google.oracledatabase.cloud_vm_clusters
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,56 +115,105 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-exadataInfrastructure: string
-displayName: string
-gcpOracleZone: string
-properties:
-  ocid: string
-  licenseType: string
-  giVersion: string
-  timeZone:
-    id: string
-    version: string
-  sshPublicKeys:
-    - type: string
-  nodeCount: integer
-  shape: string
-  ocpuCount: number
-  memorySizeGb: integer
-  dbNodeStorageSizeGb: integer
-  storageSizeGb: integer
-  dataStorageSizeTb: number
-  diskRedundancy: string
-  sparseDiskgroupEnabled: boolean
-  localBackupEnabled: boolean
-  hostnamePrefix: string
-  diagnosticsDataCollectionOptions:
-    diagnosticsEventsEnabled: boolean
-    healthMonitoringEnabled: boolean
-    incidentLogsEnabled: boolean
-  state: string
-  scanListenerPortTcp: integer
-  scanListenerPortTcpSsl: integer
-  domain: string
-  scanDns: string
-  hostname: string
-  cpuCoreCount: integer
-  systemVersion: string
-  scanIpIds:
-    - type: string
-  scanDnsRecordId: string
-  ociUrl: string
-  dbServerOcids:
-    - type: string
-  compartmentId: string
-  dnsListenerIp: string
-  clusterName: string
-labels: object
-createTime: string
-cidr: string
-backupSubnetCidr: string
-network: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: exadataInfrastructure
+      value: string
+    - name: displayName
+      value: string
+    - name: gcpOracleZone
+      value: string
+    - name: properties
+      value:
+        - name: ocid
+          value: string
+        - name: licenseType
+          value: string
+        - name: giVersion
+          value: string
+        - name: timeZone
+          value:
+            - name: id
+              value: string
+            - name: version
+              value: string
+        - name: sshPublicKeys
+          value:
+            - string
+        - name: nodeCount
+          value: integer
+        - name: shape
+          value: string
+        - name: ocpuCount
+          value: number
+        - name: memorySizeGb
+          value: integer
+        - name: dbNodeStorageSizeGb
+          value: integer
+        - name: storageSizeGb
+          value: integer
+        - name: dataStorageSizeTb
+          value: number
+        - name: diskRedundancy
+          value: string
+        - name: sparseDiskgroupEnabled
+          value: boolean
+        - name: localBackupEnabled
+          value: boolean
+        - name: hostnamePrefix
+          value: string
+        - name: diagnosticsDataCollectionOptions
+          value:
+            - name: diagnosticsEventsEnabled
+              value: boolean
+            - name: healthMonitoringEnabled
+              value: boolean
+            - name: incidentLogsEnabled
+              value: boolean
+        - name: state
+          value: string
+        - name: scanListenerPortTcp
+          value: integer
+        - name: scanListenerPortTcpSsl
+          value: integer
+        - name: domain
+          value: string
+        - name: scanDns
+          value: string
+        - name: hostname
+          value: string
+        - name: cpuCoreCount
+          value: integer
+        - name: systemVersion
+          value: string
+        - name: scanIpIds
+          value:
+            - string
+        - name: scanDnsRecordId
+          value: string
+        - name: ociUrl
+          value: string
+        - name: dbServerOcids
+          value:
+            - string
+        - name: compartmentId
+          value: string
+        - name: dnsListenerIp
+          value: string
+        - name: clusterName
+          value: string
+    - name: labels
+      value: object
+    - name: createTime
+      value: string
+    - name: cidr
+      value: string
+    - name: backupSubnetCidr
+      value: string
+    - name: network
+      value: string
 
 ```
 </TabItem>

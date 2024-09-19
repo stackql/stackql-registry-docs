@@ -65,7 +65,7 @@ sni,
 updateTime
 FROM google.networksecurity.client_tls_policies
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,19 +108,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-description: string
-createTime: string
-updateTime: string
-labels: object
-sni: string
-clientCertificate:
-  grpcEndpoint:
-    targetUri: string
-  certificateProviderInstance:
-    pluginInstance: string
-serverValidationCa:
-  - {}
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: sni
+      value: string
+    - name: clientCertificate
+      value:
+        - name: grpcEndpoint
+          value:
+            - name: targetUri
+              value: string
+        - name: certificateProviderInstance
+          value:
+            - name: pluginInstance
+              value: string
+    - name: serverValidationCa
+      value:
+        - []
 
 ```
 </TabItem>

@@ -66,7 +66,7 @@ token,
 updateTime
 FROM google.networkconnectivity.service_connection_tokens
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,15 +107,26 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-network: string
-token: string
-expireTime: string
-etag: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: network
+      value: string
+    - name: token
+      value: string
+    - name: expireTime
+      value: string
+    - name: etag
+      value: string
 
 ```
 </TabItem>

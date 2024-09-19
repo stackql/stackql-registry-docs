@@ -71,7 +71,7 @@ FROM google.apigee.keys
 WHERE appgroupsId = '{{ appgroupsId }}'
 AND appsId = '{{ appsId }}'
 AND keysId = '{{ keysId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -116,20 +116,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-scopes:
-  - type: string
-expiresInSeconds: string
-expiresAt: string
-consumerSecret: string
-consumerKey: string
-attributes:
-  - name: string
-    value: string
-status: string
-apiProducts:
-  - status: string
-    apiproduct: string
-issuedAt: string
+- name: your_resource_model_name
+  props:
+    - name: scopes
+      value:
+        - string
+    - name: expiresInSeconds
+      value: string
+    - name: expiresAt
+      value: string
+    - name: consumerSecret
+      value: string
+    - name: consumerKey
+      value: string
+    - name: attributes
+      value:
+        - - name: name
+            value: string
+          - name: value
+            value: string
+    - name: status
+      value: string
+    - name: apiProducts
+      value:
+        - - name: status
+            value: string
+          - name: apiproduct
+            value: string
+    - name: issuedAt
+      value: string
 
 ```
 </TabItem>

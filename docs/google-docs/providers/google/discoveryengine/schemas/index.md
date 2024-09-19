@@ -61,7 +61,7 @@ structSchema
 FROM google.discoveryengine.schemas
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -100,9 +100,14 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-structSchema: object
-jsonSchema: string
-name: string
+- name: your_resource_model_name
+  props:
+    - name: structSchema
+      value: object
+    - name: jsonSchema
+      value: string
+    - name: name
+      value: string
 
 ```
 </TabItem>

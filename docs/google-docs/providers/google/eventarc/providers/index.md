@@ -52,5 +52,5 @@ displayName,
 eventTypes
 FROM google.eventarc.providers
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

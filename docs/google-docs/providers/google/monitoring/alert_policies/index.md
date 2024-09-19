@@ -74,7 +74,7 @@ severity,
 userLabels,
 validity
 FROM google.monitoring.alert_policies
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,7 +116,7 @@ SELECT
 '{{ userLabels }}',
 '{{ conditions }}',
 '{{ combiner }}',
-true|false,
+{{ enabled }},
 '{{ validity }}',
 '{{ notificationChannels }}',
 '{{ creationRecord }}',
@@ -129,88 +129,164 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-documentation:
-  content: string
-  mimeType: string
-  subject: string
-  links:
-    - displayName: string
-      url: string
-userLabels: object
-conditions:
-  - name: string
-    displayName: string
-    conditionThreshold:
-      filter: string
-      aggregations:
-        - alignmentPeriod: string
-          perSeriesAligner: string
-          crossSeriesReducer: string
-          groupByFields:
-            - type: string
-      denominatorFilter: string
-      denominatorAggregations:
-        - alignmentPeriod: string
-          perSeriesAligner: string
-          crossSeriesReducer: string
-          groupByFields:
-            - type: string
-      forecastOptions:
-        forecastHorizon: string
-      comparison: string
-      thresholdValue: number
-      duration: string
-      trigger:
-        count: integer
-        percent: number
-      evaluationMissingData: string
-    conditionAbsent:
-      filter: string
-      aggregations:
-        - alignmentPeriod: string
-          perSeriesAligner: string
-          crossSeriesReducer: string
-          groupByFields:
-            - type: string
-      duration: string
-    conditionMatchedLog:
-      filter: string
-      labelExtractors: object
-    conditionMonitoringQueryLanguage:
-      query: string
-      duration: string
-      evaluationMissingData: string
-    conditionPrometheusQueryLanguage:
-      query: string
-      duration: string
-      evaluationInterval: string
-      labels: object
-      ruleGroup: string
-      alertRule: string
-combiner: string
-enabled: boolean
-validity:
-  code: integer
-  message: string
-  details:
-    - type: string
-      additionalProperties: any
-notificationChannels:
-  - type: string
-creationRecord:
-  mutateTime: string
-  mutatedBy: string
-alertStrategy:
-  notificationRateLimit:
-    period: string
-  autoClose: string
-  notificationChannelStrategy:
-    - notificationChannelNames:
-        - type: string
-      renotifyInterval: string
-severity: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: documentation
+      value:
+        - name: content
+          value: string
+        - name: mimeType
+          value: string
+        - name: subject
+          value: string
+        - name: links
+          value:
+            - - name: displayName
+                value: string
+              - name: url
+                value: string
+    - name: userLabels
+      value: object
+    - name: conditions
+      value:
+        - - name: name
+            value: string
+          - name: displayName
+            value: string
+          - name: conditionThreshold
+            value:
+              - name: filter
+                value: string
+              - name: aggregations
+                value:
+                  - - name: alignmentPeriod
+                      value: string
+                    - name: perSeriesAligner
+                      value: string
+                    - name: crossSeriesReducer
+                      value: string
+                    - name: groupByFields
+                      value:
+                        - string
+              - name: denominatorFilter
+                value: string
+              - name: denominatorAggregations
+                value:
+                  - - name: alignmentPeriod
+                      value: string
+                    - name: perSeriesAligner
+                      value: string
+                    - name: crossSeriesReducer
+                      value: string
+                    - name: groupByFields
+                      value:
+                        - string
+              - name: forecastOptions
+                value:
+                  - name: forecastHorizon
+                    value: string
+              - name: comparison
+                value: string
+              - name: thresholdValue
+                value: number
+              - name: duration
+                value: string
+              - name: trigger
+                value:
+                  - name: count
+                    value: integer
+                  - name: percent
+                    value: number
+              - name: evaluationMissingData
+                value: string
+          - name: conditionAbsent
+            value:
+              - name: filter
+                value: string
+              - name: aggregations
+                value:
+                  - - name: alignmentPeriod
+                      value: string
+                    - name: perSeriesAligner
+                      value: string
+                    - name: crossSeriesReducer
+                      value: string
+                    - name: groupByFields
+                      value:
+                        - string
+              - name: duration
+                value: string
+          - name: conditionMatchedLog
+            value:
+              - name: filter
+                value: string
+              - name: labelExtractors
+                value: object
+          - name: conditionMonitoringQueryLanguage
+            value:
+              - name: query
+                value: string
+              - name: duration
+                value: string
+              - name: evaluationMissingData
+                value: string
+          - name: conditionPrometheusQueryLanguage
+            value:
+              - name: query
+                value: string
+              - name: duration
+                value: string
+              - name: evaluationInterval
+                value: string
+              - name: labels
+                value: object
+              - name: ruleGroup
+                value: string
+              - name: alertRule
+                value: string
+    - name: combiner
+      value: string
+    - name: enabled
+      value: boolean
+    - name: validity
+      value:
+        - name: code
+          value: integer
+        - name: message
+          value: string
+        - name: details
+          value:
+            - object
+    - name: notificationChannels
+      value:
+        - string
+    - name: creationRecord
+      value:
+        - name: mutateTime
+          value: string
+        - name: mutatedBy
+          value: string
+    - name: alertStrategy
+      value:
+        - name: notificationRateLimit
+          value:
+            - name: period
+              value: string
+        - name: autoClose
+          value: string
+        - name: notificationChannelStrategy
+          value:
+            - - name: notificationChannelNames
+                value:
+                  - string
+              - name: renotifyInterval
+                value: string
+    - name: severity
+      value: string
 
 ```
 </TabItem>

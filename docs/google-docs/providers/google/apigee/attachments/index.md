@@ -58,7 +58,7 @@ createdAt,
 environment
 FROM google.apigee.attachments
 WHERE envgroupsId = '{{ envgroupsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```
 
 ## `INSERT` example
@@ -93,10 +93,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-environment: string
-name: string
-environmentGroupId: string
-createdAt: string
+- name: your_resource_model_name
+  props:
+    - name: environment
+      value: string
+    - name: name
+      value: string
+    - name: environmentGroupId
+      value: string
+    - name: createdAt
+      value: string
 
 ```
 </TabItem>

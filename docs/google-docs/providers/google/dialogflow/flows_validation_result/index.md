@@ -53,5 +53,5 @@ FROM google.dialogflow.flows_validation_result
 WHERE agentsId = '{{ agentsId }}'
 AND flowsId = '{{ flowsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

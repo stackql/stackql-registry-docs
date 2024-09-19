@@ -73,7 +73,7 @@ state,
 updateTime
 FROM google.aiplatform.feature_online_stores
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,30 +118,55 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-updateTime: string
-etag: string
-dedicatedServingEndpoint:
-  publicEndpointDomainName: string
-  serviceAttachment: string
-  privateServiceConnectConfig:
-    serviceAttachment: string
-    projectAllowlist:
-      - type: string
-    enablePrivateServiceConnect: boolean
-state: string
-encryptionSpec:
-  kmsKeyName: string
-labels: object
-satisfiesPzi: boolean
-createTime: string
-bigtable:
-  autoScaling:
-    cpuUtilizationTarget: integer
-    minNodeCount: integer
-    maxNodeCount: integer
-satisfiesPzs: boolean
-optimized: {}
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: updateTime
+      value: string
+    - name: etag
+      value: string
+    - name: dedicatedServingEndpoint
+      value:
+        - name: publicEndpointDomainName
+          value: string
+        - name: serviceAttachment
+          value: string
+        - name: privateServiceConnectConfig
+          value:
+            - name: serviceAttachment
+              value: string
+            - name: projectAllowlist
+              value:
+                - string
+            - name: enablePrivateServiceConnect
+              value: boolean
+    - name: state
+      value: string
+    - name: encryptionSpec
+      value:
+        - name: kmsKeyName
+          value: string
+    - name: labels
+      value: object
+    - name: satisfiesPzi
+      value: boolean
+    - name: createTime
+      value: string
+    - name: bigtable
+      value:
+        - name: autoScaling
+          value:
+            - name: cpuUtilizationTarget
+              value: integer
+            - name: minNodeCount
+              value: integer
+            - name: maxNodeCount
+              value: integer
+    - name: satisfiesPzs
+      value: boolean
+    - name: optimized
+      value: []
 
 ```
 </TabItem>

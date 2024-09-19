@@ -63,7 +63,7 @@ FROM google.apigee.debugsessions
 WHERE apisId = '{{ apisId }}'
 AND environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND revisionsId = '{{ revisionsId }}'; 
+AND revisionsId = '{{ revisionsId }}';
 ```
 
 ## `INSERT` example
@@ -110,13 +110,22 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-timeout: string
-validity: integer
-name: string
-count: integer
-filter: string
-tracesize: integer
-createTime: string
+- name: your_resource_model_name
+  props:
+    - name: timeout
+      value: string
+    - name: validity
+      value: integer
+    - name: name
+      value: string
+    - name: count
+      value: integer
+    - name: filter
+      value: string
+    - name: tracesize
+      value: integer
+    - name: createTime
+      value: string
 
 ```
 </TabItem>

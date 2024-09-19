@@ -58,7 +58,7 @@ targetProject
 FROM google.datafusion.dns_peerings
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -101,11 +101,18 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-domain: string
-description: string
-targetProject: string
-targetNetwork: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: domain
+      value: string
+    - name: description
+      value: string
+    - name: targetProject
+      value: string
+    - name: targetNetwork
+      value: string
 
 ```
 </TabItem>

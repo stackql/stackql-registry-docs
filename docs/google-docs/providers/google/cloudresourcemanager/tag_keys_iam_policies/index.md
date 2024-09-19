@@ -52,7 +52,7 @@ condition,
 members,
 role
 FROM google.cloudresourcemanager.tag_keys_iam_policies
-WHERE tagKeysId = '{{ tagKeysId }}'; 
+WHERE tagKeysId = '{{ tagKeysId }}';
 ```
 
 ## `REPLACE` example

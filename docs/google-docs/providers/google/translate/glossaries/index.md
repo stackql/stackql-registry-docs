@@ -65,7 +65,7 @@ languagePair,
 submitTime
 FROM google.translate.glossaries
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -106,20 +106,35 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-languagePair:
-  sourceLanguageCode: string
-  targetLanguageCode: string
-languageCodesSet:
-  languageCodes:
-    - type: string
-inputConfig:
-  gcsSource:
-    inputUri: string
-entryCount: integer
-submitTime: string
-endTime: string
-displayName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: languagePair
+      value:
+        - name: sourceLanguageCode
+          value: string
+        - name: targetLanguageCode
+          value: string
+    - name: languageCodesSet
+      value:
+        - name: languageCodes
+          value:
+            - string
+    - name: inputConfig
+      value:
+        - name: gcsSource
+          value:
+            - name: inputUri
+              value: string
+    - name: entryCount
+      value: integer
+    - name: submitTime
+      value: string
+    - name: endTime
+      value: string
+    - name: displayName
+      value: string
 
 ```
 </TabItem>

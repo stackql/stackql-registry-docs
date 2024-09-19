@@ -57,7 +57,7 @@ displayName,
 origin
 FROM google.datalineage.processes
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,12 +96,20 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-attributes: object
-displayName: string
-origin:
-  sourceType: string
-  name: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: attributes
+      value: object
+    - name: displayName
+      value: string
+    - name: origin
+      value:
+        - name: sourceType
+          value: string
+        - name: name
+          value: string
 
 ```
 </TabItem>

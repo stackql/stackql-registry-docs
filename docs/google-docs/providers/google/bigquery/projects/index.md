@@ -54,5 +54,5 @@ kind,
 numericId,
 projectReference
 FROM google.bigquery.projects
-WHERE  = '{{  }}'; 
+;
 ```

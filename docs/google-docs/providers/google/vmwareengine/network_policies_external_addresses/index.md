@@ -50,5 +50,5 @@ nextPageToken
 FROM google.vmwareengine.network_policies_external_addresses
 WHERE locationsId = '{{ locationsId }}'
 AND networkPoliciesId = '{{ networkPoliciesId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

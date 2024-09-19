@@ -57,5 +57,5 @@ labels,
 locationId,
 metadata
 FROM google.apphub.locations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

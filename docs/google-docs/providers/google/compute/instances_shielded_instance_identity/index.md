@@ -52,5 +52,5 @@ signingKey
 FROM google.compute.instances_shielded_instance_identity
 WHERE instance = '{{ instance }}'
 AND project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```

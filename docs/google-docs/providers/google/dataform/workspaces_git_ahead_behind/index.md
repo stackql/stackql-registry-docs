@@ -51,5 +51,5 @@ FROM google.dataform.workspaces_git_ahead_behind
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND repositoriesId = '{{ repositoriesId }}'
-AND workspacesId = '{{ workspacesId }}'; 
+AND workspacesId = '{{ workspacesId }}';
 ```

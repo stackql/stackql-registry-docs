@@ -59,5 +59,5 @@ FROM google.osconfig.reports
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
 AND osPolicyAssignmentsId = '{{ osPolicyAssignmentsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

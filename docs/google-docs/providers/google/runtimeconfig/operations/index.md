@@ -56,7 +56,7 @@ error,
 metadata,
 response
 FROM google.runtimeconfig.operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

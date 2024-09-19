@@ -59,5 +59,5 @@ skus,
 updateTime
 FROM google.cloudcontrolspartner.partner
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

@@ -65,7 +65,7 @@ trustStores,
 updateTime
 FROM google.certificatemanager.trust_configs
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,19 +108,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-etag: string
-trustStores:
-  - trustAnchors:
-      - pemCertificate: string
-    intermediateCas:
-      - pemCertificate: string
-allowlistedCertificates:
-  - pemCertificate: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: etag
+      value: string
+    - name: trustStores
+      value:
+        - - name: trustAnchors
+            value:
+              - - name: pemCertificate
+                  value: string
+          - name: intermediateCas
+            value:
+              - - name: pemCertificate
+                  value: string
+    - name: allowlistedCertificates
+      value:
+        - - name: pemCertificate
+            value: string
 
 ```
 </TabItem>

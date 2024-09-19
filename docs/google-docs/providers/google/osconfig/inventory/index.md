@@ -47,5 +47,5 @@ SELECT
 FROM google.osconfig.inventory
 WHERE instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

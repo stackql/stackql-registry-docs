@@ -59,7 +59,7 @@ Lists the logs in projects, organizations, folders, or billing accounts. Only lo
 SELECT
 column_anon
 FROM google.logging.logs
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```
 
 ## `DELETE` example

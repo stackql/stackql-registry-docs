@@ -80,7 +80,7 @@ updateTime,
 userId
 FROM google.bigquerydatatransfer.runs
 WHERE projectsId = '{{ projectsId }}'
-AND transferConfigsId = '{{ transferConfigsId }}'; 
+AND transferConfigsId = '{{ transferConfigsId }}';
 ```
 
 ## `DELETE` example

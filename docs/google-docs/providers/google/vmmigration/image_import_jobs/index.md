@@ -70,5 +70,5 @@ warnings
 FROM google.vmmigration.image_import_jobs
 WHERE imageImportsId = '{{ imageImportsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -77,7 +77,7 @@ updateTime
 FROM google.discoveryengine.target_sites
 WHERE dataStoresId = '{{ dataStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -112,23 +112,42 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requests:
-  - parent: string
-    targetSite:
-      name: string
-      providedUriPattern: string
-      type: string
-      exactMatch: boolean
-      generatedUriPattern: string
-      rootDomainUri: string
-      siteVerificationInfo:
-        siteVerificationState: string
-        verifyTime: string
-      indexingStatus: string
-      updateTime: string
-      failureReason:
-        quotaFailure:
-          totalRequiredQuota: string
+- name: your_resource_model_name
+  props:
+    - name: requests
+      value:
+        - - name: parent
+            value: string
+          - name: targetSite
+            value:
+              - name: name
+                value: string
+              - name: providedUriPattern
+                value: string
+              - name: type
+                value: string
+              - name: exactMatch
+                value: boolean
+              - name: generatedUriPattern
+                value: string
+              - name: rootDomainUri
+                value: string
+              - name: siteVerificationInfo
+                value:
+                  - name: siteVerificationState
+                    value: string
+                  - name: verifyTime
+                    value: string
+              - name: indexingStatus
+                value: string
+              - name: updateTime
+                value: string
+              - name: failureReason
+                value:
+                  - name: quotaFailure
+                    value:
+                      - name: totalRequiredQuota
+                        value: string
 
 ```
 </TabItem>

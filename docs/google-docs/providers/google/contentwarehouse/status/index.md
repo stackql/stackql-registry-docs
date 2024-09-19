@@ -57,5 +57,5 @@ qaEnabled,
 state
 FROM google.contentwarehouse.status
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

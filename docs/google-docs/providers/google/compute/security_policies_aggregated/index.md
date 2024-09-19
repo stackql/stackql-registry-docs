@@ -78,5 +78,5 @@ selfLink,
 type,
 userDefinedFields
 FROM google.compute.security_policies_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

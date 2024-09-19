@@ -75,7 +75,7 @@ vmwareEngineNetwork,
 vmwareEngineNetworkCanonical
 FROM google.vmwareengine.private_connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -116,19 +116,34 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-description: string
-state: string
-vmwareEngineNetwork: string
-vmwareEngineNetworkCanonical: string
-type: string
-peeringId: string
-routingMode: string
-uid: string
-serviceNetwork: string
-peeringState: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: description
+      value: string
+    - name: state
+      value: string
+    - name: vmwareEngineNetwork
+      value: string
+    - name: vmwareEngineNetworkCanonical
+      value: string
+    - name: type
+      value: string
+    - name: peeringId
+      value: string
+    - name: routingMode
+      value: string
+    - name: uid
+      value: string
+    - name: serviceNetwork
+      value: string
+    - name: peeringState
+      value: string
 
 ```
 </TabItem>

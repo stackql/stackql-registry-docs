@@ -58,7 +58,7 @@ filter,
 isCluster,
 parentName
 FROM google.monitoring.groups
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -90,18 +90,25 @@ SELECT
 '{{ displayName }}',
 '{{ parentName }}',
 '{{ filter }}',
-true|false
+{{ isCluster }}
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-parentName: string
-filter: string
-isCluster: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: parentName
+      value: string
+    - name: filter
+      value: string
+    - name: isCluster
+      value: boolean
 
 ```
 </TabItem>

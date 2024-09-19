@@ -48,5 +48,5 @@ SELECT
 id,
 type
 FROM google.compute.xpn_resources
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

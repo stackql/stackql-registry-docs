@@ -54,7 +54,7 @@ role
 FROM google.networkconnectivity.service_connection_policies_iam_policies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
-AND serviceConnectionPoliciesId = '{{ serviceConnectionPoliciesId }}'; 
+AND serviceConnectionPoliciesId = '{{ serviceConnectionPoliciesId }}';
 ```
 
 ## `REPLACE` example

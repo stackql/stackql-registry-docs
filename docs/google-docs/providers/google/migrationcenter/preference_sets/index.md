@@ -61,7 +61,7 @@ updateTime,
 virtualMachinePreferences
 FROM google.migrationcenter.preference_sets
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -98,35 +98,65 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-displayName: string
-description: string
-virtualMachinePreferences:
-  targetProduct: string
-  regionPreferences:
-    preferredRegions:
-      - type: string
-  commitmentPlan: string
-  sizingOptimizationStrategy: string
-  computeEnginePreferences:
-    persistentDiskType: string
-    machinePreferences:
-      allowedMachineSeries:
-        - code: string
-    licenseType: string
-  vmwareEnginePreferences:
-    cpuOvercommitRatio: number
-    memoryOvercommitRatio: number
-    storageDeduplicationCompressionRatio: number
-    commitmentPlan: string
-  soleTenancyPreferences:
-    cpuOvercommitRatio: number
-    hostMaintenancePolicy: string
-    commitmentPlan: string
-    nodeTypes:
-      - nodeName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: displayName
+      value: string
+    - name: description
+      value: string
+    - name: virtualMachinePreferences
+      value:
+        - name: targetProduct
+          value: string
+        - name: regionPreferences
+          value:
+            - name: preferredRegions
+              value:
+                - string
+        - name: commitmentPlan
+          value: string
+        - name: sizingOptimizationStrategy
+          value: string
+        - name: computeEnginePreferences
+          value:
+            - name: persistentDiskType
+              value: string
+            - name: machinePreferences
+              value:
+                - name: allowedMachineSeries
+                  value:
+                    - - name: code
+                        value: string
+            - name: licenseType
+              value: string
+        - name: vmwareEnginePreferences
+          value:
+            - name: cpuOvercommitRatio
+              value: number
+            - name: memoryOvercommitRatio
+              value: number
+            - name: storageDeduplicationCompressionRatio
+              value: number
+            - name: commitmentPlan
+              value: string
+        - name: soleTenancyPreferences
+          value:
+            - name: cpuOvercommitRatio
+              value: number
+            - name: hostMaintenancePolicy
+              value: string
+            - name: commitmentPlan
+              value: string
+            - name: nodeTypes
+              value:
+                - - name: nodeName
+                    value: string
 
 ```
 </TabItem>

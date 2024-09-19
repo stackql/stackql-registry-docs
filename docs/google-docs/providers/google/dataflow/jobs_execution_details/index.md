@@ -60,5 +60,5 @@ stragglerSummary
 FROM google.dataflow.jobs_execution_details
 WHERE jobId = '{{ jobId }}'
 AND location = '{{ location }}'
-AND projectId = '{{ projectId }}'; 
+AND projectId = '{{ projectId }}';
 ```

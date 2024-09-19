@@ -56,5 +56,5 @@ extensions
 FROM google.apigeeregistry.artifacts_contents
 WHERE artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

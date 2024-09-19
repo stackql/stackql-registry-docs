@@ -72,7 +72,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-controlId: string
+- name: your_resource_model_name
+  props:
+    - name: controlId
+      value: string
 
 ```
 </TabItem>

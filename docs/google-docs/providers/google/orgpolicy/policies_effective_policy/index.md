@@ -57,5 +57,5 @@ etag,
 spec
 FROM google.orgpolicy.policies_effective_policy
 WHERE foldersId = '{{ foldersId }}'
-AND policiesId = '{{ policiesId }}'; 
+AND policiesId = '{{ policiesId }}';
 ```

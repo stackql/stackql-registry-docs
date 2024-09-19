@@ -59,5 +59,5 @@ FROM google.healthcare.dicom_stores_dicomstore_metrics
 WHERE datasetsId = '{{ datasetsId }}'
 AND dicomStoresId = '{{ dicomStoresId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

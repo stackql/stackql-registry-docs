@@ -86,7 +86,7 @@ size,
 status,
 zone
 FROM google.compute.node_groups
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -145,32 +145,60 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-nodeTemplate: string
-zone: string
-selfLink: string
-status: string
-size: integer
-autoscalingPolicy:
-  mode: string
-  minNodes: integer
-  maxNodes: integer
-maintenancePolicy: string
-locationHint: string
-fingerprint: string
-maintenanceWindow:
-  startTime: string
-  maintenanceDuration:
-    seconds: string
-    nanos: integer
-shareSettings:
-  shareType: string
-  projectMap: object
-maintenanceInterval: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: nodeTemplate
+      value: string
+    - name: zone
+      value: string
+    - name: selfLink
+      value: string
+    - name: status
+      value: string
+    - name: size
+      value: integer
+    - name: autoscalingPolicy
+      value:
+        - name: mode
+          value: string
+        - name: minNodes
+          value: integer
+        - name: maxNodes
+          value: integer
+    - name: maintenancePolicy
+      value: string
+    - name: locationHint
+      value: string
+    - name: fingerprint
+      value: string
+    - name: maintenanceWindow
+      value:
+        - name: startTime
+          value: string
+        - name: maintenanceDuration
+          value:
+            - name: seconds
+              value: string
+            - name: nanos
+              value: integer
+    - name: shareSettings
+      value:
+        - name: shareType
+          value: string
+        - name: projectMap
+          value: object
+    - name: maintenanceInterval
+      value: string
 
 ```
 </TabItem>

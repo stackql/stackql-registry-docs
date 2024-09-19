@@ -51,5 +51,5 @@ FROM google.cloudcontrolspartner.workloads_partner_permissions
 WHERE customersId = '{{ customersId }}'
 AND locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND workloadsId = '{{ workloadsId }}'; 
+AND workloadsId = '{{ workloadsId }}';
 ```

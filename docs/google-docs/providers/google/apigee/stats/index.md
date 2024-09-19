@@ -52,5 +52,5 @@ metaData
 FROM google.apigee.stats
 WHERE environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'
-AND statsId = '{{ statsId }}'; 
+AND statsId = '{{ statsId }}';
 ```

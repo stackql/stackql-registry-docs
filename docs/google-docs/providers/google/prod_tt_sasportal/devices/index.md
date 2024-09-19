@@ -92,7 +92,7 @@ preloadedConfig,
 serialNumber,
 state
 FROM google.prod_tt_sasportal.devices
-WHERE nodesId = '{{ nodesId }}'; 
+WHERE nodesId = '{{ nodesId }}';
 ```
 
 ## `INSERT` example
@@ -141,76 +141,142 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-activeConfig:
-  model:
-    firmwareVersion: string
-    softwareVersion: string
-    name: string
-    vendor: string
-    hardwareVersion: string
-  userId: string
-  measurementCapabilities:
-    - enum: string
-      type: string
-      enumDescriptions: string
-  airInterface:
-    supportedSpec: string
-    radioTechnology: string
-  isSigned: boolean
-  state: string
-  category: string
-  callSign: string
-  updateTime: string
-  installationParams:
-    heightType: string
-    longitude: number
-    antennaAzimuth: integer
-    horizontalAccuracy: number
-    indoorDeployment: boolean
-    eirpCapability: integer
-    antennaGain: number
-    antennaModel: string
-    height: number
-    cpeCbsdIndication: boolean
-    antennaBeamwidth: integer
-    verticalAccuracy: number
-    antennaDowntilt: integer
-    latitude: number
-displayName: string
-currentChannels:
-  - frequencyRange:
-      lowFrequencyMhz: number
-      highFrequencyMhz: number
-    score: number
-deviceMetadata:
-  interferenceCoordinationGroup: string
-  nrqzValidation:
-    latitude: number
-    state: string
-    cpiId: string
-    caseId: string
-    longitude: number
-  commonChannelGroup: string
-  nrqzValidated: boolean
-  antennaModel: string
-name: string
-serialNumber: string
-fccId: string
-grantRangeAllowlists:
-  - lowFrequencyMhz: number
-    highFrequencyMhz: number
-state: string
-grants:
-  - channelType: string
-    maxEirp: number
-    expireTime: string
-    lastHeartbeatTransmitExpireTime: string
-    state: string
-    grantId: string
-    moveList:
-      - dpaId: string
-    suspensionReason:
-      - type: string
+- name: your_resource_model_name
+  props:
+    - name: activeConfig
+      value:
+        - name: model
+          value:
+            - name: firmwareVersion
+              value: string
+            - name: softwareVersion
+              value: string
+            - name: name
+              value: string
+            - name: vendor
+              value: string
+            - name: hardwareVersion
+              value: string
+        - name: userId
+          value: string
+        - name: measurementCapabilities
+          value:
+            - string
+        - name: airInterface
+          value:
+            - name: supportedSpec
+              value: string
+            - name: radioTechnology
+              value: string
+        - name: isSigned
+          value: boolean
+        - name: state
+          value: string
+        - name: category
+          value: string
+        - name: callSign
+          value: string
+        - name: updateTime
+          value: string
+        - name: installationParams
+          value:
+            - name: heightType
+              value: string
+            - name: longitude
+              value: number
+            - name: antennaAzimuth
+              value: integer
+            - name: horizontalAccuracy
+              value: number
+            - name: indoorDeployment
+              value: boolean
+            - name: eirpCapability
+              value: integer
+            - name: antennaGain
+              value: number
+            - name: antennaModel
+              value: string
+            - name: height
+              value: number
+            - name: cpeCbsdIndication
+              value: boolean
+            - name: antennaBeamwidth
+              value: integer
+            - name: verticalAccuracy
+              value: number
+            - name: antennaDowntilt
+              value: integer
+            - name: latitude
+              value: number
+    - name: displayName
+      value: string
+    - name: currentChannels
+      value:
+        - - name: frequencyRange
+            value:
+              - name: lowFrequencyMhz
+                value: number
+              - name: highFrequencyMhz
+                value: number
+          - name: score
+            value: number
+    - name: deviceMetadata
+      value:
+        - name: interferenceCoordinationGroup
+          value: string
+        - name: nrqzValidation
+          value:
+            - name: latitude
+              value: number
+            - name: state
+              value: string
+            - name: cpiId
+              value: string
+            - name: caseId
+              value: string
+            - name: longitude
+              value: number
+        - name: commonChannelGroup
+          value: string
+        - name: nrqzValidated
+          value: boolean
+        - name: antennaModel
+          value: string
+    - name: name
+      value: string
+    - name: serialNumber
+      value: string
+    - name: fccId
+      value: string
+    - name: grantRangeAllowlists
+      value:
+        - - name: lowFrequencyMhz
+            value: number
+          - name: highFrequencyMhz
+            value: number
+    - name: state
+      value: string
+    - name: grants
+      value:
+        - - name: channelType
+            value: string
+          - name: maxEirp
+            value: number
+          - name: expireTime
+            value: string
+          - name: lastHeartbeatTransmitExpireTime
+            value: string
+          - name: state
+            value: string
+          - name: grantId
+            value: string
+          - name: moveList
+            value:
+              - - name: dpaId
+                  value: string
+          - name: suspensionReason
+            value:
+              - string
 
 ```
 </TabItem>

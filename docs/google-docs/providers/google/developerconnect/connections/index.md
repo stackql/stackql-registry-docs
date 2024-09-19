@@ -73,7 +73,7 @@ uid,
 updateTime
 FROM google.developerconnect.connections
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -107,7 +107,7 @@ SELECT
 '{{ githubConfig }}',
 '{{ name }}',
 '{{ labels }}',
-true|false,
+{{ disabled }},
 '{{ annotations }}',
 '{{ etag }}'
 ;
@@ -116,27 +116,50 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-githubConfig:
-  githubApp: string
-  authorizerCredential:
-    oauthTokenSecretVersion: string
-    username: string
-  appInstallationId: string
-  installationUri: string
-name: string
-createTime: string
-updateTime: string
-deleteTime: string
-labels: object
-installationState:
-  stage: string
-  message: string
-  actionUri: string
-disabled: boolean
-reconciling: boolean
-annotations: object
-etag: string
-uid: string
+- name: your_resource_model_name
+  props:
+    - name: githubConfig
+      value:
+        - name: githubApp
+          value: string
+        - name: authorizerCredential
+          value:
+            - name: oauthTokenSecretVersion
+              value: string
+            - name: username
+              value: string
+        - name: appInstallationId
+          value: string
+        - name: installationUri
+          value: string
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: deleteTime
+      value: string
+    - name: labels
+      value: object
+    - name: installationState
+      value:
+        - name: stage
+          value: string
+        - name: message
+          value: string
+        - name: actionUri
+          value: string
+    - name: disabled
+      value: boolean
+    - name: reconciling
+      value: boolean
+    - name: annotations
+      value: object
+    - name: etag
+      value: string
+    - name: uid
+      value: string
 
 ```
 </TabItem>

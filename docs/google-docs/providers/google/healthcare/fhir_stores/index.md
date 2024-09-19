@@ -78,7 +78,7 @@ version
 FROM google.healthcare.fhir_stores
 WHERE datasetsId = '{{ datasetsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -118,15 +118,15 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
-true|false,
+{{ enableUpdateCreate }},
 '{{ notificationConfig }}',
-true|false,
-true|false,
+{{ disableReferentialIntegrity }},
+{{ disableResourceVersioning }},
 '{{ labels }}',
 '{{ version }}',
 '{{ streamConfigs }}',
 '{{ validationConfig }}',
-true|false,
+{{ defaultSearchHandlingStrict }},
 '{{ complexDataTypeReferenceParsing }}',
 '{{ notificationConfigs }}'
 ;
@@ -135,79 +135,147 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-enableUpdateCreate: boolean
-notificationConfig:
-  pubsubTopic: string
-  sendForBulkImport: boolean
-disableReferentialIntegrity: boolean
-disableResourceVersioning: boolean
-labels: object
-version: string
-streamConfigs:
-  - resourceTypes:
-      - type: string
-    bigqueryDestination:
-      datasetUri: string
-      schemaConfig:
-        schemaType: string
-        recursiveStructureDepth: string
-        lastUpdatedPartitionConfig:
-          type: string
-          expirationMs: string
-      force: boolean
-      writeDisposition: string
-    deidentifiedStoreDestination:
-      store: string
-      config:
-        dicom:
-          skipIdRedaction: boolean
-          keepList:
-            tags:
-              - type: string
-          filterProfile: string
-        fhir:
-          fieldMetadataList:
-            - paths:
-                - type: string
-              action: string
-          defaultKeepExtensions: boolean
-        image:
-          textRedactionMode: string
-        text:
-          transformations:
-            - infoTypes:
-                - type: string
-              redactConfig: {}
-              characterMaskConfig:
-                maskingCharacter: string
-              dateShiftConfig:
-                cryptoKey: string
-                kmsWrapped:
-                  wrappedKey: string
-                  cryptoKey: string
-              cryptoHashConfig:
-                cryptoKey: string
-              replaceWithInfoTypeConfig: {}
-          additionalTransformations:
-            - infoTypes:
-                - type: string
-          excludeInfoTypes:
-            - type: string
-        useRegionalDataProcessing: boolean
-validationConfig:
-  disableProfileValidation: boolean
-  enabledImplementationGuides:
-    - type: string
-  disableRequiredFieldValidation: boolean
-  disableReferenceTypeValidation: boolean
-  disableFhirpathValidation: boolean
-defaultSearchHandlingStrict: boolean
-complexDataTypeReferenceParsing: string
-notificationConfigs:
-  - pubsubTopic: string
-    sendFullResource: boolean
-    sendPreviousResourceOnDelete: boolean
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: enableUpdateCreate
+      value: boolean
+    - name: notificationConfig
+      value:
+        - name: pubsubTopic
+          value: string
+        - name: sendForBulkImport
+          value: boolean
+    - name: disableReferentialIntegrity
+      value: boolean
+    - name: disableResourceVersioning
+      value: boolean
+    - name: labels
+      value: object
+    - name: version
+      value: string
+    - name: streamConfigs
+      value:
+        - - name: resourceTypes
+            value:
+              - string
+          - name: bigqueryDestination
+            value:
+              - name: datasetUri
+                value: string
+              - name: schemaConfig
+                value:
+                  - name: schemaType
+                    value: string
+                  - name: recursiveStructureDepth
+                    value: string
+                  - name: lastUpdatedPartitionConfig
+                    value:
+                      - name: type
+                        value: string
+                      - name: expirationMs
+                        value: string
+              - name: force
+                value: boolean
+              - name: writeDisposition
+                value: string
+          - name: deidentifiedStoreDestination
+            value:
+              - name: store
+                value: string
+              - name: config
+                value:
+                  - name: dicom
+                    value:
+                      - name: skipIdRedaction
+                        value: boolean
+                      - name: keepList
+                        value:
+                          - name: tags
+                            value:
+                              - string
+                      - name: filterProfile
+                        value: string
+                  - name: fhir
+                    value:
+                      - name: fieldMetadataList
+                        value:
+                          - - name: paths
+                              value:
+                                - string
+                            - name: action
+                              value: string
+                      - name: defaultKeepExtensions
+                        value: boolean
+                  - name: image
+                    value:
+                      - name: textRedactionMode
+                        value: string
+                  - name: text
+                    value:
+                      - name: transformations
+                        value:
+                          - - name: infoTypes
+                              value:
+                                - string
+                            - name: redactConfig
+                              value: []
+                            - name: characterMaskConfig
+                              value:
+                                - name: maskingCharacter
+                                  value: string
+                            - name: dateShiftConfig
+                              value:
+                                - name: cryptoKey
+                                  value: string
+                                - name: kmsWrapped
+                                  value:
+                                    - name: wrappedKey
+                                      value: string
+                                    - name: cryptoKey
+                                      value: string
+                            - name: cryptoHashConfig
+                              value:
+                                - name: cryptoKey
+                                  value: string
+                            - name: replaceWithInfoTypeConfig
+                              value: []
+                      - name: additionalTransformations
+                        value:
+                          - - name: infoTypes
+                              value:
+                                - string
+                      - name: excludeInfoTypes
+                        value:
+                          - string
+                  - name: useRegionalDataProcessing
+                    value: boolean
+    - name: validationConfig
+      value:
+        - name: disableProfileValidation
+          value: boolean
+        - name: enabledImplementationGuides
+          value:
+            - string
+        - name: disableRequiredFieldValidation
+          value: boolean
+        - name: disableReferenceTypeValidation
+          value: boolean
+        - name: disableFhirpathValidation
+          value: boolean
+    - name: defaultSearchHandlingStrict
+      value: boolean
+    - name: complexDataTypeReferenceParsing
+      value: string
+    - name: notificationConfigs
+      value:
+        - - name: pubsubTopic
+            value: string
+          - name: sendFullResource
+            value: boolean
+          - name: sendPreviousResourceOnDelete
+            value: boolean
 
 ```
 </TabItem>

@@ -75,7 +75,7 @@ setAuthenticatedUserAdmin,
 workspaceCompilationOverrides
 FROM google.dataform.repositories
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -115,7 +115,7 @@ SELECT
 '{{ npmrcEnvironmentVariablesSecretVersion }}',
 '{{ workspaceCompilationOverrides }}',
 '{{ labels }}',
-true|false,
+{{ setAuthenticatedUserAdmin }},
 '{{ serviceAccount }}',
 '{{ kmsKeyName }}'
 ;
@@ -124,28 +124,52 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-displayName: string
-gitRemoteSettings:
-  url: string
-  defaultBranch: string
-  authenticationTokenSecretVersion: string
-  sshAuthenticationConfig:
-    userPrivateKeySecretVersion: string
-    hostPublicKey: string
-  tokenStatus: string
-npmrcEnvironmentVariablesSecretVersion: string
-workspaceCompilationOverrides:
-  defaultDatabase: string
-  schemaSuffix: string
-  tablePrefix: string
-labels: object
-setAuthenticatedUserAdmin: boolean
-serviceAccount: string
-kmsKeyName: string
-dataEncryptionState:
-  kmsKeyVersionName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: displayName
+      value: string
+    - name: gitRemoteSettings
+      value:
+        - name: url
+          value: string
+        - name: defaultBranch
+          value: string
+        - name: authenticationTokenSecretVersion
+          value: string
+        - name: sshAuthenticationConfig
+          value:
+            - name: userPrivateKeySecretVersion
+              value: string
+            - name: hostPublicKey
+              value: string
+        - name: tokenStatus
+          value: string
+    - name: npmrcEnvironmentVariablesSecretVersion
+      value: string
+    - name: workspaceCompilationOverrides
+      value:
+        - name: defaultDatabase
+          value: string
+        - name: schemaSuffix
+          value: string
+        - name: tablePrefix
+          value: string
+    - name: labels
+      value: object
+    - name: setAuthenticatedUserAdmin
+      value: boolean
+    - name: serviceAccount
+      value: string
+    - name: kmsKeyName
+      value: string
+    - name: dataEncryptionState
+      value:
+        - name: kmsKeyVersionName
+          value: string
 
 ```
 </TabItem>

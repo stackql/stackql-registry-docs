@@ -93,7 +93,7 @@ uid
 FROM google.clouddeploy.releases
 WHERE deliveryPipelinesId = '{{ deliveryPipelinesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -146,177 +146,332 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-uid: string
-description: string
-annotations: object
-labels: object
-abandoned: boolean
-createTime: string
-renderStartTime: string
-renderEndTime: string
-skaffoldConfigUri: string
-skaffoldConfigPath: string
-buildArtifacts:
-  - image: string
-    tag: string
-deliveryPipelineSnapshot:
-  name: string
-  uid: string
-  description: string
-  annotations: object
-  labels: object
-  createTime: string
-  updateTime: string
-  serialPipeline:
-    stages:
-      - targetId: string
-        profiles:
-          - type: string
-        strategy:
-          standard:
-            verify: boolean
-            predeploy:
-              actions:
-                - type: string
-            postdeploy:
-              actions:
-                - type: string
-          canary:
-            runtimeConfig:
-              kubernetes:
-                gatewayServiceMesh:
-                  httpRoute: string
-                  service: string
-                  deployment: string
-                  routeUpdateWaitTime: string
-                  stableCutbackDuration: string
-                  podSelectorLabel: string
-                serviceNetworking:
-                  service: string
-                  deployment: string
-                  disablePodOverprovisioning: boolean
-                  podSelectorLabel: string
-              cloudRun:
-                automaticTrafficControl: boolean
-                canaryRevisionTags:
-                  - type: string
-                priorRevisionTags:
-                  - type: string
-                stableRevisionTags:
-                  - type: string
-            canaryDeployment:
-              percentages:
-                - type: string
-                  format: string
-              verify: boolean
-            customCanaryDeployment:
-              phaseConfigs:
-                - phaseId: string
-                  percentage: integer
-                  profiles:
-                    - type: string
-                  verify: boolean
-        deployParameters:
-          - values: object
-            matchTargetLabels: object
-  condition:
-    pipelineReadyCondition:
-      status: boolean
-      updateTime: string
-    targetsPresentCondition:
-      status: boolean
-      missingTargets:
-        - type: string
-      updateTime: string
-    targetsTypeCondition:
-      status: boolean
-      errorDetails: string
-  etag: string
-  suspended: boolean
-targetSnapshots:
-  - name: string
-    targetId: string
-    uid: string
-    description: string
-    annotations: object
-    labels: object
-    requireApproval: boolean
-    createTime: string
-    updateTime: string
-    gke:
-      cluster: string
-      internalIp: boolean
-      proxyUrl: string
-    anthosCluster:
-      membership: string
-    run:
-      location: string
-    multiTarget:
-      targetIds:
-        - type: string
-    customTarget:
-      customTargetType: string
-    etag: string
-    executionConfigs:
-      - usages:
-          - type: string
-            enumDescriptions: string
-            enum: string
-        defaultPool:
-          serviceAccount: string
-          artifactStorage: string
-        privatePool:
-          workerPool: string
-          serviceAccount: string
-          artifactStorage: string
-        workerPool: string
-        serviceAccount: string
-        artifactStorage: string
-        executionTimeout: string
-        verbose: boolean
-    deployParameters: object
-customTargetTypeSnapshots:
-  - name: string
-    customTargetTypeId: string
-    uid: string
-    description: string
-    annotations: object
-    labels: object
-    createTime: string
-    updateTime: string
-    etag: string
-    customActions:
-      renderAction: string
-      deployAction: string
-      includeSkaffoldModules:
-        - configs:
-            - type: string
-          git:
-            repo: string
-            path: string
-            ref: string
-          googleCloudStorage:
-            source: string
-            path: string
-          googleCloudBuildRepo:
-            repository: string
-            path: string
-            ref: string
-renderState: string
-etag: string
-skaffoldVersion: string
-targetArtifacts: object
-targetRenders: object
-condition:
-  releaseReadyCondition:
-    status: boolean
-  skaffoldSupportedCondition:
-    status: boolean
-    skaffoldSupportState: string
-    maintenanceModeTime: string
-    supportExpirationTime: string
-deployParameters: object
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: uid
+      value: string
+    - name: description
+      value: string
+    - name: annotations
+      value: object
+    - name: labels
+      value: object
+    - name: abandoned
+      value: boolean
+    - name: createTime
+      value: string
+    - name: renderStartTime
+      value: string
+    - name: renderEndTime
+      value: string
+    - name: skaffoldConfigUri
+      value: string
+    - name: skaffoldConfigPath
+      value: string
+    - name: buildArtifacts
+      value:
+        - - name: image
+            value: string
+          - name: tag
+            value: string
+    - name: deliveryPipelineSnapshot
+      value:
+        - name: name
+          value: string
+        - name: uid
+          value: string
+        - name: description
+          value: string
+        - name: annotations
+          value: object
+        - name: labels
+          value: object
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: serialPipeline
+          value:
+            - name: stages
+              value:
+                - - name: targetId
+                    value: string
+                  - name: profiles
+                    value:
+                      - string
+                  - name: strategy
+                    value:
+                      - name: standard
+                        value:
+                          - name: verify
+                            value: boolean
+                          - name: predeploy
+                            value:
+                              - name: actions
+                                value:
+                                  - string
+                          - name: postdeploy
+                            value:
+                              - name: actions
+                                value:
+                                  - string
+                      - name: canary
+                        value:
+                          - name: runtimeConfig
+                            value:
+                              - name: kubernetes
+                                value:
+                                  - name: gatewayServiceMesh
+                                    value:
+                                      - name: httpRoute
+                                        value: string
+                                      - name: service
+                                        value: string
+                                      - name: deployment
+                                        value: string
+                                      - name: routeUpdateWaitTime
+                                        value: string
+                                      - name: stableCutbackDuration
+                                        value: string
+                                      - name: podSelectorLabel
+                                        value: string
+                                  - name: serviceNetworking
+                                    value:
+                                      - name: service
+                                        value: string
+                                      - name: deployment
+                                        value: string
+                                      - name: disablePodOverprovisioning
+                                        value: boolean
+                                      - name: podSelectorLabel
+                                        value: string
+                              - name: cloudRun
+                                value:
+                                  - name: automaticTrafficControl
+                                    value: boolean
+                                  - name: canaryRevisionTags
+                                    value:
+                                      - string
+                                  - name: priorRevisionTags
+                                    value:
+                                      - string
+                                  - name: stableRevisionTags
+                                    value:
+                                      - string
+                          - name: canaryDeployment
+                            value:
+                              - name: percentages
+                                value:
+                                  - integer
+                              - name: verify
+                                value: boolean
+                          - name: customCanaryDeployment
+                            value:
+                              - name: phaseConfigs
+                                value:
+                                  - - name: phaseId
+                                      value: string
+                                    - name: percentage
+                                      value: integer
+                                    - name: profiles
+                                      value:
+                                        - string
+                                    - name: verify
+                                      value: boolean
+                  - name: deployParameters
+                    value:
+                      - - name: values
+                          value: object
+                        - name: matchTargetLabels
+                          value: object
+        - name: condition
+          value:
+            - name: pipelineReadyCondition
+              value:
+                - name: status
+                  value: boolean
+                - name: updateTime
+                  value: string
+            - name: targetsPresentCondition
+              value:
+                - name: status
+                  value: boolean
+                - name: missingTargets
+                  value:
+                    - string
+                - name: updateTime
+                  value: string
+            - name: targetsTypeCondition
+              value:
+                - name: status
+                  value: boolean
+                - name: errorDetails
+                  value: string
+        - name: etag
+          value: string
+        - name: suspended
+          value: boolean
+    - name: targetSnapshots
+      value:
+        - - name: name
+            value: string
+          - name: targetId
+            value: string
+          - name: uid
+            value: string
+          - name: description
+            value: string
+          - name: annotations
+            value: object
+          - name: labels
+            value: object
+          - name: requireApproval
+            value: boolean
+          - name: createTime
+            value: string
+          - name: updateTime
+            value: string
+          - name: gke
+            value:
+              - name: cluster
+                value: string
+              - name: internalIp
+                value: boolean
+              - name: proxyUrl
+                value: string
+          - name: anthosCluster
+            value:
+              - name: membership
+                value: string
+          - name: run
+            value:
+              - name: location
+                value: string
+          - name: multiTarget
+            value:
+              - name: targetIds
+                value:
+                  - string
+          - name: customTarget
+            value:
+              - name: customTargetType
+                value: string
+          - name: etag
+            value: string
+          - name: executionConfigs
+            value:
+              - - name: usages
+                  value:
+                    - string
+                - name: defaultPool
+                  value:
+                    - name: serviceAccount
+                      value: string
+                    - name: artifactStorage
+                      value: string
+                - name: privatePool
+                  value:
+                    - name: workerPool
+                      value: string
+                    - name: serviceAccount
+                      value: string
+                    - name: artifactStorage
+                      value: string
+                - name: workerPool
+                  value: string
+                - name: serviceAccount
+                  value: string
+                - name: artifactStorage
+                  value: string
+                - name: executionTimeout
+                  value: string
+                - name: verbose
+                  value: boolean
+          - name: deployParameters
+            value: object
+    - name: customTargetTypeSnapshots
+      value:
+        - - name: name
+            value: string
+          - name: customTargetTypeId
+            value: string
+          - name: uid
+            value: string
+          - name: description
+            value: string
+          - name: annotations
+            value: object
+          - name: labels
+            value: object
+          - name: createTime
+            value: string
+          - name: updateTime
+            value: string
+          - name: etag
+            value: string
+          - name: customActions
+            value:
+              - name: renderAction
+                value: string
+              - name: deployAction
+                value: string
+              - name: includeSkaffoldModules
+                value:
+                  - - name: configs
+                      value:
+                        - string
+                    - name: git
+                      value:
+                        - name: repo
+                          value: string
+                        - name: path
+                          value: string
+                        - name: ref
+                          value: string
+                    - name: googleCloudStorage
+                      value:
+                        - name: source
+                          value: string
+                        - name: path
+                          value: string
+                    - name: googleCloudBuildRepo
+                      value:
+                        - name: repository
+                          value: string
+                        - name: path
+                          value: string
+                        - name: ref
+                          value: string
+    - name: renderState
+      value: string
+    - name: etag
+      value: string
+    - name: skaffoldVersion
+      value: string
+    - name: targetArtifacts
+      value: object
+    - name: targetRenders
+      value: object
+    - name: condition
+      value:
+        - name: releaseReadyCondition
+          value:
+            - name: status
+              value: boolean
+        - name: skaffoldSupportedCondition
+          value:
+            - name: status
+              value: boolean
+            - name: skaffoldSupportState
+              value: string
+            - name: maintenanceModeTime
+              value: string
+            - name: supportExpirationTime
+              value: string
+    - name: deployParameters
+      value: object
 
 ```
 </TabItem>

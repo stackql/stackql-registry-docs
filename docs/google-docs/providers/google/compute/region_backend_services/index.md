@@ -135,7 +135,7 @@ timeoutSec,
 usedBy
 FROM google.compute.region_backend_services
 WHERE project = '{{ project }}'
-AND region = '{{ region }}'; 
+AND region = '{{ region }}';
 ```
 
 ## `INSERT` example
@@ -207,7 +207,7 @@ SELECT
 '{{ protocol }}',
 '{{ fingerprint }}',
 '{{ portName }}',
-true|false,
+{{ enableCDN }},
 '{{ sessionAffinity }}',
 '{{ affinityCookieTtlSec }}',
 '{{ region }}',
@@ -242,145 +242,275 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-selfLink: string
-backends:
-  - description: string
-    group: string
-    balancingMode: string
-    maxUtilization: number
-    maxRate: integer
-    maxRatePerInstance: number
-    maxRatePerEndpoint: number
-    maxConnections: integer
-    maxConnectionsPerInstance: integer
-    maxConnectionsPerEndpoint: integer
-    capacityScaler: number
-    failover: boolean
-    preference: string
-healthChecks:
-  - type: string
-timeoutSec: integer
-port: integer
-protocol: string
-fingerprint: string
-portName: string
-enableCDN: boolean
-sessionAffinity: string
-affinityCookieTtlSec: integer
-region: string
-failoverPolicy:
-  disableConnectionDrainOnFailover: boolean
-  dropTrafficIfUnhealthy: boolean
-  failoverRatio: number
-loadBalancingScheme: string
-connectionDraining:
-  drainingTimeoutSec: integer
-iap:
-  enabled: boolean
-  oauth2ClientId: string
-  oauth2ClientSecret: string
-  oauth2ClientSecretSha256: string
-cdnPolicy:
-  cacheKeyPolicy:
-    includeProtocol: boolean
-    includeHost: boolean
-    includeQueryString: boolean
-    queryStringWhitelist:
-      - type: string
-    queryStringBlacklist:
-      - type: string
-    includeHttpHeaders:
-      - type: string
-    includeNamedCookies:
-      - type: string
-  signedUrlKeyNames:
-    - type: string
-  signedUrlCacheMaxAgeSec: string
-  requestCoalescing: boolean
-  cacheMode: string
-  defaultTtl: integer
-  maxTtl: integer
-  clientTtl: integer
-  negativeCaching: boolean
-  negativeCachingPolicy:
-    - code: integer
-      ttl: integer
-  bypassCacheOnRequestHeaders:
-    - headerName: string
-  serveWhileStale: integer
-customRequestHeaders:
-  - type: string
-customResponseHeaders:
-  - type: string
-securityPolicy: string
-edgeSecurityPolicy: string
-logConfig:
-  enable: boolean
-  sampleRate: number
-  optionalMode: string
-  optionalFields:
-    - type: string
-securitySettings:
-  clientTlsPolicy: string
-  subjectAltNames:
-    - type: string
-  awsV4Authentication:
-    accessKeyId: string
-    accessKey: string
-    accessKeyVersion: string
-    originRegion: string
-localityLbPolicy: string
-consistentHash:
-  httpCookie:
-    name: string
-    path: string
-    ttl:
-      seconds: string
-      nanos: integer
-  httpHeaderName: string
-  minimumRingSize: string
-circuitBreakers:
-  maxRequestsPerConnection: integer
-  maxConnections: integer
-  maxPendingRequests: integer
-  maxRequests: integer
-  maxRetries: integer
-outlierDetection:
-  consecutiveErrors: integer
-  maxEjectionPercent: integer
-  enforcingConsecutiveErrors: integer
-  enforcingSuccessRate: integer
-  successRateMinimumHosts: integer
-  successRateRequestVolume: integer
-  successRateStdevFactor: integer
-  consecutiveGatewayFailure: integer
-  enforcingConsecutiveGatewayFailure: integer
-network: string
-subsetting:
-  policy: string
-connectionTrackingPolicy:
-  trackingMode: string
-  connectionPersistenceOnUnhealthyBackends: string
-  idleTimeoutSec: integer
-  enableStrongAffinity: boolean
-compressionMode: string
-serviceLbPolicy: string
-serviceBindings:
-  - type: string
-localityLbPolicies:
-  - policy:
-      name: string
-    customPolicy:
-      name: string
-      data: string
-metadatas: object
-usedBy:
-  - reference: string
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: selfLink
+      value: string
+    - name: backends
+      value:
+        - - name: description
+            value: string
+          - name: group
+            value: string
+          - name: balancingMode
+            value: string
+          - name: maxUtilization
+            value: number
+          - name: maxRate
+            value: integer
+          - name: maxRatePerInstance
+            value: number
+          - name: maxRatePerEndpoint
+            value: number
+          - name: maxConnections
+            value: integer
+          - name: maxConnectionsPerInstance
+            value: integer
+          - name: maxConnectionsPerEndpoint
+            value: integer
+          - name: capacityScaler
+            value: number
+          - name: failover
+            value: boolean
+          - name: preference
+            value: string
+    - name: healthChecks
+      value:
+        - string
+    - name: timeoutSec
+      value: integer
+    - name: port
+      value: integer
+    - name: protocol
+      value: string
+    - name: fingerprint
+      value: string
+    - name: portName
+      value: string
+    - name: enableCDN
+      value: boolean
+    - name: sessionAffinity
+      value: string
+    - name: affinityCookieTtlSec
+      value: integer
+    - name: region
+      value: string
+    - name: failoverPolicy
+      value:
+        - name: disableConnectionDrainOnFailover
+          value: boolean
+        - name: dropTrafficIfUnhealthy
+          value: boolean
+        - name: failoverRatio
+          value: number
+    - name: loadBalancingScheme
+      value: string
+    - name: connectionDraining
+      value:
+        - name: drainingTimeoutSec
+          value: integer
+    - name: iap
+      value:
+        - name: enabled
+          value: boolean
+        - name: oauth2ClientId
+          value: string
+        - name: oauth2ClientSecret
+          value: string
+        - name: oauth2ClientSecretSha256
+          value: string
+    - name: cdnPolicy
+      value:
+        - name: cacheKeyPolicy
+          value:
+            - name: includeProtocol
+              value: boolean
+            - name: includeHost
+              value: boolean
+            - name: includeQueryString
+              value: boolean
+            - name: queryStringWhitelist
+              value:
+                - string
+            - name: queryStringBlacklist
+              value:
+                - string
+            - name: includeHttpHeaders
+              value:
+                - string
+            - name: includeNamedCookies
+              value:
+                - string
+        - name: signedUrlKeyNames
+          value:
+            - string
+        - name: signedUrlCacheMaxAgeSec
+          value: string
+        - name: requestCoalescing
+          value: boolean
+        - name: cacheMode
+          value: string
+        - name: defaultTtl
+          value: integer
+        - name: maxTtl
+          value: integer
+        - name: clientTtl
+          value: integer
+        - name: negativeCaching
+          value: boolean
+        - name: negativeCachingPolicy
+          value:
+            - - name: code
+                value: integer
+              - name: ttl
+                value: integer
+        - name: bypassCacheOnRequestHeaders
+          value:
+            - - name: headerName
+                value: string
+        - name: serveWhileStale
+          value: integer
+    - name: customRequestHeaders
+      value:
+        - string
+    - name: customResponseHeaders
+      value:
+        - string
+    - name: securityPolicy
+      value: string
+    - name: edgeSecurityPolicy
+      value: string
+    - name: logConfig
+      value:
+        - name: enable
+          value: boolean
+        - name: sampleRate
+          value: number
+        - name: optionalMode
+          value: string
+        - name: optionalFields
+          value:
+            - string
+    - name: securitySettings
+      value:
+        - name: clientTlsPolicy
+          value: string
+        - name: subjectAltNames
+          value:
+            - string
+        - name: awsV4Authentication
+          value:
+            - name: accessKeyId
+              value: string
+            - name: accessKey
+              value: string
+            - name: accessKeyVersion
+              value: string
+            - name: originRegion
+              value: string
+    - name: localityLbPolicy
+      value: string
+    - name: consistentHash
+      value:
+        - name: httpCookie
+          value:
+            - name: name
+              value: string
+            - name: path
+              value: string
+            - name: ttl
+              value:
+                - name: seconds
+                  value: string
+                - name: nanos
+                  value: integer
+        - name: httpHeaderName
+          value: string
+        - name: minimumRingSize
+          value: string
+    - name: circuitBreakers
+      value:
+        - name: maxRequestsPerConnection
+          value: integer
+        - name: maxConnections
+          value: integer
+        - name: maxPendingRequests
+          value: integer
+        - name: maxRequests
+          value: integer
+        - name: maxRetries
+          value: integer
+    - name: outlierDetection
+      value:
+        - name: consecutiveErrors
+          value: integer
+        - name: maxEjectionPercent
+          value: integer
+        - name: enforcingConsecutiveErrors
+          value: integer
+        - name: enforcingSuccessRate
+          value: integer
+        - name: successRateMinimumHosts
+          value: integer
+        - name: successRateRequestVolume
+          value: integer
+        - name: successRateStdevFactor
+          value: integer
+        - name: consecutiveGatewayFailure
+          value: integer
+        - name: enforcingConsecutiveGatewayFailure
+          value: integer
+    - name: network
+      value: string
+    - name: subsetting
+      value:
+        - name: policy
+          value: string
+    - name: connectionTrackingPolicy
+      value:
+        - name: trackingMode
+          value: string
+        - name: connectionPersistenceOnUnhealthyBackends
+          value: string
+        - name: idleTimeoutSec
+          value: integer
+        - name: enableStrongAffinity
+          value: boolean
+    - name: compressionMode
+      value: string
+    - name: serviceLbPolicy
+      value: string
+    - name: serviceBindings
+      value:
+        - string
+    - name: localityLbPolicies
+      value:
+        - - name: policy
+            value:
+              - name: name
+                value: string
+          - name: customPolicy
+            value:
+              - name: name
+                value: string
+              - name: data
+                value: string
+    - name: metadatas
+      value: object
+    - name: usedBy
+      value:
+        - - name: reference
+            value: string
 
 ```
 </TabItem>

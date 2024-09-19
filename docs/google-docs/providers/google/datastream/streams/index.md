@@ -76,7 +76,7 @@ state,
 updateTime
 FROM google.datastream.streams
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -123,120 +123,236 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-displayName: string
-sourceConfig:
-  sourceConnectionProfile: string
-  oracleSourceConfig:
-    includeObjects:
-      oracleSchemas:
-        - schema: string
-          oracleTables:
-            - table: string
-              oracleColumns:
-                - column: string
-                  dataType: string
-                  length: integer
-                  precision: integer
-                  scale: integer
-                  encoding: string
-                  primaryKey: boolean
-                  nullable: boolean
-                  ordinalPosition: integer
-    maxConcurrentCdcTasks: integer
-    maxConcurrentBackfillTasks: integer
-    dropLargeObjects: {}
-    streamLargeObjects: {}
-  mysqlSourceConfig:
-    includeObjects:
-      mysqlDatabases:
-        - database: string
-          mysqlTables:
-            - table: string
-              mysqlColumns:
-                - column: string
-                  dataType: string
-                  length: integer
-                  collation: string
-                  primaryKey: boolean
-                  nullable: boolean
-                  ordinalPosition: integer
-                  precision: integer
-                  scale: integer
-    maxConcurrentCdcTasks: integer
-    maxConcurrentBackfillTasks: integer
-  postgresqlSourceConfig:
-    includeObjects:
-      postgresqlSchemas:
-        - schema: string
-          postgresqlTables:
-            - table: string
-              postgresqlColumns:
-                - column: string
-                  dataType: string
-                  length: integer
-                  precision: integer
-                  scale: integer
-                  primaryKey: boolean
-                  nullable: boolean
-                  ordinalPosition: integer
-    replicationSlot: string
-    publication: string
-    maxConcurrentBackfillTasks: integer
-  sqlServerSourceConfig:
-    includeObjects:
-      schemas:
-        - schema: string
-          tables:
-            - table: string
-              columns:
-                - column: string
-                  dataType: string
-                  length: integer
-                  precision: integer
-                  scale: integer
-                  primaryKey: boolean
-                  nullable: boolean
-                  ordinalPosition: integer
-    maxConcurrentCdcTasks: integer
-    maxConcurrentBackfillTasks: integer
-    transactionLogs: {}
-    changeTables: {}
-destinationConfig:
-  destinationConnectionProfile: string
-  gcsDestinationConfig:
-    path: string
-    fileRotationMb: integer
-    fileRotationInterval: string
-    avroFileFormat: {}
-    jsonFileFormat:
-      schemaFileFormat: string
-      compression: string
-  bigqueryDestinationConfig:
-    singleTargetDataset:
-      datasetId: string
-    sourceHierarchyDatasets:
-      datasetTemplate:
-        location: string
-        datasetIdPrefix: string
-        kmsKeyName: string
-    dataFreshness: string
-    merge: {}
-    appendOnly: {}
-state: string
-backfillAll: {}
-backfillNone: {}
-errors:
-  - reason: string
-    errorUuid: string
-    message: string
-    errorTime: string
-    details: object
-customerManagedEncryptionKey: string
-lastRecoveryTime: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: displayName
+      value: string
+    - name: sourceConfig
+      value:
+        - name: sourceConnectionProfile
+          value: string
+        - name: oracleSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: oracleSchemas
+                  value:
+                    - - name: schema
+                        value: string
+                      - name: oracleTables
+                        value:
+                          - - name: table
+                              value: string
+                            - name: oracleColumns
+                              value:
+                                - - name: column
+                                    value: string
+                                  - name: dataType
+                                    value: string
+                                  - name: length
+                                    value: integer
+                                  - name: precision
+                                    value: integer
+                                  - name: scale
+                                    value: integer
+                                  - name: encoding
+                                    value: string
+                                  - name: primaryKey
+                                    value: boolean
+                                  - name: nullable
+                                    value: boolean
+                                  - name: ordinalPosition
+                                    value: integer
+            - name: maxConcurrentCdcTasks
+              value: integer
+            - name: maxConcurrentBackfillTasks
+              value: integer
+            - name: dropLargeObjects
+              value: []
+            - name: streamLargeObjects
+              value: []
+        - name: mysqlSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: mysqlDatabases
+                  value:
+                    - - name: database
+                        value: string
+                      - name: mysqlTables
+                        value:
+                          - - name: table
+                              value: string
+                            - name: mysqlColumns
+                              value:
+                                - - name: column
+                                    value: string
+                                  - name: dataType
+                                    value: string
+                                  - name: length
+                                    value: integer
+                                  - name: collation
+                                    value: string
+                                  - name: primaryKey
+                                    value: boolean
+                                  - name: nullable
+                                    value: boolean
+                                  - name: ordinalPosition
+                                    value: integer
+                                  - name: precision
+                                    value: integer
+                                  - name: scale
+                                    value: integer
+            - name: maxConcurrentCdcTasks
+              value: integer
+            - name: maxConcurrentBackfillTasks
+              value: integer
+        - name: postgresqlSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: postgresqlSchemas
+                  value:
+                    - - name: schema
+                        value: string
+                      - name: postgresqlTables
+                        value:
+                          - - name: table
+                              value: string
+                            - name: postgresqlColumns
+                              value:
+                                - - name: column
+                                    value: string
+                                  - name: dataType
+                                    value: string
+                                  - name: length
+                                    value: integer
+                                  - name: precision
+                                    value: integer
+                                  - name: scale
+                                    value: integer
+                                  - name: primaryKey
+                                    value: boolean
+                                  - name: nullable
+                                    value: boolean
+                                  - name: ordinalPosition
+                                    value: integer
+            - name: replicationSlot
+              value: string
+            - name: publication
+              value: string
+            - name: maxConcurrentBackfillTasks
+              value: integer
+        - name: sqlServerSourceConfig
+          value:
+            - name: includeObjects
+              value:
+                - name: schemas
+                  value:
+                    - - name: schema
+                        value: string
+                      - name: tables
+                        value:
+                          - - name: table
+                              value: string
+                            - name: columns
+                              value:
+                                - - name: column
+                                    value: string
+                                  - name: dataType
+                                    value: string
+                                  - name: length
+                                    value: integer
+                                  - name: precision
+                                    value: integer
+                                  - name: scale
+                                    value: integer
+                                  - name: primaryKey
+                                    value: boolean
+                                  - name: nullable
+                                    value: boolean
+                                  - name: ordinalPosition
+                                    value: integer
+            - name: maxConcurrentCdcTasks
+              value: integer
+            - name: maxConcurrentBackfillTasks
+              value: integer
+            - name: transactionLogs
+              value: []
+            - name: changeTables
+              value: []
+    - name: destinationConfig
+      value:
+        - name: destinationConnectionProfile
+          value: string
+        - name: gcsDestinationConfig
+          value:
+            - name: path
+              value: string
+            - name: fileRotationMb
+              value: integer
+            - name: fileRotationInterval
+              value: string
+            - name: avroFileFormat
+              value: []
+            - name: jsonFileFormat
+              value:
+                - name: schemaFileFormat
+                  value: string
+                - name: compression
+                  value: string
+        - name: bigqueryDestinationConfig
+          value:
+            - name: singleTargetDataset
+              value:
+                - name: datasetId
+                  value: string
+            - name: sourceHierarchyDatasets
+              value:
+                - name: datasetTemplate
+                  value:
+                    - name: location
+                      value: string
+                    - name: datasetIdPrefix
+                      value: string
+                    - name: kmsKeyName
+                      value: string
+            - name: dataFreshness
+              value: string
+            - name: merge
+              value: []
+            - name: appendOnly
+              value: []
+    - name: state
+      value: string
+    - name: backfillAll
+      value: []
+    - name: backfillNone
+      value: []
+    - name: errors
+      value:
+        - - name: reason
+            value: string
+          - name: errorUuid
+            value: string
+          - name: message
+            value: string
+          - name: errorTime
+            value: string
+          - name: details
+            value: object
+    - name: customerManagedEncryptionKey
+      value: string
+    - name: lastRecoveryTime
+      value: string
 
 ```
 </TabItem>

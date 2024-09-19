@@ -51,5 +51,5 @@ data,
 extensions
 FROM google.apigee.host_security_reports_result
 WHERE hostSecurityReportsId = '{{ hostSecurityReportsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND organizationsId = '{{ organizationsId }}';
 ```

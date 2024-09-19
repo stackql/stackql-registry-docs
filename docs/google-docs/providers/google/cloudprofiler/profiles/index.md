@@ -60,7 +60,7 @@ profileBytes,
 profileType,
 startTime
 FROM google.cloudprofiler.profiles
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -93,14 +93,19 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-deployment:
-  projectId: string
-  target: string
-  labels: object
-profileType:
-  - type: string
-    enumDescriptions: string
-    enum: string
+- name: your_resource_model_name
+  props:
+    - name: deployment
+      value:
+        - name: projectId
+          value: string
+        - name: target
+          value: string
+        - name: labels
+          value: object
+    - name: profileType
+      value:
+        - string
 
 ```
 </TabItem>

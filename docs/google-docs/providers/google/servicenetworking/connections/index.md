@@ -48,7 +48,7 @@ List the private connections that are configured in a service consumer's VPC net
 SELECT
 connections
 FROM google.servicenetworking.connections
-WHERE servicesId = '{{ servicesId }}'; 
+WHERE servicesId = '{{ servicesId }}';
 ```
 
 ## `INSERT` example
@@ -81,11 +81,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-network: string
-peering: string
-reservedPeeringRanges:
-  - type: string
-service: string
+- name: your_resource_model_name
+  props:
+    - name: network
+      value: string
+    - name: peering
+      value: string
+    - name: reservedPeeringRanges
+      value:
+        - string
+    - name: service
+      value: string
 
 ```
 </TabItem>

@@ -89,7 +89,7 @@ timeoutSec,
 type,
 unhealthyThreshold
 FROM google.compute.health_checks
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -150,65 +150,125 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-kind: string
-id: string
-creationTimestamp: string
-name: string
-description: string
-checkIntervalSec: integer
-timeoutSec: integer
-unhealthyThreshold: integer
-healthyThreshold: integer
-type: string
-tcpHealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  request: string
-  response: string
-  proxyHeader: string
-sslHealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  request: string
-  response: string
-  proxyHeader: string
-httpHealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  host: string
-  requestPath: string
-  proxyHeader: string
-  response: string
-httpsHealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  host: string
-  requestPath: string
-  proxyHeader: string
-  response: string
-http2HealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  host: string
-  requestPath: string
-  proxyHeader: string
-  response: string
-grpcHealthCheck:
-  port: integer
-  portName: string
-  portSpecification: string
-  grpcServiceName: string
-sourceRegions:
-  - type: string
-selfLink: string
-region: string
-logConfig:
-  enable: boolean
+- name: your_resource_model_name
+  props:
+    - name: kind
+      value: string
+    - name: id
+      value: string
+    - name: creationTimestamp
+      value: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: checkIntervalSec
+      value: integer
+    - name: timeoutSec
+      value: integer
+    - name: unhealthyThreshold
+      value: integer
+    - name: healthyThreshold
+      value: integer
+    - name: type
+      value: string
+    - name: tcpHealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: request
+          value: string
+        - name: response
+          value: string
+        - name: proxyHeader
+          value: string
+    - name: sslHealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: request
+          value: string
+        - name: response
+          value: string
+        - name: proxyHeader
+          value: string
+    - name: httpHealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: host
+          value: string
+        - name: requestPath
+          value: string
+        - name: proxyHeader
+          value: string
+        - name: response
+          value: string
+    - name: httpsHealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: host
+          value: string
+        - name: requestPath
+          value: string
+        - name: proxyHeader
+          value: string
+        - name: response
+          value: string
+    - name: http2HealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: host
+          value: string
+        - name: requestPath
+          value: string
+        - name: proxyHeader
+          value: string
+        - name: response
+          value: string
+    - name: grpcHealthCheck
+      value:
+        - name: port
+          value: integer
+        - name: portName
+          value: string
+        - name: portSpecification
+          value: string
+        - name: grpcServiceName
+          value: string
+    - name: sourceRegions
+      value:
+        - string
+    - name: selfLink
+      value: string
+    - name: region
+      value: string
+    - name: logConfig
+      value:
+        - name: enable
+          value: boolean
 
 ```
 </TabItem>

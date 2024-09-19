@@ -98,7 +98,7 @@ turnCount,
 updateTime
 FROM google.contactcenterinsights.conversations
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -155,166 +155,326 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-latestSummary:
-  textSections: object
-  metadata: object
-  conversationModel: string
-  confidence: number
-  answerRecord: string
-  text: string
-dialogflowIntents: object
-agentId: string
-name: string
-expireTime: string
-languageCode: string
-ttl: string
-obfuscatedUserId: string
-createTime: string
-transcript:
-  transcriptSegments:
-    - sentiment:
-        score: number
-        magnitude: number
-      channelTag: integer
-      dialogflowSegmentMetadata:
-        smartReplyAllowlistCovered: boolean
-      text: string
-      segmentParticipant:
-        obfuscatedExternalUserId: string
-        dialogflowParticipant: string
-        userId: string
-        role: string
-        dialogflowParticipantName: string
-      languageCode: string
-      words:
-        - endOffset: string
-          startOffset: string
-          confidence: number
-          word: string
-      confidence: number
-      messageTime: string
-metadataJson: string
-medium: string
-callMetadata:
-  agentChannel: integer
-  customerChannel: integer
-runtimeAnnotations:
-  - smartComposeSuggestion:
-      suggestion: string
-      queryRecord: string
-      metadata: object
-      confidenceScore: number
-    faqAnswer:
-      source: string
-      confidenceScore: number
-      metadata: object
-      queryRecord: string
-      question: string
-      answer: string
-    dialogflowInteraction:
-      confidence: number
-      dialogflowIntentId: string
-    articleSuggestion:
-      source: string
-      metadata: object
-      uri: string
-      title: string
-      queryRecord: string
-      confidenceScore: number
-    endBoundary:
-      wordIndex: integer
-      transcriptIndex: integer
-    annotationId: string
-    createTime: string
-    smartReply:
-      metadata: object
-      reply: string
-      confidenceScore: number
-      queryRecord: string
-    answerFeedback:
-      correctnessLevel: string
-      clicked: boolean
-      displayed: boolean
-    userInput:
-      querySource: string
-      query: string
-      generatorName: string
-startTime: string
-qualityMetadata:
-  agentInfo:
-    - agentId: string
-      displayName: string
-      team: string
-      dispositionCode: string
-  waitDuration: string
-  menuPath: string
-  customerSatisfactionRating: integer
-updateTime: string
-turnCount: integer
-labels: object
-dataSource:
-  dialogflowSource:
-    audioUri: string
-    dialogflowConversation: string
-  gcsSource:
-    transcriptUri: string
-    audioUri: string
-duration: string
-latestAnalysis:
-  analysisResult:
-    endTime: string
-    callAnalysisMetadata:
-      sentiments:
-        - channelTag: integer
-      silence:
-        silenceDuration: string
-        silencePercentage: number
-      intents: object
-      entities: object
-      issueModelResult:
-        issues:
-          - score: number
-            displayName: string
-            issue: string
-        issueModel: string
-      phraseMatchers: object
-      annotations:
-        - silenceData: {}
-          entityMentionData:
-            entityUniqueId: string
-            type: string
-          channelTag: integer
-          interruptionData: {}
-          phraseMatchData:
-            phraseMatcher: string
-            displayName: string
-          issueMatchData:
-            issueAssignment:
-              score: number
-              displayName: string
-              issue: string
-          holdData: {}
-          intentMatchData:
-            intentUniqueId: string
-  name: string
-  createTime: string
-  requestTime: string
-  annotatorSelector:
-    runSummarizationAnnotator: boolean
-    runSentimentAnnotator: boolean
-    issueModels:
-      - type: string
-    runIntentAnnotator: boolean
-    runEntityAnnotator: boolean
-    runPhraseMatcherAnnotator: boolean
-    runInterruptionAnnotator: boolean
-    runSilenceAnnotator: boolean
-    runIssueModelAnnotator: boolean
-    summarizationConfig:
-      summarizationModel: string
-      conversationProfile: string
-    phraseMatchers:
-      - type: string
+- name: your_resource_model_name
+  props:
+    - name: latestSummary
+      value:
+        - name: textSections
+          value: object
+        - name: metadata
+          value: object
+        - name: conversationModel
+          value: string
+        - name: confidence
+          value: number
+        - name: answerRecord
+          value: string
+        - name: text
+          value: string
+    - name: dialogflowIntents
+      value: object
+    - name: agentId
+      value: string
+    - name: name
+      value: string
+    - name: expireTime
+      value: string
+    - name: languageCode
+      value: string
+    - name: ttl
+      value: string
+    - name: obfuscatedUserId
+      value: string
+    - name: createTime
+      value: string
+    - name: transcript
+      value:
+        - name: transcriptSegments
+          value:
+            - - name: sentiment
+                value:
+                  - name: score
+                    value: number
+                  - name: magnitude
+                    value: number
+              - name: channelTag
+                value: integer
+              - name: dialogflowSegmentMetadata
+                value:
+                  - name: smartReplyAllowlistCovered
+                    value: boolean
+              - name: text
+                value: string
+              - name: segmentParticipant
+                value:
+                  - name: obfuscatedExternalUserId
+                    value: string
+                  - name: dialogflowParticipant
+                    value: string
+                  - name: userId
+                    value: string
+                  - name: role
+                    value: string
+                  - name: dialogflowParticipantName
+                    value: string
+              - name: languageCode
+                value: string
+              - name: words
+                value:
+                  - - name: endOffset
+                      value: string
+                    - name: startOffset
+                      value: string
+                    - name: confidence
+                      value: number
+                    - name: word
+                      value: string
+              - name: confidence
+                value: number
+              - name: messageTime
+                value: string
+    - name: metadataJson
+      value: string
+    - name: medium
+      value: string
+    - name: callMetadata
+      value:
+        - name: agentChannel
+          value: integer
+        - name: customerChannel
+          value: integer
+    - name: runtimeAnnotations
+      value:
+        - - name: smartComposeSuggestion
+            value:
+              - name: suggestion
+                value: string
+              - name: queryRecord
+                value: string
+              - name: metadata
+                value: object
+              - name: confidenceScore
+                value: number
+          - name: faqAnswer
+            value:
+              - name: source
+                value: string
+              - name: confidenceScore
+                value: number
+              - name: metadata
+                value: object
+              - name: queryRecord
+                value: string
+              - name: question
+                value: string
+              - name: answer
+                value: string
+          - name: dialogflowInteraction
+            value:
+              - name: confidence
+                value: number
+              - name: dialogflowIntentId
+                value: string
+          - name: articleSuggestion
+            value:
+              - name: source
+                value: string
+              - name: metadata
+                value: object
+              - name: uri
+                value: string
+              - name: title
+                value: string
+              - name: queryRecord
+                value: string
+              - name: confidenceScore
+                value: number
+          - name: endBoundary
+            value:
+              - name: wordIndex
+                value: integer
+              - name: transcriptIndex
+                value: integer
+          - name: annotationId
+            value: string
+          - name: createTime
+            value: string
+          - name: smartReply
+            value:
+              - name: metadata
+                value: object
+              - name: reply
+                value: string
+              - name: confidenceScore
+                value: number
+              - name: queryRecord
+                value: string
+          - name: answerFeedback
+            value:
+              - name: correctnessLevel
+                value: string
+              - name: clicked
+                value: boolean
+              - name: displayed
+                value: boolean
+          - name: userInput
+            value:
+              - name: querySource
+                value: string
+              - name: query
+                value: string
+              - name: generatorName
+                value: string
+    - name: startTime
+      value: string
+    - name: qualityMetadata
+      value:
+        - name: agentInfo
+          value:
+            - - name: agentId
+                value: string
+              - name: displayName
+                value: string
+              - name: team
+                value: string
+              - name: dispositionCode
+                value: string
+        - name: waitDuration
+          value: string
+        - name: menuPath
+          value: string
+        - name: customerSatisfactionRating
+          value: integer
+    - name: updateTime
+      value: string
+    - name: turnCount
+      value: integer
+    - name: labels
+      value: object
+    - name: dataSource
+      value:
+        - name: dialogflowSource
+          value:
+            - name: audioUri
+              value: string
+            - name: dialogflowConversation
+              value: string
+        - name: gcsSource
+          value:
+            - name: transcriptUri
+              value: string
+            - name: audioUri
+              value: string
+    - name: duration
+      value: string
+    - name: latestAnalysis
+      value:
+        - name: analysisResult
+          value:
+            - name: endTime
+              value: string
+            - name: callAnalysisMetadata
+              value:
+                - name: sentiments
+                  value:
+                    - - name: channelTag
+                        value: integer
+                - name: silence
+                  value:
+                    - name: silenceDuration
+                      value: string
+                    - name: silencePercentage
+                      value: number
+                - name: intents
+                  value: object
+                - name: entities
+                  value: object
+                - name: issueModelResult
+                  value:
+                    - name: issues
+                      value:
+                        - - name: score
+                            value: number
+                          - name: displayName
+                            value: string
+                          - name: issue
+                            value: string
+                    - name: issueModel
+                      value: string
+                - name: phraseMatchers
+                  value: object
+                - name: annotations
+                  value:
+                    - - name: silenceData
+                        value: []
+                      - name: entityMentionData
+                        value:
+                          - name: entityUniqueId
+                            value: string
+                          - name: type
+                            value: string
+                      - name: channelTag
+                        value: integer
+                      - name: interruptionData
+                        value: []
+                      - name: phraseMatchData
+                        value:
+                          - name: phraseMatcher
+                            value: string
+                          - name: displayName
+                            value: string
+                      - name: issueMatchData
+                        value:
+                          - name: issueAssignment
+                            value:
+                              - name: score
+                                value: number
+                              - name: displayName
+                                value: string
+                              - name: issue
+                                value: string
+                      - name: holdData
+                        value: []
+                      - name: intentMatchData
+                        value:
+                          - name: intentUniqueId
+                            value: string
+        - name: name
+          value: string
+        - name: createTime
+          value: string
+        - name: requestTime
+          value: string
+        - name: annotatorSelector
+          value:
+            - name: runSummarizationAnnotator
+              value: boolean
+            - name: runSentimentAnnotator
+              value: boolean
+            - name: issueModels
+              value:
+                - string
+            - name: runIntentAnnotator
+              value: boolean
+            - name: runEntityAnnotator
+              value: boolean
+            - name: runPhraseMatcherAnnotator
+              value: boolean
+            - name: runInterruptionAnnotator
+              value: boolean
+            - name: runSilenceAnnotator
+              value: boolean
+            - name: runIssueModelAnnotator
+              value: boolean
+            - name: summarizationConfig
+              value:
+                - name: summarizationModel
+                  value: string
+                - name: conversationProfile
+                  value: string
+            - name: phraseMatchers
+              value:
+                - string
 
 ```
 </TabItem>

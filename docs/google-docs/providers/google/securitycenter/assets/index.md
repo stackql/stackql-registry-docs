@@ -54,5 +54,5 @@ SELECT
 asset,
 stateChange
 FROM google.securitycenter.assets
-WHERE foldersId = '{{ foldersId }}'; 
+WHERE foldersId = '{{ foldersId }}';
 ```

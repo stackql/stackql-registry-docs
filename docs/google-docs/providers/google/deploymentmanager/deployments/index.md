@@ -75,7 +75,7 @@ target,
 update,
 updateTime
 FROM google.deploymentmanager.deployments
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```
 
 ## `INSERT` example
@@ -122,68 +122,132 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-id: string
-name: string
-description: string
-operation:
-  kind: string
-  id: string
-  creationTimestamp: string
-  name: string
-  zone: string
-  clientOperationId: string
-  operationType: string
-  targetLink: string
-  targetId: string
-  status: string
-  statusMessage: string
-  user: string
-  progress: integer
-  insertTime: string
-  startTime: string
-  endTime: string
-  error:
-    errors:
-      - code: string
-        location: string
-        message: string
-  warnings:
-    - code: string
-      message: string
-      data:
-        - key: string
-          value: string
-  httpErrorStatusCode: integer
-  httpErrorMessage: string
-  selfLink: string
-  region: string
-  description: string
-  operationGroupId: string
-  setCommonInstanceMetadataOperationMetadata:
-    clientOperationId: string
-    perLocationOperations: object
-  instancesBulkInsertOperationMetadata:
-    perLocationStatus: object
-fingerprint: string
-manifest: string
-update:
-  manifest: string
-  labels:
-    - key: string
+- name: your_resource_model_name
+  props:
+    - name: id
       value: string
-  description: string
-insertTime: string
-updateTime: string
-target:
-  config:
-    content: string
-  imports:
-    - name: string
-      content: string
-labels:
-  - key: string
-    value: string
-selfLink: string
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: operation
+      value:
+        - name: kind
+          value: string
+        - name: id
+          value: string
+        - name: creationTimestamp
+          value: string
+        - name: name
+          value: string
+        - name: zone
+          value: string
+        - name: clientOperationId
+          value: string
+        - name: operationType
+          value: string
+        - name: targetLink
+          value: string
+        - name: targetId
+          value: string
+        - name: status
+          value: string
+        - name: statusMessage
+          value: string
+        - name: user
+          value: string
+        - name: progress
+          value: integer
+        - name: insertTime
+          value: string
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+        - name: error
+          value:
+            - name: errors
+              value:
+                - - name: code
+                    value: string
+                  - name: location
+                    value: string
+                  - name: message
+                    value: string
+        - name: warnings
+          value:
+            - - name: code
+                value: string
+              - name: message
+                value: string
+              - name: data
+                value:
+                  - - name: key
+                      value: string
+                    - name: value
+                      value: string
+        - name: httpErrorStatusCode
+          value: integer
+        - name: httpErrorMessage
+          value: string
+        - name: selfLink
+          value: string
+        - name: region
+          value: string
+        - name: description
+          value: string
+        - name: operationGroupId
+          value: string
+        - name: setCommonInstanceMetadataOperationMetadata
+          value:
+            - name: clientOperationId
+              value: string
+            - name: perLocationOperations
+              value: object
+        - name: instancesBulkInsertOperationMetadata
+          value:
+            - name: perLocationStatus
+              value: object
+    - name: fingerprint
+      value: string
+    - name: manifest
+      value: string
+    - name: update
+      value:
+        - name: manifest
+          value: string
+        - name: labels
+          value:
+            - - name: key
+                value: string
+              - name: value
+                value: string
+        - name: description
+          value: string
+    - name: insertTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: target
+      value:
+        - name: config
+          value:
+            - name: content
+              value: string
+        - name: imports
+          value:
+            - - name: name
+                value: string
+              - name: content
+                value: string
+    - name: labels
+      value:
+        - - name: key
+            value: string
+          - name: value
+            value: string
+    - name: selfLink
+      value: string
 
 ```
 </TabItem>

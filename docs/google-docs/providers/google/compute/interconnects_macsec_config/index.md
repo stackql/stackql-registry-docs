@@ -49,5 +49,5 @@ etag,
 result
 FROM google.compute.interconnects_macsec_config
 WHERE interconnect = '{{ interconnect }}'
-AND project = '{{ project }}'; 
+AND project = '{{ project }}';
 ```

@@ -50,5 +50,5 @@ interfaceNatMappings
 FROM google.compute.routers_nat_mapping_info
 WHERE project = '{{ project }}'
 AND region = '{{ region }}'
-AND router = '{{ router }}'; 
+AND router = '{{ router }}';
 ```

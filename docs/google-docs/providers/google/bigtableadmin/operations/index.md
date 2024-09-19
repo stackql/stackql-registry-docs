@@ -55,5 +55,5 @@ error,
 metadata,
 response
 FROM google.bigtableadmin.operations
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```

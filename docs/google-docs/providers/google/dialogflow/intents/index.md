@@ -68,7 +68,7 @@ trainingPhrases
 FROM google.dialogflow.intents
 WHERE agentsId = '{{ agentsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -108,7 +108,7 @@ SELECT
 '{{ trainingPhrases }}',
 '{{ parameters }}',
 '{{ priority }}',
-true|false,
+{{ isFallback }},
 '{{ labels }}',
 '{{ description }}'
 ;
@@ -117,23 +117,42 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-displayName: string
-trainingPhrases:
-  - id: string
-    parts:
-      - text: string
-        parameterId: string
-    repeatCount: integer
-parameters:
-  - id: string
-    entityType: string
-    isList: boolean
-    redact: boolean
-priority: integer
-isFallback: boolean
-labels: object
-description: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: displayName
+      value: string
+    - name: trainingPhrases
+      value:
+        - - name: id
+            value: string
+          - name: parts
+            value:
+              - - name: text
+                  value: string
+                - name: parameterId
+                  value: string
+          - name: repeatCount
+            value: integer
+    - name: parameters
+      value:
+        - - name: id
+            value: string
+          - name: entityType
+            value: string
+          - name: isList
+            value: boolean
+          - name: redact
+            value: boolean
+    - name: priority
+      value: integer
+    - name: isFallback
+      value: boolean
+    - name: labels
+      value: object
+    - name: description
+      value: string
 
 ```
 </TabItem>

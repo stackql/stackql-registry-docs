@@ -47,5 +47,5 @@ SELECT
 column_anon
 FROM google.apim.api_observation_tags
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

@@ -56,5 +56,5 @@ code,
 supportedNetworkTemplates
 FROM google.baremetalsolution.os_images
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

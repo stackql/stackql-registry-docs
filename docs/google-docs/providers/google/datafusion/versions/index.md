@@ -53,5 +53,5 @@ type,
 versionNumber
 FROM google.datafusion.versions
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```

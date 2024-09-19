@@ -54,7 +54,7 @@ role
 FROM google.cloudfunctions.functions_iam_policies
 WHERE functionsId = '{{ functionsId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `REPLACE` example

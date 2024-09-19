@@ -98,7 +98,7 @@ user,
 warnings,
 zone
 FROM google.compute.global_organization_operations
-WHERE  = '{{  }}'; 
+;
 ```
 
 ## `DELETE` example

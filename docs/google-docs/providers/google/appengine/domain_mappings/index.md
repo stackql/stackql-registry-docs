@@ -56,7 +56,7 @@ name,
 resourceRecords,
 sslSettings
 FROM google.appengine.domain_mappings
-WHERE appsId = '{{ appsId }}'; 
+WHERE appsId = '{{ appsId }}';
 ```
 
 ## `INSERT` example
@@ -91,16 +91,28 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-id: string
-sslSettings:
-  certificateId: string
-  sslManagementType: string
-  pendingManagedCertificateId: string
-resourceRecords:
-  - name: string
-    rrdata: string
-    type: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: id
+      value: string
+    - name: sslSettings
+      value:
+        - name: certificateId
+          value: string
+        - name: sslManagementType
+          value: string
+        - name: pendingManagedCertificateId
+          value: string
+    - name: resourceRecords
+      value:
+        - - name: name
+            value: string
+          - name: rrdata
+            value: string
+          - name: type
+            value: string
 
 ```
 </TabItem>

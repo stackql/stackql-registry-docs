@@ -65,7 +65,7 @@ displayName,
 pdfInstruction,
 updateTime
 FROM google.datalabeling.instructions
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -96,19 +96,33 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-instruction:
-  name: string
-  displayName: string
-  description: string
-  createTime: string
-  updateTime: string
-  dataType: string
-  csvInstruction:
-    gcsFileUri: string
-  pdfInstruction:
-    gcsFileUri: string
-  blockingResources:
-    - type: string
+- name: your_resource_model_name
+  props:
+    - name: instruction
+      value:
+        - name: name
+          value: string
+        - name: displayName
+          value: string
+        - name: description
+          value: string
+        - name: createTime
+          value: string
+        - name: updateTime
+          value: string
+        - name: dataType
+          value: string
+        - name: csvInstruction
+          value:
+            - name: gcsFileUri
+              value: string
+        - name: pdfInstruction
+          value:
+            - name: gcsFileUri
+              value: string
+        - name: blockingResources
+          value:
+            - string
 
 ```
 </TabItem>

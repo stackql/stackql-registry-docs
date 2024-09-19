@@ -50,5 +50,5 @@ kind,
 recaptchaSiteKey,
 recaptchaStoken
 FROM google.identitytoolkit.relyingparty_recaptcha_param
-WHERE  = '{{  }}'; 
+;
 ```

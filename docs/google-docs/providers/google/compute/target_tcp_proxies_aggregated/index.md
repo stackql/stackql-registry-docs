@@ -64,5 +64,5 @@ region,
 selfLink,
 service
 FROM google.compute.target_tcp_proxies_aggregated
-WHERE project = '{{ project }}'; 
+WHERE project = '{{ project }}';
 ```

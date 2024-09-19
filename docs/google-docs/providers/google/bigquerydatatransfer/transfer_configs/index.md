@@ -93,7 +93,7 @@ state,
 updateTime,
 userId
 FROM google.bigquerydatatransfer.transfer_configs
-WHERE projectsId = '{{ projectsId }}'; 
+WHERE projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -137,7 +137,7 @@ SELECT
 '{{ schedule }}',
 '{{ scheduleOptions }}',
 '{{ dataRefreshWindowDays }}',
-true|false,
+{{ disabled }},
 '{{ userId }}',
 '{{ notificationPubsubTopic }}',
 '{{ emailPreferences }}',
@@ -148,30 +148,56 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-name: string
-destinationDatasetId: string
-displayName: string
-dataSourceId: string
-params: object
-schedule: string
-scheduleOptions:
-  disableAutoScheduling: boolean
-  startTime: string
-  endTime: string
-dataRefreshWindowDays: integer
-disabled: boolean
-updateTime: string
-nextRunTime: string
-state: string
-userId: string
-datasetRegion: string
-notificationPubsubTopic: string
-emailPreferences:
-  enableFailureEmail: boolean
-ownerInfo:
-  email: string
-encryptionConfiguration:
-  kmsKeyName: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: destinationDatasetId
+      value: string
+    - name: displayName
+      value: string
+    - name: dataSourceId
+      value: string
+    - name: params
+      value: object
+    - name: schedule
+      value: string
+    - name: scheduleOptions
+      value:
+        - name: disableAutoScheduling
+          value: boolean
+        - name: startTime
+          value: string
+        - name: endTime
+          value: string
+    - name: dataRefreshWindowDays
+      value: integer
+    - name: disabled
+      value: boolean
+    - name: updateTime
+      value: string
+    - name: nextRunTime
+      value: string
+    - name: state
+      value: string
+    - name: userId
+      value: string
+    - name: datasetRegion
+      value: string
+    - name: notificationPubsubTopic
+      value: string
+    - name: emailPreferences
+      value:
+        - name: enableFailureEmail
+          value: boolean
+    - name: ownerInfo
+      value:
+        - name: email
+          value: string
+    - name: encryptionConfiguration
+      value:
+        - name: kmsKeyName
+          value: string
 
 ```
 </TabItem>

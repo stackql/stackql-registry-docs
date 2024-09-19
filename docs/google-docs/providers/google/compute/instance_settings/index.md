@@ -54,7 +54,7 @@ metadata,
 zone
 FROM google.compute.instance_settings
 WHERE project = '{{ project }}'
-AND zone = '{{ zone }}'; 
+AND zone = '{{ zone }}';
 ```
 
 ## `UPDATE` example

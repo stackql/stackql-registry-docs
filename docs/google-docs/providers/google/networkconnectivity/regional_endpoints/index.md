@@ -72,7 +72,7 @@ targetGoogleApi,
 updateTime
 FROM google.networkconnectivity.regional_endpoints
 WHERE locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `INSERT` example
@@ -117,18 +117,32 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
-createTime: string
-updateTime: string
-labels: object
-description: string
-targetGoogleApi: string
-network: string
-subnetwork: string
-accessType: string
-pscForwardingRule: string
-ipAddress: string
-address: string
+- name: your_resource_model_name
+  props:
+    - name: name
+      value: string
+    - name: createTime
+      value: string
+    - name: updateTime
+      value: string
+    - name: labels
+      value: object
+    - name: description
+      value: string
+    - name: targetGoogleApi
+      value: string
+    - name: network
+      value: string
+    - name: subnetwork
+      value: string
+    - name: accessType
+      value: string
+    - name: pscForwardingRule
+      value: string
+    - name: ipAddress
+      value: string
+    - name: address
+      value: string
 
 ```
 </TabItem>
