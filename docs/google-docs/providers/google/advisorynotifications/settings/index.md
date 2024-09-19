@@ -38,8 +38,8 @@ Creates, updates, deletes, gets or lists a <code>settings</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_settings" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Get notification settings. |
-| <CopyableCode code="update_settings" /> | `UPDATE` | <CopyableCode code="locationsId, organizationsId" /> | Update notification settings. |
+| <CopyableCode code="get_settings" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Get notification settings. |
+| <CopyableCode code="update_settings" /> | `UPDATE` | <CopyableCode code="locationsId, projectsId" /> | Update notification settings. |
 
 ## `SELECT` examples
 
@@ -52,7 +52,7 @@ etag,
 notificationSettings
 FROM google.advisorynotifications.settings
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND projectsId = '{{ projectsId }}'; 
 ```
 
 ## `UPDATE` example
@@ -64,9 +64,9 @@ Updates a <code>settings</code> resource.
 UPDATE google.advisorynotifications.settings
 SET 
 etag = '{{ etag }}',
-name = '{{ name }}',
-notificationSettings = '{{ notificationSettings }}'
+notificationSettings = '{{ notificationSettings }}',
+name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}';
+AND projectsId = '{{ projectsId }}';
 ```

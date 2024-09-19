@@ -95,26 +95,26 @@ INSERT INTO google.aiplatform.features (
 featureGroupsId,
 locationsId,
 projectsId,
-labels,
 versionColumnName,
-valueType,
 disableMonitoring,
-etag,
 description,
 name,
+etag,
+valueType,
+labels,
 pointOfContact
 )
 SELECT 
 '{{ featureGroupsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ labels }}',
 '{{ versionColumnName }}',
-'{{ valueType }}',
 true|false,
-'{{ etag }}',
 '{{ description }}',
 '{{ name }}',
+'{{ etag }}',
+'{{ valueType }}',
+'{{ labels }}',
 '{{ pointOfContact }}'
 ;
 ```
@@ -122,25 +122,25 @@ true|false,
 <TabItem value="manifest">
 
 ```yaml
-labels: object
-createTime: string
 versionColumnName: string
-valueType: string
-disableMonitoring: boolean
-etag: string
-description: string
 updateTime: string
-name: string
+disableMonitoring: boolean
+createTime: string
+description: string
 monitoringStatsAnomalies:
   - featureStatsAnomaly:
-      score: number
+      statsUri: string
       anomalyUri: string
       anomalyDetectionThreshold: number
       endTime: string
       distributionDeviation: number
-      statsUri: string
       startTime: string
+      score: number
     objective: string
+name: string
+etag: string
+valueType: string
+labels: object
 pointOfContact: string
 
 ```
@@ -155,13 +155,13 @@ Updates a <code>features</code> resource.
 /*+ update */
 UPDATE google.aiplatform.features
 SET 
-labels = '{{ labels }}',
 versionColumnName = '{{ versionColumnName }}',
-valueType = '{{ valueType }}',
 disableMonitoring = true|false,
-etag = '{{ etag }}',
 description = '{{ description }}',
 name = '{{ name }}',
+etag = '{{ etag }}',
+valueType = '{{ valueType }}',
+labels = '{{ labels }}',
 pointOfContact = '{{ pointOfContact }}'
 WHERE 
 featureGroupsId = '{{ featureGroupsId }}'

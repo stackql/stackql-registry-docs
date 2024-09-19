@@ -85,19 +85,19 @@ INSERT INTO google.aiplatform.feature_groups (
 locationsId,
 projectsId,
 bigQuery,
-name,
-description,
 labels,
-etag
+etag,
+description,
+name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ bigQuery }}',
-'{{ name }}',
-'{{ description }}',
 '{{ labels }}',
-'{{ etag }}'
+'{{ etag }}',
+'{{ description }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -106,19 +106,19 @@ SELECT
 ```yaml
 bigQuery:
   dense: boolean
-  bigQuerySource:
-    inputUri: string
+  entityIdColumns:
+    - type: string
   staticDataSource: boolean
   timeSeries:
     timestampColumn: string
-  entityIdColumns:
-    - type: string
-updateTime: string
-name: string
-description: string
+  bigQuerySource:
+    inputUri: string
 labels: object
-createTime: string
 etag: string
+createTime: string
+description: string
+name: string
+updateTime: string
 
 ```
 </TabItem>
@@ -133,10 +133,10 @@ Updates a <code>feature_groups</code> resource.
 UPDATE google.aiplatform.feature_groups
 SET 
 bigQuery = '{{ bigQuery }}',
-name = '{{ name }}',
-description = '{{ description }}',
 labels = '{{ labels }}',
-etag = '{{ etag }}'
+etag = '{{ etag }}',
+description = '{{ description }}',
+name = '{{ name }}'
 WHERE 
 featureGroupsId = '{{ featureGroupsId }}'
 AND locationsId = '{{ locationsId }}'

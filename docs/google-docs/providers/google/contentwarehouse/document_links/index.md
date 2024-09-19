@@ -57,42 +57,42 @@ INSERT INTO google.contentwarehouse.document_links (
 documentsId,
 locationsId,
 projectsId,
-documentLink,
-requestMetadata
+requestMetadata,
+documentLink
 )
 SELECT 
 '{{ documentsId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ documentLink }}',
-'{{ requestMetadata }}'
+'{{ requestMetadata }}',
+'{{ documentLink }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-documentLink:
-  name: string
-  sourceDocumentReference:
-    documentIsFolder: boolean
-    deleteTime: string
-    updateTime: string
-    documentIsLegalHoldFolder: boolean
-    documentName: string
-    snippet: string
-    createTime: string
-    documentIsRetentionFolder: boolean
-    displayName: string
-  updateTime: string
-  createTime: string
-  state: string
-  description: string
 requestMetadata:
   userInfo:
     groupIds:
       - type: string
     id: string
+documentLink:
+  updateTime: string
+  name: string
+  createTime: string
+  state: string
+  description: string
+  targetDocumentReference:
+    createTime: string
+    documentIsLegalHoldFolder: boolean
+    documentIsRetentionFolder: boolean
+    documentIsFolder: boolean
+    documentName: string
+    updateTime: string
+    snippet: string
+    displayName: string
+    deleteTime: string
 
 ```
 </TabItem>

@@ -101,52 +101,52 @@ Use the following StackQL query and manifest file to create a new <code>instance
 /*+ create */
 INSERT INTO google.apigee.instances (
 organizationsId,
-accessLoggingConfig,
+location,
+consumerAcceptList,
 ipRange,
 name,
-displayName,
-description,
-location,
-peeringCidrRange,
+accessLoggingConfig,
 diskEncryptionKeyName,
-consumerAcceptList
+description,
+peeringCidrRange,
+displayName
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ accessLoggingConfig }}',
+'{{ location }}',
+'{{ consumerAcceptList }}',
 '{{ ipRange }}',
 '{{ name }}',
-'{{ displayName }}',
-'{{ description }}',
-'{{ location }}',
-'{{ peeringCidrRange }}',
+'{{ accessLoggingConfig }}',
 '{{ diskEncryptionKeyName }}',
-'{{ consumerAcceptList }}'
+'{{ description }}',
+'{{ peeringCidrRange }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-serviceAttachment: string
-runtimeVersion: string
-accessLoggingConfig:
-  enabled: boolean
-  filter: string
-ipRange: string
-host: string
-lastModifiedAt: string
-name: string
-displayName: string
-description: string
 location: string
-peeringCidrRange: string
-port: string
-diskEncryptionKeyName: string
-state: string
+createdAt: string
 consumerAcceptList:
   - type: string
-createdAt: string
+ipRange: string
+name: string
+serviceAttachment: string
+accessLoggingConfig:
+  filter: string
+  enabled: boolean
+state: string
+runtimeVersion: string
+host: string
+diskEncryptionKeyName: string
+description: string
+port: string
+lastModifiedAt: string
+peeringCidrRange: string
+displayName: string
 
 ```
 </TabItem>
@@ -160,15 +160,15 @@ Updates a <code>instances</code> resource.
 /*+ update */
 UPDATE google.apigee.instances
 SET 
-accessLoggingConfig = '{{ accessLoggingConfig }}',
+location = '{{ location }}',
+consumerAcceptList = '{{ consumerAcceptList }}',
 ipRange = '{{ ipRange }}',
 name = '{{ name }}',
-displayName = '{{ displayName }}',
-description = '{{ description }}',
-location = '{{ location }}',
-peeringCidrRange = '{{ peeringCidrRange }}',
+accessLoggingConfig = '{{ accessLoggingConfig }}',
 diskEncryptionKeyName = '{{ diskEncryptionKeyName }}',
-consumerAcceptList = '{{ consumerAcceptList }}'
+description = '{{ description }}',
+peeringCidrRange = '{{ peeringCidrRange }}',
+displayName = '{{ displayName }}'
 WHERE 
 instancesId = '{{ instancesId }}'
 AND organizationsId = '{{ organizationsId }}';

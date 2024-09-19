@@ -68,24 +68,24 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 /*+ create */
 INSERT INTO google.servicenetworking.connections (
 servicesId,
-reservedPeeringRanges,
-network
+network,
+reservedPeeringRanges
 )
 SELECT 
 '{{ servicesId }}',
-'{{ reservedPeeringRanges }}',
-'{{ network }}'
+'{{ network }}',
+'{{ reservedPeeringRanges }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+network: string
 peering: string
 reservedPeeringRanges:
   - type: string
 service: string
-network: string
 
 ```
 </TabItem>
@@ -99,8 +99,8 @@ Updates a <code>connections</code> resource.
 /*+ update */
 UPDATE google.servicenetworking.connections
 SET 
-reservedPeeringRanges = '{{ reservedPeeringRanges }}',
-network = '{{ network }}'
+network = '{{ network }}',
+reservedPeeringRanges = '{{ reservedPeeringRanges }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'
 AND servicesId = '{{ servicesId }}';

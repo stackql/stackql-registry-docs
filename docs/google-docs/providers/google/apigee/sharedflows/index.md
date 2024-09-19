@@ -76,14 +76,14 @@ Use the following StackQL query and manifest file to create a new <code>sharedfl
 INSERT INTO google.apigee.sharedflows (
 organizationsId,
 contentType,
-extensions,
-data
+data,
+extensions
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ contentType }}',
-'{{ extensions }}',
-'{{ data }}'
+'{{ data }}',
+'{{ extensions }}'
 ;
 ```
 </TabItem>
@@ -91,10 +91,10 @@ SELECT
 
 ```yaml
 contentType: string
+data: string
 extensions:
   - additionalProperties: any
     type: string
-data: string
 
 ```
 </TabItem>

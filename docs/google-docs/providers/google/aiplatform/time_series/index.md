@@ -100,11 +100,11 @@ projectsId,
 runsId,
 tensorboardsId,
 description,
-pluginName,
 pluginData,
 valueType,
 etag,
-displayName
+displayName,
+pluginName
 )
 SELECT 
 '{{ experimentsId }}',
@@ -113,30 +113,30 @@ SELECT
 '{{ runsId }}',
 '{{ tensorboardsId }}',
 '{{ description }}',
-'{{ pluginName }}',
 '{{ pluginData }}',
 '{{ valueType }}',
 '{{ etag }}',
-'{{ displayName }}'
+'{{ displayName }}',
+'{{ pluginName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-description: string
-createTime: string
-pluginName: string
-pluginData: string
 metadata:
+  maxStep: string
   maxWallTime: string
   maxBlobSequenceLength: string
-  maxStep: string
-updateTime: string
+description: string
+pluginData: string
 name: string
 valueType: string
 etag: string
 displayName: string
+pluginName: string
+updateTime: string
+createTime: string
 
 ```
 </TabItem>
@@ -151,11 +151,11 @@ Updates a <code>time_series</code> resource.
 UPDATE google.aiplatform.time_series
 SET 
 description = '{{ description }}',
-pluginName = '{{ pluginName }}',
 pluginData = '{{ pluginData }}',
 valueType = '{{ valueType }}',
 etag = '{{ etag }}',
-displayName = '{{ displayName }}'
+displayName = '{{ displayName }}',
+pluginName = '{{ pluginName }}'
 WHERE 
 experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'

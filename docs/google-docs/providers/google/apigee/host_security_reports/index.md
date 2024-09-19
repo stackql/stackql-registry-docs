@@ -92,54 +92,54 @@ Use the following StackQL query and manifest file to create a new <code>host_sec
 /*+ create */
 INSERT INTO google.apigee.host_security_reports (
 organizationsId,
-reportDefinitionId,
 envgroupHostname,
+displayName,
+groupByTimeUnit,
 limit,
+timeRange,
+reportDefinitionId,
+filter,
+csvDelimiter,
 metrics,
 dimensions,
-groupByTimeUnit,
-mimeType,
-timeRange,
-csvDelimiter,
-filter,
-displayName
+mimeType
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ reportDefinitionId }}',
 '{{ envgroupHostname }}',
+'{{ displayName }}',
+'{{ groupByTimeUnit }}',
 '{{ limit }}',
+'{{ timeRange }}',
+'{{ reportDefinitionId }}',
+'{{ filter }}',
+'{{ csvDelimiter }}',
 '{{ metrics }}',
 '{{ dimensions }}',
-'{{ groupByTimeUnit }}',
-'{{ mimeType }}',
-'{{ timeRange }}',
-'{{ csvDelimiter }}',
-'{{ filter }}',
-'{{ displayName }}'
+'{{ mimeType }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-reportDefinitionId: string
 envgroupHostname: string
+displayName: string
+groupByTimeUnit: string
 limit: integer
+timeRange: any
+reportDefinitionId: string
+filter: string
+csvDelimiter: string
 metrics:
-  - operator: string
-    alias: string
+  - alias: string
     name: string
     aggregationFunction: string
     value: string
+    operator: string
 dimensions:
   - type: string
-groupByTimeUnit: string
 mimeType: string
-timeRange: any
-csvDelimiter: string
-filter: string
-displayName: string
 
 ```
 </TabItem>

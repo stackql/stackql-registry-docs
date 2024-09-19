@@ -105,12 +105,12 @@ requests:
   - repositoryId: string
     repository:
       updateTime: string
-      annotations: object
       name: string
+      annotations: object
       etag: string
       webhookId: string
-      remoteUri: string
       createTime: string
+      remoteUri: string
     parent: string
 
 ```

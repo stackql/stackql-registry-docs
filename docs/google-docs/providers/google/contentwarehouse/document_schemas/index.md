@@ -84,67 +84,67 @@ Use the following StackQL query and manifest file to create a new <code>document
 INSERT INTO google.contentwarehouse.document_schemas (
 locationsId,
 projectsId,
-name,
-description,
 propertyDefinitions,
+documentIsFolder,
+description,
 displayName,
-documentIsFolder
+name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ description }}',
 '{{ propertyDefinitions }}',
+true|false,
+'{{ description }}',
 '{{ displayName }}',
-true|false
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-updateTime: string
-description: string
-createTime: string
 propertyDefinitions:
-  - isSearchable: boolean
+  - mapTypeOptions: {}
+    isSearchable: boolean
+    isRequired: boolean
+    isRepeatable: boolean
+    isMetadata: boolean
+    dateTimeTypeOptions: {}
+    name: string
+    displayName: string
+    timestampTypeOptions: {}
+    floatTypeOptions: {}
+    retrievalImportance: string
+    integerTypeOptions: {}
+    textTypeOptions: {}
     propertyTypeOptions:
       propertyDefinitions:
         - isSearchable: boolean
-          schemaSources:
-            - name: string
-              processorType: string
-          floatTypeOptions: {}
+          isRequired: boolean
           isRepeatable: boolean
-          isFilterable: boolean
-          retrievalImportance: string
           isMetadata: boolean
+          name: string
+          displayName: string
+          retrievalImportance: string
+          schemaSources:
+            - processorType: string
+              name: string
           enumTypeOptions:
             possibleValues:
               - type: string
             validationCheckDisabled: boolean
-          displayName: string
-          mapTypeOptions: {}
-          textTypeOptions: {}
-          name: string
-          timestampTypeOptions: {}
-          dateTimeTypeOptions: {}
-          isRequired: boolean
-          integerTypeOptions: {}
+          isFilterable: boolean
     schemaSources:
-      - name: string
-        processorType: string
-    isRepeatable: boolean
+      - processorType: string
+        name: string
     isFilterable: boolean
-    retrievalImportance: string
-    isMetadata: boolean
-    displayName: string
-    name: string
-    isRequired: boolean
-displayName: string
 documentIsFolder: boolean
+description: string
+displayName: string
+name: string
+createTime: string
+updateTime: string
 
 ```
 </TabItem>

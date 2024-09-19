@@ -142,24 +142,24 @@ Updates a <code>notes</code> resource.
 /*+ update */
 UPDATE google.containeranalysis.notes
 SET 
-longDescription = '{{ longDescription }}',
-vulnerability = '{{ vulnerability }}',
-vulnerabilityAssessment = '{{ vulnerabilityAssessment }}',
-discovery = '{{ discovery }}',
-dsseAttestation = '{{ dsseAttestation }}',
-shortDescription = '{{ shortDescription }}',
-build = '{{ build }}',
-name = '{{ name }}',
+image = '{{ image }}',
 relatedNoteNames = '{{ relatedNoteNames }}',
-compliance = '{{ compliance }}',
+deployment = '{{ deployment }}',
+name = '{{ name }}',
+dsseAttestation = '{{ dsseAttestation }}',
+build = '{{ build }}',
+expirationTime = '{{ expirationTime }}',
 sbomReference = '{{ sbomReference }}',
 package = '{{ package }}',
+discovery = '{{ discovery }}',
+vulnerability = '{{ vulnerability }}',
+compliance = '{{ compliance }}',
+longDescription = '{{ longDescription }}',
 upgrade = '{{ upgrade }}',
-image = '{{ image }}',
+vulnerabilityAssessment = '{{ vulnerabilityAssessment }}',
+shortDescription = '{{ shortDescription }}',
 attestation = '{{ attestation }}',
-deployment = '{{ deployment }}',
-relatedUrl = '{{ relatedUrl }}',
-expirationTime = '{{ expirationTime }}'
+relatedUrl = '{{ relatedUrl }}'
 WHERE 
 notesId = '{{ notesId }}'
 AND projectsId = '{{ projectsId }}';

@@ -76,11 +76,11 @@ Updates a <code>insight_types_config</code> resource.
 /*+ update */
 UPDATE google.recommender.insight_types_config
 SET 
-name = '{{ name }}',
 annotations = '{{ annotations }}',
-etag = '{{ etag }}',
 displayName = '{{ displayName }}',
-insightTypeGenerationConfig = '{{ insightTypeGenerationConfig }}'
+etag = '{{ etag }}',
+insightTypeGenerationConfig = '{{ insightTypeGenerationConfig }}',
+name = '{{ name }}'
 WHERE 
 insightTypesId = '{{ insightTypesId }}'
 AND locationsId = '{{ locationsId }}'

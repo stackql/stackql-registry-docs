@@ -115,16 +115,16 @@ Updates a <code>entitlements</code> resource.
 UPDATE google.cloudcommerceprocurement.entitlements
 SET 
 provider = '{{ provider }}',
-inputProperties = '{{ inputProperties }}',
-product = '{{ product }}',
-messageToUser = '{{ messageToUser }}',
+newPendingPlan = '{{ newPendingPlan }}',
 consumers = '{{ consumers }}',
-plan = '{{ plan }}',
-account = '{{ account }}',
-usageReportingId = '{{ usageReportingId }}',
-state = '{{ state }}',
 name = '{{ name }}',
-newPendingPlan = '{{ newPendingPlan }}'
+state = '{{ state }}',
+usageReportingId = '{{ usageReportingId }}',
+product = '{{ product }}',
+inputProperties = '{{ inputProperties }}',
+account = '{{ account }}',
+messageToUser = '{{ messageToUser }}',
+plan = '{{ plan }}'
 WHERE 
 entitlementsId = '{{ entitlementsId }}'
 AND providersId = '{{ providersId }}';

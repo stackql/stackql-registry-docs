@@ -118,6 +118,7 @@ description: string
 multiClusterRoutingUseAny:
   clusterIds:
     - type: string
+  rowAffinity: {}
 singleClusterRouting:
   clusterId: string
   allowTransactionalWrites: boolean

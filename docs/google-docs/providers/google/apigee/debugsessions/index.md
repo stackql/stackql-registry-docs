@@ -86,37 +86,37 @@ apisId,
 environmentsId,
 organizationsId,
 revisionsId,
-filter,
 timeout,
-count,
 validity,
-tracesize,
-name
+name,
+count,
+filter,
+tracesize
 )
 SELECT 
 '{{ apisId }}',
 '{{ environmentsId }}',
 '{{ organizationsId }}',
 '{{ revisionsId }}',
-'{{ filter }}',
 '{{ timeout }}',
-'{{ count }}',
 '{{ validity }}',
-'{{ tracesize }}',
-'{{ name }}'
+'{{ name }}',
+'{{ count }}',
+'{{ filter }}',
+'{{ tracesize }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-filter: string
-createTime: string
 timeout: string
-count: integer
 validity: integer
-tracesize: integer
 name: string
+count: integer
+filter: string
+tracesize: integer
+createTime: string
 
 ```
 </TabItem>

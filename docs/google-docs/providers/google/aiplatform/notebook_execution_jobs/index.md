@@ -103,66 +103,66 @@ Use the following StackQL query and manifest file to create a new <code>notebook
 INSERT INTO google.aiplatform.notebook_execution_jobs (
 locationsId,
 projectsId,
-notebookRuntimeTemplateResourceName,
 executionTimeout,
-gcsOutputUri,
-serviceAccount,
-encryptionSpec,
-displayName,
-dataformRepositorySource,
-executionUser,
-gcsNotebookSource,
+notebookRuntimeTemplateResourceName,
 labels,
-directNotebookSource
+directNotebookSource,
+displayName,
+serviceAccount,
+gcsNotebookSource,
+executionUser,
+gcsOutputUri,
+encryptionSpec,
+dataformRepositorySource
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ notebookRuntimeTemplateResourceName }}',
 '{{ executionTimeout }}',
-'{{ gcsOutputUri }}',
-'{{ serviceAccount }}',
-'{{ encryptionSpec }}',
-'{{ displayName }}',
-'{{ dataformRepositorySource }}',
-'{{ executionUser }}',
-'{{ gcsNotebookSource }}',
+'{{ notebookRuntimeTemplateResourceName }}',
 '{{ labels }}',
-'{{ directNotebookSource }}'
+'{{ directNotebookSource }}',
+'{{ displayName }}',
+'{{ serviceAccount }}',
+'{{ gcsNotebookSource }}',
+'{{ executionUser }}',
+'{{ gcsOutputUri }}',
+'{{ encryptionSpec }}',
+'{{ dataformRepositorySource }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-updateTime: string
-createTime: string
-notebookRuntimeTemplateResourceName: string
-executionTimeout: string
-gcsOutputUri: string
-serviceAccount: string
-encryptionSpec:
-  kmsKeyName: string
-displayName: string
-dataformRepositorySource:
-  commitSha: string
-  dataformRepositoryResourceName: string
-executionUser: string
 scheduleResourceName: string
-name: string
-gcsNotebookSource:
-  generation: string
-  uri: string
+executionTimeout: string
+notebookRuntimeTemplateResourceName: string
+createTime: string
 labels: object
 directNotebookSource:
   content: string
+name: string
+displayName: string
+updateTime: string
+serviceAccount: string
 status:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
 jobState: string
+gcsNotebookSource:
+  uri: string
+  generation: string
+executionUser: string
+gcsOutputUri: string
+encryptionSpec:
+  kmsKeyName: string
+dataformRepositorySource:
+  commitSha: string
+  dataformRepositoryResourceName: string
 
 ```
 </TabItem>

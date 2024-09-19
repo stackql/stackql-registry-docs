@@ -89,64 +89,64 @@ Use the following StackQL query and manifest file to create a new <code>keys</co
 /*+ create */
 INSERT INTO google.recaptchaenterprise.keys (
 projectsId,
-displayName,
-name,
-webSettings,
 wafSettings,
+name,
+iosSettings,
 testingOptions,
-labels,
+webSettings,
 androidSettings,
-expressSettings,
-iosSettings
+labels,
+displayName,
+expressSettings
 )
 SELECT 
 '{{ projectsId }}',
-'{{ displayName }}',
-'{{ name }}',
-'{{ webSettings }}',
 '{{ wafSettings }}',
+'{{ name }}',
+'{{ iosSettings }}',
 '{{ testingOptions }}',
-'{{ labels }}',
+'{{ webSettings }}',
 '{{ androidSettings }}',
-'{{ expressSettings }}',
-'{{ iosSettings }}'
+'{{ labels }}',
+'{{ displayName }}',
+'{{ expressSettings }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-name: string
-webSettings:
-  challengeSecurityPreference: string
-  allowAllDomains: boolean
-  allowAmpTraffic: boolean
-  integrationType: string
-  allowedDomains:
-    - type: string
 wafSettings:
   wafFeature: string
   wafService: string
+name: string
+iosSettings:
+  appleDeveloperId:
+    keyId: string
+    teamId: string
+    privateKey: string
+  allowedBundleIds:
+    - type: string
+  allowAllBundleIds: boolean
+createTime: string
 testingOptions:
-  testingScore: number
   testingChallenge: string
-labels: object
+  testingScore: number
+webSettings:
+  challengeSecurityPreference: string
+  allowedDomains:
+    - type: string
+  allowAllDomains: boolean
+  allowAmpTraffic: boolean
+  integrationType: string
 androidSettings:
   supportNonGoogleAppStoreDistribution: boolean
   allowedPackageNames:
     - type: string
   allowAllPackageNames: boolean
+labels: object
+displayName: string
 expressSettings: {}
-iosSettings:
-  allowedBundleIds:
-    - type: string
-  allowAllBundleIds: boolean
-  appleDeveloperId:
-    keyId: string
-    privateKey: string
-    teamId: string
-createTime: string
 
 ```
 </TabItem>
@@ -160,15 +160,15 @@ Updates a <code>keys</code> resource.
 /*+ update */
 UPDATE google.recaptchaenterprise.keys
 SET 
-displayName = '{{ displayName }}',
-name = '{{ name }}',
-webSettings = '{{ webSettings }}',
 wafSettings = '{{ wafSettings }}',
+name = '{{ name }}',
+iosSettings = '{{ iosSettings }}',
 testingOptions = '{{ testingOptions }}',
-labels = '{{ labels }}',
+webSettings = '{{ webSettings }}',
 androidSettings = '{{ androidSettings }}',
-expressSettings = '{{ expressSettings }}',
-iosSettings = '{{ iosSettings }}'
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+expressSettings = '{{ expressSettings }}'
 WHERE 
 keysId = '{{ keysId }}'
 AND projectsId = '{{ projectsId }}';

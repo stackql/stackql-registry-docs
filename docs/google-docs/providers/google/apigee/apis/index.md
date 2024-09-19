@@ -83,14 +83,14 @@ Use the following StackQL query and manifest file to create a new <code>apis</co
 INSERT INTO google.apigee.apis (
 organizationsId,
 contentType,
-extensions,
-data
+data,
+extensions
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ contentType }}',
-'{{ extensions }}',
-'{{ data }}'
+'{{ data }}',
+'{{ extensions }}'
 ;
 ```
 </TabItem>
@@ -98,10 +98,10 @@ SELECT
 
 ```yaml
 contentType: string
+data: string
 extensions:
   - additionalProperties: any
     type: string
-data: string
 
 ```
 </TabItem>

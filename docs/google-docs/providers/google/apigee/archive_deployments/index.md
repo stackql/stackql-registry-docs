@@ -84,15 +84,15 @@ Use the following StackQL query and manifest file to create a new <code>archive_
 INSERT INTO google.apigee.archive_deployments (
 environmentsId,
 organizationsId,
-gcsUri,
 name,
+gcsUri,
 labels
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ gcsUri }}',
 '{{ name }}',
+'{{ gcsUri }}',
 '{{ labels }}'
 ;
 ```
@@ -101,9 +101,9 @@ SELECT
 
 ```yaml
 createdAt: string
-gcsUri: string
 name: string
 operation: string
+gcsUri: string
 updatedAt: string
 labels: object
 
@@ -119,8 +119,8 @@ Updates a <code>archive_deployments</code> resource.
 /*+ update */
 UPDATE google.apigee.archive_deployments
 SET 
-gcsUri = '{{ gcsUri }}',
 name = '{{ name }}',
+gcsUri = '{{ gcsUri }}',
 labels = '{{ labels }}'
 WHERE 
 archiveDeploymentsId = '{{ archiveDeploymentsId }}'

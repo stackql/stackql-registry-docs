@@ -93,38 +93,38 @@ Use the following StackQL query and manifest file to create a new <code>sfdc_ins
 INSERT INTO google.integrations.sfdc_instances (
 locationsId,
 projectsId,
-authConfigId,
-description,
-serviceAuthority,
-displayName,
 sfdcOrgId,
-name
+serviceAuthority,
+authConfigId,
+displayName,
+name,
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ authConfigId }}',
-'{{ description }}',
-'{{ serviceAuthority }}',
-'{{ displayName }}',
 '{{ sfdcOrgId }}',
-'{{ name }}'
+'{{ serviceAuthority }}',
+'{{ authConfigId }}',
+'{{ displayName }}',
+'{{ name }}',
+'{{ description }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+sfdcOrgId: string
+serviceAuthority: string
 authConfigId:
   - type: string
-description: string
-serviceAuthority: string
-displayName: string
-sfdcOrgId: string
 deleteTime: string
-name: string
-createTime: string
 updateTime: string
+displayName: string
+createTime: string
+name: string
+description: string
 
 ```
 </TabItem>
@@ -138,12 +138,12 @@ Updates a <code>sfdc_instances</code> resource.
 /*+ update */
 UPDATE google.integrations.sfdc_instances
 SET 
-authConfigId = '{{ authConfigId }}',
-description = '{{ description }}',
-serviceAuthority = '{{ serviceAuthority }}',
-displayName = '{{ displayName }}',
 sfdcOrgId = '{{ sfdcOrgId }}',
-name = '{{ name }}'
+serviceAuthority = '{{ serviceAuthority }}',
+authConfigId = '{{ authConfigId }}',
+displayName = '{{ displayName }}',
+name = '{{ name }}',
+description = '{{ description }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

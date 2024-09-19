@@ -31,9 +31,17 @@ Creates, updates, deletes, gets or lists a <code>executions</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="artifacts" /> | `array` | The Artifact nodes in the subgraph. |
-| <CopyableCode code="events" /> | `array` | The Event edges between Artifacts and Executions in the subgraph. |
-| <CopyableCode code="executions" /> | `array` | The Execution nodes in the subgraph. |
+| <CopyableCode code="name" /> | `string` | Output only. The resource name of the Execution. |
+| <CopyableCode code="description" /> | `string` | Description of the Execution |
+| <CopyableCode code="createTime" /> | `string` | Output only. Timestamp when this Execution was created. |
+| <CopyableCode code="displayName" /> | `string` | User provided display name of the Execution. May be up to 128 Unicode characters. |
+| <CopyableCode code="etag" /> | `string` | An eTag used to perform consistent read-modify-write updates. If not set, a blind "overwrite" update happens. |
+| <CopyableCode code="labels" /> | `object` | The labels with user-defined metadata to organize your Executions. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. No more than 64 user labels can be associated with one Execution (System labels are excluded). |
+| <CopyableCode code="metadata" /> | `object` | Properties of the Execution. Top level metadata keys' heading and trailing spaces will be trimmed. The size of this field should not exceed 200KB. |
+| <CopyableCode code="schemaTitle" /> | `string` | The title of the schema describing the metadata. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
+| <CopyableCode code="schemaVersion" /> | `string` | The version of the schema in `schema_title` to use. Schema title and version is expected to be registered in earlier Create Schema calls. And both are used together as unique identifiers to identify schemas within the local metadata store. |
+| <CopyableCode code="state" /> | `string` | The state of this Execution. This is a property of the Execution, and does not imply or capture any ongoing process. This property is managed by clients (such as Vertex AI Pipelines) and the system does not prescribe or check the validity of state transitions. |
+| <CopyableCode code="updateTime" /> | `string` | Output only. Timestamp when this Execution was last updated. |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -52,9 +60,17 @@ Lists Executions in the MetadataStore.
 
 ```sql
 SELECT
-artifacts,
-events,
-executions
+name,
+description,
+createTime,
+displayName,
+etag,
+labels,
+metadata,
+schemaTitle,
+schemaVersion,
+state,
+updateTime
 FROM google.aiplatform.executions
 WHERE locationsId = '{{ locationsId }}'
 AND metadataStoresId = '{{ metadataStoresId }}'
@@ -80,44 +96,44 @@ INSERT INTO google.aiplatform.executions (
 locationsId,
 metadataStoresId,
 projectsId,
-description,
-state,
+schemaVersion,
+metadata,
 labels,
 displayName,
-schemaVersion,
+description,
+state,
 schemaTitle,
-etag,
-metadata
+etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
-'{{ description }}',
-'{{ state }}',
+'{{ schemaVersion }}',
+'{{ metadata }}',
 '{{ labels }}',
 '{{ displayName }}',
-'{{ schemaVersion }}',
+'{{ description }}',
+'{{ state }}',
 '{{ schemaTitle }}',
-'{{ etag }}',
-'{{ metadata }}'
+'{{ etag }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+schemaVersion: string
+metadata: object
+createTime: string
+labels: object
 name: string
+updateTime: string
+displayName: string
 description: string
 state: string
-labels: object
-createTime: string
-displayName: string
-schemaVersion: string
 schemaTitle: string
 etag: string
-updateTime: string
-metadata: object
 
 ```
 </TabItem>
@@ -131,14 +147,14 @@ Updates a <code>executions</code> resource.
 /*+ update */
 UPDATE google.aiplatform.executions
 SET 
-description = '{{ description }}',
-state = '{{ state }}',
+schemaVersion = '{{ schemaVersion }}',
+metadata = '{{ metadata }}',
 labels = '{{ labels }}',
 displayName = '{{ displayName }}',
-schemaVersion = '{{ schemaVersion }}',
+description = '{{ description }}',
+state = '{{ state }}',
 schemaTitle = '{{ schemaTitle }}',
-etag = '{{ etag }}',
-metadata = '{{ metadata }}'
+etag = '{{ etag }}'
 WHERE 
 executionsId = '{{ executionsId }}'
 AND locationsId = '{{ locationsId }}'

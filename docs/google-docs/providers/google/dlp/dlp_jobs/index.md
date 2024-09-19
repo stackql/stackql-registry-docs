@@ -119,145 +119,149 @@ SELECT
 ```yaml
 jobId: string
 inspectJob:
+  inspectConfig:
+    contentOptions:
+      - type: string
+        enum: string
+        enumDescriptions: string
+    infoTypes:
+      - sensitivityScore:
+          score: string
+        version: string
+        name: string
+    minLikelihood: string
+    includeQuote: boolean
+    minLikelihoodPerInfoType:
+      - minLikelihood: string
+        infoType:
+          version: string
+          name: string
+    limits:
+      maxFindingsPerRequest: integer
+      maxFindingsPerItem: integer
+      maxFindingsPerInfoType:
+        - maxFindings: integer
+    customInfoTypes:
+      - exclusionType: string
+        storedType:
+          createTime: string
+          name: string
+        surrogateType: {}
+        regex:
+          groupIndexes:
+            - format: string
+              type: string
+          pattern: string
+        detectionRules:
+          - hotwordRule:
+              proximity:
+                windowBefore: integer
+                windowAfter: integer
+              likelihoodAdjustment:
+                relativeLikelihood: integer
+                fixedLikelihood: string
+        dictionary:
+          wordList:
+            words:
+              - type: string
+          cloudStoragePath:
+            path: string
+        likelihood: string
+    excludeInfoTypes: boolean
+    ruleSet:
+      - rules:
+          - exclusionRule:
+              matchingType: string
+              excludeInfoTypes:
+                infoTypes:
+                  - version: string
+                    name: string
+              excludeByHotword: {}
+        infoTypes:
+          - version: string
+            name: string
+  actions:
+    - pubSub:
+        topic: string
+      jobNotificationEmails: {}
+      deidentify:
+        fileTypesToTransform:
+          - enumDescriptions: string
+            enum: string
+            type: string
+        transformationDetailsStorageConfig:
+          table:
+            projectId: string
+            datasetId: string
+            tableId: string
+        transformationConfig:
+          deidentifyTemplate: string
+          structuredDeidentifyTemplate: string
+          imageRedactTemplate: string
+        cloudStorageOutput: string
+      publishFindingsToCloudDataCatalog: {}
+      publishToStackdriver: {}
+      publishSummaryToCscc: {}
+      saveFindings:
+        outputConfig:
+          outputSchema: string
   storageConfig:
+    cloudStorageOptions:
+      fileTypes:
+        - enum: string
+          enumDescriptions: string
+          type: string
+      bytesLimitPerFile: string
+      filesLimitPercent: integer
+      bytesLimitPerFilePercent: integer
+      fileSet:
+        regexFileSet:
+          excludeRegex:
+            - type: string
+          bucketName: string
+          includeRegex:
+            - type: string
+        url: string
+      sampleMethod: string
     hybridOptions:
-      requiredFindingLabelKeys:
-        - type: string
-      labels: object
       description: string
+      labels: object
       tableOptions:
         identifyingFields:
           - name: string
+      requiredFindingLabelKeys:
+        - type: string
+    datastoreOptions:
+      partitionId:
+        namespaceId: string
+        projectId: string
+      kind:
+        name: string
+    bigQueryOptions:
+      rowsLimit: string
+      includedFields:
+        - name: string
+      sampleMethod: string
+      identifyingFields:
+        - name: string
+      excludedFields:
+        - name: string
+      rowsLimitPercent: integer
     timespanConfig:
       startTime: string
       timestampField:
         name: string
       endTime: string
       enableAutoPopulationOfTimespanConfig: boolean
-    datastoreOptions:
-      kind:
-        name: string
-      partitionId:
-        namespaceId: string
-        projectId: string
-    cloudStorageOptions:
-      bytesLimitPerFilePercent: integer
-      filesLimitPercent: integer
-      fileSet:
-        regexFileSet:
-          excludeRegex:
-            - type: string
-          includeRegex:
-            - type: string
-          bucketName: string
-        url: string
-      bytesLimitPerFile: string
-      fileTypes:
-        - enumDescriptions: string
-          enum: string
-          type: string
-      sampleMethod: string
-    bigQueryOptions:
-      includedFields:
-        - name: string
-      identifyingFields:
-        - name: string
-      tableReference:
-        tableId: string
-        projectId: string
-        datasetId: string
-      excludedFields:
-        - name: string
-      rowsLimitPercent: integer
-      rowsLimit: string
-      sampleMethod: string
   inspectTemplateName: string
-  actions:
-    - publishSummaryToCscc: {}
-      saveFindings:
-        outputConfig:
-          outputSchema: string
-      jobNotificationEmails: {}
-      publishFindingsToCloudDataCatalog: {}
-      pubSub:
-        topic: string
-      deidentify:
-        cloudStorageOutput: string
-        transformationConfig:
-          structuredDeidentifyTemplate: string
-          imageRedactTemplate: string
-          deidentifyTemplate: string
-        transformationDetailsStorageConfig: {}
-        fileTypesToTransform:
-          - enumDescriptions: string
-            type: string
-            enum: string
-      publishToStackdriver: {}
-  inspectConfig:
-    limits:
-      maxFindingsPerItem: integer
-      maxFindingsPerRequest: integer
-      maxFindingsPerInfoType:
-        - maxFindings: integer
-          infoType:
-            version: string
-            name: string
-            sensitivityScore:
-              score: string
-    contentOptions:
-      - enum: string
-        type: string
-        enumDescriptions: string
-    includeQuote: boolean
-    customInfoTypes:
-      - regex:
-          pattern: string
-          groupIndexes:
-            - type: string
-              format: string
-        exclusionType: string
-        likelihood: string
-        dictionary:
-          cloudStoragePath:
-            path: string
-          wordList:
-            words:
-              - type: string
-        surrogateType: {}
-        detectionRules:
-          - hotwordRule:
-              proximity:
-                windowAfter: integer
-                windowBefore: integer
-              likelihoodAdjustment:
-                relativeLikelihood: integer
-                fixedLikelihood: string
-        storedType:
-          createTime: string
-          name: string
-    minLikelihoodPerInfoType:
-      - minLikelihood: string
-    infoTypes:
-      - version: string
-        name: string
-    minLikelihood: string
-    excludeInfoTypes: boolean
-    ruleSet:
-      - infoTypes:
-          - version: string
-            name: string
-        rules:
-          - exclusionRule:
-              excludeInfoTypes:
-                infoTypes:
-                  - version: string
-                    name: string
-              matchingType: string
-              excludeByHotword: {}
 locationId: string
 riskJob:
+  actions:
+    - {}
   privacyMetric:
-    kMapEstimationConfig:
+    categoricalStatsConfig: {}
+    numericalStatsConfig: {}
+    deltaPresenceEstimationConfig:
       auxiliaryTables:
         - quasiIds:
             - customTag: string
@@ -268,11 +272,10 @@ riskJob:
     lDiversityConfig:
       quasiIds:
         - name: string
-    numericalStatsConfig: {}
-    deltaPresenceEstimationConfig:
-      regionCode: string
+    kMapEstimationConfig:
       quasiIds:
         - customTag: string
+      regionCode: string
       auxiliaryTables:
         - quasiIds:
             - customTag: string
@@ -280,9 +283,6 @@ riskJob:
       entityId: {}
       quasiIds:
         - name: string
-    categoricalStatsConfig: {}
-  actions:
-    - {}
 
 ```
 </TabItem>

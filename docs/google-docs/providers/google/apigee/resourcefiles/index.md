@@ -77,15 +77,15 @@ INSERT INTO google.apigee.resourcefiles (
 environmentsId,
 organizationsId,
 contentType,
-extensions,
-data
+data,
+extensions
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
 '{{ contentType }}',
-'{{ extensions }}',
-'{{ data }}'
+'{{ data }}',
+'{{ extensions }}'
 ;
 ```
 </TabItem>
@@ -93,10 +93,10 @@ SELECT
 
 ```yaml
 contentType: string
+data: string
 extensions:
   - additionalProperties: any
     type: string
-data: string
 
 ```
 </TabItem>
@@ -111,8 +111,8 @@ Replaces all fields in the specified <code>resourcefiles</code> resource.
 REPLACE google.apigee.resourcefiles
 SET 
 contentType = '{{ contentType }}',
-extensions = '{{ extensions }}',
-data = '{{ data }}'
+data = '{{ data }}',
+extensions = '{{ extensions }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND name = '{{ name }}'

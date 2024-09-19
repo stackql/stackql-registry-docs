@@ -87,47 +87,47 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 INSERT INTO google.aiplatform.deployment_resource_pools (
 locationsId,
 projectsId,
-deploymentResourcePoolId,
-deploymentResourcePool
+deploymentResourcePool,
+deploymentResourcePoolId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ deploymentResourcePoolId }}',
-'{{ deploymentResourcePool }}'
+'{{ deploymentResourcePool }}',
+'{{ deploymentResourcePoolId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-deploymentResourcePoolId: string
 deploymentResourcePool:
+  satisfiesPzi: boolean
+  satisfiesPzs: boolean
+  name: string
   serviceAccount: string
-  dedicatedResources:
-    spot: boolean
-    machineSpec:
-      acceleratorCount: integer
-      reservationAffinity:
-        key: string
-        reservationAffinityType: string
-        values:
-          - type: string
-      tpuTopology: string
-      acceleratorType: string
-      machineType: string
-    autoscalingMetricSpecs:
-      - metricName: string
-        target: integer
-    minReplicaCount: integer
-    maxReplicaCount: integer
   disableContainerLogging: boolean
   encryptionSpec:
     kmsKeyName: string
+  dedicatedResources:
+    machineSpec:
+      acceleratorCount: integer
+      tpuTopology: string
+      machineType: string
+      acceleratorType: string
+      reservationAffinity:
+        reservationAffinityType: string
+        values:
+          - type: string
+        key: string
+    autoscalingMetricSpecs:
+      - target: integer
+        metricName: string
+    maxReplicaCount: integer
+    minReplicaCount: integer
+    spot: boolean
   createTime: string
-  satisfiesPzs: boolean
-  satisfiesPzi: boolean
-  name: string
+deploymentResourcePoolId: string
 
 ```
 </TabItem>
@@ -141,11 +141,11 @@ Updates a <code>deployment_resource_pools</code> resource.
 /*+ update */
 UPDATE google.aiplatform.deployment_resource_pools
 SET 
+name = '{{ name }}',
 serviceAccount = '{{ serviceAccount }}',
-dedicatedResources = '{{ dedicatedResources }}',
 disableContainerLogging = true|false,
 encryptionSpec = '{{ encryptionSpec }}',
-name = '{{ name }}'
+dedicatedResources = '{{ dedicatedResources }}'
 WHERE 
 deploymentResourcePoolsId = '{{ deploymentResourcePoolsId }}'
 AND locationsId = '{{ locationsId }}'

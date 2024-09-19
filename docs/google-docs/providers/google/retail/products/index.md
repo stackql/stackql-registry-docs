@@ -124,7 +124,668 @@ AND catalogsId = '{{ catalogsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>products</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.retail.products (
+branchesId,
+catalogsId,
+locationsId,
+projectsId,
+expireTime,
+ttl,
+name,
+type,
+primaryProductId,
+collectionMemberIds,
+gtin,
+categories,
+title,
+brands,
+description,
+languageCode,
+attributes,
+tags,
+priceInfo,
+rating,
+availableTime,
+availability,
+availableQuantity,
+fulfillmentInfo,
+uri,
+images,
+audience,
+colorInfo,
+sizes,
+materials,
+patterns,
+conditions,
+promotions,
+publishTime,
+retrievableFields
+)
+SELECT 
+'{{ branchesId }}',
+'{{ catalogsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ expireTime }}',
+'{{ ttl }}',
+'{{ name }}',
+'{{ type }}',
+'{{ primaryProductId }}',
+'{{ collectionMemberIds }}',
+'{{ gtin }}',
+'{{ categories }}',
+'{{ title }}',
+'{{ brands }}',
+'{{ description }}',
+'{{ languageCode }}',
+'{{ attributes }}',
+'{{ tags }}',
+'{{ priceInfo }}',
+'{{ rating }}',
+'{{ availableTime }}',
+'{{ availability }}',
+'{{ availableQuantity }}',
+'{{ fulfillmentInfo }}',
+'{{ uri }}',
+'{{ images }}',
+'{{ audience }}',
+'{{ colorInfo }}',
+'{{ sizes }}',
+'{{ materials }}',
+'{{ patterns }}',
+'{{ conditions }}',
+'{{ promotions }}',
+'{{ publishTime }}',
+'{{ retrievableFields }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+expireTime: string
+ttl: string
+name: string
+id: string
+type: string
+primaryProductId: string
+collectionMemberIds:
+  - type: string
+gtin: string
+categories:
+  - type: string
+title: string
+brands:
+  - type: string
+description: string
+languageCode: string
+attributes: object
+tags:
+  - type: string
+priceInfo:
+  currencyCode: string
+  price: number
+  originalPrice: number
+  cost: number
+  priceEffectiveTime: string
+  priceExpireTime: string
+  priceRange:
+    price:
+      minimum: number
+      exclusiveMinimum: number
+      maximum: number
+      exclusiveMaximum: number
+rating:
+  ratingCount: integer
+  averageRating: number
+  ratingHistogram:
+    - type: string
+      format: string
+availableTime: string
+availability: string
+availableQuantity: integer
+fulfillmentInfo:
+  - type: string
+    placeIds:
+      - type: string
+uri: string
+images:
+  - uri: string
+    height: integer
+    width: integer
+audience:
+  genders:
+    - type: string
+  ageGroups:
+    - type: string
+colorInfo:
+  colorFamilies:
+    - type: string
+  colors:
+    - type: string
+sizes:
+  - type: string
+materials:
+  - type: string
+patterns:
+  - type: string
+conditions:
+  - type: string
+promotions:
+  - promotionId: string
+publishTime: string
+retrievableFields: string
+variants:
+  - expireTime: string
+    ttl: string
+    name: string
+    id: string
+    type: string
+    primaryProductId: string
+    collectionMemberIds:
+      - type: string
+    gtin: string
+    categories:
+      - type: string
+    title: string
+    brands:
+      - type: string
+    description: string
+    languageCode: string
+    attributes: object
+    tags:
+      - type: string
+    availableTime: string
+    availability: string
+    availableQuantity: integer
+    fulfillmentInfo:
+      - type: string
+        placeIds:
+          - type: string
+    uri: string
+    images:
+      - uri: string
+        height: integer
+        width: integer
+    sizes:
+      - type: string
+    materials:
+      - type: string
+    patterns:
+      - type: string
+    conditions:
+      - type: string
+    promotions:
+      - promotionId: string
+    publishTime: string
+    retrievableFields: string
+    variants:
+      - expireTime: string
+        ttl: string
+        name: string
+        id: string
+        type: string
+        primaryProductId: string
+        collectionMemberIds:
+          - type: string
+        gtin: string
+        categories:
+          - type: string
+        title: string
+        brands:
+          - type: string
+        description: string
+        languageCode: string
+        attributes: object
+        tags:
+          - type: string
+        availableTime: string
+        availability: string
+        availableQuantity: integer
+        fulfillmentInfo:
+          - type: string
+            placeIds:
+              - type: string
+        uri: string
+        images:
+          - uri: string
+            height: integer
+            width: integer
+        sizes:
+          - type: string
+        materials:
+          - type: string
+        patterns:
+          - type: string
+        conditions:
+          - type: string
+        promotions:
+          - promotionId: string
+        publishTime: string
+        retrievableFields: string
+        variants:
+          - expireTime: string
+            ttl: string
+            name: string
+            id: string
+            type: string
+            primaryProductId: string
+            collectionMemberIds:
+              - type: string
+            gtin: string
+            categories:
+              - type: string
+            title: string
+            brands:
+              - type: string
+            description: string
+            languageCode: string
+            attributes: object
+            tags:
+              - type: string
+            availableTime: string
+            availability: string
+            availableQuantity: integer
+            fulfillmentInfo:
+              - type: string
+                placeIds:
+                  - type: string
+            uri: string
+            images:
+              - uri: string
+                height: integer
+                width: integer
+            sizes:
+              - type: string
+            materials:
+              - type: string
+            patterns:
+              - type: string
+            conditions:
+              - type: string
+            promotions:
+              - promotionId: string
+            publishTime: string
+            retrievableFields: string
+            variants:
+              - expireTime: string
+                ttl: string
+                name: string
+                id: string
+                type: string
+                primaryProductId: string
+                collectionMemberIds:
+                  - type: string
+                gtin: string
+                categories:
+                  - type: string
+                title: string
+                brands:
+                  - type: string
+                description: string
+                languageCode: string
+                attributes: object
+                tags:
+                  - type: string
+                availableTime: string
+                availability: string
+                availableQuantity: integer
+                fulfillmentInfo:
+                  - type: string
+                    placeIds:
+                      - type: string
+                uri: string
+                images:
+                  - uri: string
+                    height: integer
+                    width: integer
+                sizes:
+                  - type: string
+                materials:
+                  - type: string
+                patterns:
+                  - type: string
+                conditions:
+                  - type: string
+                promotions:
+                  - promotionId: string
+                publishTime: string
+                retrievableFields: string
+                variants:
+                  - expireTime: string
+                    ttl: string
+                    name: string
+                    id: string
+                    type: string
+                    primaryProductId: string
+                    collectionMemberIds:
+                      - type: string
+                    gtin: string
+                    categories:
+                      - type: string
+                    title: string
+                    brands:
+                      - type: string
+                    description: string
+                    languageCode: string
+                    attributes: object
+                    tags:
+                      - type: string
+                    availableTime: string
+                    availability: string
+                    availableQuantity: integer
+                    fulfillmentInfo:
+                      - type: string
+                        placeIds:
+                          - type: string
+                    uri: string
+                    images:
+                      - uri: string
+                        height: integer
+                        width: integer
+                    sizes:
+                      - type: string
+                    materials:
+                      - type: string
+                    patterns:
+                      - type: string
+                    conditions:
+                      - type: string
+                    promotions:
+                      - promotionId: string
+                    publishTime: string
+                    retrievableFields: string
+                    variants:
+                      - expireTime: string
+                        ttl: string
+                        name: string
+                        id: string
+                        type: string
+                        primaryProductId: string
+                        collectionMemberIds:
+                          - type: string
+                        gtin: string
+                        categories:
+                          - type: string
+                        title: string
+                        brands:
+                          - type: string
+                        description: string
+                        languageCode: string
+                        attributes: object
+                        tags:
+                          - type: string
+                        availableTime: string
+                        availability: string
+                        availableQuantity: integer
+                        fulfillmentInfo:
+                          - type: string
+                            placeIds:
+                              - type: string
+                        uri: string
+                        images:
+                          - uri: string
+                            height: integer
+                            width: integer
+                        sizes:
+                          - type: string
+                        materials:
+                          - type: string
+                        patterns:
+                          - type: string
+                        conditions:
+                          - type: string
+                        promotions:
+                          - promotionId: string
+                        publishTime: string
+                        retrievableFields: string
+                        variants:
+                          - expireTime: string
+                            ttl: string
+                            name: string
+                            id: string
+                            type: string
+                            primaryProductId: string
+                            collectionMemberIds:
+                              - type: string
+                            gtin: string
+                            categories:
+                              - type: string
+                            title: string
+                            brands:
+                              - type: string
+                            description: string
+                            languageCode: string
+                            attributes: object
+                            tags:
+                              - type: string
+                            availableTime: string
+                            availability: string
+                            availableQuantity: integer
+                            fulfillmentInfo:
+                              - type: string
+                                placeIds:
+                                  - type: string
+                            uri: string
+                            images:
+                              - uri: string
+                                height: integer
+                                width: integer
+                            sizes:
+                              - type: string
+                            materials:
+                              - type: string
+                            patterns:
+                              - type: string
+                            conditions:
+                              - type: string
+                            promotions:
+                              - promotionId: string
+                            publishTime: string
+                            retrievableFields: string
+                            variants:
+                              - expireTime: string
+                                ttl: string
+                                name: string
+                                id: string
+                                type: string
+                                primaryProductId: string
+                                collectionMemberIds:
+                                  - type: string
+                                gtin: string
+                                categories:
+                                  - type: string
+                                title: string
+                                brands:
+                                  - type: string
+                                description: string
+                                languageCode: string
+                                attributes: object
+                                tags:
+                                  - type: string
+                                availableTime: string
+                                availability: string
+                                availableQuantity: integer
+                                fulfillmentInfo:
+                                  - type: string
+                                    placeIds:
+                                      - type: string
+                                uri: string
+                                images:
+                                  - uri: string
+                                    height: integer
+                                    width: integer
+                                sizes:
+                                  - type: string
+                                materials:
+                                  - type: string
+                                patterns:
+                                  - type: string
+                                conditions:
+                                  - type: string
+                                promotions:
+                                  - promotionId: string
+                                publishTime: string
+                                retrievableFields: string
+                                variants:
+                                  - expireTime: string
+                                    ttl: string
+                                    name: string
+                                    id: string
+                                    type: string
+                                    primaryProductId: string
+                                    collectionMemberIds:
+                                      - type: string
+                                    gtin: string
+                                    categories:
+                                      - type: string
+                                    title: string
+                                    brands:
+                                      - type: string
+                                    description: string
+                                    languageCode: string
+                                    attributes: object
+                                    tags:
+                                      - type: string
+                                    availableTime: string
+                                    availability: string
+                                    availableQuantity: integer
+                                    fulfillmentInfo:
+                                      - type: string
+                                        placeIds:
+                                          - {}
+                                    uri: string
+                                    images:
+                                      - uri: string
+                                        height: integer
+                                        width: integer
+                                    sizes:
+                                      - type: string
+                                    materials:
+                                      - type: string
+                                    patterns:
+                                      - type: string
+                                    conditions:
+                                      - type: string
+                                    promotions:
+                                      - promotionId: string
+                                    publishTime: string
+                                    retrievableFields: string
+                                    variants:
+                                      - expireTime: string
+                                        ttl: string
+                                        name: string
+                                        id: string
+                                        type: string
+                                        primaryProductId: string
+                                        collectionMemberIds:
+                                          - {}
+                                        gtin: string
+                                        categories:
+                                          - {}
+                                        title: string
+                                        brands:
+                                          - {}
+                                        description: string
+                                        languageCode: string
+                                        attributes: object
+                                        tags:
+                                          - {}
+                                        availableTime: string
+                                        availability: string
+                                        availableQuantity: integer
+                                        fulfillmentInfo:
+                                          - {}
+                                        uri: string
+                                        images:
+                                          - {}
+                                        sizes:
+                                          - {}
+                                        materials:
+                                          - {}
+                                        patterns:
+                                          - {}
+                                        conditions:
+                                          - {}
+                                        promotions:
+                                          - {}
+                                        publishTime: string
+                                        retrievableFields: string
+                                        variants:
+                                          - {}
+                                        localInventories:
+                                          - {}
+                                    localInventories:
+                                      - placeId: string
+                                        attributes: object
+                                        fulfillmentTypes:
+                                          - {}
+                                localInventories:
+                                  - placeId: string
+                                    attributes: object
+                                    fulfillmentTypes:
+                                      - type: string
+                            localInventories:
+                              - placeId: string
+                                attributes: object
+                                fulfillmentTypes:
+                                  - type: string
+                        localInventories:
+                          - placeId: string
+                            attributes: object
+                            fulfillmentTypes:
+                              - type: string
+                    localInventories:
+                      - placeId: string
+                        attributes: object
+                        fulfillmentTypes:
+                          - type: string
+                localInventories:
+                  - placeId: string
+                    attributes: object
+                    fulfillmentTypes:
+                      - type: string
+            localInventories:
+              - placeId: string
+                attributes: object
+                fulfillmentTypes:
+                  - type: string
+        localInventories:
+          - placeId: string
+            attributes: object
+            fulfillmentTypes:
+              - type: string
+    localInventories:
+      - placeId: string
+        attributes: object
+        fulfillmentTypes:
+          - type: string
+localInventories:
+  - placeId: string
+    attributes: object
+    fulfillmentTypes:
+      - type: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>products</code> resource.

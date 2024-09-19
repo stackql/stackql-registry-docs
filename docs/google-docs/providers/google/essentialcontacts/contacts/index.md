@@ -96,31 +96,31 @@ Use the following StackQL query and manifest file to create a new <code>contacts
 /*+ create */
 INSERT INTO google.essentialcontacts.contacts (
 foldersId,
-validateTime,
-languageTag,
+email,
 notificationCategorySubscriptions,
-email
+validateTime,
+languageTag
 )
 SELECT 
 '{{ foldersId }}',
-'{{ validateTime }}',
-'{{ languageTag }}',
+'{{ email }}',
 '{{ notificationCategorySubscriptions }}',
-'{{ email }}'
+'{{ validateTime }}',
+'{{ languageTag }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+validationState: string
+email: string
+notificationCategorySubscriptions:
+  - enumDescriptions: string
+    enum: string
+    type: string
 validateTime: string
 languageTag: string
-notificationCategorySubscriptions:
-  - type: string
-    enumDescriptions: string
-    enum: string
-email: string
-validationState: string
 name: string
 
 ```
@@ -135,10 +135,10 @@ Updates a <code>contacts</code> resource.
 /*+ update */
 UPDATE google.essentialcontacts.contacts
 SET 
-validateTime = '{{ validateTime }}',
-languageTag = '{{ languageTag }}',
+email = '{{ email }}',
 notificationCategorySubscriptions = '{{ notificationCategorySubscriptions }}',
-email = '{{ email }}'
+validateTime = '{{ validateTime }}',
+languageTag = '{{ languageTag }}'
 WHERE 
 contactsId = '{{ contactsId }}'
 AND foldersId = '{{ foldersId }}';

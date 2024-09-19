@@ -82,31 +82,31 @@ INSERT INTO google.aiplatform.metadata_schemas (
 locationsId,
 metadataStoresId,
 projectsId,
-schemaType,
 schema,
-description,
-schemaVersion
+schemaVersion,
+schemaType,
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
-'{{ schemaType }}',
 '{{ schema }}',
-'{{ description }}',
-'{{ schemaVersion }}'
+'{{ schemaVersion }}',
+'{{ schemaType }}',
+'{{ description }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-schemaType: string
 schema: string
-description: string
-schemaVersion: string
-name: string
 createTime: string
+schemaVersion: string
+schemaType: string
+description: string
+name: string
 
 ```
 </TabItem>

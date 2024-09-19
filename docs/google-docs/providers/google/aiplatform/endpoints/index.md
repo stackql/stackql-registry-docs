@@ -59,18 +59,18 @@ Creates, updates, deletes, gets or lists a <code>endpoints</code> resource.
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates an Endpoint. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Deletes an Endpoint. |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates an Endpoint. |
-| <CopyableCode code="compute_tokens" /> | `EXEC` | <CopyableCode code="endpointsId" /> | Return a list of tokens based on the input text. |
-| <CopyableCode code="count_tokens" /> | `EXEC` | <CopyableCode code="endpointsId" /> | Perform a token counting. |
+| <CopyableCode code="compute_tokens" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Return a list of tokens based on the input text. |
+| <CopyableCode code="count_tokens" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform a token counting. |
 | <CopyableCode code="deploy_model" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Deploys a Model into this Endpoint, creating a DeployedModel within it. |
 | <CopyableCode code="direct_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks. |
 | <CopyableCode code="direct_raw_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an unary online prediction request to a gRPC model server for custom containers. |
 | <CopyableCode code="explain" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online explanation. If deployed_model_id is specified, the corresponding DeployModel must have explanation_spec populated. If deployed_model_id is not specified, all DeployedModels must have explanation_spec populated. |
-| <CopyableCode code="generate_content" /> | `EXEC` | <CopyableCode code="endpointsId" /> | Generate content with multimodal inputs. |
+| <CopyableCode code="generate_content" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Generate content with multimodal inputs. |
 | <CopyableCode code="mutate_deployed_model" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Updates an existing deployed model. Updatable fields include `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only). |
 | <CopyableCode code="predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online prediction. |
 | <CopyableCode code="raw_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction. |
 | <CopyableCode code="server_streaming_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform a server-side streaming online prediction request for Vertex LLM streaming. |
-| <CopyableCode code="stream_generate_content" /> | `EXEC` | <CopyableCode code="endpointsId" /> | Generate content with multimodal inputs with streaming support. |
+| <CopyableCode code="stream_generate_content" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Generate content with multimodal inputs with streaming support. |
 | <CopyableCode code="stream_raw_predict" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Perform a streaming online prediction with an arbitrary HTTP payload. |
 | <CopyableCode code="undeploy_model" /> | `EXEC` | <CopyableCode code="endpointsId, locationsId, projectsId" /> | Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. |
 
@@ -122,137 +122,137 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 INSERT INTO google.aiplatform.endpoints (
 locationsId,
 projectsId,
-displayName,
-trafficSplit,
-predictRequestResponseLoggingConfig,
-privateServiceConnectConfig,
-encryptionSpec,
 etag,
 enablePrivateServiceConnect,
-labels,
+encryptionSpec,
 network,
+privateServiceConnectConfig,
+displayName,
 description,
-dedicatedEndpointEnabled
+dedicatedEndpointEnabled,
+trafficSplit,
+predictRequestResponseLoggingConfig,
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ displayName }}',
-'{{ trafficSplit }}',
-'{{ predictRequestResponseLoggingConfig }}',
-'{{ privateServiceConnectConfig }}',
-'{{ encryptionSpec }}',
 '{{ etag }}',
 true|false,
-'{{ labels }}',
+'{{ encryptionSpec }}',
 '{{ network }}',
+'{{ privateServiceConnectConfig }}',
+'{{ displayName }}',
 '{{ description }}',
-true|false
+true|false,
+'{{ trafficSplit }}',
+'{{ predictRequestResponseLoggingConfig }}',
+'{{ labels }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-dedicatedEndpointDns: string
+etag: string
+enablePrivateServiceConnect: boolean
+encryptionSpec:
+  kmsKeyName: string
+satisfiesPzi: boolean
+satisfiesPzs: boolean
+network: string
+privateServiceConnectConfig:
+  serviceAttachment: string
+  projectAllowlist:
+    - type: string
+  enablePrivateServiceConnect: boolean
 displayName: string
+dedicatedEndpointDns: string
+updateTime: string
+description: string
+dedicatedEndpointEnabled: boolean
+createTime: string
+modelDeploymentMonitoringJob: string
+name: string
 trafficSplit: object
+deployedModels:
+  - displayName: string
+    modelVersionId: string
+    model: string
+    createTime: string
+    disableExplanations: boolean
+    privateEndpoints:
+      serviceAttachment: string
+      predictHttpUri: string
+      healthHttpUri: string
+      explainHttpUri: string
+    disableContainerLogging: boolean
+    explanationSpec:
+      metadata:
+        latentSpaceSource: string
+        featureAttributionsSchemaUri: string
+        outputs: object
+        inputs: object
+      parameters:
+        integratedGradientsAttribution:
+          blurBaselineConfig:
+            maxBlurSigma: number
+          smoothGradConfig:
+            featureNoiseSigma:
+              noiseSigma:
+                - name: string
+                  sigma: number
+            noisySampleCount: integer
+            noiseSigma: number
+          stepCount: integer
+        topK: integer
+        outputIndices:
+          - type: string
+        sampledShapleyAttribution:
+          pathCount: integer
+        xraiAttribution:
+          stepCount: integer
+        examples:
+          nearestNeighborSearchConfig: any
+          neighborCount: integer
+          exampleGcsSource:
+            gcsSource:
+              uris:
+                - type: string
+            dataFormat: string
+          presets:
+            modality: string
+            query: string
+    automaticResources:
+      minReplicaCount: integer
+      maxReplicaCount: integer
+    enableAccessLogging: boolean
+    sharedResources: string
+    serviceAccount: string
+    id: string
+    dedicatedResources:
+      machineSpec:
+        acceleratorCount: integer
+        tpuTopology: string
+        machineType: string
+        acceleratorType: string
+        reservationAffinity:
+          reservationAffinityType: string
+          values:
+            - type: string
+          key: string
+      autoscalingMetricSpecs:
+        - target: integer
+          metricName: string
+      maxReplicaCount: integer
+      minReplicaCount: integer
+      spot: boolean
 predictRequestResponseLoggingConfig:
   samplingRate: number
   enabled: boolean
   bigqueryDestination:
     outputUri: string
-updateTime: string
-privateServiceConnectConfig:
-  serviceAttachment: string
-  enablePrivateServiceConnect: boolean
-  projectAllowlist:
-    - type: string
-encryptionSpec:
-  kmsKeyName: string
-etag: string
-name: string
-enablePrivateServiceConnect: boolean
-modelDeploymentMonitoringJob: string
 labels: object
-deployedModels:
-  - createTime: string
-    disableExplanations: boolean
-    displayName: string
-    model: string
-    dedicatedResources:
-      spot: boolean
-      machineSpec:
-        acceleratorCount: integer
-        reservationAffinity:
-          key: string
-          reservationAffinityType: string
-          values:
-            - type: string
-        tpuTopology: string
-        acceleratorType: string
-        machineType: string
-      autoscalingMetricSpecs:
-        - metricName: string
-          target: integer
-      minReplicaCount: integer
-      maxReplicaCount: integer
-    explanationSpec:
-      metadata:
-        outputs: object
-        featureAttributionsSchemaUri: string
-        inputs: object
-        latentSpaceSource: string
-      parameters:
-        topK: integer
-        examples:
-          nearestNeighborSearchConfig: any
-          neighborCount: integer
-          exampleGcsSource:
-            dataFormat: string
-            gcsSource:
-              uris:
-                - type: string
-          presets:
-            modality: string
-            query: string
-        sampledShapleyAttribution:
-          pathCount: integer
-        xraiAttribution:
-          smoothGradConfig:
-            featureNoiseSigma:
-              noiseSigma:
-                - sigma: number
-                  name: string
-            noisySampleCount: integer
-            noiseSigma: number
-          stepCount: integer
-          blurBaselineConfig:
-            maxBlurSigma: number
-        outputIndices:
-          - type: string
-        integratedGradientsAttribution:
-          stepCount: integer
-    id: string
-    enableAccessLogging: boolean
-    sharedResources: string
-    serviceAccount: string
-    modelVersionId: string
-    privateEndpoints:
-      serviceAttachment: string
-      explainHttpUri: string
-      predictHttpUri: string
-      healthHttpUri: string
-    automaticResources:
-      minReplicaCount: integer
-      maxReplicaCount: integer
-    disableContainerLogging: boolean
-satisfiesPzs: boolean
-network: string
-satisfiesPzi: boolean
-description: string
-createTime: string
-dedicatedEndpointEnabled: boolean
 
 ```
 </TabItem>
@@ -266,17 +266,17 @@ Updates a <code>endpoints</code> resource.
 /*+ update */
 UPDATE google.aiplatform.endpoints
 SET 
-displayName = '{{ displayName }}',
-trafficSplit = '{{ trafficSplit }}',
-predictRequestResponseLoggingConfig = '{{ predictRequestResponseLoggingConfig }}',
-privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
-encryptionSpec = '{{ encryptionSpec }}',
 etag = '{{ etag }}',
 enablePrivateServiceConnect = true|false,
-labels = '{{ labels }}',
+encryptionSpec = '{{ encryptionSpec }}',
 network = '{{ network }}',
+privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
+displayName = '{{ displayName }}',
 description = '{{ description }}',
-dedicatedEndpointEnabled = true|false
+dedicatedEndpointEnabled = true|false,
+trafficSplit = '{{ trafficSplit }}',
+predictRequestResponseLoggingConfig = '{{ predictRequestResponseLoggingConfig }}',
+labels = '{{ labels }}'
 WHERE 
 endpointsId = '{{ endpointsId }}'
 AND locationsId = '{{ locationsId }}'

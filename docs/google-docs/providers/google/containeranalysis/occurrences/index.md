@@ -127,361 +127,361 @@ SELECT
 
 ```yaml
 occurrences:
-  - resourceUri: string
+  - noteName: string
+    kind: string
+    sbomReference:
+      signatures:
+        - keyid: string
+          sig: string
+      payloadType: string
+      payload:
+        subject:
+          - digest: object
+            name: string
+        _type: string
+        predicateType: string
+        predicate:
+          digest: object
+          referrerId: string
+          mimeType: string
+          location: string
     discovery:
-      sbomStatus:
-        error: string
-        sbomState: string
       continuousAnalysis: string
-      cpe: string
+      analysisStatus: string
+      analysisStatusError:
+        details:
+          - type: string
+            additionalProperties: any
+        message: string
+        code: integer
+      sbomStatus:
+        sbomState: string
+        error: string
+      archiveTime: string
+      lastScanTime: string
+      analysisError:
+        - details:
+            - type: string
+              additionalProperties: any
+          message: string
+          code: integer
       analysisCompleted:
         analysisType:
           - type: string
-      analysisStatusError:
-        details:
-          - additionalProperties: any
-            type: string
-        code: integer
-        message: string
-      analysisError:
-        - details:
-            - additionalProperties: any
-              type: string
-          code: integer
-          message: string
-      archiveTime: string
-      analysisStatus: string
-      lastScanTime: string
-    image:
-      distance: integer
-      fingerprint:
-        v2Name: string
-        v1Name: string
-        v2Blob:
-          - type: string
-      baseResourceUrl: string
-      layerInfo:
-        - directive: string
-          arguments: string
-    vulnerability:
-      vexAssessment:
-        state: string
-        cve: string
-        relatedUris:
-          - url: string
-            label: string
-        justification:
-          justificationType: string
-          details: string
-        impacts:
-          - type: string
-        remediations:
-          - remediationType: string
-            details: string
-            remediationUri:
-              url: string
-              label: string
-        noteName: string
-        vulnerabilityId: string
-      effectiveSeverity: string
-      packageIssue:
-        - fixedVersion:
-            kind: string
-            fullName: string
-            revision: string
-            name: string
-            inclusive: boolean
-            epoch: integer
-          fileLocation:
-            - filePath: string
-          fixedCpeUri: string
-          fixAvailable: boolean
-          effectiveSeverity: string
-          fixedPackage: string
-          affectedCpeUri: string
-          packageType: string
-          affectedPackage: string
-      fixAvailable: boolean
-      cvssScore: number
-      type: string
-      relatedUrls:
-        - url: string
-          label: string
-      cvssVersion: string
-      severity: string
-      shortDescription: string
-      longDescription: string
-      cvssV2:
-        baseScore: number
-        authentication: string
-        attackComplexity: string
-        scope: string
-        attackVector: string
-        impactScore: number
-        availabilityImpact: string
-        privilegesRequired: string
-        userInteraction: string
-        exploitabilityScore: number
-        confidentialityImpact: string
-        integrityImpact: string
-      extraDetails: string
-    package:
-      location:
-        - cpeUri: string
-          path: string
-      packageType: string
-      architecture: string
-      cpeUri: string
-      name: string
-      license:
-        comments: string
-        expression: string
+      cpe: string
     attestation:
+      serializedPayload: string
       jwts:
         - compactJwt: string
-      serializedPayload: string
       signatures:
-        - signature: string
-          publicKeyId: string
-    build:
-      inTotoSlsaProvenanceV1:
-        _type: string
-        predicate:
-          buildDefinition:
-            buildType: string
-            internalParameters: object
-            externalParameters: object
-            resolvedDependencies:
-              - annotations: object
-                mediaType: string
-                content: string
-                downloadLocation: string
-                digest: object
-                name: string
-                uri: string
-          runDetails:
-            byproducts:
-              - annotations: object
-                mediaType: string
-                content: string
-                downloadLocation: string
-                digest: object
-                name: string
-                uri: string
-            builder:
-              version: object
-              id: string
-              builderDependencies:
-                - annotations: object
-                  mediaType: string
-                  content: string
-                  downloadLocation: string
-                  digest: object
-                  name: string
-                  uri: string
-            metadata:
-              invocationId: string
-              finishedOn: string
-              startedOn: string
+        - publicKeyId: string
+          signature: string
+    dsseAttestation:
+      statement:
         predicateType: string
-        subject:
-          - digest: object
-            name: string
-      intotoStatement:
-        predicateType: string
-        subject:
-          - digest: object
-            name: string
-        _type: string
         slsaProvenanceZeroTwo:
+          metadata:
+            buildInvocationId: string
+            reproducible: boolean
+            completeness:
+              parameters: boolean
+              environment: boolean
+              materials: boolean
+            buildFinishedOn: string
+            buildStartedOn: string
+          buildConfig: object
+          invocation:
+            parameters: object
+            configSource:
+              entryPoint: string
+              uri: string
+              digest: object
+            environment: object
+          materials:
+            - digest: object
+              uri: string
           builder:
             id: string
           buildType: string
-          invocation:
-            environment: object
-            configSource:
-              uri: string
-              entryPoint: string
-              digest: object
-            parameters: object
-          buildConfig: object
-          materials:
-            - uri: string
-              digest: object
-          metadata:
-            buildInvocationId: string
-            reproducible: boolean
-            buildFinishedOn: string
-            buildStartedOn: string
-            completeness:
-              parameters: boolean
-              materials: boolean
-              environment: boolean
-        slsaProvenance:
-          metadata:
-            buildInvocationId: string
-            completeness:
-              arguments: boolean
-              materials: boolean
-              environment: boolean
-            reproducible: boolean
-            buildFinishedOn: string
-            buildStartedOn: string
-          materials:
-            - uri: string
-              digest: object
-          recipe:
-            type: string
-            arguments: object
-            definedInMaterial: string
-            entryPoint: string
-            environment: object
-          builder:
-            id: string
+        _type: string
+        subject:
+          - digest: object
+            name: string
         provenance:
-          materials:
-            - type: string
-          metadata:
-            completeness:
-              arguments: boolean
-              materials: boolean
-              environment: boolean
-            buildStartedOn: string
-            buildInvocationId: string
-            buildFinishedOn: string
-            reproducible: boolean
           builderConfig:
             id: string
           recipe:
-            entryPoint: string
-            definedInMaterial: string
             environment:
-              - type: string
-                additionalProperties: any
+              - additionalProperties: any
+                type: string
             type: string
             arguments:
-              - type: string
-                additionalProperties: any
-      provenance:
-        createTime: string
-        endTime: string
-        creator: string
-        id: string
-        projectId: string
-        commands:
-          - id: string
-            args:
-              - type: string
-            env:
-              - type: string
-            dir: string
-            name: string
-            waitFor:
-              - type: string
-        startTime: string
-        builderVersion: string
-        logsUri: string
-        triggerId: string
-        buildOptions: object
-        builtArtifacts:
-          - names:
-              - type: string
+              - additionalProperties: any
+                type: string
+            definedInMaterial: string
+            entryPoint: string
+          metadata:
+            buildStartedOn: string
+            reproducible: boolean
+            buildInvocationId: string
+            completeness:
+              arguments: boolean
+              environment: boolean
+              materials: boolean
+            buildFinishedOn: string
+          materials:
+            - type: string
+        slsaProvenance:
+          builder:
             id: string
-            checksum: string
-        sourceProvenance:
-          additionalContexts:
-            - gerrit:
-                gerritProject: string
-                aliasContext:
-                  name: string
-                  kind: string
-                hostUri: string
-                revisionId: string
-              cloudRepo:
-                repoId:
-                  projectRepoId:
-                    repoName: string
-                    projectId: string
-                  uid: string
-                revisionId: string
-              labels: object
-              git:
-                revisionId: string
-                url: string
-          context:
-            labels: object
-          fileHashes: object
-          artifactStorageSourceUri: string
-      provenanceBytes: string
-    kind: string
-    updateTime: string
+          materials:
+            - digest: object
+              uri: string
+          recipe:
+            arguments: object
+            definedInMaterial: string
+            environment: object
+            type: string
+            entryPoint: string
+          metadata:
+            completeness:
+              arguments: boolean
+              materials: boolean
+              environment: boolean
+            reproducible: boolean
+            buildFinishedOn: string
+            buildStartedOn: string
+            buildInvocationId: string
+      envelope:
+        payloadType: string
+        signatures:
+          - keyid: string
+            sig: string
+        payload: string
+    vulnerability:
+      cvssVersion: string
+      severity: string
+      shortDescription: string
+      relatedUrls:
+        - label: string
+          url: string
+      vexAssessment:
+        impacts:
+          - type: string
+        relatedUris:
+          - label: string
+            url: string
+        remediations:
+          - remediationUri:
+              label: string
+              url: string
+            remediationType: string
+            details: string
+        noteName: string
+        justification:
+          justificationType: string
+          details: string
+        vulnerabilityId: string
+        cve: string
+        state: string
+      type: string
+      packageIssue:
+        - fileLocation:
+            - filePath: string
+          affectedCpeUri: string
+          packageType: string
+          fixedVersion:
+            inclusive: boolean
+            revision: string
+            fullName: string
+            epoch: integer
+            name: string
+            kind: string
+          fixAvailable: boolean
+          fixedCpeUri: string
+          effectiveSeverity: string
+          affectedPackage: string
+          fixedPackage: string
+      extraDetails: string
+      cvssV2:
+        attackComplexity: string
+        exploitabilityScore: number
+        impactScore: number
+        availabilityImpact: string
+        baseScore: number
+        attackVector: string
+        scope: string
+        integrityImpact: string
+        confidentialityImpact: string
+        privilegesRequired: string
+        authentication: string
+        userInteraction: string
+      effectiveSeverity: string
+      longDescription: string
+      fixAvailable: boolean
+      cvssScore: number
+    image:
+      baseResourceUrl: string
+      fingerprint:
+        v2Blob:
+          - type: string
+        v2Name: string
+        v1Name: string
+      layerInfo:
+        - arguments: string
+          directive: string
+      distance: integer
+    name: string
     createTime: string
     compliance:
-      nonComplianceReason: string
       version:
         cpeUri: string
         benchmarkDocument: string
         version: string
+      nonComplianceReason: string
       nonCompliantFiles:
         - reason: string
           path: string
           displayCommand: string
-    remediation: string
-    sbomReference:
-      payloadType: string
-      payload:
-        predicate:
-          mimeType: string
-          digest: object
-          referrerId: string
-          location: string
-        subject:
-          - digest: object
-            name: string
-        predicateType: string
-        _type: string
-      signatures:
-        - keyid: string
-          sig: string
-    name: string
-    envelope:
-      signatures:
-        - keyid: string
-          sig: string
-      payload: string
-      payloadType: string
     upgrade:
+      package: string
       windowsUpdate:
-        title: string
-        categories:
-          - name: string
-            categoryId: string
-        identity:
-          revision: integer
-          updateId: string
         description: string
+        categories:
+          - categoryId: string
+            name: string
+        title: string
+        identity:
+          updateId: string
+          revision: integer
+        supportUrl: string
+        lastPublishedTimestamp: string
         kbArticleIds:
           - type: string
-        lastPublishedTimestamp: string
-        supportUrl: string
-      package: string
       distribution:
         cpeUri: string
         classification: string
+        severity: string
         cve:
           - type: string
-        severity: string
-    dsseAttestation: {}
+    package:
+      architecture: string
+      packageType: string
+      license:
+        comments: string
+        expression: string
+      name: string
+      cpeUri: string
+      location:
+        - path: string
+          cpeUri: string
     deployment:
-      config: string
-      platform: string
-      deployTime: string
       undeployTime: string
+      config: string
       address: string
+      userEmail: string
+      platform: string
       resourceUri:
         - type: string
-      userEmail: string
-    noteName: string
+      deployTime: string
+    updateTime: string
+    build:
+      inTotoSlsaProvenanceV1:
+        subject:
+          - digest: object
+            name: string
+        predicate:
+          runDetails:
+            builder:
+              builderDependencies:
+                - uri: string
+                  downloadLocation: string
+                  content: string
+                  mediaType: string
+                  name: string
+                  digest: object
+                  annotations: object
+              version: object
+              id: string
+            metadata:
+              finishedOn: string
+              startedOn: string
+              invocationId: string
+            byproducts:
+              - uri: string
+                downloadLocation: string
+                content: string
+                mediaType: string
+                name: string
+                digest: object
+                annotations: object
+          buildDefinition:
+            buildType: string
+            externalParameters: object
+            resolvedDependencies:
+              - uri: string
+                downloadLocation: string
+                content: string
+                mediaType: string
+                name: string
+                digest: object
+                annotations: object
+            internalParameters: object
+        _type: string
+        predicateType: string
+      provenance:
+        createTime: string
+        projectId: string
+        commands:
+          - dir: string
+            id: string
+            env:
+              - type: string
+            args:
+              - type: string
+            waitFor:
+              - type: string
+            name: string
+        buildOptions: object
+        builtArtifacts:
+          - checksum: string
+            id: string
+            names:
+              - type: string
+        id: string
+        startTime: string
+        endTime: string
+        creator: string
+        logsUri: string
+        builderVersion: string
+        triggerId: string
+        sourceProvenance:
+          additionalContexts:
+            - labels: object
+              cloudRepo:
+                revisionId: string
+                repoId:
+                  uid: string
+                  projectRepoId:
+                    repoName: string
+                    projectId: string
+                aliasContext:
+                  kind: string
+                  name: string
+              git:
+                revisionId: string
+                url: string
+              gerrit:
+                gerritProject: string
+                revisionId: string
+                hostUri: string
+          artifactStorageSourceUri: string
+          fileHashes: object
+          context:
+            labels: object
+      provenanceBytes: string
+    resourceUri: string
+    remediation: string
 
 ```
 </TabItem>
@@ -495,22 +495,22 @@ Updates a <code>occurrences</code> resource.
 /*+ update */
 UPDATE google.containeranalysis.occurrences
 SET 
-resourceUri = '{{ resourceUri }}',
-discovery = '{{ discovery }}',
-image = '{{ image }}',
-vulnerability = '{{ vulnerability }}',
-package = '{{ package }}',
-attestation = '{{ attestation }}',
-build = '{{ build }}',
-compliance = '{{ compliance }}',
-remediation = '{{ remediation }}',
+noteName = '{{ noteName }}',
 sbomReference = '{{ sbomReference }}',
-name = '{{ name }}',
-envelope = '{{ envelope }}',
-upgrade = '{{ upgrade }}',
+discovery = '{{ discovery }}',
+attestation = '{{ attestation }}',
 dsseAttestation = '{{ dsseAttestation }}',
+vulnerability = '{{ vulnerability }}',
+image = '{{ image }}',
+envelope = '{{ envelope }}',
+name = '{{ name }}',
+compliance = '{{ compliance }}',
+upgrade = '{{ upgrade }}',
+package = '{{ package }}',
 deployment = '{{ deployment }}',
-noteName = '{{ noteName }}'
+build = '{{ build }}',
+resourceUri = '{{ resourceUri }}',
+remediation = '{{ remediation }}'
 WHERE 
 occurrencesId = '{{ occurrencesId }}'
 AND projectsId = '{{ projectsId }}';

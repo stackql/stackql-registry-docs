@@ -95,25 +95,105 @@ Use the following StackQL query and manifest file to create a new <code>deidenti
 /*+ create */
 INSERT INTO google.dlp.deidentify_templates (
 projectsId,
-locationId,
 deidentifyTemplate,
-templateId
+templateId,
+locationId
 )
 SELECT 
 '{{ projectsId }}',
-'{{ locationId }}',
 '{{ deidentifyTemplate }}',
-'{{ templateId }}'
+'{{ templateId }}',
+'{{ locationId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-locationId: string
 deidentifyTemplate:
-  name: string
   deidentifyConfig:
+    transformationErrorHandling:
+      leaveUntransformed: {}
+      throwError: {}
+    recordTransformations:
+      fieldTransformations:
+        - infoTypeTransformations:
+            transformations:
+              - primitiveTransformation:
+                  fixedSizeBucketingConfig:
+                    bucketSize: number
+                    lowerBound:
+                      integerValue: string
+                      dayOfWeekValue: string
+                      floatValue: number
+                      stringValue: string
+                      timestampValue: string
+                      dateValue:
+                        day: integer
+                        year: integer
+                        month: integer
+                      booleanValue: boolean
+                      timeValue:
+                        hours: integer
+                        minutes: integer
+                        seconds: integer
+                        nanos: integer
+                  dateShiftConfig:
+                    cryptoKey:
+                      transient:
+                        name: string
+                      unwrapped:
+                        key: string
+                      kmsWrapped:
+                        cryptoKeyName: string
+                        wrappedKey: string
+                    context:
+                      name: string
+                    upperBoundDays: integer
+                    lowerBoundDays: integer
+                  redactConfig: {}
+                  cryptoDeterministicConfig:
+                    surrogateInfoType:
+                      sensitivityScore:
+                        score: string
+                      version: string
+                      name: string
+                  replaceDictionaryConfig:
+                    wordList:
+                      words:
+                        - type: string
+                  characterMaskConfig:
+                    numberToMask: integer
+                    reverseOrder: boolean
+                    charactersToIgnore:
+                      - commonCharactersToIgnore: string
+                        charactersToSkip: string
+                    maskingCharacter: string
+                  cryptoHashConfig: {}
+                  bucketingConfig:
+                    buckets:
+                      - {}
+                  replaceConfig: {}
+                  cryptoReplaceFfxFpeConfig:
+                    customAlphabet: string
+                    commonAlphabet: string
+                    radix: integer
+                  timePartConfig:
+                    partToExtract: string
+                  replaceWithInfoTypeConfig: {}
+                infoTypes:
+                  - version: string
+                    name: string
+          condition:
+            expressions:
+              conditions:
+                conditions:
+                  - operator: string
+              logicalOperator: string
+          fields:
+            - name: string
+      recordSuppressions:
+        - {}
     imageTransformations:
       transforms:
         - allInfoTypes: {}
@@ -121,98 +201,18 @@ deidentifyTemplate:
             infoTypes:
               - version: string
                 name: string
-                sensitivityScore:
-                  score: string
+          allText: {}
           redactionColor:
             blue: number
             red: number
             green: number
-          allText: {}
-    recordTransformations:
-      fieldTransformations:
-        - condition:
-            expressions:
-              logicalOperator: string
-              conditions:
-                conditions:
-                  - operator: string
-                    value:
-                      timestampValue: string
-                      dateValue:
-                        month: integer
-                        year: integer
-                        day: integer
-                      dayOfWeekValue: string
-                      stringValue: string
-                      booleanValue: boolean
-                      timeValue:
-                        nanos: integer
-                        minutes: integer
-                        seconds: integer
-                        hours: integer
-                      floatValue: number
-                      integerValue: string
-                    field:
-                      name: string
-          primitiveTransformation:
-            replaceDictionaryConfig:
-              wordList:
-                words:
-                  - type: string
-            cryptoDeterministicConfig:
-              cryptoKey:
-                unwrapped:
-                  key: string
-                transient:
-                  name: string
-                kmsWrapped:
-                  cryptoKeyName: string
-                  wrappedKey: string
-              surrogateInfoType:
-                version: string
-                name: string
-            bucketingConfig:
-              buckets:
-                - {}
-            replaceWithInfoTypeConfig: {}
-            characterMaskConfig:
-              numberToMask: integer
-              charactersToIgnore:
-                - commonCharactersToIgnore: string
-                  charactersToSkip: string
-              reverseOrder: boolean
-              maskingCharacter: string
-            timePartConfig:
-              partToExtract: string
-            cryptoHashConfig: {}
-            redactConfig: {}
-            dateShiftConfig:
-              lowerBoundDays: integer
-              upperBoundDays: integer
-            fixedSizeBucketingConfig:
-              bucketSize: number
-            replaceConfig: {}
-            cryptoReplaceFfxFpeConfig:
-              commonAlphabet: string
-              customAlphabet: string
-              radix: integer
-          infoTypeTransformations:
-            transformations:
-              - infoTypes:
-                  - version: string
-                    name: string
-          fields:
-            - name: string
-      recordSuppressions:
-        - {}
-    transformationErrorHandling:
-      leaveUntransformed: {}
-      throwError: {}
-  createTime: string
-  description: string
-  updateTime: string
   displayName: string
+  description: string
+  createTime: string
+  updateTime: string
+  name: string
 templateId: string
+locationId: string
 
 ```
 </TabItem>

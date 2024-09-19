@@ -92,50 +92,50 @@ Use the following StackQL query and manifest file to create a new <code>security
 /*+ create */
 INSERT INTO google.apigee.security_profiles (
 organizationsId,
-name,
-displayName,
+scoringConfigs,
 profileConfig,
-environments,
+displayName,
+name,
 description,
-scoringConfigs
+environments
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ name }}',
-'{{ displayName }}',
+'{{ scoringConfigs }}',
 '{{ profileConfig }}',
-'{{ environments }}',
+'{{ displayName }}',
+'{{ name }}',
 '{{ description }}',
-'{{ scoringConfigs }}'
+'{{ environments }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-maxScore: integer
-revisionCreateTime: string
-displayName: string
-profileConfig:
-  categories:
-    - mtls: {}
-      threat: {}
-      cors: {}
-      mediation: {}
-      authorization: {}
-      abuse: {}
-environments:
-  - attachTime: string
-    environment: string
-revisionPublishTime: string
-minScore: integer
-description: string
 scoringConfigs:
   - description: string
-    scorePath: string
     title: string
+    scorePath: string
+profileConfig:
+  categories:
+    - abuse: {}
+      threat: {}
+      mediation: {}
+      mtls: {}
+      cors: {}
+      authorization: {}
+displayName: string
+revisionPublishTime: string
+minScore: integer
 revisionId: string
+name: string
+description: string
+maxScore: integer
+environments:
+  - environment: string
+    attachTime: string
+revisionCreateTime: string
 revisionUpdateTime: string
 
 ```
@@ -150,12 +150,12 @@ Updates a <code>security_profiles</code> resource.
 /*+ update */
 UPDATE google.apigee.security_profiles
 SET 
-name = '{{ name }}',
-displayName = '{{ displayName }}',
+scoringConfigs = '{{ scoringConfigs }}',
 profileConfig = '{{ profileConfig }}',
-environments = '{{ environments }}',
+displayName = '{{ displayName }}',
+name = '{{ name }}',
 description = '{{ description }}',
-scoringConfigs = '{{ scoringConfigs }}'
+environments = '{{ environments }}'
 WHERE 
 organizationsId = '{{ organizationsId }}'
 AND securityProfilesId = '{{ securityProfilesId }}';

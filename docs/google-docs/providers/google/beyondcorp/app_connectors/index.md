@@ -71,7 +71,112 @@ FROM google.beyondcorp.app_connectors
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>app_connectors</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.beyondcorp.app_connectors (
+locationsId,
+projectsId,
+name,
+labels,
+displayName,
+principalInfo,
+resourceInfo
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ name }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ principalInfo }}',
+'{{ resourceInfo }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+createTime: string
+updateTime: string
+labels: object
+displayName: string
+uid: string
+state: string
+principalInfo:
+  serviceAccount:
+    email: string
+resourceInfo:
+  id: string
+  status: string
+  resource: object
+  time: string
+  sub:
+    - id: string
+      status: string
+      resource: object
+      time: string
+      sub:
+        - id: string
+          status: string
+          resource: object
+          time: string
+          sub:
+            - id: string
+              status: string
+              resource: object
+              time: string
+              sub:
+                - id: string
+                  status: string
+                  resource: object
+                  time: string
+                  sub:
+                    - id: string
+                      status: string
+                      resource: object
+                      time: string
+                      sub:
+                        - id: string
+                          status: string
+                          resource: object
+                          time: string
+                          sub:
+                            - id: string
+                              status: string
+                              resource: object
+                              time: string
+                              sub:
+                                - id: string
+                                  status: string
+                                  resource: object
+                                  time: string
+                                  sub:
+                                    - id: string
+                                      status: string
+                                      resource: object
+                                      time: string
+                                      sub:
+                                        - {}
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>app_connectors</code> resource.

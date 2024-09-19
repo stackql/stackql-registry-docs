@@ -97,36 +97,36 @@ INSERT INTO google.documentai.processors (
 locationsId,
 projectsId,
 defaultProcessorVersion,
-displayName,
 kmsKeyName,
-type
+type,
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ defaultProcessorVersion }}',
-'{{ displayName }}',
 '{{ kmsKeyName }}',
-'{{ type }}'
+'{{ type }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+satisfiesPzi: boolean
+processEndpoint: string
+satisfiesPzs: boolean
+defaultProcessorVersion: string
 state: string
 createTime: string
-defaultProcessorVersion: string
 processorVersionAliases:
   - processorVersion: string
     alias: string
-satisfiesPzs: boolean
-displayName: string
-processEndpoint: string
 kmsKeyName: string
-satisfiesPzi: boolean
 name: string
 type: string
+displayName: string
 
 ```
 </TabItem>

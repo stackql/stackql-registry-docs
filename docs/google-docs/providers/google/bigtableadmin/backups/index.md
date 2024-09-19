@@ -32,9 +32,11 @@ Creates, updates, deletes, gets or lists a <code>backups</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | A globally unique identifier for the backup which cannot be changed. Values are of the form `projects/{project}/instances/{instance}/clusters/{cluster}/ backups/_a-zA-Z0-9*` The final segment of the name must be between 1 and 50 characters in length. The backup is stored in the cluster identified by the prefix of the backup name of the form `projects/{project}/instances/{instance}/clusters/{cluster}`. |
+| <CopyableCode code="backupType" /> | `string` | Indicates the backup type of the backup. |
 | <CopyableCode code="encryptionInfo" /> | `object` | Encryption information for a given resource. If this resource is protected with customer managed encryption, the in-use Cloud Key Management Service (Cloud KMS) key version is specified along with its status. |
 | <CopyableCode code="endTime" /> | `string` | Output only. `end_time` is the time that the backup was finished. The row data in the backup will be no newer than this timestamp. |
 | <CopyableCode code="expireTime" /> | `string` | Required. The expiration time of the backup. When creating a backup or updating its `expire_time`, the value must be greater than the backup creation time by: - At least 6 hours - At most 90 days Once the `expire_time` has passed, Cloud Bigtable will delete the backup. |
+| <CopyableCode code="hotToStandardTime" /> | `string` | The time at which the hot backup will be converted to a standard backup. Once the `hot_to_standard_time` has passed, Cloud Bigtable will convert the hot backup to a standard backup. This value must be greater than the backup creation time by: - At least 24 hours This field only applies for hot backups. When creating or updating a standard backup, attempting to set this field will fail the request. |
 | <CopyableCode code="sizeBytes" /> | `string` | Output only. Size of the backup in bytes. |
 | <CopyableCode code="sourceBackup" /> | `string` | Output only. Name of the backup from which this backup was copied. If a backup is not created by copying a backup, this field will be empty. Values are of the form: projects//instances//clusters//backups/ |
 | <CopyableCode code="sourceTable" /> | `string` | Required. Immutable. Name of the table from which this backup was created. This needs to be in the same instance as the backup. Values are of the form `projects/{project}/instances/{instance}/tables/{source_table}`. |
@@ -58,9 +60,11 @@ Lists Cloud Bigtable backups. Returns both completed and pending backups.
 ```sql
 SELECT
 name,
+backupType,
 encryptionInfo,
 endTime,
 expireTime,
+hotToStandardTime,
 sizeBytes,
 sourceBackup,
 sourceTable,
@@ -93,7 +97,9 @@ instancesId,
 projectsId,
 name,
 sourceTable,
-expireTime
+expireTime,
+backupType,
+hotToStandardTime
 )
 SELECT 
 '{{ clustersId }}',
@@ -101,7 +107,9 @@ SELECT
 '{{ projectsId }}',
 '{{ name }}',
 '{{ sourceTable }}',
-'{{ expireTime }}'
+'{{ expireTime }}',
+'{{ backupType }}',
+'{{ hotToStandardTime }}'
 ;
 ```
 </TabItem>
@@ -125,6 +133,8 @@ encryptionInfo:
       - type: string
         additionalProperties: any
   kmsKeyVersion: string
+backupType: string
+hotToStandardTime: string
 
 ```
 </TabItem>
@@ -140,7 +150,9 @@ UPDATE google.bigtableadmin.backups
 SET 
 name = '{{ name }}',
 sourceTable = '{{ sourceTable }}',
-expireTime = '{{ expireTime }}'
+expireTime = '{{ expireTime }}',
+backupType = '{{ backupType }}',
+hotToStandardTime = '{{ hotToStandardTime }}'
 WHERE 
 backupsId = '{{ backupsId }}'
 AND clustersId = '{{ clustersId }}'

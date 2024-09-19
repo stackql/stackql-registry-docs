@@ -96,45 +96,45 @@ INSERT INTO google.aiplatform.contexts (
 locationsId,
 metadataStoresId,
 projectsId,
-description,
-displayName,
-labels,
-name,
-schemaTitle,
-metadata,
+schemaVersion,
 etag,
-schemaVersion
+schemaTitle,
+description,
+name,
+labels,
+displayName,
+metadata
 )
 SELECT 
 '{{ locationsId }}',
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
-'{{ description }}',
-'{{ displayName }}',
-'{{ labels }}',
-'{{ name }}',
-'{{ schemaTitle }}',
-'{{ metadata }}',
+'{{ schemaVersion }}',
 '{{ etag }}',
-'{{ schemaVersion }}'
+'{{ schemaTitle }}',
+'{{ description }}',
+'{{ name }}',
+'{{ labels }}',
+'{{ displayName }}',
+'{{ metadata }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-description: string
-updateTime: string
-displayName: string
 parentContexts:
   - type: string
-createTime: string
-labels: object
-name: string
-schemaTitle: string
-metadata: object
-etag: string
 schemaVersion: string
+etag: string
+schemaTitle: string
+description: string
+updateTime: string
+name: string
+labels: object
+displayName: string
+metadata: object
+createTime: string
 
 ```
 </TabItem>
@@ -148,14 +148,14 @@ Updates a <code>contexts</code> resource.
 /*+ update */
 UPDATE google.aiplatform.contexts
 SET 
-description = '{{ description }}',
-displayName = '{{ displayName }}',
-labels = '{{ labels }}',
-name = '{{ name }}',
-schemaTitle = '{{ schemaTitle }}',
-metadata = '{{ metadata }}',
+schemaVersion = '{{ schemaVersion }}',
 etag = '{{ etag }}',
-schemaVersion = '{{ schemaVersion }}'
+schemaTitle = '{{ schemaTitle }}',
+description = '{{ description }}',
+name = '{{ name }}',
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+metadata = '{{ metadata }}'
 WHERE 
 contextsId = '{{ contextsId }}'
 AND locationsId = '{{ locationsId }}'

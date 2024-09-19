@@ -69,8 +69,8 @@ SELECT
 
 ```yaml
 ipOverrideData:
-  ip: string
   overrideType: string
+  ip: string
 
 ```
 </TabItem>

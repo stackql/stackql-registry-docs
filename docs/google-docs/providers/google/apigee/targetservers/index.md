@@ -84,51 +84,51 @@ Use the following StackQL query and manifest file to create a new <code>targetse
 INSERT INTO google.apigee.targetservers (
 environmentsId,
 organizationsId,
-sSLInfo,
-host,
-name,
 isEnabled,
 port,
 description,
-protocol
+sSLInfo,
+host,
+protocol,
+name
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ sSLInfo }}',
-'{{ host }}',
-'{{ name }}',
 true|false,
 '{{ port }}',
 '{{ description }}',
-'{{ protocol }}'
+'{{ sSLInfo }}',
+'{{ host }}',
+'{{ protocol }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-sSLInfo:
-  commonName:
-    value: string
-    wildcardMatch: boolean
-  ciphers:
-    - type: string
-  clientAuthEnabled: boolean
-  ignoreValidationErrors: boolean
-  enforce: boolean
-  trustStore: string
-  enabled: boolean
-  keyAlias: string
-  keyStore: string
-  protocols:
-    - type: string
-host: string
-name: string
 isEnabled: boolean
 port: integer
 description: string
+sSLInfo:
+  trustStore: string
+  commonName:
+    value: string
+    wildcardMatch: boolean
+  keyAlias: string
+  ignoreValidationErrors: boolean
+  ciphers:
+    - type: string
+  protocols:
+    - type: string
+  enforce: boolean
+  clientAuthEnabled: boolean
+  enabled: boolean
+  keyStore: string
+host: string
 protocol: string
+name: string
 
 ```
 </TabItem>
@@ -142,13 +142,13 @@ Replaces all fields in the specified <code>targetservers</code> resource.
 /*+ update */
 REPLACE google.apigee.targetservers
 SET 
-sSLInfo = '{{ sSLInfo }}',
-host = '{{ host }}',
-name = '{{ name }}',
 isEnabled = true|false,
 port = '{{ port }}',
 description = '{{ description }}',
-protocol = '{{ protocol }}'
+sSLInfo = '{{ sSLInfo }}',
+host = '{{ host }}',
+protocol = '{{ protocol }}',
+name = '{{ name }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'

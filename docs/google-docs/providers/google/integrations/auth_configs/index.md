@@ -109,140 +109,140 @@ Use the following StackQL query and manifest file to create a new <code>auth_con
 INSERT INTO google.integrations.auth_configs (
 locationsId,
 projectsId,
-reason,
-visibility,
-displayName,
-encryptedCredential,
-name,
 description,
-creatorEmail,
-credentialType,
-validTime,
-state,
-lastModifierEmail,
-overrideValidTime,
-expiryNotificationDuration,
 certificateId,
-decryptedCredential
+name,
+decryptedCredential,
+visibility,
+encryptedCredential,
+creatorEmail,
+lastModifierEmail,
+reason,
+validTime,
+credentialType,
+state,
+displayName,
+expiryNotificationDuration,
+overrideValidTime
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ reason }}',
-'{{ visibility }}',
-'{{ displayName }}',
-'{{ encryptedCredential }}',
-'{{ name }}',
 '{{ description }}',
-'{{ creatorEmail }}',
-'{{ credentialType }}',
-'{{ validTime }}',
-'{{ state }}',
-'{{ lastModifierEmail }}',
-'{{ overrideValidTime }}',
-'{{ expiryNotificationDuration }}',
 '{{ certificateId }}',
-'{{ decryptedCredential }}'
+'{{ name }}',
+'{{ decryptedCredential }}',
+'{{ visibility }}',
+'{{ encryptedCredential }}',
+'{{ creatorEmail }}',
+'{{ lastModifierEmail }}',
+'{{ reason }}',
+'{{ validTime }}',
+'{{ credentialType }}',
+'{{ state }}',
+'{{ displayName }}',
+'{{ expiryNotificationDuration }}',
+'{{ overrideValidTime }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-reason: string
-visibility: string
-displayName: string
-encryptedCredential: string
-name: string
 description: string
-creatorEmail: string
-credentialType: string
-validTime: string
-state: string
-lastModifierEmail: string
-overrideValidTime: string
-expiryNotificationDuration:
-  - type: string
-    format: string
-createTime: string
-updateTime: string
 certificateId: string
+name: string
 decryptedCredential:
-  credentialType: string
-  serviceAccountCredentials:
-    serviceAccount: string
-    scope: string
-  authToken:
+  usernameAndPassword:
+    password: string
+    username: string
+  oidcToken:
+    tokenExpireTime: string
     token: string
-    type: string
+    audience: string
+    serviceAccountEmail: string
   oauth2ClientCredentials:
-    accessToken:
-      accessToken: string
-      refreshTokenExpireTime: string
-      tokenType: string
-      refreshToken: string
-      accessTokenExpireTime: string
-    tokenEndpoint: string
-    clientId: string
+    scope: string
     clientSecret: string
     tokenParams:
       entries:
-        - value:
+        - key:
+            referenceKey: string
             literalValue:
-              stringValue: string
+              intArray:
+                intValues:
+                  - format: string
+                    type: string
+              doubleArray:
+                doubleValues:
+                  - format: string
+                    type: string
+              intValue: string
+              stringArray:
+                stringValues:
+                  - type: string
               doubleValue: number
+              stringValue: string
               jsonValue: string
               booleanArray:
                 booleanValues:
                   - type: string
               booleanValue: boolean
-              intValue: string
-              stringArray:
-                stringValues:
-                  - type: string
-              intArray:
-                intValues:
-                  - type: string
-                    format: string
-              doubleArray:
-                doubleValues:
-                  - format: string
-                    type: string
-            referenceKey: string
       keyType: string
       valueType: string
-    requestType: string
-    scope: string
-  oauth2AuthorizationCode:
-    authCode: string
     clientId: string
-    scope: string
-    clientSecret: string
-    applyReauthPolicy: boolean
-    authEndpoint: string
     tokenEndpoint: string
+    accessToken:
+      accessTokenExpireTime: string
+      refreshToken: string
+      tokenType: string
+      accessToken: string
+      refreshTokenExpireTime: string
     requestType: string
-  jwt:
-    jwtHeader: string
-    secret: string
-    jwt: string
-    jwtPayload: string
-  oidcToken:
-    tokenExpireTime: string
-    audience: string
-    serviceAccountEmail: string
-    token: string
   oauth2ResourceOwnerCredentials:
     scope: string
-    requestType: string
     clientId: string
     username: string
-    password: string
     clientSecret: string
-    tokenEndpoint: string
-  usernameAndPassword:
-    username: string
     password: string
+    tokenEndpoint: string
+    requestType: string
+  credentialType: string
+  oauth2AuthorizationCode:
+    clientSecret: string
+    requestType: string
+    authCode: string
+    scope: string
+    authEndpoint: string
+    tokenEndpoint: string
+    applyReauthPolicy: boolean
+    clientId: string
+  serviceAccountCredentials:
+    scope: string
+    serviceAccount: string
+  jwt:
+    jwt: string
+    secret: string
+    jwtPayload: string
+    jwtHeader: string
+  authToken:
+    type: string
+    token: string
+visibility: string
+encryptedCredential: string
+creatorEmail: string
+lastModifierEmail: string
+reason: string
+validTime: string
+createTime: string
+credentialType: string
+state: string
+displayName: string
+expiryNotificationDuration:
+  - type: string
+    format: string
+overrideValidTime: string
+updateTime: string
 
 ```
 </TabItem>
@@ -256,21 +256,21 @@ Updates a <code>auth_configs</code> resource.
 /*+ update */
 UPDATE google.integrations.auth_configs
 SET 
-reason = '{{ reason }}',
-visibility = '{{ visibility }}',
-displayName = '{{ displayName }}',
-encryptedCredential = '{{ encryptedCredential }}',
-name = '{{ name }}',
 description = '{{ description }}',
-creatorEmail = '{{ creatorEmail }}',
-credentialType = '{{ credentialType }}',
-validTime = '{{ validTime }}',
-state = '{{ state }}',
-lastModifierEmail = '{{ lastModifierEmail }}',
-overrideValidTime = '{{ overrideValidTime }}',
-expiryNotificationDuration = '{{ expiryNotificationDuration }}',
 certificateId = '{{ certificateId }}',
-decryptedCredential = '{{ decryptedCredential }}'
+name = '{{ name }}',
+decryptedCredential = '{{ decryptedCredential }}',
+visibility = '{{ visibility }}',
+encryptedCredential = '{{ encryptedCredential }}',
+creatorEmail = '{{ creatorEmail }}',
+lastModifierEmail = '{{ lastModifierEmail }}',
+reason = '{{ reason }}',
+validTime = '{{ validTime }}',
+credentialType = '{{ credentialType }}',
+state = '{{ state }}',
+displayName = '{{ displayName }}',
+expiryNotificationDuration = '{{ expiryNotificationDuration }}',
+overrideValidTime = '{{ overrideValidTime }}'
 WHERE 
 authConfigsId = '{{ authConfigsId }}'
 AND locationsId = '{{ locationsId }}'

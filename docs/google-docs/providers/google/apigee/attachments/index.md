@@ -31,10 +31,9 @@ Creates, updates, deletes, gets or lists a <code>attachments</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | ID of the environment group attachment. |
-| <CopyableCode code="createdAt" /> | `string` | Output only. The time at which the environment group attachment was created as milliseconds since epoch. |
-| <CopyableCode code="environment" /> | `string` | Required. ID of the attached environment. |
-| <CopyableCode code="environmentGroupId" /> | `string` | Output only. ID of the environment group. |
+| <CopyableCode code="name" /> | `string` | Output only. ID of the attachment. |
+| <CopyableCode code="createdAt" /> | `string` | Output only. Time the attachment was created in milliseconds since epoch. |
+| <CopyableCode code="environment" /> | `string` | ID of the attached environment. |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -56,8 +55,7 @@ Lists all attachments of an environment group.
 SELECT
 name,
 createdAt,
-environment,
-environmentGroupId
+environment
 FROM google.apigee.attachments
 WHERE envgroupsId = '{{ envgroupsId }}'
 AND organizationsId = '{{ organizationsId }}'; 
@@ -95,10 +93,10 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
-environmentGroupId: string
 environment: string
 name: string
+environmentGroupId: string
+createdAt: string
 
 ```
 </TabItem>

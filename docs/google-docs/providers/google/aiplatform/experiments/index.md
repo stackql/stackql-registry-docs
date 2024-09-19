@@ -91,34 +91,34 @@ locationsId,
 projectsId,
 tensorboardsId,
 labels,
-displayName,
 source,
-etag,
-description
+description,
+displayName,
+etag
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ tensorboardsId }}',
 '{{ labels }}',
-'{{ displayName }}',
 '{{ source }}',
-'{{ etag }}',
-'{{ description }}'
+'{{ description }}',
+'{{ displayName }}',
+'{{ etag }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-labels: object
-displayName: string
-updateTime: string
-source: string
 createTime: string
+labels: object
+source: string
+updateTime: string
+description: string
+displayName: string
 etag: string
 name: string
-description: string
 
 ```
 </TabItem>
@@ -133,10 +133,10 @@ Updates a <code>experiments</code> resource.
 UPDATE google.aiplatform.experiments
 SET 
 labels = '{{ labels }}',
-displayName = '{{ displayName }}',
 source = '{{ source }}',
-etag = '{{ etag }}',
-description = '{{ description }}'
+description = '{{ description }}',
+displayName = '{{ displayName }}',
+etag = '{{ etag }}'
 WHERE 
 experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'

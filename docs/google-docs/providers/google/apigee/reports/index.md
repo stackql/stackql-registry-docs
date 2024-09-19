@@ -112,42 +112,42 @@ Use the following StackQL query and manifest file to create a new <code>reports<
 /*+ create */
 INSERT INTO google.apigee.reports (
 organizationsId,
-fromTime,
-sortByCols,
-offset,
+dimensions,
+displayName,
 sortOrder,
-topk,
-name,
-timeUnit,
+filter,
 chartType,
 metrics,
-filter,
-properties,
+timeUnit,
+name,
 toTime,
-displayName,
-comments,
+sortByCols,
+properties,
+offset,
 tags,
-dimensions,
+topk,
+fromTime,
+comments,
 limit
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ fromTime }}',
-'{{ sortByCols }}',
-'{{ offset }}',
+'{{ dimensions }}',
+'{{ displayName }}',
 '{{ sortOrder }}',
-'{{ topk }}',
-'{{ name }}',
-'{{ timeUnit }}',
+'{{ filter }}',
 '{{ chartType }}',
 '{{ metrics }}',
-'{{ filter }}',
-'{{ properties }}',
+'{{ timeUnit }}',
+'{{ name }}',
 '{{ toTime }}',
-'{{ displayName }}',
-'{{ comments }}',
+'{{ sortByCols }}',
+'{{ properties }}',
+'{{ offset }}',
 '{{ tags }}',
-'{{ dimensions }}',
+'{{ topk }}',
+'{{ fromTime }}',
+'{{ comments }}',
 '{{ limit }}'
 ;
 ```
@@ -155,38 +155,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-fromTime: string
-sortByCols:
-  - type: string
-offset: string
-environment: string
-sortOrder: string
-topk: string
-name: string
-timeUnit: string
-chartType: string
-lastModifiedAt: string
-metrics:
-  - function: string
-    name: string
-filter: string
-createdAt: string
-properties:
-  - value:
-      - value: string
-        name: string
-    property: string
-toTime: string
-displayName: string
-organization: string
-comments:
-  - type: string
-tags:
-  - type: string
-lastViewedAt: string
 dimensions:
   - type: string
+environment: string
+displayName: string
+organization: string
+sortOrder: string
+filter: string
+chartType: string
+metrics:
+  - name: string
+    function: string
+timeUnit: string
+name: string
+toTime: string
+sortByCols:
+  - type: string
+properties:
+  - value:
+      - name: string
+        value: string
+    property: string
+offset: string
+createdAt: string
+tags:
+  - type: string
+topk: string
+lastModifiedAt: string
+fromTime: string
+comments:
+  - type: string
 limit: string
+lastViewedAt: string
 
 ```
 </TabItem>
@@ -200,22 +200,22 @@ Replaces all fields in the specified <code>reports</code> resource.
 /*+ update */
 REPLACE google.apigee.reports
 SET 
-fromTime = '{{ fromTime }}',
-sortByCols = '{{ sortByCols }}',
-offset = '{{ offset }}',
+dimensions = '{{ dimensions }}',
+displayName = '{{ displayName }}',
 sortOrder = '{{ sortOrder }}',
-topk = '{{ topk }}',
-name = '{{ name }}',
-timeUnit = '{{ timeUnit }}',
+filter = '{{ filter }}',
 chartType = '{{ chartType }}',
 metrics = '{{ metrics }}',
-filter = '{{ filter }}',
-properties = '{{ properties }}',
+timeUnit = '{{ timeUnit }}',
+name = '{{ name }}',
 toTime = '{{ toTime }}',
-displayName = '{{ displayName }}',
-comments = '{{ comments }}',
+sortByCols = '{{ sortByCols }}',
+properties = '{{ properties }}',
+offset = '{{ offset }}',
 tags = '{{ tags }}',
-dimensions = '{{ dimensions }}',
+topk = '{{ topk }}',
+fromTime = '{{ fromTime }}',
+comments = '{{ comments }}',
 limit = '{{ limit }}'
 WHERE 
 organizationsId = '{{ organizationsId }}'

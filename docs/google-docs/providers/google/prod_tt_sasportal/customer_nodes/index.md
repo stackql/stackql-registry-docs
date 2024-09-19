@@ -74,14 +74,14 @@ Use the following StackQL query and manifest file to create a new <code>customer
 /*+ create */
 INSERT INTO google.prod_tt_sasportal.customer_nodes (
 customersId,
-name,
 sasUserIds,
+name,
 displayName
 )
 SELECT 
 '{{ customersId }}',
-'{{ name }}',
 '{{ sasUserIds }}',
+'{{ name }}',
 '{{ displayName }}'
 ;
 ```
@@ -89,9 +89,9 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
 sasUserIds:
   - type: string
+name: string
 displayName: string
 
 ```

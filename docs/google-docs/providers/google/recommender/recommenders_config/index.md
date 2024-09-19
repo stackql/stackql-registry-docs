@@ -76,11 +76,11 @@ Updates a <code>recommenders_config</code> resource.
 /*+ update */
 UPDATE google.recommender.recommenders_config
 SET 
-name = '{{ name }}',
-annotations = '{{ annotations }}',
-recommenderGenerationConfig = '{{ recommenderGenerationConfig }}',
 displayName = '{{ displayName }}',
-etag = '{{ etag }}'
+name = '{{ name }}',
+etag = '{{ etag }}',
+recommenderGenerationConfig = '{{ recommenderGenerationConfig }}',
+annotations = '{{ annotations }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

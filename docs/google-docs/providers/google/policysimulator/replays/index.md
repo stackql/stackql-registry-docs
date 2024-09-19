@@ -93,19 +93,19 @@ SELECT
 
 ```yaml
 name: string
+state: string
 config:
   policyOverlay: object
   logSource: string
-state: string
 resultsSummary:
-  unchangedCount: integer
-  newestDate:
-    day: integer
-    year: integer
-    month: integer
-  differenceCount: integer
-  logCount: integer
   errorCount: integer
+  unchangedCount: integer
+  logCount: integer
+  oldestDate:
+    month: integer
+    year: integer
+    day: integer
+  differenceCount: integer
 
 ```
 </TabItem>

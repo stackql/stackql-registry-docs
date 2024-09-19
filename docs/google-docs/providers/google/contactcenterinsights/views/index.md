@@ -80,27 +80,27 @@ Use the following StackQL query and manifest file to create a new <code>views</c
 INSERT INTO google.contactcenterinsights.views (
 locationsId,
 projectsId,
-value,
 name,
-displayName
+displayName,
+value
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ value }}',
 '{{ name }}',
-'{{ displayName }}'
+'{{ displayName }}',
+'{{ value }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-value: string
+updateTime: string
 name: string
 displayName: string
 createTime: string
-updateTime: string
+value: string
 
 ```
 </TabItem>
@@ -114,9 +114,9 @@ Updates a <code>views</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.views
 SET 
-value = '{{ value }}',
 name = '{{ name }}',
-displayName = '{{ displayName }}'
+displayName = '{{ displayName }}',
+value = '{{ value }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

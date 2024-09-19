@@ -60,8 +60,8 @@ Updates a <code>security_settings</code> resource.
 /*+ update */
 UPDATE google.apigee.security_settings
 SET 
-mlRetrainingFeedbackEnabled = true|false,
-name = '{{ name }}'
+name = '{{ name }}',
+mlRetrainingFeedbackEnabled = true|false
 WHERE 
 organizationsId = '{{ organizationsId }}';
 ```

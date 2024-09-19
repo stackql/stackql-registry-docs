@@ -84,13 +84,13 @@ projectConfig:
         role: string
   billingConfig:
     billingAccount: string
+  folder: string
   serviceAccountConfig:
     accountId: string
     tenantProjectRoles:
       - type: string
   services:
     - type: string
-  folder: string
 tag: string
 
 ```

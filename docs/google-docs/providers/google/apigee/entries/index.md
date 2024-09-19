@@ -84,22 +84,22 @@ Use the following StackQL query and manifest file to create a new <code>entries<
 INSERT INTO google.apigee.entries (
 keyvaluemapsId,
 organizationsId,
-value,
-name
+name,
+value
 )
 SELECT 
 '{{ keyvaluemapsId }}',
 '{{ organizationsId }}',
-'{{ value }}',
-'{{ name }}'
+'{{ name }}',
+'{{ value }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-value: string
 name: string
+value: string
 
 ```
 </TabItem>
@@ -113,8 +113,8 @@ Replaces all fields in the specified <code>entries</code> resource.
 /*+ update */
 REPLACE google.apigee.entries
 SET 
-value = '{{ value }}',
-name = '{{ name }}'
+name = '{{ name }}',
+value = '{{ value }}'
 WHERE 
 entriesId = '{{ entriesId }}'
 AND keyvaluemapsId = '{{ keyvaluemapsId }}'

@@ -99,17 +99,17 @@ SELECT
 
 ```yaml
 datastoreConfig:
-  datasetName: string
-  tablePrefix: string
   path: string
   projectId: string
   bucketName: string
-lastUpdateTime: string
-org: string
+  datasetName: string
+  tablePrefix: string
 displayName: string
+org: string
+lastUpdateTime: string
 self: string
-targetType: string
 createTime: string
+targetType: string
 
 ```
 </TabItem>

@@ -50,6 +50,7 @@ Creates, updates, deletes, gets or lists a <code>cases</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name" /> | Retrieve a case. EXAMPLES: cURL: ```shell case="projects/some-project/cases/16033687" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$case" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().get( name="projects/some-project/cases/43595344", ) print(request.execute()) ``` |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parent, parentType" /> | Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ``` |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="parent, parentType" /> | Create a new case and associate it with a parent. It must have the following fields set: `display_name`, `description`, `classification`, and `priority`. If you're just testing the API and don't want to route your case to an agent, set `testCase=true`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --request POST \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header 'Content-Type: application/json' \ --data '{ "display_name": "Test case created by me.", "description": "a random test case, feel free to close", "classification": { "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" }, "time_zone": "-07:00", "subscriber_email_addresses": [ "foo@domain.com", "bar@domain.com" ], "testCase": true, "priority": "P3" }' \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().create( parent="projects/some-project", body={ "displayName": "A Test Case", "description": "This is a test case.", "testCase": True, "priority": "P2", "classification": { "id": "100IK2AKCLHMGRJ9CDGMOCGP8DM6UTB4BT262T31BT1M2T31DHNMENPO6KS36CPJ786L2TBFEHGN6NPI64R3CDHN8880G08I1H3MURR7DHII0GRCDTQM8" }, }, ) print(request.execute()) ``` |
 | <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="name" /> | Update a case. Only some fields can be updated. EXAMPLES: cURL: ```shell case="projects/some-project/cases/43595344" curl \ --request PATCH \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ --header "Content-Type: application/json" \ --data '{ "priority": "P1" }' \ "https://cloudsupport.googleapis.com/v2/$case?updateMask=priority" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().patch( name="projects/some-project/cases/43112854", body={ "displayName": "This is Now a New Title", "priority": "P2", }, ) print(request.execute()) ``` |
@@ -57,7 +58,7 @@ Creates, updates, deletes, gets or lists a <code>cases</code> resource.
 
 ## `SELECT` examples
 
-Retrieve all cases under a parent, but not its children. For example, listing cases under an organization only returns the cases that are directly parented by that organization. To retrieve cases under an organization and its projects, use `cases.search`. EXAMPLES: cURL: ```shell parent="projects/some-project" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$parent/cases" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().list(parent="projects/some-project") print(request.execute()) ```
+Retrieve a case. EXAMPLES: cURL: ```shell case="projects/some-project/cases/16033687" curl \ --header "Authorization: Bearer $(gcloud auth print-access-token)" \ "https://cloudsupport.googleapis.com/v2/$case" ``` Python: ```python import googleapiclient.discovery api_version = "v2" supportApiService = googleapiclient.discovery.build( serviceName="cloudsupport", version=api_version, discoveryServiceUrl=f"https://cloudsupport.googleapis.com/$discovery/rest?version={api_version}", ) request = supportApiService.cases().get( name="projects/some-project/cases/43595344", ) print(request.execute()) ```
 
 ```sql
 SELECT
@@ -77,8 +78,7 @@ testCase,
 timeZone,
 updateTime
 FROM google.cloudsupport.cases
-WHERE parent = '{{ parent }}'
-AND parentType = '{{ parentType }}'; 
+WHERE name = '{{ name }}'; 
 ```
 
 ## `INSERT` example
@@ -99,62 +99,62 @@ Use the following StackQL query and manifest file to create a new <code>cases</c
 INSERT INTO google.cloudsupport.cases (
 parent,
 parentType,
-timeZone,
-subscriberEmailAddresses,
-creator,
-name,
 languageCode,
-testCase,
 classification,
+contactEmail,
+escalated,
 description,
 priority,
-escalated,
-displayName,
-contactEmail
+name,
+testCase,
+timeZone,
+creator,
+subscriberEmailAddresses,
+displayName
 )
 SELECT 
 '{{ parent }}',
 '{{ parentType }}',
-'{{ timeZone }}',
-'{{ subscriberEmailAddresses }}',
-'{{ creator }}',
-'{{ name }}',
 '{{ languageCode }}',
-true|false,
 '{{ classification }}',
+'{{ contactEmail }}',
+true|false,
 '{{ description }}',
 '{{ priority }}',
+'{{ name }}',
 true|false,
-'{{ displayName }}',
-'{{ contactEmail }}'
+'{{ timeZone }}',
+'{{ creator }}',
+'{{ subscriberEmailAddresses }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-timeZone: string
-subscriberEmailAddresses:
-  - type: string
-creator:
-  email: string
-  googleSupport: boolean
-  username: string
-  displayName: string
-createTime: string
-name: string
 languageCode: string
-testCase: boolean
 classification:
   id: string
   displayName: string
-description: string
-priority: string
-state: string
-escalated: boolean
-displayName: string
-updateTime: string
 contactEmail: string
+escalated: boolean
+description: string
+updateTime: string
+priority: string
+name: string
+testCase: boolean
+timeZone: string
+state: string
+createTime: string
+creator:
+  displayName: string
+  email: string
+  googleSupport: boolean
+  username: string
+subscriberEmailAddresses:
+  - type: string
+displayName: string
 
 ```
 </TabItem>
@@ -168,18 +168,18 @@ Updates a <code>cases</code> resource.
 /*+ update */
 UPDATE google.cloudsupport.cases
 SET 
-timeZone = '{{ timeZone }}',
-subscriberEmailAddresses = '{{ subscriberEmailAddresses }}',
-creator = '{{ creator }}',
-name = '{{ name }}',
 languageCode = '{{ languageCode }}',
-testCase = true|false,
 classification = '{{ classification }}',
+contactEmail = '{{ contactEmail }}',
+escalated = true|false,
 description = '{{ description }}',
 priority = '{{ priority }}',
-escalated = true|false,
-displayName = '{{ displayName }}',
-contactEmail = '{{ contactEmail }}'
+name = '{{ name }}',
+testCase = true|false,
+timeZone = '{{ timeZone }}',
+creator = '{{ creator }}',
+subscriberEmailAddresses = '{{ subscriberEmailAddresses }}',
+displayName = '{{ displayName }}'
 WHERE 
 name = '{{ name }}';
 ```

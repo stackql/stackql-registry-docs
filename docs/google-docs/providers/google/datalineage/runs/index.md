@@ -84,35 +84,35 @@ INSERT INTO google.datalineage.runs (
 locationsId,
 processesId,
 projectsId,
-attributes,
+displayName,
 startTime,
-endTime,
 name,
+attributes,
 state,
-displayName
+endTime
 )
 SELECT 
 '{{ locationsId }}',
 '{{ processesId }}',
 '{{ projectsId }}',
-'{{ attributes }}',
+'{{ displayName }}',
 '{{ startTime }}',
-'{{ endTime }}',
 '{{ name }}',
+'{{ attributes }}',
 '{{ state }}',
-'{{ displayName }}'
+'{{ endTime }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-attributes: object
-startTime: string
-endTime: string
-name: string
-state: string
 displayName: string
+startTime: string
+name: string
+attributes: object
+state: string
+endTime: string
 
 ```
 </TabItem>
@@ -126,12 +126,12 @@ Updates a <code>runs</code> resource.
 /*+ update */
 UPDATE google.datalineage.runs
 SET 
-attributes = '{{ attributes }}',
+displayName = '{{ displayName }}',
 startTime = '{{ startTime }}',
-endTime = '{{ endTime }}',
 name = '{{ name }}',
+attributes = '{{ attributes }}',
 state = '{{ state }}',
-displayName = '{{ displayName }}'
+endTime = '{{ endTime }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND processesId = '{{ processesId }}'

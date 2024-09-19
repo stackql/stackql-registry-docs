@@ -118,90 +118,90 @@ Use the following StackQL query and manifest file to create a new <code>workload
 INSERT INTO google.assuredworkloads.workloads (
 locationsId,
 organizationsId,
-resourceSettings,
-partner,
-displayName,
-kmsSettings,
-partnerServicesBillingAccount,
-violationNotificationsEnabled,
-enableSovereignControls,
 billingAccount,
-etag,
-complianceRegime,
 partnerPermissions,
+violationNotificationsEnabled,
+partnerServicesBillingAccount,
+kmsSettings,
+complianceRegime,
+etag,
 provisionedResourcesParent,
+displayName,
+enableSovereignControls,
 labels,
-name
+partner,
+name,
+resourceSettings
 )
 SELECT 
 '{{ locationsId }}',
 '{{ organizationsId }}',
-'{{ resourceSettings }}',
-'{{ partner }}',
-'{{ displayName }}',
-'{{ kmsSettings }}',
-'{{ partnerServicesBillingAccount }}',
-true|false,
-true|false,
 '{{ billingAccount }}',
-'{{ etag }}',
-'{{ complianceRegime }}',
 '{{ partnerPermissions }}',
+true|false,
+'{{ partnerServicesBillingAccount }}',
+'{{ kmsSettings }}',
+'{{ complianceRegime }}',
+'{{ etag }}',
 '{{ provisionedResourcesParent }}',
+'{{ displayName }}',
+true|false,
 '{{ labels }}',
-'{{ name }}'
+'{{ partner }}',
+'{{ name }}',
+'{{ resourceSettings }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+resources:
+  - resourceId: string
+    resourceType: string
+billingAccount: string
+partnerPermissions:
+  accessTransparencyLogsSupportCaseViewer: boolean
+  dataLogsViewer: boolean
+  serviceAccessApprover: boolean
+  assuredWorkloadsMonitoring: boolean
+violationNotificationsEnabled: boolean
+partnerServicesBillingAccount: string
+kajEnrollmentState: string
 saaEnrollmentResponse:
   setupStatus: string
   setupErrors:
     - type: string
-      enum: string
       enumDescriptions: string
-resourceSettings:
-  - resourceId: string
-    displayName: string
-    resourceType: string
-partner: string
-createTime: string
-resources:
-  - resourceId: string
-    resourceType: string
-displayName: string
+      enum: string
 kmsSettings:
-  nextRotationTime: string
   rotationPeriod: string
-partnerServicesBillingAccount: string
+  nextRotationTime: string
+complianceRegime: string
+etag: string
+ekmProvisioningResponse:
+  ekmProvisioningErrorDomain: string
+  ekmProvisioningState: string
+  ekmProvisioningErrorMapping: string
+provisionedResourcesParent: string
+displayName: string
+enableSovereignControls: boolean
+labels: object
 complianceStatus:
-  activeResourceViolationCount: integer
+  acknowledgedResourceViolationCount: integer
   acknowledgedViolationCount: integer
   activeViolationCount: integer
-  acknowledgedResourceViolationCount: integer
+  activeResourceViolationCount: integer
 resourceMonitoringEnabled: boolean
-kajEnrollmentState: string
-violationNotificationsEnabled: boolean
-enableSovereignControls: boolean
-billingAccount: string
-etag: string
-complianceRegime: string
-partnerPermissions:
-  assuredWorkloadsMonitoring: boolean
-  serviceAccessApprover: boolean
-  dataLogsViewer: boolean
-  accessTransparencyLogsSupportCaseViewer: boolean
+partner: string
+name: string
+resourceSettings:
+  - displayName: string
+    resourceId: string
+    resourceType: string
 compliantButDisallowedServices:
   - type: string
-provisionedResourcesParent: string
-labels: object
-ekmProvisioningResponse:
-  ekmProvisioningErrorMapping: string
-  ekmProvisioningState: string
-  ekmProvisioningErrorDomain: string
-name: string
+createTime: string
 
 ```
 </TabItem>
@@ -215,20 +215,20 @@ Updates a <code>workloads</code> resource.
 /*+ update */
 UPDATE google.assuredworkloads.workloads
 SET 
-resourceSettings = '{{ resourceSettings }}',
-partner = '{{ partner }}',
-displayName = '{{ displayName }}',
-kmsSettings = '{{ kmsSettings }}',
-partnerServicesBillingAccount = '{{ partnerServicesBillingAccount }}',
-violationNotificationsEnabled = true|false,
-enableSovereignControls = true|false,
 billingAccount = '{{ billingAccount }}',
-etag = '{{ etag }}',
-complianceRegime = '{{ complianceRegime }}',
 partnerPermissions = '{{ partnerPermissions }}',
+violationNotificationsEnabled = true|false,
+partnerServicesBillingAccount = '{{ partnerServicesBillingAccount }}',
+kmsSettings = '{{ kmsSettings }}',
+complianceRegime = '{{ complianceRegime }}',
+etag = '{{ etag }}',
 provisionedResourcesParent = '{{ provisionedResourcesParent }}',
+displayName = '{{ displayName }}',
+enableSovereignControls = true|false,
 labels = '{{ labels }}',
-name = '{{ name }}'
+partner = '{{ partner }}',
+name = '{{ name }}',
+resourceSettings = '{{ resourceSettings }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND organizationsId = '{{ organizationsId }}'

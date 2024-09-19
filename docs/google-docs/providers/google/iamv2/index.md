@@ -20,7 +20,7 @@ The iamv2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>2</b></span><br />
 </div>
 </div>
 
@@ -29,11 +29,9 @@ The iamv2 service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/google/iamv2/operations/">operations</a><br />
-<a href="/providers/google/iamv2/policies/">policies</a>
+<a href="/providers/google/iamv2/operations/">operations</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/google/iamv2/policies_policies/">policies_policies</a><br />
-<a href="/providers/google/iamv2/policies_policy/">policies_policy</a>
+<a href="/providers/google/iamv2/policies/">policies</a>
 </div>
 </div>

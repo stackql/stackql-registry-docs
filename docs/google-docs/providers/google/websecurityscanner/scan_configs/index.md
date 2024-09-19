@@ -95,68 +95,68 @@ Use the following StackQL query and manifest file to create a new <code>scan_con
 /*+ create */
 INSERT INTO google.websecurityscanner.scan_configs (
 projectsId,
-staticIpScan,
-displayName,
-userAgent,
-riskLevel,
-blacklistPatterns,
-exportToSecurityCommandCenter,
-schedule,
 startingUrls,
-maxQps,
-managedScan,
+authentication,
+riskLevel,
+displayName,
+blacklistPatterns,
 ignoreHttpStatusErrors,
+staticIpScan,
+managedScan,
 name,
-authentication
+userAgent,
+maxQps,
+schedule,
+exportToSecurityCommandCenter
 )
 SELECT 
 '{{ projectsId }}',
-true|false,
-'{{ displayName }}',
-'{{ userAgent }}',
-'{{ riskLevel }}',
-'{{ blacklistPatterns }}',
-'{{ exportToSecurityCommandCenter }}',
-'{{ schedule }}',
 '{{ startingUrls }}',
-'{{ maxQps }}',
+'{{ authentication }}',
+'{{ riskLevel }}',
+'{{ displayName }}',
+'{{ blacklistPatterns }}',
+true|false,
 true|false,
 true|false,
 '{{ name }}',
-'{{ authentication }}'
+'{{ userAgent }}',
+'{{ maxQps }}',
+'{{ schedule }}',
+'{{ exportToSecurityCommandCenter }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-staticIpScan: boolean
-displayName: string
-userAgent: string
-riskLevel: string
-blacklistPatterns:
-  - type: string
-exportToSecurityCommandCenter: string
-schedule:
-  scheduleTime: string
-  intervalDurationDays: integer
 startingUrls:
   - type: string
-maxQps: integer
-managedScan: boolean
-ignoreHttpStatusErrors: boolean
-name: string
 authentication:
+  googleAccount:
+    username: string
+    password: string
+  iapCredential:
+    iapTestServiceAccountInfo:
+      targetAudienceClientId: string
   customAccount:
     username: string
     password: string
     loginUrl: string
-  googleAccount:
-    password: string
-    username: string
-  iapCredential:
-    iapTestServiceAccountInfo:
-      targetAudienceClientId: string
+riskLevel: string
+displayName: string
+blacklistPatterns:
+  - type: string
+ignoreHttpStatusErrors: boolean
+staticIpScan: boolean
+managedScan: boolean
+name: string
+userAgent: string
+maxQps: integer
+schedule:
+  scheduleTime: string
+  intervalDurationDays: integer
+exportToSecurityCommandCenter: string
 
 ```
 </TabItem>
@@ -170,19 +170,19 @@ Updates a <code>scan_configs</code> resource.
 /*+ update */
 UPDATE google.websecurityscanner.scan_configs
 SET 
-staticIpScan = true|false,
-displayName = '{{ displayName }}',
-userAgent = '{{ userAgent }}',
-riskLevel = '{{ riskLevel }}',
-blacklistPatterns = '{{ blacklistPatterns }}',
-exportToSecurityCommandCenter = '{{ exportToSecurityCommandCenter }}',
-schedule = '{{ schedule }}',
 startingUrls = '{{ startingUrls }}',
-maxQps = '{{ maxQps }}',
-managedScan = true|false,
+authentication = '{{ authentication }}',
+riskLevel = '{{ riskLevel }}',
+displayName = '{{ displayName }}',
+blacklistPatterns = '{{ blacklistPatterns }}',
 ignoreHttpStatusErrors = true|false,
+staticIpScan = true|false,
+managedScan = true|false,
 name = '{{ name }}',
-authentication = '{{ authentication }}'
+userAgent = '{{ userAgent }}',
+maxQps = '{{ maxQps }}',
+schedule = '{{ schedule }}',
+exportToSecurityCommandCenter = '{{ exportToSecurityCommandCenter }}'
 WHERE 
 projectsId = '{{ projectsId }}'
 AND scanConfigsId = '{{ scanConfigsId }}';

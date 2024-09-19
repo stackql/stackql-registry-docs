@@ -108,74 +108,74 @@ Use the following StackQL query and manifest file to create a new <code>rateplan
 INSERT INTO google.apigee.rateplans (
 apiproductsId,
 organizationsId,
+fixedFeeFrequency,
+description,
 consumptionPricingRates,
+revenueShareType,
+apiproduct,
+state,
+consumptionPricingType,
 billingPeriod,
 revenueShareRates,
-fixedRecurringFee,
-state,
-revenueShareType,
-consumptionPricingType,
-currencyCode,
 startTime,
-setupFee,
-displayName,
-apiproduct,
-description,
+currencyCode,
+paymentFundingModel,
 endTime,
-fixedFeeFrequency,
-paymentFundingModel
+setupFee,
+fixedRecurringFee,
+displayName
 )
 SELECT 
 '{{ apiproductsId }}',
 '{{ organizationsId }}',
+'{{ fixedFeeFrequency }}',
+'{{ description }}',
 '{{ consumptionPricingRates }}',
+'{{ revenueShareType }}',
+'{{ apiproduct }}',
+'{{ state }}',
+'{{ consumptionPricingType }}',
 '{{ billingPeriod }}',
 '{{ revenueShareRates }}',
-'{{ fixedRecurringFee }}',
-'{{ state }}',
-'{{ revenueShareType }}',
-'{{ consumptionPricingType }}',
-'{{ currencyCode }}',
 '{{ startTime }}',
-'{{ setupFee }}',
-'{{ displayName }}',
-'{{ apiproduct }}',
-'{{ description }}',
+'{{ currencyCode }}',
+'{{ paymentFundingModel }}',
 '{{ endTime }}',
-'{{ fixedFeeFrequency }}',
-'{{ paymentFundingModel }}'
+'{{ setupFee }}',
+'{{ fixedRecurringFee }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+fixedFeeFrequency: integer
+name: string
+description: string
 consumptionPricingRates:
-  - end: string
-    fee:
-      nanos: integer
-      currencyCode: string
+  - fee:
       units: string
+      currencyCode: string
+      nanos: integer
+    end: string
     start: string
+revenueShareType: string
+apiproduct: string
+state: string
+consumptionPricingType: string
 billingPeriod: string
 revenueShareRates:
-  - start: string
+  - end: string
+    start: string
     sharePercentage: number
-    end: string
-state: string
-revenueShareType: string
-consumptionPricingType: string
-currencyCode: string
 startTime: string
-name: string
+currencyCode: string
+paymentFundingModel: string
+endTime: string
 lastModifiedAt: string
 createdAt: string
 displayName: string
-apiproduct: string
-description: string
-endTime: string
-fixedFeeFrequency: integer
-paymentFundingModel: string
 
 ```
 </TabItem>
@@ -189,22 +189,22 @@ Replaces all fields in the specified <code>rateplans</code> resource.
 /*+ update */
 REPLACE google.apigee.rateplans
 SET 
+fixedFeeFrequency = '{{ fixedFeeFrequency }}',
+description = '{{ description }}',
 consumptionPricingRates = '{{ consumptionPricingRates }}',
+revenueShareType = '{{ revenueShareType }}',
+apiproduct = '{{ apiproduct }}',
+state = '{{ state }}',
+consumptionPricingType = '{{ consumptionPricingType }}',
 billingPeriod = '{{ billingPeriod }}',
 revenueShareRates = '{{ revenueShareRates }}',
-fixedRecurringFee = '{{ fixedRecurringFee }}',
-state = '{{ state }}',
-revenueShareType = '{{ revenueShareType }}',
-consumptionPricingType = '{{ consumptionPricingType }}',
-currencyCode = '{{ currencyCode }}',
 startTime = '{{ startTime }}',
-setupFee = '{{ setupFee }}',
-displayName = '{{ displayName }}',
-apiproduct = '{{ apiproduct }}',
-description = '{{ description }}',
+currencyCode = '{{ currencyCode }}',
+paymentFundingModel = '{{ paymentFundingModel }}',
 endTime = '{{ endTime }}',
-fixedFeeFrequency = '{{ fixedFeeFrequency }}',
-paymentFundingModel = '{{ paymentFundingModel }}'
+setupFee = '{{ setupFee }}',
+fixedRecurringFee = '{{ fixedRecurringFee }}',
+displayName = '{{ displayName }}'
 WHERE 
 apiproductsId = '{{ apiproductsId }}'
 AND organizationsId = '{{ organizationsId }}'

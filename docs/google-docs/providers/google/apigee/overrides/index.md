@@ -76,27 +76,27 @@ Use the following StackQL query and manifest file to create a new <code>override
 INSERT INTO google.apigee.overrides (
 environmentsId,
 organizationsId,
-name,
+apiProxy,
 samplingConfig,
-apiProxy
+name
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ name }}',
+'{{ apiProxy }}',
 '{{ samplingConfig }}',
-'{{ apiProxy }}'
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
+apiProxy: string
 samplingConfig:
   sampler: string
   samplingRate: number
-apiProxy: string
+name: string
 
 ```
 </TabItem>
@@ -110,9 +110,9 @@ Updates a <code>overrides</code> resource.
 /*+ update */
 UPDATE google.apigee.overrides
 SET 
-name = '{{ name }}',
+apiProxy = '{{ apiProxy }}',
 samplingConfig = '{{ samplingConfig }}',
-apiProxy = '{{ apiProxy }}'
+name = '{{ name }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}'

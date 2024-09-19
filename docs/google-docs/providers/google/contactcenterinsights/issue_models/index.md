@@ -96,19 +96,19 @@ INSERT INTO google.contactcenterinsights.issue_models (
 locationsId,
 projectsId,
 languageCode,
+displayName,
 inputDataConfig,
 name,
-modelType,
-displayName
+modelType
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ languageCode }}',
+'{{ displayName }}',
 '{{ inputDataConfig }}',
 '{{ name }}',
-'{{ modelType }}',
-'{{ displayName }}'
+'{{ modelType }}'
 ;
 ```
 </TabItem>
@@ -116,21 +116,21 @@ SELECT
 
 ```yaml
 languageCode: string
+displayName: string
+issueCount: string
 createTime: string
-updateTime: string
 inputDataConfig:
+  medium: string
   trainingConversationsCount: string
   filter: string
-  medium: string
 name: string
-issueCount: string
-state: string
+updateTime: string
 trainingStats:
   analyzedConversationsCount: string
   unclassifiedConversationsCount: string
   issueStats: object
 modelType: string
-displayName: string
+state: string
 
 ```
 </TabItem>
@@ -145,10 +145,10 @@ Updates a <code>issue_models</code> resource.
 UPDATE google.contactcenterinsights.issue_models
 SET 
 languageCode = '{{ languageCode }}',
+displayName = '{{ displayName }}',
 inputDataConfig = '{{ inputDataConfig }}',
 name = '{{ name }}',
-modelType = '{{ modelType }}',
-displayName = '{{ displayName }}'
+modelType = '{{ modelType }}'
 WHERE 
 issueModelsId = '{{ issueModelsId }}'
 AND locationsId = '{{ locationsId }}'

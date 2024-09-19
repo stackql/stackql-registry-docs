@@ -83,32 +83,32 @@ INSERT INTO google.aiplatform.specialist_pools (
 locationsId,
 projectsId,
 specialistManagerEmails,
-specialistWorkerEmails,
 displayName,
-name
+name,
+specialistWorkerEmails
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ specialistManagerEmails }}',
-'{{ specialistWorkerEmails }}',
 '{{ displayName }}',
-'{{ name }}'
+'{{ name }}',
+'{{ specialistWorkerEmails }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-pendingDataLabelingJobs:
-  - type: string
 specialistManagerEmails:
-  - type: string
-specialistManagersCount: integer
-specialistWorkerEmails:
   - type: string
 displayName: string
 name: string
+pendingDataLabelingJobs:
+  - type: string
+specialistWorkerEmails:
+  - type: string
+specialistManagersCount: integer
 
 ```
 </TabItem>
@@ -123,9 +123,9 @@ Updates a <code>specialist_pools</code> resource.
 UPDATE google.aiplatform.specialist_pools
 SET 
 specialistManagerEmails = '{{ specialistManagerEmails }}',
-specialistWorkerEmails = '{{ specialistWorkerEmails }}',
 displayName = '{{ displayName }}',
-name = '{{ name }}'
+name = '{{ name }}',
+specialistWorkerEmails = '{{ specialistWorkerEmails }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

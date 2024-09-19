@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>activities</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="query" /> | `SELECT` | <CopyableCode code="activityTypesId, locationsId, projectsId" /> | Queries policy activities on Google Cloud resources. |
+| <CopyableCode code="query" /> | `SELECT` | <CopyableCode code="activityTypesId, locationsId, organizationsId" /> | Queries policy activities on Google Cloud resources. |
 
 ## `SELECT` examples
 
@@ -50,5 +50,5 @@ nextPageToken
 FROM google.policyanalyzer.activities
 WHERE activityTypesId = '{{ activityTypesId }}'
 AND locationsId = '{{ locationsId }}'
-AND projectsId = '{{ projectsId }}'; 
+AND organizationsId = '{{ organizationsId }}'; 
 ```

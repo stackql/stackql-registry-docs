@@ -79,17 +79,17 @@ INSERT INTO google.datalineage.processes (
 locationsId,
 projectsId,
 name,
+attributes,
 displayName,
-origin,
-attributes
+origin
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ name }}',
+'{{ attributes }}',
 '{{ displayName }}',
-'{{ origin }}',
-'{{ attributes }}'
+'{{ origin }}'
 ;
 ```
 </TabItem>
@@ -97,11 +97,11 @@ SELECT
 
 ```yaml
 name: string
+attributes: object
 displayName: string
 origin:
   sourceType: string
   name: string
-attributes: object
 
 ```
 </TabItem>
@@ -116,9 +116,9 @@ Updates a <code>processes</code> resource.
 UPDATE google.datalineage.processes
 SET 
 name = '{{ name }}',
+attributes = '{{ attributes }}',
 displayName = '{{ displayName }}',
-origin = '{{ origin }}',
-attributes = '{{ attributes }}'
+origin = '{{ origin }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND processesId = '{{ processesId }}'

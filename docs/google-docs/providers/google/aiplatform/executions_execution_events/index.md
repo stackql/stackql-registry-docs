@@ -72,11 +72,11 @@ SELECT
 
 ```yaml
 events:
-  - labels: object
-    eventTime: string
-    artifact: string
-    type: string
+  - eventTime: string
     execution: string
+    labels: object
+    type: string
+    artifact: string
 
 ```
 </TabItem>

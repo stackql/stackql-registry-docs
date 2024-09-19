@@ -108,96 +108,99 @@ INSERT INTO google.aiplatform.index_endpoints (
 locationsId,
 projectsId,
 encryptionSpec,
-network,
-displayName,
 publicEndpointEnabled,
-enablePrivateServiceConnect,
-etag,
-labels,
+network,
 privateServiceConnectConfig,
-description
+labels,
+displayName,
+description,
+etag,
+enablePrivateServiceConnect
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ encryptionSpec }}',
+true|false,
 '{{ network }}',
-'{{ displayName }}',
-true|false,
-true|false,
-'{{ etag }}',
-'{{ labels }}',
 '{{ privateServiceConnectConfig }}',
-'{{ description }}'
+'{{ labels }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ etag }}',
+true|false
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+satisfiesPzi: boolean
 encryptionSpec:
   kmsKeyName: string
+publicEndpointEnabled: boolean
+updateTime: string
+createTime: string
 network: string
+privateServiceConnectConfig:
+  serviceAttachment: string
+  projectAllowlist:
+    - type: string
+  enablePrivateServiceConnect: boolean
+labels: object
+satisfiesPzs: boolean
 displayName: string
+description: string
+name: string
 publicEndpointDomainName: string
+etag: string
 deployedIndexes:
-  - createTime: string
-    dedicatedResources:
-      spot: boolean
-      machineSpec:
-        acceleratorCount: integer
-        reservationAffinity:
-          key: string
-          reservationAffinityType: string
-          values:
-            - type: string
-        tpuTopology: string
-        acceleratorType: string
-        machineType: string
-      autoscalingMetricSpecs:
-        - metricName: string
-          target: integer
-      minReplicaCount: integer
-      maxReplicaCount: integer
+  - deploymentGroup: string
     privateEndpoints:
+      matchGrpcAddress: string
       pscAutomatedEndpoints:
         - projectId: string
           network: string
           matchAddress: string
-      matchGrpcAddress: string
       serviceAttachment: string
     deployedIndexAuthConfig:
       authProvider:
-        allowedIssuers:
-          - type: string
         audiences:
           - type: string
+        allowedIssuers:
+          - type: string
+    indexSyncTime: string
+    enableAccessLogging: boolean
+    dedicatedResources:
+      machineSpec:
+        acceleratorCount: integer
+        tpuTopology: string
+        machineType: string
+        acceleratorType: string
+        reservationAffinity:
+          reservationAffinityType: string
+          values:
+            - type: string
+          key: string
+      autoscalingMetricSpecs:
+        - target: integer
+          metricName: string
+      maxReplicaCount: integer
+      minReplicaCount: integer
+      spot: boolean
+    reservedIpRanges:
+      - type: string
+    displayName: string
+    pscAutomationConfigs:
+      - projectId: string
+        network: string
+    id: string
+    index: string
+    createTime: string
     automaticResources:
       minReplicaCount: integer
       maxReplicaCount: integer
-    id: string
-    displayName: string
-    reservedIpRanges:
-      - type: string
-    enableAccessLogging: boolean
-    indexSyncTime: string
-    index: string
-    deploymentGroup: string
-publicEndpointEnabled: boolean
-name: string
 enablePrivateServiceConnect: boolean
-satisfiesPzs: boolean
-etag: string
-labels: object
-satisfiesPzi: boolean
-privateServiceConnectConfig:
-  serviceAttachment: string
-  enablePrivateServiceConnect: boolean
-  projectAllowlist:
-    - type: string
-createTime: string
-description: string
-updateTime: string
 
 ```
 </TabItem>
@@ -212,14 +215,14 @@ Updates a <code>index_endpoints</code> resource.
 UPDATE google.aiplatform.index_endpoints
 SET 
 encryptionSpec = '{{ encryptionSpec }}',
-network = '{{ network }}',
-displayName = '{{ displayName }}',
 publicEndpointEnabled = true|false,
-enablePrivateServiceConnect = true|false,
-etag = '{{ etag }}',
-labels = '{{ labels }}',
+network = '{{ network }}',
 privateServiceConnectConfig = '{{ privateServiceConnectConfig }}',
-description = '{{ description }}'
+labels = '{{ labels }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+etag = '{{ etag }}',
+enablePrivateServiceConnect = true|false
 WHERE 
 indexEndpointsId = '{{ indexEndpointsId }}'
 AND locationsId = '{{ locationsId }}'

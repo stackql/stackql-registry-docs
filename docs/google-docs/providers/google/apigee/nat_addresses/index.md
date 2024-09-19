@@ -89,8 +89,8 @@ SELECT
 
 ```yaml
 state: string
-ipAddress: string
 name: string
+ipAddress: string
 
 ```
 </TabItem>

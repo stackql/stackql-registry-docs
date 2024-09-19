@@ -98,27 +98,27 @@ SELECT
 
 ```yaml
 connection:
-  state: string
   cloudSql:
+    cloudSqlIam: {}
+    databaseEngine: string
     connectionName: string
+    maxConnections: integer
     usernamePassword:
       passwordSecretVersionName: string
       username: string
-    cloudSqlIam: {}
-    maxConnections: integer
-    databaseEngine: string
+  state: string
+  name: string
   errors:
     - details:
-        message: string
-        code: integer
         details:
           - additionalProperties: any
             type: string
+        code: integer
+        message: string
       timestamps:
-        - format: string
-          type: string
+        - type: string
+          format: string
       extraInfo: string
-  name: string
 
 ```
 </TabItem>
@@ -132,8 +132,8 @@ Updates a <code>connections</code> resource.
 /*+ update */
 UPDATE google.dlp.connections
 SET 
-updateMask = '{{ updateMask }}',
-connection = '{{ connection }}'
+connection = '{{ connection }}',
+updateMask = '{{ updateMask }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'

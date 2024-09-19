@@ -75,15 +75,15 @@ Updates a <code>environments_debugmask</code> resource.
 /*+ update */
 UPDATE google.apigee.environments_debugmask
 SET 
-faultJSONPaths = '{{ faultJSONPaths }}',
-faultXPaths = '{{ faultXPaths }}',
-requestJSONPaths = '{{ requestJSONPaths }}',
-variables = '{{ variables }}',
 name = '{{ name }}',
-responseJSONPaths = '{{ responseJSONPaths }}',
+variables = '{{ variables }}',
+requestJSONPaths = '{{ requestJSONPaths }}',
 requestXPaths = '{{ requestXPaths }}',
+faultXPaths = '{{ faultXPaths }}',
 namespaces = '{{ namespaces }}',
-responseXPaths = '{{ responseXPaths }}'
+responseXPaths = '{{ responseXPaths }}',
+responseJSONPaths = '{{ responseJSONPaths }}',
+faultJSONPaths = '{{ faultJSONPaths }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

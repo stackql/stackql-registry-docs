@@ -89,7 +89,150 @@ AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'
 AND zonesId = '{{ zonesId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>entities</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.entities (
+lakesId,
+locationsId,
+projectsId,
+zonesId,
+displayName,
+description,
+etag,
+type,
+asset,
+dataPath,
+dataPathPattern,
+system,
+format,
+schema
+)
+SELECT 
+'{{ lakesId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ zonesId }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ etag }}',
+'{{ type }}',
+'{{ asset }}',
+'{{ dataPath }}',
+'{{ dataPathPattern }}',
+'{{ system }}',
+'{{ format }}',
+'{{ schema }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+displayName: string
+description: string
+createTime: string
+updateTime: string
+id: string
+etag: string
+type: string
+asset: string
+dataPath: string
+dataPathPattern: string
+catalogEntry: string
+system: string
+format:
+  format: string
+  compressionFormat: string
+  mimeType: string
+  csv:
+    encoding: string
+    headerRows: integer
+    delimiter: string
+    quote: string
+  json:
+    encoding: string
+  iceberg:
+    metadataLocation: string
+compatibility:
+  hiveMetastore:
+    compatible: boolean
+    reason: string
+access:
+  read: string
+uid: string
+schema:
+  userManaged: boolean
+  fields:
+    - name: string
+      description: string
+      type: string
+      mode: string
+      fields:
+        - name: string
+          description: string
+          type: string
+          mode: string
+          fields:
+            - name: string
+              description: string
+              type: string
+              mode: string
+              fields:
+                - name: string
+                  description: string
+                  type: string
+                  mode: string
+                  fields:
+                    - name: string
+                      description: string
+                      type: string
+                      mode: string
+                      fields:
+                        - name: string
+                          description: string
+                          type: string
+                          mode: string
+                          fields:
+                            - name: string
+                              description: string
+                              type: string
+                              mode: string
+                              fields:
+                                - name: string
+                                  description: string
+                                  type: string
+                                  mode: string
+                                  fields:
+                                    - name: string
+                                      description: string
+                                      type: string
+                                      mode: string
+                                      fields:
+                                        - {}
+  partitionFields:
+    - name: string
+      type: string
+  partitionStyle: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `REPLACE` example
 
 Replaces all fields in the specified <code>entities</code> resource.

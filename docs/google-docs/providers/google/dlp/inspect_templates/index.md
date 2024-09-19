@@ -95,90 +95,90 @@ Use the following StackQL query and manifest file to create a new <code>inspect_
 /*+ create */
 INSERT INTO google.dlp.inspect_templates (
 projectsId,
+inspectTemplate,
 templateId,
-locationId,
-inspectTemplate
+locationId
 )
 SELECT 
 '{{ projectsId }}',
+'{{ inspectTemplate }}',
 '{{ templateId }}',
-'{{ locationId }}',
-'{{ inspectTemplate }}'
+'{{ locationId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-templateId: string
-locationId: string
 inspectTemplate:
-  displayName: string
-  createTime: string
-  description: string
+  updateTime: string
   inspectConfig:
+    contentOptions:
+      - type: string
+        enum: string
+        enumDescriptions: string
+    infoTypes:
+      - sensitivityScore:
+          score: string
+        version: string
+        name: string
+    minLikelihood: string
+    includeQuote: boolean
+    minLikelihoodPerInfoType:
+      - minLikelihood: string
+        infoType:
+          version: string
+          name: string
     limits:
-      maxFindingsPerItem: integer
       maxFindingsPerRequest: integer
+      maxFindingsPerItem: integer
       maxFindingsPerInfoType:
         - maxFindings: integer
-          infoType:
-            version: string
-            name: string
-            sensitivityScore:
-              score: string
-    contentOptions:
-      - enum: string
-        type: string
-        enumDescriptions: string
-    includeQuote: boolean
     customInfoTypes:
-      - regex:
-          pattern: string
-          groupIndexes:
-            - type: string
-              format: string
-        exclusionType: string
-        likelihood: string
-        dictionary:
-          cloudStoragePath:
-            path: string
-          wordList:
-            words:
-              - type: string
-        surrogateType: {}
-        detectionRules:
-          - hotwordRule:
-              proximity:
-                windowAfter: integer
-                windowBefore: integer
-              likelihoodAdjustment:
-                relativeLikelihood: integer
-                fixedLikelihood: string
+      - exclusionType: string
         storedType:
           createTime: string
           name: string
-    minLikelihoodPerInfoType:
-      - minLikelihood: string
-    infoTypes:
-      - version: string
-        name: string
-    minLikelihood: string
+        surrogateType: {}
+        regex:
+          groupIndexes:
+            - format: string
+              type: string
+          pattern: string
+        detectionRules:
+          - hotwordRule:
+              proximity:
+                windowBefore: integer
+                windowAfter: integer
+              likelihoodAdjustment:
+                relativeLikelihood: integer
+                fixedLikelihood: string
+        dictionary:
+          wordList:
+            words:
+              - type: string
+          cloudStoragePath:
+            path: string
+        likelihood: string
     excludeInfoTypes: boolean
     ruleSet:
-      - infoTypes:
-          - version: string
-            name: string
-        rules:
+      - rules:
           - exclusionRule:
+              matchingType: string
               excludeInfoTypes:
                 infoTypes:
                   - version: string
                     name: string
-              matchingType: string
               excludeByHotword: {}
-  updateTime: string
+        infoTypes:
+          - version: string
+            name: string
+  displayName: string
   name: string
+  description: string
+  createTime: string
+templateId: string
+locationId: string
 
 ```
 </TabItem>
@@ -192,8 +192,8 @@ Updates a <code>inspect_templates</code> resource.
 /*+ update */
 UPDATE google.dlp.inspect_templates
 SET 
-inspectTemplate = '{{ inspectTemplate }}',
-updateMask = '{{ updateMask }}'
+updateMask = '{{ updateMask }}',
+inspectTemplate = '{{ inspectTemplate }}'
 WHERE 
 inspectTemplatesId = '{{ inspectTemplatesId }}'
 AND projectsId = '{{ projectsId }}';

@@ -95,38 +95,38 @@ INSERT INTO google.integrations.sfdc_channels (
 locationsId,
 projectsId,
 sfdcInstancesId,
-name,
 description,
+name,
+isActive,
 displayName,
 lastReplayId,
-channelTopic,
-isActive
+channelTopic
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ sfdcInstancesId }}',
-'{{ name }}',
 '{{ description }}',
+'{{ name }}',
+true|false,
 '{{ displayName }}',
 '{{ lastReplayId }}',
-'{{ channelTopic }}',
-true|false
+'{{ channelTopic }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+description: string
 name: string
 updateTime: string
-description: string
-deleteTime: string
+isActive: boolean
 displayName: string
-createTime: string
 lastReplayId: string
 channelTopic: string
-isActive: boolean
+deleteTime: string
+createTime: string
 
 ```
 </TabItem>
@@ -140,12 +140,12 @@ Updates a <code>sfdc_channels</code> resource.
 /*+ update */
 UPDATE google.integrations.sfdc_channels
 SET 
-name = '{{ name }}',
 description = '{{ description }}',
+name = '{{ name }}',
+isActive = true|false,
 displayName = '{{ displayName }}',
 lastReplayId = '{{ lastReplayId }}',
-channelTopic = '{{ channelTopic }}',
-isActive = true|false
+channelTopic = '{{ channelTopic }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

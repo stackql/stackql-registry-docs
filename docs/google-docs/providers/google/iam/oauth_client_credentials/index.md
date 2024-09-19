@@ -1,9 +1,9 @@
 ---
-title: credentials
+title: oauth_client_credentials
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - credentials
+  - oauth_client_credentials
   - iam
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>credentials</code> resource.
+Creates, updates, deletes, gets or lists a <code>oauth_client_credentials</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>credentials</code></td></tr>
+<tr><td><b>Name</b></td><td><code>oauth_client_credentials</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.credentials" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.oauth_client_credentials" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -55,7 +55,7 @@ name,
 clientSecret,
 disabled,
 displayName
-FROM google.iam.credentials
+FROM google.iam.oauth_client_credentials
 WHERE locationsId = '{{ locationsId }}'
 AND oauthClientsId = '{{ oauthClientsId }}'
 AND projectsId = '{{ projectsId }}'; 
@@ -63,7 +63,7 @@ AND projectsId = '{{ projectsId }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>credentials</code> resource.
+Use the following StackQL query and manifest file to create a new <code>oauth_client_credentials</code> resource.
 
 <Tabs
     defaultValue="all"
@@ -76,7 +76,7 @@ Use the following StackQL query and manifest file to create a new <code>credenti
 
 ```sql
 /*+ create */
-INSERT INTO google.iam.credentials (
+INSERT INTO google.iam.oauth_client_credentials (
 locationsId,
 oauthClientsId,
 projectsId,
@@ -108,11 +108,11 @@ displayName: string
 
 ## `UPDATE` example
 
-Updates a <code>credentials</code> resource.
+Updates a <code>oauth_client_credentials</code> resource.
 
 ```sql
 /*+ update */
-UPDATE google.iam.credentials
+UPDATE google.iam.oauth_client_credentials
 SET 
 name = '{{ name }}',
 disabled = true|false,
@@ -126,11 +126,11 @@ AND projectsId = '{{ projectsId }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>credentials</code> resource.
+Deletes the specified <code>oauth_client_credentials</code> resource.
 
 ```sql
 /*+ delete */
-DELETE FROM google.iam.credentials
+DELETE FROM google.iam.oauth_client_credentials
 WHERE credentialsId = '{{ credentialsId }}'
 AND locationsId = '{{ locationsId }}'
 AND oauthClientsId = '{{ oauthClientsId }}'

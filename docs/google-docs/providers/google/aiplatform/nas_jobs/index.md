@@ -100,61 +100,69 @@ Use the following StackQL query and manifest file to create a new <code>nas_jobs
 INSERT INTO google.aiplatform.nas_jobs (
 locationsId,
 projectsId,
-encryptionSpec,
+enableRestrictedImageTraining,
+labels,
 nasJobSpec,
 displayName,
-enableRestrictedImageTraining,
-labels
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ encryptionSpec }}',
+true|false,
+'{{ labels }}',
 '{{ nasJobSpec }}',
 '{{ displayName }}',
-true|false,
-'{{ labels }}'
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-encryptionSpec:
-  kmsKeyName: string
-startTime: string
-error:
-  message: string
-  code: integer
-  details:
-    - additionalProperties: any
-      type: string
-satisfiesPzi: boolean
+enableRestrictedImageTraining: boolean
+labels: object
 nasJobSpec:
   multiTrialAlgorithmSpec:
+    multiTrialAlgorithm: string
     trainTrialSpec:
-      frequency: integer
       trainTrialJobSpec:
+        scheduling:
+          restartJobOnWorkerRestart: boolean
+          timeout: string
+          strategy: string
+          disableRetries: boolean
+          maxWaitDuration: string
+        persistentResourceId: string
+        baseOutputDirectory:
+          outputUriPrefix: string
+        experimentRun: string
+        protectedArtifactLocationId: string
+        serviceAccount: string
         workerPoolSpecs:
-          - machineSpec:
-              acceleratorCount: integer
-              reservationAffinity:
-                key: string
-                reservationAffinityType: string
-                values:
-                  - type: string
-              tpuTopology: string
-              acceleratorType: string
-              machineType: string
-            nfsMounts:
-              - path: string
-                mountPoint: string
-                server: string
+          - pythonPackageSpec:
+              args:
+                - type: string
+              env:
+                - value: string
+                  name: string
+              pythonModule: string
+              executorImageUri: string
+              packageUris:
+                - type: string
             diskSpec:
               bootDiskType: string
               bootDiskSizeGb: integer
-            replicaCount: string
+            machineSpec:
+              acceleratorCount: integer
+              tpuTopology: string
+              machineType: string
+              acceleratorType: string
+              reservationAffinity:
+                reservationAffinityType: string
+                values:
+                  - type: string
+                key: string
             containerSpec:
               command:
                 - type: string
@@ -164,74 +172,66 @@ nasJobSpec:
               env:
                 - value: string
                   name: string
-            pythonPackageSpec:
-              args:
-                - type: string
-              pythonModule: string
-              env:
-                - value: string
-                  name: string
-              executorImageUri: string
-              packageUris:
-                - type: string
-        tensorboard: string
-        experimentRun: string
-        reservedIpRanges:
-          - type: string
-        scheduling:
-          timeout: string
-          disableRetries: boolean
-          strategy: string
-          restartJobOnWorkerRestart: boolean
-          maxWaitDuration: string
-        protectedArtifactLocationId: string
-        serviceAccount: string
-        baseOutputDirectory:
-          outputUriPrefix: string
+            nfsMounts:
+              - mountPoint: string
+                path: string
+                server: string
+            replicaCount: string
+        enableDashboardAccess: boolean
+        network: string
         enableWebAccess: boolean
         experiment: string
+        reservedIpRanges:
+          - type: string
+        tensorboard: string
         models:
           - type: string
-        persistentResourceId: string
-        network: string
-        enableDashboardAccess: boolean
       maxParallelTrialCount: integer
+      frequency: integer
     searchTrialSpec:
-      maxParallelTrialCount: integer
-      maxTrialCount: integer
       maxFailedTrialCount: integer
-    multiTrialAlgorithm: string
+      maxTrialCount: integer
+      maxParallelTrialCount: integer
     metric:
       goal: string
       metricId: string
-  searchSpaceSpec: string
   resumeNasJobId: string
+  searchSpaceSpec: string
+error:
+  code: integer
+  message: string
+  details:
+    - additionalProperties: any
+      type: string
+displayName: string
+startTime: string
+state: string
 satisfiesPzs: boolean
+updateTime: string
+endTime: string
 nasJobOutput:
   multiTrialJobOutput:
     trainTrials:
-      - endTime: string
-        id: string
-        state: string
-        finalMeasurement:
+      - finalMeasurement:
           stepCount: string
+          elapsedDuration: string
           metrics:
             - value: number
               metricId: string
-          elapsedDuration: string
-        startTime: string
-    searchTrials:
-      - endTime: string
         id: string
-        state: string
+        endTime: string
         startTime: string
-displayName: string
-endTime: string
-updateTime: string
-enableRestrictedImageTraining: boolean
-labels: object
+        state: string
+    searchTrials:
+      - id: string
+        endTime: string
+        startTime: string
+        state: string
+createTime: string
+encryptionSpec:
+  kmsKeyName: string
+satisfiesPzi: boolean
 name: string
-state: string
 
 ```
 </TabItem>

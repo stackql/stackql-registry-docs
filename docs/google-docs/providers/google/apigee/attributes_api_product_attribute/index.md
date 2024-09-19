@@ -45,8 +45,8 @@ Updates a <code>attributes_api_product_attribute</code> resource.
 /*+ update */
 UPDATE google.apigee.attributes_api_product_attribute
 SET 
-value = '{{ value }}',
-name = '{{ name }}'
+name = '{{ name }}',
+value = '{{ value }}'
 WHERE 
 apiproductsId = '{{ apiproductsId }}'
 AND attributesId = '{{ attributesId }}'

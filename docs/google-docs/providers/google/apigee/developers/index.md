@@ -98,53 +98,53 @@ Use the following StackQL query and manifest file to create a new <code>develope
 /*+ create */
 INSERT INTO google.apigee.developers (
 organizationsId,
-userName,
-apps,
 companies,
 developerId,
-attributes,
-lastName,
-firstName,
-accessType,
+apps,
+email,
 appFamily,
-email
+firstName,
+userName,
+attributes,
+accessType,
+lastName
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ userName }}',
-'{{ apps }}',
 '{{ companies }}',
 '{{ developerId }}',
-'{{ attributes }}',
-'{{ lastName }}',
-'{{ firstName }}',
-'{{ accessType }}',
+'{{ apps }}',
+'{{ email }}',
 '{{ appFamily }}',
-'{{ email }}'
+'{{ firstName }}',
+'{{ userName }}',
+'{{ attributes }}',
+'{{ accessType }}',
+'{{ lastName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-userName: string
-lastModifiedAt: string
-apps:
-  - type: string
 companies:
   - type: string
-developerId: string
-attributes:
-  - value: string
-    name: string
-lastName: string
-firstName: string
-accessType: string
 status: string
-appFamily: string
-organizationName: string
-email: string
+developerId: string
+apps:
+  - type: string
 createdAt: string
+email: string
+appFamily: string
+firstName: string
+userName: string
+organizationName: string
+attributes:
+  - name: string
+    value: string
+lastModifiedAt: string
+accessType: string
+lastName: string
 
 ```
 </TabItem>
@@ -158,16 +158,16 @@ Replaces all fields in the specified <code>developers</code> resource.
 /*+ update */
 REPLACE google.apigee.developers
 SET 
-userName = '{{ userName }}',
-apps = '{{ apps }}',
 companies = '{{ companies }}',
 developerId = '{{ developerId }}',
-attributes = '{{ attributes }}',
-lastName = '{{ lastName }}',
-firstName = '{{ firstName }}',
-accessType = '{{ accessType }}',
+apps = '{{ apps }}',
+email = '{{ email }}',
 appFamily = '{{ appFamily }}',
-email = '{{ email }}'
+firstName = '{{ firstName }}',
+userName = '{{ userName }}',
+attributes = '{{ attributes }}',
+accessType = '{{ accessType }}',
+lastName = '{{ lastName }}'
 WHERE 
 developersId = '{{ developersId }}'
 AND organizationsId = '{{ organizationsId }}';

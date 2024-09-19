@@ -89,15 +89,15 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+name: string
 plainTextBody: string
 body: string
 createTime: string
-name: string
 creator:
+  displayName: string
   email: string
   googleSupport: boolean
   username: string
-  displayName: string
 
 ```
 </TabItem>

@@ -46,8 +46,8 @@ Updates a <code>revisions_api_proxy_revision</code> resource.
 UPDATE google.apigee.revisions_api_proxy_revision
 SET 
 contentType = '{{ contentType }}',
-extensions = '{{ extensions }}',
-data = '{{ data }}'
+data = '{{ data }}',
+extensions = '{{ extensions }}'
 WHERE 
 apisId = '{{ apisId }}'
 AND organizationsId = '{{ organizationsId }}'

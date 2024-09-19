@@ -101,54 +101,54 @@ Use the following StackQL query and manifest file to create a new <code>indexes<
 INSERT INTO google.aiplatform.indexes (
 locationsId,
 projectsId,
-indexUpdateMethod,
-encryptionSpec,
-metadata,
 metadataSchemaUri,
-description,
-displayName,
+indexUpdateMethod,
 labels,
-etag
+etag,
+encryptionSpec,
+displayName,
+description,
+metadata
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ indexUpdateMethod }}',
-'{{ encryptionSpec }}',
-'{{ metadata }}',
 '{{ metadataSchemaUri }}',
-'{{ description }}',
-'{{ displayName }}',
+'{{ indexUpdateMethod }}',
 '{{ labels }}',
-'{{ etag }}'
+'{{ etag }}',
+'{{ encryptionSpec }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ metadata }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+metadataSchemaUri: string
 indexStats:
-  vectorsCount: string
   sparseVectorsCount: string
   shardsCount: integer
-satisfiesPzi: boolean
-satisfiesPzs: boolean
-name: string
+  vectorsCount: string
 indexUpdateMethod: string
+labels: object
+createTime: string
+satisfiesPzi: boolean
+etag: string
 encryptionSpec:
   kmsKeyName: string
-createTime: string
-metadata: any
-metadataSchemaUri: string
-description: string
+updateTime: string
 deployedIndexes:
   - deployedIndexId: string
     displayName: string
     indexEndpoint: string
 displayName: string
-updateTime: string
-labels: object
-etag: string
+satisfiesPzs: boolean
+description: string
+metadata: any
+name: string
 
 ```
 </TabItem>
@@ -162,14 +162,14 @@ Updates a <code>indexes</code> resource.
 /*+ update */
 UPDATE google.aiplatform.indexes
 SET 
-indexUpdateMethod = '{{ indexUpdateMethod }}',
-encryptionSpec = '{{ encryptionSpec }}',
-metadata = '{{ metadata }}',
 metadataSchemaUri = '{{ metadataSchemaUri }}',
-description = '{{ description }}',
-displayName = '{{ displayName }}',
+indexUpdateMethod = '{{ indexUpdateMethod }}',
 labels = '{{ labels }}',
-etag = '{{ etag }}'
+etag = '{{ etag }}',
+encryptionSpec = '{{ encryptionSpec }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+metadata = '{{ metadata }}'
 WHERE 
 indexesId = '{{ indexesId }}'
 AND locationsId = '{{ locationsId }}'

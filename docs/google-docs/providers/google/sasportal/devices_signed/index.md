@@ -90,8 +90,8 @@ Updates a <code>devices_signed</code> resource.
 /*+ update */
 UPDATE google.sasportal.devices_signed
 SET 
-encodedDevice = '{{ encodedDevice }}',
-installerId = '{{ installerId }}'
+installerId = '{{ installerId }}',
+encodedDevice = '{{ encodedDevice }}'
 WHERE 
 devicesId = '{{ devicesId }}'
 AND nodesId = '{{ nodesId }}';

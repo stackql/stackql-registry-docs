@@ -128,184 +128,184 @@ Use the following StackQL query and manifest file to create a new <code>batch_pr
 INSERT INTO google.aiplatform.batch_prediction_jobs (
 locationsId,
 projectsId,
-disableContainerLogging,
-displayName,
 labels,
 generateExplanation,
-explanationSpec,
-serviceAccount,
-manualBatchTuningParameters,
 dedicatedResources,
-model,
-unmanagedContainerModel,
+explanationSpec,
+inputConfig,
 instanceConfig,
 outputConfig,
-inputConfig,
+encryptionSpec,
+disableContainerLogging,
+displayName,
 modelParameters,
-encryptionSpec
+serviceAccount,
+manualBatchTuningParameters,
+unmanagedContainerModel,
+model
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-true|false,
-'{{ displayName }}',
 '{{ labels }}',
 true|false,
-'{{ explanationSpec }}',
-'{{ serviceAccount }}',
-'{{ manualBatchTuningParameters }}',
 '{{ dedicatedResources }}',
-'{{ model }}',
-'{{ unmanagedContainerModel }}',
+'{{ explanationSpec }}',
+'{{ inputConfig }}',
 '{{ instanceConfig }}',
 '{{ outputConfig }}',
-'{{ inputConfig }}',
+'{{ encryptionSpec }}',
+true|false,
+'{{ displayName }}',
 '{{ modelParameters }}',
-'{{ encryptionSpec }}'
+'{{ serviceAccount }}',
+'{{ manualBatchTuningParameters }}',
+'{{ unmanagedContainerModel }}',
+'{{ model }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+labels: object
+generateExplanation: boolean
+updateTime: string
+state: string
+startTime: string
+dedicatedResources:
+  startingReplicaCount: integer
+  maxReplicaCount: integer
+  machineSpec:
+    acceleratorCount: integer
+    tpuTopology: string
+    machineType: string
+    acceleratorType: string
+    reservationAffinity:
+      reservationAffinityType: string
+      values:
+        - type: string
+      key: string
+satisfiesPzi: boolean
+resourcesConsumed:
+  replicaHours: number
 createTime: string
-disableContainerLogging: boolean
 completionStats:
   successfulForecastPointCount: string
   failedCount: string
   successfulCount: string
   incompleteCount: string
-displayName: string
-satisfiesPzs: boolean
-labels: object
-error:
-  message: string
-  code: integer
-  details:
-    - additionalProperties: any
-      type: string
-generateExplanation: boolean
 explanationSpec:
   metadata:
-    outputs: object
-    featureAttributionsSchemaUri: string
-    inputs: object
     latentSpaceSource: string
+    featureAttributionsSchemaUri: string
+    outputs: object
+    inputs: object
   parameters:
+    integratedGradientsAttribution:
+      blurBaselineConfig:
+        maxBlurSigma: number
+      smoothGradConfig:
+        featureNoiseSigma:
+          noiseSigma:
+            - name: string
+              sigma: number
+        noisySampleCount: integer
+        noiseSigma: number
+      stepCount: integer
     topK: integer
+    outputIndices:
+      - type: string
+    sampledShapleyAttribution:
+      pathCount: integer
+    xraiAttribution:
+      stepCount: integer
     examples:
       nearestNeighborSearchConfig: any
       neighborCount: integer
       exampleGcsSource:
-        dataFormat: string
         gcsSource:
           uris:
             - type: string
+        dataFormat: string
       presets:
         modality: string
         query: string
-    sampledShapleyAttribution:
-      pathCount: integer
-    xraiAttribution:
-      smoothGradConfig:
-        featureNoiseSigma:
-          noiseSigma:
-            - sigma: number
-              name: string
-        noisySampleCount: integer
-        noiseSigma: number
-      stepCount: integer
-      blurBaselineConfig:
-        maxBlurSigma: number
-    outputIndices:
-      - type: string
-    integratedGradientsAttribution:
-      stepCount: integer
-serviceAccount: string
-manualBatchTuningParameters:
-  batchSize: integer
-dedicatedResources:
-  maxReplicaCount: integer
-  machineSpec:
-    acceleratorCount: integer
-    reservationAffinity:
-      key: string
-      reservationAffinityType: string
-      values:
-        - type: string
-    tpuTopology: string
-    acceleratorType: string
-    machineType: string
-  startingReplicaCount: integer
-resourcesConsumed:
-  replicaHours: number
-name: string
-model: string
-endTime: string
-unmanagedContainerModel:
-  predictSchemata:
-    predictionSchemaUri: string
-    instanceSchemaUri: string
-    parametersSchemaUri: string
-  containerSpec:
-    startupProbe:
-      timeoutSeconds: integer
-      periodSeconds: integer
-      exec:
-        command:
-          - type: string
-    imageUri: string
-    grpcPorts:
-      - containerPort: integer
-    command:
-      - type: string
-    sharedMemorySizeMb: string
-    deploymentTimeout: string
-    healthRoute: string
-    predictRoute: string
-    args:
-      - type: string
-    env:
-      - value: string
-        name: string
-    ports:
-      - containerPort: integer
-  artifactUri: string
-updateTime: string
+error:
+  code: integer
+  message: string
+  details:
+    - additionalProperties: any
+      type: string
+inputConfig:
+  instancesFormat: string
+  bigquerySource:
+    inputUri: string
 instanceConfig:
-  keyField: string
-  instanceType: string
   excludedFields:
     - type: string
+  instanceType: string
   includedFields:
     - type: string
+  keyField: string
 outputConfig:
   bigqueryDestination:
     outputUri: string
   predictionsFormat: string
   gcsDestination:
     outputUriPrefix: string
-outputInfo:
-  bigqueryOutputDataset: string
-  bigqueryOutputTable: string
-  gcsOutputDirectory: string
-inputConfig:
-  bigquerySource:
-    inputUri: string
-  instancesFormat: string
-modelVersionId: string
-state: string
-satisfiesPzi: boolean
+encryptionSpec:
+  kmsKeyName: string
+endTime: string
+disableContainerLogging: boolean
+displayName: string
+modelParameters: any
+serviceAccount: string
 partialFailures:
-  - message: string
-    code: integer
+  - code: integer
+    message: string
     details:
       - additionalProperties: any
         type: string
-modelParameters: any
-encryptionSpec:
-  kmsKeyName: string
-startTime: string
+manualBatchTuningParameters:
+  batchSize: integer
+outputInfo:
+  bigqueryOutputTable: string
+  bigqueryOutputDataset: string
+  gcsOutputDirectory: string
+name: string
+unmanagedContainerModel:
+  artifactUri: string
+  containerSpec:
+    imageUri: string
+    healthRoute: string
+    env:
+      - value: string
+        name: string
+    ports:
+      - containerPort: integer
+    args:
+      - type: string
+    command:
+      - type: string
+    deploymentTimeout: string
+    startupProbe:
+      exec:
+        command:
+          - type: string
+      timeoutSeconds: integer
+      periodSeconds: integer
+    grpcPorts:
+      - containerPort: integer
+    sharedMemorySizeMb: string
+    predictRoute: string
+  predictSchemata:
+    instanceSchemaUri: string
+    predictionSchemaUri: string
+    parametersSchemaUri: string
+model: string
+satisfiesPzs: boolean
+modelVersionId: string
 
 ```
 </TabItem>

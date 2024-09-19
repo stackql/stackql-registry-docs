@@ -71,7 +71,164 @@ FROM google.dataplex.aspect_types
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>aspect_types</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.dataplex.aspect_types (
+locationsId,
+projectsId,
+description,
+displayName,
+labels,
+etag,
+authorization,
+metadataTemplate
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ description }}',
+'{{ displayName }}',
+'{{ labels }}',
+'{{ etag }}',
+'{{ authorization }}',
+'{{ metadataTemplate }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+uid: string
+createTime: string
+updateTime: string
+description: string
+displayName: string
+labels: object
+etag: string
+authorization:
+  alternateUsePermission: string
+metadataTemplate:
+  index: integer
+  name: string
+  type: string
+  recordFields:
+    - index: integer
+      name: string
+      type: string
+      recordFields:
+        - index: integer
+          name: string
+          type: string
+          recordFields:
+            - index: integer
+              name: string
+              type: string
+              recordFields:
+                - index: integer
+                  name: string
+                  type: string
+                  recordFields:
+                    - index: integer
+                      name: string
+                      type: string
+                      recordFields:
+                        - index: integer
+                          name: string
+                          type: string
+                          recordFields:
+                            - index: integer
+                              name: string
+                              type: string
+                              recordFields:
+                                - index: integer
+                                  name: string
+                                  type: string
+                                  recordFields:
+                                    - index: integer
+                                      name: string
+                                      type: string
+                                      recordFields:
+                                        - {}
+                                      enumValues:
+                                        - {}
+                                      typeId: string
+                                      typeRef: string
+                                      constraints: {}
+                                      annotations: {}
+                                  enumValues:
+                                    - index: integer
+                                      name: string
+                                      deprecated: string
+                                  typeId: string
+                                  typeRef: string
+                              enumValues:
+                                - index: integer
+                                  name: string
+                                  deprecated: string
+                              typeId: string
+                              typeRef: string
+                          enumValues:
+                            - index: integer
+                              name: string
+                              deprecated: string
+                          typeId: string
+                          typeRef: string
+                      enumValues:
+                        - index: integer
+                          name: string
+                          deprecated: string
+                      typeId: string
+                      typeRef: string
+                  enumValues:
+                    - index: integer
+                      name: string
+                      deprecated: string
+                  typeId: string
+                  typeRef: string
+              enumValues:
+                - index: integer
+                  name: string
+                  deprecated: string
+              typeId: string
+              typeRef: string
+          enumValues:
+            - index: integer
+              name: string
+              deprecated: string
+          typeId: string
+          typeRef: string
+      enumValues:
+        - index: integer
+          name: string
+          deprecated: string
+      typeId: string
+      typeRef: string
+  enumValues:
+    - index: integer
+      name: string
+      deprecated: string
+  typeId: string
+  typeRef: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>aspect_types</code> resource.

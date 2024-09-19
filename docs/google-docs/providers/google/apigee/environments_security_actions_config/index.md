@@ -63,8 +63,8 @@ Updates a <code>environments_security_actions_config</code> resource.
 /*+ update */
 UPDATE google.apigee.environments_security_actions_config
 SET 
-name = '{{ name }}',
-enabled = true|false
+enabled = true|false,
+name = '{{ name }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

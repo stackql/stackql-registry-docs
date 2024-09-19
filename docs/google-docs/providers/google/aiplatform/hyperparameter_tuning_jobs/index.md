@@ -106,53 +106,139 @@ Use the following StackQL query and manifest file to create a new <code>hyperpar
 INSERT INTO google.aiplatform.hyperparameter_tuning_jobs (
 locationsId,
 projectsId,
-trialJobSpec,
-studySpec,
-maxTrialCount,
-labels,
-maxFailedTrialCount,
 displayName,
+studySpec,
+maxFailedTrialCount,
+trialJobSpec,
+maxTrialCount,
 encryptionSpec,
-parallelTrialCount
+parallelTrialCount,
+labels
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ trialJobSpec }}',
-'{{ studySpec }}',
-'{{ maxTrialCount }}',
-'{{ labels }}',
-'{{ maxFailedTrialCount }}',
 '{{ displayName }}',
+'{{ studySpec }}',
+'{{ maxFailedTrialCount }}',
+'{{ trialJobSpec }}',
+'{{ maxTrialCount }}',
 '{{ encryptionSpec }}',
-'{{ parallelTrialCount }}'
+'{{ parallelTrialCount }}',
+'{{ labels }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
+displayName: string
+createTime: string
+studySpec:
+  parameters:
+    - discreteValueSpec:
+        values:
+          - type: string
+            format: string
+        defaultValue: number
+      categoricalValueSpec:
+        defaultValue: string
+        values:
+          - type: string
+      conditionalParameterSpecs:
+        - parentCategoricalValues:
+            values:
+              - type: string
+          parentDiscreteValues:
+            values:
+              - type: string
+                format: string
+          parameterSpec:
+            conditionalParameterSpecs:
+              - parentIntValues:
+                  values:
+                    - format: string
+                      type: string
+            scaleType: string
+            integerValueSpec:
+              maxValue: string
+              defaultValue: string
+              minValue: string
+            parameterId: string
+            doubleValueSpec:
+              defaultValue: number
+              maxValue: number
+              minValue: number
+      scaleType: string
+      parameterId: string
+  decayCurveStoppingSpec:
+    useElapsedDuration: boolean
+  observationNoise: string
+  measurementSelectionType: string
+  medianAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+  convexAutomatedStoppingSpec:
+    maxStepCount: string
+    updateAllStoppedTrials: boolean
+    minStepCount: string
+    learningRateParameterName: string
+    useElapsedDuration: boolean
+    minMeasurementCount: string
+  metrics:
+    - goal: string
+      metricId: string
+      safetyConfig:
+        desiredMinSafeTrialsFraction: number
+        safetyThreshold: number
+  studyStoppingConfig:
+    maxNumTrials: integer
+    maxNumTrialsNoProgress: integer
+    shouldStopAsap: boolean
+    maximumRuntimeConstraint:
+      maxDuration: string
+      endTime: string
+    minNumTrials: integer
+    maxDurationNoProgress: string
+  algorithm: string
+maxFailedTrialCount: integer
+state: string
 trialJobSpec:
+  scheduling:
+    restartJobOnWorkerRestart: boolean
+    timeout: string
+    strategy: string
+    disableRetries: boolean
+    maxWaitDuration: string
+  persistentResourceId: string
+  baseOutputDirectory:
+    outputUriPrefix: string
+  experimentRun: string
+  protectedArtifactLocationId: string
+  serviceAccount: string
   workerPoolSpecs:
-    - machineSpec:
-        acceleratorCount: integer
-        reservationAffinity:
-          key: string
-          reservationAffinityType: string
-          values:
-            - type: string
-        tpuTopology: string
-        acceleratorType: string
-        machineType: string
-      nfsMounts:
-        - path: string
-          mountPoint: string
-          server: string
+    - pythonPackageSpec:
+        args:
+          - type: string
+        env:
+          - value: string
+            name: string
+        pythonModule: string
+        executorImageUri: string
+        packageUris:
+          - type: string
       diskSpec:
         bootDiskType: string
         bootDiskSizeGb: integer
-      replicaCount: string
+      machineSpec:
+        acceleratorCount: integer
+        tpuTopology: string
+        machineType: string
+        acceleratorType: string
+        reservationAffinity:
+          reservationAffinityType: string
+          values:
+            - type: string
+          key: string
       containerSpec:
         command:
           - type: string
@@ -162,148 +248,62 @@ trialJobSpec:
         env:
           - value: string
             name: string
-      pythonPackageSpec:
-        args:
-          - type: string
-        pythonModule: string
-        env:
-          - value: string
-            name: string
-        executorImageUri: string
-        packageUris:
-          - type: string
-  tensorboard: string
-  experimentRun: string
-  reservedIpRanges:
-    - type: string
-  scheduling:
-    timeout: string
-    disableRetries: boolean
-    strategy: string
-    restartJobOnWorkerRestart: boolean
-    maxWaitDuration: string
-  protectedArtifactLocationId: string
-  serviceAccount: string
-  baseOutputDirectory:
-    outputUriPrefix: string
+      nfsMounts:
+        - mountPoint: string
+          path: string
+          server: string
+      replicaCount: string
+  enableDashboardAccess: boolean
+  network: string
   enableWebAccess: boolean
   experiment: string
+  reservedIpRanges:
+    - type: string
+  tensorboard: string
   models:
     - type: string
-  persistentResourceId: string
-  network: string
-  enableDashboardAccess: boolean
+maxTrialCount: integer
+endTime: string
+name: string
+satisfiesPzi: boolean
+encryptionSpec:
+  kmsKeyName: string
 error:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
-studySpec:
-  metrics:
-    - goal: string
-      metricId: string
-      safetyConfig:
-        desiredMinSafeTrialsFraction: number
-        safetyThreshold: number
-  observationNoise: string
-  parameters:
-    - conditionalParameterSpecs:
-        - parentIntValues:
-            values:
-              - format: string
-                type: string
-          parameterSpec:
-            conditionalParameterSpecs:
-              - parentDiscreteValues:
-                  values:
-                    - type: string
-                      format: string
-                parentCategoricalValues:
-                  values:
-                    - type: string
-            integerValueSpec:
-              maxValue: string
-              defaultValue: string
-              minValue: string
-            discreteValueSpec:
-              defaultValue: number
-              values:
-                - format: string
-                  type: string
-            doubleValueSpec:
-              defaultValue: number
-              maxValue: number
-              minValue: number
-            categoricalValueSpec:
-              defaultValue: string
-              values:
-                - type: string
-            parameterId: string
-            scaleType: string
-      parameterId: string
-      scaleType: string
-  decayCurveStoppingSpec:
-    useElapsedDuration: boolean
-  convexAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-    minStepCount: string
-    maxStepCount: string
-    learningRateParameterName: string
-    updateAllStoppedTrials: boolean
-    minMeasurementCount: string
-  algorithm: string
-  medianAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-  measurementSelectionType: string
-  studyStoppingConfig:
-    minNumTrials: integer
-    shouldStopAsap: boolean
-    maxNumTrialsNoProgress: integer
-    maximumRuntimeConstraint:
-      maxDuration: string
-      endTime: string
-    maxDurationNoProgress: string
-    maxNumTrials: integer
-updateTime: string
-createTime: string
+parallelTrialCount: integer
+startTime: string
 trials:
-  - state: string
-    startTime: string
+  - id: string
+    clientId: string
+    name: string
+    customJob: string
     finalMeasurement:
       stepCount: string
+      elapsedDuration: string
       metrics:
         - value: number
           metricId: string
-      elapsedDuration: string
-    clientId: string
-    id: string
+    startTime: string
     measurements:
       - stepCount: string
+        elapsedDuration: string
         metrics:
           - value: number
             metricId: string
-        elapsedDuration: string
+    state: string
+    endTime: string
     webAccessUris: object
     parameters:
       - value: any
         parameterId: string
-    endTime: string
     infeasibleReason: string
-    name: string
-    customJob: string
-maxTrialCount: integer
+updateTime: string
 labels: object
 satisfiesPzs: boolean
-state: string
-maxFailedTrialCount: integer
-endTime: string
-satisfiesPzi: boolean
-displayName: string
-encryptionSpec:
-  kmsKeyName: string
-startTime: string
-parallelTrialCount: integer
 
 ```
 </TabItem>

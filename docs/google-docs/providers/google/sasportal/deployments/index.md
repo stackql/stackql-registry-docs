@@ -87,24 +87,24 @@ Use the following StackQL query and manifest file to create a new <code>deployme
 /*+ create */
 INSERT INTO google.sasportal.deployments (
 customersId,
-sasUserIds,
-displayName
+displayName,
+sasUserIds
 )
 SELECT 
 '{{ customersId }}',
-'{{ sasUserIds }}',
-'{{ displayName }}'
+'{{ displayName }}',
+'{{ sasUserIds }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-sasUserIds:
-  - type: string
-displayName: string
 frns:
+  - type: string
+name: string
+displayName: string
+sasUserIds:
   - type: string
 
 ```
@@ -119,8 +119,8 @@ Updates a <code>deployments</code> resource.
 /*+ update */
 UPDATE google.sasportal.deployments
 SET 
-sasUserIds = '{{ sasUserIds }}',
-displayName = '{{ displayName }}'
+displayName = '{{ displayName }}',
+sasUserIds = '{{ sasUserIds }}'
 WHERE 
 deploymentsId = '{{ deploymentsId }}'
 AND nodesId = '{{ nodesId }}';
