@@ -107,107 +107,107 @@ Use the following StackQL query and manifest file to create a new <code>apiprodu
 /*+ create */
 INSERT INTO google.apigee.apiproducts (
 organizationsId,
-displayName,
-scopes,
-apiResources,
-quotaInterval,
-proxies,
-createdAt,
-approvalType,
-name,
-attributes,
-grpcOperationGroup,
-quotaTimeUnit,
-description,
 quota,
 lastModifiedAt,
 environments,
-graphqlOperationGroup,
+scopes,
+attributes,
+quotaTimeUnit,
+quotaInterval,
+description,
+grpcOperationGroup,
 operationGroup,
-quotaCounterScope
+createdAt,
+graphqlOperationGroup,
+name,
+approvalType,
+apiResources,
+proxies,
+quotaCounterScope,
+displayName
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ displayName }}',
-'{{ scopes }}',
-'{{ apiResources }}',
-'{{ quotaInterval }}',
-'{{ proxies }}',
-'{{ createdAt }}',
-'{{ approvalType }}',
-'{{ name }}',
-'{{ attributes }}',
-'{{ grpcOperationGroup }}',
-'{{ quotaTimeUnit }}',
-'{{ description }}',
 '{{ quota }}',
 '{{ lastModifiedAt }}',
 '{{ environments }}',
-'{{ graphqlOperationGroup }}',
+'{{ scopes }}',
+'{{ attributes }}',
+'{{ quotaTimeUnit }}',
+'{{ quotaInterval }}',
+'{{ description }}',
+'{{ grpcOperationGroup }}',
 '{{ operationGroup }}',
-'{{ quotaCounterScope }}'
+'{{ createdAt }}',
+'{{ graphqlOperationGroup }}',
+'{{ name }}',
+'{{ approvalType }}',
+'{{ apiResources }}',
+'{{ proxies }}',
+'{{ quotaCounterScope }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-scopes:
-  - type: string
-apiResources:
-  - type: string
-quotaInterval: string
-proxies:
-  - type: string
-createdAt: string
-approvalType: string
-name: string
-attributes:
-  - value: string
-    name: string
-grpcOperationGroup:
-  operationConfigs:
-    - methods:
-        - type: string
-      apiSource: string
-      quota:
-        interval: string
-        limit: string
-        timeUnit: string
-      attributes:
-        - value: string
-          name: string
-      service: string
-quotaTimeUnit: string
-description: string
 quota: string
 lastModifiedAt: string
 environments:
   - type: string
+scopes:
+  - type: string
+attributes:
+  - name: string
+    value: string
+quotaTimeUnit: string
+quotaInterval: string
+description: string
+grpcOperationGroup:
+  operationConfigs:
+    - apiSource: string
+      methods:
+        - type: string
+      service: string
+      quota:
+        timeUnit: string
+        interval: string
+        limit: string
+      attributes:
+        - name: string
+          value: string
+operationGroup:
+  operationConfigs:
+    - apiSource: string
+      operations:
+        - resource: string
+          methods:
+            - type: string
+      attributes:
+        - name: string
+          value: string
+  operationConfigType: string
+createdAt: string
 graphqlOperationGroup:
+  operationConfigType: string
   operationConfigs:
     - attributes:
-        - value: string
-          name: string
+        - name: string
+          value: string
+      apiSource: string
       operations:
         - operation: string
           operationTypes:
             - type: string
-      apiSource: string
-  operationConfigType: string
-operationGroup:
-  operationConfigType: string
-  operationConfigs:
-    - operations:
-        - methods:
-            - type: string
-          resource: string
-      apiSource: string
-      attributes:
-        - value: string
-          name: string
+name: string
+approvalType: string
+apiResources:
+  - type: string
+proxies:
+  - type: string
 quotaCounterScope: string
+displayName: string
 
 ```
 </TabItem>
@@ -221,24 +221,24 @@ Replaces all fields in the specified <code>apiproducts</code> resource.
 /*+ update */
 REPLACE google.apigee.apiproducts
 SET 
-displayName = '{{ displayName }}',
-scopes = '{{ scopes }}',
-apiResources = '{{ apiResources }}',
-quotaInterval = '{{ quotaInterval }}',
-proxies = '{{ proxies }}',
-createdAt = '{{ createdAt }}',
-approvalType = '{{ approvalType }}',
-name = '{{ name }}',
-attributes = '{{ attributes }}',
-grpcOperationGroup = '{{ grpcOperationGroup }}',
-quotaTimeUnit = '{{ quotaTimeUnit }}',
-description = '{{ description }}',
 quota = '{{ quota }}',
 lastModifiedAt = '{{ lastModifiedAt }}',
 environments = '{{ environments }}',
-graphqlOperationGroup = '{{ graphqlOperationGroup }}',
+scopes = '{{ scopes }}',
+attributes = '{{ attributes }}',
+quotaTimeUnit = '{{ quotaTimeUnit }}',
+quotaInterval = '{{ quotaInterval }}',
+description = '{{ description }}',
+grpcOperationGroup = '{{ grpcOperationGroup }}',
 operationGroup = '{{ operationGroup }}',
-quotaCounterScope = '{{ quotaCounterScope }}'
+createdAt = '{{ createdAt }}',
+graphqlOperationGroup = '{{ graphqlOperationGroup }}',
+name = '{{ name }}',
+approvalType = '{{ approvalType }}',
+apiResources = '{{ apiResources }}',
+proxies = '{{ proxies }}',
+quotaCounterScope = '{{ quotaCounterScope }}',
+displayName = '{{ displayName }}'
 WHERE 
 apiproductsId = '{{ apiproductsId }}'
 AND organizationsId = '{{ organizationsId }}';

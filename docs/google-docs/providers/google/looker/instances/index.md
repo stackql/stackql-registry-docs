@@ -39,6 +39,8 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 | <CopyableCode code="denyMaintenancePeriod" /> | `object` | Specifies the maintenance denial period. |
 | <CopyableCode code="egressPublicIp" /> | `string` | Output only. Public Egress IP (IPv4). |
 | <CopyableCode code="encryptionConfig" /> | `object` | Encryption configuration (i.e. CMEK). |
+| <CopyableCode code="fipsEnabled" /> | `boolean` | Optional. Whether FIPS is enabled on the Looker instance. |
+| <CopyableCode code="geminiEnabled" /> | `boolean` | Optional. Whether Gemini feature is enabled on the Looker instance or not. |
 | <CopyableCode code="ingressPrivateIp" /> | `string` | Output only. Private Ingress IP (IPv4). |
 | <CopyableCode code="ingressPublicIp" /> | `string` | Output only. Public Ingress IP (IPv4). |
 | <CopyableCode code="lastDenyMaintenancePeriod" /> | `object` | Specifies the maintenance denial period. |
@@ -84,6 +86,8 @@ customDomain,
 denyMaintenancePeriod,
 egressPublicIp,
 encryptionConfig,
+fipsEnabled,
+geminiEnabled,
 ingressPrivateIp,
 ingressPublicIp,
 lastDenyMaintenancePeriod,
@@ -140,7 +144,9 @@ customDomain,
 encryptionConfig,
 adminSettings,
 oauthConfig,
-linkedLspProjectNumber
+linkedLspProjectNumber,
+fipsEnabled,
+geminiEnabled
 )
 SELECT 
 '{{ locationsId }}',
@@ -160,7 +166,9 @@ true|false,
 '{{ encryptionConfig }}',
 '{{ adminSettings }}',
 '{{ oauthConfig }}',
-'{{ linkedLspProjectNumber }}'
+'{{ linkedLspProjectNumber }}',
+true|false,
+true|false
 ;
 ```
 </TabItem>
@@ -223,6 +231,8 @@ oauthConfig:
   clientId: string
   clientSecret: string
 linkedLspProjectNumber: string
+fipsEnabled: boolean
+geminiEnabled: boolean
 
 ```
 </TabItem>
@@ -251,7 +261,9 @@ customDomain = '{{ customDomain }}',
 encryptionConfig = '{{ encryptionConfig }}',
 adminSettings = '{{ adminSettings }}',
 oauthConfig = '{{ oauthConfig }}',
-linkedLspProjectNumber = '{{ linkedLspProjectNumber }}'
+linkedLspProjectNumber = '{{ linkedLspProjectNumber }}',
+fipsEnabled = true|false,
+geminiEnabled = true|false
 WHERE 
 instancesId = '{{ instancesId }}'
 AND locationsId = '{{ locationsId }}'

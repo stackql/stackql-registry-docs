@@ -43,7 +43,7 @@ Creates, updates, deletes, gets or lists a <code>routines</code> resource.
 | <CopyableCode code="lastModifiedTime" /> | `string` | Output only. The time when this routine was last modified, in milliseconds since the epoch. |
 | <CopyableCode code="remoteFunctionOptions" /> | `object` | Options for a remote user-defined function. |
 | <CopyableCode code="returnTableType" /> | `object` | A table type |
-| <CopyableCode code="returnType" /> | `object` | The data type of a variable such as a function argument. Examples include: * INT64: `{"typeKind": "INT64"}` * ARRAY: { "typeKind": "ARRAY", "arrayElementType": {"typeKind": "STRING"} } * STRUCT>: { "typeKind": "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind": "STRING"} }, { "name": "y", "type": { "typeKind": "ARRAY", "arrayElementType": {"typeKind": "DATE"} } } ] } } |
+| <CopyableCode code="returnType" /> | `object` | The data type of a variable such as a function argument. Examples include: * INT64: `{"typeKind": "INT64"}` * ARRAY: { "typeKind": "ARRAY", "arrayElementType": {"typeKind": "STRING"} } * STRUCT>: { "typeKind": "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind": "STRING"} }, { "name": "y", "type": { "typeKind": "ARRAY", "arrayElementType": {"typeKind": "DATE"} } } ] } } * RANGE: { "typeKind": "RANGE", "rangeElementType": {"typeKind": "DATE"} } |
 | <CopyableCode code="routineReference" /> | `object` | Id path of a routine. |
 | <CopyableCode code="routineType" /> | `string` | Required. The type of routine. |
 | <CopyableCode code="securityMode" /> | `string` | Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine's configuration. |

@@ -75,13 +75,13 @@ Updates a <code>settings</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.settings
 SET 
+name = '{{ name }}',
 analysisConfig = '{{ analysisConfig }}',
-conversationTtl = '{{ conversationTtl }}',
+languageCode = '{{ languageCode }}',
 redactionConfig = '{{ redactionConfig }}',
 speechConfig = '{{ speechConfig }}',
-pubsubNotificationSettings = '{{ pubsubNotificationSettings }}',
-languageCode = '{{ languageCode }}',
-name = '{{ name }}'
+conversationTtl = '{{ conversationTtl }}',
+pubsubNotificationSettings = '{{ pubsubNotificationSettings }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}';

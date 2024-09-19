@@ -51,11 +51,11 @@ Creates, updates, deletes, gets or lists a <code>datasets</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="datasetsId" /> | Gets a Dataset. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists Datasets in a Location. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="" /> | Creates a Dataset. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetsId" /> | Deletes a Dataset. |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetsId" /> | Updates a Dataset. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Gets a Dataset. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists Datasets in a Location. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, projectsId" /> | Creates a Dataset. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Deletes a Dataset. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Updates a Dataset. |
 | <CopyableCode code="export" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Exports data from a Dataset. |
 | <CopyableCode code="import" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Imports data into a Dataset. |
 | <CopyableCode code="search_data_items" /> | `EXEC` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Searches DataItems in a Dataset. |
@@ -83,7 +83,8 @@ satisfiesPzs,
 savedQueries,
 updateTime
 FROM google.aiplatform.datasets
-WHERE  = '{{  }}'; 
+WHERE locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
 ```
 
 ## `INSERT` example
@@ -102,61 +103,63 @@ Use the following StackQL query and manifest file to create a new <code>datasets
 ```sql
 /*+ create */
 INSERT INTO google.aiplatform.datasets (
-,
+locationsId,
+projectsId,
+displayName,
 metadataSchemaUri,
+encryptionSpec,
 description,
 metadata,
-etag,
-displayName,
-labels,
 modelReference,
-encryptionSpec,
-savedQueries
+savedQueries,
+labels,
+etag
 )
 SELECT 
-'{{  }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ displayName }}',
 '{{ metadataSchemaUri }}',
+'{{ encryptionSpec }}',
 '{{ description }}',
 '{{ metadata }}',
-'{{ etag }}',
-'{{ displayName }}',
-'{{ labels }}',
 '{{ modelReference }}',
-'{{ encryptionSpec }}',
-'{{ savedQueries }}'
+'{{ savedQueries }}',
+'{{ labels }}',
+'{{ etag }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-metadataSchemaUri: string
-updateTime: string
-satisfiesPzi: boolean
-metadataArtifact: string
-description: string
-createTime: string
-satisfiesPzs: boolean
-metadata: any
-etag: string
-displayName: string
 dataItemCount: string
-name: string
-labels: object
-modelReference: string
+displayName: string
+updateTime: string
+metadataSchemaUri: string
 encryptionSpec:
   kmsKeyName: string
+description: string
+name: string
+metadata: any
+modelReference: string
 savedQueries:
-  - annotationFilter: string
-    metadata: any
-    annotationSpecCount: integer
-    createTime: string
-    displayName: string
-    problemType: string
-    supportAutomlTraining: boolean
-    updateTime: string
-    name: string
+  - createTime: string
     etag: string
+    metadata: any
+    problemType: string
+    displayName: string
+    name: string
+    supportAutomlTraining: boolean
+    annotationFilter: string
+    annotationSpecCount: integer
+    updateTime: string
+labels: object
+createTime: string
+satisfiesPzi: boolean
+etag: string
+metadataArtifact: string
+satisfiesPzs: boolean
 
 ```
 </TabItem>
@@ -170,17 +173,19 @@ Updates a <code>datasets</code> resource.
 /*+ update */
 UPDATE google.aiplatform.datasets
 SET 
+displayName = '{{ displayName }}',
 metadataSchemaUri = '{{ metadataSchemaUri }}',
+encryptionSpec = '{{ encryptionSpec }}',
 description = '{{ description }}',
 metadata = '{{ metadata }}',
-etag = '{{ etag }}',
-displayName = '{{ displayName }}',
-labels = '{{ labels }}',
 modelReference = '{{ modelReference }}',
-encryptionSpec = '{{ encryptionSpec }}',
-savedQueries = '{{ savedQueries }}'
+savedQueries = '{{ savedQueries }}',
+labels = '{{ labels }}',
+etag = '{{ etag }}'
 WHERE 
-datasetsId = '{{ datasetsId }}';
+datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example
@@ -190,5 +195,7 @@ Deletes the specified <code>datasets</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM google.aiplatform.datasets
-WHERE datasetsId = '{{ datasetsId }}';
+WHERE datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

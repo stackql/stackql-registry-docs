@@ -82,9 +82,9 @@ processesId,
 projectsId,
 runsId,
 startTime,
-links,
 name,
-endTime
+endTime,
+links
 )
 SELECT 
 '{{ locationsId }}',
@@ -92,9 +92,9 @@ SELECT
 '{{ projectsId }}',
 '{{ runsId }}',
 '{{ startTime }}',
-'{{ links }}',
 '{{ name }}',
-'{{ endTime }}'
+'{{ endTime }}',
+'{{ links }}'
 ;
 ```
 </TabItem>
@@ -102,11 +102,11 @@ SELECT
 
 ```yaml
 startTime: string
-links:
-  - source:
-      fullyQualifiedName: string
 name: string
 endTime: string
+links:
+  - target:
+      fullyQualifiedName: string
 
 ```
 </TabItem>

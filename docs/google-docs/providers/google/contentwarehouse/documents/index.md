@@ -98,7 +98,449 @@ WHERE documentsId = '{{ documentsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>documents</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.contentwarehouse.documents (
+locationsId,
+projectsId,
+cloudAiDocumentOption,
+requestMetadata,
+policy,
+createMask,
+document
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ cloudAiDocumentOption }}',
+'{{ requestMetadata }}',
+'{{ policy }}',
+'{{ createMask }}',
+'{{ document }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+cloudAiDocumentOption:
+  customizedEntitiesPropertiesConversions: object
+  enableEntitiesConversions: boolean
+requestMetadata:
+  userInfo:
+    groupIds:
+      - type: string
+    id: string
+policy:
+  etag: string
+  bindings:
+    - members:
+        - type: string
+      role: string
+      condition:
+        location: string
+        expression: string
+        title: string
+        description: string
+  auditConfigs:
+    - service: string
+      auditLogConfigs:
+        - exemptedMembers:
+            - type: string
+          logType: string
+  version: integer
+createMask: string
+document:
+  referenceId: string
+  title: string
+  updater: string
+  creator: string
+  rawDocumentFileType: string
+  inlineRawDocument: string
+  legalHold: boolean
+  createTime: string
+  contentCategory: string
+  cloudAiDocument:
+    revisions:
+      - parent:
+          - format: string
+            type: string
+        humanReview:
+          state: string
+          stateMessage: string
+        id: string
+        createTime: string
+        processor: string
+        parentIds:
+          - type: string
+        agent: string
+    pages:
+      - imageQualityScores:
+          detectedDefects:
+            - type: string
+              confidence: number
+          qualityScore: number
+        tables:
+          - layout:
+              boundingPoly:
+                normalizedVertices:
+                  - 'y': number
+                    x: number
+                vertices:
+                  - 'y': integer
+                    x: integer
+              orientation: string
+              textAnchor:
+                textSegments:
+                  - startIndex: string
+                    endIndex: string
+                content: string
+              confidence: number
+            detectedLanguages:
+              - languageCode: string
+                confidence: number
+            headerRows:
+              - cells:
+                  - colSpan: integer
+                    detectedLanguages:
+                      - languageCode: string
+                        confidence: number
+                    rowSpan: integer
+            bodyRows:
+              - cells:
+                  - colSpan: integer
+                    detectedLanguages:
+                      - languageCode: string
+                        confidence: number
+                    rowSpan: integer
+            provenance:
+              id: integer
+              revision: integer
+              parents:
+                - revision: integer
+                  id: integer
+                  index: integer
+              type: string
+        image:
+          content: string
+          width: integer
+          mimeType: string
+          height: integer
+        formFields:
+          - correctedKeyText: string
+            valueDetectedLanguages:
+              - languageCode: string
+                confidence: number
+            valueType: string
+            nameDetectedLanguages:
+              - languageCode: string
+                confidence: number
+            correctedValueText: string
+        pageNumber: integer
+        detectedBarcodes:
+          - barcode:
+              rawValue: string
+              format: string
+              valueFormat: string
+        tokens:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+            detectedBreak:
+              type: string
+            styleInfo:
+              textColor:
+                green: number
+                red: number
+                alpha: number
+                blue: number
+              strikeout: boolean
+              fontSize: integer
+              underlined: boolean
+              handwritten: boolean
+              letterSpacing: number
+              bold: boolean
+              fontType: string
+              fontWeight: integer
+              smallcaps: boolean
+              subscript: boolean
+              pixelFontSize: number
+              italic: boolean
+              superscript: boolean
+        detectedLanguages:
+          - languageCode: string
+            confidence: number
+        symbols:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+        lines:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+        transforms:
+          - type: integer
+            data: string
+            rows: integer
+            cols: integer
+        visualElements:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+            type: string
+        paragraphs:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+        dimension:
+          unit: string
+          height: number
+          width: number
+        blocks:
+          - detectedLanguages:
+              - languageCode: string
+                confidence: number
+    entityRelations:
+      - objectId: string
+        relation: string
+        subjectId: string
+    content: string
+    shardInfo:
+      shardIndex: string
+      shardCount: string
+      textOffset: string
+    chunkedDocument:
+      chunks:
+        - sourceBlockIds:
+            - type: string
+          pageFooters:
+            - pageSpan:
+                pageEnd: integer
+                pageStart: integer
+              text: string
+          content: string
+          chunkId: string
+          pageHeaders:
+            - text: string
+    entities:
+      - type: string
+        normalizedValue:
+          datetimeValue:
+            day: integer
+            hours: integer
+            month: integer
+            timeZone:
+              version: string
+              id: string
+            year: integer
+            utcOffset: string
+            minutes: integer
+            nanos: integer
+            seconds: integer
+          text: string
+          moneyValue:
+            nanos: integer
+            currencyCode: string
+            units: string
+          booleanValue: boolean
+          dateValue:
+            year: integer
+            day: integer
+            month: integer
+          integerValue: integer
+          floatValue: number
+          addressValue:
+            revision: integer
+            regionCode: string
+            administrativeArea: string
+            organization: string
+            locality: string
+            sortingCode: string
+            sublocality: string
+            addressLines:
+              - type: string
+            recipients:
+              - type: string
+            languageCode: string
+            postalCode: string
+        properties:
+          - type: string
+            properties:
+              - type: string
+                properties:
+                  - type: string
+                    properties:
+                      - type: string
+                        properties:
+                          - type: string
+                            properties:
+                              - type: string
+                                properties:
+                                  - type: string
+                                    properties:
+                                      - {}
+                                    id: string
+                                    confidence: number
+                                    redacted: boolean
+                                    mentionText: string
+                                    mentionId: string
+                                    pageAnchor: {}
+                                id: string
+                                confidence: number
+                                redacted: boolean
+                                mentionText: string
+                                mentionId: string
+                            id: string
+                            confidence: number
+                            redacted: boolean
+                            mentionText: string
+                            mentionId: string
+                        id: string
+                        confidence: number
+                        redacted: boolean
+                        mentionText: string
+                        mentionId: string
+                    id: string
+                    confidence: number
+                    redacted: boolean
+                    mentionText: string
+                    mentionId: string
+                id: string
+                confidence: number
+                redacted: boolean
+                mentionText: string
+                mentionId: string
+            id: string
+            confidence: number
+            redacted: boolean
+            mentionText: string
+            mentionId: string
+        id: string
+        confidence: number
+        redacted: boolean
+        mentionText: string
+        mentionId: string
+    text: string
+    textStyles:
+      - fontWeight: string
+        textStyle: string
+        fontSize:
+          unit: string
+          size: number
+        textDecoration: string
+        fontFamily: string
+    mimeType: string
+    documentLayout:
+      blocks:
+        - pageSpan:
+            pageStart: integer
+            pageEnd: integer
+          tableBlock:
+            bodyRows:
+              - cells:
+                  - colSpan: integer
+                    rowSpan: integer
+                    blocks:
+                      - listBlock:
+                          listEntries:
+                            - blocks:
+                                - {}
+                          type: string
+                        blockId: string
+                        textBlock:
+                          text: string
+                          type: string
+                          blocks:
+                            - blockId: string
+            headerRows:
+              - cells:
+                  - colSpan: integer
+                    rowSpan: integer
+                    blocks:
+                      - blockId: string
+            caption: string
+          blockId: string
+    uri: string
+    textChanges:
+      - changedText: string
+        provenance:
+          - id: integer
+            revision: integer
+            parents:
+              - revision: integer
+                id: integer
+                index: integer
+            type: string
+    error:
+      details:
+        - additionalProperties: any
+          type: string
+      message: string
+      code: integer
+  displayName: string
+  name: string
+  textExtractionDisabled: boolean
+  properties:
+    - textValues:
+        values:
+          - type: string
+      enumValues:
+        values:
+          - type: string
+      propertyValues:
+        properties:
+          - timestampValues:
+              values:
+                - textValue: string
+                  timestampValue: string
+            floatValues:
+              values:
+                - format: string
+                  type: string
+            mapProperty:
+              fields: object
+            integerValues:
+              values:
+                - format: string
+                  type: string
+            dateTimeValues:
+              values:
+                - day: integer
+                  hours: integer
+                  month: integer
+                  year: integer
+                  utcOffset: string
+                  minutes: integer
+                  nanos: integer
+                  seconds: integer
+            name: string
+      name: string
+  textExtractionEnabled: boolean
+  plainText: string
+  updateTime: string
+  rawDocumentPath: string
+  displayUri: string
+  dispositionTime: string
+  documentSchemaName: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>documents</code> resource.
@@ -107,10 +549,10 @@ Updates a <code>documents</code> resource.
 /*+ update */
 UPDATE google.contentwarehouse.documents
 SET 
-updateOptions = '{{ updateOptions }}',
 cloudAiDocumentOption = '{{ cloudAiDocumentOption }}',
 requestMetadata = '{{ requestMetadata }}',
-document = '{{ document }}'
+document = '{{ document }}',
+updateOptions = '{{ updateOptions }}'
 WHERE 
 documentsId = '{{ documentsId }}'
 AND locationsId = '{{ locationsId }}'

@@ -112,105 +112,105 @@ Use the following StackQL query and manifest file to create a new <code>devices<
 /*+ create */
 INSERT INTO google.sasportal.devices (
 nodesId,
+grants,
 displayName,
 preloadedConfig,
-serialNumber,
-activeConfig,
-grants,
-grantRangeAllowlists,
-deviceMetadata,
 fccId,
-state,
-name
+deviceMetadata,
+activeConfig,
+name,
+grantRangeAllowlists,
+serialNumber,
+state
 )
 SELECT 
 '{{ nodesId }}',
+'{{ grants }}',
 '{{ displayName }}',
 '{{ preloadedConfig }}',
-'{{ serialNumber }}',
-'{{ activeConfig }}',
-'{{ grants }}',
-'{{ grantRangeAllowlists }}',
-'{{ deviceMetadata }}',
 '{{ fccId }}',
-'{{ state }}',
-'{{ name }}'
+'{{ deviceMetadata }}',
+'{{ activeConfig }}',
+'{{ name }}',
+'{{ grantRangeAllowlists }}',
+'{{ serialNumber }}',
+'{{ state }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-preloadedConfig:
-  installationParams:
-    antennaDowntilt: integer
-    verticalAccuracy: number
-    heightType: string
-    antennaGain: number
-    antennaModel: string
-    longitude: number
-    indoorDeployment: boolean
-    eirpCapability: integer
-    height: number
-    horizontalAccuracy: number
-    antennaAzimuth: integer
-    antennaBeamwidth: integer
-    cpeCbsdIndication: boolean
-    latitude: number
-  userId: string
-  airInterface:
-    radioTechnology: string
-    supportedSpec: string
-  category: string
-  measurementCapabilities:
-    - type: string
-      enum: string
-      enumDescriptions: string
-  isSigned: boolean
-  state: string
-  callSign: string
-  model:
-    hardwareVersion: string
-    vendor: string
-    firmwareVersion: string
-    name: string
-    softwareVersion: string
-  updateTime: string
-serialNumber: string
 grants:
-  - channelType: string
-    expireTime: string
+  - grantId: string
     frequencyRange:
       lowFrequencyMhz: number
       highFrequencyMhz: number
     state: string
-    moveList:
-      - dpaId: string
-    lastHeartbeatTransmitExpireTime: string
+    channelType: string
     maxEirp: number
-    grantId: string
     suspensionReason:
       - type: string
-grantRangeAllowlists:
-  - lowFrequencyMhz: number
-    highFrequencyMhz: number
+    moveList:
+      - dpaId: string
+    expireTime: string
+    lastHeartbeatTransmitExpireTime: string
+displayName: string
+currentChannels:
+  - score: number
+preloadedConfig:
+  updateTime: string
+  model:
+    firmwareVersion: string
+    hardwareVersion: string
+    name: string
+    softwareVersion: string
+    vendor: string
+  callSign: string
+  measurementCapabilities:
+    - enum: string
+      type: string
+      enumDescriptions: string
+  state: string
+  airInterface:
+    radioTechnology: string
+    supportedSpec: string
+  installationParams:
+    verticalAccuracy: number
+    horizontalAccuracy: number
+    heightType: string
+    latitude: number
+    antennaGain: number
+    longitude: number
+    cpeCbsdIndication: boolean
+    eirpCapability: integer
+    antennaBeamwidth: integer
+    antennaDowntilt: integer
+    height: number
+    antennaAzimuth: integer
+    antennaModel: string
+    indoorDeployment: boolean
+  userId: string
+  isSigned: boolean
+  category: string
+fccId: string
 deviceMetadata:
+  nrqzValidation:
+    cpiId: string
+    state: string
+    longitude: number
+    latitude: number
+    caseId: string
+  antennaModel: string
   nrqzValidated: boolean
   commonChannelGroup: string
   interferenceCoordinationGroup: string
-  nrqzValidation:
-    longitude: number
-    state: string
-    cpiId: string
-    caseId: string
-    latitude: number
-  antennaModel: string
-currentChannels:
-  - score: number
-fccId: string
-state: string
 name: string
+grantRangeAllowlists:
+  - lowFrequencyMhz: number
+    highFrequencyMhz: number
+serialNumber: string
+state: string
 
 ```
 </TabItem>
@@ -224,16 +224,16 @@ Updates a <code>devices</code> resource.
 /*+ update */
 UPDATE google.sasportal.devices
 SET 
+grants = '{{ grants }}',
 displayName = '{{ displayName }}',
 preloadedConfig = '{{ preloadedConfig }}',
-serialNumber = '{{ serialNumber }}',
-activeConfig = '{{ activeConfig }}',
-grants = '{{ grants }}',
-grantRangeAllowlists = '{{ grantRangeAllowlists }}',
-deviceMetadata = '{{ deviceMetadata }}',
 fccId = '{{ fccId }}',
-state = '{{ state }}',
-name = '{{ name }}'
+deviceMetadata = '{{ deviceMetadata }}',
+activeConfig = '{{ activeConfig }}',
+name = '{{ name }}',
+grantRangeAllowlists = '{{ grantRangeAllowlists }}',
+serialNumber = '{{ serialNumber }}',
+state = '{{ state }}'
 WHERE 
 devicesId = '{{ devicesId }}'
 AND nodesId = '{{ nodesId }}';

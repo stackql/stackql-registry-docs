@@ -107,29 +107,29 @@ SELECT
 storedInfoTypeId: string
 locationId: string
 config:
+  regex:
+    groupIndexes:
+      - format: string
+        type: string
+    pattern: string
   dictionary:
-    cloudStoragePath:
-      path: string
     wordList:
       words:
         - type: string
+    cloudStoragePath:
+      path: string
   description: string
-  regex:
-    pattern: string
-    groupIndexes:
-      - type: string
-        format: string
-  displayName: string
   largeCustomDictionary:
     cloudStorageFileSet:
       url: string
     bigQueryField:
-      field:
-        name: string
       table:
-        tableId: string
         projectId: string
         datasetId: string
+        tableId: string
+      field:
+        name: string
+  displayName: string
 
 ```
 </TabItem>
@@ -143,8 +143,8 @@ Updates a <code>stored_info_types</code> resource.
 /*+ update */
 UPDATE google.dlp.stored_info_types
 SET 
-updateMask = '{{ updateMask }}',
-config = '{{ config }}'
+config = '{{ config }}',
+updateMask = '{{ updateMask }}'
 WHERE 
 projectsId = '{{ projectsId }}'
 AND storedInfoTypesId = '{{ storedInfoTypesId }}';

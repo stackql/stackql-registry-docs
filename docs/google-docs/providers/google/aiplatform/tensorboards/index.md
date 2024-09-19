@@ -99,42 +99,42 @@ Use the following StackQL query and manifest file to create a new <code>tensorbo
 INSERT INTO google.aiplatform.tensorboards (
 locationsId,
 projectsId,
+etag,
+displayName,
+labels,
 description,
 isDefault,
-displayName,
-encryptionSpec,
-etag,
-labels
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
+'{{ etag }}',
+'{{ displayName }}',
+'{{ labels }}',
 '{{ description }}',
 true|false,
-'{{ displayName }}',
-'{{ encryptionSpec }}',
-'{{ etag }}',
-'{{ labels }}'
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+blobStoragePathPrefix: string
 runCount: integer
 satisfiesPzi: boolean
-createTime: string
-description: string
-isDefault: boolean
 name: string
-displayName: string
-encryptionSpec:
-  kmsKeyName: string
-blobStoragePathPrefix: string
 etag: string
 updateTime: string
 satisfiesPzs: boolean
+displayName: string
 labels: object
+description: string
+createTime: string
+isDefault: boolean
+encryptionSpec:
+  kmsKeyName: string
 
 ```
 </TabItem>
@@ -148,12 +148,12 @@ Updates a <code>tensorboards</code> resource.
 /*+ update */
 UPDATE google.aiplatform.tensorboards
 SET 
+etag = '{{ etag }}',
+displayName = '{{ displayName }}',
+labels = '{{ labels }}',
 description = '{{ description }}',
 isDefault = true|false,
-displayName = '{{ displayName }}',
-encryptionSpec = '{{ encryptionSpec }}',
-etag = '{{ etag }}',
-labels = '{{ labels }}'
+encryptionSpec = '{{ encryptionSpec }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

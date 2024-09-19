@@ -98,26 +98,26 @@ INSERT INTO google.aiplatform.feature_views (
 featureOnlineStoresId,
 locationsId,
 projectsId,
-etag,
-labels,
 bigQuerySource,
-name,
-featureRegistrySource,
 indexConfig,
+name,
+etag,
 vertexRagSource,
+labels,
+featureRegistrySource,
 syncConfig
 )
 SELECT 
 '{{ featureOnlineStoresId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ etag }}',
-'{{ labels }}',
 '{{ bigQuerySource }}',
-'{{ name }}',
-'{{ featureRegistrySource }}',
 '{{ indexConfig }}',
+'{{ name }}',
+'{{ etag }}',
 '{{ vertexRagSource }}',
+'{{ labels }}',
+'{{ featureRegistrySource }}',
 '{{ syncConfig }}'
 ;
 ```
@@ -125,38 +125,38 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-satisfiesPzs: boolean
-createTime: string
-etag: string
-satisfiesPzi: boolean
-labels: object
 bigQuerySource:
   entityIdColumns:
     - type: string
   uri: string
+indexConfig:
+  treeAhConfig:
+    leafNodeEmbeddingCount: string
+  crowdingColumn: string
+  bruteForceConfig: {}
+  distanceMeasureType: string
+  embeddingDimension: integer
+  embeddingColumn: string
+  filterColumns:
+    - type: string
 name: string
+etag: string
+satisfiesPzi: boolean
+vertexRagSource:
+  uri: string
+  ragCorpusId: string
+labels: object
 updateTime: string
+satisfiesPzs: boolean
 featureRegistrySource:
+  projectNumber: string
   featureGroups:
     - featureIds:
         - type: string
       featureGroupId: string
-  projectNumber: string
-indexConfig:
-  bruteForceConfig: {}
-  embeddingDimension: integer
-  distanceMeasureType: string
-  crowdingColumn: string
-  filterColumns:
-    - type: string
-  treeAhConfig:
-    leafNodeEmbeddingCount: string
-  embeddingColumn: string
-vertexRagSource:
-  uri: string
-  ragCorpusId: string
 syncConfig:
   cron: string
+createTime: string
 
 ```
 </TabItem>
@@ -170,13 +170,13 @@ Updates a <code>feature_views</code> resource.
 /*+ update */
 UPDATE google.aiplatform.feature_views
 SET 
-etag = '{{ etag }}',
-labels = '{{ labels }}',
 bigQuerySource = '{{ bigQuerySource }}',
-name = '{{ name }}',
-featureRegistrySource = '{{ featureRegistrySource }}',
 indexConfig = '{{ indexConfig }}',
+name = '{{ name }}',
+etag = '{{ etag }}',
 vertexRagSource = '{{ vertexRagSource }}',
+labels = '{{ labels }}',
+featureRegistrySource = '{{ featureRegistrySource }}',
 syncConfig = '{{ syncConfig }}'
 WHERE 
 featureOnlineStoresId = '{{ featureOnlineStoresId }}'

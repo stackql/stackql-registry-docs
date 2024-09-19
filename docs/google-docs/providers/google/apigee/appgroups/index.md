@@ -88,41 +88,41 @@ Use the following StackQL query and manifest file to create a new <code>appgroup
 /*+ create */
 INSERT INTO google.apigee.appgroups (
 organizationsId,
-organization,
-channelId,
-status,
-attributes,
 name,
+displayName,
+status,
 channelUri,
-displayName
+channelId,
+organization,
+attributes
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ organization }}',
-'{{ channelId }}',
-'{{ status }}',
-'{{ attributes }}',
 '{{ name }}',
+'{{ displayName }}',
+'{{ status }}',
 '{{ channelUri }}',
-'{{ displayName }}'
+'{{ channelId }}',
+'{{ organization }}',
+'{{ attributes }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-appGroupId: string
-organization: string
-channelId: string
-status: string
-attributes:
-  - value: string
-    name: string
 name: string
-channelUri: string
-lastModifiedAt: string
 displayName: string
+status: string
+appGroupId: string
 createdAt: string
+lastModifiedAt: string
+channelUri: string
+channelId: string
+organization: string
+attributes:
+  - name: string
+    value: string
 
 ```
 </TabItem>
@@ -136,13 +136,13 @@ Replaces all fields in the specified <code>appgroups</code> resource.
 /*+ update */
 REPLACE google.apigee.appgroups
 SET 
-organization = '{{ organization }}',
-channelId = '{{ channelId }}',
-status = '{{ status }}',
-attributes = '{{ attributes }}',
 name = '{{ name }}',
+displayName = '{{ displayName }}',
+status = '{{ status }}',
 channelUri = '{{ channelUri }}',
-displayName = '{{ displayName }}'
+channelId = '{{ channelId }}',
+organization = '{{ organization }}',
+attributes = '{{ attributes }}'
 WHERE 
 appgroupsId = '{{ appgroupsId }}'
 AND organizationsId = '{{ organizationsId }}';

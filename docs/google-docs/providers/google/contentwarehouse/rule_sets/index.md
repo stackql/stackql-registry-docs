@@ -78,40 +78,50 @@ Use the following StackQL query and manifest file to create a new <code>rule_set
 INSERT INTO google.contentwarehouse.rule_sets (
 locationsId,
 projectsId,
-rules,
+source,
 description,
 name,
-source
+rules
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ rules }}',
+'{{ source }}',
 '{{ description }}',
 '{{ name }}',
-'{{ source }}'
+'{{ rules }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+source: string
+description: string
+name: string
 rules:
-  - triggerType: string
+  - description: string
+    ruleId: string
+    triggerType: string
+    condition: string
     actions:
-      - dataValidation:
-          conditions: object
-        actionId: string
-        dataUpdate:
-          entries: object
-        removeFromFolderAction:
-          condition: string
-          folder: string
-        deleteDocumentAction:
-          enableHardDelete: boolean
+      - actionId: string
+        publishToPubSub:
+          messages:
+            - type: string
+          topicId: string
         accessControl:
           policy:
             etag: string
+            bindings:
+              - members:
+                  - type: string
+                role: string
+                condition:
+                  location: string
+                  expression: string
+                  title: string
+                  description: string
             auditConfigs:
               - service: string
                 auditLogConfigs:
@@ -119,29 +129,19 @@ rules:
                       - type: string
                     logType: string
             version: integer
-            bindings:
-              - members:
-                  - type: string
-                role: string
-                condition:
-                  title: string
-                  expression: string
-                  description: string
-                  location: string
           operationType: string
+        deleteDocumentAction:
+          enableHardDelete: boolean
+        removeFromFolderAction:
+          condition: string
+          folder: string
+        dataValidation:
+          conditions: object
+        dataUpdate:
+          entries: object
         addToFolder:
           folders:
             - type: string
-        publishToPubSub:
-          messages:
-            - type: string
-          topicId: string
-    description: string
-    condition: string
-    ruleId: string
-description: string
-name: string
-source: string
 
 ```
 </TabItem>

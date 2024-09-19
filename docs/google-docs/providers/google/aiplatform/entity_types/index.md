@@ -97,48 +97,48 @@ INSERT INTO google.aiplatform.entity_types (
 featurestoresId,
 locationsId,
 projectsId,
-etag,
 name,
+etag,
 offlineStorageTtlDays,
+labels,
 description,
-monitoringConfig,
-labels
+monitoringConfig
 )
 SELECT 
 '{{ featurestoresId }}',
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ etag }}',
 '{{ name }}',
+'{{ etag }}',
 '{{ offlineStorageTtlDays }}',
+'{{ labels }}',
 '{{ description }}',
-'{{ monitoringConfig }}',
-'{{ labels }}'
+'{{ monitoringConfig }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-etag: string
-createTime: string
 name: string
-satisfiesPzi: boolean
 updateTime: string
+etag: string
 offlineStorageTtlDays: integer
-description: string
+labels: object
 satisfiesPzs: boolean
+createTime: string
+satisfiesPzi: boolean
+description: string
 monitoringConfig:
+  numericalThresholdConfig:
+    value: number
   snapshotAnalysis:
-    stalenessDays: integer
     disabled: boolean
     monitoringIntervalDays: integer
-  categoricalThresholdConfig:
-    value: number
+    stalenessDays: integer
   importFeaturesAnalysis:
     anomalyDetectionBaseline: string
     state: string
-labels: object
 
 ```
 </TabItem>
@@ -152,12 +152,12 @@ Updates a <code>entity_types</code> resource.
 /*+ update */
 UPDATE google.aiplatform.entity_types
 SET 
-etag = '{{ etag }}',
 name = '{{ name }}',
+etag = '{{ etag }}',
 offlineStorageTtlDays = '{{ offlineStorageTtlDays }}',
+labels = '{{ labels }}',
 description = '{{ description }}',
-monitoringConfig = '{{ monitoringConfig }}',
-labels = '{{ labels }}'
+monitoringConfig = '{{ monitoringConfig }}'
 WHERE 
 entityTypesId = '{{ entityTypesId }}'
 AND featurestoresId = '{{ featurestoresId }}'

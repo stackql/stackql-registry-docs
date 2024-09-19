@@ -1,9 +1,9 @@
 ---
-title: keys
+title: workforce_pool_provider_keys
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - keys
+  - workforce_pool_provider_keys
   - iam
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>keys</code> resource.
+Creates, updates, deletes, gets or lists a <code>workforce_pool_provider_keys</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>keys</code></td></tr>
+<tr><td><b>Name</b></td><td><code>workforce_pool_provider_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.keys" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.workforce_pool_provider_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -44,10 +44,7 @@ Creates, updates, deletes, gets or lists a <code>keys</code> resource.
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, providersId, workforcePoolsId" /> | Lists all non-deleted WorkforcePoolProviderKeys in a WorkforcePoolProvider. If `show_deleted` is set to `true`, then deleted keys are also listed. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="locationsId, providersId, workforcePoolsId" /> | Creates a new WorkforcePoolProviderKey in a WorkforcePoolProvider. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="keysId, locationsId, providersId, workforcePoolsId" /> | Deletes a WorkforcePoolProviderKey. You can undelete a key for 30 days. After 30 days, deletion is permanent. |
-| <CopyableCode code="disable" /> | `EXEC` | <CopyableCode code="keysId, projectsId, serviceAccountsId" /> | Disable a ServiceAccountKey. A disabled service account key can be re-enabled with EnableServiceAccountKey. |
-| <CopyableCode code="enable" /> | `EXEC` | <CopyableCode code="keysId, projectsId, serviceAccountsId" /> | Enable a ServiceAccountKey. |
 | <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="keysId, locationsId, providersId, workforcePoolsId" /> | Undeletes a WorkforcePoolProviderKey, as long as it was deleted fewer than 30 days ago. |
-| <CopyableCode code="upload" /> | `EXEC` | <CopyableCode code="projectsId, serviceAccountsId" /> | Uploads the public key portion of a key pair that you manage, and associates the public key with a ServiceAccount. After you upload the public key, you can use the private key from the key pair as a service account key. |
 
 ## `SELECT` examples
 
@@ -60,7 +57,7 @@ expireTime,
 keyData,
 state,
 use
-FROM google.iam.keys
+FROM google.iam.workforce_pool_provider_keys
 WHERE locationsId = '{{ locationsId }}'
 AND providersId = '{{ providersId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}'; 
@@ -68,7 +65,7 @@ AND workforcePoolsId = '{{ workforcePoolsId }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>keys</code> resource.
+Use the following StackQL query and manifest file to create a new <code>workforce_pool_provider_keys</code> resource.
 
 <Tabs
     defaultValue="all"
@@ -81,7 +78,7 @@ Use the following StackQL query and manifest file to create a new <code>keys</co
 
 ```sql
 /*+ create */
-INSERT INTO google.iam.keys (
+INSERT INTO google.iam.workforce_pool_provider_keys (
 locationsId,
 providersId,
 workforcePoolsId,
@@ -117,11 +114,11 @@ expireTime: string
 
 ## `DELETE` example
 
-Deletes the specified <code>keys</code> resource.
+Deletes the specified <code>workforce_pool_provider_keys</code> resource.
 
 ```sql
 /*+ delete */
-DELETE FROM google.iam.keys
+DELETE FROM google.iam.workforce_pool_provider_keys
 WHERE keysId = '{{ keysId }}'
 AND locationsId = '{{ locationsId }}'
 AND providersId = '{{ providersId }}'

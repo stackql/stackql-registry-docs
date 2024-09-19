@@ -92,49 +92,49 @@ Use the following StackQL query and manifest file to create a new <code>keys</co
 INSERT INTO google.apikeys.keys (
 locationsId,
 projectsId,
-annotations,
 restrictions,
-displayName
+displayName,
+annotations
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ annotations }}',
 '{{ restrictions }}',
-'{{ displayName }}'
+'{{ displayName }}',
+'{{ annotations }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-etag: string
-createTime: string
-annotations: object
-uid: string
-keyString: string
 restrictions:
   serverKeyRestrictions:
     allowedIps:
       - type: string
-  apiTargets:
-    - service: string
-      methods:
-        - type: string
-  iosKeyRestrictions:
-    allowedBundleIds:
-      - type: string
-  androidKeyRestrictions:
-    allowedApplications:
-      - packageName: string
-        sha1Fingerprint: string
   browserKeyRestrictions:
     allowedReferrers:
       - type: string
+  androidKeyRestrictions:
+    allowedApplications:
+      - sha1Fingerprint: string
+        packageName: string
+  iosKeyRestrictions:
+    allowedBundleIds:
+      - type: string
+  apiTargets:
+    - methods:
+        - type: string
+      service: string
+deleteTime: string
+createTime: string
 displayName: string
 updateTime: string
-deleteTime: string
+annotations: object
+name: string
+uid: string
+keyString: string
+etag: string
 
 ```
 </TabItem>
@@ -148,9 +148,9 @@ Updates a <code>keys</code> resource.
 /*+ update */
 UPDATE google.apikeys.keys
 SET 
-annotations = '{{ annotations }}',
 restrictions = '{{ restrictions }}',
-displayName = '{{ displayName }}'
+displayName = '{{ displayName }}',
+annotations = '{{ annotations }}'
 WHERE 
 keysId = '{{ keysId }}'
 AND locationsId = '{{ locationsId }}'

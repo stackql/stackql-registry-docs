@@ -93,11 +93,11 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-type: string
 createdAt: string
+type: string
 description: string
-name: string
 lastModifiedAt: string
+name: string
 
 ```
 </TabItem>

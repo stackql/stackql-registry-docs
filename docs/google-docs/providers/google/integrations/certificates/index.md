@@ -93,40 +93,40 @@ Use the following StackQL query and manifest file to create a new <code>certific
 INSERT INTO google.integrations.certificates (
 locationsId,
 projectsId,
-requestorId,
-certificateStatus,
 credentialId,
 rawCertificate,
 description,
-displayName
+requestorId,
+displayName,
+certificateStatus
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ requestorId }}',
-'{{ certificateStatus }}',
 '{{ credentialId }}',
 '{{ rawCertificate }}',
 '{{ description }}',
-'{{ displayName }}'
+'{{ requestorId }}',
+'{{ displayName }}',
+'{{ certificateStatus }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-validEndTime: string
-requestorId: string
-certificateStatus: string
 credentialId: string
 rawCertificate:
   passphrase: string
-  sslCertificate: string
   encryptedPrivateKey: string
+  sslCertificate: string
+validEndTime: string
 validStartTime: string
 description: string
+requestorId: string
 displayName: string
+name: string
+certificateStatus: string
 
 ```
 </TabItem>
@@ -140,12 +140,12 @@ Updates a <code>certificates</code> resource.
 /*+ update */
 UPDATE google.integrations.certificates
 SET 
-requestorId = '{{ requestorId }}',
-certificateStatus = '{{ certificateStatus }}',
 credentialId = '{{ credentialId }}',
 rawCertificate = '{{ rawCertificate }}',
 description = '{{ description }}',
-displayName = '{{ displayName }}'
+requestorId = '{{ requestorId }}',
+displayName = '{{ displayName }}',
+certificateStatus = '{{ certificateStatus }}'
 WHERE 
 certificatesId = '{{ certificatesId }}'
 AND locationsId = '{{ locationsId }}'

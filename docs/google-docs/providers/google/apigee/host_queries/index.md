@@ -92,54 +92,54 @@ Use the following StackQL query and manifest file to create a new <code>host_que
 /*+ create */
 INSERT INTO google.apigee.host_queries (
 organizationsId,
-dimensions,
+name,
+metrics,
+filter,
+envgroupHostname,
+timeRange,
 limit,
 csvDelimiter,
-envgroupHostname,
-filter,
+reportDefinitionId,
+dimensions,
 outputFormat,
-name,
-timeRange,
-metrics,
-groupByTimeUnit,
-reportDefinitionId
+groupByTimeUnit
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ dimensions }}',
+'{{ name }}',
+'{{ metrics }}',
+'{{ filter }}',
+'{{ envgroupHostname }}',
+'{{ timeRange }}',
 '{{ limit }}',
 '{{ csvDelimiter }}',
-'{{ envgroupHostname }}',
-'{{ filter }}',
+'{{ reportDefinitionId }}',
+'{{ dimensions }}',
 '{{ outputFormat }}',
-'{{ name }}',
-'{{ timeRange }}',
-'{{ metrics }}',
-'{{ groupByTimeUnit }}',
-'{{ reportDefinitionId }}'
+'{{ groupByTimeUnit }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-dimensions:
-  - type: string
-limit: integer
-csvDelimiter: string
-envgroupHostname: string
-filter: string
-outputFormat: string
 name: string
-timeRange: any
 metrics:
-  - name: string
-    function: string
-    alias: string
+  - function: string
+    name: string
     value: string
     operator: string
-groupByTimeUnit: string
+    alias: string
+filter: string
+envgroupHostname: string
+timeRange: any
+limit: integer
+csvDelimiter: string
 reportDefinitionId: string
+dimensions:
+  - type: string
+outputFormat: string
+groupByTimeUnit: string
 
 ```
 </TabItem>

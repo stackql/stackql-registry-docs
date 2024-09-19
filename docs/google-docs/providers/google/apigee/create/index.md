@@ -57,28 +57,28 @@ appsId,
 developersId,
 organizationsId,
 consumerKey,
-expiresInSeconds,
-consumerSecret,
-attributes,
 apiProducts,
-status,
+consumerSecret,
 issuedAt,
 scopes,
-expiresAt
+status,
+expiresAt,
+attributes,
+expiresInSeconds
 )
 SELECT 
 '{{ appsId }}',
 '{{ developersId }}',
 '{{ organizationsId }}',
 '{{ consumerKey }}',
-'{{ expiresInSeconds }}',
-'{{ consumerSecret }}',
-'{{ attributes }}',
 '{{ apiProducts }}',
-'{{ status }}',
+'{{ consumerSecret }}',
 '{{ issuedAt }}',
 '{{ scopes }}',
-'{{ expiresAt }}'
+'{{ status }}',
+'{{ expiresAt }}',
+'{{ attributes }}',
+'{{ expiresInSeconds }}'
 ;
 ```
 </TabItem>
@@ -86,18 +86,18 @@ SELECT
 
 ```yaml
 consumerKey: string
-expiresInSeconds: string
-consumerSecret: string
-attributes:
-  - value: string
-    name: string
 apiProducts:
   - type: string
-status: string
+consumerSecret: string
 issuedAt: string
 scopes:
   - type: string
+status: string
 expiresAt: string
+attributes:
+  - name: string
+    value: string
+expiresInSeconds: string
 
 ```
 </TabItem>

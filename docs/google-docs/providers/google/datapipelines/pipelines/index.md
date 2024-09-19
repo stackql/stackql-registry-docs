@@ -94,103 +94,103 @@ Use the following StackQL query and manifest file to create a new <code>pipeline
 INSERT INTO google.datapipelines.pipelines (
 locationsId,
 projectsId,
-pipelineSources,
 displayName,
-workload,
+name,
 type,
+pipelineSources,
 scheduleInfo,
-schedulerServiceAccountEmail,
+workload,
 state,
-name
+schedulerServiceAccountEmail
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ pipelineSources }}',
 '{{ displayName }}',
-'{{ workload }}',
+'{{ name }}',
 '{{ type }}',
+'{{ pipelineSources }}',
 '{{ scheduleInfo }}',
-'{{ schedulerServiceAccountEmail }}',
+'{{ workload }}',
 '{{ state }}',
-'{{ name }}'
+'{{ schedulerServiceAccountEmail }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-pipelineSources: object
-createTime: string
 displayName: string
-lastUpdateTime: string
+name: string
 jobCount: integer
+type: string
+pipelineSources: object
+scheduleInfo:
+  timeZone: string
+  schedule: string
+  nextJobTime: string
 workload:
-  dataflowFlexTemplateRequest:
-    projectId: string
-    location: string
-    launchParameter:
-      transformNameMappings: object
-      environment:
-        kmsKeyName: string
-        network: string
-        machineType: string
-        ipConfiguration: string
-        subnetwork: string
-        tempLocation: string
-        numWorkers: integer
-        workerZone: string
-        additionalUserLabels: object
-        flexrsGoal: string
-        additionalExperiments:
-          - type: string
-        serviceAccountEmail: string
-        maxWorkers: integer
-        workerRegion: string
-        enableStreamingEngine: boolean
-        zone: string
-      parameters: object
-      jobName: string
-      launchOptions: object
-      update: boolean
-      containerSpecGcsPath: string
-    validateOnly: boolean
   dataflowLaunchTemplateRequest:
     gcsPath: string
     validateOnly: boolean
-    location: string
     projectId: string
+    location: string
     launchParameters:
-      parameters: object
       update: boolean
       environment:
+        workerZone: string
+        maxWorkers: integer
+        enableStreamingEngine: boolean
+        machineType: string
+        additionalExperiments:
+          - type: string
+        zone: string
+        bypassTempDirValidation: boolean
+        kmsKeyName: string
+        additionalUserLabels: object
+        ipConfiguration: string
+        tempLocation: string
         numWorkers: integer
         serviceAccountEmail: string
-        kmsKeyName: string
+        network: string
         subnetwork: string
+        workerRegion: string
+      parameters: object
+      jobName: string
+      transformNameMapping: object
+  dataflowFlexTemplateRequest:
+    validateOnly: boolean
+    launchParameter:
+      update: boolean
+      transformNameMappings: object
+      parameters: object
+      environment:
+        enableStreamingEngine: boolean
+        subnetwork: string
+        serviceAccountEmail: string
+        numWorkers: integer
+        tempLocation: string
+        zone: string
+        additionalUserLabels: object
+        network: string
+        maxWorkers: integer
+        kmsKeyName: string
+        flexrsGoal: string
+        machineType: string
         workerZone: string
+        workerRegion: string
         additionalExperiments:
           - type: string
         ipConfiguration: string
-        enableStreamingEngine: boolean
-        workerRegion: string
-        machineType: string
-        zone: string
-        maxWorkers: integer
-        tempLocation: string
-        network: string
-        additionalUserLabels: object
-        bypassTempDirValidation: boolean
-      transformNameMapping: object
+      containerSpecGcsPath: string
+      launchOptions: object
       jobName: string
-type: string
-scheduleInfo:
-  timeZone: string
-  nextJobTime: string
-  schedule: string
-schedulerServiceAccountEmail: string
+    projectId: string
+    location: string
 state: string
-name: string
+lastUpdateTime: string
+createTime: string
+schedulerServiceAccountEmail: string
 
 ```
 </TabItem>
@@ -204,14 +204,14 @@ Updates a <code>pipelines</code> resource.
 /*+ update */
 UPDATE google.datapipelines.pipelines
 SET 
-pipelineSources = '{{ pipelineSources }}',
 displayName = '{{ displayName }}',
-workload = '{{ workload }}',
+name = '{{ name }}',
 type = '{{ type }}',
+pipelineSources = '{{ pipelineSources }}',
 scheduleInfo = '{{ scheduleInfo }}',
-schedulerServiceAccountEmail = '{{ schedulerServiceAccountEmail }}',
+workload = '{{ workload }}',
 state = '{{ state }}',
-name = '{{ name }}'
+schedulerServiceAccountEmail = '{{ schedulerServiceAccountEmail }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND pipelinesId = '{{ pipelinesId }}'

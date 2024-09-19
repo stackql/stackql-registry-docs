@@ -80,24 +80,24 @@ Use the following StackQL query and manifest file to create a new <code>apicateg
 INSERT INTO google.apigee.apicategories (
 organizationsId,
 sitesId,
-siteId,
-name
+name,
+siteId
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ sitesId }}',
-'{{ siteId }}',
-'{{ name }}'
+'{{ name }}',
+'{{ siteId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+updateTime: string
+name: string
 siteId: string
 id: string
-name: string
-updateTime: string
 
 ```
 </TabItem>
@@ -111,8 +111,8 @@ Updates a <code>apicategories</code> resource.
 /*+ update */
 UPDATE google.apigee.apicategories
 SET 
-siteId = '{{ siteId }}',
-name = '{{ name }}'
+name = '{{ name }}',
+siteId = '{{ siteId }}'
 WHERE 
 apicategoriesId = '{{ apicategoriesId }}'
 AND organizationsId = '{{ organizationsId }}'

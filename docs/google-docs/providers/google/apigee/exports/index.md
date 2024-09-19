@@ -86,36 +86,36 @@ Use the following StackQL query and manifest file to create a new <code>exports<
 INSERT INTO google.apigee.exports (
 environmentsId,
 organizationsId,
+description,
 csvDelimiter,
-name,
 outputFormat,
-dateRange,
 datastoreName,
-description
+name,
+dateRange
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
+'{{ description }}',
 '{{ csvDelimiter }}',
-'{{ name }}',
 '{{ outputFormat }}',
-'{{ dateRange }}',
 '{{ datastoreName }}',
-'{{ description }}'
+'{{ name }}',
+'{{ dateRange }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+description: string
 csvDelimiter: string
-name: string
 outputFormat: string
+datastoreName: string
+name: string
 dateRange:
   end: string
   start: string
-datastoreName: string
-description: string
 
 ```
 </TabItem>

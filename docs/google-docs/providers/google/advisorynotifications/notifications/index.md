@@ -40,8 +40,8 @@ Creates, updates, deletes, gets or lists a <code>notifications</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, notificationsId, organizationsId" /> | Gets a notification. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, organizationsId" /> | Lists notifications under a given parent. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, notificationsId, projectsId" /> | Gets a notification. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="locationsId, projectsId" /> | Lists notifications under a given parent. |
 
 ## `SELECT` examples
 
@@ -56,5 +56,5 @@ notificationType,
 subject
 FROM google.advisorynotifications.notifications
 WHERE locationsId = '{{ locationsId }}'
-AND organizationsId = '{{ organizationsId }}'; 
+AND projectsId = '{{ projectsId }}'; 
 ```

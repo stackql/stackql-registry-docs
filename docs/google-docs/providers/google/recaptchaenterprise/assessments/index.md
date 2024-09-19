@@ -55,16 +55,16 @@ Use the following StackQL query and manifest file to create a new <code>assessme
 /*+ create */
 INSERT INTO google.recaptchaenterprise.assessments (
 projectsId,
+assessmentEnvironment,
 accountVerification,
 event,
-assessmentEnvironment,
 privatePasswordLeakVerification
 )
 SELECT 
 '{{ projectsId }}',
+'{{ assessmentEnvironment }}',
 '{{ accountVerification }}',
 '{{ event }}',
-'{{ assessmentEnvironment }}',
 '{{ privatePasswordLeakVerification }}'
 ;
 ```
@@ -72,77 +72,125 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+phoneFraudAssessment:
+  smsTollFraudVerdict:
+    reasons:
+      - enum: string
+        enumDescriptions: string
+        type: string
+    risk: number
+name: string
+assessmentEnvironment:
+  version: string
+  client: string
 accountVerification:
-  username: string
+  latestVerificationResult: string
   languageCode: string
   endpoints:
-    - phoneNumber: string
-      emailAddress: string
-      lastVerificationTime: string
+    - emailAddress: string
       requestToken: string
-  latestVerificationResult: string
+      phoneNumber: string
+      lastVerificationTime: string
+  username: string
+tokenProperties:
+  hostname: string
+  valid: boolean
+  invalidReason: string
+  androidPackageName: string
+  createTime: string
+  action: string
+  iosBundleId: string
 event:
-  ja3: string
-  expectedAction: string
-  hashedAccountId: string
+  userIpAddress: string
   fraudPrevention: string
   wafTokenAssessment: boolean
-  express: boolean
-  firewallPolicyEvaluation: boolean
+  requestedUri: string
   userAgent: string
+  expectedAction: string
+  token: string
+  hashedAccountId: string
+  firewallPolicyEvaluation: boolean
+  express: boolean
+  headers:
+    - type: string
+  ja3: string
+  siteKey: string
   transactionData:
-    value: number
-    currencyCode: string
-    merchants:
-      - emailVerified: boolean
-        phoneNumber: string
-        email: string
-        creationMs: string
-        accountId: string
-        phoneVerified: boolean
-    transactionId: string
-    cardBin: string
     billingAddress:
+      recipient: string
       address:
         - type: string
-      administrativeArea: string
-      recipient: string
       postalCode: string
-      locality: string
       regionCode: string
+      administrativeArea: string
+      locality: string
     user:
-      emailVerified: boolean
       phoneNumber: string
+      emailVerified: boolean
       email: string
-      creationMs: string
       accountId: string
+      creationMs: string
       phoneVerified: boolean
     paymentMethod: string
-    cardLastFour: string
+    cardBin: string
     items:
-      - name: string
-        merchantAccountId: string
+      - value: number
         quantity: string
-        value: number
-    shippingValue: number
+        merchantAccountId: string
+        name: string
+    currencyCode: string
     gatewayInfo:
-      name: string
-      cvvResponseCode: string
       avsResponseCode: string
+      name: string
       gatewayResponseCode: string
+      cvvResponseCode: string
+    transactionId: string
+    shippingValue: number
+    cardLastFour: string
+    value: number
+    merchants:
+      - phoneNumber: string
+        emailVerified: boolean
+        email: string
+        accountId: string
+        creationMs: string
+        phoneVerified: boolean
   userInfo:
     userIds:
       - email: string
         username: string
         phoneNumber: string
-    accountId: string
     createAccountTime: string
-  userIpAddress: string
-  siteKey: string
-  token: string
-  headers:
+    accountId: string
+firewallPolicyAssessment:
+  error:
+    message: string
+    code: integer
+    details:
+      - additionalProperties: any
+        type: string
+  firewallPolicy:
+    description: string
+    actions:
+      - allow: {}
+        substitute:
+          path: string
+        setHeader:
+          value: string
+          key: string
+        includeRecaptchaScript: {}
+        block: {}
+        redirect: {}
+    path: string
+    condition: string
+    name: string
+privatePasswordLeakVerification:
+  encryptedLeakMatchPrefixes:
     - type: string
-  requestedUri: string
+      format: string
+  reencryptedUserCredentialsHash: string
+  lookupHashPrefix: string
+  encryptedUserCredentialsHash: string
 fraudSignals:
   cardSignals:
     cardLabels:
@@ -152,75 +200,27 @@ fraudSignals:
   userSignals:
     activeDaysLowerBound: integer
     syntheticRisk: number
+riskAnalysis:
+  reasons:
+    - enum: string
+      enumDescriptions: string
+      type: string
+  extendedVerdictReasons:
+    - type: string
+  score: number
+accountDefenderAssessment:
+  labels:
+    - enumDescriptions: string
+      type: string
+      enum: string
 fraudPreventionAssessment:
-  behavioralTrustVerdict:
-    trust: number
   stolenInstrumentVerdict:
     risk: number
   transactionRisk: number
   cardTestingVerdict:
     risk: number
-assessmentEnvironment:
-  version: string
-  client: string
-privatePasswordLeakVerification:
-  encryptedLeakMatchPrefixes:
-    - type: string
-      format: string
-  lookupHashPrefix: string
-  reencryptedUserCredentialsHash: string
-  encryptedUserCredentialsHash: string
-accountDefenderAssessment:
-  labels:
-    - type: string
-      enumDescriptions: string
-      enum: string
-firewallPolicyAssessment:
-  error:
-    details:
-      - additionalProperties: any
-        type: string
-    code: integer
-    message: string
-  firewallPolicy:
-    name: string
-    condition: string
-    description: string
-    actions:
-      - redirect: {}
-        allow: {}
-        substitute:
-          path: string
-        includeRecaptchaScript: {}
-        block: {}
-        setHeader:
-          value: string
-          key: string
-    path: string
-tokenProperties:
-  invalidReason: string
-  hostname: string
-  createTime: string
-  valid: boolean
-  iosBundleId: string
-  androidPackageName: string
-  action: string
-phoneFraudAssessment:
-  smsTollFraudVerdict:
-    reasons:
-      - type: string
-        enumDescriptions: string
-        enum: string
-    risk: number
-riskAnalysis:
-  score: number
-  extendedVerdictReasons:
-    - type: string
-  reasons:
-    - type: string
-      enum: string
-      enumDescriptions: string
-name: string
+  behavioralTrustVerdict:
+    trust: number
 
 ```
 </TabItem>

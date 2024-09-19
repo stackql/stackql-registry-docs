@@ -76,27 +76,27 @@ Use the following StackQL query and manifest file to create a new <code>synonym_
 INSERT INTO google.contentwarehouse.synonym_sets (
 locationsId,
 projectsId,
-name,
 synonyms,
-context
+context,
+name
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
 '{{ synonyms }}',
-'{{ context }}'
+'{{ context }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
 synonyms:
   - words:
       - type: string
 context: string
+name: string
 
 ```
 </TabItem>
@@ -110,9 +110,9 @@ Updates a <code>synonym_sets</code> resource.
 /*+ update */
 UPDATE google.contentwarehouse.synonym_sets
 SET 
-name = '{{ name }}',
 synonyms = '{{ synonyms }}',
-context = '{{ context }}'
+context = '{{ context }}',
+name = '{{ name }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

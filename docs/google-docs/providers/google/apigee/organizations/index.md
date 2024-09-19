@@ -126,99 +126,99 @@ Use the following StackQL query and manifest file to create a new <code>organiza
 /*+ create */
 INSERT INTO google.apigee.organizations (
 ,
-portalDisabled,
-disableVpcPeering,
-apiConsumerDataLocation,
-analyticsRegion,
-billingType,
-authorizedNetwork,
-controlPlaneEncryptionKeyName,
-runtimeDatabaseEncryptionKeyName,
-runtimeType,
-type,
-displayName,
-apiConsumerDataEncryptionKeyName,
-properties,
-description,
 customerName,
+type,
+apiConsumerDataLocation,
+disableVpcPeering,
+description,
+displayName,
+analyticsRegion,
+properties,
 attributes,
-addonsConfig
+runtimeType,
+apiConsumerDataEncryptionKeyName,
+authorizedNetwork,
+addonsConfig,
+controlPlaneEncryptionKeyName,
+portalDisabled,
+billingType,
+runtimeDatabaseEncryptionKeyName
 )
 SELECT 
 '{{  }}',
-true|false,
-true|false,
-'{{ apiConsumerDataLocation }}',
-'{{ analyticsRegion }}',
-'{{ billingType }}',
-'{{ authorizedNetwork }}',
-'{{ controlPlaneEncryptionKeyName }}',
-'{{ runtimeDatabaseEncryptionKeyName }}',
-'{{ runtimeType }}',
-'{{ type }}',
-'{{ displayName }}',
-'{{ apiConsumerDataEncryptionKeyName }}',
-'{{ properties }}',
-'{{ description }}',
 '{{ customerName }}',
+'{{ type }}',
+'{{ apiConsumerDataLocation }}',
+true|false,
+'{{ description }}',
+'{{ displayName }}',
+'{{ analyticsRegion }}',
+'{{ properties }}',
 '{{ attributes }}',
-'{{ addonsConfig }}'
+'{{ runtimeType }}',
+'{{ apiConsumerDataEncryptionKeyName }}',
+'{{ authorizedNetwork }}',
+'{{ addonsConfig }}',
+'{{ controlPlaneEncryptionKeyName }}',
+true|false,
+'{{ billingType }}',
+'{{ runtimeDatabaseEncryptionKeyName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-lastModifiedAt: string
-subscriptionPlan: string
-portalDisabled: boolean
-caCertificate: string
-disableVpcPeering: boolean
-apiConsumerDataLocation: string
-analyticsRegion: string
-billingType: string
-authorizedNetwork: string
-controlPlaneEncryptionKeyName: string
-runtimeDatabaseEncryptionKeyName: string
-expiresAt: string
-runtimeType: string
-environments:
-  - type: string
-type: string
-displayName: string
-apiConsumerDataEncryptionKeyName: string
+subscriptionType: string
 name: string
+customerName: string
+type: string
+lastModifiedAt: string
+apiConsumerDataLocation: string
+disableVpcPeering: boolean
+description: string
+displayName: string
+analyticsRegion: string
 properties:
   property:
-    - value: string
-      name: string
-projectId: string
-description: string
-state: string
-customerName: string
-apigeeProjectId: string
+    - name: string
+      value: string
 attributes:
   - type: string
-subscriptionType: string
+runtimeType: string
+apigeeProjectId: string
+apiConsumerDataEncryptionKeyName: string
+subscriptionPlan: string
+projectId: string
+authorizedNetwork: string
 addonsConfig:
-  analyticsConfig:
-    updateTime: string
-    state: string
-    enabled: boolean
-    expireTimeMillis: string
-  integrationConfig:
-    enabled: boolean
   advancedApiOpsConfig:
     enabled: boolean
-  monetizationConfig:
-    enabled: boolean
   connectorsPlatformConfig:
-    expiresAt: string
     enabled: boolean
+    expiresAt: string
   apiSecurityConfig:
     enabled: boolean
     expiresAt: string
+  monetizationConfig:
+    enabled: boolean
+  integrationConfig:
+    enabled: boolean
+  analyticsConfig:
+    updateTime: string
+    enabled: boolean
+    expireTimeMillis: string
+    state: string
+controlPlaneEncryptionKeyName: string
+caCertificate: string
+environments:
+  - type: string
+portalDisabled: boolean
+billingType: string
+state: string
+expiresAt: string
 createdAt: string
+runtimeDatabaseEncryptionKeyName: string
 
 ```
 </TabItem>
@@ -232,23 +232,23 @@ Replaces all fields in the specified <code>organizations</code> resource.
 /*+ update */
 REPLACE google.apigee.organizations
 SET 
-portalDisabled = true|false,
-disableVpcPeering = true|false,
-apiConsumerDataLocation = '{{ apiConsumerDataLocation }}',
-analyticsRegion = '{{ analyticsRegion }}',
-billingType = '{{ billingType }}',
-authorizedNetwork = '{{ authorizedNetwork }}',
-controlPlaneEncryptionKeyName = '{{ controlPlaneEncryptionKeyName }}',
-runtimeDatabaseEncryptionKeyName = '{{ runtimeDatabaseEncryptionKeyName }}',
-runtimeType = '{{ runtimeType }}',
-type = '{{ type }}',
-displayName = '{{ displayName }}',
-apiConsumerDataEncryptionKeyName = '{{ apiConsumerDataEncryptionKeyName }}',
-properties = '{{ properties }}',
-description = '{{ description }}',
 customerName = '{{ customerName }}',
+type = '{{ type }}',
+apiConsumerDataLocation = '{{ apiConsumerDataLocation }}',
+disableVpcPeering = true|false,
+description = '{{ description }}',
+displayName = '{{ displayName }}',
+analyticsRegion = '{{ analyticsRegion }}',
+properties = '{{ properties }}',
 attributes = '{{ attributes }}',
-addonsConfig = '{{ addonsConfig }}'
+runtimeType = '{{ runtimeType }}',
+apiConsumerDataEncryptionKeyName = '{{ apiConsumerDataEncryptionKeyName }}',
+authorizedNetwork = '{{ authorizedNetwork }}',
+addonsConfig = '{{ addonsConfig }}',
+controlPlaneEncryptionKeyName = '{{ controlPlaneEncryptionKeyName }}',
+portalDisabled = true|false,
+billingType = '{{ billingType }}',
+runtimeDatabaseEncryptionKeyName = '{{ runtimeDatabaseEncryptionKeyName }}'
 WHERE 
 organizationsId = '{{ organizationsId }}';
 ```

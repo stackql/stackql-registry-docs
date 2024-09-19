@@ -80,62 +80,62 @@ Use the following StackQL query and manifest file to create a new <code>apidocs<
 INSERT INTO google.apigee.apidocs (
 organizationsId,
 sitesId,
-graphqlEndpointUrl,
-anonAllowed,
 apiProductName,
-requireCallbackUrl,
-title,
-description,
 graphqlSchema,
-graphqlSchemaDisplayName,
+anonAllowed,
+description,
+edgeAPIProductName,
 published,
+visibility,
+title,
+requireCallbackUrl,
+categoryIds,
 imageUrl,
 specId,
-visibility,
-edgeAPIProductName,
-categoryIds
+graphqlSchemaDisplayName,
+graphqlEndpointUrl
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ sitesId }}',
-'{{ graphqlEndpointUrl }}',
-true|false,
 '{{ apiProductName }}',
+'{{ graphqlSchema }}',
+true|false,
+'{{ description }}',
+'{{ edgeAPIProductName }}',
+true|false,
 true|false,
 '{{ title }}',
-'{{ description }}',
-'{{ graphqlSchema }}',
-'{{ graphqlSchemaDisplayName }}',
 true|false,
+'{{ categoryIds }}',
 '{{ imageUrl }}',
 '{{ specId }}',
-true|false,
-'{{ edgeAPIProductName }}',
-'{{ categoryIds }}'
+'{{ graphqlSchemaDisplayName }}',
+'{{ graphqlEndpointUrl }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-graphqlEndpointUrl: string
-anonAllowed: boolean
 apiProductName: string
-requireCallbackUrl: boolean
-siteId: string
-title: string
-description: string
 graphqlSchema: string
 modified: string
-graphqlSchemaDisplayName: string
-published: boolean
+anonAllowed: boolean
 id: string
-imageUrl: string
-specId: string
-visibility: boolean
+description: string
 edgeAPIProductName: string
+published: boolean
+visibility: boolean
+title: string
+requireCallbackUrl: boolean
 categoryIds:
   - type: string
+imageUrl: string
+siteId: string
+specId: string
+graphqlSchemaDisplayName: string
+graphqlEndpointUrl: string
 
 ```
 </TabItem>
@@ -149,20 +149,20 @@ Replaces all fields in the specified <code>apidocs</code> resource.
 /*+ update */
 REPLACE google.apigee.apidocs
 SET 
-graphqlEndpointUrl = '{{ graphqlEndpointUrl }}',
-anonAllowed = true|false,
 apiProductName = '{{ apiProductName }}',
-requireCallbackUrl = true|false,
-title = '{{ title }}',
-description = '{{ description }}',
 graphqlSchema = '{{ graphqlSchema }}',
-graphqlSchemaDisplayName = '{{ graphqlSchemaDisplayName }}',
+anonAllowed = true|false,
+description = '{{ description }}',
+edgeAPIProductName = '{{ edgeAPIProductName }}',
 published = true|false,
+visibility = true|false,
+title = '{{ title }}',
+requireCallbackUrl = true|false,
+categoryIds = '{{ categoryIds }}',
 imageUrl = '{{ imageUrl }}',
 specId = '{{ specId }}',
-visibility = true|false,
-edgeAPIProductName = '{{ edgeAPIProductName }}',
-categoryIds = '{{ categoryIds }}'
+graphqlSchemaDisplayName = '{{ graphqlSchemaDisplayName }}',
+graphqlEndpointUrl = '{{ graphqlEndpointUrl }}'
 WHERE 
 apidocsId = '{{ apidocsId }}'
 AND organizationsId = '{{ organizationsId }}'

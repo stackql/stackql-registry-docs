@@ -92,48 +92,48 @@ Use the following StackQL query and manifest file to create a new <code>phrase_m
 INSERT INTO google.contactcenterinsights.phrase_matchers (
 locationsId,
 projectsId,
-name,
-displayName,
-roleMatch,
 phraseMatchRuleGroups,
+name,
 active,
+displayName,
 type,
-versionTag
+versionTag,
+roleMatch
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ name }}',
-'{{ displayName }}',
-'{{ roleMatch }}',
 '{{ phraseMatchRuleGroups }}',
+'{{ name }}',
 true|false,
+'{{ displayName }}',
 '{{ type }}',
-'{{ versionTag }}'
+'{{ versionTag }}',
+'{{ roleMatch }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-activationUpdateTime: string
-name: string
-displayName: string
-revisionCreateTime: string
-roleMatch: string
-updateTime: string
 phraseMatchRuleGroups:
-  - type: string
-    phraseMatchRules:
-      - query: string
-        negated: boolean
+  - phraseMatchRules:
+      - negated: boolean
         config:
           exactMatchConfig:
             caseSensitive: boolean
-revisionId: string
+        query: string
+    type: string
+name: string
 active: boolean
+displayName: string
 type: string
+revisionCreateTime: string
+updateTime: string
+revisionId: string
 versionTag: string
+activationUpdateTime: string
+roleMatch: string
 
 ```
 </TabItem>
@@ -147,13 +147,13 @@ Updates a <code>phrase_matchers</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.phrase_matchers
 SET 
-name = '{{ name }}',
-displayName = '{{ displayName }}',
-roleMatch = '{{ roleMatch }}',
 phraseMatchRuleGroups = '{{ phraseMatchRuleGroups }}',
+name = '{{ name }}',
 active = true|false,
+displayName = '{{ displayName }}',
 type = '{{ type }}',
-versionTag = '{{ versionTag }}'
+versionTag = '{{ versionTag }}',
+roleMatch = '{{ roleMatch }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND phraseMatchersId = '{{ phraseMatchersId }}'

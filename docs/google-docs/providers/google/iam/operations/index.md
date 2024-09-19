@@ -40,7 +40,16 @@ Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, subjectsId, workforcePoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workforce_pool_operations" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, workforcePoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workforce_pool_provider_key_operations" /> | `SELECT` | <CopyableCode code="keysId, locationsId, operationsId, providersId, workforcePoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workforce_pool_provider_operations" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, providersId, workforcePoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workforce_pool_subject_operations" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, subjectsId, workforcePoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_namespace_managed_identity_operations" /> | `SELECT` | <CopyableCode code="locationsId, managedIdentitiesId, namespacesId, operationsId, projectsId, workloadIdentityPoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_namespace_managed_identity_workload_source_operations" /> | `SELECT` | <CopyableCode code="locationsId, managedIdentitiesId, namespacesId, operationsId, projectsId, workloadIdentityPoolsId, workloadSourcesId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_namespace_operations" /> | `SELECT` | <CopyableCode code="locationsId, namespacesId, operationsId, projectsId, workloadIdentityPoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_operations" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, projectsId, workloadIdentityPoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_provider_key_operations" /> | `SELECT` | <CopyableCode code="keysId, locationsId, operationsId, projectsId, providersId, workloadIdentityPoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
+| <CopyableCode code="get_workload_identity_pool_provider_operations" /> | `SELECT` | <CopyableCode code="locationsId, operationsId, projectsId, providersId, workloadIdentityPoolsId" /> | Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. |
 
 ## `SELECT` examples
 
@@ -56,6 +65,5 @@ response
 FROM google.iam.operations
 WHERE locationsId = '{{ locationsId }}'
 AND operationsId = '{{ operationsId }}'
-AND subjectsId = '{{ subjectsId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}'; 
 ```

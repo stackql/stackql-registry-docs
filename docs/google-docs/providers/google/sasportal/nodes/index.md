@@ -79,14 +79,14 @@ Use the following StackQL query and manifest file to create a new <code>nodes</c
 INSERT INTO google.sasportal.nodes (
 nodesId,
 sasUserIds,
-name,
-displayName
+displayName,
+name
 )
 SELECT 
 '{{ nodesId }}',
 '{{ sasUserIds }}',
-'{{ name }}',
-'{{ displayName }}'
+'{{ displayName }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
@@ -95,8 +95,8 @@ SELECT
 ```yaml
 sasUserIds:
   - type: string
-name: string
 displayName: string
+name: string
 
 ```
 </TabItem>
@@ -111,8 +111,8 @@ Updates a <code>nodes</code> resource.
 UPDATE google.sasportal.nodes
 SET 
 sasUserIds = '{{ sasUserIds }}',
-name = '{{ name }}',
-displayName = '{{ displayName }}'
+displayName = '{{ displayName }}',
+name = '{{ name }}'
 WHERE 
 nodesId = '{{ nodesId }}'
 AND nodesId1 = '{{ nodesId1 }}';

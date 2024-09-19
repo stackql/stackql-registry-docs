@@ -79,39 +79,39 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 /*+ create */
 INSERT INTO google.recaptchaenterprise.firewallpolicies (
 projectsId,
-name,
-condition,
 description,
 actions,
-path
+path,
+condition,
+name
 )
 SELECT 
 '{{ projectsId }}',
-'{{ name }}',
-'{{ condition }}',
 '{{ description }}',
 '{{ actions }}',
-'{{ path }}'
+'{{ path }}',
+'{{ condition }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-condition: string
 description: string
 actions:
-  - redirect: {}
-    allow: {}
+  - allow: {}
     substitute:
       path: string
-    includeRecaptchaScript: {}
-    block: {}
     setHeader:
       value: string
       key: string
+    includeRecaptchaScript: {}
+    block: {}
+    redirect: {}
 path: string
+condition: string
+name: string
 
 ```
 </TabItem>
@@ -125,11 +125,11 @@ Updates a <code>firewallpolicies</code> resource.
 /*+ update */
 UPDATE google.recaptchaenterprise.firewallpolicies
 SET 
-name = '{{ name }}',
-condition = '{{ condition }}',
 description = '{{ description }}',
 actions = '{{ actions }}',
-path = '{{ path }}'
+path = '{{ path }}',
+condition = '{{ condition }}',
+name = '{{ name }}'
 WHERE 
 firewallpoliciesId = '{{ firewallpoliciesId }}'
 AND projectsId = '{{ projectsId }}';

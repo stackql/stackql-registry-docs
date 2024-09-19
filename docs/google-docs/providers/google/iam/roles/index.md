@@ -42,13 +42,21 @@ Creates, updates, deletes, gets or lists a <code>roles</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="organizationsId, rolesId" /> | Gets the definition of a Role. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists every predefined Role that IAM supports, or every custom role that is defined for an organization or project. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a new custom Role. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="organizationsId, rolesId" /> | Deletes a custom Role. When you delete a custom role, the following changes occur immediately: * You cannot bind a principal to the custom role in an IAM Policy. * Existing bindings to the custom role are not changed, but they have no effect. * By default, the response from ListRoles does not include the custom role. A deleted custom role still counts toward the [custom role limit](https://cloud.google.com/iam/help/limits) until it is permanently deleted. You have 7 days to undelete the custom role. After 7 days, the following changes occur: * The custom role is permanently deleted and cannot be recovered. * If an IAM policy contains a binding to the custom role, the binding is permanently removed. * The custom role no longer counts toward your custom role limit. |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="organizationsId, rolesId" /> | Updates the definition of a custom Role. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="rolesId" /> | Gets the definition of a Role. |
+| <CopyableCode code="get_org_roles" /> | `SELECT` | <CopyableCode code="organizationsId, rolesId" /> | Gets the definition of a Role. |
+| <CopyableCode code="get_project_roles" /> | `SELECT` | <CopyableCode code="projectsId, rolesId" /> | Gets the definition of a Role. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists every predefined Role that IAM supports, or every custom role that is defined for an organization or project. |
+| <CopyableCode code="list_org_roles" /> | `SELECT` | <CopyableCode code="organizationsId" /> | Lists every predefined Role that IAM supports, or every custom role that is defined for an organization or project. |
+| <CopyableCode code="list_project_roles" /> | `SELECT` | <CopyableCode code="projectsId" /> | Lists every predefined Role that IAM supports, or every custom role that is defined for an organization or project. |
+| <CopyableCode code="create_org_roles" /> | `INSERT` | <CopyableCode code="organizationsId" /> | Creates a new custom Role. |
+| <CopyableCode code="create_project_roles" /> | `INSERT` | <CopyableCode code="projectsId" /> | Creates a new custom Role. |
+| <CopyableCode code="delete_org_roles" /> | `DELETE` | <CopyableCode code="organizationsId, rolesId" /> | Deletes a custom Role. When you delete a custom role, the following changes occur immediately: * You cannot bind a principal to the custom role in an IAM Policy. * Existing bindings to the custom role are not changed, but they have no effect. * By default, the response from ListRoles does not include the custom role. A deleted custom role still counts toward the [custom role limit](https://cloud.google.com/iam/help/limits) until it is permanently deleted. You have 7 days to undelete the custom role. After 7 days, the following changes occur: * The custom role is permanently deleted and cannot be recovered. * If an IAM policy contains a binding to the custom role, the binding is permanently removed. * The custom role no longer counts toward your custom role limit. |
+| <CopyableCode code="delete_project_roles" /> | `DELETE` | <CopyableCode code="projectsId, rolesId" /> | Deletes a custom Role. When you delete a custom role, the following changes occur immediately: * You cannot bind a principal to the custom role in an IAM Policy. * Existing bindings to the custom role are not changed, but they have no effect. * By default, the response from ListRoles does not include the custom role. A deleted custom role still counts toward the [custom role limit](https://cloud.google.com/iam/help/limits) until it is permanently deleted. You have 7 days to undelete the custom role. After 7 days, the following changes occur: * The custom role is permanently deleted and cannot be recovered. * If an IAM policy contains a binding to the custom role, the binding is permanently removed. * The custom role no longer counts toward your custom role limit. |
+| <CopyableCode code="patch_org_roles" /> | `UPDATE` | <CopyableCode code="organizationsId, rolesId" /> | Updates the definition of a custom Role. |
+| <CopyableCode code="patch_project_roles" /> | `UPDATE` | <CopyableCode code="projectsId, rolesId" /> | Updates the definition of a custom Role. |
 | <CopyableCode code="query_grantable_roles" /> | `EXEC` | <CopyableCode code="" /> | Lists roles that can be granted on a Google Cloud resource. A role is grantable if the IAM policy for the resource can contain bindings to the role. |
-| <CopyableCode code="undelete" /> | `EXEC` | <CopyableCode code="organizationsId, rolesId" /> | Undeletes a custom Role. |
+| <CopyableCode code="undelete_org_roles" /> | `EXEC` | <CopyableCode code="organizationsId, rolesId" /> | Undeletes a custom Role. |
+| <CopyableCode code="undelete_project_roles" /> | `EXEC` | <CopyableCode code="projectsId, rolesId" /> | Undeletes a custom Role. |
 
 ## `SELECT` examples
 
@@ -64,7 +72,7 @@ includedPermissions,
 stage,
 title
 FROM google.iam.roles
-WHERE organizationsId = '{{ organizationsId }}'; 
+WHERE  = '{{  }}'; 
 ```
 
 ## `INSERT` example
@@ -83,12 +91,12 @@ Use the following StackQL query and manifest file to create a new <code>roles</c
 ```sql
 /*+ create */
 INSERT INTO google.iam.roles (
-organizationsId,
+projectsId,
 roleId,
 role
 )
 SELECT 
-'{{ organizationsId }}',
+'{{ projectsId }}',
 '{{ roleId }}',
 '{{ role }}'
 ;
@@ -128,7 +136,7 @@ stage = '{{ stage }}',
 etag = '{{ etag }}',
 deleted = true|false
 WHERE 
-organizationsId = '{{ organizationsId }}'
+projectsId = '{{ projectsId }}'
 AND rolesId = '{{ rolesId }}';
 ```
 
@@ -139,6 +147,6 @@ Deletes the specified <code>roles</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM google.iam.roles
-WHERE organizationsId = '{{ organizationsId }}'
+WHERE projectsId = '{{ projectsId }}'
 AND rolesId = '{{ rolesId }}';
 ```

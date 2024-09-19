@@ -94,54 +94,54 @@ Use the following StackQL query and manifest file to create a new <code>feature_
 INSERT INTO google.aiplatform.feature_online_stores (
 locationsId,
 projectsId,
-dedicatedServingEndpoint,
-etag,
-labels,
-optimized,
 name,
+etag,
+dedicatedServingEndpoint,
+encryptionSpec,
+labels,
 bigtable,
-encryptionSpec
+optimized
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ dedicatedServingEndpoint }}',
-'{{ etag }}',
-'{{ labels }}',
-'{{ optimized }}',
 '{{ name }}',
+'{{ etag }}',
+'{{ dedicatedServingEndpoint }}',
+'{{ encryptionSpec }}',
+'{{ labels }}',
 '{{ bigtable }}',
-'{{ encryptionSpec }}'
+'{{ optimized }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-dedicatedServingEndpoint:
-  privateServiceConnectConfig:
-    serviceAttachment: string
-    enablePrivateServiceConnect: boolean
-    projectAllowlist:
-      - type: string
-  publicEndpointDomainName: string
-  serviceAttachment: string
+name: string
 updateTime: string
 etag: string
-satisfiesPzs: boolean
+dedicatedServingEndpoint:
+  publicEndpointDomainName: string
+  serviceAttachment: string
+  privateServiceConnectConfig:
+    serviceAttachment: string
+    projectAllowlist:
+      - type: string
+    enablePrivateServiceConnect: boolean
+state: string
+encryptionSpec:
+  kmsKeyName: string
 labels: object
+satisfiesPzi: boolean
 createTime: string
-optimized: {}
-name: string
 bigtable:
   autoScaling:
     cpuUtilizationTarget: integer
     minNodeCount: integer
     maxNodeCount: integer
-state: string
-encryptionSpec:
-  kmsKeyName: string
-satisfiesPzi: boolean
+satisfiesPzs: boolean
+optimized: {}
 
 ```
 </TabItem>
@@ -155,13 +155,13 @@ Updates a <code>feature_online_stores</code> resource.
 /*+ update */
 UPDATE google.aiplatform.feature_online_stores
 SET 
-dedicatedServingEndpoint = '{{ dedicatedServingEndpoint }}',
-etag = '{{ etag }}',
-labels = '{{ labels }}',
-optimized = '{{ optimized }}',
 name = '{{ name }}',
+etag = '{{ etag }}',
+dedicatedServingEndpoint = '{{ dedicatedServingEndpoint }}',
+encryptionSpec = '{{ encryptionSpec }}',
+labels = '{{ labels }}',
 bigtable = '{{ bigtable }}',
-encryptionSpec = '{{ encryptionSpec }}'
+optimized = '{{ optimized }}'
 WHERE 
 featureOnlineStoresId = '{{ featureOnlineStoresId }}'
 AND locationsId = '{{ locationsId }}'

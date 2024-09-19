@@ -64,8 +64,8 @@ Updates a <code>environments_trace_config</code> resource.
 UPDATE google.apigee.environments_trace_config
 SET 
 exporter = '{{ exporter }}',
-samplingConfig = '{{ samplingConfig }}',
-endpoint = '{{ endpoint }}'
+endpoint = '{{ endpoint }}',
+samplingConfig = '{{ samplingConfig }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

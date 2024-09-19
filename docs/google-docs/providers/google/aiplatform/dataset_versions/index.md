@@ -45,12 +45,12 @@ Creates, updates, deletes, gets or lists a <code>dataset_versions</code> resourc
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="datasetVersionsId, datasetsId" /> | Gets a Dataset version. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetsId" /> | Lists DatasetVersions in a Dataset. |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="datasetsId" /> | Create a version from a Dataset. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetVersionsId, datasetsId" /> | Deletes a Dataset version. |
-| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetVersionsId, datasetsId" /> | Updates a DatasetVersion. |
-| <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="datasetVersionsId, datasetsId" /> | Restores a dataset version. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Gets a Dataset version. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Lists DatasetVersions in a Dataset. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="datasetsId, locationsId, projectsId" /> | Create a version from a Dataset. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Deletes a Dataset version. |
+| <CopyableCode code="patch" /> | `UPDATE` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Updates a DatasetVersion. |
+| <CopyableCode code="restore" /> | `EXEC` | <CopyableCode code="datasetVersionsId, datasetsId, locationsId, projectsId" /> | Restores a dataset version. |
 
 ## `SELECT` examples
 
@@ -69,7 +69,9 @@ satisfiesPzi,
 satisfiesPzs,
 updateTime
 FROM google.aiplatform.dataset_versions
-WHERE datasetsId = '{{ datasetsId }}'; 
+WHERE datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}'; 
 ```
 
 ## `INSERT` example
@@ -89,11 +91,15 @@ Use the following StackQL query and manifest file to create a new <code>dataset_
 /*+ create */
 INSERT INTO google.aiplatform.dataset_versions (
 datasetsId,
+locationsId,
+projectsId,
 etag,
 displayName
 )
 SELECT 
 '{{ datasetsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
 '{{ etag }}',
 '{{ displayName }}'
 ;
@@ -102,16 +108,16 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+satisfiesPzs: boolean
 etag: string
-satisfiesPzi: boolean
-createTime: string
+modelReference: string
+metadata: any
 updateTime: string
 bigQueryDatasetName: string
-modelReference: string
-name: string
-metadata: any
 displayName: string
-satisfiesPzs: boolean
+satisfiesPzi: boolean
+name: string
+createTime: string
 
 ```
 </TabItem>
@@ -129,7 +135,9 @@ etag = '{{ etag }}',
 displayName = '{{ displayName }}'
 WHERE 
 datasetVersionsId = '{{ datasetVersionsId }}'
-AND datasetsId = '{{ datasetsId }}';
+AND datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```
 
 ## `DELETE` example
@@ -140,5 +148,7 @@ Deletes the specified <code>dataset_versions</code> resource.
 /*+ delete */
 DELETE FROM google.aiplatform.dataset_versions
 WHERE datasetVersionsId = '{{ datasetVersionsId }}'
-AND datasetsId = '{{ datasetsId }}';
+AND datasetsId = '{{ datasetsId }}'
+AND locationsId = '{{ locationsId }}'
+AND projectsId = '{{ projectsId }}';
 ```

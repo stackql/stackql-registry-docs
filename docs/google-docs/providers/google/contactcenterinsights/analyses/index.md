@@ -96,66 +96,66 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-requestTime: string
-name: string
 analysisResult:
   endTime: string
   callAnalysisMetadata:
-    issueModelResult:
-      issueModel: string
-      issues:
-        - displayName: string
-          score: number
-          issue: string
-    silence:
-      silenceDuration: string
-      silencePercentage: number
     sentiments:
       - channelTag: integer
         sentimentData:
           score: number
           magnitude: number
-    annotations:
-      - issueMatchData:
-          issueAssignment:
-            displayName: string
-            score: number
-            issue: string
-        silenceData: {}
-        channelTag: integer
-        phraseMatchData:
+    silence:
+      silenceDuration: string
+      silencePercentage: number
+    intents: object
+    entities: object
+    issueModelResult:
+      issues:
+        - score: number
           displayName: string
+          issue: string
+      issueModel: string
+    phraseMatchers: object
+    annotations:
+      - silenceData: {}
+        entityMentionData:
+          entityUniqueId: string
+          type: string
+        channelTag: integer
+        interruptionData: {}
+        phraseMatchData:
           phraseMatcher: string
+          displayName: string
         annotationEndBoundary:
           wordIndex: integer
           transcriptIndex: integer
-        entityMentionData:
-          type: string
-          entityUniqueId: string
+        issueMatchData:
+          issueAssignment:
+            score: number
+            displayName: string
+            issue: string
         holdData: {}
-        interruptionData: {}
         intentMatchData:
           intentUniqueId: string
-    phraseMatchers: object
-    entities: object
-    intents: object
+name: string
 createTime: string
+requestTime: string
 annotatorSelector:
-  runEntityAnnotator: boolean
+  runSummarizationAnnotator: boolean
+  runSentimentAnnotator: boolean
   issueModels:
     - type: string
+  runIntentAnnotator: boolean
+  runEntityAnnotator: boolean
+  runPhraseMatcherAnnotator: boolean
+  runInterruptionAnnotator: boolean
+  runSilenceAnnotator: boolean
   runIssueModelAnnotator: boolean
-  runSummarizationAnnotator: boolean
   summarizationConfig:
     summarizationModel: string
     conversationProfile: string
-  runSentimentAnnotator: boolean
-  runInterruptionAnnotator: boolean
-  runPhraseMatcherAnnotator: boolean
-  runIntentAnnotator: boolean
   phraseMatchers:
     - type: string
-  runSilenceAnnotator: boolean
 
 ```
 </TabItem>

@@ -106,85 +106,85 @@ Use the following StackQL query and manifest file to create a new <code>notebook
 INSERT INTO google.aiplatform.notebook_runtime_templates (
 locationsId,
 projectsId,
-machineSpec,
-notebookRuntimeType,
-shieldedVmConfig,
-name,
-description,
-displayName,
-labels,
-eucConfig,
-encryptionSpec,
 serviceAccount,
+encryptionSpec,
+name,
+dataPersistentDiskSpec,
+labels,
+shieldedVmConfig,
+displayName,
+networkTags,
+machineSpec,
+description,
 networkSpec,
 idleShutdownConfig,
+notebookRuntimeType,
 etag,
-dataPersistentDiskSpec,
-networkTags
+eucConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ machineSpec }}',
-'{{ notebookRuntimeType }}',
-'{{ shieldedVmConfig }}',
-'{{ name }}',
-'{{ description }}',
-'{{ displayName }}',
-'{{ labels }}',
-'{{ eucConfig }}',
-'{{ encryptionSpec }}',
 '{{ serviceAccount }}',
+'{{ encryptionSpec }}',
+'{{ name }}',
+'{{ dataPersistentDiskSpec }}',
+'{{ labels }}',
+'{{ shieldedVmConfig }}',
+'{{ displayName }}',
+'{{ networkTags }}',
+'{{ machineSpec }}',
+'{{ description }}',
 '{{ networkSpec }}',
 '{{ idleShutdownConfig }}',
+'{{ notebookRuntimeType }}',
 '{{ etag }}',
-'{{ dataPersistentDiskSpec }}',
-'{{ networkTags }}'
+'{{ eucConfig }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+serviceAccount: string
+encryptionSpec:
+  kmsKeyName: string
+name: string
+dataPersistentDiskSpec:
+  diskSizeGb: string
+  diskType: string
+labels: object
+shieldedVmConfig:
+  enableSecureBoot: boolean
+displayName: string
+networkTags:
+  - type: string
 machineSpec:
   acceleratorCount: integer
+  tpuTopology: string
+  machineType: string
+  acceleratorType: string
   reservationAffinity:
-    key: string
     reservationAffinityType: string
     values:
       - type: string
-  tpuTopology: string
-  acceleratorType: string
-  machineType: string
-notebookRuntimeType: string
-shieldedVmConfig:
-  enableSecureBoot: boolean
-name: string
+    key: string
 description: string
-displayName: string
-labels: object
+networkSpec:
+  enableInternetAccess: boolean
+  subnetwork: string
+  network: string
+updateTime: string
+idleShutdownConfig:
+  idleShutdownDisabled: boolean
+  idleTimeout: string
+notebookRuntimeType: string
+isDefault: boolean
+etag: string
 eucConfig:
   eucDisabled: boolean
   bypassActasCheck: boolean
-encryptionSpec:
-  kmsKeyName: string
-isDefault: boolean
-serviceAccount: string
-networkSpec:
-  subnetwork: string
-  enableInternetAccess: boolean
-  network: string
 createTime: string
-idleShutdownConfig:
-  idleTimeout: string
-  idleShutdownDisabled: boolean
-etag: string
-dataPersistentDiskSpec:
-  diskType: string
-  diskSizeGb: string
-updateTime: string
-networkTags:
-  - type: string
 
 ```
 </TabItem>
@@ -198,21 +198,21 @@ Updates a <code>notebook_runtime_templates</code> resource.
 /*+ update */
 UPDATE google.aiplatform.notebook_runtime_templates
 SET 
-machineSpec = '{{ machineSpec }}',
-notebookRuntimeType = '{{ notebookRuntimeType }}',
-shieldedVmConfig = '{{ shieldedVmConfig }}',
-name = '{{ name }}',
-description = '{{ description }}',
-displayName = '{{ displayName }}',
-labels = '{{ labels }}',
-eucConfig = '{{ eucConfig }}',
-encryptionSpec = '{{ encryptionSpec }}',
 serviceAccount = '{{ serviceAccount }}',
+encryptionSpec = '{{ encryptionSpec }}',
+name = '{{ name }}',
+dataPersistentDiskSpec = '{{ dataPersistentDiskSpec }}',
+labels = '{{ labels }}',
+shieldedVmConfig = '{{ shieldedVmConfig }}',
+displayName = '{{ displayName }}',
+networkTags = '{{ networkTags }}',
+machineSpec = '{{ machineSpec }}',
+description = '{{ description }}',
 networkSpec = '{{ networkSpec }}',
 idleShutdownConfig = '{{ idleShutdownConfig }}',
+notebookRuntimeType = '{{ notebookRuntimeType }}',
 etag = '{{ etag }}',
-dataPersistentDiskSpec = '{{ dataPersistentDiskSpec }}',
-networkTags = '{{ networkTags }}'
+eucConfig = '{{ eucConfig }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND notebookRuntimeTemplatesId = '{{ notebookRuntimeTemplatesId }}'

@@ -21,12 +21,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Cloud services from Google.
 
-:::info Provider Summary (v24.09.00251)
+:::info Provider Summary (v24.09.00254)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>167</b></span><br />
-<span>total resources:&nbsp;<b>1926</b></span><br />
+<span>total services:&nbsp;<b>168</b></span><br />
+<span>total resources:&nbsp;<b>1941</b></span><br />
 </div>
 </div>
 
@@ -215,6 +215,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/google/networkservices/">networkservices</a><br />
 <a href="/providers/google/notebooks/">notebooks</a><br />
 <a href="/providers/google/ondemandscanning/">ondemandscanning</a><br />
+<a href="/providers/google/oracledatabase/">oracledatabase</a><br />
 <a href="/providers/google/orgpolicy/">orgpolicy</a><br />
 <a href="/providers/google/osconfig/">osconfig</a><br />
 <a href="/providers/google/oslogin/">oslogin</a><br />

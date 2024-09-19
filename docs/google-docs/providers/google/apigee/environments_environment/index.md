@@ -45,16 +45,16 @@ Updates a <code>environments_environment</code> resource.
 /*+ update */
 UPDATE google.apigee.environments_environment
 SET 
+nodeConfig = '{{ nodeConfig }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+properties = '{{ properties }}',
+hasAttachedFlowHooks = true|false,
+apiProxyType = '{{ apiProxyType }}',
+name = '{{ name }}',
 deploymentType = '{{ deploymentType }}',
 forwardProxyUri = '{{ forwardProxyUri }}',
-description = '{{ description }}',
-nodeConfig = '{{ nodeConfig }}',
-properties = '{{ properties }}',
-name = '{{ name }}',
-hasAttachedFlowHooks = true|false,
-type = '{{ type }}',
-displayName = '{{ displayName }}',
-apiProxyType = '{{ apiProxyType }}'
+type = '{{ type }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

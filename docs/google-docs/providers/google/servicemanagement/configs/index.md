@@ -105,4 +105,539 @@ usage
 FROM google.servicemanagement.configs
 WHERE serviceName = '{{ serviceName }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>configs</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.servicemanagement.configs (
+serviceName,
+name,
+title,
+producerProjectId,
+apis,
+types,
+enums,
+documentation,
+backend,
+http,
+quota,
+authentication,
+context,
+usage,
+customError,
+endpoints,
+control,
+logs,
+metrics,
+monitoredResources,
+billing,
+logging,
+monitoring,
+systemParameters,
+sourceInfo,
+publishing,
+systemTypes,
+configVersion
+)
+SELECT 
+'{{ serviceName }}',
+'{{ name }}',
+'{{ title }}',
+'{{ producerProjectId }}',
+'{{ apis }}',
+'{{ types }}',
+'{{ enums }}',
+'{{ documentation }}',
+'{{ backend }}',
+'{{ http }}',
+'{{ quota }}',
+'{{ authentication }}',
+'{{ context }}',
+'{{ usage }}',
+'{{ customError }}',
+'{{ endpoints }}',
+'{{ control }}',
+'{{ logs }}',
+'{{ metrics }}',
+'{{ monitoredResources }}',
+'{{ billing }}',
+'{{ logging }}',
+'{{ monitoring }}',
+'{{ systemParameters }}',
+'{{ sourceInfo }}',
+'{{ publishing }}',
+'{{ systemTypes }}',
+'{{ configVersion }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+title: string
+producerProjectId: string
+id: string
+apis:
+  - name: string
+    methods:
+      - name: string
+        requestTypeUrl: string
+        requestStreaming: boolean
+        responseTypeUrl: string
+        responseStreaming: boolean
+        options:
+          - name: string
+            value: object
+        syntax: string
+    options:
+      - name: string
+        value: object
+    version: string
+    sourceContext:
+      fileName: string
+    mixins:
+      - name: string
+        root: string
+    syntax: string
+types:
+  - name: string
+    fields:
+      - kind: string
+        cardinality: string
+        number: integer
+        name: string
+        typeUrl: string
+        oneofIndex: integer
+        packed: boolean
+        options:
+          - name: string
+            value: object
+        jsonName: string
+        defaultValue: string
+    oneofs:
+      - type: string
+    options:
+      - name: string
+        value: object
+    syntax: string
+    edition: string
+enums:
+  - name: string
+    enumvalue:
+      - name: string
+        number: integer
+        options:
+          - name: string
+            value: object
+    options:
+      - name: string
+        value: object
+    syntax: string
+    edition: string
+documentation:
+  summary: string
+  pages:
+    - name: string
+      content: string
+      subpages:
+        - name: string
+          content: string
+          subpages:
+            - name: string
+              content: string
+              subpages:
+                - name: string
+                  content: string
+                  subpages:
+                    - name: string
+                      content: string
+                      subpages:
+                        - name: string
+                          content: string
+                          subpages:
+                            - name: string
+                              content: string
+                              subpages:
+                                - name: string
+                                  content: string
+                                  subpages:
+                                    - name: string
+                                      content: string
+                                      subpages:
+                                        - {}
+  rules:
+    - selector: string
+      description: string
+      deprecationDescription: string
+      disableReplacementWords: string
+  documentationRootUrl: string
+  serviceRootUrl: string
+  overview: string
+  sectionOverrides:
+    - name: string
+      content: string
+      subpages:
+        - name: string
+          content: string
+          subpages:
+            - name: string
+              content: string
+              subpages:
+                - name: string
+                  content: string
+                  subpages:
+                    - name: string
+                      content: string
+                      subpages:
+                        - name: string
+                          content: string
+                          subpages:
+                            - name: string
+                              content: string
+                              subpages:
+                                - name: string
+                                  content: string
+                                  subpages:
+                                    - name: string
+                                      content: string
+                                      subpages:
+                                        - {}
+backend:
+  rules:
+    - selector: string
+      address: string
+      deadline: number
+      minDeadline: number
+      operationDeadline: number
+      pathTranslation: string
+      jwtAudience: string
+      disableAuth: boolean
+      protocol: string
+      overridesByRequestProtocol: object
+http:
+  rules:
+    - selector: string
+      get: string
+      put: string
+      post: string
+      delete: string
+      patch: string
+      custom:
+        kind: string
+        path: string
+      body: string
+      responseBody: string
+      additionalBindings:
+        - selector: string
+          get: string
+          put: string
+          post: string
+          delete: string
+          patch: string
+          body: string
+          responseBody: string
+          additionalBindings:
+            - selector: string
+              get: string
+              put: string
+              post: string
+              delete: string
+              patch: string
+              body: string
+              responseBody: string
+              additionalBindings:
+                - selector: string
+                  get: string
+                  put: string
+                  post: string
+                  delete: string
+                  patch: string
+                  body: string
+                  responseBody: string
+                  additionalBindings:
+                    - selector: string
+                      get: string
+                      put: string
+                      post: string
+                      delete: string
+                      patch: string
+                      body: string
+                      responseBody: string
+                      additionalBindings:
+                        - selector: string
+                          get: string
+                          put: string
+                          post: string
+                          delete: string
+                          patch: string
+                          body: string
+                          responseBody: string
+                          additionalBindings:
+                            - selector: string
+                              get: string
+                              put: string
+                              post: string
+                              delete: string
+                              patch: string
+                              body: string
+                              responseBody: string
+                              additionalBindings:
+                                - selector: string
+                                  get: string
+                                  put: string
+                                  post: string
+                                  delete: string
+                                  patch: string
+                                  body: string
+                                  responseBody: string
+                                  additionalBindings:
+                                    - selector: string
+                                      get: string
+                                      put: string
+                                      post: string
+                                      delete: string
+                                      patch: string
+                                      body: string
+                                      responseBody: string
+                                      additionalBindings:
+                                        - {}
+  fullyDecodeReservedExpansion: boolean
+quota:
+  limits:
+    - name: string
+      description: string
+      defaultLimit: string
+      maxLimit: string
+      freeTier: string
+      duration: string
+      metric: string
+      unit: string
+      values: object
+      displayName: string
+  metricRules:
+    - selector: string
+      metricCosts: object
+authentication:
+  rules:
+    - selector: string
+      oauth:
+        canonicalScopes: string
+      allowWithoutCredential: boolean
+      requirements:
+        - providerId: string
+          audiences: string
+  providers:
+    - id: string
+      issuer: string
+      jwksUri: string
+      audiences: string
+      authorizationUrl: string
+      jwtLocations:
+        - header: string
+          query: string
+          cookie: string
+          valuePrefix: string
+context:
+  rules:
+    - selector: string
+      requested:
+        - type: string
+      provided:
+        - type: string
+      allowedRequestExtensions:
+        - type: string
+      allowedResponseExtensions:
+        - type: string
+usage:
+  requirements:
+    - type: string
+  rules:
+    - selector: string
+      allowUnregisteredCalls: boolean
+      skipServiceControl: boolean
+  producerNotificationChannel: string
+customError:
+  rules:
+    - selector: string
+      isErrorType: boolean
+  types:
+    - type: string
+endpoints:
+  - name: string
+    aliases:
+      - type: string
+    target: string
+    allowCors: boolean
+control:
+  environment: string
+  methodPolicies:
+    - selector: string
+      requestPolicies:
+        - selector: string
+          resourcePermission: string
+          resourceType: string
+logs:
+  - name: string
+    labels:
+      - key: string
+        valueType: string
+        description: string
+    description: string
+    displayName: string
+metrics:
+  - name: string
+    type: string
+    labels:
+      - key: string
+        valueType: string
+        description: string
+    metricKind: string
+    valueType: string
+    unit: string
+    description: string
+    displayName: string
+    metadata:
+      launchStage: string
+      samplePeriod: string
+      ingestDelay: string
+      timeSeriesResourceHierarchyLevel:
+        - type: string
+          enumDescriptions: string
+          enum: string
+    launchStage: string
+    monitoredResourceTypes:
+      - type: string
+monitoredResources:
+  - name: string
+    type: string
+    displayName: string
+    description: string
+    labels:
+      - key: string
+        valueType: string
+        description: string
+    launchStage: string
+billing:
+  consumerDestinations:
+    - monitoredResource: string
+      metrics:
+        - type: string
+logging:
+  producerDestinations:
+    - monitoredResource: string
+      logs:
+        - type: string
+  consumerDestinations:
+    - monitoredResource: string
+      logs:
+        - type: string
+monitoring:
+  producerDestinations:
+    - monitoredResource: string
+      metrics:
+        - type: string
+  consumerDestinations:
+    - monitoredResource: string
+      metrics:
+        - type: string
+systemParameters:
+  rules:
+    - selector: string
+      parameters:
+        - name: string
+          httpHeader: string
+          urlQueryParameter: string
+sourceInfo:
+  sourceFiles:
+    - type: string
+      additionalProperties: any
+publishing:
+  methodSettings:
+    - selector: string
+      longRunning:
+        initialPollDelay: string
+        pollDelayMultiplier: number
+        maxPollDelay: string
+        totalPollTimeout: string
+      autoPopulatedFields:
+        - type: string
+  newIssueUri: string
+  documentationUri: string
+  apiShortName: string
+  githubLabel: string
+  codeownerGithubTeams:
+    - type: string
+  docTagPrefix: string
+  organization: string
+  librarySettings:
+    - version: string
+      launchStage: string
+      restNumericEnums: boolean
+      javaSettings:
+        libraryPackage: string
+        serviceClassNames: object
+        common:
+          referenceDocsUri: string
+          destinations:
+            - type: string
+              enumDescriptions: string
+              enum: string
+      cppSettings: {}
+      phpSettings: {}
+      pythonSettings:
+        experimentalFeatures:
+          restAsyncIoEnabled: boolean
+      nodeSettings: {}
+      dotnetSettings:
+        renamedServices: object
+        renamedResources: object
+        ignoredResources:
+          - type: string
+        forcedNamespaceAliases:
+          - type: string
+        handwrittenSignatures:
+          - type: string
+      rubySettings: {}
+      goSettings: {}
+  protoReferenceDocumentationUri: string
+  restReferenceDocumentationUri: string
+systemTypes:
+  - name: string
+    fields:
+      - kind: string
+        cardinality: string
+        number: integer
+        name: string
+        typeUrl: string
+        oneofIndex: integer
+        packed: boolean
+        options:
+          - name: string
+            value: object
+        jsonName: string
+        defaultValue: string
+    oneofs:
+      - type: string
+    options:
+      - name: string
+        value: object
+    syntax: string
+    edition: string
+configVersion: integer
+
+```
+</TabItem>
+</Tabs>

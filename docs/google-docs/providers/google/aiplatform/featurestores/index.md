@@ -95,8 +95,8 @@ INSERT INTO google.aiplatform.featurestores (
 locationsId,
 projectsId,
 onlineStorageTtlDays,
-encryptionSpec,
 labels,
+encryptionSpec,
 etag,
 onlineServingConfig
 )
@@ -104,8 +104,8 @@ SELECT
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ onlineStorageTtlDays }}',
-'{{ encryptionSpec }}',
 '{{ labels }}',
+'{{ encryptionSpec }}',
 '{{ etag }}',
 '{{ onlineServingConfig }}'
 ;
@@ -115,22 +115,22 @@ SELECT
 
 ```yaml
 onlineStorageTtlDays: integer
+updateTime: string
+satisfiesPzs: boolean
+labels: object
 encryptionSpec:
   kmsKeyName: string
-name: string
-state: string
-createTime: string
-labels: object
 etag: string
+satisfiesPzi: boolean
+state: string
+name: string
 onlineServingConfig:
+  fixedNodeCount: integer
   scaling:
     cpuUtilizationTarget: integer
-    maxNodeCount: integer
     minNodeCount: integer
-  fixedNodeCount: integer
-satisfiesPzs: boolean
-updateTime: string
-satisfiesPzi: boolean
+    maxNodeCount: integer
+createTime: string
 
 ```
 </TabItem>
@@ -145,8 +145,8 @@ Updates a <code>featurestores</code> resource.
 UPDATE google.aiplatform.featurestores
 SET 
 onlineStorageTtlDays = '{{ onlineStorageTtlDays }}',
-encryptionSpec = '{{ encryptionSpec }}',
 labels = '{{ labels }}',
+encryptionSpec = '{{ encryptionSpec }}',
 etag = '{{ etag }}',
 onlineServingConfig = '{{ onlineServingConfig }}'
 WHERE 

@@ -98,47 +98,47 @@ INSERT INTO google.aiplatform.artifacts (
 locationsId,
 metadataStoresId,
 projectsId,
-etag,
-schemaTitle,
-metadata,
+uri,
 labels,
+metadata,
 schemaVersion,
-state,
+schemaTitle,
 displayName,
-description,
-uri
+state,
+etag,
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ metadataStoresId }}',
 '{{ projectsId }}',
-'{{ etag }}',
-'{{ schemaTitle }}',
-'{{ metadata }}',
+'{{ uri }}',
 '{{ labels }}',
+'{{ metadata }}',
 '{{ schemaVersion }}',
-'{{ state }}',
+'{{ schemaTitle }}',
 '{{ displayName }}',
-'{{ description }}',
-'{{ uri }}'
+'{{ state }}',
+'{{ etag }}',
+'{{ description }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-etag: string
-schemaTitle: string
-name: string
-metadata: object
-updateTime: string
-labels: object
-schemaVersion: string
-state: string
-displayName: string
-description: string
-uri: string
 createTime: string
+uri: string
+labels: object
+metadata: object
+schemaVersion: string
+schemaTitle: string
+displayName: string
+state: string
+name: string
+updateTime: string
+etag: string
+description: string
 
 ```
 </TabItem>
@@ -152,15 +152,15 @@ Updates a <code>artifacts</code> resource.
 /*+ update */
 UPDATE google.aiplatform.artifacts
 SET 
-etag = '{{ etag }}',
-schemaTitle = '{{ schemaTitle }}',
-metadata = '{{ metadata }}',
+uri = '{{ uri }}',
 labels = '{{ labels }}',
+metadata = '{{ metadata }}',
 schemaVersion = '{{ schemaVersion }}',
-state = '{{ state }}',
+schemaTitle = '{{ schemaTitle }}',
 displayName = '{{ displayName }}',
-description = '{{ description }}',
-uri = '{{ uri }}'
+state = '{{ state }}',
+etag = '{{ etag }}',
+description = '{{ description }}'
 WHERE 
 artifactsId = '{{ artifactsId }}'
 AND locationsId = '{{ locationsId }}'

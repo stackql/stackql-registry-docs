@@ -106,31 +106,31 @@ Use the following StackQL query and manifest file to create a new <code>data_lab
 INSERT INTO google.aiplatform.data_labeling_jobs (
 locationsId,
 projectsId,
-displayName,
-encryptionSpec,
+datasets,
 labelerCount,
-annotationLabels,
+instructionUri,
+activeLearningConfig,
 inputsSchemaUri,
 inputs,
-datasets,
+encryptionSpec,
+annotationLabels,
+displayName,
 labels,
-activeLearningConfig,
-instructionUri,
 specialistPools
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ displayName }}',
-'{{ encryptionSpec }}',
+'{{ datasets }}',
 '{{ labelerCount }}',
-'{{ annotationLabels }}',
+'{{ instructionUri }}',
+'{{ activeLearningConfig }}',
 '{{ inputsSchemaUri }}',
 '{{ inputs }}',
-'{{ datasets }}',
+'{{ encryptionSpec }}',
+'{{ annotationLabels }}',
+'{{ displayName }}',
 '{{ labels }}',
-'{{ activeLearningConfig }}',
-'{{ instructionUri }}',
 '{{ specialistPools }}'
 ;
 ```
@@ -138,43 +138,43 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-createTime: string
-displayName: string
-encryptionSpec:
-  kmsKeyName: string
-labelerCount: integer
-annotationLabels: object
-updateTime: string
-inputsSchemaUri: string
-inputs: any
 datasets:
   - type: string
-labels: object
-name: string
-state: string
-currentSpend:
-  units: string
-  nanos: integer
-  currencyCode: string
+labelerCount: integer
+instructionUri: string
 activeLearningConfig:
+  maxDataItemPercentage: integer
+  trainingConfig:
+    timeoutTrainingMilliHours: string
+  maxDataItemCount: string
   sampleConfig:
     sampleStrategy: string
     followingBatchSamplePercentage: integer
     initialBatchSamplePercentage: integer
-  maxDataItemCount: string
-  trainingConfig:
-    timeoutTrainingMilliHours: string
-  maxDataItemPercentage: integer
-labelingProgress: integer
-instructionUri: string
+inputsSchemaUri: string
+inputs: any
+encryptionSpec:
+  kmsKeyName: string
+annotationLabels: object
+name: string
+currentSpend:
+  currencyCode: string
+  units: string
+  nanos: integer
+displayName: string
+updateTime: string
+state: string
+labels: object
+createTime: string
 specialistPools:
   - type: string
 error:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
+labelingProgress: integer
 
 ```
 </TabItem>

@@ -78,17 +78,17 @@ Use the following StackQL query and manifest file to create a new <code>referenc
 INSERT INTO google.apigee.references (
 environmentsId,
 organizationsId,
+description,
 name,
 resourceType,
-description,
 refers
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
+'{{ description }}',
 '{{ name }}',
 '{{ resourceType }}',
-'{{ description }}',
 '{{ refers }}'
 ;
 ```
@@ -96,9 +96,9 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+description: string
 name: string
 resourceType: string
-description: string
 refers: string
 
 ```
@@ -113,9 +113,9 @@ Replaces all fields in the specified <code>references</code> resource.
 /*+ update */
 REPLACE google.apigee.references
 SET 
+description = '{{ description }}',
 name = '{{ name }}',
 resourceType = '{{ resourceType }}',
-description = '{{ description }}',
 refers = '{{ refers }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'

@@ -33,7 +33,7 @@ Creates, updates, deletes, gets or lists a <code>buckets</code> resource.
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Output only. The resource name of the bucket.For example:projects/my-project/locations/global/buckets/my-bucketFor a list of supported locations, see Supported Regions (https://cloud.google.com/logging/docs/region-support)For the location of global it is unspecified where log entries are actually stored.After a bucket has been created, the location cannot be changed. |
 | <CopyableCode code="description" /> | `string` | Optional. Describes this bucket. |
-| <CopyableCode code="analyticsEnabled" /> | `boolean` | Whether log analytics is enabled for this bucket.Once enabled, log analytics features cannot be disabled. |
+| <CopyableCode code="analyticsEnabled" /> | `boolean` | Optional. Whether log analytics is enabled for this bucket.Once enabled, log analytics features cannot be disabled. |
 | <CopyableCode code="cmekSettings" /> | `object` | Describes the customer-managed encryption key (CMEK) settings associated with a project, folder, organization, billing account, or flexible resource.Note: CMEK for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information. |
 | <CopyableCode code="createTime" /> | `string` | Output only. The creation timestamp of the bucket. This is not set for any of the default buckets. |
 | <CopyableCode code="indexConfigs" /> | `array` | Optional. A list of indexed fields and related configuration data. |

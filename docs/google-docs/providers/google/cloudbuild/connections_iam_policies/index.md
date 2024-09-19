@@ -65,8 +65,8 @@ Replaces all fields in the specified <code>connections_iam_policies</code> resou
 /*+ update */
 REPLACE google.cloudbuild.connections_iam_policies
 SET 
-policy = '{{ policy }}',
-updateMask = '{{ updateMask }}'
+updateMask = '{{ updateMask }}',
+policy = '{{ policy }}'
 WHERE 
 connectionsId = '{{ connectionsId }}'
 AND locationsId = '{{ locationsId }}'

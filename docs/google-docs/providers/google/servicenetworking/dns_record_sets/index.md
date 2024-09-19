@@ -70,14 +70,14 @@ Use the following StackQL query and manifest file to create a new <code>dns_reco
 INSERT INTO google.servicenetworking.dns_record_sets (
 servicesId,
 zone,
-dnsRecordSet,
-consumerNetwork
+consumerNetwork,
+dnsRecordSet
 )
 SELECT 
 '{{ servicesId }}',
 '{{ zone }}',
-'{{ dnsRecordSet }}',
-'{{ consumerNetwork }}'
+'{{ consumerNetwork }}',
+'{{ dnsRecordSet }}'
 ;
 ```
 </TabItem>
@@ -85,13 +85,13 @@ SELECT
 
 ```yaml
 zone: string
+consumerNetwork: string
 dnsRecordSet:
-  type: string
   ttl: string
   data:
     - type: string
   domain: string
-consumerNetwork: string
+  type: string
 
 ```
 </TabItem>
@@ -105,10 +105,10 @@ Updates a <code>dns_record_sets</code> resource.
 /*+ update */
 UPDATE google.servicenetworking.dns_record_sets
 SET 
-zone = '{{ zone }}',
+newDnsRecordSet = '{{ newDnsRecordSet }}',
 existingDnsRecordSet = '{{ existingDnsRecordSet }}',
-consumerNetwork = '{{ consumerNetwork }}',
-newDnsRecordSet = '{{ newDnsRecordSet }}'
+zone = '{{ zone }}',
+consumerNetwork = '{{ consumerNetwork }}'
 WHERE 
 servicesId = '{{ servicesId }}';
 ```

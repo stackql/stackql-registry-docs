@@ -78,14 +78,14 @@ Use the following StackQL query and manifest file to create a new <code>nodes</c
 /*+ create */
 INSERT INTO google.prod_tt_sasportal.nodes (
 nodesId,
-name,
 sasUserIds,
+name,
 displayName
 )
 SELECT 
 '{{ nodesId }}',
-'{{ name }}',
 '{{ sasUserIds }}',
+'{{ name }}',
 '{{ displayName }}'
 ;
 ```
@@ -93,9 +93,9 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-name: string
 sasUserIds:
   - type: string
+name: string
 displayName: string
 
 ```
@@ -110,8 +110,8 @@ Updates a <code>nodes</code> resource.
 /*+ update */
 UPDATE google.prod_tt_sasportal.nodes
 SET 
-name = '{{ name }}',
 sasUserIds = '{{ sasUserIds }}',
+name = '{{ name }}',
 displayName = '{{ displayName }}'
 WHERE 
 nodesId = '{{ nodesId }}'

@@ -100,54 +100,54 @@ Use the following StackQL query and manifest file to create a new <code>environm
 /*+ create */
 INSERT INTO google.apigee.environments (
 organizationsId,
+nodeConfig,
+displayName,
+description,
+properties,
+hasAttachedFlowHooks,
+apiProxyType,
+name,
 deploymentType,
 forwardProxyUri,
-description,
-nodeConfig,
-properties,
-name,
-hasAttachedFlowHooks,
-type,
-displayName,
-apiProxyType
+type
 )
 SELECT 
 '{{ organizationsId }}',
+'{{ nodeConfig }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ properties }}',
+true|false,
+'{{ apiProxyType }}',
+'{{ name }}',
 '{{ deploymentType }}',
 '{{ forwardProxyUri }}',
-'{{ description }}',
-'{{ nodeConfig }}',
-'{{ properties }}',
-'{{ name }}',
-true|false,
-'{{ type }}',
-'{{ displayName }}',
-'{{ apiProxyType }}'
+'{{ type }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-deploymentType: string
-forwardProxyUri: string
-description: string
+createdAt: string
 state: string
 nodeConfig:
   minNodeCount: string
-  maxNodeCount: string
   currentAggregateNodeCount: string
+  maxNodeCount: string
+displayName: string
+description: string
 properties:
   property:
-    - value: string
-      name: string
-name: string
-createdAt: string
+    - name: string
+      value: string
 hasAttachedFlowHooks: boolean
+apiProxyType: string
+name: string
+deploymentType: string
+forwardProxyUri: string
 lastModifiedAt: string
 type: string
-displayName: string
-apiProxyType: string
 
 ```
 </TabItem>
@@ -161,16 +161,16 @@ Replaces all fields in the specified <code>environments</code> resource.
 /*+ update */
 REPLACE google.apigee.environments
 SET 
+nodeConfig = '{{ nodeConfig }}',
+displayName = '{{ displayName }}',
+description = '{{ description }}',
+properties = '{{ properties }}',
+hasAttachedFlowHooks = true|false,
+apiProxyType = '{{ apiProxyType }}',
+name = '{{ name }}',
 deploymentType = '{{ deploymentType }}',
 forwardProxyUri = '{{ forwardProxyUri }}',
-description = '{{ description }}',
-nodeConfig = '{{ nodeConfig }}',
-properties = '{{ properties }}',
-name = '{{ name }}',
-hasAttachedFlowHooks = true|false,
-type = '{{ type }}',
-displayName = '{{ displayName }}',
-apiProxyType = '{{ apiProxyType }}'
+type = '{{ type }}'
 WHERE 
 environmentsId = '{{ environmentsId }}'
 AND organizationsId = '{{ organizationsId }}';

@@ -56,22 +56,22 @@ Use the following StackQL query and manifest file to create a new <code>apps_scr
 INSERT INTO google.integrations.apps_script_projects (
 locationsId,
 projectsId,
-authConfigId,
-appsScriptProject
+appsScriptProject,
+authConfigId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ authConfigId }}',
-'{{ appsScriptProject }}'
+'{{ appsScriptProject }}',
+'{{ authConfigId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-authConfigId: string
 appsScriptProject: string
+authConfigId: string
 
 ```
 </TabItem>

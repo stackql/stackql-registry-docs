@@ -102,63 +102,63 @@ Use the following StackQL query and manifest file to create a new <code>apps</co
 INSERT INTO google.apigee.apps (
 appgroupsId,
 organizationsId,
-apiProducts,
-attributes,
-keyExpiresIn,
-appGroup,
-scopes,
-status,
-name,
 callbackUrl,
-appId
+appId,
+apiProducts,
+scopes,
+keyExpiresIn,
+status,
+appGroup,
+name,
+attributes
 )
 SELECT 
 '{{ appgroupsId }}',
 '{{ organizationsId }}',
-'{{ apiProducts }}',
-'{{ attributes }}',
-'{{ keyExpiresIn }}',
-'{{ appGroup }}',
-'{{ scopes }}',
-'{{ status }}',
-'{{ name }}',
 '{{ callbackUrl }}',
-'{{ appId }}'
+'{{ appId }}',
+'{{ apiProducts }}',
+'{{ scopes }}',
+'{{ keyExpiresIn }}',
+'{{ status }}',
+'{{ appGroup }}',
+'{{ name }}',
+'{{ attributes }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-createdAt: string
+callbackUrl: string
+appId: string
 apiProducts:
   - type: string
-attributes:
-  - value: string
-    name: string
+scopes:
+  - type: string
 keyExpiresIn: string
+status: string
 appGroup: string
+lastModifiedAt: string
+createdAt: string
+name: string
+attributes:
+  - name: string
+    value: string
 credentials:
-  - consumerSecret: string
-    consumerKey: string
+  - expiresAt: string
+    consumerSecret: string
     apiProducts:
       - status: string
         apiproduct: string
     scopes:
       - type: string
-    status: string
-    expiresAt: string
     issuedAt: string
+    consumerKey: string
     attributes:
-      - value: string
-        name: string
-scopes:
-  - type: string
-status: string
-name: string
-lastModifiedAt: string
-callbackUrl: string
-appId: string
+      - name: string
+        value: string
+    status: string
 
 ```
 </TabItem>
@@ -172,15 +172,15 @@ Replaces all fields in the specified <code>apps</code> resource.
 /*+ update */
 REPLACE google.apigee.apps
 SET 
-apiProducts = '{{ apiProducts }}',
-attributes = '{{ attributes }}',
-keyExpiresIn = '{{ keyExpiresIn }}',
-appGroup = '{{ appGroup }}',
-scopes = '{{ scopes }}',
-status = '{{ status }}',
-name = '{{ name }}',
 callbackUrl = '{{ callbackUrl }}',
-appId = '{{ appId }}'
+appId = '{{ appId }}',
+apiProducts = '{{ apiProducts }}',
+scopes = '{{ scopes }}',
+keyExpiresIn = '{{ keyExpiresIn }}',
+status = '{{ status }}',
+appGroup = '{{ appGroup }}',
+name = '{{ name }}',
+attributes = '{{ attributes }}'
 WHERE 
 appgroupsId = '{{ appgroupsId }}'
 AND appsId = '{{ appsId }}'

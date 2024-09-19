@@ -94,55 +94,55 @@ Use the following StackQL query and manifest file to create a new <code>security
 INSERT INTO google.apigee.security_reports (
 environmentsId,
 organizationsId,
-reportDefinitionId,
 envgroupHostname,
+displayName,
+groupByTimeUnit,
 limit,
+timeRange,
+reportDefinitionId,
+filter,
+csvDelimiter,
 metrics,
 dimensions,
-groupByTimeUnit,
-mimeType,
-timeRange,
-csvDelimiter,
-filter,
-displayName
+mimeType
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ reportDefinitionId }}',
 '{{ envgroupHostname }}',
+'{{ displayName }}',
+'{{ groupByTimeUnit }}',
 '{{ limit }}',
+'{{ timeRange }}',
+'{{ reportDefinitionId }}',
+'{{ filter }}',
+'{{ csvDelimiter }}',
 '{{ metrics }}',
 '{{ dimensions }}',
-'{{ groupByTimeUnit }}',
-'{{ mimeType }}',
-'{{ timeRange }}',
-'{{ csvDelimiter }}',
-'{{ filter }}',
-'{{ displayName }}'
+'{{ mimeType }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-reportDefinitionId: string
 envgroupHostname: string
+displayName: string
+groupByTimeUnit: string
 limit: integer
+timeRange: any
+reportDefinitionId: string
+filter: string
+csvDelimiter: string
 metrics:
-  - operator: string
-    alias: string
+  - alias: string
     name: string
     aggregationFunction: string
     value: string
+    operator: string
 dimensions:
   - type: string
-groupByTimeUnit: string
 mimeType: string
-timeRange: any
-csvDelimiter: string
-filter: string
-displayName: string
 
 ```
 </TabItem>

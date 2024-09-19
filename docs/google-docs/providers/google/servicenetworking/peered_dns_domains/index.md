@@ -72,23 +72,23 @@ INSERT INTO google.servicenetworking.peered_dns_domains (
 networksId,
 projectsId,
 servicesId,
-name,
-dnsSuffix
+dnsSuffix,
+name
 )
 SELECT 
 '{{ networksId }}',
 '{{ projectsId }}',
 '{{ servicesId }}',
-'{{ name }}',
-'{{ dnsSuffix }}'
+'{{ dnsSuffix }}',
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
 dnsSuffix: string
+name: string
 
 ```
 </TabItem>

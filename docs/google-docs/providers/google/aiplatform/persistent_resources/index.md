@@ -103,86 +103,86 @@ Use the following StackQL query and manifest file to create a new <code>persiste
 INSERT INTO google.aiplatform.persistent_resources (
 locationsId,
 projectsId,
-resourcePools,
-displayName,
-network,
-resourceRuntimeSpec,
+encryptionSpec,
 labels,
-reservedIpRanges,
+resourceRuntimeSpec,
 name,
-encryptionSpec
+reservedIpRanges,
+network,
+resourcePools,
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ resourcePools }}',
-'{{ displayName }}',
-'{{ network }}',
-'{{ resourceRuntimeSpec }}',
+'{{ encryptionSpec }}',
 '{{ labels }}',
-'{{ reservedIpRanges }}',
+'{{ resourceRuntimeSpec }}',
 '{{ name }}',
-'{{ encryptionSpec }}'
+'{{ reservedIpRanges }}',
+'{{ network }}',
+'{{ resourcePools }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-updateTime: string
-resourcePools:
-  - usedReplicaCount: string
-    replicaCount: string
-    id: string
-    diskSpec:
-      bootDiskType: string
-      bootDiskSizeGb: integer
-    machineSpec:
-      acceleratorCount: integer
-      reservationAffinity:
-        key: string
-        reservationAffinityType: string
-        values:
-          - type: string
-      tpuTopology: string
-      acceleratorType: string
-      machineType: string
-    autoscalingSpec:
-      minReplicaCount: string
-      maxReplicaCount: string
+state: string
+encryptionSpec:
+  kmsKeyName: string
+satisfiesPzs: boolean
 error:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
-satisfiesPzs: boolean
-displayName: string
-network: string
+satisfiesPzi: boolean
+createTime: string
+labels: object
+startTime: string
 resourceRuntimeSpec:
-  serviceAccountSpec:
-    enableCustomServiceAccount: boolean
-    serviceAccount: string
   raySpec:
-    resourcePoolImages: object
+    imageUri: string
     rayMetricSpec:
       disabled: boolean
-    imageUri: string
+    resourcePoolImages: object
+    headNodeResourcePoolId: string
     rayLogsSpec:
       disabled: boolean
-    headNodeResourcePoolId: string
-createTime: string
-resourceRuntime:
-  accessUris: object
-state: string
-satisfiesPzi: boolean
-startTime: string
-labels: object
+  serviceAccountSpec:
+    serviceAccount: string
+    enableCustomServiceAccount: boolean
+name: string
 reservedIpRanges:
   - type: string
-name: string
-encryptionSpec:
-  kmsKeyName: string
+network: string
+resourcePools:
+  - replicaCount: string
+    diskSpec:
+      bootDiskType: string
+      bootDiskSizeGb: integer
+    usedReplicaCount: string
+    machineSpec:
+      acceleratorCount: integer
+      tpuTopology: string
+      machineType: string
+      acceleratorType: string
+      reservationAffinity:
+        reservationAffinityType: string
+        values:
+          - type: string
+        key: string
+    id: string
+    autoscalingSpec:
+      maxReplicaCount: string
+      minReplicaCount: string
+displayName: string
+resourceRuntime:
+  accessUris: object
+updateTime: string
 
 ```
 </TabItem>
@@ -196,14 +196,14 @@ Updates a <code>persistent_resources</code> resource.
 /*+ update */
 UPDATE google.aiplatform.persistent_resources
 SET 
-resourcePools = '{{ resourcePools }}',
-displayName = '{{ displayName }}',
-network = '{{ network }}',
-resourceRuntimeSpec = '{{ resourceRuntimeSpec }}',
+encryptionSpec = '{{ encryptionSpec }}',
 labels = '{{ labels }}',
-reservedIpRanges = '{{ reservedIpRanges }}',
+resourceRuntimeSpec = '{{ resourceRuntimeSpec }}',
 name = '{{ name }}',
-encryptionSpec = '{{ encryptionSpec }}'
+reservedIpRanges = '{{ reservedIpRanges }}',
+network = '{{ network }}',
+resourcePools = '{{ resourcePools }}',
+displayName = '{{ displayName }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND persistentResourcesId = '{{ persistentResourcesId }}'

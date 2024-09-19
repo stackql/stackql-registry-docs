@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>tuning_jobs</code> resource.
 | <CopyableCode code="labels" /> | `object` | Optional. The labels with user-defined metadata to organize TuningJob and generated resources such as Model and Endpoint. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels. |
 | <CopyableCode code="startTime" /> | `string` | Output only. Time when the TuningJob for the first time entered the `JOB_STATE_RUNNING` state. |
 | <CopyableCode code="state" /> | `string` | Output only. The detailed state of the job. |
-| <CopyableCode code="supervisedTuningSpec" /> | `object` | Tuning Spec for Supervised Tuning. |
+| <CopyableCode code="supervisedTuningSpec" /> | `object` | Tuning Spec for Supervised Tuning for first party models. |
 | <CopyableCode code="tunedModel" /> | `object` | The Model Registry Model and Online Prediction Endpoint assiociated with this TuningJob. |
 | <CopyableCode code="tunedModelDisplayName" /> | `string` | Optional. The display name of the TunedModel. The name can be up to 128 characters long and can consist of any UTF-8 characters. |
 | <CopyableCode code="tuningDataStats" /> | `object` | The tuning data statistic values for TuningJob. |
@@ -101,100 +101,100 @@ Use the following StackQL query and manifest file to create a new <code>tuning_j
 INSERT INTO google.aiplatform.tuning_jobs (
 locationsId,
 projectsId,
-supervisedTuningSpec,
-encryptionSpec,
-tunedModelDisplayName,
-description,
 baseModel,
-labels
+encryptionSpec,
+supervisedTuningSpec,
+description,
+labels,
+tunedModelDisplayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ supervisedTuningSpec }}',
-'{{ encryptionSpec }}',
-'{{ tunedModelDisplayName }}',
-'{{ description }}',
 '{{ baseModel }}',
-'{{ labels }}'
+'{{ encryptionSpec }}',
+'{{ supervisedTuningSpec }}',
+'{{ description }}',
+'{{ labels }}',
+'{{ tunedModelDisplayName }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-supervisedTuningSpec:
-  validationDatasetUri: string
-  trainingDatasetUri: string
-  hyperParameters:
-    adapterSize: string
-    learningRateMultiplier: number
-    epochCount: string
+state: string
+tunedModel:
+  model: string
+  endpoint: string
+endTime: string
+baseModel: string
 tuningDataStats:
   supervisedTuningDataStats:
-    tuningDatasetExampleCount: string
-    tuningStepCount: string
-    userOutputTokenDistribution:
-      sum: string
-      p5: number
-      mean: number
-      billableSum: string
-      max: number
-      buckets:
-        - count: number
-          right: number
-          left: number
-      median: number
-      p95: number
-      min: number
-    totalBillableCharacterCount: string
     totalTruncatedExampleCount: string
-    userDatasetExamples:
-      - role: string
-        parts:
-          - videoMetadata:
-              endOffset: string
-              startOffset: string
-            functionCall:
-              name: string
-              args: object
-            inlineData:
-              mimeType: string
-              data: string
-            text: string
-            functionResponse:
-              response: object
-              name: string
-            fileData:
-              fileUri: string
-              mimeType: string
+    totalTuningCharacterCount: string
     totalBillableTokenCount: string
     truncatedExampleIndices:
       - format: string
         type: string
-    totalTuningCharacterCount: string
-name: string
-state: string
-updateTime: string
-tunedModel:
-  model: string
-  endpoint: string
-encryptionSpec:
-  kmsKeyName: string
-tunedModelDisplayName: string
-endTime: string
-experiment: string
+    tuningStepCount: string
+    userMessagePerExampleDistribution:
+      p95: number
+      min: number
+      sum: string
+      billableSum: string
+      max: number
+      median: number
+      mean: number
+      p5: number
+      buckets:
+        - left: number
+          count: number
+          right: number
+    userDatasetExamples:
+      - role: string
+        parts:
+          - fileData:
+              mimeType: string
+              fileUri: string
+            functionCall:
+              args: object
+              name: string
+            videoMetadata:
+              endOffset: string
+              startOffset: string
+            text: string
+            inlineData:
+              data: string
+              mimeType: string
+            functionResponse:
+              name: string
+              response: object
+    tuningDatasetExampleCount: string
+    totalBillableCharacterCount: string
+createTime: string
 error:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
-description: string
+encryptionSpec:
+  kmsKeyName: string
 startTime: string
-createTime: string
-baseModel: string
+supervisedTuningSpec:
+  hyperParameters:
+    adapterSize: string
+    learningRateMultiplier: number
+    epochCount: string
+  validationDatasetUri: string
+  trainingDatasetUri: string
+name: string
+description: string
 labels: object
+updateTime: string
+experiment: string
+tunedModelDisplayName: string
 
 ```
 </TabItem>

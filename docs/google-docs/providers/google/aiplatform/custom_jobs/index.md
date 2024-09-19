@@ -99,60 +99,74 @@ INSERT INTO google.aiplatform.custom_jobs (
 locationsId,
 projectsId,
 displayName,
-encryptionSpec,
 labels,
-jobSpec
+jobSpec,
+encryptionSpec
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ displayName }}',
-'{{ encryptionSpec }}',
 '{{ labels }}',
-'{{ jobSpec }}'
+'{{ jobSpec }}',
+'{{ encryptionSpec }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-satisfiesPzs: boolean
-displayName: string
-encryptionSpec:
-  kmsKeyName: string
-webAccessUris: object
-updateTime: string
-state: string
+startTime: string
 error:
-  message: string
   code: integer
+  message: string
   details:
     - additionalProperties: any
       type: string
-satisfiesPzi: boolean
+satisfiesPzs: boolean
+endTime: string
 createTime: string
-labels: object
 name: string
+satisfiesPzi: boolean
+displayName: string
+labels: object
 jobSpec:
+  scheduling:
+    restartJobOnWorkerRestart: boolean
+    timeout: string
+    strategy: string
+    disableRetries: boolean
+    maxWaitDuration: string
+  persistentResourceId: string
+  baseOutputDirectory:
+    outputUriPrefix: string
+  experimentRun: string
+  protectedArtifactLocationId: string
+  serviceAccount: string
   workerPoolSpecs:
-    - machineSpec:
-        acceleratorCount: integer
-        reservationAffinity:
-          key: string
-          reservationAffinityType: string
-          values:
-            - type: string
-        tpuTopology: string
-        acceleratorType: string
-        machineType: string
-      nfsMounts:
-        - path: string
-          mountPoint: string
-          server: string
+    - pythonPackageSpec:
+        args:
+          - type: string
+        env:
+          - value: string
+            name: string
+        pythonModule: string
+        executorImageUri: string
+        packageUris:
+          - type: string
       diskSpec:
         bootDiskType: string
         bootDiskSizeGb: integer
-      replicaCount: string
+      machineSpec:
+        acceleratorCount: integer
+        tpuTopology: string
+        machineType: string
+        acceleratorType: string
+        reservationAffinity:
+          reservationAffinityType: string
+          values:
+            - type: string
+          key: string
       containerSpec:
         command:
           - type: string
@@ -162,39 +176,25 @@ jobSpec:
         env:
           - value: string
             name: string
-      pythonPackageSpec:
-        args:
-          - type: string
-        pythonModule: string
-        env:
-          - value: string
-            name: string
-        executorImageUri: string
-        packageUris:
-          - type: string
-  tensorboard: string
-  experimentRun: string
-  reservedIpRanges:
-    - type: string
-  scheduling:
-    timeout: string
-    disableRetries: boolean
-    strategy: string
-    restartJobOnWorkerRestart: boolean
-    maxWaitDuration: string
-  protectedArtifactLocationId: string
-  serviceAccount: string
-  baseOutputDirectory:
-    outputUriPrefix: string
+      nfsMounts:
+        - mountPoint: string
+          path: string
+          server: string
+      replicaCount: string
+  enableDashboardAccess: boolean
+  network: string
   enableWebAccess: boolean
   experiment: string
+  reservedIpRanges:
+    - type: string
+  tensorboard: string
   models:
     - type: string
-  persistentResourceId: string
-  network: string
-  enableDashboardAccess: boolean
-endTime: string
-startTime: string
+encryptionSpec:
+  kmsKeyName: string
+updateTime: string
+state: string
+webAccessUris: object
 
 ```
 </TabItem>

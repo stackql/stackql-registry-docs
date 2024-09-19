@@ -123,116 +123,116 @@ Use the following StackQL query and manifest file to create a new <code>model_de
 INSERT INTO google.aiplatform.model_deployment_monitoring_jobs (
 locationsId,
 projectsId,
-displayName,
-samplePredictInstance,
-predictInstanceSchemaUri,
 logTtl,
 statsAnomaliesBaseDirectory,
-modelDeploymentMonitoringScheduleConfig,
-endpoint,
-modelMonitoringAlertConfig,
-encryptionSpec,
-labels,
-analysisInstanceSchemaUri,
-loggingSamplingStrategy,
 enableMonitoringPipelineLogs,
-modelDeploymentMonitoringObjectiveConfigs
+labels,
+modelDeploymentMonitoringScheduleConfig,
+encryptionSpec,
+predictInstanceSchemaUri,
+analysisInstanceSchemaUri,
+modelDeploymentMonitoringObjectiveConfigs,
+samplePredictInstance,
+loggingSamplingStrategy,
+displayName,
+endpoint,
+modelMonitoringAlertConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ displayName }}',
-'{{ samplePredictInstance }}',
-'{{ predictInstanceSchemaUri }}',
 '{{ logTtl }}',
 '{{ statsAnomaliesBaseDirectory }}',
-'{{ modelDeploymentMonitoringScheduleConfig }}',
-'{{ endpoint }}',
-'{{ modelMonitoringAlertConfig }}',
-'{{ encryptionSpec }}',
-'{{ labels }}',
-'{{ analysisInstanceSchemaUri }}',
-'{{ loggingSamplingStrategy }}',
 true|false,
-'{{ modelDeploymentMonitoringObjectiveConfigs }}'
+'{{ labels }}',
+'{{ modelDeploymentMonitoringScheduleConfig }}',
+'{{ encryptionSpec }}',
+'{{ predictInstanceSchemaUri }}',
+'{{ analysisInstanceSchemaUri }}',
+'{{ modelDeploymentMonitoringObjectiveConfigs }}',
+'{{ samplePredictInstance }}',
+'{{ loggingSamplingStrategy }}',
+'{{ displayName }}',
+'{{ endpoint }}',
+'{{ modelMonitoringAlertConfig }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-displayName: string
-samplePredictInstance: any
-bigqueryTables:
-  - requestResponseLoggingSchemaVersion: string
-    bigqueryTablePath: string
-    logType: string
-    logSource: string
-nextScheduleTime: string
-satisfiesPzi: boolean
-scheduleState: string
-predictInstanceSchemaUri: string
 logTtl: string
-satisfiesPzs: boolean
-state: string
+createTime: string
 statsAnomaliesBaseDirectory:
   outputUriPrefix: string
-modelDeploymentMonitoringScheduleConfig:
-  monitorWindow: string
-  monitorInterval: string
-endpoint: string
-modelMonitoringAlertConfig:
-  enableLogging: boolean
-  emailAlertConfig:
-    userEmails:
-      - type: string
-  notificationChannels:
-    - type: string
+enableMonitoringPipelineLogs: boolean
 latestMonitoringPipelineMetadata:
+  runTime: string
   status:
-    message: string
     code: integer
+    message: string
     details:
       - additionalProperties: any
         type: string
-  runTime: string
+labels: object
+modelDeploymentMonitoringScheduleConfig:
+  monitorInterval: string
+  monitorWindow: string
 encryptionSpec:
   kmsKeyName: string
-labels: object
+predictInstanceSchemaUri: string
+scheduleState: string
+satisfiesPzi: boolean
 analysisInstanceSchemaUri: string
-loggingSamplingStrategy:
-  randomSampleConfig:
-    sampleRate: number
-name: string
-enableMonitoringPipelineLogs: boolean
-updateTime: string
-createTime: string
 modelDeploymentMonitoringObjectiveConfigs:
-  - deployedModelId: string
-    objectiveConfig:
-      explanationConfig:
-        explanationBaseline:
-          predictionFormat: string
-          bigquery:
-            outputUri: string
-        enableFeatureAttributes: boolean
+  - objectiveConfig:
       trainingDataset:
-        dataFormat: string
-        targetField: string
+        dataset: string
+        bigquerySource:
+          inputUri: string
+        loggingSamplingStrategy:
+          randomSampleConfig:
+            sampleRate: number
         gcsSource:
           uris:
             - type: string
-        bigquerySource:
-          inputUri: string
-        dataset: string
+        targetField: string
+        dataFormat: string
+      explanationConfig:
+        explanationBaseline:
+          bigquery:
+            outputUri: string
+          predictionFormat: string
+        enableFeatureAttributes: boolean
       trainingPredictionSkewDetectionConfig:
         attributionScoreSkewThresholds: object
         skewThresholds: object
         defaultSkewThreshold:
           value: number
       predictionDriftDetectionConfig:
-        driftThresholds: object
         attributionScoreDriftThresholds: object
+        driftThresholds: object
+    deployedModelId: string
+samplePredictInstance: any
+state: string
+displayName: string
+name: string
+satisfiesPzs: boolean
+endpoint: string
+nextScheduleTime: string
+modelMonitoringAlertConfig:
+  enableLogging: boolean
+  notificationChannels:
+    - type: string
+  emailAlertConfig:
+    userEmails:
+      - type: string
+bigqueryTables:
+  - logSource: string
+    requestResponseLoggingSchemaVersion: string
+    logType: string
+    bigqueryTablePath: string
+updateTime: string
 
 ```
 </TabItem>
@@ -246,20 +246,20 @@ Updates a <code>model_deployment_monitoring_jobs</code> resource.
 /*+ update */
 UPDATE google.aiplatform.model_deployment_monitoring_jobs
 SET 
-displayName = '{{ displayName }}',
-samplePredictInstance = '{{ samplePredictInstance }}',
-predictInstanceSchemaUri = '{{ predictInstanceSchemaUri }}',
 logTtl = '{{ logTtl }}',
 statsAnomaliesBaseDirectory = '{{ statsAnomaliesBaseDirectory }}',
-modelDeploymentMonitoringScheduleConfig = '{{ modelDeploymentMonitoringScheduleConfig }}',
-endpoint = '{{ endpoint }}',
-modelMonitoringAlertConfig = '{{ modelMonitoringAlertConfig }}',
-encryptionSpec = '{{ encryptionSpec }}',
-labels = '{{ labels }}',
-analysisInstanceSchemaUri = '{{ analysisInstanceSchemaUri }}',
-loggingSamplingStrategy = '{{ loggingSamplingStrategy }}',
 enableMonitoringPipelineLogs = true|false,
-modelDeploymentMonitoringObjectiveConfigs = '{{ modelDeploymentMonitoringObjectiveConfigs }}'
+labels = '{{ labels }}',
+modelDeploymentMonitoringScheduleConfig = '{{ modelDeploymentMonitoringScheduleConfig }}',
+encryptionSpec = '{{ encryptionSpec }}',
+predictInstanceSchemaUri = '{{ predictInstanceSchemaUri }}',
+analysisInstanceSchemaUri = '{{ analysisInstanceSchemaUri }}',
+modelDeploymentMonitoringObjectiveConfigs = '{{ modelDeploymentMonitoringObjectiveConfigs }}',
+samplePredictInstance = '{{ samplePredictInstance }}',
+loggingSamplingStrategy = '{{ loggingSamplingStrategy }}',
+displayName = '{{ displayName }}',
+endpoint = '{{ endpoint }}',
+modelMonitoringAlertConfig = '{{ modelMonitoringAlertConfig }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND modelDeploymentMonitoringJobsId = '{{ modelDeploymentMonitoringJobsId }}'

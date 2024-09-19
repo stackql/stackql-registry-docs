@@ -46,14 +46,14 @@ Updates a <code>keys_developer_app_key</code> resource.
 UPDATE google.apigee.keys_developer_app_key
 SET 
 consumerKey = '{{ consumerKey }}',
-expiresInSeconds = '{{ expiresInSeconds }}',
-consumerSecret = '{{ consumerSecret }}',
-attributes = '{{ attributes }}',
 apiProducts = '{{ apiProducts }}',
-status = '{{ status }}',
+consumerSecret = '{{ consumerSecret }}',
 issuedAt = '{{ issuedAt }}',
 scopes = '{{ scopes }}',
-expiresAt = '{{ expiresAt }}'
+status = '{{ status }}',
+expiresAt = '{{ expiresAt }}',
+attributes = '{{ attributes }}',
+expiresInSeconds = '{{ expiresInSeconds }}'
 WHERE 
 appsId = '{{ appsId }}'
 AND developersId = '{{ developersId }}'

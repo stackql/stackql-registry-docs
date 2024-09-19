@@ -80,7 +80,7 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 | <CopyableCode code="tableReference" /> | `object` |  |
 | <CopyableCode code="tableReplicationInfo" /> | `object` | Replication info of a table created using `AS REPLICA` DDL like: `CREATE MATERIALIZED VIEW mv1 AS REPLICA OF src_mv` |
 | <CopyableCode code="timePartitioning" /> | `object` |  |
-| <CopyableCode code="type" /> | `string` | Output only. Describes the table type. The following values are supported: * `TABLE`: A normal BigQuery table. * `VIEW`: A virtual table defined by a SQL query. * `EXTERNAL`: A table that references data stored in an external storage system, such as Google Cloud Storage. * `MATERIALIZED_VIEW`: A precomputed view defined by a SQL query. * `SNAPSHOT`: An immutable BigQuery table that preserves the contents of a base table at a particular time. See additional information on [table snapshots](/bigquery/docs/table-snapshots-intro). The default value is `TABLE`. |
+| <CopyableCode code="type" /> | `string` | Output only. Describes the table type. The following values are supported: * `TABLE`: A normal BigQuery table. * `VIEW`: A virtual table defined by a SQL query. * `EXTERNAL`: A table that references data stored in an external storage system, such as Google Cloud Storage. * `MATERIALIZED_VIEW`: A precomputed view defined by a SQL query. * `SNAPSHOT`: An immutable BigQuery table that preserves the contents of a base table at a particular time. See additional information on [table snapshots](https://cloud.google.com/bigquery/docs/table-snapshots-intro). The default value is `TABLE`. |
 | <CopyableCode code="view" /> | `object` | Describes the definition of a logical view. |
 
 ## Methods
@@ -154,7 +154,491 @@ FROM google.bigquery.tables
 WHERE +datasetId = '{{ +datasetId }}'
 AND projectId = '{{ projectId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>tables</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.bigquery.tables (
++datasetId,
+projectId,
+biglakeConfiguration,
+clustering,
+defaultCollation,
+defaultRoundingMode,
+description,
+encryptionConfiguration,
+expirationTime,
+externalCatalogTableOptions,
+externalDataConfiguration,
+friendlyName,
+labels,
+materializedView,
+maxStaleness,
+model,
+partitionDefinition,
+rangePartitioning,
+requirePartitionFilter,
+resourceTags,
+schema,
+tableConstraints,
+tableReference,
+tableReplicationInfo,
+timePartitioning,
+view
+)
+SELECT 
+'{{ +datasetId }}',
+'{{ projectId }}',
+'{{ biglakeConfiguration }}',
+'{{ clustering }}',
+'{{ defaultCollation }}',
+'{{ defaultRoundingMode }}',
+'{{ description }}',
+'{{ encryptionConfiguration }}',
+'{{ expirationTime }}',
+'{{ externalCatalogTableOptions }}',
+'{{ externalDataConfiguration }}',
+'{{ friendlyName }}',
+'{{ labels }}',
+'{{ materializedView }}',
+'{{ maxStaleness }}',
+'{{ model }}',
+'{{ partitionDefinition }}',
+'{{ rangePartitioning }}',
+true|false,
+'{{ resourceTags }}',
+'{{ schema }}',
+'{{ tableConstraints }}',
+'{{ tableReference }}',
+'{{ tableReplicationInfo }}',
+'{{ timePartitioning }}',
+'{{ view }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+biglakeConfiguration:
+  connectionId: string
+  fileFormat: string
+  storageUri: string
+  tableFormat: string
+cloneDefinition:
+  baseTableReference:
+    datasetId: string
+    projectId: string
+    tableId: string
+  cloneTime: string
+clustering:
+  fields:
+    - type: string
+creationTime: string
+defaultCollation: string
+defaultRoundingMode: string
+description: string
+encryptionConfiguration:
+  kmsKeyName: string
+etag: string
+expirationTime: string
+externalCatalogTableOptions:
+  connectionId: string
+  parameters: object
+  storageDescriptor:
+    inputFormat: string
+    locationUri: string
+    outputFormat: string
+    serdeInfo:
+      name: string
+      parameters: object
+      serializationLibrary: string
+externalDataConfiguration:
+  autodetect: boolean
+  avroOptions:
+    useAvroLogicalTypes: boolean
+  bigtableOptions:
+    columnFamilies:
+      - columns:
+          - encoding: string
+            fieldName: string
+            onlyReadLatest: boolean
+            qualifierEncoded: string
+            qualifierString: string
+            type: string
+        encoding: string
+        familyId: string
+        onlyReadLatest: boolean
+        type: string
+    ignoreUnspecifiedColumnFamilies: boolean
+    outputColumnFamiliesAsJson: boolean
+    readRowkeyAsString: boolean
+  compression: string
+  connectionId: string
+  csvOptions:
+    allowJaggedRows: boolean
+    allowQuotedNewlines: boolean
+    encoding: string
+    fieldDelimiter: string
+    nullMarker: string
+    preserveAsciiControlCharacters: boolean
+    quote: string
+    skipLeadingRows: string
+  decimalTargetTypes:
+    - enum: string
+      enumDescriptions: string
+      type: string
+  fileSetSpecType: string
+  googleSheetsOptions:
+    range: string
+    skipLeadingRows: string
+  hivePartitioningOptions:
+    fields:
+      - type: string
+    mode: string
+    requirePartitionFilter: boolean
+    sourceUriPrefix: string
+  ignoreUnknownValues: boolean
+  jsonExtension: string
+  jsonOptions:
+    encoding: string
+  maxBadRecords: integer
+  metadataCacheMode: string
+  objectMetadata: string
+  parquetOptions:
+    enableListInference: boolean
+    enumAsString: boolean
+    mapTargetType: string
+  referenceFileSchemaUri: string
+  schema:
+    fields:
+      - categories:
+          names:
+            - type: string
+        collation: string
+        dataPolicies:
+          - name: string
+        defaultValueExpression: string
+        description: string
+        fields:
+          - categories:
+              names:
+                - type: string
+            collation: string
+            dataPolicies:
+              - name: string
+            defaultValueExpression: string
+            description: string
+            fields:
+              - categories:
+                  names:
+                    - type: string
+                collation: string
+                dataPolicies:
+                  - name: string
+                defaultValueExpression: string
+                description: string
+                fields:
+                  - categories:
+                      names:
+                        - type: string
+                    collation: string
+                    dataPolicies:
+                      - name: string
+                    defaultValueExpression: string
+                    description: string
+                    fields:
+                      - categories:
+                          names:
+                            - type: string
+                        collation: string
+                        dataPolicies:
+                          - name: string
+                        defaultValueExpression: string
+                        description: string
+                        fields:
+                          - categories:
+                              names:
+                                - type: string
+                            collation: string
+                            dataPolicies:
+                              - name: string
+                            defaultValueExpression: string
+                            description: string
+                            fields:
+                              - categories:
+                                  names:
+                                    - {}
+                                collation: string
+                                dataPolicies:
+                                  - name: string
+                                defaultValueExpression: string
+                                description: string
+                                fields:
+                                  - categories: {}
+                                    collation: string
+                                    dataPolicies:
+                                      - {}
+                                    defaultValueExpression: string
+                                    description: string
+                                    fields:
+                                      - {}
+                                    foreignTypeDefinition: string
+                                    maxLength: string
+                                    mode: string
+                                    name: string
+                                    policyTags: {}
+                                    precision: string
+                                    rangeElementType: {}
+                                    roundingMode: string
+                                    scale: string
+                                    type: string
+                                foreignTypeDefinition: string
+                                maxLength: string
+                                mode: string
+                                name: string
+                                policyTags:
+                                  names:
+                                    - {}
+                                precision: string
+                                rangeElementType:
+                                  type: string
+                                roundingMode: string
+                                scale: string
+                                type: string
+                            foreignTypeDefinition: string
+                            maxLength: string
+                            mode: string
+                            name: string
+                            policyTags:
+                              names:
+                                - type: string
+                            precision: string
+                            rangeElementType:
+                              type: string
+                            roundingMode: string
+                            scale: string
+                            type: string
+                        foreignTypeDefinition: string
+                        maxLength: string
+                        mode: string
+                        name: string
+                        policyTags:
+                          names:
+                            - type: string
+                        precision: string
+                        rangeElementType:
+                          type: string
+                        roundingMode: string
+                        scale: string
+                        type: string
+                    foreignTypeDefinition: string
+                    maxLength: string
+                    mode: string
+                    name: string
+                    policyTags:
+                      names:
+                        - type: string
+                    precision: string
+                    rangeElementType:
+                      type: string
+                    roundingMode: string
+                    scale: string
+                    type: string
+                foreignTypeDefinition: string
+                maxLength: string
+                mode: string
+                name: string
+                policyTags:
+                  names:
+                    - type: string
+                precision: string
+                rangeElementType:
+                  type: string
+                roundingMode: string
+                scale: string
+                type: string
+            foreignTypeDefinition: string
+            maxLength: string
+            mode: string
+            name: string
+            policyTags:
+              names:
+                - type: string
+            precision: string
+            rangeElementType:
+              type: string
+            roundingMode: string
+            scale: string
+            type: string
+        foreignTypeDefinition: string
+        maxLength: string
+        mode: string
+        name: string
+        policyTags:
+          names:
+            - type: string
+        precision: string
+        rangeElementType:
+          type: string
+        roundingMode: string
+        scale: string
+        type: string
+    foreignTypeInfo:
+      typeSystem: string
+  sourceFormat: string
+  sourceUris:
+    - type: string
+friendlyName: string
+id: string
+kind: string
+labels: object
+lastModifiedTime: string
+location: string
+materializedView:
+  allowNonIncrementalDefinition: boolean
+  enableRefresh: boolean
+  lastRefreshTime: string
+  maxStaleness: string
+  query: string
+  refreshIntervalMs: string
+materializedViewStatus:
+  lastRefreshStatus:
+    debugInfo: string
+    location: string
+    message: string
+    reason: string
+  refreshWatermark: string
+maxStaleness: string
+model:
+  modelOptions:
+    labels:
+      - type: string
+    lossType: string
+    modelType: string
+  trainingRuns:
+    - iterationResults:
+        - durationMs: string
+          evalLoss: number
+          index: integer
+          learnRate: number
+          trainingLoss: number
+      startTime: string
+      state: string
+      trainingOptions:
+        earlyStop: boolean
+        l1Reg: number
+        l2Reg: number
+        learnRate: number
+        learnRateStrategy: string
+        lineSearchInitLearnRate: number
+        maxIteration: string
+        minRelProgress: number
+        warmStart: boolean
+numActiveLogicalBytes: string
+numActivePhysicalBytes: string
+numBytes: string
+numCurrentPhysicalBytes: string
+numLongTermBytes: string
+numLongTermLogicalBytes: string
+numLongTermPhysicalBytes: string
+numPartitions: string
+numPhysicalBytes: string
+numRows: string
+numTimeTravelPhysicalBytes: string
+numTotalLogicalBytes: string
+numTotalPhysicalBytes: string
+partitionDefinition:
+  partitionedColumn:
+    - field: string
+rangePartitioning:
+  field: string
+  range:
+    end: string
+    interval: string
+    start: string
+replicas:
+  - datasetId: string
+    projectId: string
+    tableId: string
+requirePartitionFilter: boolean
+resourceTags: object
+restrictions:
+  type: string
+selfLink: string
+snapshotDefinition:
+  snapshotTime: string
+streamingBuffer:
+  estimatedBytes: string
+  estimatedRows: string
+  oldestEntryTime: string
+tableConstraints:
+  foreignKeys:
+    - columnReferences:
+        - referencedColumn: string
+          referencingColumn: string
+      name: string
+      referencedTable:
+        datasetId: string
+        projectId: string
+        tableId: string
+  primaryKey:
+    columns:
+      - type: string
+tableReplicationInfo:
+  replicatedSourceLastRefreshTime: string
+  replicationIntervalMs: string
+  replicationStatus: string
+timePartitioning:
+  expirationMs: string
+  field: string
+  requirePartitionFilter: boolean
+  type: string
+type: string
+view:
+  foreignDefinitions:
+    - dialect: string
+      query: string
+  privacyPolicy:
+    aggregationThresholdPolicy:
+      privacyUnitColumns:
+        - type: string
+      threshold: string
+    differentialPrivacyPolicy:
+      deltaBudget: number
+      deltaBudgetRemaining: number
+      deltaPerQuery: number
+      epsilonBudget: number
+      epsilonBudgetRemaining: number
+      maxEpsilonPerQuery: number
+      maxGroupsContributed: string
+      privacyUnitColumn: string
+    joinRestrictionPolicy:
+      joinAllowedColumns:
+        - type: string
+      joinCondition: string
+  query: string
+  useExplicitColumnNames: boolean
+  useLegacySql: boolean
+  userDefinedFunctionResources:
+    - inlineCode: string
+      resourceUri: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>tables</code> resource.

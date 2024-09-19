@@ -60,7 +60,118 @@ FROM google.ml.studies
 WHERE locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>studies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.ml.studies (
+locationsId,
+projectsId,
+studyConfig
+)
+SELECT 
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ studyConfig }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+studyConfig:
+  metrics:
+    - goal: string
+      metric: string
+  parameters:
+    - parameter: string
+      type: string
+      doubleValueSpec:
+        minValue: number
+        maxValue: number
+      integerValueSpec:
+        minValue: string
+        maxValue: string
+      categoricalValueSpec:
+        values:
+          - type: string
+      discreteValueSpec:
+        values:
+          - type: string
+            format: string
+      scaleType: string
+      parentDiscreteValues:
+        values:
+          - type: string
+            format: string
+      parentIntValues:
+        values:
+          - type: string
+            format: string
+      parentCategoricalValues:
+        values:
+          - type: string
+      childParameterSpecs:
+        - parameter: string
+          type: string
+          scaleType: string
+          childParameterSpecs:
+            - parameter: string
+              type: string
+              scaleType: string
+              childParameterSpecs:
+                - parameter: string
+                  type: string
+                  scaleType: string
+                  childParameterSpecs:
+                    - parameter: string
+                      type: string
+                      scaleType: string
+                      childParameterSpecs:
+                        - parameter: string
+                          type: string
+                          scaleType: string
+                          childParameterSpecs:
+                            - parameter: string
+                              type: string
+                              scaleType: string
+                              childParameterSpecs:
+                                - parameter: string
+                                  type: string
+                                  scaleType: string
+                                  childParameterSpecs:
+                                    - parameter: string
+                                      type: string
+                                      scaleType: string
+                                      childParameterSpecs:
+                                        - {}
+  algorithm: string
+  automatedStoppingConfig:
+    decayCurveStoppingConfig:
+      useElapsedTime: boolean
+    medianAutomatedStoppingConfig:
+      useElapsedTime: boolean
+state: string
+createTime: string
+inactiveReason: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `DELETE` example
 
 Deletes the specified <code>studies</code> resource.

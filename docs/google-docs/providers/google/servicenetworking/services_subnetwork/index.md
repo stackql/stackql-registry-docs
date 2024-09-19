@@ -56,83 +56,83 @@ INSERT INTO google.servicenetworking.services_subnetwork (
 servicesId,
 servicesId1,
 servicesId2,
-useCustomComputeIdempotencyWindow,
-subnetworkUsers,
-outsideAllocationPublicIpRange,
 role,
-purpose,
-requestedAddress,
-description,
-secondaryIpRangeSpecs,
-requestedRanges,
-consumer,
-skipRequestedAddressValidation,
-region,
-allowSubnetCidrRoutesOverlap,
-checkServiceNetworkingUsePermission,
-subnetwork,
-computeIdempotencyWindow,
-consumerNetwork,
-privateIpv6GoogleAccess,
 ipPrefixLength,
-internalRange
+skipRequestedAddressValidation,
+consumerNetwork,
+internalRange,
+secondaryIpRangeSpecs,
+description,
+useCustomComputeIdempotencyWindow,
+requestedRanges,
+allowSubnetCidrRoutesOverlap,
+computeIdempotencyWindow,
+subnetwork,
+requestedAddress,
+outsideAllocationPublicIpRange,
+privateIpv6GoogleAccess,
+consumer,
+subnetworkUsers,
+purpose,
+region,
+checkServiceNetworkingUsePermission
 )
 SELECT 
 '{{ servicesId }}',
 '{{ servicesId1 }}',
 '{{ servicesId2 }}',
-true|false,
-'{{ subnetworkUsers }}',
-'{{ outsideAllocationPublicIpRange }}',
 '{{ role }}',
-'{{ purpose }}',
-'{{ requestedAddress }}',
-'{{ description }}',
-'{{ secondaryIpRangeSpecs }}',
-'{{ requestedRanges }}',
-'{{ consumer }}',
-true|false,
-'{{ region }}',
-true|false,
-true|false,
-'{{ subnetwork }}',
-'{{ computeIdempotencyWindow }}',
-'{{ consumerNetwork }}',
-'{{ privateIpv6GoogleAccess }}',
 '{{ ipPrefixLength }}',
-'{{ internalRange }}'
+true|false,
+'{{ consumerNetwork }}',
+'{{ internalRange }}',
+'{{ secondaryIpRangeSpecs }}',
+'{{ description }}',
+true|false,
+'{{ requestedRanges }}',
+true|false,
+'{{ computeIdempotencyWindow }}',
+'{{ subnetwork }}',
+'{{ requestedAddress }}',
+'{{ outsideAllocationPublicIpRange }}',
+'{{ privateIpv6GoogleAccess }}',
+'{{ consumer }}',
+'{{ subnetworkUsers }}',
+'{{ purpose }}',
+'{{ region }}',
+true|false
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-useCustomComputeIdempotencyWindow: boolean
-subnetworkUsers:
-  - type: string
-outsideAllocationPublicIpRange: string
 role: string
-purpose: string
-requestedAddress: string
-description: string
+ipPrefixLength: integer
+skipRequestedAddressValidation: boolean
+consumerNetwork: string
+internalRange: string
 secondaryIpRangeSpecs:
-  - outsideAllocationPublicIpRange: string
-    rangeName: string
-    ipPrefixLength: integer
+  - ipPrefixLength: integer
+    outsideAllocationPublicIpRange: string
     requestedAddress: string
+    rangeName: string
+description: string
+useCustomComputeIdempotencyWindow: boolean
 requestedRanges:
   - type: string
-consumer: string
-skipRequestedAddressValidation: boolean
-region: string
 allowSubnetCidrRoutesOverlap: boolean
-checkServiceNetworkingUsePermission: boolean
-subnetwork: string
 computeIdempotencyWindow: string
-consumerNetwork: string
+subnetwork: string
+requestedAddress: string
+outsideAllocationPublicIpRange: string
 privateIpv6GoogleAccess: string
-ipPrefixLength: integer
-internalRange: string
+consumer: string
+subnetworkUsers:
+  - type: string
+purpose: string
+region: string
+checkServiceNetworkingUsePermission: boolean
 
 ```
 </TabItem>

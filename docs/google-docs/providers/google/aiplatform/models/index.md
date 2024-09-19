@@ -137,23 +137,23 @@ Updates a <code>models</code> resource.
 /*+ update */
 UPDATE google.aiplatform.models
 SET 
-dataStats = '{{ dataStats }}',
-containerSpec = '{{ containerSpec }}',
-versionAliases = '{{ versionAliases }}',
-baseModelSource = '{{ baseModelSource }}',
-etag = '{{ etag }}',
-predictSchemata = '{{ predictSchemata }}',
-metadata = '{{ metadata }}',
-metadataSchemaUri = '{{ metadataSchemaUri }}',
-artifactUri = '{{ artifactUri }}',
-explanationSpec = '{{ explanationSpec }}',
-description = '{{ description }}',
-labels = '{{ labels }}',
-versionDescription = '{{ versionDescription }}',
 pipelineJob = '{{ pipelineJob }}',
-displayName = '{{ displayName }}',
+explanationSpec = '{{ explanationSpec }}',
+name = '{{ name }}',
+versionDescription = '{{ versionDescription }}',
 encryptionSpec = '{{ encryptionSpec }}',
-name = '{{ name }}'
+artifactUri = '{{ artifactUri }}',
+predictSchemata = '{{ predictSchemata }}',
+etag = '{{ etag }}',
+containerSpec = '{{ containerSpec }}',
+baseModelSource = '{{ baseModelSource }}',
+labels = '{{ labels }}',
+dataStats = '{{ dataStats }}',
+description = '{{ description }}',
+versionAliases = '{{ versionAliases }}',
+metadataSchemaUri = '{{ metadataSchemaUri }}',
+metadata = '{{ metadata }}',
+displayName = '{{ displayName }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND modelsId = '{{ modelsId }}'

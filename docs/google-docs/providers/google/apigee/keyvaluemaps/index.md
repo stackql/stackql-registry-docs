@@ -59,21 +59,21 @@ Use the following StackQL query and manifest file to create a new <code>keyvalue
 /*+ create */
 INSERT INTO google.apigee.keyvaluemaps (
 organizationsId,
-name,
-encrypted
+encrypted,
+name
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ name }}',
-true|false
+true|false,
+'{{ name }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
 encrypted: boolean
+name: string
 
 ```
 </TabItem>

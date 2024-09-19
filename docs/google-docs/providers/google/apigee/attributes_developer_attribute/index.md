@@ -45,8 +45,8 @@ Updates a <code>attributes_developer_attribute</code> resource.
 /*+ update */
 UPDATE google.apigee.attributes_developer_attribute
 SET 
-value = '{{ value }}',
-name = '{{ name }}'
+name = '{{ name }}',
+value = '{{ value }}'
 WHERE 
 attributesId = '{{ attributesId }}'
 AND developersId = '{{ developersId }}'

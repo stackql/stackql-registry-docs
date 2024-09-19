@@ -46,12 +46,14 @@ Creates, updates, deletes, gets or lists a <code>policies</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Gets a policy. |
+| <CopyableCode code="list_policies" /> | `SELECT` | <CopyableCode code="policiesId, policiesId1" /> | Retrieves the policies of the specified kind that are attached to a resource. The response lists only policy metadata. In particular, policy rules are omitted. |
+| <CopyableCode code="create_policy" /> | `INSERT` | <CopyableCode code="policiesId, policiesId1" /> | Creates a policy. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Deletes a policy. This action is permanent. |
 | <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="policiesId, policiesId1, policiesId2" /> | Updates the specified policy. You can update only the rules and the display name for the policy. To update a policy, you should use a read-modify-write loop: 1. Use GetPolicy to read the current version of the policy. 2. Modify the policy as needed. 3. Use `UpdatePolicy` to write the updated policy. This pattern helps prevent conflicts between concurrent updates. |
 
 ## `SELECT` examples
 
-Gets a policy.
+Retrieves the policies of the specified kind that are attached to a resource. The response lists only policy metadata. In particular, policy rules are omitted.
 
 ```sql
 SELECT
@@ -67,9 +69,78 @@ uid,
 updateTime
 FROM google.iamv2.policies
 WHERE policiesId = '{{ policiesId }}'
-AND policiesId1 = '{{ policiesId1 }}'
-AND policiesId2 = '{{ policiesId2 }}'; 
+AND policiesId1 = '{{ policiesId1 }}'; 
 ```
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.iamv2.policies (
+policiesId,
+policiesId1,
+name,
+uid,
+displayName,
+annotations,
+etag,
+rules
+)
+SELECT 
+'{{ policiesId }}',
+'{{ policiesId1 }}',
+'{{ name }}',
+'{{ uid }}',
+'{{ displayName }}',
+'{{ annotations }}',
+'{{ etag }}',
+'{{ rules }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+uid: string
+kind: string
+displayName: string
+annotations: object
+etag: string
+createTime: string
+updateTime: string
+deleteTime: string
+rules:
+  - denyRule:
+      deniedPrincipals:
+        - type: string
+      exceptionPrincipals:
+        - type: string
+      deniedPermissions:
+        - type: string
+      exceptionPermissions:
+        - type: string
+      denialCondition:
+        expression: string
+        title: string
+        description: string
+        location: string
+    description: string
+
+```
+</TabItem>
+</Tabs>
 
 ## `REPLACE` example
 

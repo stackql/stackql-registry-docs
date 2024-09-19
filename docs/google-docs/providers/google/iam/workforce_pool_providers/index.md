@@ -1,9 +1,9 @@
 ---
-title: providers
+title: workforce_pool_providers
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - providers
+  - workforce_pool_providers
   - iam
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>providers</code> resource.
+Creates, updates, deletes, gets or lists a <code>workforce_pool_providers</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>providers</code></td></tr>
+<tr><td><b>Name</b></td><td><code>workforce_pool_providers</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.providers" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.workforce_pool_providers" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -70,14 +70,14 @@ extraAttributesOauth2Client,
 oidc,
 saml,
 state
-FROM google.iam.providers
+FROM google.iam.workforce_pool_providers
 WHERE locationsId = '{{ locationsId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}'; 
 ```
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>providers</code> resource.
+Use the following StackQL query and manifest file to create a new <code>workforce_pool_providers</code> resource.
 
 <Tabs
     defaultValue="all"
@@ -90,7 +90,7 @@ Use the following StackQL query and manifest file to create a new <code>provider
 
 ```sql
 /*+ create */
-INSERT INTO google.iam.providers (
+INSERT INTO google.iam.workforce_pool_providers (
 locationsId,
 workforcePoolsId,
 displayName,
@@ -155,11 +155,11 @@ extraAttributesOauth2Client:
 
 ## `UPDATE` example
 
-Updates a <code>providers</code> resource.
+Updates a <code>workforce_pool_providers</code> resource.
 
 ```sql
 /*+ update */
-UPDATE google.iam.providers
+UPDATE google.iam.workforce_pool_providers
 SET 
 displayName = '{{ displayName }}',
 description = '{{ description }}',
@@ -177,11 +177,11 @@ AND workforcePoolsId = '{{ workforcePoolsId }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>providers</code> resource.
+Deletes the specified <code>workforce_pool_providers</code> resource.
 
 ```sql
 /*+ delete */
-DELETE FROM google.iam.providers
+DELETE FROM google.iam.workforce_pool_providers
 WHERE locationsId = '{{ locationsId }}'
 AND providersId = '{{ providersId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}';

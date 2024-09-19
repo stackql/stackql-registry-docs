@@ -101,10 +101,10 @@ Updates a <code>reference_id</code> resource.
 /*+ update */
 UPDATE google.contentwarehouse.reference_id
 SET 
-updateOptions = '{{ updateOptions }}',
 cloudAiDocumentOption = '{{ cloudAiDocumentOption }}',
 requestMetadata = '{{ requestMetadata }}',
-document = '{{ document }}'
+document = '{{ document }}',
+updateOptions = '{{ updateOptions }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

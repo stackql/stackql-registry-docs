@@ -46,8 +46,8 @@ Updates a <code>revisions_shared_flow_revision</code> resource.
 UPDATE google.apigee.revisions_shared_flow_revision
 SET 
 contentType = '{{ contentType }}',
-extensions = '{{ extensions }}',
-data = '{{ data }}'
+data = '{{ data }}',
+extensions = '{{ extensions }}'
 WHERE 
 organizationsId = '{{ organizationsId }}'
 AND revisionsId = '{{ revisionsId }}'

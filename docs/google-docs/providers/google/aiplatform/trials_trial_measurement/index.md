@@ -73,10 +73,10 @@ SELECT
 ```yaml
 measurement:
   stepCount: string
+  elapsedDuration: string
   metrics:
     - value: number
       metricId: string
-  elapsedDuration: string
 
 ```
 </TabItem>

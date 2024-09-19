@@ -56,25 +56,25 @@ Use the following StackQL query and manifest file to create a new <code>cloud_fu
 INSERT INTO google.integrations.cloud_functions (
 locationsId,
 projectsId,
-projectId,
+functionName,
 functionRegion,
-functionName
+projectId
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ projectId }}',
+'{{ functionName }}',
 '{{ functionRegion }}',
-'{{ functionName }}'
+'{{ projectId }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-projectId: string
-functionRegion: string
 functionName: string
+functionRegion: string
+projectId: string
 
 ```
 </TabItem>

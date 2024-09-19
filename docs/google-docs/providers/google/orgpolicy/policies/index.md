@@ -89,16 +89,16 @@ Use the following StackQL query and manifest file to create a new <code>policies
 INSERT INTO google.orgpolicy.policies (
 foldersId,
 dryRunSpec,
-etag,
 name,
+etag,
 spec,
 alternate
 )
 SELECT 
 '{{ foldersId }}',
 '{{ dryRunSpec }}',
-'{{ etag }}',
 '{{ name }}',
+'{{ etag }}',
 '{{ spec }}',
 '{{ alternate }}'
 ;
@@ -108,26 +108,26 @@ SELECT
 
 ```yaml
 dryRunSpec:
-  inheritFromParent: boolean
-  etag: string
   reset: boolean
+  inheritFromParent: boolean
   updateTime: string
+  etag: string
   rules:
-    - enforce: boolean
-      condition:
-        location: string
-        title: string
-        description: string
-        expression: string
-      denyAll: boolean
-      values:
-        deniedValues:
-          - type: string
+    - values:
         allowedValues:
           - type: string
+        deniedValues:
+          - type: string
+      condition:
+        description: string
+        location: string
+        expression: string
+        title: string
       allowAll: boolean
-etag: string
+      enforce: boolean
+      denyAll: boolean
 name: string
+etag: string
 alternate:
   launch: string
 
@@ -144,8 +144,8 @@ Updates a <code>policies</code> resource.
 UPDATE google.orgpolicy.policies
 SET 
 dryRunSpec = '{{ dryRunSpec }}',
-etag = '{{ etag }}',
 name = '{{ name }}',
+etag = '{{ etag }}',
 spec = '{{ spec }}',
 alternate = '{{ alternate }}'
 WHERE 

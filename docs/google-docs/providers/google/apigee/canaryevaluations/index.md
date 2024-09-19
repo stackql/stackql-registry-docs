@@ -86,19 +86,19 @@ Use the following StackQL query and manifest file to create a new <code>canaryev
 INSERT INTO google.apigee.canaryevaluations (
 instancesId,
 organizationsId,
-startTime,
-endTime,
 control,
+endTime,
 metricLabels,
+startTime,
 treatment
 )
 SELECT 
 '{{ instancesId }}',
 '{{ organizationsId }}',
-'{{ startTime }}',
-'{{ endTime }}',
 '{{ control }}',
+'{{ endTime }}',
 '{{ metricLabels }}',
+'{{ startTime }}',
 '{{ treatment }}'
 ;
 ```
@@ -106,17 +106,17 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-startTime: string
-endTime: string
+createTime: string
 control: string
+endTime: string
 metricLabels:
-  instance_id: string
   env: string
   location: string
-createTime: string
+  instance_id: string
+startTime: string
+verdict: string
 treatment: string
 name: string
-verdict: string
 state: string
 
 ```

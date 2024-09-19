@@ -105,16 +105,16 @@ SELECT
 
 ```yaml
 requests:
-  - tensorboardRun:
+  - tensorboardRunId: string
+    parent: string
+    tensorboardRun:
       createTime: string
-      name: string
       updateTime: string
-      displayName: string
-      etag: string
       description: string
       labels: object
-    tensorboardRunId: string
-    parent: string
+      name: string
+      etag: string
+      displayName: string
 
 ```
 </TabItem>
@@ -128,10 +128,10 @@ Updates a <code>runs</code> resource.
 /*+ update */
 UPDATE google.aiplatform.runs
 SET 
-displayName = '{{ displayName }}',
-etag = '{{ etag }}',
 description = '{{ description }}',
-labels = '{{ labels }}'
+labels = '{{ labels }}',
+etag = '{{ etag }}',
+displayName = '{{ displayName }}'
 WHERE 
 experimentsId = '{{ experimentsId }}'
 AND locationsId = '{{ locationsId }}'

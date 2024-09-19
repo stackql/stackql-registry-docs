@@ -81,28 +81,28 @@ Use the following StackQL query and manifest file to create a new <code>subscrip
 INSERT INTO google.apigee.subscriptions (
 developersId,
 organizationsId,
-apiproduct,
+endTime,
 startTime,
-endTime
+apiproduct
 )
 SELECT 
 '{{ developersId }}',
 '{{ organizationsId }}',
-'{{ apiproduct }}',
+'{{ endTime }}',
 '{{ startTime }}',
-'{{ endTime }}'
+'{{ apiproduct }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-apiproduct: string
-lastModifiedAt: string
 createdAt: string
+lastModifiedAt: string
+endTime: string
 startTime: string
 name: string
-endTime: string
+apiproduct: string
 
 ```
 </TabItem>

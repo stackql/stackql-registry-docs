@@ -118,7 +118,315 @@ WHERE entryGroupsId = '{{ entryGroupsId }}'
 AND locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'; 
 ```
-undefined
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>entries</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO google.datacatalog.entries (
+entryGroupsId,
+locationsId,
+projectsId,
+linkedResource,
+fullyQualifiedName,
+type,
+userSpecifiedType,
+userSpecifiedSystem,
+sqlDatabaseSystemSpec,
+lookerSystemSpec,
+cloudBigtableSystemSpec,
+gcsFilesetSpec,
+databaseTableSpec,
+dataSourceConnectionSpec,
+routineSpec,
+datasetSpec,
+filesetSpec,
+serviceSpec,
+modelSpec,
+featureOnlineStoreSpec,
+displayName,
+description,
+businessContext,
+schema,
+sourceSystemTimestamps,
+usageSignal,
+labels
+)
+SELECT 
+'{{ entryGroupsId }}',
+'{{ locationsId }}',
+'{{ projectsId }}',
+'{{ linkedResource }}',
+'{{ fullyQualifiedName }}',
+'{{ type }}',
+'{{ userSpecifiedType }}',
+'{{ userSpecifiedSystem }}',
+'{{ sqlDatabaseSystemSpec }}',
+'{{ lookerSystemSpec }}',
+'{{ cloudBigtableSystemSpec }}',
+'{{ gcsFilesetSpec }}',
+'{{ databaseTableSpec }}',
+'{{ dataSourceConnectionSpec }}',
+'{{ routineSpec }}',
+'{{ datasetSpec }}',
+'{{ filesetSpec }}',
+'{{ serviceSpec }}',
+'{{ modelSpec }}',
+'{{ featureOnlineStoreSpec }}',
+'{{ displayName }}',
+'{{ description }}',
+'{{ businessContext }}',
+'{{ schema }}',
+'{{ sourceSystemTimestamps }}',
+'{{ usageSignal }}',
+'{{ labels }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+name: string
+linkedResource: string
+fullyQualifiedName: string
+type: string
+userSpecifiedType: string
+integratedSystem: string
+userSpecifiedSystem: string
+sqlDatabaseSystemSpec:
+  sqlEngine: string
+  databaseVersion: string
+  instanceHost: string
+lookerSystemSpec:
+  parentInstanceId: string
+  parentInstanceDisplayName: string
+  parentModelId: string
+  parentModelDisplayName: string
+  parentViewId: string
+  parentViewDisplayName: string
+cloudBigtableSystemSpec:
+  instanceDisplayName: string
+gcsFilesetSpec:
+  filePatterns:
+    - type: string
+  sampleGcsFileSpecs:
+    - filePath: string
+      gcsTimestamps:
+        createTime: string
+        updateTime: string
+        expireTime: string
+      sizeBytes: string
+bigqueryTableSpec:
+  tableSourceType: string
+  viewSpec:
+    viewQuery: string
+  tableSpec:
+    groupedEntry: string
+bigqueryDateShardedSpec:
+  dataset: string
+  tablePrefix: string
+  shardCount: string
+  latestShardResource: string
+databaseTableSpec:
+  type: string
+  dataplexTable:
+    externalTables:
+      - system: string
+        fullyQualifiedName: string
+        googleCloudResource: string
+        dataCatalogEntry: string
+    dataplexSpec:
+      asset: string
+      dataFormat:
+        avro:
+          text: string
+        thrift:
+          text: string
+        protobuf:
+          text: string
+        parquet: {}
+        orc: {}
+        csv: {}
+      compressionFormat: string
+      projectId: string
+    userManaged: boolean
+  databaseViewSpec:
+    viewType: string
+    baseTable: string
+    sqlQuery: string
+dataSourceConnectionSpec:
+  bigqueryConnectionSpec:
+    connectionType: string
+    cloudSql:
+      instanceId: string
+      database: string
+      type: string
+    hasCredential: boolean
+routineSpec:
+  routineType: string
+  language: string
+  routineArguments:
+    - name: string
+      mode: string
+      type: string
+  returnType: string
+  definitionBody: string
+  bigqueryRoutineSpec:
+    importedLibraries:
+      - type: string
+datasetSpec:
+  vertexDatasetSpec:
+    dataItemCount: string
+    dataType: string
+filesetSpec:
+  dataplexFileset: {}
+serviceSpec:
+  cloudBigtableInstanceSpec:
+    cloudBigtableClusterSpecs:
+      - displayName: string
+        location: string
+        type: string
+        linkedResource: string
+modelSpec:
+  vertexModelSpec:
+    versionId: string
+    versionAliases:
+      - type: string
+    versionDescription: string
+    vertexModelSourceInfo:
+      sourceType: string
+      copy: boolean
+    containerImageUri: string
+featureOnlineStoreSpec:
+  storageType: string
+displayName: string
+description: string
+businessContext:
+  entryOverview:
+    overview: string
+  contacts:
+    people:
+      - designation: string
+        email: string
+schema:
+  columns:
+    - column: string
+      type: string
+      description: string
+      mode: string
+      defaultValue: string
+      ordinalPosition: integer
+      highestIndexingType: string
+      subcolumns:
+        - column: string
+          type: string
+          description: string
+          mode: string
+          defaultValue: string
+          ordinalPosition: integer
+          highestIndexingType: string
+          subcolumns:
+            - column: string
+              type: string
+              description: string
+              mode: string
+              defaultValue: string
+              ordinalPosition: integer
+              highestIndexingType: string
+              subcolumns:
+                - column: string
+                  type: string
+                  description: string
+                  mode: string
+                  defaultValue: string
+                  ordinalPosition: integer
+                  highestIndexingType: string
+                  subcolumns:
+                    - column: string
+                      type: string
+                      description: string
+                      mode: string
+                      defaultValue: string
+                      ordinalPosition: integer
+                      highestIndexingType: string
+                      subcolumns:
+                        - column: string
+                          type: string
+                          description: string
+                          mode: string
+                          defaultValue: string
+                          ordinalPosition: integer
+                          highestIndexingType: string
+                          subcolumns:
+                            - column: string
+                              type: string
+                              description: string
+                              mode: string
+                              defaultValue: string
+                              ordinalPosition: integer
+                              highestIndexingType: string
+                              subcolumns:
+                                - column: string
+                                  type: string
+                                  description: string
+                                  mode: string
+                                  defaultValue: string
+                                  ordinalPosition: integer
+                                  highestIndexingType: string
+                                  subcolumns:
+                                    - column: string
+                                      type: string
+                                      description: string
+                                      mode: string
+                                      defaultValue: string
+                                      ordinalPosition: integer
+                                      highestIndexingType: string
+                                      subcolumns:
+                                        - {}
+                                      lookerColumnSpec: {}
+                                      rangeElementType: {}
+                                      gcRule: string
+                                  gcRule: string
+                              gcRule: string
+                          gcRule: string
+                      gcRule: string
+                  gcRule: string
+              gcRule: string
+          gcRule: string
+      gcRule: string
+usageSignal:
+  updateTime: string
+  usageWithinTimeRange: object
+  commonUsageWithinTimeRange: object
+  favoriteCount: string
+labels: object
+dataSource:
+  service: string
+  resource: string
+  sourceEntry: string
+  storageProperties:
+    filePattern:
+      - type: string
+    fileType: string
+personalDetails:
+  starred: boolean
+  starTime: string
+
+```
+</TabItem>
+</Tabs>
+
 ## `UPDATE` example
 
 Updates a <code>entries</code> resource.

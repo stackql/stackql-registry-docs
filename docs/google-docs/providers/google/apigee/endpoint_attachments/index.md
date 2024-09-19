@@ -80,26 +80,26 @@ Use the following StackQL query and manifest file to create a new <code>endpoint
 INSERT INTO google.apigee.endpoint_attachments (
 organizationsId,
 name,
-serviceAttachment,
-location
+location,
+serviceAttachment
 )
 SELECT 
 '{{ organizationsId }}',
 '{{ name }}',
-'{{ serviceAttachment }}',
-'{{ location }}'
+'{{ location }}',
+'{{ serviceAttachment }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-name: string
-connectionState: string
-serviceAttachment: string
-location: string
 state: string
+connectionState: string
+name: string
 host: string
+location: string
+serviceAttachment: string
 
 ```
 </TabItem>

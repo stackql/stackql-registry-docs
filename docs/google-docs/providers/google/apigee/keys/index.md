@@ -93,43 +93,43 @@ INSERT INTO google.apigee.keys (
 appgroupsId,
 appsId,
 organizationsId,
-attributes,
+scopes,
 expiresInSeconds,
-consumerKey,
 consumerSecret,
-status,
-scopes
+consumerKey,
+attributes,
+status
 )
 SELECT 
 '{{ appgroupsId }}',
 '{{ appsId }}',
 '{{ organizationsId }}',
-'{{ attributes }}',
+'{{ scopes }}',
 '{{ expiresInSeconds }}',
-'{{ consumerKey }}',
 '{{ consumerSecret }}',
-'{{ status }}',
-'{{ scopes }}'
+'{{ consumerKey }}',
+'{{ attributes }}',
+'{{ status }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-attributes:
-  - value: string
-    name: string
+scopes:
+  - type: string
 expiresInSeconds: string
-issuedAt: string
-consumerKey: string
 expiresAt: string
+consumerSecret: string
+consumerKey: string
+attributes:
+  - name: string
+    value: string
+status: string
 apiProducts:
   - status: string
     apiproduct: string
-consumerSecret: string
-status: string
-scopes:
-  - type: string
+issuedAt: string
 
 ```
 </TabItem>
@@ -144,14 +144,14 @@ Replaces all fields in the specified <code>keys</code> resource.
 REPLACE google.apigee.keys
 SET 
 consumerKey = '{{ consumerKey }}',
-expiresInSeconds = '{{ expiresInSeconds }}',
-consumerSecret = '{{ consumerSecret }}',
-attributes = '{{ attributes }}',
 apiProducts = '{{ apiProducts }}',
-status = '{{ status }}',
+consumerSecret = '{{ consumerSecret }}',
 issuedAt = '{{ issuedAt }}',
 scopes = '{{ scopes }}',
-expiresAt = '{{ expiresAt }}'
+status = '{{ status }}',
+expiresAt = '{{ expiresAt }}',
+attributes = '{{ attributes }}',
+expiresInSeconds = '{{ expiresInSeconds }}'
 WHERE 
 appsId = '{{ appsId }}'
 AND developersId = '{{ developersId }}'

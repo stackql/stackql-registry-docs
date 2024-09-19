@@ -112,119 +112,119 @@ Use the following StackQL query and manifest file to create a new <code>pipeline
 INSERT INTO google.aiplatform.pipeline_jobs (
 locationsId,
 projectsId,
-runtimeConfig,
+pipelineSpec,
+displayName,
+network,
+preflightValidations,
 labels,
 templateUri,
-displayName,
-encryptionSpec,
-network,
+serviceAccount,
 reservedIpRanges,
-pipelineSpec,
-preflightValidations,
-serviceAccount
+encryptionSpec,
+runtimeConfig
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ runtimeConfig }}',
+'{{ pipelineSpec }}',
+'{{ displayName }}',
+'{{ network }}',
+true|false,
 '{{ labels }}',
 '{{ templateUri }}',
-'{{ displayName }}',
-'{{ encryptionSpec }}',
-'{{ network }}',
+'{{ serviceAccount }}',
 '{{ reservedIpRanges }}',
-'{{ pipelineSpec }}',
-true|false,
-'{{ serviceAccount }}'
+'{{ encryptionSpec }}',
+'{{ runtimeConfig }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-runtimeConfig:
-  gcsOutputDirectory: string
-  parameters: object
-  inputArtifacts: object
-  failurePolicy: string
-  parameterValues: object
-labels: object
-templateUri: string
-state: string
-name: string
+pipelineSpec: object
 displayName: string
-encryptionSpec:
-  kmsKeyName: string
-updateTime: string
-startTime: string
-createTime: string
-error:
-  message: string
-  code: integer
-  details:
-    - additionalProperties: any
-      type: string
 templateMetadata:
   version: string
 network: string
-reservedIpRanges:
-  - type: string
-pipelineSpec: object
 preflightValidations: boolean
-serviceAccount: string
+startTime: string
+labels: object
+createTime: string
+updateTime: string
+templateUri: string
 scheduleName: string
+name: string
+error:
+  code: integer
+  message: string
+  details:
+    - additionalProperties: any
+      type: string
+endTime: string
+state: string
 jobDetail:
+  pipelineRunContext:
+    parentContexts:
+      - type: string
+    schemaVersion: string
+    etag: string
+    schemaTitle: string
+    description: string
+    updateTime: string
+    name: string
+    labels: object
+    displayName: string
+    metadata: object
+    createTime: string
   taskDetails:
-    - endTime: string
-      executorDetail:
+    - executorDetail:
         containerDetail:
-          mainJob: string
-          preCachingCheckJob: string
           failedPreCachingCheckJobs:
             - type: string
+          mainJob: string
+          preCachingCheckJob: string
           failedMainJobs:
             - type: string
         customJobDetail:
           failedJobs:
             - type: string
           job: string
-      state: string
-      outputs: object
-      taskName: string
       inputs: object
-      taskId: string
-      parentTaskId: string
-      startTime: string
       execution:
+        schemaVersion: string
+        metadata: object
+        createTime: string
+        labels: object
         name: string
+        updateTime: string
+        displayName: string
         description: string
         state: string
-        labels: object
-        createTime: string
-        displayName: string
-        schemaVersion: string
         schemaTitle: string
         etag: string
-        updateTime: string
-        metadata: object
-      createTime: string
       pipelineTaskStatus:
-        - state: string
-          updateTime: string
-  pipelineContext:
-    description: string
-    updateTime: string
-    displayName: string
-    parentContexts:
-      - type: string
-    createTime: string
-    labels: object
-    name: string
-    schemaTitle: string
-    metadata: object
-    etag: string
-    schemaVersion: string
-endTime: string
+        - updateTime: string
+          state: string
+      taskName: string
+      createTime: string
+      outputs: object
+      endTime: string
+      parentTaskId: string
+      state: string
+      startTime: string
+      taskId: string
+serviceAccount: string
+reservedIpRanges:
+  - type: string
+encryptionSpec:
+  kmsKeyName: string
+runtimeConfig:
+  failurePolicy: string
+  inputArtifacts: object
+  parameters: object
+  parameterValues: object
+  gcsOutputDirectory: string
 
 ```
 </TabItem>

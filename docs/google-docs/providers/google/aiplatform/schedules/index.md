@@ -110,30 +110,30 @@ Use the following StackQL query and manifest file to create a new <code>schedule
 INSERT INTO google.aiplatform.schedules (
 locationsId,
 projectsId,
-maxRunCount,
+displayName,
 allowQueueing,
-createNotebookExecutionJobRequest,
 cron,
 endTime,
+createNotebookExecutionJobRequest,
+maxConcurrentRunCount,
+maxRunCount,
 startTime,
-createPipelineJobRequest,
 name,
-displayName,
-maxConcurrentRunCount
+createPipelineJobRequest
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ maxRunCount }}',
+'{{ displayName }}',
 true|false,
-'{{ createNotebookExecutionJobRequest }}',
 '{{ cron }}',
 '{{ endTime }}',
+'{{ createNotebookExecutionJobRequest }}',
+'{{ maxConcurrentRunCount }}',
+'{{ maxRunCount }}',
 '{{ startTime }}',
-'{{ createPipelineJobRequest }}',
 '{{ name }}',
-'{{ displayName }}',
-'{{ maxConcurrentRunCount }}'
+'{{ createPipelineJobRequest }}'
 ;
 ```
 </TabItem>
@@ -141,135 +141,135 @@ true|false,
 
 ```yaml
 lastPauseTime: string
-catchUp: boolean
-maxRunCount: string
+displayName: string
+nextRunTime: string
+lastScheduledRunResponse:
+  runResponse: string
+  scheduledRunTime: string
 allowQueueing: boolean
+createTime: string
+startedRunCount: string
+lastResumeTime: string
+cron: string
+endTime: string
 createNotebookExecutionJobRequest:
+  notebookExecutionJobId: string
+  parent: string
   notebookExecutionJob:
-    updateTime: string
-    createTime: string
-    notebookRuntimeTemplateResourceName: string
-    executionTimeout: string
-    gcsOutputUri: string
-    serviceAccount: string
-    encryptionSpec:
-      kmsKeyName: string
-    displayName: string
-    dataformRepositorySource:
-      commitSha: string
-      dataformRepositoryResourceName: string
-    executionUser: string
     scheduleResourceName: string
-    name: string
-    gcsNotebookSource:
-      generation: string
-      uri: string
+    executionTimeout: string
+    notebookRuntimeTemplateResourceName: string
+    createTime: string
     labels: object
     directNotebookSource:
       content: string
+    name: string
+    displayName: string
+    updateTime: string
+    serviceAccount: string
     status:
-      message: string
       code: integer
+      message: string
       details:
         - additionalProperties: any
           type: string
     jobState: string
-  parent: string
-  notebookExecutionJobId: string
+    gcsNotebookSource:
+      uri: string
+      generation: string
+    executionUser: string
+    gcsOutputUri: string
+    encryptionSpec:
+      kmsKeyName: string
+    dataformRepositorySource:
+      commitSha: string
+      dataformRepositoryResourceName: string
+catchUp: boolean
+maxConcurrentRunCount: string
 state: string
-cron: string
-endTime: string
+maxRunCount: string
 startTime: string
+name: string
 createPipelineJobRequest:
   pipelineJobId: string
   parent: string
   pipelineJob:
-    runtimeConfig:
-      gcsOutputDirectory: string
-      parameters: object
-      inputArtifacts: object
-      failurePolicy: string
-      parameterValues: object
-    labels: object
-    templateUri: string
-    state: string
-    name: string
+    pipelineSpec: object
     displayName: string
-    updateTime: string
-    startTime: string
-    createTime: string
     templateMetadata:
       version: string
     network: string
-    reservedIpRanges:
-      - type: string
-    pipelineSpec: object
     preflightValidations: boolean
-    serviceAccount: string
+    startTime: string
+    labels: object
+    createTime: string
+    updateTime: string
+    templateUri: string
     scheduleName: string
+    name: string
+    endTime: string
+    state: string
     jobDetail:
+      pipelineRunContext:
+        parentContexts:
+          - type: string
+        schemaVersion: string
+        etag: string
+        schemaTitle: string
+        description: string
+        updateTime: string
+        name: string
+        labels: object
+        displayName: string
+        metadata: object
+        createTime: string
       taskDetails:
-        - endTime: string
-          executorDetail:
+        - executorDetail:
             containerDetail:
-              mainJob: string
-              preCachingCheckJob: string
               failedPreCachingCheckJobs:
                 - type: string
+              mainJob: string
+              preCachingCheckJob: string
               failedMainJobs:
                 - type: string
             customJobDetail:
               failedJobs:
                 - type: string
               job: string
-          state: string
-          outputs: object
-          taskName: string
           inputs: object
-          taskId: string
-          parentTaskId: string
-          startTime: string
           execution:
+            schemaVersion: string
+            metadata: object
+            createTime: string
+            labels: object
             name: string
+            updateTime: string
+            displayName: string
             description: string
             state: string
-            labels: object
-            createTime: string
-            displayName: string
-            schemaVersion: string
             schemaTitle: string
             etag: string
-            updateTime: string
-            metadata: object
-          createTime: string
           pipelineTaskStatus:
-            - state: string
-              updateTime: string
-      pipelineContext:
-        description: string
-        updateTime: string
-        displayName: string
-        parentContexts:
-          - type: string
-        createTime: string
-        labels: object
-        name: string
-        schemaTitle: string
-        metadata: object
-        etag: string
-        schemaVersion: string
-    endTime: string
-name: string
-lastResumeTime: string
-createTime: string
-displayName: string
+            - updateTime: string
+              state: string
+          taskName: string
+          createTime: string
+          outputs: object
+          endTime: string
+          parentTaskId: string
+          state: string
+          startTime: string
+          taskId: string
+    serviceAccount: string
+    reservedIpRanges:
+      - type: string
+    runtimeConfig:
+      failurePolicy: string
+      inputArtifacts: object
+      parameters: object
+      parameterValues: object
+      gcsOutputDirectory: string
 updateTime: string
-maxConcurrentRunCount: string
-nextRunTime: string
-lastScheduledRunResponse:
-  scheduledRunTime: string
-  runResponse: string
-startedRunCount: string
 
 ```
 </TabItem>
@@ -283,16 +283,16 @@ Updates a <code>schedules</code> resource.
 /*+ update */
 UPDATE google.aiplatform.schedules
 SET 
-maxRunCount = '{{ maxRunCount }}',
+displayName = '{{ displayName }}',
 allowQueueing = true|false,
-createNotebookExecutionJobRequest = '{{ createNotebookExecutionJobRequest }}',
 cron = '{{ cron }}',
 endTime = '{{ endTime }}',
+createNotebookExecutionJobRequest = '{{ createNotebookExecutionJobRequest }}',
+maxConcurrentRunCount = '{{ maxConcurrentRunCount }}',
+maxRunCount = '{{ maxRunCount }}',
 startTime = '{{ startTime }}',
-createPipelineJobRequest = '{{ createPipelineJobRequest }}',
 name = '{{ name }}',
-displayName = '{{ displayName }}',
-maxConcurrentRunCount = '{{ maxConcurrentRunCount }}'
+createPipelineJobRequest = '{{ createPipelineJobRequest }}'
 WHERE 
 locationsId = '{{ locationsId }}'
 AND projectsId = '{{ projectsId }}'

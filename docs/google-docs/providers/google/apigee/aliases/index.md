@@ -80,16 +80,16 @@ environmentsId,
 keystoresId,
 organizationsId,
 contentType,
-extensions,
-data
+data,
+extensions
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ keystoresId }}',
 '{{ organizationsId }}',
 '{{ contentType }}',
-'{{ extensions }}',
-'{{ data }}'
+'{{ data }}',
+'{{ extensions }}'
 ;
 ```
 </TabItem>
@@ -97,10 +97,10 @@ SELECT
 
 ```yaml
 contentType: string
+data: string
 extensions:
   - additionalProperties: any
     type: string
-data: string
 
 ```
 </TabItem>
@@ -115,8 +115,8 @@ Replaces all fields in the specified <code>aliases</code> resource.
 REPLACE google.apigee.aliases
 SET 
 contentType = '{{ contentType }}',
-extensions = '{{ extensions }}',
-data = '{{ data }}'
+data = '{{ data }}',
+extensions = '{{ extensions }}'
 WHERE 
 aliasesId = '{{ aliasesId }}'
 AND environmentsId = '{{ environmentsId }}'

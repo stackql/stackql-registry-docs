@@ -292,6 +292,7 @@ traffic:
     tag: string
 scaling:
   minInstanceCount: integer
+  scalingMode: string
 defaultUriDisabled: boolean
 urls:
   - type: string

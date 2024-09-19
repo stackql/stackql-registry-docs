@@ -66,9 +66,9 @@ Updates a <code>customers</code> resource.
 /*+ update */
 UPDATE google.sasportal.customers
 SET 
-displayName = '{{ displayName }}',
 sasUserIds = '{{ sasUserIds }}',
-name = '{{ name }}'
+name = '{{ name }}',
+displayName = '{{ displayName }}'
 WHERE 
 customersId = '{{ customersId }}';
 ```

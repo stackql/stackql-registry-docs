@@ -72,8 +72,8 @@ Updates a <code>issues</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.issues
 SET 
-displayDescription = '{{ displayDescription }}',
 name = '{{ name }}',
+displayDescription = '{{ displayDescription }}',
 displayName = '{{ displayName }}'
 WHERE 
 issueModelsId = '{{ issueModelsId }}'

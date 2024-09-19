@@ -92,11 +92,11 @@ SELECT
 
 ```yaml
 lastModifiedAt: string
-state: string
 name: string
 hostnames:
   - type: string
 createdAt: string
+state: string
 
 ```
 </TabItem>

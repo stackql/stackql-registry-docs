@@ -82,14 +82,14 @@ Use the following StackQL query and manifest file to create a new <code>studies<
 INSERT INTO google.aiplatform.studies (
 locationsId,
 projectsId,
-displayName,
-studySpec
+studySpec,
+displayName
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ displayName }}',
-'{{ studySpec }}'
+'{{ studySpec }}',
+'{{ displayName }}'
 ;
 ```
 </TabItem>
@@ -97,76 +97,76 @@ SELECT
 
 ```yaml
 name: string
-displayName: string
-createTime: string
+inactiveReason: string
+state: string
 studySpec:
+  parameters:
+    - discreteValueSpec:
+        values:
+          - type: string
+            format: string
+        defaultValue: number
+      categoricalValueSpec:
+        defaultValue: string
+        values:
+          - type: string
+      conditionalParameterSpecs:
+        - parentCategoricalValues:
+            values:
+              - type: string
+          parentDiscreteValues:
+            values:
+              - type: string
+                format: string
+          parameterSpec:
+            conditionalParameterSpecs:
+              - parentIntValues:
+                  values:
+                    - format: string
+                      type: string
+            scaleType: string
+            integerValueSpec:
+              maxValue: string
+              defaultValue: string
+              minValue: string
+            parameterId: string
+            doubleValueSpec:
+              defaultValue: number
+              maxValue: number
+              minValue: number
+      scaleType: string
+      parameterId: string
+  decayCurveStoppingSpec:
+    useElapsedDuration: boolean
+  observationNoise: string
+  measurementSelectionType: string
+  medianAutomatedStoppingSpec:
+    useElapsedDuration: boolean
+  convexAutomatedStoppingSpec:
+    maxStepCount: string
+    updateAllStoppedTrials: boolean
+    minStepCount: string
+    learningRateParameterName: string
+    useElapsedDuration: boolean
+    minMeasurementCount: string
   metrics:
     - goal: string
       metricId: string
       safetyConfig:
         desiredMinSafeTrialsFraction: number
         safetyThreshold: number
-  observationNoise: string
-  parameters:
-    - conditionalParameterSpecs:
-        - parentIntValues:
-            values:
-              - format: string
-                type: string
-          parameterSpec:
-            conditionalParameterSpecs:
-              - parentDiscreteValues:
-                  values:
-                    - type: string
-                      format: string
-                parentCategoricalValues:
-                  values:
-                    - type: string
-            integerValueSpec:
-              maxValue: string
-              defaultValue: string
-              minValue: string
-            discreteValueSpec:
-              defaultValue: number
-              values:
-                - format: string
-                  type: string
-            doubleValueSpec:
-              defaultValue: number
-              maxValue: number
-              minValue: number
-            categoricalValueSpec:
-              defaultValue: string
-              values:
-                - type: string
-            parameterId: string
-            scaleType: string
-      parameterId: string
-      scaleType: string
-  decayCurveStoppingSpec:
-    useElapsedDuration: boolean
-  convexAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-    minStepCount: string
-    maxStepCount: string
-    learningRateParameterName: string
-    updateAllStoppedTrials: boolean
-    minMeasurementCount: string
-  algorithm: string
-  medianAutomatedStoppingSpec:
-    useElapsedDuration: boolean
-  measurementSelectionType: string
   studyStoppingConfig:
-    minNumTrials: integer
-    shouldStopAsap: boolean
+    maxNumTrials: integer
     maxNumTrialsNoProgress: integer
+    shouldStopAsap: boolean
     maximumRuntimeConstraint:
       maxDuration: string
       endTime: string
+    minNumTrials: integer
     maxDurationNoProgress: string
-    maxNumTrials: integer
-state: string
-inactiveReason: string
+  algorithm: string
+displayName: string
+createTime: string
 
 ```
 </TabItem>

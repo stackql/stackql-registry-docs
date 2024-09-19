@@ -94,76 +94,76 @@ Use the following StackQL query and manifest file to create a new <code>security
 INSERT INTO google.apigee.security_actions (
 environmentsId,
 organizationsId,
-apiProxies,
+state,
+conditionConfig,
+allow,
 name,
 description,
-conditionConfig,
 deny,
-state,
 ttl,
-allow,
 flag,
-expireTime
+expireTime,
+apiProxies
 )
 SELECT 
 '{{ environmentsId }}',
 '{{ organizationsId }}',
-'{{ apiProxies }}',
+'{{ state }}',
+'{{ conditionConfig }}',
+'{{ allow }}',
 '{{ name }}',
 '{{ description }}',
-'{{ conditionConfig }}',
 '{{ deny }}',
-'{{ state }}',
 '{{ ttl }}',
-'{{ allow }}',
 '{{ flag }}',
-'{{ expireTime }}'
+'{{ expireTime }}',
+'{{ apiProxies }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-apiProxies:
-  - type: string
-createTime: string
-updateTime: string
-name: string
-description: string
+state: string
 conditionConfig:
-  asns:
-    - type: string
-      format: string
-  ipAddressRanges:
-    - type: string
-  botReasons:
-    - type: string
   apiKeys:
     - type: string
   httpMethods:
     - type: string
-  accessTokens:
-    - type: string
   developers:
-    - type: string
-  regionCodes:
     - type: string
   apiProducts:
     - type: string
+  ipAddressRanges:
+    - type: string
+  botReasons:
+    - type: string
+  asns:
+    - format: string
+      type: string
   developerApps:
+    - type: string
+  regionCodes:
+    - type: string
+  accessTokens:
     - type: string
   userAgents:
     - type: string
+allow: {}
+name: string
+description: string
 deny:
   responseCode: integer
-state: string
+createTime: string
 ttl: string
-allow: {}
+updateTime: string
 flag:
   headers:
     - value: string
       name: string
 expireTime: string
+apiProxies:
+  - type: string
 
 ```
 </TabItem>

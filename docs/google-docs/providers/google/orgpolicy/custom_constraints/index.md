@@ -84,41 +84,41 @@ Use the following StackQL query and manifest file to create a new <code>custom_c
 /*+ create */
 INSERT INTO google.orgpolicy.custom_constraints (
 organizationsId,
-name,
-methodTypes,
 description,
-resourceTypes,
+condition,
 displayName,
 actionType,
-condition
+name,
+resourceTypes,
+methodTypes
 )
 SELECT 
 '{{ organizationsId }}',
-'{{ name }}',
-'{{ methodTypes }}',
 '{{ description }}',
-'{{ resourceTypes }}',
+'{{ condition }}',
 '{{ displayName }}',
 '{{ actionType }}',
-'{{ condition }}'
+'{{ name }}',
+'{{ resourceTypes }}',
+'{{ methodTypes }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
+description: string
+condition: string
+displayName: string
+actionType: string
 name: string
+resourceTypes:
+  - type: string
+updateTime: string
 methodTypes:
   - enum: string
     type: string
     enumDescriptions: string
-description: string
-resourceTypes:
-  - type: string
-displayName: string
-updateTime: string
-actionType: string
-condition: string
 
 ```
 </TabItem>
@@ -132,13 +132,13 @@ Updates a <code>custom_constraints</code> resource.
 /*+ update */
 UPDATE google.orgpolicy.custom_constraints
 SET 
-name = '{{ name }}',
-methodTypes = '{{ methodTypes }}',
 description = '{{ description }}',
-resourceTypes = '{{ resourceTypes }}',
+condition = '{{ condition }}',
 displayName = '{{ displayName }}',
 actionType = '{{ actionType }}',
-condition = '{{ condition }}'
+name = '{{ name }}',
+resourceTypes = '{{ resourceTypes }}',
+methodTypes = '{{ methodTypes }}'
 WHERE 
 customConstraintsId = '{{ customConstraintsId }}'
 AND organizationsId = '{{ organizationsId }}';

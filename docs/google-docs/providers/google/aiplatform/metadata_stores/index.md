@@ -84,15 +84,15 @@ INSERT INTO google.aiplatform.metadata_stores (
 locationsId,
 projectsId,
 dataplexConfig,
-description,
-encryptionSpec
+encryptionSpec,
+description
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
 '{{ dataplexConfig }}',
-'{{ description }}',
-'{{ encryptionSpec }}'
+'{{ encryptionSpec }}',
+'{{ description }}'
 ;
 ```
 </TabItem>
@@ -101,14 +101,14 @@ SELECT
 ```yaml
 dataplexConfig:
   enabledPipelinesLineage: boolean
-state:
-  diskUtilizationBytes: string
 name: string
-createTime: string
-description: string
 encryptionSpec:
   kmsKeyName: string
 updateTime: string
+state:
+  diskUtilizationBytes: string
+createTime: string
+description: string
 
 ```
 </TabItem>

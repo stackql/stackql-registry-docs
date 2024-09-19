@@ -119,202 +119,202 @@ Use the following StackQL query and manifest file to create a new <code>conversa
 INSERT INTO google.contactcenterinsights.conversations (
 locationsId,
 projectsId,
-expireTime,
-startTime,
-qualityMetadata,
-dataSource,
-metadataJson,
+agentId,
 name,
-labels,
-callMetadata,
-obfuscatedUserId,
-medium,
+expireTime,
 languageCode,
 ttl,
-agentId
+obfuscatedUserId,
+metadataJson,
+medium,
+callMetadata,
+startTime,
+qualityMetadata,
+labels,
+dataSource
 )
 SELECT 
 '{{ locationsId }}',
 '{{ projectsId }}',
-'{{ expireTime }}',
-'{{ startTime }}',
-'{{ qualityMetadata }}',
-'{{ dataSource }}',
-'{{ metadataJson }}',
+'{{ agentId }}',
 '{{ name }}',
-'{{ labels }}',
-'{{ callMetadata }}',
-'{{ obfuscatedUserId }}',
-'{{ medium }}',
+'{{ expireTime }}',
 '{{ languageCode }}',
 '{{ ttl }}',
-'{{ agentId }}'
+'{{ obfuscatedUserId }}',
+'{{ metadataJson }}',
+'{{ medium }}',
+'{{ callMetadata }}',
+'{{ startTime }}',
+'{{ qualityMetadata }}',
+'{{ labels }}',
+'{{ dataSource }}'
 ;
 ```
 </TabItem>
 <TabItem value="manifest">
 
 ```yaml
-transcript:
-  transcriptSegments:
-    - words:
-        - confidence: number
-          word: string
-          endOffset: string
-          startOffset: string
-      confidence: number
-      languageCode: string
-      messageTime: string
-      dialogflowSegmentMetadata:
-        smartReplyAllowlistCovered: boolean
-      channelTag: integer
-      segmentParticipant:
-        obfuscatedExternalUserId: string
-        role: string
-        userId: string
-        dialogflowParticipant: string
-        dialogflowParticipantName: string
-      text: string
-      sentiment:
-        score: number
-        magnitude: number
 latestSummary:
-  answerRecord: string
   textSections: object
-  text: string
-  confidence: number
   metadata: object
   conversationModel: string
+  confidence: number
+  answerRecord: string
+  text: string
+dialogflowIntents: object
+agentId: string
+name: string
 expireTime: string
-startTime: string
-updateTime: string
+languageCode: string
+ttl: string
+obfuscatedUserId: string
+createTime: string
+transcript:
+  transcriptSegments:
+    - sentiment:
+        score: number
+        magnitude: number
+      channelTag: integer
+      dialogflowSegmentMetadata:
+        smartReplyAllowlistCovered: boolean
+      text: string
+      segmentParticipant:
+        obfuscatedExternalUserId: string
+        dialogflowParticipant: string
+        userId: string
+        role: string
+        dialogflowParticipantName: string
+      languageCode: string
+      words:
+        - endOffset: string
+          startOffset: string
+          confidence: number
+          word: string
+      confidence: number
+      messageTime: string
+metadataJson: string
+medium: string
+callMetadata:
+  agentChannel: integer
+  customerChannel: integer
 runtimeAnnotations:
-  - smartReply:
+  - smartComposeSuggestion:
+      suggestion: string
       queryRecord: string
-      reply: string
+      metadata: object
+      confidenceScore: number
+    faqAnswer:
+      source: string
       confidenceScore: number
       metadata: object
-    userInput:
-      generatorName: string
-      querySource: string
-      query: string
+      queryRecord: string
+      question: string
+      answer: string
+    dialogflowInteraction:
+      confidence: number
+      dialogflowIntentId: string
+    articleSuggestion:
+      source: string
+      metadata: object
+      uri: string
+      title: string
+      queryRecord: string
+      confidenceScore: number
+    endBoundary:
+      wordIndex: integer
+      transcriptIndex: integer
+    annotationId: string
     createTime: string
+    smartReply:
+      metadata: object
+      reply: string
+      confidenceScore: number
+      queryRecord: string
     answerFeedback:
       correctnessLevel: string
       clicked: boolean
       displayed: boolean
-    articleSuggestion:
-      source: string
-      confidenceScore: number
-      queryRecord: string
-      title: string
-      metadata: object
-      uri: string
-    dialogflowInteraction:
-      confidence: number
-      dialogflowIntentId: string
-    faqAnswer:
-      metadata: object
-      queryRecord: string
-      confidenceScore: number
-      answer: string
-      source: string
-      question: string
-    annotationId: string
-    endBoundary:
-      wordIndex: integer
-      transcriptIndex: integer
-    smartComposeSuggestion:
-      suggestion: string
-      queryRecord: string
-      confidenceScore: number
-      metadata: object
-turnCount: integer
+    userInput:
+      querySource: string
+      query: string
+      generatorName: string
+startTime: string
 qualityMetadata:
-  waitDuration: string
   agentInfo:
-    - displayName: string
-      agentId: string
+    - agentId: string
+      displayName: string
       team: string
       dispositionCode: string
+  waitDuration: string
   menuPath: string
   customerSatisfactionRating: integer
-duration: string
+updateTime: string
+turnCount: integer
+labels: object
 dataSource:
   dialogflowSource:
     audioUri: string
     dialogflowConversation: string
   gcsSource:
-    audioUri: string
     transcriptUri: string
+    audioUri: string
+duration: string
 latestAnalysis:
-  requestTime: string
-  name: string
   analysisResult:
     endTime: string
     callAnalysisMetadata:
-      issueModelResult:
-        issueModel: string
-        issues:
-          - displayName: string
-            score: number
-            issue: string
+      sentiments:
+        - channelTag: integer
       silence:
         silenceDuration: string
         silencePercentage: number
-      sentiments:
-        - channelTag: integer
-      annotations:
-        - issueMatchData:
-            issueAssignment:
-              displayName: string
-              score: number
-              issue: string
-          silenceData: {}
-          channelTag: integer
-          phraseMatchData:
+      intents: object
+      entities: object
+      issueModelResult:
+        issues:
+          - score: number
             displayName: string
-            phraseMatcher: string
+            issue: string
+        issueModel: string
+      phraseMatchers: object
+      annotations:
+        - silenceData: {}
           entityMentionData:
-            type: string
             entityUniqueId: string
-          holdData: {}
+            type: string
+          channelTag: integer
           interruptionData: {}
+          phraseMatchData:
+            phraseMatcher: string
+            displayName: string
+          issueMatchData:
+            issueAssignment:
+              score: number
+              displayName: string
+              issue: string
+          holdData: {}
           intentMatchData:
             intentUniqueId: string
-      phraseMatchers: object
-      entities: object
-      intents: object
+  name: string
   createTime: string
+  requestTime: string
   annotatorSelector:
-    runEntityAnnotator: boolean
+    runSummarizationAnnotator: boolean
+    runSentimentAnnotator: boolean
     issueModels:
       - type: string
+    runIntentAnnotator: boolean
+    runEntityAnnotator: boolean
+    runPhraseMatcherAnnotator: boolean
+    runInterruptionAnnotator: boolean
+    runSilenceAnnotator: boolean
     runIssueModelAnnotator: boolean
-    runSummarizationAnnotator: boolean
     summarizationConfig:
       summarizationModel: string
       conversationProfile: string
-    runSentimentAnnotator: boolean
-    runInterruptionAnnotator: boolean
-    runPhraseMatcherAnnotator: boolean
-    runIntentAnnotator: boolean
     phraseMatchers:
       - type: string
-    runSilenceAnnotator: boolean
-metadataJson: string
-name: string
-labels: object
-createTime: string
-callMetadata:
-  agentChannel: integer
-  customerChannel: integer
-obfuscatedUserId: string
-medium: string
-dialogflowIntents: object
-languageCode: string
-ttl: string
-agentId: string
 
 ```
 </TabItem>
@@ -328,19 +328,19 @@ Updates a <code>conversations</code> resource.
 /*+ update */
 UPDATE google.contactcenterinsights.conversations
 SET 
-expireTime = '{{ expireTime }}',
-startTime = '{{ startTime }}',
-qualityMetadata = '{{ qualityMetadata }}',
-dataSource = '{{ dataSource }}',
-metadataJson = '{{ metadataJson }}',
+agentId = '{{ agentId }}',
 name = '{{ name }}',
-labels = '{{ labels }}',
-callMetadata = '{{ callMetadata }}',
-obfuscatedUserId = '{{ obfuscatedUserId }}',
-medium = '{{ medium }}',
+expireTime = '{{ expireTime }}',
 languageCode = '{{ languageCode }}',
 ttl = '{{ ttl }}',
-agentId = '{{ agentId }}'
+obfuscatedUserId = '{{ obfuscatedUserId }}',
+metadataJson = '{{ metadataJson }}',
+medium = '{{ medium }}',
+callMetadata = '{{ callMetadata }}',
+startTime = '{{ startTime }}',
+qualityMetadata = '{{ qualityMetadata }}',
+labels = '{{ labels }}',
+dataSource = '{{ dataSource }}'
 WHERE 
 conversationsId = '{{ conversationsId }}'
 AND locationsId = '{{ locationsId }}'

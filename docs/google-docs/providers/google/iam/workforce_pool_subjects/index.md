@@ -1,9 +1,9 @@
 ---
-title: subjects
+title: workforce_pool_subjects
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - subjects
+  - workforce_pool_subjects
   - iam
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>subjects</code> resource.
+Creates, updates, deletes, gets or lists a <code>workforce_pool_subjects</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>subjects</code></td></tr>
+<tr><td><b>Name</b></td><td><code>workforce_pool_subjects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.subjects" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="google.iam.workforce_pool_subjects" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -40,11 +40,11 @@ Creates, updates, deletes, gets or lists a <code>subjects</code> resource.
 
 ## `DELETE` example
 
-Deletes the specified <code>subjects</code> resource.
+Deletes the specified <code>workforce_pool_subjects</code> resource.
 
 ```sql
 /*+ delete */
-DELETE FROM google.iam.subjects
+DELETE FROM google.iam.workforce_pool_subjects
 WHERE locationsId = '{{ locationsId }}'
 AND subjectsId = '{{ subjectsId }}'
 AND workforcePoolsId = '{{ workforcePoolsId }}';

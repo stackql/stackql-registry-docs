@@ -110,30 +110,30 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-state: string
-startTime: string
+id: string
+clientId: string
+name: string
+customJob: string
 finalMeasurement:
   stepCount: string
+  elapsedDuration: string
   metrics:
     - value: number
       metricId: string
-  elapsedDuration: string
-clientId: string
-id: string
+startTime: string
 measurements:
   - stepCount: string
+    elapsedDuration: string
     metrics:
       - value: number
         metricId: string
-    elapsedDuration: string
+state: string
+endTime: string
 webAccessUris: object
 parameters:
   - value: any
     parameterId: string
-endTime: string
 infeasibleReason: string
-name: string
-customJob: string
 
 ```
 </TabItem>
