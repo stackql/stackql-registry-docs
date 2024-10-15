@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - manager_effective_security_admin_rules
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>manager_effective_security_admin_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,8 +29,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource ID. |
+| <CopyableCode code="configurationDescription" /> | `string` | A description of the security admin configuration. |
+| <CopyableCode code="kind" /> | `string` | Whether the rule is custom or default. |
+| <CopyableCode code="ruleCollectionAppliesToGroups" /> | `array` | Groups for rule collection |
+| <CopyableCode code="ruleCollectionDescription" /> | `string` | A description of the rule collection. |
+| <CopyableCode code="ruleGroups" /> | `array` | Effective configuration groups. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="network_manager_effective_security_admin_rules" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkName" /> | List all effective security admin rules applied on a virtual network. |
+
+## `SELECT` examples
+
+List all effective security admin rules applied on a virtual network.
+
+
+```sql
+SELECT
+id,
+configurationDescription,
+kind,
+ruleCollectionAppliesToGroups,
+ruleCollectionDescription,
+ruleGroups
+FROM azure.network.manager_effective_security_admin_rules
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND virtualNetworkName = '{{ virtualNetworkName }}';
+```

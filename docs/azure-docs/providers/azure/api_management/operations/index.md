@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - api_management
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,12 +31,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the operation, as per Resource-Based Access Control (RBAC). Examples: "Microsoft.Compute/virtualMachines/write", "Microsoft.Compute/virtualMachines/capture/action" |
-| <CopyableCode code="actionType" /> | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
-| <CopyableCode code="display" /> | `object` | Localized display information for this particular operation. |
-| <CopyableCode code="isDataAction" /> | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
-| <CopyableCode code="origin" /> | `string` | The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is "user,system" |
+| <CopyableCode code="api" /> | `object` | API contract properties for the Tag Resources. |
+| <CopyableCode code="operation" /> | `object` | Operation Entity contract Properties. |
+| <CopyableCode code="product" /> | `object` | Product profile. |
+| <CopyableCode code="tag" /> | `object` | Contract defining the Tag property in the Tag Resource Contract |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all of the available REST API operations of the Microsoft.ApiManagement provider. |
+| <CopyableCode code="list_by_tags" /> | `SELECT` | <CopyableCode code="apiId, resourceGroupName, serviceName, subscriptionId" /> | Lists a collection of operations associated with tags. |
+| <CopyableCode code="perform_connectivity_check_async" /> | `EXEC` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId, data__destination, data__source" /> | Performs a connectivity check between the API Management service and a given destination, and returns metrics for the connection, as well as errors encountered while trying to establish it. |
+
+## `SELECT` examples
+
+Lists all of the available REST API operations of the Microsoft.ApiManagement provider.
+
+
+```sql
+SELECT
+api,
+operation,
+product,
+tag
+FROM azure.api_management.operations
+;
+```

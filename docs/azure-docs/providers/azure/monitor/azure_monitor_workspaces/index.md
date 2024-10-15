@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - azure_monitor_workspaces
   - monitor
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>azure_monitor_workspaces</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
 | <CopyableCode code="properties" /> | `object` | Resource properties |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +44,98 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all Azure Monitor Workspaces in the specified subscription |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="azureMonitorWorkspaceName, resourceGroupName, subscriptionId, data__location" /> | Creates or updates an Azure Monitor Workspace |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="azureMonitorWorkspaceName, resourceGroupName, subscriptionId" /> | Deletes an Azure Monitor Workspace |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="azureMonitorWorkspaceName, resourceGroupName, subscriptionId" /> | Updates part of an Azure Monitor Workspace |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="azureMonitorWorkspaceName, resourceGroupName, subscriptionId" /> | Updates part of an Azure Monitor Workspace |
+
+## `SELECT` examples
+
+Lists all Azure Monitor Workspaces in the specified subscription
+
+
+```sql
+SELECT
+etag,
+location,
+properties,
+tags
+FROM azure.monitor.azure_monitor_workspaces
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>azure_monitor_workspaces</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.monitor.azure_monitor_workspaces (
+azureMonitorWorkspaceName,
+resourceGroupName,
+subscriptionId,
+data__location,
+properties,
+tags,
+location
+)
+SELECT 
+'{{ azureMonitorWorkspaceName }}',
+'{{ resourceGroupName }}',
+'{{ subscriptionId }}',
+'{{ data__location }}',
+'{{ properties }}',
+'{{ tags }}',
+'{{ location }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: properties
+      value: string
+    - name: etag
+      value: string
+    - name: tags
+      value: object
+    - name: location
+      value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a <code>azure_monitor_workspaces</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.monitor.azure_monitor_workspaces
+SET 
+tags = '{{ tags }}'
+WHERE 
+azureMonitorWorkspaceName = '{{ azureMonitorWorkspaceName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>azure_monitor_workspaces</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.monitor.azure_monitor_workspaces
+WHERE azureMonitorWorkspaceName = '{{ azureMonitorWorkspaceName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

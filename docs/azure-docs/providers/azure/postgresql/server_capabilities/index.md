@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - server_capabilities
   - postgresql
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>server_capabilities</code> resource.
 
 ## Overview
 <table><tbody>
@@ -43,7 +44,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="supportedServerVersions" /> | `array` | The list of server versions supported for this capability. |
 | <CopyableCode code="zoneRedundantHaAndGeoBackupSupported" /> | `string` | A value indicating whether Zone Redundant HA and Geo-backup is supported in this region. "Enabled" means zone redundant HA and geo-backup is supported. "Disabled" stands for zone redundant HA and geo-backup is not supported. |
 | <CopyableCode code="zoneRedundantHaSupported" /> | `string` | A value indicating whether Zone Redundant HA is supported in this region. "Enabled" means zone redundant HA is supported. "Disabled" stands for zone redundant HA is not supported. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | Get capabilities for a flexible server. |
+
+## `SELECT` examples
+
+Get capabilities for a flexible server.
+
+
+```sql
+SELECT
+name,
+fastProvisioningSupported,
+geoBackupSupported,
+onlineResizeSupported,
+reason,
+restricted,
+status,
+storageAutoGrowthSupported,
+supportedFastProvisioningEditions,
+supportedServerEditions,
+supportedServerVersions,
+zoneRedundantHaAndGeoBackupSupported,
+zoneRedundantHaSupported
+FROM azure.postgresql.server_capabilities
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND serverName = '{{ serverName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

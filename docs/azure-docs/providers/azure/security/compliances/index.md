@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - compliances
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>compliances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,15 +29,80 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_compliances', value: 'view', },
+        { label: 'compliances', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | Resource Id |
+| <CopyableCode code="name" /> | `text` | Resource name |
+| <CopyableCode code="assessment_result" /> | `text` | field from the `properties` object |
+| <CopyableCode code="assessment_timestamp_utc_date" /> | `text` | field from the `properties` object |
+| <CopyableCode code="complianceName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resource_count" /> | `text` | field from the `properties` object |
+| <CopyableCode code="scope" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="properties" /> | `object` | The Compliance score (percentage) of a Subscription is a sum of all Resources' Compliances under the given Subscription. A Resource Compliance is defined as the compliant ('healthy') Policy Definitions out of all Policy Definitions applicable to a given resource. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, complianceName, scope" /> | Details of a specific Compliance. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, scope" /> | The Compliance scores of the specific management group. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="complianceName, scope" /> | Details of a specific Compliance. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | The Compliance scores of the specific management group. |
+
+## `SELECT` examples
+
+The Compliance scores of the specific management group.
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_compliances', value: 'view', },
+        { label: 'compliances', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+assessment_result,
+assessment_timestamp_utc_date,
+complianceName,
+resource_count,
+scope,
+type
+FROM azure.security.vw_compliances
+WHERE scope = '{{ scope }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.security.compliances
+WHERE scope = '{{ scope }}';
+```
+</TabItem></Tabs>
+

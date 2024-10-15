@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - transactions
   - billing
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>transactions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,11 +31,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Resource Id. |
-| <CopyableCode code="name" /> | `string` | Resource name. |
-| <CopyableCode code="properties" /> | `object` | The properties of a transaction. |
-| <CopyableCode code="type" /> | `string` | Resource type. |
+| <CopyableCode code="properties" /> | `object` | A transaction. |
+| <CopyableCode code="tags" /> | `object` | Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? / |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_by_invoice" /> | `SELECT` | <CopyableCode code="billingAccountName, invoiceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_by_billing_profile" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName, periodEndDate, periodStartDate, type" /> | Lists the billed or unbilled transactions by billing profile name for given start and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated. |
+| <CopyableCode code="list_by_customer" /> | `SELECT` | <CopyableCode code="billingAccountName, billingProfileName, customerName, periodEndDate, periodStartDate, type" /> | Lists the billed or unbilled transactions by customer id for given start date and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated. |
+| <CopyableCode code="transactions_download_by_invoice" /> | `EXEC` | <CopyableCode code="billingAccountName, invoiceName" /> | Gets a URL to download the transactions document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
+
+## `SELECT` examples
+
+Lists the billed or unbilled transactions by billing profile name for given start and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated.
+
+
+```sql
+SELECT
+properties,
+tags
+FROM azure.billing.transactions
+WHERE billingAccountName = '{{ billingAccountName }}'
+AND billingProfileName = '{{ billingProfileName }}'
+AND periodEndDate = '{{ periodEndDate }}'
+AND periodStartDate = '{{ periodStartDate }}'
+AND type = '{{ type }}';
+```

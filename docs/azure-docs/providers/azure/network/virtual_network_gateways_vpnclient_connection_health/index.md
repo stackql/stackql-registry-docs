@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - virtual_network_gateways_vpnclient_connection_health
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>virtual_network_gateways_vpnclient_connection_health</code> resource.
 
 ## Overview
 <table><tbody>
@@ -42,7 +43,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="vpnConnectionId" /> | `string` | The vpn client Id. |
 | <CopyableCode code="vpnConnectionTime" /> | `string` | The start time of a connected vpn client. |
 | <CopyableCode code="vpnUserName" /> | `string` | The user name of a connected vpn client. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkGatewayName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkGatewayName" /> | Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group. |
+
+## `SELECT` examples
+
+Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
+
+
+```sql
+SELECT
+egressBytesTransferred,
+egressPacketsTransferred,
+ingressBytesTransferred,
+ingressPacketsTransferred,
+maxBandwidth,
+maxPacketsPerSecond,
+privateIpAddress,
+publicIpAddress,
+vpnConnectionDuration,
+vpnConnectionId,
+vpnConnectionTime,
+vpnUserName
+FROM azure.network.virtual_network_gateways_vpnclient_connection_health
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND virtualNetworkGatewayName = '{{ virtualNetworkGatewayName }}';
+```

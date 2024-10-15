@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - certificate_registration_provider_operations
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>certificate_registration_provider_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="isDataAction" /> | `boolean` |  |
 | <CopyableCode code="origin" /> | `string` |  |
 | <CopyableCode code="properties" /> | `object` | Properties available for a Microsoft.Web resource provider operation. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Description for Implements Csm operations Api to exposes the list of available Csm Apis under the resource provider |
+
+## `SELECT` examples
+
+Description for Implements Csm operations Api to exposes the list of available Csm Apis under the resource provider
+
+
+```sql
+SELECT
+name,
+display,
+isDataAction,
+origin,
+properties
+FROM azure.app_service.certificate_registration_provider_operations
+;
+```

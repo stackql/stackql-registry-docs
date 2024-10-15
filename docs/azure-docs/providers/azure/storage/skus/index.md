@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - skus
   - storage
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,7 +38,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceType" /> | `string` | The type of the resource, usually it is 'storageAccounts'. |
 | <CopyableCode code="restrictions" /> | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | <CopyableCode code="tier" /> | `string` | The SKU tier. This is based on the SKU name. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists the available SKUs supported by Microsoft.Storage for given subscription. |
+
+## `SELECT` examples
+
+Lists the available SKUs supported by Microsoft.Storage for given subscription.
+
+
+```sql
+SELECT
+name,
+capabilities,
+kind,
+locations,
+resourceType,
+restrictions,
+tier
+FROM azure.storage.skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

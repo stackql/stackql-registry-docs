@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - kusto_pools_skus
   - synapse
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>kusto_pools_skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceType" /> | `string` | The resource type |
 | <CopyableCode code="restrictions" /> | `array` | The restrictions because of which SKU cannot be used |
 | <CopyableCode code="size" /> | `string` | The size of the SKU |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists eligible SKUs for Kusto Pool resource. |
+
+## `SELECT` examples
+
+Lists eligible SKUs for Kusto Pool resource.
+
+
+```sql
+SELECT
+name,
+locationInfo,
+locations,
+resourceType,
+restrictions,
+size
+FROM azure.synapse.kusto_pools_skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

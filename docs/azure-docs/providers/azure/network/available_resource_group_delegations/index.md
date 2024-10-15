@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - available_resource_group_delegations
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>available_resource_group_delegations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="actions" /> | `array` | The actions permitted to the service upon delegation. |
 | <CopyableCode code="serviceName" /> | `string` | The name of the service and resource. |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, resourceGroupName, subscriptionId" /> | Gets all of the available subnet delegations for this resource group in this region. |
+
+## `SELECT` examples
+
+Gets all of the available subnet delegations for this resource group in this region.
+
+
+```sql
+SELECT
+id,
+name,
+actions,
+serviceName,
+type
+FROM azure.network.available_resource_group_delegations
+WHERE location = '{{ location }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

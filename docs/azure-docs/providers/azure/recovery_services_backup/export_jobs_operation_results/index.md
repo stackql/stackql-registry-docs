@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - export_jobs_operation_results
   - recovery_services_backup
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>export_jobs_operation_results</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="headers" /> | `object` | HTTP headers associated with this operation. |
 | <CopyableCode code="operation" /> | `object` | Base class for operation result info. |
 | <CopyableCode code="statusCode" /> | `string` | HTTP Status Code of the operation. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, operationId, resourceGroupName, subscriptionId, vaultName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, resourceGroupName, subscriptionId, vaultName" /> | Gets the operation result of operation triggered by Export Jobs API. If the operation is successful, then it also
+contains URL of a Blob and a SAS key to access the same. The blob contains exported jobs in JSON serialized format. |
+
+## `SELECT` examples
+
+Gets the operation result of operation triggered by Export Jobs API. If the operation is successful, then it also
+contains URL of a Blob and a SAS key to access the same. The blob contains exported jobs in JSON serialized format.
+
+
+```sql
+SELECT
+headers,
+operation,
+statusCode
+FROM azure.recovery_services_backup.export_jobs_operation_results
+WHERE operationId = '{{ operationId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND vaultName = '{{ vaultName }}';
+```

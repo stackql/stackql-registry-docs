@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - system_topic_event_subscriptions
   - event_grid
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>system_topic_event_subscriptions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,13 +29,48 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_system_topic_event_subscriptions', value: 'view', },
+        { label: 'system_topic_event_subscriptions', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified identifier of the resource. |
-| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="id" /> | `text` | Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}" |
+| <CopyableCode code="name" /> | `text` | The name of the resource |
+| <CopyableCode code="dead_letter_destination" /> | `text` | field from the `properties` object |
+| <CopyableCode code="dead_letter_with_resource_identity" /> | `text` | field from the `properties` object |
+| <CopyableCode code="delivery_with_resource_identity" /> | `text` | field from the `properties` object |
+| <CopyableCode code="destination" /> | `text` | field from the `properties` object |
+| <CopyableCode code="eventSubscriptionName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="event_delivery_schema" /> | `text` | field from the `properties` object |
+| <CopyableCode code="expiration_time_utc" /> | `text` | field from the `properties` object |
+| <CopyableCode code="filter" /> | `text` | field from the `properties` object |
+| <CopyableCode code="labels" /> | `text` | field from the `properties` object |
+| <CopyableCode code="provisioning_state" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resourceGroupName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="retry_policy" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="systemTopicName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="system_data" /> | `text` | field from the `properties` object |
+| <CopyableCode code="topic" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}" |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Properties of the Event Subscription. |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | Type of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -42,4 +78,216 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_system_topic" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, systemTopicName" /> | List event subscriptions that belong to a specific system topic. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="eventSubscriptionName, resourceGroupName, subscriptionId, systemTopicName" /> | Asynchronously creates or updates an event subscription with the specified parameters. Existing event subscriptions will be updated with this API. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="eventSubscriptionName, resourceGroupName, subscriptionId, systemTopicName" /> | Delete an existing event subscription of a system topic. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="eventSubscriptionName, resourceGroupName, subscriptionId, systemTopicName" /> | Update an existing event subscription of a system topic. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="eventSubscriptionName, resourceGroupName, subscriptionId, systemTopicName" /> | Update an existing event subscription of a system topic. |
+
+## `SELECT` examples
+
+List event subscriptions that belong to a specific system topic.
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_system_topic_event_subscriptions', value: 'view', },
+        { label: 'system_topic_event_subscriptions', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+dead_letter_destination,
+dead_letter_with_resource_identity,
+delivery_with_resource_identity,
+destination,
+eventSubscriptionName,
+event_delivery_schema,
+expiration_time_utc,
+filter,
+labels,
+provisioning_state,
+resourceGroupName,
+retry_policy,
+subscriptionId,
+systemTopicName,
+system_data,
+topic,
+type
+FROM azure.event_grid.vw_system_topic_event_subscriptions
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND systemTopicName = '{{ systemTopicName }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+systemData,
+type
+FROM azure.event_grid.system_topic_event_subscriptions
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND systemTopicName = '{{ systemTopicName }}';
+```
+</TabItem></Tabs>
+
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>system_topic_event_subscriptions</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.event_grid.system_topic_event_subscriptions (
+eventSubscriptionName,
+resourceGroupName,
+subscriptionId,
+systemTopicName,
+properties
+)
+SELECT 
+'{{ eventSubscriptionName }}',
+'{{ resourceGroupName }}',
+'{{ subscriptionId }}',
+'{{ systemTopicName }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: systemData
+      value:
+        - name: createdBy
+          value: string
+        - name: createdByType
+          value: string
+        - name: createdAt
+          value: string
+        - name: lastModifiedBy
+          value: string
+        - name: lastModifiedByType
+          value: string
+        - name: lastModifiedAt
+          value: string
+    - name: properties
+      value:
+        - name: topic
+          value: string
+        - name: provisioningState
+          value: string
+        - name: destination
+          value:
+            - name: endpointType
+              value: string
+        - name: deliveryWithResourceIdentity
+          value:
+            - name: identity
+              value:
+                - name: type
+                  value: string
+                - name: userAssignedIdentity
+                  value: string
+        - name: filter
+          value:
+            - name: subjectBeginsWith
+              value: string
+            - name: subjectEndsWith
+              value: string
+            - name: includedEventTypes
+              value:
+                - string
+            - name: isSubjectCaseSensitive
+              value: boolean
+            - name: enableAdvancedFilteringOnArrays
+              value: boolean
+            - name: advancedFilters
+              value:
+                - - name: operatorType
+                    value: string
+                  - name: key
+                    value: string
+        - name: labels
+          value:
+            - string
+        - name: expirationTimeUtc
+          value: string
+        - name: eventDeliverySchema
+          value: string
+        - name: retryPolicy
+          value:
+            - name: maxDeliveryAttempts
+              value: integer
+            - name: eventTimeToLiveInMinutes
+              value: integer
+        - name: deadLetterDestination
+          value:
+            - name: endpointType
+              value: string
+        - name: deadLetterWithResourceIdentity
+          value: []
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a <code>system_topic_event_subscriptions</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.event_grid.system_topic_event_subscriptions
+SET 
+destination = '{{ destination }}',
+deliveryWithResourceIdentity = '{{ deliveryWithResourceIdentity }}',
+filter = '{{ filter }}',
+labels = '{{ labels }}',
+expirationTimeUtc = '{{ expirationTimeUtc }}',
+eventDeliverySchema = '{{ eventDeliverySchema }}',
+retryPolicy = '{{ retryPolicy }}',
+deadLetterDestination = '{{ deadLetterDestination }}',
+deadLetterWithResourceIdentity = '{{ deadLetterWithResourceIdentity }}'
+WHERE 
+eventSubscriptionName = '{{ eventSubscriptionName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND systemTopicName = '{{ systemTopicName }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>system_topic_event_subscriptions</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.event_grid.system_topic_event_subscriptions
+WHERE eventSubscriptionName = '{{ eventSubscriptionName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND systemTopicName = '{{ systemTopicName }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - monitors_monitored_resources
   - newrelic
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>monitors_monitored_resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reasonForMetricsStatus" /> | `string` | Reason for why the resource is sending metrics (or why it is not sending). |
 | <CopyableCode code="sendingLogs" /> | `string` | Indicates whether logs are being sent. |
 | <CopyableCode code="sendingMetrics" /> | `string` | Indicates whether metrics are being sent. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="monitorName, resourceGroupName, subscriptionId" /> | List the resources currently being monitored by the NewRelic monitor resource. |
+
+## `SELECT` examples
+
+List the resources currently being monitored by the NewRelic monitor resource.
+
+
+```sql
+SELECT
+id,
+reasonForLogsStatus,
+reasonForMetricsStatus,
+sendingLogs,
+sendingMetrics
+FROM azure_isv.newrelic.monitors_monitored_resources
+WHERE monitorName = '{{ monitorName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

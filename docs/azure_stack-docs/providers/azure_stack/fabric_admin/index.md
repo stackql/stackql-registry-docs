@@ -4,38 +4,28 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - fabric_admin
-  - azure_stack
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AzureStack Fabric administrator module which allows administrators to view and manage infrastructure components.  
-    
+fabric_admin service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>22</b></span><br />
-<span>total selectable resources:&nbsp;<b>22</b></span><br />
-<span>total methods:&nbsp;<b>58</b></span><br />
+<span>total resources:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure_stack.fabric_admin</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>AzureStack Fabric Admin Client</td></tr>
-<tr><td><b>Description</b></td><td>The AzureStack Fabric administrator module which allows administrators to view and manage infrastructure components.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_stack:fabric_admin</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -51,18 +41,19 @@ The AzureStack Fabric administrator module which allows administrators to view a
 <a href="/providers/azure_stack/fabric_admin/infra_role_instances/">infra_role_instances</a><br />
 <a href="/providers/azure_stack/fabric_admin/infra_roles/">infra_roles</a><br />
 <a href="/providers/azure_stack/fabric_admin/ip_pools/">ip_pools</a><br />
+<a href="/providers/azure_stack/fabric_admin/logical_networks/">logical_networks</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure_stack/fabric_admin/logical_networks/">logical_networks</a><br />
 <a href="/providers/azure_stack/fabric_admin/logical_subnets/">logical_subnets</a><br />
 <a href="/providers/azure_stack/fabric_admin/mac_address_pools/">mac_address_pools</a><br />
 <a href="/providers/azure_stack/fabric_admin/nas_clusters/">nas_clusters</a><br />
 <a href="/providers/azure_stack/fabric_admin/network_operation_results/">network_operation_results</a><br />
 <a href="/providers/azure_stack/fabric_admin/scale_unit_nodes/">scale_unit_nodes</a><br />
 <a href="/providers/azure_stack/fabric_admin/scale_units/">scale_units</a><br />
+<a href="/providers/azure_stack/fabric_admin/scale_units_from_json/">scale_units_from_json</a><br />
 <a href="/providers/azure_stack/fabric_admin/slb_mux_instances/">slb_mux_instances</a><br />
 <a href="/providers/azure_stack/fabric_admin/storage_operation_results/">storage_operation_results</a><br />
 <a href="/providers/azure_stack/fabric_admin/storage_sub_systems/">storage_sub_systems</a><br />
-<a href="/providers/azure_stack/fabric_admin/volumes/">volumes</a><br />
+<a href="/providers/azure_stack/fabric_admin/volumes/">volumes</a>
 </div>
 </div>

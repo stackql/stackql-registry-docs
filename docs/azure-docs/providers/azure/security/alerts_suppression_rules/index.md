@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - alerts_suppression_rules
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>alerts_suppression_rules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,17 +29,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_alerts_suppression_rules', value: 'view', },
+        { label: 'alerts_suppression_rules', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | Resource Id |
+| <CopyableCode code="name" /> | `text` | Resource name |
+| <CopyableCode code="alert_type" /> | `text` | field from the `properties` object |
+| <CopyableCode code="alertsSuppressionRuleName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="comment" /> | `text` | field from the `properties` object |
+| <CopyableCode code="expiration_date_utc" /> | `text` | field from the `properties` object |
+| <CopyableCode code="last_modified_utc" /> | `text` | field from the `properties` object |
+| <CopyableCode code="reason" /> | `text` | field from the `properties` object |
+| <CopyableCode code="state" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="suppression_alerts_scope" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="properties" /> | `object` | describes AlertsSuppressionRule properties |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="alertsSuppressionRuleName, api-version, subscriptionId" /> | Get dismiss rule, with name: &#123;alertsSuppressionRuleName&#125;, for the given subscription |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | List of all the dismiss rules for the given subscription |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="alertsSuppressionRuleName, api-version, subscriptionId" /> | Delete dismiss alert rule for this subscription. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="alertsSuppressionRuleName, api-version, subscriptionId" /> | Update existing rule or create new rule if it doesn't exist |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="alertsSuppressionRuleName, subscriptionId" /> | Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List of all the dismiss rules for the given subscription |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="alertsSuppressionRuleName, subscriptionId" /> | Delete dismiss alert rule for this subscription. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="alertsSuppressionRuleName, subscriptionId" /> | Update existing rule or create new rule if it doesn't exist |
+
+## `SELECT` examples
+
+List of all the dismiss rules for the given subscription
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_alerts_suppression_rules', value: 'view', },
+        { label: 'alerts_suppression_rules', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+alert_type,
+alertsSuppressionRuleName,
+comment,
+expiration_date_utc,
+last_modified_utc,
+reason,
+state,
+subscriptionId,
+suppression_alerts_scope,
+type
+FROM azure.security.vw_alerts_suppression_rules
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.security.alerts_suppression_rules
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem></Tabs>
+
+
+## `REPLACE` example
+
+Replaces all fields in the specified <code>alerts_suppression_rules</code> resource.
+
+```sql
+/*+ update */
+REPLACE azure.security.alerts_suppression_rules
+SET 
+properties = '{{ properties }}'
+WHERE 
+alertsSuppressionRuleName = '{{ alertsSuppressionRuleName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>alerts_suppression_rules</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.security.alerts_suppression_rules
+WHERE alertsSuppressionRuleName = '{{ alertsSuppressionRuleName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

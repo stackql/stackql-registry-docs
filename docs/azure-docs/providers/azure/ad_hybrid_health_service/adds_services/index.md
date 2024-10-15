@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - adds_services
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>adds_services</code> resource.
 
 ## Overview
 <table><tbody>
@@ -54,11 +55,92 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="simpleProperties" /> | `object` | List of service specific configuration properties. |
 | <CopyableCode code="tenantId" /> | `string` | The id of the tenant to which the service is registered to. |
 | <CopyableCode code="type" /> | `string` | The service type for the services onboarded to Azure Active Directory Connect Health. Depending on whether the service is monitoring, ADFS, Sync or ADDS roles, the service type can either be AdFederationService or AadSyncService or AdDomainService. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="serviceName" /> | Gets the details of an Active Directory Domain Service for a tenant having Azure AD Premium license and is onboarded to Azure Active Directory Connect Health. |
-| <CopyableCode code="list" /> | `SELECT` |  | Gets the details of Active Directory Domain Service, for a tenant, that are onboarded to Azure Active Directory Connect Health. |
-| <CopyableCode code="add" /> | `INSERT` |  | Onboards a service for a given tenant in Azure Active Directory Connect Health. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Gets the details of Active Directory Domain Service, for a tenant, that are onboarded to Azure Active Directory Connect Health. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="serviceName" /> | Deletes an Active Directory Domain Service which is onboarded to Azure Active Directory Connect Health. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="serviceName" /> | Updates an Active Directory Domain Service properties of an onboarded service. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="serviceName" /> | Updates an Active Directory Domain Service properties of an onboarded service. |
+| <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="" /> | Onboards a service for a given tenant in Azure Active Directory Connect Health. |
+
+## `SELECT` examples
+
+Gets the details of Active Directory Domain Service, for a tenant, that are onboarded to Azure Active Directory Connect Health.
+
+
+```sql
+SELECT
+id,
+activeAlerts,
+additionalInformation,
+createdDate,
+customNotificationEmails,
+disabled,
+displayName,
+health,
+lastDisabled,
+lastUpdated,
+monitoringConfigurationsComputed,
+monitoringConfigurationsCustomized,
+notificationEmailEnabled,
+notificationEmailEnabledForGlobalAdmins,
+notificationEmails,
+notificationEmailsEnabledForGlobalAdmins,
+originalDisabledState,
+resolvedAlerts,
+serviceId,
+serviceName,
+signature,
+simpleProperties,
+tenantId,
+type
+FROM azure.ad_hybrid_health_service.adds_services
+;
+```
+## `UPDATE` example
+
+Updates a <code>adds_services</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.ad_hybrid_health_service.adds_services
+SET 
+id = '{{ id }}',
+activeAlerts = '{{ activeAlerts }}',
+additionalInformation = '{{ additionalInformation }}',
+createdDate = '{{ createdDate }}',
+customNotificationEmails = '{{ customNotificationEmails }}',
+disabled = true|false,
+displayName = '{{ displayName }}',
+health = '{{ health }}',
+lastDisabled = '{{ lastDisabled }}',
+lastUpdated = '{{ lastUpdated }}',
+monitoringConfigurationsComputed = '{{ monitoringConfigurationsComputed }}',
+monitoringConfigurationsCustomized = '{{ monitoringConfigurationsCustomized }}',
+notificationEmailEnabled = true|false,
+notificationEmailEnabledForGlobalAdmins = true|false,
+notificationEmailsEnabledForGlobalAdmins = true|false,
+notificationEmails = '{{ notificationEmails }}',
+originalDisabledState = true|false,
+resolvedAlerts = '{{ resolvedAlerts }}',
+serviceId = '{{ serviceId }}',
+serviceName = '{{ serviceName }}',
+signature = '{{ signature }}',
+simpleProperties = '{{ simpleProperties }}',
+tenantId = '{{ tenantId }}',
+type = '{{ type }}'
+WHERE 
+serviceName = '{{ serviceName }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>adds_services</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.ad_hybrid_health_service.adds_services
+WHERE serviceName = '{{ serviceName }}';
+```

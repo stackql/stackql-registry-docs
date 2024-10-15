@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operation_status
   - storage_sync
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operation_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,8 +36,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` | Error type |
 | <CopyableCode code="startTime" /> | `string` | Start time of the operation |
 | <CopyableCode code="status" /> | `string` | Operation status |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, resourceGroupName, subscriptionId, workflowId" /> |
-| <CopyableCode code="operation_status" /> | `EXEC` | <CopyableCode code="locationName, operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, resourceGroupName, subscriptionId, workflowId" /> | Get Operation status |
+
+## `SELECT` examples
+
+Get Operation status
+
+
+```sql
+SELECT
+name,
+endTime,
+error,
+startTime,
+status
+FROM azure.storage_sync.operation_status
+WHERE locationName = '{{ locationName }}'
+AND operationId = '{{ operationId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workflowId = '{{ workflowId }}';
+```

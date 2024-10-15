@@ -5,49 +5,39 @@ hide_table_of_contents: false
 keywords:
   - data_lake_store
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Use the Azure Data Lake Store REST APIs to create and manage Data Lake Store resources through Azure Resource Manager.  
-    
+data_lake_store service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>26</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.data_lake_store</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Data Lake Storage Gen1</td></tr>
-<tr><td><b>Description</b></td><td>Use the Azure Data Lake Store REST APIs to create and manage Data Lake Store resources through Azure Resource Manager.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:data_lake_store</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/data_lake_store/accounts/">accounts</a><br />
 <a href="/providers/azure/data_lake_store/firewall_rules/">firewall_rules</a><br />
-<a href="/providers/azure/data_lake_store/locations_capability/">locations_capability</a><br />
-<a href="/providers/azure/data_lake_store/locations_usage/">locations_usage</a><br />
+<a href="/providers/azure/data_lake_store/locations_capabilities/">locations_capabilities</a><br />
+<a href="/providers/azure/data_lake_store/locations_usages/">locations_usages</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/data_lake_store/operations/">operations</a><br />
 <a href="/providers/azure/data_lake_store/trusted_id_providers/">trusted_id_providers</a><br />
-<a href="/providers/azure/data_lake_store/virtual_network_rules/">virtual_network_rules</a><br />
+<a href="/providers/azure/data_lake_store/virtual_network_rules/">virtual_network_rules</a>
 </div>
 </div>

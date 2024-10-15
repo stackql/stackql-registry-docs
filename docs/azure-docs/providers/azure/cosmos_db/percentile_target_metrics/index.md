@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - percentile_target_metrics
   - cosmos_db
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>percentile_target_metrics</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | The start time for the metric (ISO-8601 format). |
 | <CopyableCode code="timeGrain" /> | `string` | The time grain to be used to summarize the metric values. |
 | <CopyableCode code="unit" /> | `string` | The unit of the metric. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, accountName, resourceGroupName, subscriptionId, targetRegion" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, accountName, resourceGroupName, subscriptionId, targetRegion" /> | Retrieves the metrics determined by the given filter for the given account target region. This url is only for PBS and Replication Latency data |
+
+## `SELECT` examples
+
+Retrieves the metrics determined by the given filter for the given account target region. This url is only for PBS and Replication Latency data
+
+
+```sql
+SELECT
+name,
+endTime,
+metricValues,
+startTime,
+timeGrain,
+unit
+FROM azure.cosmos_db.percentile_target_metrics
+WHERE $filter = '{{ $filter }}'
+AND accountName = '{{ accountName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND targetRegion = '{{ targetRegion }}';
+```

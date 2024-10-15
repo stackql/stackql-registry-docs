@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - nexus
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Operator Nexus - Network Cloud APIs provide management of the on-premises clusters and their resources, such as, racks, bare metal hosts, virtual machines, workload networks and more.  
-    
+nexus service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>20</b></span><br />
-<span>total selectable resources:&nbsp;<b>19</b></span><br />
-<span>total methods:&nbsp;<b>120</b></span><br />
+<span>total resources:&nbsp;<b>21</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.nexus</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Operator Nexus - Network Cloud</td></tr>
-<tr><td><b>Description</b></td><td>Azure Operator Nexus - Network Cloud APIs provide management of the on-premises clusters and their resources, such as, racks, bare metal hosts, virtual machines, workload networks and more.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:nexus</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -47,9 +37,10 @@ Azure Operator Nexus - Network Cloud APIs provide management of the on-premises 
 <a href="/providers/azure/nexus/cloud_services_networks/">cloud_services_networks</a><br />
 <a href="/providers/azure/nexus/cluster_managers/">cluster_managers</a><br />
 <a href="/providers/azure/nexus/clusters/">clusters</a><br />
-<a href="/providers/azure/nexus/clusters_version/">clusters_version</a><br />
+<a href="/providers/azure/nexus/clusters_versions/">clusters_versions</a><br />
 <a href="/providers/azure/nexus/consoles/">consoles</a><br />
-<a href="/providers/azure/nexus/kubernetes_clusters/">kubernetes_clusters</a><br />
+<a href="/providers/azure/nexus/kubernetes_cluster_features/">kubernetes_cluster_features</a><br />
+<a href="/providers/azure/nexus/kubernetes_clusters/">kubernetes_clusters</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/nexus/l2_networks/">l2_networks</a><br />
@@ -61,6 +52,6 @@ Azure Operator Nexus - Network Cloud APIs provide management of the on-premises 
 <a href="/providers/azure/nexus/storage_appliances/">storage_appliances</a><br />
 <a href="/providers/azure/nexus/trunked_networks/">trunked_networks</a><br />
 <a href="/providers/azure/nexus/virtual_machines/">virtual_machines</a><br />
-<a href="/providers/azure/nexus/volumes/">volumes</a><br />
+<a href="/providers/azure/nexus/volumes/">volumes</a>
 </div>
 </div>

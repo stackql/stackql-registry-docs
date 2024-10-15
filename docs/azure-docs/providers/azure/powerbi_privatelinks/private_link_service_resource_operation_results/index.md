@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - private_link_service_resource_operation_results
   - powerbi_privatelinks
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>private_link_service_resource_operation_results</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` | The error detail. |
 | <CopyableCode code="startTime" /> | `string` | The operation start time. |
 | <CopyableCode code="status" /> | `string` | The operation status. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="operationId, subscriptionId" /> | Gets operation result of Private Link Service Resources for Power BI. |
+
+## `SELECT` examples
+
+Gets operation result of Private Link Service Resources for Power BI.
+
+
+```sql
+SELECT
+id,
+name,
+endTime,
+error,
+startTime,
+status
+FROM azure.powerbi_privatelinks.private_link_service_resource_operation_results
+WHERE operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - private_endpoint_connections
   - purview
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>private_endpoint_connections</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,6 +29,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_private_endpoint_connections', value: 'view', },
+        { label: 'private_endpoint_connections', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `text` | Gets or sets the identifier. |
+| <CopyableCode code="name" /> | `text` | Gets or sets the name. |
+| <CopyableCode code="accountName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="privateEndpointConnectionName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="private_endpoint" /> | `text` | field from the `properties` object |
+| <CopyableCode code="private_link_service_connection_state" /> | `text` | field from the `properties` object |
+| <CopyableCode code="provisioning_state" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resourceGroupName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="system_data" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Gets or sets the type. |
+</TabItem>
+<TabItem value="resource">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Gets or sets the identifier. |
@@ -35,10 +61,140 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | A private endpoint connection properties class. |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 | <CopyableCode code="type" /> | `string` | Gets or sets the type. |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Get a private endpoint connection |
-| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, api-version, resourceGroupName, subscriptionId" /> | Get private endpoint connections for account |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Create or update a private endpoint connection |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, api-version, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Delete a private endpoint connection |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Get a private endpoint connection |
+| <CopyableCode code="list_by_account" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | Get private endpoint connections for account |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Create or update a private endpoint connection |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, privateEndpointConnectionName, resourceGroupName, subscriptionId" /> | Delete a private endpoint connection |
+
+## `SELECT` examples
+
+Get private endpoint connections for account
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_private_endpoint_connections', value: 'view', },
+        { label: 'private_endpoint_connections', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+accountName,
+privateEndpointConnectionName,
+private_endpoint,
+private_link_service_connection_state,
+provisioning_state,
+resourceGroupName,
+subscriptionId,
+system_data,
+type
+FROM azure.purview.vw_private_endpoint_connections
+WHERE accountName = '{{ accountName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+systemData,
+type
+FROM azure.purview.private_endpoint_connections
+WHERE accountName = '{{ accountName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem></Tabs>
+
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>private_endpoint_connections</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.purview.private_endpoint_connections (
+accountName,
+privateEndpointConnectionName,
+resourceGroupName,
+subscriptionId,
+properties
+)
+SELECT 
+'{{ accountName }}',
+'{{ privateEndpointConnectionName }}',
+'{{ resourceGroupName }}',
+'{{ subscriptionId }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: systemData
+      value: string
+    - name: type
+      value: string
+    - name: properties
+      value:
+        - name: privateEndpoint
+          value:
+            - name: id
+              value: string
+        - name: privateLinkServiceConnectionState
+          value:
+            - name: actionsRequired
+              value: string
+            - name: description
+              value: string
+            - name: status
+              value: string
+        - name: provisioningState
+          value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>private_endpoint_connections</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.purview.private_endpoint_connections
+WHERE accountName = '{{ accountName }}'
+AND privateEndpointConnectionName = '{{ privateEndpointConnectionName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

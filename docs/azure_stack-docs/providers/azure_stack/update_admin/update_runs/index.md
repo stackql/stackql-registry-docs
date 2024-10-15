@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - update_runs
   - update_admin
-  - azure_stack    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>update_runs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,15 +29,103 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_update_runs', value: 'view', },
+        { label: 'update_runs', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125; |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | URI of the resource. |
+| <CopyableCode code="name" /> | `text` | Name of the resource. |
+| <CopyableCode code="duration" /> | `text` | field from the `properties` object |
+| <CopyableCode code="location" /> | `text` | Region location of resource. |
+| <CopyableCode code="progress" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resourceGroupName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="runName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="state" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="tags" /> | `text` | List of key-value pairs. |
+| <CopyableCode code="time_started" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Type of resource. |
+| <CopyableCode code="updateLocation" /> | `text` | field from the `properties` object |
+| <CopyableCode code="updateName" /> | `text` | field from the `properties` object |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | URI of the resource. |
+| <CopyableCode code="name" /> | `string` | Name of the resource. |
+| <CopyableCode code="location" /> | `string` | Region location of resource. |
 | <CopyableCode code="properties" /> | `object` | Properties of an update run. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="tags" /> | `object` | List of key-value pairs. |
+| <CopyableCode code="type" /> | `string` | Type of resource. |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, runName, subscriptionId, updateLocation, updateName" /> | Get an instance of update run using the ID. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, updateLocation, updateName" /> | Get the list of update runs. |
 | <CopyableCode code="rerun" /> | `EXEC` | <CopyableCode code="resourceGroupName, runName, subscriptionId, updateLocation, updateName" /> | Resume a failed update. |
+
+## `SELECT` examples
+
+Get the list of update runs.
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_update_runs', value: 'view', },
+        { label: 'update_runs', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+duration,
+location,
+progress,
+resourceGroupName,
+runName,
+state,
+subscriptionId,
+tags,
+time_started,
+type,
+updateLocation,
+updateName
+FROM azure_stack.update_admin.vw_update_runs
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND updateLocation = '{{ updateLocation }}'
+AND updateName = '{{ updateName }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+location,
+properties,
+tags,
+type
+FROM azure_stack.update_admin.update_runs
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND updateLocation = '{{ updateLocation }}'
+AND updateName = '{{ updateName }}';
+```
+</TabItem></Tabs>
+

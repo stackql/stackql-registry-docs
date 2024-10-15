@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - tenant_activity_logs
   - monitor
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>tenant_activity_logs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -44,7 +45,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="level" /> | `string` | the event level |
 | <CopyableCode code="operationId" /> | `string` | It is usually a GUID shared among the events corresponding to single operation. This value should not be confused with EventName. |
 | <CopyableCode code="operationName" /> | `object` | The localizable string class. |
-| <CopyableCode code="properties" /> | `object` | the set of &lt;Key, Value&gt; pairs (usually a Dictionary&lt;String, String&gt;) that includes details about the event. |
+| <CopyableCode code="properties" /> | `object` | the set of <Key, Value> pairs (usually a Dictionary<String, String>) that includes details about the event. |
 | <CopyableCode code="resourceGroupName" /> | `string` | the resource group name of the impacted resource. |
 | <CopyableCode code="resourceId" /> | `string` | the resource uri that uniquely identifies the resource that caused this event. |
 | <CopyableCode code="resourceProviderName" /> | `object` | The localizable string class. |
@@ -54,7 +55,43 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="submissionTimestamp" /> | `string` | the timestamp of when the event became available for querying via this API. It is in ISO 8601 format. This value should not be confused eventTimestamp. As there might be a delay between the occurrence time of the event, and the time that the event is submitted to the Azure logging infrastructure. |
 | <CopyableCode code="subscriptionId" /> | `string` | the Azure subscription Id usually a GUID. |
 | <CopyableCode code="tenantId" /> | `string` | the Azure tenant Id |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Gets the Activity Logs for the Tenant.<br>Everything that is applicable to the API to get the Activity Logs for the subscription is applicable to this API (the parameters, $filter, etc.).<br>One thing to point out here is that this API does *not* retrieve the logs at the individual subscription of the tenant but only surfaces the logs that were generated at the tenant level. |
+
+## `SELECT` examples
+
+Gets the Activity Logs for the Tenant.<br>Everything that is applicable to the API to get the Activity Logs for the subscription is applicable to this API (the parameters, $filter, etc.).<br>One thing to point out here is that this API does *not* retrieve the logs at the individual subscription of the tenant but only surfaces the logs that were generated at the tenant level.
+
+
+```sql
+SELECT
+id,
+description,
+authorization,
+caller,
+category,
+claims,
+correlationId,
+eventDataId,
+eventName,
+eventTimestamp,
+httpRequest,
+level,
+operationId,
+operationName,
+properties,
+resourceGroupName,
+resourceId,
+resourceProviderName,
+resourceType,
+status,
+subStatus,
+submissionTimestamp,
+subscriptionId,
+tenantId
+FROM azure.monitor.tenant_activity_logs
+;
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - replication_eligibility_results
   - recovery_services_site_recovery
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>replication_eligibility_results</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,8 +35,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | Gets the name of this object. |
 | <CopyableCode code="properties" /> | `object` | Properties model for replication eligibility results API. |
 | <CopyableCode code="type" /> | `string` | Gets the object type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> |
-| <CopyableCode code="exec_get" /> | `EXEC` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, virtualMachineName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualMachineName" /> | Validates whether a given VM can be protected or not in which case returns list of errors. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualMachineName" /> | Validates whether a given VM can be protected or not in which case returns list of errors. |
+
+## `SELECT` examples
+
+Validates whether a given VM can be protected or not in which case returns list of errors.
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.recovery_services_site_recovery.replication_eligibility_results
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND virtualMachineName = '{{ virtualMachineName }}';
+```

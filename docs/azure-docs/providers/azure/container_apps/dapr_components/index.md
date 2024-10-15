@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - dapr_components
   - container_apps
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>dapr_components</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,6 +29,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="properties" /> | `object` | Dapr Component resource specific properties |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -35,3 +40,115 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="environmentName, resourceGroupName, subscriptionId" /> |  |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="componentName, environmentName, resourceGroupName, subscriptionId" /> | Creates or updates a Dapr Component in a Managed Environment. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="componentName, environmentName, resourceGroupName, subscriptionId" /> | Delete a Dapr Component from a Managed Environment. |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+properties
+FROM azure.container_apps.dapr_components
+WHERE environmentName = '{{ environmentName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>dapr_components</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.container_apps.dapr_components (
+componentName,
+environmentName,
+resourceGroupName,
+subscriptionId,
+properties
+)
+SELECT 
+'{{ componentName }}',
+'{{ environmentName }}',
+'{{ resourceGroupName }}',
+'{{ subscriptionId }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: properties
+      value:
+        - name: componentType
+          value: string
+        - name: version
+          value: string
+        - name: ignoreErrors
+          value: boolean
+        - name: initTimeout
+          value: string
+        - name: secrets
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+              - name: identity
+                value: string
+              - name: keyVaultUrl
+                value: string
+        - name: secretStoreComponent
+          value: string
+        - name: metadata
+          value:
+            - - name: name
+                value: string
+              - name: value
+                value: string
+              - name: secretRef
+                value: string
+        - name: scopes
+          value:
+            - string
+        - name: serviceComponentBind
+          value:
+            - - name: name
+                value: string
+              - name: serviceId
+                value: string
+              - name: metadata
+                value:
+                  - name: name
+                    value: string
+                  - name: value
+                    value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>dapr_components</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.container_apps.dapr_components
+WHERE componentName = '{{ componentName }}'
+AND environmentName = '{{ environmentName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

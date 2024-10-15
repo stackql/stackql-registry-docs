@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - volumes_replications
   - netapp
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>volumes_replications</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,8 +36,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="remoteVolumeResourceId" /> | `string` | The resource ID of the remote volume. |
 | <CopyableCode code="replicationId" /> | `string` | UUID v4 used to identify the replication. |
 | <CopyableCode code="replicationSchedule" /> | `string` | Schedule |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | List all replications for a specified volume |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, poolName, resourceGroupName, subscriptionId, volumeName" /> | Delete the replication connection on the destination volume, and send release to the source replication |
+
+## `SELECT` examples
+
+List all replications for a specified volume
+
+
+```sql
+SELECT
+endpointType,
+remoteVolumeRegion,
+remoteVolumeResourceId,
+replicationId,
+replicationSchedule
+FROM azure_isv.netapp.volumes_replications
+WHERE accountName = '{{ accountName }}'
+AND poolName = '{{ poolName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND volumeName = '{{ volumeName }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>volumes_replications</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure_isv.netapp.volumes_replications
+WHERE accountName = '{{ accountName }}'
+AND poolName = '{{ poolName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND volumeName = '{{ volumeName }}';
+```

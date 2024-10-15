@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - deleted_protection_containers
   - recovery_services_backup
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>deleted_protection_containers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,14 +31,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Resource Id represents the complete path to the resource. |
-| <CopyableCode code="name" /> | `string` | Resource name associated with the resource. |
-| <CopyableCode code="eTag" /> | `string` | Optional ETag. |
-| <CopyableCode code="location" /> | `string` | Resource location. |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Base class for container with backup items. Containers with specific workloads are derived from this class. |
-| <CopyableCode code="tags" /> | `object` | Resource tags. |
-| <CopyableCode code="type" /> | `string` | Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/... |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, subscriptionId, vaultName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Lists the soft deleted containers registered to Recovery Services Vault. |
+
+## `SELECT` examples
+
+Lists the soft deleted containers registered to Recovery Services Vault.
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.recovery_services_backup.deleted_protection_containers
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND vaultName = '{{ vaultName }}';
+```

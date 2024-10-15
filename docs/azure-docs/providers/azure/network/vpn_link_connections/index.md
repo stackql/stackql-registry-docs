@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - vpn_link_connections
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>vpn_link_connections</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,8 +36,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
 | <CopyableCode code="properties" /> | `object` | Parameters for VpnConnection. |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list_by_vpn_connection" /> | `SELECT` | <CopyableCode code="connectionName, gatewayName, resourceGroupName, subscriptionId" /> | Retrieves all vpn site link connections for a particular virtual wan vpn gateway vpn connection. |
 | <CopyableCode code="reset_connection" /> | `EXEC` | <CopyableCode code="connectionName, gatewayName, linkConnectionName, resourceGroupName, subscriptionId" /> | Resets the VpnLink connection specified. |
+| <CopyableCode code="set_or_init_default_shared_key" /> | `EXEC` | <CopyableCode code="connectionName, gatewayName, linkConnectionName, resourceGroupName, subscriptionId" /> | Sets or auto generates the shared key based on the user input. If users give a shared key value, it does the set operation. If key length is given, the operation creates a random key of the pre-defined length. |
+
+## `SELECT` examples
+
+Retrieves all vpn site link connections for a particular virtual wan vpn gateway vpn connection.
+
+
+```sql
+SELECT
+id,
+name,
+etag,
+properties,
+type
+FROM azure.network.vpn_link_connections
+WHERE connectionName = '{{ connectionName }}'
+AND gatewayName = '{{ gatewayName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

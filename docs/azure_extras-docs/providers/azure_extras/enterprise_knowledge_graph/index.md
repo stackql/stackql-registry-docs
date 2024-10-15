@@ -4,45 +4,35 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - enterprise_knowledge_graph
-  - azure_extras
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Enterprise Knowledge Graph Service is a platform for creating knowledge graphs at scale.  
-    
+enterprise_knowledge_graph service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>7</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure_extras.enterprise_knowledge_graph</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Enterprise Knowledge Graph Service</td></tr>
-<tr><td><b>Description</b></td><td>Azure Enterprise Knowledge Graph Service is a platform for creating knowledge graphs at scale.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras:enterprise_knowledge_graph</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/azure_extras/enterprise_knowledge_graph/enterprise_knowledge_graph/">enterprise_knowledge_graph</a><br />
+<a href="/providers/azure_extras/enterprise_knowledge_graph/enterprise_knowledge_graphs/">enterprise_knowledge_graphs</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure_extras/enterprise_knowledge_graph/operations/">operations</a><br />
+<a href="/providers/azure_extras/enterprise_knowledge_graph/operations/">operations</a>
 </div>
 </div>

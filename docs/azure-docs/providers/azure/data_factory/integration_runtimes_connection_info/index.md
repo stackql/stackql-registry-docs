@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - integration_runtimes_connection_info
   - data_factory
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>integration_runtimes_connection_info</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="publicKey" /> | `string` | The public key for encrypting a credential when transferring the credential to the integration runtime. |
 | <CopyableCode code="serviceToken" /> | `string` | The token generated in service. Callers use this token to authenticate to integration runtime. |
 | <CopyableCode code="version" /> | `string` | The integration runtime version. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, factoryName, integrationRuntimeName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="factoryName, integrationRuntimeName, resourceGroupName, subscriptionId" /> | Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials. |
+
+## `SELECT` examples
+
+Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
+
+
+```sql
+SELECT
+hostServiceUri,
+identityCertThumbprint,
+isIdentityCertExprired,
+publicKey,
+serviceToken,
+version
+FROM azure.data_factory.integration_runtimes_connection_info
+WHERE factoryName = '{{ factoryName }}'
+AND integrationRuntimeName = '{{ integrationRuntimeName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -4,31 +4,29 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 id: azure-doc
 slug: /providers/azure
+
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-Cloud computing services operated by Microsoft.  
-    
-:::info Provider Summary (v24.06.00242)
+Core cloud services from Microsoft Azure.
+
+:::info Provider Summary (v24.10.00256)
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>196</b></span><br />
-<span>total methods:&nbsp;<b>11160</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4020</b></span><br />
-<span>total selectable resources:&nbsp;<b>3581</b></span><br />
+<span>total services:&nbsp;<b>201</b></span><br />
+<span>total resources:&nbsp;<b>3919</b></span><br />
 </div>
 </div>
 
@@ -55,7 +53,6 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
 
 To authenticate using an Azure Service Principal, set the following environment variables: <CopyableCode code="AZURE_TENANT_ID" />, <CopyableCode code="AZURE_CLIENT_ID" /> and <CopyableCode code="AZURE_CLIENT_SECRET" />, see [__creating-an-azure-service-principal__](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication-service-principal?tabs=azure-cli#2-create-an-azure-service-principal).
 
-
 ## Services
 <div class="row">
 <div class="providerDocColumn">
@@ -79,7 +76,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/azure_active_directory/">azure_active_directory</a><br />
 <a href="/providers/azure/azure_arc_data/">azure_arc_data</a><br />
 <a href="/providers/azure/azure_data/">azure_data</a><br />
-<a href="/providers/azure/azurefleet/">azurefleet</a><br />
+<a href="/providers/azure/azure_fleet/">azure_fleet</a><br />
 <a href="/providers/azure/bare_metal_infrastructure/">bare_metal_infrastructure</a><br />
 <a href="/providers/azure/batch/">batch</a><br />
 <a href="/providers/azure/billing/">billing</a><br />
@@ -92,6 +89,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/cognitive_services/">cognitive_services</a><br />
 <a href="/providers/azure/communication/">communication</a><br />
 <a href="/providers/azure/compute/">compute</a><br />
+<a href="/providers/azure/computeschedule/">computeschedule</a><br />
 <a href="/providers/azure/confidential_ledger/">confidential_ledger</a><br />
 <a href="/providers/azure/consumption/">consumption</a><br />
 <a href="/providers/azure/container_apps/">container_apps</a><br />
@@ -116,7 +114,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/data_replication/">data_replication</a><br />
 <a href="/providers/azure/data_share/">data_share</a><br />
 <a href="/providers/azure/data_transfer/">data_transfer</a><br />
-<a href="/providers/azure/databasewatcher/">databasewatcher</a><br />
+<a href="/providers/azure/db_watcher/">db_watcher</a><br />
 <a href="/providers/azure/defender/">defender</a><br />
 <a href="/providers/azure/delegated_network/">delegated_network</a><br />
 <a href="/providers/azure/desktop_virtualization/">desktop_virtualization</a><br />
@@ -129,11 +127,12 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/digital_twins/">digital_twins</a><br />
 <a href="/providers/azure/dns/">dns</a><br />
 <a href="/providers/azure/dns_resolver/">dns_resolver</a><br />
-<a href="/providers/azure/edgezones/">edgezones</a><br />
+<a href="/providers/azure/edge_zones/">edge_zones</a><br />
 <a href="/providers/azure/elastic_san/">elastic_san</a><br />
 <a href="/providers/azure/engagement_fabric/">engagement_fabric</a><br />
 <a href="/providers/azure/event_grid/">event_grid</a><br />
 <a href="/providers/azure/event_hubs/">event_hubs</a><br />
+<a href="/providers/azure/fabric/">fabric</a><br />
 <a href="/providers/azure/fleet/">fleet</a><br />
 <a href="/providers/azure/fluid_relay/">fluid_relay</a><br />
 <a href="/providers/azure/front_door/">front_door</a><br />
@@ -141,6 +140,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/guest_configuration/">guest_configuration</a><br />
 <a href="/providers/azure/hardware_security_modules/">hardware_security_modules</a><br />
 <a href="/providers/azure/hdinsight/">hdinsight</a><br />
+<a href="/providers/azure/healthdataaiservices/">healthdataaiservices</a><br />
 <a href="/providers/azure/hybrid_aks/">hybrid_aks</a><br />
 <a href="/providers/azure/hybrid_cloud/">hybrid_cloud</a><br />
 <a href="/providers/azure/hybrid_compute/">hybrid_compute</a><br />
@@ -159,9 +159,10 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/iot_orchestrator/">iot_orchestrator</a><br />
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure/iotoperations/">iotoperations</a><br />
+<a href="/providers/azure/k8s_runtime/">k8s_runtime</a><br />
 <a href="/providers/azure/key_vault/">key_vault</a><br />
 <a href="/providers/azure/kubernetes_configuration/">kubernetes_configuration</a><br />
-<a href="/providers/azure/kubernetesruntime/">kubernetesruntime</a><br />
 <a href="/providers/azure/lab_services/">lab_services</a><br />
 <a href="/providers/azure/large_instances/">large_instances</a><br />
 <a href="/providers/azure/load_testing/">load_testing</a><br />
@@ -203,6 +204,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/powerbi_embedded/">powerbi_embedded</a><br />
 <a href="/providers/azure/powerbi_privatelinks/">powerbi_privatelinks</a><br />
 <a href="/providers/azure/private_dns/">private_dns</a><br />
+<a href="/providers/azure/programmableconnectivity/">programmableconnectivity</a><br />
 <a href="/providers/azure/provider_hub/">provider_hub</a><br />
 <a href="/providers/azure/purview/">purview</a><br />
 <a href="/providers/azure/purview_policy/">purview_policy</a><br />
@@ -222,7 +224,6 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/search/">search</a><br />
 <a href="/providers/azure/security/">security</a><br />
 <a href="/providers/azure/security_and_compliance/">security_and_compliance</a><br />
-<a href="/providers/azure/security_devops/">security_devops</a><br />
 <a href="/providers/azure/sentinel/">sentinel</a><br />
 <a href="/providers/azure/serial_console/">serial_console</a><br />
 <a href="/providers/azure/service_bus/">service_bus</a><br />
@@ -237,7 +238,7 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/spring_apps/">spring_apps</a><br />
 <a href="/providers/azure/sql/">sql</a><br />
 <a href="/providers/azure/sql_vm/">sql_vm</a><br />
-<a href="/providers/azure/standbypool/">standbypool</a><br />
+<a href="/providers/azure/standby_pools/">standby_pools</a><br />
 <a href="/providers/azure/storage/">storage</a><br />
 <a href="/providers/azure/storage_cache/">storage_cache</a><br />
 <a href="/providers/azure/storage_import_export/">storage_import_export</a><br />
@@ -250,9 +251,10 @@ To authenticate using an Azure Service Principal, set the following environment 
 <a href="/providers/azure/support/">support</a><br />
 <a href="/providers/azure/synapse/">synapse</a><br />
 <a href="/providers/azure/system_center_vm_manager/">system_center_vm_manager</a><br />
+<a href="/providers/azure/terraform/">terraform</a><br />
 <a href="/providers/azure/time_series_insights/">time_series_insights</a><br />
 <a href="/providers/azure/traffic_manager/">traffic_manager</a><br />
-<a href="/providers/azure/verifiedid/">verifiedid</a><br />
+<a href="/providers/azure/verified_id/">verified_id</a><br />
 <a href="/providers/azure/video_analyzer/">video_analyzer</a><br />
 <a href="/providers/azure/voice_services/">voice_services</a><br />
 <a href="/providers/azure/web_pubsub/">web_pubsub</a><br />

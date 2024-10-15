@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - resource_jobs
   - iot_hub
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>resource_jobs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,7 +39,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | The status of the job. |
 | <CopyableCode code="statusMessage" /> | `string` | The status message for the job. |
 | <CopyableCode code="type" /> | `string` | The type of the job. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, resourceGroupName, resourceName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="jobId, resourceGroupName, resourceName, subscriptionId" /> | Get the details of a job from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Get a list of all the jobs in an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry. |
+
+## `SELECT` examples
+
+Get a list of all the jobs in an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry.
+
+
+```sql
+SELECT
+endTimeUtc,
+failureReason,
+jobId,
+parentJobId,
+startTimeUtc,
+status,
+statusMessage,
+type
+FROM azure.iot_hub.resource_jobs
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

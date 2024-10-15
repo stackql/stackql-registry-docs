@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - pipeline_runs
   - data_factory
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>pipeline_runs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -43,9 +44,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="runId" /> | `string` | Identifier of a run. |
 | <CopyableCode code="runStart" /> | `string` | The start time of a pipeline run in ISO8601 format. |
 | <CopyableCode code="status" /> | `string` | The status of a pipeline run. Possible values: Queued, InProgress, Succeeded, Failed, Canceling, Cancelled |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, factoryName, resourceGroupName, runId, subscriptionId" /> | Get a pipeline run by its run ID. |
-| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, runId, subscriptionId" /> | Cancel a pipeline run by its run ID. |
-| <CopyableCode code="query_by_factory" /> | `EXEC` | <CopyableCode code="api-version, factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore" /> | Query pipeline runs in the factory based on input filter conditions. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="factoryName, resourceGroupName, runId, subscriptionId" /> | Get a pipeline run by its run ID. |
+| <CopyableCode code="cancel" /> | `EXEC` | <CopyableCode code="factoryName, resourceGroupName, runId, subscriptionId" /> | Cancel a pipeline run by its run ID. |
+| <CopyableCode code="query_by_factory" /> | `EXEC` | <CopyableCode code="factoryName, resourceGroupName, subscriptionId, data__lastUpdatedAfter, data__lastUpdatedBefore" /> | Query pipeline runs in the factory based on input filter conditions. |
+
+## `SELECT` examples
+
+Get a pipeline run by its run ID.
+
+
+```sql
+SELECT
+durationInMs,
+invokedBy,
+isLatest,
+lastUpdated,
+message,
+parameters,
+pipelineName,
+runDimensions,
+runEnd,
+runGroupId,
+runId,
+runStart,
+status
+FROM azure.data_factory.pipeline_runs
+WHERE factoryName = '{{ factoryName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND runId = '{{ runId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

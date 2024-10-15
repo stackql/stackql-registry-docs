@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - recommendations
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>recommendations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,6 +36,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | Kind of resource. |
 | <CopyableCode code="properties" /> | `object` | Recommendation resource specific properties |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -47,3 +49,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="reset_all_filters" /> | `EXEC` | <CopyableCode code="subscriptionId" /> | Description for Reset all recommendation opt-out settings for a subscription. |
 | <CopyableCode code="reset_all_filters_for_hosting_environment" /> | `EXEC` | <CopyableCode code="environmentName, hostingEnvironmentName, resourceGroupName, subscriptionId" /> | Description for Reset all recommendation opt-out settings for an app. |
 | <CopyableCode code="reset_all_filters_for_web_app" /> | `EXEC` | <CopyableCode code="resourceGroupName, siteName, subscriptionId" /> | Description for Reset all recommendation opt-out settings for an app. |
+
+## `SELECT` examples
+
+Description for List all recommendations for a subscription.
+
+
+```sql
+SELECT
+id,
+name,
+kind,
+properties,
+type
+FROM azure.app_service.recommendations
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

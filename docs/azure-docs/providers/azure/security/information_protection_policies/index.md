@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - information_protection_policies
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>information_protection_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,16 +29,136 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_information_protection_policies', value: 'view', },
+        { label: 'information_protection_policies', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | Resource Id |
+| <CopyableCode code="name" /> | `text` | Resource name |
+| <CopyableCode code="informationProtectionPolicyName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="information_types" /> | `text` | field from the `properties` object |
+| <CopyableCode code="labels" /> | `text` | field from the `properties` object |
+| <CopyableCode code="last_modified_utc" /> | `text` | field from the `properties` object |
+| <CopyableCode code="scope" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type |
+| <CopyableCode code="version" /> | `text` | field from the `properties` object |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="properties" /> | `object` | describes properties of an information protection policy. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, informationProtectionPolicyName, scope" /> | Details of the information protection policy. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, scope" /> | Information protection policies of a specific management group. |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, informationProtectionPolicyName, scope" /> | Details of the information protection policy. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="informationProtectionPolicyName, scope" /> | Details of the information protection policy. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | Information protection policies of a specific management group. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="informationProtectionPolicyName, scope" /> | Details of the information protection policy. |
+
+## `SELECT` examples
+
+Information protection policies of a specific management group.
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_information_protection_policies', value: 'view', },
+        { label: 'information_protection_policies', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+informationProtectionPolicyName,
+information_types,
+labels,
+last_modified_utc,
+scope,
+type,
+version
+FROM azure.security.vw_information_protection_policies
+WHERE scope = '{{ scope }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.security.information_protection_policies
+WHERE scope = '{{ scope }}';
+```
+</TabItem></Tabs>
+
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>information_protection_policies</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.security.information_protection_policies (
+informationProtectionPolicyName,
+scope,
+properties
+)
+SELECT 
+'{{ informationProtectionPolicyName }}',
+'{{ scope }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: properties
+      value:
+        - name: lastModifiedUtc
+          value: string
+        - name: version
+          value: string
+        - name: labels
+          value: object
+        - name: informationTypes
+          value: object
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+
+```
+</TabItem>
+</Tabs>

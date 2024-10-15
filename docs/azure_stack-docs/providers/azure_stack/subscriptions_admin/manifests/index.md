@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - manifests
   - subscriptions_admin
-  - azure_stack    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>manifests</code> resource.
 
 ## Overview
 <table><tbody>
@@ -49,8 +50,39 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceTypes" /> | `object` | List of the resource types. |
 | <CopyableCode code="routingResourceManagerType" /> | `string` | Resource manager type. |
 | <CopyableCode code="subscriptionId" /> | `string` | The subscription ID under which RP is registered. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="manifestName, subscriptionId" /> | Get the specified manifest. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get a list of all manifests. |
+
+## `SELECT` examples
+
+Get a list of all manifests.
+
+
+```sql
+SELECT
+name,
+alwaysRoutable,
+displayName,
+enabled,
+extensionCollection,
+linkedNotificationRules,
+metadata,
+namespace,
+providerAuthorization,
+providerLocation,
+providerType,
+provisioningState,
+resourceGroupName,
+resourceHydrationAccounts,
+resourceLocation,
+resourceTags,
+resourceTypes,
+routingResourceManagerType,
+subscriptionId
+FROM azure_stack.subscriptions_admin.manifests
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

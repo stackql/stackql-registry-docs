@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - provider_operations_metadata
   - authorization
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>provider_operations_metadata</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,8 +37,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="operations" /> | `array` | The provider operations. |
 | <CopyableCode code="resourceTypes" /> | `array` | The provider resource types |
 | <CopyableCode code="type" /> | `string` | The provider type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceProviderNamespace" /> | Gets provider operations metadata for the specified resource provider. |
-| <CopyableCode code="list" /> | `SELECT` |  | Gets provider operations metadata for all resource providers. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Gets provider operations metadata for all resource providers. |
+
+## `SELECT` examples
+
+Gets provider operations metadata for all resource providers.
+
+
+```sql
+SELECT
+id,
+name,
+displayName,
+operations,
+resourceTypes,
+type
+FROM azure.authorization.provider_operations_metadata
+;
+```

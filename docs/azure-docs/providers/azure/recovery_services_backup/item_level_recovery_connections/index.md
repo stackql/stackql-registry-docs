@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - item_level_recovery_connections
   - recovery_services_backup
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>item_level_recovery_connections</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,9 +29,14 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="provision" /> | `EXEC` | <CopyableCode code="api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName" /> | Provisions a script which invokes an iSCSI connection to the backup data. Executing this script opens a file<br />explorer displaying all the recoverable files and folders. This is an asynchronous operation. To know the status of<br />provisioning, call GetProtectedItemOperationResult API. |
-| <CopyableCode code="revoke" /> | `EXEC` | <CopyableCode code="api-version, containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName" /> | Revokes an iSCSI connection which can be used to download a script. Executing this script opens a file explorer<br />displaying all recoverable files and folders. This is an asynchronous operation. |
+| <CopyableCode code="provision" /> | `EXEC` | <CopyableCode code="containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName" /> | Provisions a script which invokes an iSCSI connection to the backup data. Executing this script opens a file
+explorer displaying all the recoverable files and folders. This is an asynchronous operation. To know the status of
+provisioning, call GetProtectedItemOperationResult API. |
+| <CopyableCode code="revoke" /> | `EXEC` | <CopyableCode code="containerName, fabricName, protectedItemName, recoveryPointId, resourceGroupName, subscriptionId, vaultName" /> | Revokes an iSCSI connection which can be used to download a script. Executing this script opens a file explorer
+displaying all recoverable files and folders. This is an asynchronous operation. |

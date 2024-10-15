@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operators
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operators</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,15 +31,79 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="identity" /> | `object` | Identity for the resource. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, pricingName, securityOperatorName, subscriptionId" /> | Get a specific security operator for the requested scope. |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, pricingName, subscriptionId" /> | Lists Microsoft Defender for Cloud securityOperators in the subscription. |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="api-version, pricingName, securityOperatorName, subscriptionId" /> | Creates Microsoft Defender for Cloud security operator on the given scope. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, pricingName, securityOperatorName, subscriptionId" /> | Delete Microsoft Defender for Cloud securityOperator in the subscription. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="pricingName, securityOperatorName, subscriptionId" /> | Get a specific security operator for the requested scope. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="pricingName, subscriptionId" /> | Lists Microsoft Defender for Cloud securityOperators in the subscription. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="pricingName, securityOperatorName, subscriptionId" /> | Creates Microsoft Defender for Cloud security operator on the given scope. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="pricingName, securityOperatorName, subscriptionId" /> | Delete Microsoft Defender for Cloud securityOperator in the subscription. |
+
+## `SELECT` examples
+
+Lists Microsoft Defender for Cloud securityOperators in the subscription.
+
+
+```sql
+SELECT
+id,
+name,
+identity,
+type
+FROM azure.security.operators
+WHERE pricingName = '{{ pricingName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>operators</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.security.operators (
+pricingName,
+securityOperatorName,
+subscriptionId
+)
+SELECT 
+'{{ pricingName }}',
+'{{ securityOperatorName }}',
+'{{ subscriptionId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props: []
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>operators</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.security.operators
+WHERE pricingName = '{{ pricingName }}'
+AND securityOperatorName = '{{ securityOperatorName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

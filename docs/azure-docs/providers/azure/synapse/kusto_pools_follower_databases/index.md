@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - kusto_pools_follower_databases
   - synapse
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>kusto_pools_follower_databases</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="attachedDatabaseConfigurationName" /> | `string` | Resource name of the attached database configuration in the follower cluster. |
 | <CopyableCode code="clusterResourceId" /> | `string` | Resource id of the cluster that follows a database owned by this cluster. |
 | <CopyableCode code="databaseName" /> | `string` | The database name owned by this cluster that was followed. * in case following all databases. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="kustoPoolName, resourceGroupName, subscriptionId, workspaceName" /> | Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool. |
+
+## `SELECT` examples
+
+Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
+
+
+```sql
+SELECT
+attachedDatabaseConfigurationName,
+clusterResourceId,
+databaseName
+FROM azure.synapse.kusto_pools_follower_databases
+WHERE kustoPoolName = '{{ kustoPoolName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workspaceName = '{{ workspaceName }}';
+```

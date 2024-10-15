@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - cognitive_services
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="display" /> | `object` | Localized display information for this particular operation. |
 | <CopyableCode code="isDataAction" /> | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
 | <CopyableCode code="origin" /> | `string` | The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is "user,system" |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all the available Cognitive Services account operations. |
+| <CopyableCode code="check_domain_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__subdomainName, data__type" /> | Check whether a domain is available. |
+| <CopyableCode code="check_sku_availability" /> | `EXEC` | <CopyableCode code="location, subscriptionId, data__kind, data__skus, data__type" /> | Check available SKUs. |
+
+## `SELECT` examples
+
+Lists all the available Cognitive Services account operations.
+
+
+```sql
+SELECT
+name,
+actionType,
+display,
+isDataAction,
+origin
+FROM azure.cognitive_services.operations
+;
+```

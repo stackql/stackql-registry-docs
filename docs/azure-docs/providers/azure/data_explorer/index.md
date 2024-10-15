@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - data_explorer
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Data Explorer is a fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources. Azure Data Explorer REST API helps you query and manage your data in Azure Data Explorer. REST API supports the Kusto query language for queries and control commands.  
-    
+data_explorer service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>21</b></span><br />
-<span>total selectable resources:&nbsp;<b>20</b></span><br />
-<span>total methods:&nbsp;<b>78</b></span><br />
+<span>total resources:&nbsp;<b>20</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.data_explorer</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Data Explorer</td></tr>
-<tr><td><b>Description</b></td><td>Azure Data Explorer is a fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources. Azure Data Explorer REST API helps you query and manage your data in Azure Data Explorer. REST API supports the Kusto query language for queries and control commands.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:data_explorer</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -47,10 +37,9 @@ Azure Data Explorer is a fully managed data analytics service for real-time anal
 <a href="/providers/azure/data_explorer/clusters_language_extensions/">clusters_language_extensions</a><br />
 <a href="/providers/azure/data_explorer/clusters_outbound_network_dependencies_endpoints/">clusters_outbound_network_dependencies_endpoints</a><br />
 <a href="/providers/azure/data_explorer/clusters_skus/">clusters_skus</a><br />
-<a href="/providers/azure/data_explorer/clusters_skus_by_resource/">clusters_skus_by_resource</a><br />
+<a href="/providers/azure/data_explorer/clusters_skus_by_resources/">clusters_skus_by_resources</a><br />
 <a href="/providers/azure/data_explorer/data_connections/">data_connections</a><br />
-<a href="/providers/azure/data_explorer/database/">database</a><br />
-<a href="/providers/azure/data_explorer/database_principal_assignments/">database_principal_assignments</a><br />
+<a href="/providers/azure/data_explorer/database_principal_assignments/">database_principal_assignments</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/data_explorer/databases/">databases</a><br />
@@ -62,6 +51,6 @@ Azure Data Explorer is a fully managed data analytics service for real-time anal
 <a href="/providers/azure/data_explorer/private_link_resources/">private_link_resources</a><br />
 <a href="/providers/azure/data_explorer/sandbox_custom_images/">sandbox_custom_images</a><br />
 <a href="/providers/azure/data_explorer/scripts/">scripts</a><br />
-<a href="/providers/azure/data_explorer/skus/">skus</a><br />
+<a href="/providers/azure/data_explorer/skus/">skus</a>
 </div>
 </div>

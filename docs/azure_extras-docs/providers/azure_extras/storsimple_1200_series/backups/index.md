@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - backups
   - storsimple_1200_series
-  - azure_extras    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>backups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,6 +35,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The name. |
 | <CopyableCode code="properties" /> | `object` | Class represents Backup properties |
 | <CopyableCode code="type" /> | `string` | The type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -41,3 +43,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list_by_manager" /> | `SELECT` | <CopyableCode code="managerName, resourceGroupName, subscriptionId" /> | Retrieves all the backups in a manager. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupName, deviceName, managerName, resourceGroupName, subscriptionId" /> | Deletes the backup. |
 | <CopyableCode code="clone" /> | `EXEC` | <CopyableCode code="backupName, deviceName, elementName, managerName, resourceGroupName, subscriptionId, data__properties" /> | Clones the given backup element to a new disk or share with given details. |
+
+## `SELECT` examples
+
+Retrieves all the backups in a manager.
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure_extras.storsimple_1200_series.backups
+WHERE managerName = '{{ managerName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>backups</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure_extras.storsimple_1200_series.backups
+WHERE backupName = '{{ backupName }}'
+AND deviceName = '{{ deviceName }}'
+AND managerName = '{{ managerName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - available_skus
   - data_box_edge
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>available_skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -45,7 +46,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="size" /> | `string` | The Sku kind. |
 | <CopyableCode code="tier" /> | `string` | The Sku tier. |
 | <CopyableCode code="version" /> | `string` | Availability of the Sku as preview/stable. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+name,
+apiVersions,
+availability,
+capabilities,
+costs,
+family,
+kind,
+locationInfo,
+locations,
+resourceType,
+shipmentTypes,
+signupOption,
+size,
+tier,
+version
+FROM azure.data_box_edge.available_skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

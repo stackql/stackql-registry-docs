@@ -18,17 +18,13 @@ slug: /providers/azure_extras
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Additional Azure cloud computing services by Microsoft.  
-    
-:::info Provider Summary (v24.06.00242)
+
+:::info Provider Summary (v24.10.00256)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>40</b></span><br />
-<span>total methods:&nbsp;<b>966</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>361</b></span><br />
-<span>total selectable resources:&nbsp;<b>311</b></span><br />
+<span>total resources:&nbsp;<b>376</b></span><br />
 </div>
 </div>
 
@@ -49,8 +45,11 @@ REGISTRY PULL azure_extras;
 
 ## Authentication
 
-
 StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
+
+### Authenticating using an Azure Service Principal
+
+To authenticate using an Azure Service Principal, set the following environment variables: <CopyableCode code="AZURE_TENANT_ID" />, <CopyableCode code="AZURE_CLIENT_ID" /> and <CopyableCode code="AZURE_CLIENT_SECRET" />, see [__creating-an-azure-service-principal__](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication-service-principal?tabs=azure-cli#2-create-an-azure-service-principal).
 
 ## Services
 <div class="row">
@@ -58,7 +57,7 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
 <a href="/providers/azure_extras/addons/">addons</a><br />
 <a href="/providers/azure_extras/ag_food_platform/">ag_food_platform</a><br />
 <a href="/providers/azure_extras/app_compliance_automation/">app_compliance_automation</a><br />
-<a href="/providers/azure_extras/codesigning/">codesigning</a><br />
+<a href="/providers/azure_extras/code_signing/">code_signing</a><br />
 <a href="/providers/azure_extras/commerce/">commerce</a><br />
 <a href="/providers/azure_extras/community_training/">community_training</a><br />
 <a href="/providers/azure_extras/customer_insights/">customer_insights</a><br />
@@ -83,7 +82,7 @@ StackQL uses Azure application credentials obtained using the <CopyableCode code
 <a href="/providers/azure_extras/marketplace_catalog/">marketplace_catalog</a><br />
 <a href="/providers/azure_extras/marketplace_notifications/">marketplace_notifications</a><br />
 <a href="/providers/azure_extras/marketplace_ordering/">marketplace_ordering</a><br />
-<a href="/providers/azure_extras/mobilepacketcore/">mobilepacketcore</a><br />
+<a href="/providers/azure_extras/mobile_packet_core/">mobile_packet_core</a><br />
 <a href="/providers/azure_extras/off_azure_springboot/">off_azure_springboot</a><br />
 <a href="/providers/azure_extras/open_energy_platform/">open_energy_platform</a><br />
 <a href="/providers/azure_extras/power_platform/">power_platform</a><br />

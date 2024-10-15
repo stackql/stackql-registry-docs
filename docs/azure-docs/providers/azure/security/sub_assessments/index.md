@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - sub_assessments
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>sub_assessments</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,15 +29,95 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_sub_assessments', value: 'view', },
+        { label: 'sub_assessments', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | Resource Id |
+| <CopyableCode code="name" /> | `text` | Resource name |
+| <CopyableCode code="description" /> | `text` | field from the `properties` object |
+| <CopyableCode code="additional_data" /> | `text` | field from the `properties` object |
+| <CopyableCode code="assessmentName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="category" /> | `text` | field from the `properties` object |
+| <CopyableCode code="display_name" /> | `text` | field from the `properties` object |
+| <CopyableCode code="impact" /> | `text` | field from the `properties` object |
+| <CopyableCode code="remediation" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resource_details" /> | `text` | field from the `properties` object |
+| <CopyableCode code="scope" /> | `text` | field from the `properties` object |
+| <CopyableCode code="status" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subAssessmentName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="time_generated" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="properties" /> | `object` | Describes properties of an sub-assessment. |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, assessmentName, scope, subAssessmentName" /> | Get a security sub-assessment on your scanned resource |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, assessmentName, scope" /> | Get security sub-assessments on all your scanned resources inside a scope |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="assessmentName, scope, subAssessmentName" /> | Get a security sub-assessment on your scanned resource |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="assessmentName, scope" /> | Get security sub-assessments on all your scanned resources inside a scope |
+| <CopyableCode code="list_all" /> | `SELECT` | <CopyableCode code="scope" /> | Get security sub-assessments on all your scanned resources inside a subscription scope |
+
+## `SELECT` examples
+
+Get security sub-assessments on all your scanned resources inside a subscription scope
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_sub_assessments', value: 'view', },
+        { label: 'sub_assessments', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+description,
+additional_data,
+assessmentName,
+category,
+display_name,
+impact,
+remediation,
+resource_details,
+scope,
+status,
+subAssessmentName,
+time_generated,
+type
+FROM azure.security.vw_sub_assessments
+WHERE scope = '{{ scope }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.security.sub_assessments
+WHERE scope = '{{ scope }}';
+```
+</TabItem></Tabs>
+

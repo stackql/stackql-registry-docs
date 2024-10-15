@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - environments_worker_pool_skus
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>environments_worker_pool_skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="capacity" /> | `object` | Description of the App Service plan scale options. |
 | <CopyableCode code="resourceType" /> | `string` | Resource type that this SKU applies to. |
 | <CopyableCode code="sku" /> | `object` | Description of a SKU for a scalable resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId, workerPoolName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId, workerPoolName" /> | Description for Get available SKUs for scaling a worker pool. |
+
+## `SELECT` examples
+
+Description for Get available SKUs for scaling a worker pool.
+
+
+```sql
+SELECT
+capacity,
+resourceType,
+sku
+FROM azure.app_service.environments_worker_pool_skus
+WHERE name = '{{ name }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workerPoolName = '{{ workerPoolName }}';
+```

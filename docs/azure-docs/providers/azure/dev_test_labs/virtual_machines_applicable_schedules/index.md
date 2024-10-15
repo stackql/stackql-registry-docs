@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - virtual_machines_applicable_schedules
   - dev_test_labs
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>virtual_machines_applicable_schedules</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | Properties of a schedules applicable to a virtual machine. |
 | <CopyableCode code="tags" /> | `object` | The tags of the resource. |
 | <CopyableCode code="type" /> | `string` | The type of the resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, labName, name, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="labName, name, resourceGroupName, subscriptionId" /> | Lists the applicable start/stop schedules, if any. |
+
+## `SELECT` examples
+
+Lists the applicable start/stop schedules, if any.
+
+
+```sql
+SELECT
+id,
+name,
+location,
+properties,
+tags,
+type
+FROM azure.dev_test_labs.virtual_machines_applicable_schedules
+WHERE labName = '{{ labName }}'
+AND name = '{{ name }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

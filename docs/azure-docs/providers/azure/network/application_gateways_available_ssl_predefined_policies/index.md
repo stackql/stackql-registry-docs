@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - application_gateways_available_ssl_predefined_policies
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>application_gateways_available_ssl_predefined_policies</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="id" /> | `string` | Resource ID. |
 | <CopyableCode code="name" /> | `string` | Name of the Ssl predefined policy. |
 | <CopyableCode code="properties" /> | `object` | Properties of ApplicationGatewaySslPredefinedPolicy. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all SSL predefined policies for configuring Ssl policy. |
+
+## `SELECT` examples
+
+Lists all SSL predefined policies for configuring Ssl policy.
+
+
+```sql
+SELECT
+id,
+name,
+properties
+FROM azure.network.application_gateways_available_ssl_predefined_policies
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

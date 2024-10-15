@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - notification_operations
   - marketplace_notifications
-  - azure_extras    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>notification_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
 | <CopyableCode code="origin" /> | `string` | operation origin |
 | <CopyableCode code="properties" /> | `object` | operation properties |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+name,
+display,
+isDataAction,
+origin,
+properties
+FROM azure_extras.marketplace_notifications.notification_operations
+;
+```

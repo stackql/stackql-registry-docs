@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - virtual_machines_available_sizes
   - compute
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>virtual_machines_available_sizes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="numberOfCores" /> | `integer` | The number of cores supported by the virtual machine size. For Constrained vCPU capable VM sizes, this number represents the total vCPUs of quota that the VM uses. For accurate vCPU count, please refer to https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu or https://docs.microsoft.com/rest/api/compute/resourceskus/list |
 | <CopyableCode code="osDiskSizeInMB" /> | `integer` | The OS disk size, in MB, allowed by the virtual machine size. |
 | <CopyableCode code="resourceDiskSizeInMB" /> | `integer` | The resource disk size, in MB, allowed by the virtual machine size. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vmName" /> | Lists all available virtual machine sizes to which the specified virtual machine can be resized. |
+
+## `SELECT` examples
+
+Lists all available virtual machine sizes to which the specified virtual machine can be resized.
+
+
+```sql
+SELECT
+name,
+maxDataDiskCount,
+memoryInMB,
+numberOfCores,
+osDiskSizeInMB,
+resourceDiskSizeInMB
+FROM azure.compute.virtual_machines_available_sizes
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND vmName = '{{ vmName }}';
+```

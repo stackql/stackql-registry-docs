@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - balances
   - consumption
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>balances</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,8 +29,111 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_balances', value: 'view', },
+        { label: 'balances', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `text` | The full qualified ARM ID of an event. |
+| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="adjustment_details" /> | `text` | field from the `properties` object |
+| <CopyableCode code="adjustments" /> | `text` | field from the `properties` object |
+| <CopyableCode code="azure_marketplace_service_charges" /> | `text` | field from the `properties` object |
+| <CopyableCode code="beginning_balance" /> | `text` | field from the `properties` object |
+| <CopyableCode code="billingAccountId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="billing_frequency" /> | `text` | field from the `properties` object |
+| <CopyableCode code="charges_billed_separately" /> | `text` | field from the `properties` object |
+| <CopyableCode code="currency" /> | `text` | field from the `properties` object |
+| <CopyableCode code="ending_balance" /> | `text` | field from the `properties` object |
+| <CopyableCode code="etag" /> | `text` | The etag for the resource. |
+| <CopyableCode code="new_purchases" /> | `text` | field from the `properties` object |
+| <CopyableCode code="new_purchases_details" /> | `text` | field from the `properties` object |
+| <CopyableCode code="overage_refund" /> | `text` | field from the `properties` object |
+| <CopyableCode code="price_hidden" /> | `text` | field from the `properties` object |
+| <CopyableCode code="service_overage" /> | `text` | field from the `properties` object |
+| <CopyableCode code="tags" /> | `text` | Resource tags. |
+| <CopyableCode code="total_overage" /> | `text` | field from the `properties` object |
+| <CopyableCode code="total_usage" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type. |
+| <CopyableCode code="utilized" /> | `text` | field from the `properties` object |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="etag" /> | `string` | The etag for the resource. |
+| <CopyableCode code="properties" /> | `object` | The properties of the balance. |
+| <CopyableCode code="tags" /> | `object` | Resource tags. |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+</TabItem></Tabs>
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_by_billing_account" /> | `EXEC` | <CopyableCode code="billingAccountId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_by_billing_account" /> | `SELECT` | <CopyableCode code="billingAccountId" /> | Gets the balances for a scope by billingAccountId. Balances are available via this API only for May 1, 2014 or later. |
+
+## `SELECT` examples
+
+Gets the balances for a scope by billingAccountId. Balances are available via this API only for May 1, 2014 or later.
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_balances', value: 'view', },
+        { label: 'balances', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+adjustment_details,
+adjustments,
+azure_marketplace_service_charges,
+beginning_balance,
+billingAccountId,
+billing_frequency,
+charges_billed_separately,
+currency,
+ending_balance,
+etag,
+new_purchases,
+new_purchases_details,
+overage_refund,
+price_hidden,
+service_overage,
+tags,
+total_overage,
+total_usage,
+type,
+utilized
+FROM azure.consumption.vw_balances
+WHERE billingAccountId = '{{ billingAccountId }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+etag,
+properties,
+tags,
+type
+FROM azure.consumption.balances
+WHERE billingAccountId = '{{ billingAccountId }}';
+```
+</TabItem></Tabs>
+

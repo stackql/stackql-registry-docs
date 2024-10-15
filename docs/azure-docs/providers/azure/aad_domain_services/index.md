@@ -5,46 +5,36 @@ hide_table_of_contents: false
 keywords:
   - aad_domain_services
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The AAD Domain Services API.  
-    
+aad_domain_services service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.aad_domain_services</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Domain Services Resource Provider</td></tr>
-<tr><td><b>Description</b></td><td>The AAD Domain Services API.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:aad_domain_services</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/aad_domain_services/domain_service_operations/">domain_service_operations</a><br />
-<a href="/providers/azure/aad_domain_services/domain_services/">domain_services</a><br />
+<a href="/providers/azure/aad_domain_services/domain_services/">domain_services</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure/aad_domain_services/ou_container/">ou_container</a><br />
 <a href="/providers/azure/aad_domain_services/ou_container_operations/">ou_container_operations</a><br />
+<a href="/providers/azure/aad_domain_services/ou_containers/">ou_containers</a>
 </div>
 </div>

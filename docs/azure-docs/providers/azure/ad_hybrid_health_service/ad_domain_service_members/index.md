@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - ad_domain_service_members
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>ad_domain_service_members</code> resource.
 
 ## Overview
 <table><tbody>
@@ -64,7 +65,56 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | The health status of the server. |
 | <CopyableCode code="sysvolState" /> | `boolean` | Indicates if the SYSVOL state is healthy or not. |
 | <CopyableCode code="tenantId" /> | `string` | The tenant id to whom this server belongs. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="isGroupbySite, nextPartitionKey, nextRowKey, serviceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="isGroupbySite, nextPartitionKey, nextRowKey, serviceName" /> | Gets the details of the servers, for a given Active Directory Domain Service, that are onboarded to Azure Active Directory Connect Health. |
+
+## `SELECT` examples
+
+Gets the details of the servers, for a given Active Directory Domain Service, that are onboarded to Azure Active Directory Connect Health.
+
+
+```sql
+SELECT
+activeAlerts,
+additionalInformation,
+addsRoles,
+createdDate,
+dcTypes,
+dimensions,
+disabled,
+disabledReason,
+domainName,
+gcReachable,
+installedQfes,
+isAdvertising,
+lastDisabled,
+lastReboot,
+lastServerReportedMonitoringLevelChange,
+lastUpdated,
+machineId,
+machineName,
+monitoringConfigurationsComputed,
+monitoringConfigurationsCustomized,
+osName,
+osVersion,
+pdcReachable,
+properties,
+recommendedQfes,
+resolvedAlerts,
+role,
+serverReportedMonitoringLevel,
+serviceId,
+serviceMemberId,
+siteName,
+status,
+sysvolState,
+tenantId
+FROM azure.ad_hybrid_health_service.ad_domain_service_members
+WHERE isGroupbySite = '{{ isGroupbySite }}'
+AND nextPartitionKey = '{{ nextPartitionKey }}'
+AND nextRowKey = '{{ nextRowKey }}'
+AND serviceName = '{{ serviceName }}';
+```

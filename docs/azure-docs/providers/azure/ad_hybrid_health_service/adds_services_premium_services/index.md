@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - adds_services_premium_services
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>adds_services_premium_services</code> resource.
 
 ## Overview
 <table><tbody>
@@ -54,7 +55,43 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="simpleProperties" /> | `object` | List of service specific configuration properties. |
 | <CopyableCode code="tenantId" /> | `string` | The id of the tenant to which the service is registered to. |
 | <CopyableCode code="type" /> | `string` | The service type for the services onboarded to Azure Active Directory Connect Health. Depending on whether the service is monitoring, ADFS, Sync or ADDS roles, the service type can either be AdFederationService or AadSyncService or AdDomainService. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Gets the details of Active Directory Domain Services for a tenant having Azure AD Premium license and is onboarded to Azure Active Directory Connect Health. |
+
+## `SELECT` examples
+
+Gets the details of Active Directory Domain Services for a tenant having Azure AD Premium license and is onboarded to Azure Active Directory Connect Health.
+
+
+```sql
+SELECT
+id,
+activeAlerts,
+additionalInformation,
+createdDate,
+customNotificationEmails,
+disabled,
+displayName,
+health,
+lastDisabled,
+lastUpdated,
+monitoringConfigurationsComputed,
+monitoringConfigurationsCustomized,
+notificationEmailEnabled,
+notificationEmailEnabledForGlobalAdmins,
+notificationEmails,
+notificationEmailsEnabledForGlobalAdmins,
+originalDisabledState,
+resolvedAlerts,
+serviceId,
+serviceName,
+signature,
+simpleProperties,
+tenantId,
+type
+FROM azure.ad_hybrid_health_service.adds_services_premium_services
+;
+```

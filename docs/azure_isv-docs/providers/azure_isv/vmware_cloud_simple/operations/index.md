@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - vmware_cloud_simple
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,8 +37,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` | Operation error model |
 | <CopyableCode code="startTime" /> | `string` | Start time of the operation |
 | <CopyableCode code="status" /> | `string` | Operation status |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="Referer, api-version, operationId, regionId, subscriptionId" /> | Return an async operation |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version" /> | Return list of operations |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="Referer, operationId, regionId, subscriptionId" /> | Return an async operation |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Return list of operations |
+
+## `SELECT` examples
+
+Return list of operations
+
+
+```sql
+SELECT
+id,
+name,
+endTime,
+error,
+startTime,
+status
+FROM azure_isv.vmware_cloud_simple.operations
+;
+```

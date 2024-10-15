@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - resource_skus_skus
   - data_migration
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>resource_skus_skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -42,7 +43,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="restrictions" /> | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | <CopyableCode code="size" /> | `string` | The Size of the SKU. |
 | <CopyableCode code="tier" /> | `string` | Specifies the tier of DMS (classic) in a scale set. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | The skus action returns the list of SKUs that DMS (classic) supports. |
+
+## `SELECT` examples
+
+The skus action returns the list of SKUs that DMS (classic) supports.
+
+
+```sql
+SELECT
+name,
+apiVersions,
+capabilities,
+capacity,
+costs,
+family,
+kind,
+locations,
+resourceType,
+restrictions,
+size,
+tier
+FROM azure.data_migration.resource_skus_skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

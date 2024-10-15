@@ -5,46 +5,36 @@ hide_table_of_contents: false
 keywords:
   - storageactions
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The Azure Storage Actions Management API.  
-    
+storageactions service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>4</b></span><br />
-<span>total selectable resources:&nbsp;<b>4</b></span><br />
-<span>total methods:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.storageactions</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Storage Actions Management Client</td></tr>
-<tr><td><b>Description</b></td><td>The Azure Storage Actions Management API.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:storageactions</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/storageactions/operations/">operations</a><br />
-<a href="/providers/azure/storageactions/storage_task_assignment/">storage_task_assignment</a><br />
+<a href="/providers/azure/storageactions/storage_task_assignments/">storage_task_assignments</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/storageactions/storage_tasks/">storage_tasks</a><br />
-<a href="/providers/azure/storageactions/storage_tasks_report/">storage_tasks_report</a><br />
+<a href="/providers/azure/storageactions/storage_tasks_reports/">storage_tasks_reports</a>
 </div>
 </div>

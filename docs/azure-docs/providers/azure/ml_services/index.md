@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - ml_services
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.  
-    
+ml_services service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>65</b></span><br />
-<span>total selectable resources:&nbsp;<b>64</b></span><br />
-<span>total methods:&nbsp;<b>212</b></span><br />
+<span>total resources:&nbsp;<b>80</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.ml_services</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Machine Learning Services (Microsoft.MachineLearningServices)</td></tr>
-<tr><td><b>Description</b></td><td>Train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:ml_services</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -47,25 +37,41 @@ Train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine L
 <a href="/providers/azure/ml_services/code_versions/">code_versions</a><br />
 <a href="/providers/azure/ml_services/component_containers/">component_containers</a><br />
 <a href="/providers/azure/ml_services/component_versions/">component_versions</a><br />
-<a href="/providers/azure/ml_services/compute/">compute</a><br />
+<a href="/providers/azure/ml_services/compute_allowed_resize_sizes/">compute_allowed_resize_sizes</a><br />
+<a href="/providers/azure/ml_services/compute_custom_services/">compute_custom_services</a><br />
+<a href="/providers/azure/ml_services/compute_data_mounts/">compute_data_mounts</a><br />
+<a href="/providers/azure/ml_services/compute_idle_shutdown_settings/">compute_idle_shutdown_settings</a><br />
 <a href="/providers/azure/ml_services/compute_keys/">compute_keys</a><br />
 <a href="/providers/azure/ml_services/compute_nodes/">compute_nodes</a><br />
+<a href="/providers/azure/ml_services/computes/">computes</a><br />
+<a href="/providers/azure/ml_services/connection_deployments/">connection_deployments</a><br />
+<a href="/providers/azure/ml_services/connection_models/">connection_models</a><br />
+<a href="/providers/azure/ml_services/connection_rai_blocklist_item_bulks/">connection_rai_blocklist_item_bulks</a><br />
+<a href="/providers/azure/ml_services/connection_rai_blocklist_items/">connection_rai_blocklist_items</a><br />
+<a href="/providers/azure/ml_services/connection_rai_blocklists/">connection_rai_blocklists</a><br />
+<a href="/providers/azure/ml_services/connection_rai_policies/">connection_rai_policies</a><br />
 <a href="/providers/azure/ml_services/data_containers/">data_containers</a><br />
 <a href="/providers/azure/ml_services/data_versions/">data_versions</a><br />
 <a href="/providers/azure/ml_services/datastores/">datastores</a><br />
 <a href="/providers/azure/ml_services/datastores_secrets/">datastores_secrets</a><br />
+<a href="/providers/azure/ml_services/endpoint_deployments/">endpoint_deployments</a><br />
+<a href="/providers/azure/ml_services/endpoint_keys/">endpoint_keys</a><br />
+<a href="/providers/azure/ml_services/endpoint_models/">endpoint_models</a><br />
+<a href="/providers/azure/ml_services/endpoints/">endpoints</a><br />
 <a href="/providers/azure/ml_services/environment_containers/">environment_containers</a><br />
 <a href="/providers/azure/ml_services/environment_versions/">environment_versions</a><br />
 <a href="/providers/azure/ml_services/features/">features</a><br />
 <a href="/providers/azure/ml_services/featureset_containers/">featureset_containers</a><br />
-<a href="/providers/azure/ml_services/featureset_containers_entity/">featureset_containers_entity</a><br />
+<a href="/providers/azure/ml_services/featureset_containers_entities/">featureset_containers_entities</a><br />
 <a href="/providers/azure/ml_services/featureset_versions/">featureset_versions</a><br />
 <a href="/providers/azure/ml_services/featurestore_entity_containers/">featurestore_entity_containers</a><br />
-<a href="/providers/azure/ml_services/featurestore_entity_containers_entity/">featurestore_entity_containers_entity</a><br />
+<a href="/providers/azure/ml_services/featurestore_entity_containers_entities/">featurestore_entity_containers_entities</a><br />
 <a href="/providers/azure/ml_services/featurestore_entity_versions/">featurestore_entity_versions</a><br />
 <a href="/providers/azure/ml_services/jobs/">jobs</a><br />
 <a href="/providers/azure/ml_services/managed_network_provisions/">managed_network_provisions</a><br />
-<a href="/providers/azure/ml_services/managed_network_settings_rule/">managed_network_settings_rule</a><br />
+<a href="/providers/azure/ml_services/managed_network_settings_rules/">managed_network_settings_rules</a>
+</div>
+<div class="providerDocColumn">
 <a href="/providers/azure/ml_services/marketplace_subscriptions/">marketplace_subscriptions</a><br />
 <a href="/providers/azure/ml_services/model_containers/">model_containers</a><br />
 <a href="/providers/azure/ml_services/model_versions/">model_versions</a><br />
@@ -73,14 +79,13 @@ Train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine L
 <a href="/providers/azure/ml_services/online_deployments_logs/">online_deployments_logs</a><br />
 <a href="/providers/azure/ml_services/online_deployments_skus/">online_deployments_skus</a><br />
 <a href="/providers/azure/ml_services/online_endpoints/">online_endpoints</a><br />
-</div>
-<div class="providerDocColumn">
 <a href="/providers/azure/ml_services/online_endpoints_keys/">online_endpoints_keys</a><br />
-<a href="/providers/azure/ml_services/online_endpoints_token/">online_endpoints_token</a><br />
+<a href="/providers/azure/ml_services/online_endpoints_tokens/">online_endpoints_tokens</a><br />
 <a href="/providers/azure/ml_services/operations/">operations</a><br />
 <a href="/providers/azure/ml_services/private_endpoint_connections/">private_endpoint_connections</a><br />
 <a href="/providers/azure/ml_services/private_link_resources/">private_link_resources</a><br />
 <a href="/providers/azure/ml_services/quotas/">quotas</a><br />
+<a href="/providers/azure/ml_services/rai_policies/">rai_policies</a><br />
 <a href="/providers/azure/ml_services/registries/">registries</a><br />
 <a href="/providers/azure/ml_services/registry_code_containers/">registry_code_containers</a><br />
 <a href="/providers/azure/ml_services/registry_code_versions/">registry_code_versions</a><br />
@@ -103,9 +108,9 @@ Train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine L
 <a href="/providers/azure/ml_services/workspace_features/">workspace_features</a><br />
 <a href="/providers/azure/ml_services/workspaces/">workspaces</a><br />
 <a href="/providers/azure/ml_services/workspaces_keys/">workspaces_keys</a><br />
-<a href="/providers/azure/ml_services/workspaces_notebook_access_token/">workspaces_notebook_access_token</a><br />
+<a href="/providers/azure/ml_services/workspaces_notebook_access_tokens/">workspaces_notebook_access_tokens</a><br />
 <a href="/providers/azure/ml_services/workspaces_notebook_keys/">workspaces_notebook_keys</a><br />
 <a href="/providers/azure/ml_services/workspaces_outbound_network_dependencies_endpoints/">workspaces_outbound_network_dependencies_endpoints</a><br />
-<a href="/providers/azure/ml_services/workspaces_storage_account_keys/">workspaces_storage_account_keys</a><br />
+<a href="/providers/azure/ml_services/workspaces_storage_account_keys/">workspaces_storage_account_keys</a>
 </div>
 </div>

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - incidents_entities
   - sentinel
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>incidents_entities</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="entities" /> | `array` | Array of the incident related entities. |
 | <CopyableCode code="metaData" /> | `array` | The metadata from the incident related entities results. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="incidentId, resourceGroupName, subscriptionId, workspaceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="incidentId, resourceGroupName, subscriptionId, workspaceName" /> | Gets all entities for an incident. |
+
+## `SELECT` examples
+
+Gets all entities for an incident.
+
+
+```sql
+SELECT
+entities,
+metaData
+FROM azure.sentinel.incidents_entities
+WHERE incidentId = '{{ incidentId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workspaceName = '{{ workspaceName }}';
+```

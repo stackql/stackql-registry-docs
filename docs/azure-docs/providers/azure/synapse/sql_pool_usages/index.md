@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - sql_pool_usages
   - synapse
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>sql_pool_usages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,7 +38,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nextResetTime" /> | `string` | The next reset time for the usage metric (ISO8601 format). |
 | <CopyableCode code="resourceName" /> | `string` | The name of the resource. |
 | <CopyableCode code="unit" /> | `string` | The units of the usage metric. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, sqlPoolName, subscriptionId, workspaceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, sqlPoolName, subscriptionId, workspaceName" /> | Gets SQL pool usages. |
+
+## `SELECT` examples
+
+Gets SQL pool usages.
+
+
+```sql
+SELECT
+name,
+currentValue,
+displayName,
+limit,
+nextResetTime,
+resourceName,
+unit
+FROM azure.synapse.sql_pool_usages
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND sqlPoolName = '{{ sqlPoolName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workspaceName = '{{ workspaceName }}';
+```

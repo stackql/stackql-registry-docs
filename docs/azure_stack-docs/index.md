@@ -18,17 +18,13 @@ slug: /providers/azure_stack
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Build and run hybrid apps across datacenters, edge locations, remote offices, and the cloud.  
-    
-:::info Provider Summary (v24.06.00242)
+
+:::info Provider Summary (v24.10.00256)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>18</b></span><br />
-<span>total methods:&nbsp;<b>400</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>158</b></span><br />
-<span>total selectable resources:&nbsp;<b>151</b></span><br />
+<span>total resources:&nbsp;<b>173</b></span><br />
 </div>
 </div>
 
@@ -49,8 +45,11 @@ REGISTRY PULL azure_stack;
 
 ## Authentication
 
-
 StackQL uses Azure application credentials obtained using the <CopyableCode code="az login" /> command from the Azure SDK.  For more information, see <a href="https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli">here</a>.
+
+### Authenticating using an Azure Service Principal
+
+To authenticate using an Azure Service Principal, set the following environment variables: <CopyableCode code="AZURE_TENANT_ID" />, <CopyableCode code="AZURE_CLIENT_ID" /> and <CopyableCode code="AZURE_CLIENT_SECRET" />, see [__creating-an-azure-service-principal__](https://learn.microsoft.com/en-us/azure/developer/go/azure-sdk-authentication-service-principal?tabs=azure-cli#2-create-an-azure-service-principal).
 
 ## Services
 <div class="row">

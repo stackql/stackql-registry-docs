@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - acquisitions
   - storage_admin
-  - azure_stack    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>acquisitions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,7 +40,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | The status of page BLOB acquisition. |
 | <CopyableCode code="storageaccount" /> | `string` | The storage account that holds the page BLOB. |
 | <CopyableCode code="susbcriptionid" /> | `string` | ID of the subscription associated with the page BLOB. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns a list of BLOB acquisitions. |
+
+## `SELECT` examples
+
+Returns a list of BLOB acquisitions.
+
+
+```sql
+SELECT
+acquisitionid,
+blob,
+container,
+filePath,
+filePathUnc,
+maximumblobsize,
+status,
+storageaccount,
+susbcriptionid
+FROM azure_stack.storage_admin.acquisitions
+WHERE location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

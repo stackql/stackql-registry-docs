@@ -4,56 +4,45 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - datadog
-  - azure_isv
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.  
-    
+datadog service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>29</b></span><br />
+<span>total resources:&nbsp;<b>12</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure_isv.datadog</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Datadog Azure Integration (Azure Native ISV Service)</td></tr>
-<tr><td><b>Description</b></td><td>Cloud-scale observability and security for your Azure, hybrid, or multi-cloud environment to troubleshoot quickly, increase uptime, and control costs.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_isv:datadog</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/azure_isv/datadog/creation_supported/">creation_supported</a><br />
 <a href="/providers/azure_isv/datadog/marketplace_agreements/">marketplace_agreements</a><br />
 <a href="/providers/azure_isv/datadog/monitored_subscriptions/">monitored_subscriptions</a><br />
 <a href="/providers/azure_isv/datadog/monitors/">monitors</a><br />
 <a href="/providers/azure_isv/datadog/monitors_api_keys/">monitors_api_keys</a><br />
-<a href="/providers/azure_isv/datadog/monitors_default_key/">monitors_default_key</a><br />
-<a href="/providers/azure_isv/datadog/monitors_hosts/">monitors_hosts</a><br />
-<a href="/providers/azure_isv/datadog/monitors_linked_resources/">monitors_linked_resources</a><br />
+<a href="/providers/azure_isv/datadog/monitors_default_keys/">monitors_default_keys</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/azure_isv/datadog/monitors_hosts/">monitors_hosts</a><br />
+<a href="/providers/azure_isv/datadog/monitors_linked_resources/">monitors_linked_resources</a><br />
 <a href="/providers/azure_isv/datadog/monitors_monitored_resources/">monitors_monitored_resources</a><br />
 <a href="/providers/azure_isv/datadog/operations/">operations</a><br />
 <a href="/providers/azure_isv/datadog/single_sign_on_configurations/">single_sign_on_configurations</a><br />
-<a href="/providers/azure_isv/datadog/subscription_statuses/">subscription_statuses</a><br />
-<a href="/providers/azure_isv/datadog/subscription_statuses_default/">subscription_statuses_default</a><br />
-<a href="/providers/azure_isv/datadog/tag_rules/">tag_rules</a><br />
+<a href="/providers/azure_isv/datadog/tag_rules/">tag_rules</a>
 </div>
 </div>

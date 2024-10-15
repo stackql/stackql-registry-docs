@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - virtual_network_gateways_vpnclient_ipsec_parameters
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>virtual_network_gateways_vpnclient_ipsec_parameters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,7 +39,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="pfsGroup" /> | `string` | The Pfs Groups used in IKE Phase 2 for new child SA. |
 | <CopyableCode code="saDataSizeKilobytes" /> | `integer` | The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for P2S client.. |
 | <CopyableCode code="saLifeTimeSeconds" /> | `integer` | The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for P2S client. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkGatewayName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, virtualNetworkGatewayName" /> | The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider. |
+
+## `SELECT` examples
+
+The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
+
+
+```sql
+SELECT
+dhGroup,
+ikeEncryption,
+ikeIntegrity,
+ipsecEncryption,
+ipsecIntegrity,
+pfsGroup,
+saDataSizeKilobytes,
+saLifeTimeSeconds
+FROM azure.network.virtual_network_gateways_vpnclient_ipsec_parameters
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND virtualNetworkGatewayName = '{{ virtualNetworkGatewayName }}';
+```

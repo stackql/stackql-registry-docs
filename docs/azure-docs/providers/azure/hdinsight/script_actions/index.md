@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - script_actions
   - hdinsight
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>script_actions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -42,8 +43,46 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | The start time of script action execution. |
 | <CopyableCode code="status" /> | `string` | The current execution status of the script action. |
 | <CopyableCode code="uri" /> | `string` | The URI to the script. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list_by_cluster" /> | `SELECT` | <CopyableCode code="clusterName, resourceGroupName, subscriptionId" /> | Lists all the persisted script actions for the specified cluster. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="clusterName, resourceGroupName, scriptName, subscriptionId" /> | Deletes a specified persisted script action of the cluster. |
+
+## `SELECT` examples
+
+Lists all the persisted script actions for the specified cluster.
+
+
+```sql
+SELECT
+name,
+applicationName,
+debugInformation,
+endTime,
+executionSummary,
+operation,
+parameters,
+roles,
+scriptExecutionId,
+startTime,
+status,
+uri
+FROM azure.hdinsight.script_actions
+WHERE clusterName = '{{ clusterName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>script_actions</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.hdinsight.script_actions
+WHERE clusterName = '{{ clusterName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND scriptName = '{{ scriptName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

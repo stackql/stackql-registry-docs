@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - accounts
   - graph_services
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>accounts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,19 +31,125 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Azure resource ID. |
-| <CopyableCode code="name" /> | `string` | Azure resource name. |
-| <CopyableCode code="location" /> | `string` | Location of the resource. |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
 | <CopyableCode code="properties" /> | `object` | Property bag from billing account |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="tags" /> | `object` | resource tags. |
-| <CopyableCode code="type" /> | `string` | Azure resource type. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Returns account resource for a given name. |
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Returns list of accounts apps. |
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns list of accounts belonging to a subscription. |
+| <CopyableCode code="create_and_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId, data__properties" /> | Create or update account resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Deletes a account resource. |
-| <CopyableCode code="create_and_update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId, data__properties" /> | Create or update account resource. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Update account details. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Update account details. |
+
+## `SELECT` examples
+
+Returns list of accounts belonging to a subscription.
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+systemData,
+type
+FROM azure.graph_services.accounts
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>accounts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.graph_services.accounts (
+resourceGroupName,
+resourceName,
+subscriptionId,
+data__properties,
+properties
+)
+SELECT 
+'{{ resourceGroupName }}',
+'{{ resourceName }}',
+'{{ subscriptionId }}',
+'{{ data__properties }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: systemData
+      value:
+        - name: createdByType
+          value: string
+        - name: createdAt
+          value: string
+        - name: lastModifiedByType
+          value: string
+        - name: lastModifiedAt
+          value: string
+    - name: properties
+      value:
+        - name: provisioningState
+          value: string
+        - name: appId
+          value: string
+        - name: billingPlanId
+          value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a <code>accounts</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.graph_services.accounts
+SET 
+tags = '{{ tags }}'
+WHERE 
+resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>accounts</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.graph_services.accounts
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - registries_usages
   - container_registry
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>registries_usages</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,7 +35,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="currentValue" /> | `integer` | The current value of the usage. |
 | <CopyableCode code="limit" /> | `integer` | The limit of the usage. |
 | <CopyableCode code="unit" /> | `string` | The unit of measurement. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registryName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="registryName, resourceGroupName, subscriptionId" /> | Gets the quota usages for the specified container registry. |
+
+## `SELECT` examples
+
+Gets the quota usages for the specified container registry.
+
+
+```sql
+SELECT
+name,
+currentValue,
+limit,
+unit
+FROM azure.container_registry.registries_usages
+WHERE registryName = '{{ registryName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
