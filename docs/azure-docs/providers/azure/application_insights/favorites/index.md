@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - favorites
   - application_insights
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>favorites</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,11 +42,71 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="TimeModified" /> | `string` | Date and time in UTC of the last modification that was made to this favorite definition. |
 | <CopyableCode code="UserId" /> | `string` | Unique user id of the specific user that owns this favorite. |
 | <CopyableCode code="Version" /> | `string` | This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Get a single favorite by its FavoriteId, defined within an Application Insights component. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets a list of favorites defined within an Application Insights component. |
-| <CopyableCode code="add" /> | `INSERT` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Adds a new favorites to an Application Insights component. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Remove a favorite that is associated to an Application Insights component. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Updates a favorite that has already been added to an Application Insights component. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Updates a favorite that has already been added to an Application Insights component. |
+| <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="favoriteId, resourceGroupName, resourceName, subscriptionId" /> | Adds a new favorites to an Application Insights component. |
+
+## `SELECT` examples
+
+Gets a list of favorites defined within an Application Insights component.
+
+
+```sql
+SELECT
+Category,
+Config,
+FavoriteId,
+FavoriteType,
+IsGeneratedFromTemplate,
+Name,
+SourceType,
+Tags,
+TimeModified,
+UserId,
+Version
+FROM azure.application_insights.favorites
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `UPDATE` example
+
+Updates a <code>favorites</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.application_insights.favorites
+SET 
+Name = '{{ Name }}',
+Config = '{{ Config }}',
+Version = '{{ Version }}',
+FavoriteType = '{{ FavoriteType }}',
+SourceType = '{{ SourceType }}',
+Tags = '{{ Tags }}',
+Category = '{{ Category }}',
+IsGeneratedFromTemplate = true|false
+WHERE 
+favoriteId = '{{ favoriteId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>favorites</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.application_insights.favorites
+WHERE favoriteId = '{{ favoriteId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

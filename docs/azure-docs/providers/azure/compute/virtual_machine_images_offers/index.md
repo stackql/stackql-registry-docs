@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - virtual_machine_images_offers
   - compute
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>virtual_machine_images_offers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,14 +29,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Resource Id |
-| <CopyableCode code="name" /> | `string` | The name of the resource. |
-| <CopyableCode code="extendedLocation" /> | `object` | The complex type of the extended location. |
-| <CopyableCode code="location" /> | `string` | The supported Azure location of the resource. |
-| <CopyableCode code="tags" /> | `object` | Specifies the tags that are assigned to the virtual machine. For more information about using tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags.md). |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, publisherName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, publisherName, subscriptionId" /> | Gets a list of virtual machine image offers for the specified location and publisher. |
+
+## `SELECT` examples
+
+Gets a list of virtual machine image offers for the specified location and publisher.
+
+
+```sql
+SELECT
+
+FROM azure.compute.virtual_machine_images_offers
+WHERE location = '{{ location }}'
+AND publisherName = '{{ publisherName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

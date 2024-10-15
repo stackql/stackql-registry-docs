@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - private_link_services_auto_approved_private_link_services
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>private_link_services_auto_approved_private_link_services</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,7 +29,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="privateLinkService" /> | `string` | The id of the private link service resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Returns all of the private link service ids that can be linked to a Private Endpoint with auto approved in this subscription in this region. |
+
+## `SELECT` examples
+
+Returns all of the private link service ids that can be linked to a Private Endpoint with auto approved in this subscription in this region.
+
+
+```sql
+SELECT
+privateLinkService
+FROM azure.network.private_link_services_auto_approved_private_link_services
+WHERE location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - integration_runtime_nodes
   - data_factory
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>integration_runtime_nodes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -48,9 +49,73 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="status" /> | `string` | Status of the integration runtime node. |
 | <CopyableCode code="version" /> | `string` | Version of the integration runtime node. |
 | <CopyableCode code="versionStatus" /> | `string` | Status of the integration runtime node version. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Gets a self-hosted integration runtime node. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Deletes a self-hosted integration runtime node. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="api-version, factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Updates a self-hosted integration runtime node. |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Gets a self-hosted integration runtime node. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Deletes a self-hosted integration runtime node. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="factoryName, integrationRuntimeName, nodeName, resourceGroupName, subscriptionId" /> | Updates a self-hosted integration runtime node. |
+
+## `SELECT` examples
+
+Gets a self-hosted integration runtime node.
+
+
+```sql
+SELECT
+capabilities,
+concurrentJobsLimit,
+expiryTime,
+hostServiceUri,
+isActiveDispatcher,
+lastConnectTime,
+lastEndUpdateTime,
+lastStartTime,
+lastStartUpdateTime,
+lastStopTime,
+lastUpdateResult,
+machineName,
+maxConcurrentJobs,
+nodeName,
+registerTime,
+status,
+version,
+versionStatus
+FROM azure.data_factory.integration_runtime_nodes
+WHERE factoryName = '{{ factoryName }}'
+AND integrationRuntimeName = '{{ integrationRuntimeName }}'
+AND nodeName = '{{ nodeName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `UPDATE` example
+
+Updates a <code>integration_runtime_nodes</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.data_factory.integration_runtime_nodes
+SET 
+concurrentJobsLimit = '{{ concurrentJobsLimit }}'
+WHERE 
+factoryName = '{{ factoryName }}'
+AND integrationRuntimeName = '{{ integrationRuntimeName }}'
+AND nodeName = '{{ nodeName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>integration_runtime_nodes</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.data_factory.integration_runtime_nodes
+WHERE factoryName = '{{ factoryName }}'
+AND integrationRuntimeName = '{{ integrationRuntimeName }}'
+AND nodeName = '{{ nodeName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

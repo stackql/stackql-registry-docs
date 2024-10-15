@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - services_export_errors_v2
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>services_export_errors_v2</code> resource.
 
 ## Overview
 <table><tbody>
@@ -52,7 +53,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timeOccurred" /> | `string` | The date and time when the error occurred. |
 | <CopyableCode code="type" /> | `string` | The type of the error. |
 | <CopyableCode code="userPrincipalName" /> | `string` | The user principal name |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="errorBucket, serviceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="errorBucket, serviceName" /> |  Gets the categorized export errors. |
+
+## `SELECT` examples
+
+ Gets the categorized export errors.
+
+
+```sql
+SELECT
+id,
+attributeName,
+attributeValue,
+createdDate,
+csObjectId,
+dn,
+existingObject,
+exportErrorStatus,
+incomingObject,
+incomingObjectDisplayName,
+incomingObjectType,
+mergedEntityId,
+modifiedOrRemovedAttributeValue,
+runStepResultId,
+samAccountName,
+serverErrorDetail,
+serviceId,
+serviceMemberId,
+timeFirstOccurred,
+timeOccurred,
+type,
+userPrincipalName
+FROM azure.ad_hybrid_health_service.services_export_errors_v2
+WHERE errorBucket = '{{ errorBucket }}'
+AND serviceName = '{{ serviceName }}';
+```

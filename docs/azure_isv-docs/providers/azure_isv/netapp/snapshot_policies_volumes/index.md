@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - snapshot_policies_volumes
   - netapp
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>snapshot_policies_volumes</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | Volume properties |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 | <CopyableCode code="zones" /> | `array` | Availability Zone |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, snapshotPolicyName, subscriptionId" /> | Get volumes associated with snapshot policy |
+
+## `SELECT` examples
+
+Get volumes associated with snapshot policy
+
+
+```sql
+SELECT
+etag,
+location,
+properties,
+tags,
+zones
+FROM azure_isv.netapp.snapshot_policies_volumes
+WHERE accountName = '{{ accountName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND snapshotPolicyName = '{{ snapshotPolicyName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

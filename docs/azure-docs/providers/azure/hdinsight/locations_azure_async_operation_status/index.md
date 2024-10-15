@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - locations_azure_async_operation_status
   - hdinsight
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>locations_azure_async_operation_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="error" /> | `object` | The error message associated with the cluster creation. |
 | <CopyableCode code="status" /> | `string` | The async operation state. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> | Get the async operation status. |
+
+## `SELECT` examples
+
+Get the async operation status.
+
+
+```sql
+SELECT
+error,
+status
+FROM azure.hdinsight.locations_azure_async_operation_status
+WHERE location = '{{ location }}'
+AND operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - component_feature_capabilities
   - application_insights
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>component_feature_capabilities</code> resource.
 
 ## Overview
 <table><tbody>
@@ -46,7 +47,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ThrottleRate" /> | `number` | Reserved, not used now. |
 | <CopyableCode code="TrackingType" /> | `string` | The application insights component used tracking type. |
 | <CopyableCode code="WorkItemIntegration" /> | `boolean` | Whether allow to use work item integration feature. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Returns feature capabilities of the application insights component. |
+
+## `SELECT` examples
+
+Returns feature capabilities of the application insights component.
+
+
+```sql
+SELECT
+AnalyticsIntegration,
+ApiAccessLevel,
+ApplicationMap,
+BurstThrottlePolicy,
+DailyCap,
+DailyCapResetTime,
+LiveStreamMetrics,
+MetadataClass,
+MultipleStepWebTest,
+OpenSchema,
+PowerBIIntegration,
+ProactiveDetection,
+SupportExportData,
+ThrottleRate,
+TrackingType,
+WorkItemIntegration
+FROM azure.application_insights.component_feature_capabilities
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

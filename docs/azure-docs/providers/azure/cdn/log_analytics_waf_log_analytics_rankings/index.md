@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - log_analytics_waf_log_analytics_rankings
   - cdn
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>log_analytics_waf_log_analytics_rankings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,13 +29,36 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| <CopyableCode code="data" /> | `array` |
-| <CopyableCode code="dateTimeBegin" /> | `string` |
-| <CopyableCode code="dateTimeEnd" /> | `string` |
-| <CopyableCode code="groups" /> | `array` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="data" /> | `array` |  |
+| <CopyableCode code="dateTimeBegin" /> | `string` |  |
+| <CopyableCode code="dateTimeEnd" /> | `string` |  |
+| <CopyableCode code="groups" /> | `array` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dateTimeBegin, dateTimeEnd, maxRanking, metrics, profileName, rankings, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="dateTimeBegin, dateTimeEnd, maxRanking, metrics, profileName, rankings, resourceGroupName, subscriptionId" /> | Get WAF log analytics charts for AFD profile |
+
+## `SELECT` examples
+
+Get WAF log analytics charts for AFD profile
+
+
+```sql
+SELECT
+data,
+dateTimeBegin,
+dateTimeEnd,
+groups
+FROM azure.cdn.log_analytics_waf_log_analytics_rankings
+WHERE dateTimeBegin = '{{ dateTimeBegin }}'
+AND dateTimeEnd = '{{ dateTimeEnd }}'
+AND maxRanking = '{{ maxRanking }}'
+AND metrics = '{{ metrics }}'
+AND profileName = '{{ profileName }}'
+AND rankings = '{{ rankings }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

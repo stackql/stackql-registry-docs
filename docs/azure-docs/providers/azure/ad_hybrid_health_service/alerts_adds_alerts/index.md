@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - alerts_adds_alerts
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>alerts_adds_alerts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -49,7 +50,38 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="shortName" /> | `string` | The alert short name. |
 | <CopyableCode code="state" /> | `string` | The alert state which can be either active or resolved with multiple resolution types. |
 | <CopyableCode code="tenantId" /> | `string` | The tenant Id. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> | Gets the alerts for a given Active Directory Domain Service. |
+
+## `SELECT` examples
+
+Gets the alerts for a given Active Directory Domain Service.
+
+
+```sql
+SELECT
+description,
+activeAlertProperties,
+additionalInformation,
+alertId,
+createdDate,
+displayName,
+lastUpdated,
+level,
+monitorRoleType,
+relatedLinks,
+remediation,
+resolvedAlertProperties,
+resolvedDate,
+scope,
+serviceId,
+serviceMemberId,
+shortName,
+state,
+tenantId
+FROM azure.ad_hybrid_health_service.alerts_adds_alerts
+WHERE serviceName = '{{ serviceName }}';
+```

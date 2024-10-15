@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - interface_load_balancers
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>interface_load_balancers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,7 +40,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sku" /> | `object` | SKU of a load balancer. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networkInterfaceName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networkInterfaceName, resourceGroupName, subscriptionId" /> | List all load balancers in a network interface. |
+
+## `SELECT` examples
+
+List all load balancers in a network interface.
+
+
+```sql
+SELECT
+id,
+name,
+etag,
+extendedLocation,
+location,
+properties,
+sku,
+tags,
+type
+FROM azure.network.interface_load_balancers
+WHERE networkInterfaceName = '{{ networkInterfaceName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - contacts
   - security
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>contacts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,17 +29,159 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_contacts', value: 'view', },
+        { label: 'contacts', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="id" /> | `text` | Resource Id |
+| <CopyableCode code="name" /> | `text` | Resource name |
+| <CopyableCode code="emails" /> | `text` | field from the `properties` object |
+| <CopyableCode code="is_enabled" /> | `text` | field from the `properties` object |
+| <CopyableCode code="notifications_by_role" /> | `text` | field from the `properties` object |
+| <CopyableCode code="notifications_sources" /> | `text` | field from the `properties` object |
+| <CopyableCode code="phone" /> | `text` | field from the `properties` object |
+| <CopyableCode code="securityContactName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="type" /> | `text` | Resource type |
+</TabItem>
+<TabItem value="resource">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | Resource Id |
+| <CopyableCode code="name" /> | `string` | Resource name |
 | <CopyableCode code="properties" /> | `object` | Describes security contact properties |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="type" /> | `string` | Resource type |
+</TabItem></Tabs>
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, securityContactName, subscriptionId" /> | Get Default Security contact configurations for the subscription |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="api-version, subscriptionId" /> | List all security contact configurations for the subscription |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="api-version, securityContactName, subscriptionId" /> | Create security contact configurations for the subscription |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="api-version, securityContactName, subscriptionId" /> | Delete security contact configurations for the subscription |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="securityContactName, subscriptionId" /> | Get Default Security contact configurations for the subscription |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all security contact configurations for the subscription |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="securityContactName, subscriptionId" /> | Create security contact configurations for the subscription |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="securityContactName, subscriptionId" /> | Delete security contact configurations for the subscription |
+
+## `SELECT` examples
+
+List all security contact configurations for the subscription
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_contacts', value: 'view', },
+        { label: 'contacts', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+emails,
+is_enabled,
+notifications_by_role,
+notifications_sources,
+phone,
+securityContactName,
+subscriptionId,
+type
+FROM azure.security.vw_contacts
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.security.contacts
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem></Tabs>
+
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>contacts</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.security.contacts (
+securityContactName,
+subscriptionId,
+properties
+)
+SELECT 
+'{{ securityContactName }}',
+'{{ subscriptionId }}',
+'{{ properties }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: properties
+      value:
+        - name: emails
+          value: string
+        - name: phone
+          value: string
+        - name: isEnabled
+          value: boolean
+        - name: notificationsSources
+          value:
+            - - name: sourceType
+                value: string
+        - name: notificationsByRole
+          value:
+            - name: state
+              value: string
+            - name: roles
+              value:
+                - []
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>contacts</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.security.contacts
+WHERE securityContactName = '{{ securityContactName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

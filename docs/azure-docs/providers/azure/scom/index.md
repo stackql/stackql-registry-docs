@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - scom
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Monitor Operations Manager Managed Instance (SCOM MI) management APIs  
-    
+scom service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
-<span>total methods:&nbsp;<b>21</b></span><br />
+<span>total resources:&nbsp;<b>8</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.scom</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure API for managing SCOM managed instances and monitored resources.</td></tr>
-<tr><td><b>Description</b></td><td>Azure Monitor Operations Manager Managed Instance (SCOM MI) management APIs</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:scom</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -43,10 +33,12 @@ Azure Monitor Operations Manager Managed Instance (SCOM MI) management APIs
 <a href="/providers/azure/scom/instances/">instances</a><br />
 <a href="/providers/azure/scom/instances_log_analytics/">instances_log_analytics</a><br />
 <a href="/providers/azure/scom/managed_gateways/">managed_gateways</a><br />
+<a href="/providers/azure/scom/managed_gateways_by_managed_instances/">managed_gateways_by_managed_instances</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/scom/monitored_resources/">monitored_resources</a><br />
+<a href="/providers/azure/scom/monitored_resources_by_managed_instances/">monitored_resources_by_managed_instances</a><br />
 <a href="/providers/azure/scom/operations/">operations</a><br />
-<a href="/providers/azure/scom/operations_v2/">operations_v2</a><br />
+<a href="/providers/azure/scom/v2_operations/">v2_operations</a>
 </div>
 </div>

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operation_status
   - api_management
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operation_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,9 +37,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` | The error detail. |
 | <CopyableCode code="operations" /> | `array` | The operations list. |
 | <CopyableCode code="percentComplete" /> | `number` | Percent of the operation that is complete. |
+| <CopyableCode code="resourceId" /> | `string` | Fully qualified ID of the resource against which the original async operation was started. |
 | <CopyableCode code="startTime" /> | `string` | The start time of the operation. |
 | <CopyableCode code="status" /> | `string` | Operation status. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> | Returns the current status of an async operation. |
+
+## `SELECT` examples
+
+Returns the current status of an async operation.
+
+
+```sql
+SELECT
+id,
+name,
+endTime,
+error,
+operations,
+percentComplete,
+resourceId,
+startTime,
+status
+FROM azure.api_management.operation_status
+WHERE location = '{{ location }}'
+AND operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - restorable_sql_containers
   - cosmos_db
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>restorable_sql_containers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,7 +35,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The name of the ARM resource. |
 | <CopyableCode code="properties" /> | `object` | The properties of an Azure Cosmos DB SQL container event |
 | <CopyableCode code="type" /> | `string` | The type of Azure resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> | Show the event feed of all mutations done on all the Azure Cosmos DB SQL containers under a specific database.  This helps in scenario where container was accidentally deleted.  This API requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/.../read' permission |
+
+## `SELECT` examples
+
+Show the event feed of all mutations done on all the Azure Cosmos DB SQL containers under a specific database.  This helps in scenario where container was accidentally deleted.  This API requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/.../read' permission
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.cosmos_db.restorable_sql_containers
+WHERE instanceId = '{{ instanceId }}'
+AND location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

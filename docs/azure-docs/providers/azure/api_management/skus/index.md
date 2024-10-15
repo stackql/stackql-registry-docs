@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - skus
   - api_management
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -42,8 +43,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceType" /> | `string` | The type of resource the SKU applies to. |
 | <CopyableCode code="restrictions" /> | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | <CopyableCode code="size" /> | `string` | The Size of the SKU. |
-| <CopyableCode code="tier" /> | `string` | Specifies the tier of virtual machines in a scale set.&lt;br /&gt;&lt;br /&gt; Possible Values:&lt;br /&gt;&lt;br /&gt; **Standard**&lt;br /&gt;&lt;br /&gt; **Basic** |
+| <CopyableCode code="tier" /> | `string` | Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic** |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets the list of Microsoft.ApiManagement SKUs available for your Subscription. |
+
+## `SELECT` examples
+
+Gets the list of Microsoft.ApiManagement SKUs available for your Subscription.
+
+
+```sql
+SELECT
+name,
+apiVersions,
+capabilities,
+capacity,
+costs,
+family,
+kind,
+locationInfo,
+locations,
+resourceType,
+restrictions,
+size,
+tier
+FROM azure.api_management.skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

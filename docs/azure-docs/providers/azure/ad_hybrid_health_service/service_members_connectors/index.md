@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - service_members_connectors
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>service_members_connectors</code> resource.
 
 ## Overview
 <table><tbody>
@@ -45,7 +46,35 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timeLastModified" /> | `string` | The date and time when this connector was last modified. |
 | <CopyableCode code="type" /> | `string` | The connector type. |
 | <CopyableCode code="version" /> | `integer` | The connector version |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceMemberId, serviceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceMemberId, serviceName" /> | Gets the connector details for a service. |
+
+## `SELECT` examples
+
+Gets the connector details for a service.
+
+
+```sql
+SELECT
+id,
+name,
+description,
+attributesIncluded,
+classesIncluded,
+connectorId,
+partitions,
+passwordHashSyncConfiguration,
+passwordManagementSettings,
+runProfiles,
+schemaXml,
+timeCreated,
+timeLastModified,
+type,
+version
+FROM azure.ad_hybrid_health_service.service_members_connectors
+WHERE serviceMemberId = '{{ serviceMemberId }}'
+AND serviceName = '{{ serviceName }}';
+```

@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - automanage
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Effortless automation of cloud and on-premises infrastructure.  
-    
+automanage service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>13</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>37</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.automanage</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Automanage</td></tr>
-<tr><td><b>Description</b></td><td>Effortless automation of cloud and on-premises infrastructure.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:automanage</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -46,7 +36,7 @@ Effortless automation of cloud and on-premises infrastructure.
 <a href="/providers/azure/automanage/configuration_profile_hci_assignments/">configuration_profile_hci_assignments</a><br />
 <a href="/providers/azure/automanage/configuration_profile_hcrp_assignments/">configuration_profile_hcrp_assignments</a><br />
 <a href="/providers/azure/automanage/configuration_profiles/">configuration_profiles</a><br />
-<a href="/providers/azure/automanage/configuration_profiles_versions/">configuration_profiles_versions</a><br />
+<a href="/providers/azure/automanage/configuration_profiles_versions/">configuration_profiles_versions</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure/automanage/configuration_profiles_versions_child_resources/">configuration_profiles_versions_child_resources</a><br />
@@ -54,6 +44,6 @@ Effortless automation of cloud and on-premises infrastructure.
 <a href="/providers/azure/automanage/hcrp_reports/">hcrp_reports</a><br />
 <a href="/providers/azure/automanage/operations/">operations</a><br />
 <a href="/providers/azure/automanage/reports/">reports</a><br />
-<a href="/providers/azure/automanage/service_principals/">service_principals</a><br />
+<a href="/providers/azure/automanage/service_principals/">service_principals</a>
 </div>
 </div>

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - private_clouds_admin_credentials
   - vmware
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>private_clouds_admin_credentials</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,7 +35,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nsxtUsername" /> | `string` | NSX-T Manager username |
 | <CopyableCode code="vcenterPassword" /> | `string` | vCenter admin password |
 | <CopyableCode code="vcenterUsername" /> | `string` | vCenter admin username |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="privateCloudName, resourceGroupName, subscriptionId" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+nsxtPassword,
+nsxtUsername,
+vcenterPassword,
+vcenterUsername
+FROM azure_isv.vmware.private_clouds_admin_credentials
+WHERE privateCloudName = '{{ privateCloudName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

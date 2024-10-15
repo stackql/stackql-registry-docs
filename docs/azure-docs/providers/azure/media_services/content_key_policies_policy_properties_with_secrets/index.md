@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - content_key_policies_policy_properties_with_secrets
   - media_services
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>content_key_policies_policy_properties_with_secrets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="lastModified" /> | `string` | The last modified date of the Policy |
 | <CopyableCode code="options" /> | `array` | The Key Policy options. |
 | <CopyableCode code="policyId" /> | `string` | The legacy Policy ID. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, api-version, contentKeyPolicyName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, contentKeyPolicyName, resourceGroupName, subscriptionId" /> | Get a Content Key Policy including secret values |
+
+## `SELECT` examples
+
+Get a Content Key Policy including secret values
+
+
+```sql
+SELECT
+description,
+created,
+lastModified,
+options,
+policyId
+FROM azure.media_services.content_key_policies_policy_properties_with_secrets
+WHERE accountName = '{{ accountName }}'
+AND contentKeyPolicyName = '{{ contentKeyPolicyName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - service_members
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>service_members</code> resource.
 
 ## Overview
 <table><tbody>
@@ -56,10 +57,59 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="serviceMemberId" /> | `string` | The id of the server. |
 | <CopyableCode code="status" /> | `string` | The health status of the server. |
 | <CopyableCode code="tenantId" /> | `string` | The tenant id to whom this server belongs. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="serviceMemberId, serviceName" /> | Gets the details of a server, for a given service, that are onboarded to Azure Active Directory Connect Health Service. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> | Gets the details of the servers, for a given service, that are onboarded to Azure Active Directory Connect Health Service. |
-| <CopyableCode code="add" /> | `INSERT` | <CopyableCode code="serviceName" /> | Onboards  a server, for a given service, to Azure Active Directory Connect Health Service. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="serviceMemberId, serviceName" /> | Deletes a server that has been onboarded to Azure Active Directory Connect Health Service. |
+| <CopyableCode code="add" /> | `EXEC` | <CopyableCode code="serviceName" /> | Onboards  a server, for a given service, to Azure Active Directory Connect Health Service. |
+| <CopyableCode code="delete_data" /> | `EXEC` | <CopyableCode code="serviceMemberId, serviceName" /> | Deletes the data uploaded by the server to Azure Active Directory Connect Health Service. |
+
+## `SELECT` examples
+
+Gets the details of the servers, for a given service, that are onboarded to Azure Active Directory Connect Health Service.
+
+
+```sql
+SELECT
+activeAlerts,
+additionalInformation,
+createdDate,
+dimensions,
+disabled,
+disabledReason,
+installedQfes,
+lastDisabled,
+lastReboot,
+lastServerReportedMonitoringLevelChange,
+lastUpdated,
+machineId,
+machineName,
+monitoringConfigurationsComputed,
+monitoringConfigurationsCustomized,
+osName,
+osVersion,
+properties,
+recommendedQfes,
+resolvedAlerts,
+role,
+serverReportedMonitoringLevel,
+serviceId,
+serviceMemberId,
+status,
+tenantId
+FROM azure.ad_hybrid_health_service.service_members
+WHERE serviceName = '{{ serviceName }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>service_members</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.ad_hybrid_health_service.service_members
+WHERE serviceMemberId = '{{ serviceMemberId }}'
+AND serviceName = '{{ serviceName }}';
+```

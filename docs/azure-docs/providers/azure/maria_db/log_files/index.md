@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - log_files
   - maria_db
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>log_files</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | The name of the log file. |
 | <CopyableCode code="properties" /> | `object` | The properties of a log file. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_by_server" /> | `SELECT` | <CopyableCode code="resourceGroupName, serverName, subscriptionId" /> | List all the log files in a given server. |
+
+## `SELECT` examples
+
+List all the log files in a given server.
+
+
+```sql
+SELECT
+name,
+properties
+FROM azure.maria_db.log_files
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND serverName = '{{ serverName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

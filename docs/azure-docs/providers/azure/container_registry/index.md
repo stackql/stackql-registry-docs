@@ -5,37 +5,27 @@ hide_table_of_contents: false
 keywords:
   - container_registry
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Azure Container Registry is a managed Docker registry service for storing and managing your private Docker container images and other artifacts. Push Docker container images to a private registry as part of your development workflows. Pull images from a registry to your container deployments with orchestration tools or other Azure services.  
-    
+container_registry service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>30</b></span><br />
-<span>total selectable resources:&nbsp;<b>30</b></span><br />
-<span>total methods:&nbsp;<b>104</b></span><br />
+<span>total resources:&nbsp;<b>29</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.container_registry</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Container Registry</td></tr>
-<tr><td><b>Description</b></td><td>Azure Container Registry is a managed Docker registry service for storing and managing your private Docker container images and other artifacts. Push Docker container images to a private registry as part of your development workflows. Pull images from a registry to your container deployments with orchestration tools or other Azure services.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:container_registry</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -53,16 +43,15 @@ Azure Container Registry is a managed Docker registry service for storing and ma
 <a href="/providers/azure/container_registry/pipeline_runs/">pipeline_runs</a><br />
 <a href="/providers/azure/container_registry/private_endpoint_connections/">private_endpoint_connections</a><br />
 <a href="/providers/azure/container_registry/registries/">registries</a><br />
-<a href="/providers/azure/container_registry/registries_build_source_upload_url/">registries_build_source_upload_url</a><br />
-<a href="/providers/azure/container_registry/registries_credentials/">registries_credentials</a><br />
+<a href="/providers/azure/container_registry/registries_build_source_upload_urls/">registries_build_source_upload_urls</a><br />
+<a href="/providers/azure/container_registry/registries_credentials/">registries_credentials</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure/container_registry/registries_private_link_resource/">registries_private_link_resource</a><br />
 <a href="/providers/azure/container_registry/registries_private_link_resources/">registries_private_link_resources</a><br />
 <a href="/providers/azure/container_registry/registries_usages/">registries_usages</a><br />
 <a href="/providers/azure/container_registry/replications/">replications</a><br />
 <a href="/providers/azure/container_registry/runs/">runs</a><br />
-<a href="/providers/azure/container_registry/runs_log_sas_url/">runs_log_sas_url</a><br />
+<a href="/providers/azure/container_registry/runs_log_sas_urls/">runs_log_sas_urls</a><br />
 <a href="/providers/azure/container_registry/scope_maps/">scope_maps</a><br />
 <a href="/providers/azure/container_registry/task_runs/">task_runs</a><br />
 <a href="/providers/azure/container_registry/task_runs_details/">task_runs_details</a><br />
@@ -70,7 +59,7 @@ Azure Container Registry is a managed Docker registry service for storing and ma
 <a href="/providers/azure/container_registry/tasks_details/">tasks_details</a><br />
 <a href="/providers/azure/container_registry/tokens/">tokens</a><br />
 <a href="/providers/azure/container_registry/webhooks/">webhooks</a><br />
-<a href="/providers/azure/container_registry/webhooks_callback_config/">webhooks_callback_config</a><br />
-<a href="/providers/azure/container_registry/webhooks_events/">webhooks_events</a><br />
+<a href="/providers/azure/container_registry/webhooks_callback_configs/">webhooks_callback_configs</a><br />
+<a href="/providers/azure/container_registry/webhooks_events/">webhooks_events</a>
 </div>
 </div>

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - service_tags
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>service_tags</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,7 +38,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="nextLink" /> | `string` | The URL to get next page of service tag information resources. |
 | <CopyableCode code="type" /> | `string` | The azure resource type. |
 | <CopyableCode code="values" /> | `array` | The list of service tag information resources. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="location, subscriptionId" /> | Gets a list of service tag information resources. |
+
+## `SELECT` examples
+
+Gets a list of service tag information resources.
+
+
+```sql
+SELECT
+id,
+name,
+changeNumber,
+cloud,
+nextLink,
+type,
+values
+FROM azure.network.service_tags
+WHERE location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

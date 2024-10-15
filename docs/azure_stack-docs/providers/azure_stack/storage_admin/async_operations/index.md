@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - async_operations
   - storage_admin
-  - azure_stack    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>async_operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,7 +40,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="operationStartTime" /> | `string` | Operation start time. |
 | <CopyableCode code="response" /> | `string` | Response for the async operation. |
 | <CopyableCode code="subscriptionId" /> | `string` | Subscription id for async operation. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="asyncOperationId, location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="asyncOperationId, location, subscriptionId" /> | Returns the async operation specified by asyncOperationId. |
+
+## `SELECT` examples
+
+Returns the async operation specified by asyncOperationId.
+
+
+```sql
+SELECT
+id,
+context,
+httpStatus,
+locationHeader,
+operation,
+operationEndTime,
+operationStartTime,
+response,
+subscriptionId
+FROM azure_stack.storage_admin.async_operations
+WHERE asyncOperationId = '{{ asyncOperationId }}'
+AND location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

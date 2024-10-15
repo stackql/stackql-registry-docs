@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - legacy_peerings
   - peering
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>legacy_peerings</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,7 +39,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sku" /> | `object` | The SKU that defines the tier and kind of the peering. |
 | <CopyableCode code="tags" /> | `object` | The resource tags. |
 | <CopyableCode code="type" /> | `string` | The type of the resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="kind, peeringLocation, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="kind, peeringLocation, subscriptionId" /> | Lists all of the legacy peerings under the given subscription matching the specified kind and location. |
+
+## `SELECT` examples
+
+Lists all of the legacy peerings under the given subscription matching the specified kind and location.
+
+
+```sql
+SELECT
+id,
+name,
+kind,
+location,
+properties,
+sku,
+tags,
+type
+FROM azure.peering.legacy_peerings
+WHERE kind = '{{ kind }}'
+AND peeringLocation = '{{ peeringLocation }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

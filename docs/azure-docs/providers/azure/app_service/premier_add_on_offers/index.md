@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - premier_add_on_offers
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>premier_add_on_offers</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | Kind of resource. |
 | <CopyableCode code="properties" /> | `object` | PremierAddOnOffer resource specific properties |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Description for List all premier add-on offers. |
+
+## `SELECT` examples
+
+Description for List all premier add-on offers.
+
+
+```sql
+SELECT
+id,
+name,
+kind,
+properties,
+type
+FROM azure.app_service.premier_add_on_offers
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

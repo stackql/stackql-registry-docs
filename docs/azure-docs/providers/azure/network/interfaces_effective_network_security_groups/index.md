@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - interfaces_effective_network_security_groups
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>interfaces_effective_network_security_groups</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,7 +35,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="effectiveSecurityRules" /> | `array` | A collection of effective security rules. |
 | <CopyableCode code="networkSecurityGroup" /> | `object` | Reference to another subresource. |
 | <CopyableCode code="tagMap" /> | `string` | Mapping of tags to list of IP Addresses included within the tag. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networkInterfaceName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="networkInterfaceName, resourceGroupName, subscriptionId" /> | Gets all network security groups applied to a network interface. |
+
+## `SELECT` examples
+
+Gets all network security groups applied to a network interface.
+
+
+```sql
+SELECT
+association,
+effectiveSecurityRules,
+networkSecurityGroup,
+tagMap
+FROM azure.network.interfaces_effective_network_security_groups
+WHERE networkInterfaceName = '{{ networkInterfaceName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

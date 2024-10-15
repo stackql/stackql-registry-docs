@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - environments_worker_pool_instance_metric_definitions
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>environments_worker_pool_instance_metric_definitions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,28 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | Kind of resource. |
 | <CopyableCode code="properties" /> | `object` | ResourceMetricDefinition resource specific properties |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, name, resourceGroupName, subscriptionId, workerPoolName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instance, name, resourceGroupName, subscriptionId, workerPoolName" /> | Description for Get metric definitions for a specific instance of a worker pool of an App Service Environment. |
+
+## `SELECT` examples
+
+Description for Get metric definitions for a specific instance of a worker pool of an App Service Environment.
+
+
+```sql
+SELECT
+id,
+name,
+kind,
+properties,
+type
+FROM azure.app_service.environments_worker_pool_instance_metric_definitions
+WHERE instance = '{{ instance }}'
+AND name = '{{ name }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND workerPoolName = '{{ workerPoolName }}';
+```

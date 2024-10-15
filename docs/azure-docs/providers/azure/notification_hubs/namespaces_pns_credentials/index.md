@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - namespaces_pns_credentials
   - notification_hubs
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>namespaces_pns_credentials</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="location" /> | `string` | Deprecated - only for compatibility. |
 | <CopyableCode code="properties" /> | `object` | Collection of Notification Hub or Notification Hub Namespace PNS credentials. |
 | <CopyableCode code="tags" /> | `object` | Deprecated - only for compatibility. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="namespaceName, resourceGroupName, subscriptionId" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+location,
+properties,
+tags
+FROM azure.notification_hubs.namespaces_pns_credentials
+WHERE namespaceName = '{{ namespaceName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - web_apps
   - app_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>web_apps</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,21 +31,47 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/&#123;subscriptionId&#125;/resourceGroups/&#123;resourceGroupName&#125;/providers/&#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;resourceName&#125;" |
-| <CopyableCode code="name" /> | `string` | The name of the resource |
-| <CopyableCode code="extendedLocation" /> | `object` | Extended Location. |
-| <CopyableCode code="identity" /> | `object` | Managed service identity. |
-| <CopyableCode code="properties" /> | `object` | Site resource specific properties |
-| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
-| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
+| <CopyableCode code="id" /> | `string` | Resource Id. |
+| <CopyableCode code="name" /> | `string` | Resource Name. |
+| <CopyableCode code="kind" /> | `string` | Kind of resource. |
+| <CopyableCode code="properties" /> | `object` | ProcessModuleInfo resource specific properties |
+| <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets the details of a web, mobile, or API app. |
+| <CopyableCode code="get_diagnostic_logs_config" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets the logging configuration of an app. |
+| <CopyableCode code="get_diagnostic_logs_config_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets the logging configuration of an app. |
+| <CopyableCode code="get_instance_function_slot" /> | `SELECT` | <CopyableCode code="functionName, name, resourceGroupName, slot, subscriptionId" /> | Description for Get function information by its ID for web site, or a deployment slot. |
+| <CopyableCode code="get_instance_ms_deploy_log" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, subscriptionId" /> | Description for Get the MSDeploy Log for the last MSDeploy operation. |
+| <CopyableCode code="get_instance_ms_deploy_log_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, slot, subscriptionId" /> | Description for Get the MSDeploy Log for the last MSDeploy operation. |
+| <CopyableCode code="get_instance_ms_deploy_status" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, subscriptionId" /> | Description for Get the status of the last MSDeploy operation. |
+| <CopyableCode code="get_instance_ms_deploy_status_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, slot, subscriptionId" /> | Description for Get the status of the last MSDeploy operation. |
+| <CopyableCode code="get_instance_process" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for Get process information by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="get_instance_process_module" /> | `SELECT` | <CopyableCode code="baseAddress, instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for Get process information by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="get_instance_process_module_slot" /> | `SELECT` | <CopyableCode code="baseAddress, instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for Get process information by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="get_instance_process_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for Get process information by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="get_instance_workflow_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId, workflowName" /> |  |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Description for Get all apps for a subscription. |
+| <CopyableCode code="list_backup_slots" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets existing backups of an app. |
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Description for Gets all web, mobile, and API apps in the specified resource group. |
+| <CopyableCode code="list_instance_functions_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for List the functions for a web site, or a deployment slot. |
+| <CopyableCode code="list_instance_identifiers" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Gets all scale-out instances of an app. |
+| <CopyableCode code="list_instance_identifiers_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Gets all scale-out instances of an app. |
+| <CopyableCode code="list_instance_process_modules" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for List module information for a process by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_process_modules_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for List module information for a process by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_process_threads" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for List the threads in a process by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_process_threads_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for List the threads in a process by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_processes" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, subscriptionId" /> | Description for Get list of processes for a web site, or a deployment slot, or for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_processes_slot" /> | `SELECT` | <CopyableCode code="instanceId, name, resourceGroupName, slot, subscriptionId" /> | Description for Get list of processes for a web site, or a deployment slot, or for a specific scaled-out instance in a web site. |
+| <CopyableCode code="list_instance_workflows_slot" /> | `SELECT` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> |  |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Deletes a web, mobile, or API app, or one of the deployment slots. |
+| <CopyableCode code="delete_instance_function_slot" /> | `DELETE` | <CopyableCode code="functionName, name, resourceGroupName, slot, subscriptionId" /> | Description for Delete a function for web site, or a deployment slot. |
+| <CopyableCode code="delete_instance_process" /> | `DELETE` | <CopyableCode code="instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out instance in a web site. |
+| <CopyableCode code="delete_instance_process_slot" /> | `DELETE` | <CopyableCode code="instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for Terminate a process by its ID for a web site, or a deployment slot, or specific scaled-out instance in a web site. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app. |
 | <CopyableCode code="add_premier_add_on" /> | `EXEC` | <CopyableCode code="name, premierAddOnName, resourceGroupName, subscriptionId" /> | Description for Updates a named add-on of an app. |
 | <CopyableCode code="add_premier_add_on_slot" /> | `EXEC` | <CopyableCode code="name, premierAddOnName, resourceGroupName, slot, subscriptionId" /> | Description for Updates a named add-on of an app. |
 | <CopyableCode code="analyze_custom_hostname" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Analyze a custom hostname. |
@@ -61,6 +88,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="discover_backup_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Discovers an existing app backup that can be restored from a blob in Azure storage. Use this to get information about the databases stored in a backup. |
 | <CopyableCode code="generate_new_site_publishing_password" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Generates a new publishing password for an app (or deployment slot, if specified). |
 | <CopyableCode code="generate_new_site_publishing_password_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Generates a new publishing password for an app (or deployment slot, if specified). |
+| <CopyableCode code="get_instance_process_dump" /> | `EXEC` | <CopyableCode code="instanceId, name, processId, resourceGroupName, subscriptionId" /> | Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a web site. |
+| <CopyableCode code="get_instance_process_dump_slot" /> | `EXEC` | <CopyableCode code="instanceId, name, processId, resourceGroupName, slot, subscriptionId" /> | Description for Get a memory dump of a process by its ID for a specific scaled-out instance in a web site. |
 | <CopyableCode code="install_site_extension" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, siteExtensionId, subscriptionId" /> | Description for Install site extension on a web site, or a deployment slot. |
 | <CopyableCode code="install_site_extension_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, siteExtensionId, slot, subscriptionId" /> | Description for Install site extension on a web site, or a deployment slot. |
 | <CopyableCode code="is_cloneable" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Shows whether an app can be cloned to another resource group or subscription. |
@@ -111,4 +140,696 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="sync_functions_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Syncs function trigger metadata to the management database |
 | <CopyableCode code="sync_repository" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Sync web app repository. |
 | <CopyableCode code="sync_repository_slot" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, slot, subscriptionId" /> | Description for Sync web app repository. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="name, resourceGroupName, subscriptionId" /> | Description for Creates a new web, mobile, or API app in an existing resource group, or updates an existing app. |
+
+## `SELECT` examples
+
+Description for Get all apps for a subscription.
+
+
+```sql
+SELECT
+id,
+name,
+kind,
+properties,
+type
+FROM azure.app_service.web_apps
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>web_apps</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.app_service.web_apps (
+name,
+resourceGroupName,
+subscriptionId,
+kind,
+location,
+tags,
+properties,
+identity,
+extendedLocation
+)
+SELECT 
+'{{ name }}',
+'{{ resourceGroupName }}',
+'{{ subscriptionId }}',
+'{{ kind }}',
+'{{ location }}',
+'{{ tags }}',
+'{{ properties }}',
+'{{ identity }}',
+'{{ extendedLocation }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: id
+      value: string
+    - name: name
+      value: string
+    - name: kind
+      value: string
+    - name: location
+      value: string
+    - name: type
+      value: string
+    - name: tags
+      value: object
+    - name: properties
+      value:
+        - name: state
+          value: string
+        - name: hostNames
+          value:
+            - string
+        - name: repositorySiteName
+          value: string
+        - name: usageState
+          value: string
+        - name: enabled
+          value: boolean
+        - name: enabledHostNames
+          value:
+            - string
+        - name: availabilityState
+          value: string
+        - name: hostNameSslStates
+          value:
+            - - name: name
+                value: string
+              - name: sslState
+                value: string
+              - name: virtualIP
+                value: string
+              - name: thumbprint
+                value: string
+              - name: toUpdate
+                value: boolean
+              - name: hostType
+                value: string
+        - name: serverFarmId
+          value: string
+        - name: reserved
+          value: boolean
+        - name: isXenon
+          value: boolean
+        - name: hyperV
+          value: boolean
+        - name: lastModifiedTimeUtc
+          value: string
+        - name: dnsConfiguration
+          value:
+            - name: dnsServers
+              value:
+                - string
+            - name: dnsAltServer
+              value: string
+            - name: dnsRetryAttemptTimeout
+              value: integer
+            - name: dnsRetryAttemptCount
+              value: integer
+            - name: dnsMaxCacheTimeout
+              value: integer
+            - name: dnsLegacySortOrder
+              value: boolean
+        - name: vnetRouteAllEnabled
+          value: boolean
+        - name: vnetImagePullEnabled
+          value: boolean
+        - name: vnetContentShareEnabled
+          value: boolean
+        - name: vnetBackupRestoreEnabled
+          value: boolean
+        - name: siteConfig
+          value:
+            - name: numberOfWorkers
+              value: integer
+            - name: defaultDocuments
+              value:
+                - string
+            - name: netFrameworkVersion
+              value: string
+            - name: phpVersion
+              value: string
+            - name: pythonVersion
+              value: string
+            - name: nodeVersion
+              value: string
+            - name: powerShellVersion
+              value: string
+            - name: linuxFxVersion
+              value: string
+            - name: windowsFxVersion
+              value: string
+            - name: requestTracingEnabled
+              value: boolean
+            - name: requestTracingExpirationTime
+              value: string
+            - name: remoteDebuggingEnabled
+              value: boolean
+            - name: remoteDebuggingVersion
+              value: string
+            - name: httpLoggingEnabled
+              value: boolean
+            - name: acrUseManagedIdentityCreds
+              value: boolean
+            - name: acrUserManagedIdentityID
+              value: string
+            - name: logsDirectorySizeLimit
+              value: integer
+            - name: detailedErrorLoggingEnabled
+              value: boolean
+            - name: publishingUsername
+              value: string
+            - name: appSettings
+              value:
+                - - name: name
+                    value: string
+                  - name: value
+                    value: string
+            - name: metadata
+              value:
+                - - name: name
+                    value: string
+                  - name: value
+                    value: string
+            - name: connectionStrings
+              value:
+                - - name: name
+                    value: string
+                  - name: connectionString
+                    value: string
+                  - name: type
+                    value: string
+            - name: machineKey
+              value:
+                - name: validation
+                  value: string
+                - name: validationKey
+                  value: string
+                - name: decryption
+                  value: string
+                - name: decryptionKey
+                  value: string
+            - name: handlerMappings
+              value:
+                - - name: extension
+                    value: string
+                  - name: scriptProcessor
+                    value: string
+                  - name: arguments
+                    value: string
+            - name: documentRoot
+              value: string
+            - name: scmType
+              value: string
+            - name: use32BitWorkerProcess
+              value: boolean
+            - name: webSocketsEnabled
+              value: boolean
+            - name: alwaysOn
+              value: boolean
+            - name: javaVersion
+              value: string
+            - name: javaContainer
+              value: string
+            - name: javaContainerVersion
+              value: string
+            - name: appCommandLine
+              value: string
+            - name: managedPipelineMode
+              value: string
+            - name: virtualApplications
+              value:
+                - - name: virtualPath
+                    value: string
+                  - name: physicalPath
+                    value: string
+                  - name: preloadEnabled
+                    value: boolean
+                  - name: virtualDirectories
+                    value:
+                      - - name: virtualPath
+                          value: string
+                        - name: physicalPath
+                          value: string
+            - name: loadBalancing
+              value: string
+            - name: experiments
+              value:
+                - name: rampUpRules
+                  value:
+                    - - name: actionHostName
+                        value: string
+                      - name: reroutePercentage
+                        value: number
+                      - name: changeStep
+                        value: number
+                      - name: changeIntervalInMinutes
+                        value: integer
+                      - name: minReroutePercentage
+                        value: number
+                      - name: maxReroutePercentage
+                        value: number
+                      - name: changeDecisionCallbackUrl
+                        value: string
+                      - name: name
+                        value: string
+            - name: limits
+              value:
+                - name: maxPercentageCpu
+                  value: number
+                - name: maxMemoryInMb
+                  value: integer
+                - name: maxDiskSizeInMb
+                  value: integer
+            - name: autoHealEnabled
+              value: boolean
+            - name: autoHealRules
+              value:
+                - name: triggers
+                  value:
+                    - name: requests
+                      value:
+                        - name: count
+                          value: integer
+                        - name: timeInterval
+                          value: string
+                    - name: privateBytesInKB
+                      value: integer
+                    - name: statusCodes
+                      value:
+                        - - name: status
+                            value: integer
+                          - name: subStatus
+                            value: integer
+                          - name: win32Status
+                            value: integer
+                          - name: count
+                            value: integer
+                          - name: timeInterval
+                            value: string
+                          - name: path
+                            value: string
+                    - name: slowRequests
+                      value:
+                        - name: timeTaken
+                          value: string
+                        - name: path
+                          value: string
+                        - name: count
+                          value: integer
+                        - name: timeInterval
+                          value: string
+                    - name: slowRequestsWithPath
+                      value:
+                        - - name: timeTaken
+                            value: string
+                          - name: path
+                            value: string
+                          - name: count
+                            value: integer
+                          - name: timeInterval
+                            value: string
+                    - name: statusCodesRange
+                      value:
+                        - - name: statusCodes
+                            value: string
+                          - name: path
+                            value: string
+                          - name: count
+                            value: integer
+                          - name: timeInterval
+                            value: string
+                - name: actions
+                  value:
+                    - name: actionType
+                      value: string
+                    - name: customAction
+                      value:
+                        - name: exe
+                          value: string
+                        - name: parameters
+                          value: string
+                    - name: minProcessExecutionTime
+                      value: string
+            - name: tracingOptions
+              value: string
+            - name: vnetName
+              value: string
+            - name: vnetRouteAllEnabled
+              value: boolean
+            - name: vnetPrivatePortsCount
+              value: integer
+            - name: cors
+              value:
+                - name: allowedOrigins
+                  value:
+                    - string
+                - name: supportCredentials
+                  value: boolean
+            - name: push
+              value:
+                - name: id
+                  value: string
+                - name: name
+                  value: string
+                - name: kind
+                  value: string
+                - name: type
+                  value: string
+                - name: properties
+                  value:
+                    - name: isPushEnabled
+                      value: boolean
+                    - name: tagWhitelistJson
+                      value: string
+                    - name: tagsRequiringAuth
+                      value: string
+                    - name: dynamicTagsJson
+                      value: string
+            - name: apiDefinition
+              value:
+                - name: url
+                  value: string
+            - name: apiManagementConfig
+              value:
+                - name: id
+                  value: string
+            - name: autoSwapSlotName
+              value: string
+            - name: localMySqlEnabled
+              value: boolean
+            - name: managedServiceIdentityId
+              value: integer
+            - name: xManagedServiceIdentityId
+              value: integer
+            - name: keyVaultReferenceIdentity
+              value: string
+            - name: ipSecurityRestrictions
+              value:
+                - - name: ipAddress
+                    value: string
+                  - name: subnetMask
+                    value: string
+                  - name: vnetSubnetResourceId
+                    value: string
+                  - name: vnetTrafficTag
+                    value: integer
+                  - name: subnetTrafficTag
+                    value: integer
+                  - name: action
+                    value: string
+                  - name: tag
+                    value: string
+                  - name: priority
+                    value: integer
+                  - name: name
+                    value: string
+                  - name: description
+                    value: string
+                  - name: headers
+                    value: object
+            - name: ipSecurityRestrictionsDefaultAction
+              value: string
+            - name: scmIpSecurityRestrictions
+              value:
+                - - name: ipAddress
+                    value: string
+                  - name: subnetMask
+                    value: string
+                  - name: vnetSubnetResourceId
+                    value: string
+                  - name: vnetTrafficTag
+                    value: integer
+                  - name: subnetTrafficTag
+                    value: integer
+                  - name: action
+                    value: string
+                  - name: tag
+                    value: string
+                  - name: priority
+                    value: integer
+                  - name: name
+                    value: string
+                  - name: description
+                    value: string
+                  - name: headers
+                    value: object
+            - name: scmIpSecurityRestrictionsDefaultAction
+              value: string
+            - name: scmIpSecurityRestrictionsUseMain
+              value: boolean
+            - name: http20Enabled
+              value: boolean
+            - name: minTlsVersion
+              value: string
+            - name: minTlsCipherSuite
+              value: string
+            - name: scmMinTlsVersion
+              value: string
+            - name: ftpsState
+              value: string
+            - name: preWarmedInstanceCount
+              value: integer
+            - name: functionAppScaleLimit
+              value: integer
+            - name: elasticWebAppScaleLimit
+              value: integer
+            - name: healthCheckPath
+              value: string
+            - name: functionsRuntimeScaleMonitoringEnabled
+              value: boolean
+            - name: websiteTimeZone
+              value: string
+            - name: minimumElasticInstanceCount
+              value: integer
+            - name: azureStorageAccounts
+              value: object
+            - name: publicNetworkAccess
+              value: string
+        - name: functionAppConfig
+          value:
+            - name: deployment
+              value:
+                - name: storage
+                  value:
+                    - name: type
+                      value: string
+                    - name: value
+                      value: string
+                    - name: authentication
+                      value:
+                        - name: type
+                          value: string
+                        - name: userAssignedIdentityResourceId
+                          value: string
+                        - name: storageAccountConnectionStringName
+                          value: string
+            - name: runtime
+              value:
+                - name: name
+                  value: string
+                - name: version
+                  value: string
+            - name: scaleAndConcurrency
+              value:
+                - name: alwaysReady
+                  value:
+                    - - name: name
+                        value: string
+                      - name: instanceCount
+                        value: integer
+                - name: maximumInstanceCount
+                  value: integer
+                - name: instanceMemoryMB
+                  value: integer
+                - name: triggers
+                  value:
+                    - name: http
+                      value:
+                        - name: perInstanceConcurrency
+                          value: integer
+        - name: daprConfig
+          value:
+            - name: enabled
+              value: boolean
+            - name: appId
+              value: string
+            - name: appPort
+              value: integer
+            - name: httpReadBufferSize
+              value: integer
+            - name: httpMaxRequestSize
+              value: integer
+            - name: logLevel
+              value: string
+            - name: enableApiLogging
+              value: boolean
+        - name: workloadProfileName
+          value: string
+        - name: resourceConfig
+          value:
+            - name: cpu
+              value: number
+            - name: memory
+              value: string
+        - name: trafficManagerHostNames
+          value:
+            - string
+        - name: scmSiteAlsoStopped
+          value: boolean
+        - name: targetSwapSlot
+          value: string
+        - name: hostingEnvironmentProfile
+          value:
+            - name: id
+              value: string
+            - name: name
+              value: string
+            - name: type
+              value: string
+        - name: clientAffinityEnabled
+          value: boolean
+        - name: clientCertEnabled
+          value: boolean
+        - name: clientCertMode
+          value: string
+        - name: clientCertExclusionPaths
+          value: string
+        - name: hostNamesDisabled
+          value: boolean
+        - name: customDomainVerificationId
+          value: string
+        - name: outboundIpAddresses
+          value: string
+        - name: possibleOutboundIpAddresses
+          value: string
+        - name: containerSize
+          value: integer
+        - name: dailyMemoryTimeQuota
+          value: integer
+        - name: suspendedTill
+          value: string
+        - name: maxNumberOfWorkers
+          value: integer
+        - name: cloningInfo
+          value:
+            - name: correlationId
+              value: string
+            - name: overwrite
+              value: boolean
+            - name: cloneCustomHostNames
+              value: boolean
+            - name: cloneSourceControl
+              value: boolean
+            - name: sourceWebAppId
+              value: string
+            - name: sourceWebAppLocation
+              value: string
+            - name: hostingEnvironment
+              value: string
+            - name: appSettingsOverrides
+              value: object
+            - name: configureLoadBalancing
+              value: boolean
+            - name: trafficManagerProfileId
+              value: string
+            - name: trafficManagerProfileName
+              value: string
+        - name: resourceGroup
+          value: string
+        - name: isDefaultContainer
+          value: boolean
+        - name: defaultHostName
+          value: string
+        - name: slotSwapStatus
+          value:
+            - name: timestampUtc
+              value: string
+            - name: sourceSlotName
+              value: string
+            - name: destinationSlotName
+              value: string
+        - name: httpsOnly
+          value: boolean
+        - name: redundancyMode
+          value: string
+        - name: inProgressOperationId
+          value: string
+        - name: publicNetworkAccess
+          value: string
+        - name: storageAccountRequired
+          value: boolean
+        - name: keyVaultReferenceIdentity
+          value: string
+        - name: virtualNetworkSubnetId
+          value: string
+        - name: managedEnvironmentId
+          value: string
+    - name: identity
+      value:
+        - name: type
+          value: string
+        - name: tenantId
+          value: string
+        - name: principalId
+          value: string
+        - name: userAssignedIdentities
+          value: object
+    - name: extendedLocation
+      value:
+        - name: name
+          value: string
+        - name: type
+          value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `UPDATE` example
+
+Updates a <code>web_apps</code> resource.
+
+```sql
+/*+ update */
+UPDATE azure.app_service.web_apps
+SET 
+kind = '{{ kind }}',
+properties = '{{ properties }}',
+identity = '{{ identity }}'
+WHERE 
+name = '{{ name }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>web_apps</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.app_service.web_apps
+WHERE name = '{{ name }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

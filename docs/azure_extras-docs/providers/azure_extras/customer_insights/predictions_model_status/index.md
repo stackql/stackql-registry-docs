@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - predictions_model_status
   - customer_insights
-  - azure_extras    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>predictions_model_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,7 +42,33 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="trainingAccuracy" /> | `integer` | The training accuracy. |
 | <CopyableCode code="trainingSetCount" /> | `integer` | Count of the training set. |
 | <CopyableCode code="validationSetCount" /> | `integer` | Count of the validation set. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="hubName, predictionName, resourceGroupName, subscriptionId" /> | Gets model status of the prediction. |
+
+## `SELECT` examples
+
+Gets model status of the prediction.
+
+
+```sql
+SELECT
+message,
+modelVersion,
+predictionGuidId,
+predictionName,
+signalsUsed,
+status,
+tenantId,
+testSetCount,
+trainingAccuracy,
+trainingSetCount,
+validationSetCount
+FROM azure_extras.customer_insights.predictions_model_status
+WHERE hubName = '{{ hubName }}'
+AND predictionName = '{{ predictionName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

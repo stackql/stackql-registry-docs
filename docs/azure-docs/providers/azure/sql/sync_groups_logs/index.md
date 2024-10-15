@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - sync_groups_logs
   - sql
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>sync_groups_logs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="timestamp" /> | `string` | Timestamp of the sync group log. |
 | <CopyableCode code="tracingId" /> | `string` | TracingId of the sync group log. |
 | <CopyableCode code="type" /> | `string` | Type of the sync group log. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="databaseName, endTime, resourceGroupName, serverName, startTime, subscriptionId, syncGroupName, type" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="databaseName, endTime, resourceGroupName, serverName, startTime, subscriptionId, syncGroupName, type" /> | Gets a collection of sync group logs. |
+
+## `SELECT` examples
+
+Gets a collection of sync group logs.
+
+
+```sql
+SELECT
+details,
+operationStatus,
+source,
+timestamp,
+tracingId,
+type
+FROM azure.sql.sync_groups_logs
+WHERE databaseName = '{{ databaseName }}'
+AND endTime = '{{ endTime }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND serverName = '{{ serverName }}'
+AND startTime = '{{ startTime }}'
+AND subscriptionId = '{{ subscriptionId }}'
+AND syncGroupName = '{{ syncGroupName }}'
+AND type = '{{ type }}';
+```

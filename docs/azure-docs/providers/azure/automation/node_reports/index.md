@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - node_reports
   - automation
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>node_reports</code> resource.
 
 ## Overview
 <table><tbody>
@@ -49,8 +50,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | Gets or sets the start time of the node report. |
 | <CopyableCode code="status" /> | `string` | Gets or sets the status of the node report. |
 | <CopyableCode code="type" /> | `string` | Gets or sets the type of the node report. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, nodeId, reportId, resourceGroupName, subscriptionId" /> | Retrieve the Dsc node report data by node id and report id. |
 | <CopyableCode code="list_by_node" /> | `SELECT` | <CopyableCode code="automationAccountName, nodeId, resourceGroupName, subscriptionId" /> | Retrieve the Dsc node report list by node id. |
+
+## `SELECT` examples
+
+Retrieve the Dsc node report list by node id.
+
+
+```sql
+SELECT
+id,
+configurationVersion,
+endTime,
+errors,
+hostName,
+iPV4Addresses,
+iPV6Addresses,
+lastModifiedTime,
+metaConfiguration,
+numberOfResources,
+rawErrors,
+rebootRequested,
+refreshMode,
+reportFormatVersion,
+reportId,
+resources,
+startTime,
+status,
+type
+FROM azure.automation.node_reports
+WHERE automationAccountName = '{{ automationAccountName }}'
+AND nodeId = '{{ nodeId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

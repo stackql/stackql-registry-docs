@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - analysis_services
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,11 +31,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Operation name: &#123;provider&#125;/&#123;resource&#125;/&#123;operation&#125;. |
+| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{operation}. |
 | <CopyableCode code="display" /> | `` | The object that represents the operation. |
 | <CopyableCode code="origin" /> | `string` | The origin |
 | <CopyableCode code="properties" /> | `` | Additional properties to expose performance metrics to shoebox. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all of the available consumption REST API operations. |
+
+## `SELECT` examples
+
+Lists all of the available consumption REST API operations.
+
+
+```sql
+SELECT
+name,
+display,
+origin,
+properties
+FROM azure.analysis_services.operations
+;
+```

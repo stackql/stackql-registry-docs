@@ -4,38 +4,28 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - customer_insights
-  - azure_extras
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The Azure Customer Insights management API provides a RESTful set of web services that interact with Azure Customer Insights service to manage your resources. The API has entities that capture the relationship between an end user and the Azure Customer Insights service.  
-    
+customer_insights service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>21</b></span><br />
-<span>total selectable resources:&nbsp;<b>21</b></span><br />
-<span>total methods:&nbsp;<b>66</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure_extras.customer_insights</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Customer Insights Management Client</td></tr>
-<tr><td><b>Description</b></td><td>The Azure Customer Insights management API provides a RESTful set of web services that interact with Azure Customer Insights service to manage your resources. The API has entities that capture the relationship between an end user and the Azure Customer Insights service.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure_extras:customer_insights</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -45,12 +35,12 @@ The Azure Customer Insights management API provides a RESTful set of web service
 <a href="/providers/azure_extras/customer_insights/connectors/">connectors</a><br />
 <a href="/providers/azure_extras/customer_insights/hubs/">hubs</a><br />
 <a href="/providers/azure_extras/customer_insights/images_upload_url_for_data/">images_upload_url_for_data</a><br />
-<a href="/providers/azure_extras/customer_insights/images_upload_url_for_entity_type/">images_upload_url_for_entity_type</a><br />
+<a href="/providers/azure_extras/customer_insights/images_upload_url_for_entity_types/">images_upload_url_for_entity_types</a><br />
 <a href="/providers/azure_extras/customer_insights/interactions/">interactions</a><br />
-<a href="/providers/azure_extras/customer_insights/kpi/">kpi</a><br />
+<a href="/providers/azure_extras/customer_insights/kpis/">kpis</a><br />
 <a href="/providers/azure_extras/customer_insights/links/">links</a><br />
 <a href="/providers/azure_extras/customer_insights/operations/">operations</a><br />
-<a href="/providers/azure_extras/customer_insights/predictions/">predictions</a><br />
+<a href="/providers/azure_extras/customer_insights/predictions/">predictions</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/azure_extras/customer_insights/predictions_model_status/">predictions_model_status</a><br />
@@ -62,6 +52,6 @@ The Azure Customer Insights management API provides a RESTful set of web service
 <a href="/providers/azure_extras/customer_insights/role_assignments/">role_assignments</a><br />
 <a href="/providers/azure_extras/customer_insights/roles/">roles</a><br />
 <a href="/providers/azure_extras/customer_insights/views/">views</a><br />
-<a href="/providers/azure_extras/customer_insights/widget_types/">widget_types</a><br />
+<a href="/providers/azure_extras/customer_insights/widget_types/">widget_types</a>
 </div>
 </div>

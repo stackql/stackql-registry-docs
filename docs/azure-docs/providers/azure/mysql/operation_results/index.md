@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operation_results
   - mysql
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operation_results</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,6 +29,32 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_operation_results', value: 'view', },
+        { label: 'operation_results', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `text` | Fully qualified ID for the async operation. |
+| <CopyableCode code="name" /> | `text` | Name of the async operation. |
+| <CopyableCode code="end_time" /> | `text` | field from the `properties` object |
+| <CopyableCode code="error" /> | `text` | The error detail. |
+| <CopyableCode code="locationName" /> | `text` | field from the `properties` object |
+| <CopyableCode code="operationId" /> | `text` | field from the `properties` object |
+| <CopyableCode code="operations" /> | `text` | The operations list. |
+| <CopyableCode code="percent_complete" /> | `text` | field from the `properties` object |
+| <CopyableCode code="resource_id" /> | `text` | field from the `properties` object |
+| <CopyableCode code="start_time" /> | `text` | field from the `properties` object |
+| <CopyableCode code="status" /> | `text` | Operation status. |
+| <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
+</TabItem>
+<TabItem value="resource">
+
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Fully qualified ID for the async operation. |
@@ -40,7 +67,65 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resourceId" /> | `string` | Fully qualified ID of the resource against which the original async operation was started. |
 | <CopyableCode code="startTime" /> | `string` | The start time of the operation. |
 | <CopyableCode code="status" /> | `string` | Operation status. |
+</TabItem></Tabs>
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, operationId, subscriptionId" /> |  |
+
+## `SELECT` examples
+
+
+
+<Tabs
+    defaultValue="view"
+    values={[
+        { label: 'vw_operation_results', value: 'view', },
+        { label: 'operation_results', value: 'resource', },
+    ]
+}>
+<TabItem value="view">
+
+```sql
+SELECT
+id,
+name,
+end_time,
+error,
+locationName,
+operationId,
+operations,
+percent_complete,
+resource_id,
+start_time,
+status,
+subscriptionId
+FROM azure.mysql.vw_operation_results
+WHERE locationName = '{{ locationName }}'
+AND operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem>
+<TabItem value="resource">
+
+
+```sql
+SELECT
+id,
+name,
+endTime,
+error,
+operations,
+percentComplete,
+properties,
+resourceId,
+startTime,
+status
+FROM azure.mysql.operation_results
+WHERE locationName = '{{ locationName }}'
+AND operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+</TabItem></Tabs>
+

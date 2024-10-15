@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - application_gateways_available_waf_rule_sets
   - network
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>application_gateways_available_waf_rule_sets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | Properties of the web application firewall rule set. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |
 | <CopyableCode code="type" /> | `string` | Resource type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all available web application firewall rule sets. |
+
+## `SELECT` examples
+
+Lists all available web application firewall rule sets.
+
+
+```sql
+SELECT
+id,
+name,
+location,
+properties,
+tags,
+type
+FROM azure.network.application_gateways_available_waf_rule_sets
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

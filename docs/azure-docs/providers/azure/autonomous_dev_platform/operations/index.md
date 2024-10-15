@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - autonomous_dev_platform
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,7 +37,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
 | <CopyableCode code="origin" /> | `string` | Origin of the operation |
 | <CopyableCode code="properties" /> | `object` | Additional details about an operation |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all of the available Autonomous Development Platform provider operations |
+
+## `SELECT` examples
+
+Lists all of the available Autonomous Development Platform provider operations
+
+
+```sql
+SELECT
+name,
+actionType,
+display,
+isDataAction,
+origin,
+properties
+FROM azure.autonomous_dev_platform.operations
+;
+```

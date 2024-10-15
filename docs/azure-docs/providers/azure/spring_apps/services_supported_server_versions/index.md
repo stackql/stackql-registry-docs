@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - services_supported_server_versions
   - spring_apps
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>services_supported_server_versions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="server" /> | `string` | The server name. |
 | <CopyableCode code="value" /> | `string` | The raw server version value which could be passed to deployment CRUD operations. |
 | <CopyableCode code="version" /> | `string` | The Server version. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, serviceName, subscriptionId" /> | Lists all of the available server versions supported by Microsoft.AppPlatform provider. |
+
+## `SELECT` examples
+
+Lists all of the available server versions supported by Microsoft.AppPlatform provider.
+
+
+```sql
+SELECT
+server,
+value,
+version
+FROM azure.spring_apps.services_supported_server_versions
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND serviceName = '{{ serviceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

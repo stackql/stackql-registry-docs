@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - async_operation_status
   - redis
-  - azure_isv    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>async_operation_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -39,7 +40,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="properties" /> | `object` | Additional properties from RP, only when operation is successful |
 | <CopyableCode code="startTime" /> | `string` | The start time of the operation. |
 | <CopyableCode code="status" /> | `string` | Operation status. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="location, operationId, subscriptionId" /> | For checking the ongoing status of an operation |
+
+## `SELECT` examples
+
+For checking the ongoing status of an operation
+
+
+```sql
+SELECT
+id,
+name,
+endTime,
+error,
+operations,
+percentComplete,
+properties,
+startTime,
+status
+FROM azure_isv.redis.async_operation_status
+WHERE location = '{{ location }}'
+AND operationId = '{{ operationId }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

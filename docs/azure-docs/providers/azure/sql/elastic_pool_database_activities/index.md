@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - elastic_pool_database_activities
   - sql
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>elastic_pool_database_activities</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |
 | <CopyableCode code="properties" /> | `object` | Represents the properties of an elastic pool database activity. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_by_elastic_pool" /> | `SELECT` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_by_elastic_pool" /> | `SELECT` | <CopyableCode code="elasticPoolName, resourceGroupName, serverName, subscriptionId" /> | Returns activity on databases inside of an elastic pool. |
+
+## `SELECT` examples
+
+Returns activity on databases inside of an elastic pool.
+
+
+```sql
+SELECT
+location,
+properties
+FROM azure.sql.elastic_pool_database_activities
+WHERE elasticPoolName = '{{ elasticPoolName }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND serverName = '{{ serverName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

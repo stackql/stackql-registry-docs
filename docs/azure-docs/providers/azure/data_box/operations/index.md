@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - data_box
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,12 +31,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the operation. Format: &#123;resourceProviderNamespace&#125;/&#123;resourceType&#125;/&#123;read\|write\|delete\|action&#125; |
+| <CopyableCode code="name" /> | `string` | Name of the operation. Format: {resourceProviderNamespace}/{resourceType}/{read|write|delete|action} |
 | <CopyableCode code="display" /> | `object` | Operation display |
 | <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
-| <CopyableCode code="origin" /> | `string` | Origin of the operation. Can be : user\|system\|user,system |
+| <CopyableCode code="origin" /> | `string` | Origin of the operation. Can be : user|system|user,system |
 | <CopyableCode code="properties" /> | `object` | Operation properties. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | This method gets all the operations. |
+| <CopyableCode code="mitigate" /> | `EXEC` | <CopyableCode code="jobName, resourceGroupName, subscriptionId" /> | Request to mitigate for a given job |
+
+## `SELECT` examples
+
+This method gets all the operations.
+
+
+```sql
+SELECT
+name,
+display,
+isDataAction,
+origin,
+properties
+FROM azure.data_box.operations
+;
+```

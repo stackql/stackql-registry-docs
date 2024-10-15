@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - operations
   - dev_test_labs
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="error" /> | `object` | Error details for the operation in case of a failure. |
 | <CopyableCode code="status" /> | `string` | The operation status. |
 | <CopyableCode code="statusCode" /> | `string` | The status code for the operation. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="api-version, locationName, name, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="locationName, name, subscriptionId" /> | Get operation. |
+
+## `SELECT` examples
+
+Get operation.
+
+
+```sql
+SELECT
+error,
+status,
+statusCode
+FROM azure.dev_test_labs.operations
+WHERE locationName = '{{ locationName }}'
+AND name = '{{ name }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

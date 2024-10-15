@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - metric_alerts_status
   - monitor
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>metric_alerts_status</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,8 +35,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="name" /> | `string` | The status name. |
 | <CopyableCode code="properties" /> | `object` | An alert status properties. |
 | <CopyableCode code="type" /> | `string` | The extended resource type name. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, ruleName, subscriptionId" /> |
-| <CopyableCode code="list_by_name" /> | `SELECT` | <CopyableCode code="resourceGroupName, ruleName, statusName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, ruleName, subscriptionId" /> | Retrieve an alert rule status. |
+| <CopyableCode code="list_by_name" /> | `SELECT` | <CopyableCode code="resourceGroupName, ruleName, statusName, subscriptionId" /> | Retrieve an alert rule status. |
+
+## `SELECT` examples
+
+Retrieve an alert rule status.
+
+
+```sql
+SELECT
+id,
+name,
+properties,
+type
+FROM azure.monitor.metric_alerts_status
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND ruleName = '{{ ruleName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - node_count_information
   - automation
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>node_count_information</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,24 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="name" /> | `string` | Gets the name of a count type |
 | <CopyableCode code="properties" /> | `object` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, countType, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="automationAccountName, countType, resourceGroupName, subscriptionId" /> | Retrieve counts for Dsc Nodes. |
+
+## `SELECT` examples
+
+Retrieve counts for Dsc Nodes.
+
+
+```sql
+SELECT
+name,
+properties
+FROM azure.automation.node_count_information
+WHERE automationAccountName = '{{ automationAccountName }}'
+AND countType = '{{ countType }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

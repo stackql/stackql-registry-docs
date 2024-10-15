@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - partition_key_range_id_region_metrics
   - cosmos_db
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>partition_key_range_id_region_metrics</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,7 +39,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="startTime" /> | `string` | The start time for the metric (ISO-8601 format). |
 | <CopyableCode code="timeGrain" /> | `string` | The time grain to be used to summarize the metric values. |
 | <CopyableCode code="unit" /> | `string` | The unit of the metric. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="$filter, accountName, collectionRid, databaseRid, partitionKeyRangeId, region, resourceGroupName, subscriptionId" /> | Retrieves the metrics determined by the given filter for the given partition key range id and region. |
+
+## `SELECT` examples
+
+Retrieves the metrics determined by the given filter for the given partition key range id and region.
+
+
+```sql
+SELECT
+name,
+endTime,
+metricValues,
+partitionId,
+partitionKeyRangeId,
+startTime,
+timeGrain,
+unit
+FROM azure.cosmos_db.partition_key_range_id_region_metrics
+WHERE $filter = '{{ $filter }}'
+AND accountName = '{{ accountName }}'
+AND collectionRid = '{{ collectionRid }}'
+AND databaseRid = '{{ databaseRid }}'
+AND partitionKeyRangeId = '{{ partitionKeyRangeId }}'
+AND region = '{{ region }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - restorable_sql_resources
   - cosmos_db
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>restorable_sql_resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,7 +36,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="collectionNames" /> | `array` | The names of the collections available for restore. |
 | <CopyableCode code="databaseName" /> | `string` | The name of the database available for restore. |
 | <CopyableCode code="type" /> | `string` | The type of Azure resource. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="instanceId, location, subscriptionId" /> | Return a list of database and container combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location. This API requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/.../read' permission. |
+
+## `SELECT` examples
+
+Return a list of database and container combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location. This API requires 'Microsoft.DocumentDB/locations/restorableDatabaseAccounts/.../read' permission.
+
+
+```sql
+SELECT
+id,
+name,
+collectionNames,
+databaseName,
+type
+FROM azure.cosmos_db.restorable_sql_resources
+WHERE instanceId = '{{ instanceId }}'
+AND location = '{{ location }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

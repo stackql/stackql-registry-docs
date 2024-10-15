@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - usage_models
   - storage_cache
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>usage_models</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="display" /> | `object` | Localized information describing this usage model. |
 | <CopyableCode code="modelName" /> | `string` | Non-localized keyword name for this usage model. |
 | <CopyableCode code="targetType" /> | `string` | The type of Storage Target to which this model is applicable (only nfs3 as of this version). |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get the list of cache usage models available to this subscription. |
+
+## `SELECT` examples
+
+Get the list of cache usage models available to this subscription.
+
+
+```sql
+SELECT
+display,
+modelName,
+targetType
+FROM azure.storage_cache.usage_models
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

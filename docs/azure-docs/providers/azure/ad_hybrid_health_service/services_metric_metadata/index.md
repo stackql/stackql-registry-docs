@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - services_metric_metadata
   - ad_hybrid_health_service
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>services_metric_metadata</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,8 +42,31 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metricsProcessorClassName" /> | `string` | The name of the class which retrieve and process the metric. |
 | <CopyableCode code="minValue" /> | `integer` | The minimum value. |
 | <CopyableCode code="valueKind" /> | `string` | Indicates if the metrics is a rate,value, percent or duration type. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="metricName, serviceName" /> |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="metricName, serviceName" /> | Gets the service related metrics information. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> | Gets the service related metrics information. |
+
+## `SELECT` examples
+
+Gets the service related metrics information.
+
+
+```sql
+SELECT
+displayName,
+groupings,
+isDefault,
+isDevOps,
+isPerfCounter,
+kind,
+maxValue,
+metricName,
+metricsProcessorClassName,
+minValue,
+valueKind
+FROM azure.ad_hybrid_health_service.services_metric_metadata
+WHERE serviceName = '{{ serviceName }}';
+```

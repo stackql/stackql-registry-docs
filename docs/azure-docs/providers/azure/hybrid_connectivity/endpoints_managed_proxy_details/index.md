@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - endpoints_managed_proxy_details
   - hybrid_connectivity
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>endpoints_managed_proxy_details</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="expiresOn" /> | `integer` | The expiration time of short lived proxy name in unix epoch. |
 | <CopyableCode code="proxy" /> | `string` | The short lived proxy name. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri, data__service" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri, data__service" /> | Fetches the managed proxy details  |
+
+## `SELECT` examples
+
+Fetches the managed proxy details 
+
+
+```sql
+SELECT
+expiresOn,
+proxy
+FROM azure.hybrid_connectivity.endpoints_managed_proxy_details
+WHERE endpointName = '{{ endpointName }}'
+AND resourceUri = '{{ resourceUri }}'
+AND data__service = '{{ data__service }}';
+```

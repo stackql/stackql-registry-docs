@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - products_details
   - azure_stack
-  - azure_stack    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>products_details</code> resource.
 
 ## Overview
 <table><tbody>
@@ -33,7 +34,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="galleryPackageBlobSasUri" /> | `string` | The URI to the .azpkg file that provides information required for showing product in the gallery. |
 | <CopyableCode code="productKind" /> | `string` | Specifies the kind of the product (virtualMachine or virtualMachineExtension). |
 | <CopyableCode code="properties" /> | `object` | Product information. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="productName, registrationName, resourceGroup, subscriptionId" /> | Returns the extended properties of a product. |
+
+## `SELECT` examples
+
+Returns the extended properties of a product.
+
+
+```sql
+SELECT
+galleryPackageBlobSasUri,
+productKind,
+properties
+FROM azure_stack.azure_stack.products_details
+WHERE productName = '{{ productName }}'
+AND registrationName = '{{ registrationName }}'
+AND resourceGroup = '{{ resourceGroup }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```

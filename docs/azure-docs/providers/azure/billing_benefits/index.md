@@ -5,49 +5,37 @@ hide_table_of_contents: false
 keywords:
   - billing_benefits
   - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
 image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-The Billing Benefits API gives you access to billing benefits (savings plan) operations.  
-    
+billing_benefits service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>7</b></span><br />
-<span>total selectable resources:&nbsp;<b>6</b></span><br />
-<span>total methods:&nbsp;<b>14</b></span><br />
+<span>total resources:&nbsp;<b>5</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>azure.billing_benefits</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Azure Billing Benefits</td></tr>
-<tr><td><b>Description</b></td><td>The Billing Benefits API gives you access to billing benefits (savings plan) operations.</td></tr>
-<tr><td><b>Id</b></td><td><code>azure:billing_benefits</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
 <a href="/providers/azure/billing_benefits/operations/">operations</a><br />
-<a href="/providers/azure/billing_benefits/reservation_order_alias/">reservation_order_alias</a><br />
-<a href="/providers/azure/billing_benefits/savings_plan/">savings_plan</a><br />
-<a href="/providers/azure/billing_benefits/savings_plan_all/">savings_plan_all</a><br />
+<a href="/providers/azure/billing_benefits/reservation_order_aliases/">reservation_order_aliases</a><br />
+<a href="/providers/azure/billing_benefits/savings_plan_order_aliases/">savings_plan_order_aliases</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/azure/billing_benefits/savings_plan_order/">savings_plan_order</a><br />
-<a href="/providers/azure/billing_benefits/savings_plan_order_alias/">savings_plan_order_alias</a><br />
-<a href="/providers/azure/billing_benefits/savingsplan/">savingsplan</a><br />
+<a href="/providers/azure/billing_benefits/savings_plan_orders/">savings_plan_orders</a><br />
+<a href="/providers/azure/billing_benefits/savings_plans/">savings_plans</a>
 </div>
 </div>

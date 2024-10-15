@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - skus
   - spring_apps
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>skus</code> resource.
 
 ## Overview
 <table><tbody>
@@ -35,9 +36,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="locationInfo" /> | `array` | Gets a list of locations and availability zones in those locations where the SKU is available. |
 | <CopyableCode code="locations" /> | `array` | Gets the set of locations that the SKU is available. |
 | <CopyableCode code="resourceType" /> | `string` | Gets the type of resource the SKU applies to. |
-| <CopyableCode code="restrictions" /> | `array` | Gets the restrictions because of which SKU cannot be used. This is<br />empty if there are no restrictions. |
+| <CopyableCode code="restrictions" /> | `array` | Gets the restrictions because of which SKU cannot be used. This is
+empty if there are no restrictions. |
 | <CopyableCode code="tier" /> | `string` | Gets the tier of SKU. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all of the available skus of the Microsoft.AppPlatform provider. |
+
+## `SELECT` examples
+
+Lists all of the available skus of the Microsoft.AppPlatform provider.
+
+
+```sql
+SELECT
+name,
+capacity,
+locationInfo,
+locations,
+resourceType,
+restrictions,
+tier
+FROM azure.spring_apps.skus
+WHERE subscriptionId = '{{ subscriptionId }}';
+```

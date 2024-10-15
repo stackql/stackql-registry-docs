@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - resources
   - resource_graph
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,15 +29,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="$skipToken" /> | `string` | When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data. |
-| <CopyableCode code="count" /> | `integer` | Number of records returned in the current response. In the case of paging, this is the number of records in the current page. |
-| <CopyableCode code="data" /> | `object` | Query output in JObject array or Table format. |
-| <CopyableCode code="facets" /> | `array` | Query facets. |
-| <CopyableCode code="resultTruncated" /> | `string` | Indicates whether the query results are truncated. |
-| <CopyableCode code="totalRecords" /> | `integer` | Number of total records matching the query. |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="resources" /> | `SELECT` | <CopyableCode code="data__query" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="query" /> | `EXEC` | <CopyableCode code="data__query" /> | Queries the resources managed by Azure Resource Manager for scopes specified in the request. |

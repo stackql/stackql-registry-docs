@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - export_configurations
   - application_insights
-  - azure    
+  - google
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Azure resources using SQL
+description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/google/stackql-google-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>export_configurations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -49,6 +50,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="ResourceGroup" /> | `string` | The resource group of the Application Insights component. |
 | <CopyableCode code="StorageName" /> | `string` | The name of the destination storage account. |
 | <CopyableCode code="SubscriptionId" /> | `string` | The subscription of the Application Insights component. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
@@ -56,4 +58,145 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Gets a list of Continuous Export configuration of an Application Insights component. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Create a Continuous Export configuration of an Application Insights component. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="exportId, resourceGroupName, resourceName, subscriptionId" /> | Delete a Continuous Export configuration of an Application Insights component. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="exportId, resourceGroupName, resourceName, subscriptionId" /> | Update the Continuous Export configuration for this export id. |
+| <CopyableCode code="update" /> | `REPLACE` | <CopyableCode code="exportId, resourceGroupName, resourceName, subscriptionId" /> | Update the Continuous Export configuration for this export id. |
+
+## `SELECT` examples
+
+Gets a list of Continuous Export configuration of an Application Insights component.
+
+
+```sql
+SELECT
+ApplicationName,
+ContainerName,
+DestinationAccountId,
+DestinationStorageLocationId,
+DestinationStorageSubscriptionId,
+DestinationType,
+ExportId,
+ExportStatus,
+InstrumentationKey,
+IsUserEnabled,
+LastGapTime,
+LastSuccessTime,
+LastUserUpdate,
+NotificationQueueEnabled,
+PermanentErrorReason,
+RecordTypes,
+ResourceGroup,
+StorageName,
+SubscriptionId
+FROM azure.application_insights.export_configurations
+WHERE resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>export_configurations</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO azure.application_insights.export_configurations (
+resourceGroupName,
+resourceName,
+subscriptionId,
+RecordTypes,
+DestinationType,
+DestinationAddress,
+IsEnabled,
+NotificationQueueEnabled,
+NotificationQueueUri,
+DestinationStorageSubscriptionId,
+DestinationStorageLocationId,
+DestinationAccountId
+)
+SELECT 
+'{{ resourceGroupName }}',
+'{{ resourceName }}',
+'{{ subscriptionId }}',
+'{{ RecordTypes }}',
+'{{ DestinationType }}',
+'{{ DestinationAddress }}',
+'{{ IsEnabled }}',
+'{{ NotificationQueueEnabled }}',
+'{{ NotificationQueueUri }}',
+'{{ DestinationStorageSubscriptionId }}',
+'{{ DestinationStorageLocationId }}',
+'{{ DestinationAccountId }}'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: your_resource_model_name
+  props:
+    - name: RecordTypes
+      value: string
+    - name: DestinationType
+      value: string
+    - name: DestinationAddress
+      value: string
+    - name: IsEnabled
+      value: string
+    - name: NotificationQueueEnabled
+      value: string
+    - name: NotificationQueueUri
+      value: string
+    - name: DestinationStorageSubscriptionId
+      value: string
+    - name: DestinationStorageLocationId
+      value: string
+    - name: DestinationAccountId
+      value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `REPLACE` example
+
+Replaces all fields in the specified <code>export_configurations</code> resource.
+
+```sql
+/*+ update */
+REPLACE azure.application_insights.export_configurations
+SET 
+RecordTypes = '{{ RecordTypes }}',
+DestinationType = '{{ DestinationType }}',
+DestinationAddress = '{{ DestinationAddress }}',
+IsEnabled = '{{ IsEnabled }}',
+NotificationQueueEnabled = '{{ NotificationQueueEnabled }}',
+NotificationQueueUri = '{{ NotificationQueueUri }}',
+DestinationStorageSubscriptionId = '{{ DestinationStorageSubscriptionId }}',
+DestinationStorageLocationId = '{{ DestinationStorageLocationId }}',
+DestinationAccountId = '{{ DestinationAccountId }}'
+WHERE 
+exportId = '{{ exportId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>export_configurations</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM azure.application_insights.export_configurations
+WHERE exportId = '{{ exportId }}'
+AND resourceGroupName = '{{ resourceGroupName }}'
+AND resourceName = '{{ resourceName }}'
+AND subscriptionId = '{{ subscriptionId }}';
+```
