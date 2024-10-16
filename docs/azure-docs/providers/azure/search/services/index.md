@@ -84,7 +84,7 @@ Creates, updates, deletes, gets or lists a <code>services</code> resource.
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="resourceGroupName, searchServiceName, subscriptionId" /> | Creates or updates a search service in the given resource group. If the search service already exists, all properties will be updated with the given values. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, searchServiceName, subscriptionId" /> | Deletes a search service in the given resource group, along with its associated resources. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="resourceGroupName, searchServiceName, subscriptionId" /> | Updates an existing search service in the given resource group. |
-| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__name, data__type" /> | Checks whether or not the given search service name is available for use. Search service names must be globally unique since they are part of the service URI (https://.search.windows.net). |
+| <CopyableCode code="check_name_availability" /> | `EXEC` | <CopyableCode code="subscriptionId, data__name, data__type" /> | Checks whether or not the given search service name is available for use. Search service names must be globally unique since they are part of the service URI (https://name.search.windows.net). |
 
 ## `SELECT` examples
 
