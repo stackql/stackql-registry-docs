@@ -29,32 +29,9 @@ Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{operation} |
-| <CopyableCode code="actionType" /> | `string` | Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs. |
-| <CopyableCode code="display" /> | `object` | Localized display information for this particular operation. |
-| <CopyableCode code="isDataAction" /> | `boolean` | Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations. |
-| <CopyableCode code="origin" /> | `string` | The intended executor of the operation; as in Resource Based Access Control (RBAC) and audit logs UX. Default value is "user,system" |
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Lists all of the available Microsoft.Resources REST API operations. |
-| <CopyableCode code="check_resource_name" /> | `EXEC` | <CopyableCode code="data__name, data__type" /> | A resource name is valid if it is not a reserved word, does not contains a reserved word and does not start with a reserved word |
-
-## `SELECT` examples
-
-Lists all of the available Microsoft.Resources REST API operations.
-
-
-```sql
-SELECT
-name,
-actionType,
-display,
-isDataAction,
-origin
-FROM azure.resources.operations
-;
-```

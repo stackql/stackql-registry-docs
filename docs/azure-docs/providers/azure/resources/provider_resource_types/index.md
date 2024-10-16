@@ -1,9 +1,9 @@
 ---
-title: subscriptions
+title: provider_resource_types
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - subscriptions
+  - provider_resource_types
   - resources
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>subscriptions</code> resource.
+Creates, updates, deletes, gets or lists a <code>provider_resource_types</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>subscriptions</code></td></tr>
+<tr><td><b>Name</b></td><td><code>provider_resource_types</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="azure.resources.subscriptions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resources.provider_resource_types" /></td></tr>
 </tbody></table>
 
 ## Fields
