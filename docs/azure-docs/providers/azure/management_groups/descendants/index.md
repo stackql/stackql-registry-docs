@@ -46,7 +46,6 @@ Creates, updates, deletes, gets or lists a <code>descendants</code> resource.
 List all entities that descend from a management group.
 
 
-
 ```sql
 SELECT
 id,

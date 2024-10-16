@@ -79,7 +79,7 @@ Creates, updates, deletes, gets or lists a <code>smart_groups</code> resource.
 
 ## `SELECT` examples
 
-List all the Smart Groups within a specified subscription. 
+List all the Smart Groups within a specified subscription.
 
 <Tabs
     defaultValue="view"

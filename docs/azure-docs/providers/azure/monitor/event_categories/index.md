@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>event_categories</code> resourc
 
 ## `SELECT` examples
 
-Get the list of available event categories supported in the Activity Logs Service.<br>The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy.
+Get the list of available event categories supported in the Activity Logs Service. The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy.
 
 
 ```sql

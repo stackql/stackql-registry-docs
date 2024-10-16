@@ -43,7 +43,7 @@ Creates, updates, deletes, gets or lists a <code>configuration_profiles_versions
 
 ## `SELECT` examples
 
-Retrieve a list of configuration profile version for a configuration profile 
+Retrieve a list of configuration profile version for a configuration profile
 
 
 ```sql

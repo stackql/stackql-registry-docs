@@ -74,7 +74,6 @@ If a management group contains child resources, the request will fail. |
 
 List management groups for the authenticated user.
 
-
 <Tabs
     defaultValue="view"
     values={[

@@ -65,7 +65,7 @@ Creates, updates, deletes, gets or lists a <code>group_quota_subscription_alloca
 
 ## `SELECT` examples
 
-Gets all the quota allocated to a subscription for the specific Resource Provider, Location. This will include the GroupQuota and total quota allocated to the subscription. Only the Group quota allocated to the subscription can be allocated back to the MG Group Quota. Use the $filter parameter to filter out the specific resource based on the ResourceProvider/Location. $filter is a required parameter. 
+Gets all the quota allocated to a subscription for the specific Resource Provider, Location. This will include the GroupQuota and total quota allocated to the subscription. Only the Group quota allocated to the subscription can be allocated back to the MG Group Quota. Use the $filter parameter to filter out the specific resource based on the ResourceProvider/Location. $filter is a required parameter.
 
 <Tabs
     defaultValue="view"

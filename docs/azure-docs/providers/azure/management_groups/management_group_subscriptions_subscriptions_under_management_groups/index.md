@@ -46,7 +46,6 @@ Creates, updates, deletes, gets or lists a <code>management_group_subscriptions_
 Retrieves details about all subscriptions which are associated with the management group.
 
 
-
 ```sql
 SELECT
 id,

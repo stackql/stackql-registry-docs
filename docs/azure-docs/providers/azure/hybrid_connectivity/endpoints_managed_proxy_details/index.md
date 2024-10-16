@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>endpoints_managed_proxy_details
 
 ## `SELECT` examples
 
-Fetches the managed proxy details 
+Fetches the managed proxy details
 
 
 ```sql

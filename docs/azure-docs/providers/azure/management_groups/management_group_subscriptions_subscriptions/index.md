@@ -69,7 +69,6 @@ Creates, updates, deletes, gets or lists a <code>management_group_subscriptions_
 
 Retrieves details about given subscription which is associated with the management group.
 
-
 <Tabs
     defaultValue="view"
     values={[
