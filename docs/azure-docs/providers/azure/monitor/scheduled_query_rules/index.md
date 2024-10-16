@@ -50,7 +50,7 @@ Creates, updates, deletes, gets or lists a <code>scheduled_query_rules</code> re
 | <CopyableCode code="criteria" /> | `text` | field from the `properties` object |
 | <CopyableCode code="display_name" /> | `text` | field from the `properties` object |
 | <CopyableCode code="enabled" /> | `text` | field from the `properties` object |
-| <CopyableCode code="etag" /> | `text` | The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.  |
+| <CopyableCode code="etag" /> | `text` | The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. |
 | <CopyableCode code="evaluation_frequency" /> | `text` | field from the `properties` object |
 | <CopyableCode code="identity" /> | `text` | Identity for the resource. |
 | <CopyableCode code="is_legacy_log_analytics_rule" /> | `text` | field from the `properties` object |
@@ -78,7 +78,7 @@ Creates, updates, deletes, gets or lists a <code>scheduled_query_rules</code> re
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} |
 | <CopyableCode code="name" /> | `string` | The name of the resource |
-| <CopyableCode code="etag" /> | `string` | The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.  |
+| <CopyableCode code="etag" /> | `string` | The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. |
 | <CopyableCode code="identity" /> | `object` | Identity for the resource. |
 | <CopyableCode code="kind" /> | `string` | Indicates the type of scheduled query rule. The default is LogAlert. |
 | <CopyableCode code="location" /> | `string` | The geo-location where the resource lives |

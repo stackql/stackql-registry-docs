@@ -60,7 +60,7 @@ Creates, updates, deletes, gets or lists a <code>serial_ports</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="parentResource, parentResourceType, resourceGroupName, resourceProviderNamespace, serialPort, subscriptionId" /> | Gets the configured settings for a serial port |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parentResource, parentResourceType, resourceGroupName, resourceProviderNamespace, subscriptionId" /> | Lists all of the configured serial ports for a parent resource  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="parentResource, parentResourceType, resourceGroupName, resourceProviderNamespace, subscriptionId" /> | Lists all of the configured serial ports for a parent resource |
 | <CopyableCode code="list_by_subscriptions" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Handles requests to list all SerialPort resources in a subscription. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="parentResource, parentResourceType, resourceGroupName, resourceProviderNamespace, serialPort, subscriptionId" /> | Creates or updates a serial port |
 | <CopyableCode code="connect" /> | `EXEC` | <CopyableCode code="parentResource, parentResourceType, resourceGroupName, resourceProviderNamespace, serialPort, subscriptionId" /> | Connect to serial port of the target resource |

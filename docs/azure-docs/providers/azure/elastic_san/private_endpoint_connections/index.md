@@ -59,7 +59,7 @@ Creates, updates, deletes, gets or lists a <code>private_endpoint_connections</c
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} |
 | <CopyableCode code="name" /> | `string` | The name of the resource |
-| <CopyableCode code="properties" /> | `object` |  Response for PrivateEndpoint connection properties |
+| <CopyableCode code="properties" /> | `object` | Response for PrivateEndpoint connection properties |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
 | <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 </TabItem></Tabs>

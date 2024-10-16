@@ -82,7 +82,7 @@ Creates, updates, deletes, gets or lists a <code>backup_instances</code> resourc
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Gets a backup instances belonging to a backup vault |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName" /> | Create or update a backup instance in a backup vault |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName" /> | Delete a backup instance in a backup vault |
-| <CopyableCode code="adhoc_backup" /> | `EXEC` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName, data__backupRuleOptions" /> | Trigger adhoc backup  |
+| <CopyableCode code="adhoc_backup" /> | `EXEC` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName, data__backupRuleOptions" /> | Trigger adhoc backup |
 | <CopyableCode code="resume_backups" /> | `EXEC` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName" /> | This operation will resume backups for backup instance |
 | <CopyableCode code="resume_protection" /> | `EXEC` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName" /> | This operation will resume protection for a stopped backup instance |
 | <CopyableCode code="stop_protection" /> | `EXEC` | <CopyableCode code="backupInstanceName, resourceGroupName, subscriptionId, vaultName" /> | This operation will stop protection of a backup instance and data will be held forever |

@@ -31,10 +31,10 @@ Creates, updates, deletes, gets or lists a <code>locations</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | Specifies the resource identifier of the location.  |
-| <CopyableCode code="name" /> | `string` | Specifies the name of the location. Use List Locations to get all supported locations.  |
+| <CopyableCode code="id" /> | `string` | Specifies the resource identifier of the location. |
+| <CopyableCode code="name" /> | `string` | Specifies the name of the location. Use List Locations to get all supported locations. |
 | <CopyableCode code="properties" /> | `` | location properties |
-| <CopyableCode code="type" /> | `string` | Specifies the type of the location.  |
+| <CopyableCode code="type" /> | `string` | Specifies the type of the location. |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |

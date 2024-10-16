@@ -100,7 +100,7 @@ Creates, updates, deletes, gets or lists a <code>deleted_accounts</code> resourc
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, location, resourceGroupName, subscriptionId" /> | Returns a Cognitive Services account specified by the parameters. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Returns all the resources of a particular type belonging to a subscription. |
-| <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="accountName, location, resourceGroupName, subscriptionId" /> | Deletes a Cognitive Services account from the resource group.  |
+| <CopyableCode code="purge" /> | `EXEC` | <CopyableCode code="accountName, location, resourceGroupName, subscriptionId" /> | Deletes a Cognitive Services account from the resource group. |
 
 ## `SELECT` examples
 

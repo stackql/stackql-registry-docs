@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>event_categories</code> resourc
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Get the list of available event categories supported in the Activity Logs Service.<br>The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | Get the list of available event categories supported in the Activity Logs Service. The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy. |
 
 ## `SELECT` examples
 

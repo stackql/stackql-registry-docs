@@ -40,7 +40,7 @@ Creates, updates, deletes, gets or lists a <code>table_services</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all table services for the storage account. |
-| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, tableServiceName" /> | Sets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.  |
+| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="accountName, resourceGroupName, subscriptionId, tableServiceName" /> | Sets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. |
 
 ## `SELECT` examples
 

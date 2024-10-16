@@ -35,5 +35,4 @@ Creates, updates, deletes, gets or lists a <code>calculate_exchanges</code> reso
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="" /> | Calculates price for exchanging `Reservations` if there are no policy errors.
- |
+| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="" /> | Calculates price for exchanging `Reservations` if there are no policy errors. |

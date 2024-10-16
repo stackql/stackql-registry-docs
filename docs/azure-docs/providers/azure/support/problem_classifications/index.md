@@ -65,7 +65,7 @@ Creates, updates, deletes, gets or lists a <code>problem_classifications</code> 
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="problemClassificationName, serviceName" /> | Get problem classification details for a specific Azure service. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="serviceName" /> | Lists all the problem classifications (categories) available for a specific Azure service. Always use the service and problem classifications obtained programmatically. This practice ensures that you always have the most recent set of service and problem classification Ids. |
-| <CopyableCode code="classify_problems" /> | `EXEC` | <CopyableCode code="problemServiceName, subscriptionId, data__issueSummary" /> | Classify the right problem classifications (categories) available for a specific Azure service.  |
+| <CopyableCode code="classify_problems" /> | `EXEC` | <CopyableCode code="problemServiceName, subscriptionId, data__issueSummary" /> | Classify the right problem classifications (categories) available for a specific Azure service. |
 
 ## `SELECT` examples
 

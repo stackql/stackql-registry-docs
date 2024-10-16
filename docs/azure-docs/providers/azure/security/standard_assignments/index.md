@@ -71,7 +71,7 @@ Creates, updates, deletes, gets or lists a <code>standard_assignments</code> res
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceId, standardAssignmentName" /> | This operation retrieves a single standard assignment, given its name and the scope it was created at. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="scope" /> | Get a list of all relevant standard assignments over a scope |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceId, standardAssignmentName" /> |  This operation creates or updates a standard assignment with the given scope and name. standard assignments apply to all resources contained within their scope. For example, when you assign a policy at resource group scope, that policy applies to all resources in the group. |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceId, standardAssignmentName" /> | This operation creates or updates a standard assignment with the given scope and name. standard assignments apply to all resources contained within their scope. For example, when you assign a policy at resource group scope, that policy applies to all resources in the group. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceId, standardAssignmentName" /> | This operation deletes a standard assignment, given its name and the scope it was created in. The scope of a standard assignment is the part of its ID preceding '/providers/Microsoft.Security/standardAssignments/{standardAssignmentName}'. |
 
 ## `SELECT` examples

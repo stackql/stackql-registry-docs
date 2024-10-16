@@ -101,12 +101,10 @@ Creates, updates, deletes, gets or lists a <code>reservations</code> resource.
 | <CopyableCode code="list_all" /> | `SELECT` | <CopyableCode code="" /> | List the reservations and the roll up counts of reservations group by provisioning states that the user has access to in the current tenant. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="reservationId, reservationOrderId" /> | Updates the applied scopes of the `Reservation`. |
 | <CopyableCode code="archive" /> | `EXEC` | <CopyableCode code="reservationId, reservationOrderId" /> | Archiving a `Reservation` moves it to `Archived` state. |
-| <CopyableCode code="available_scopes" /> | `EXEC` | <CopyableCode code="reservationId, reservationOrderId" /> | Check whether the scopes from request is valid for `Reservation`.
- |
+| <CopyableCode code="available_scopes" /> | `EXEC` | <CopyableCode code="reservationId, reservationOrderId" /> | Check whether the scopes from request is valid for `Reservation`. |
 | <CopyableCode code="merge" /> | `EXEC` | <CopyableCode code="reservationOrderId" /> | Merge the specified `Reservation`s into a new `Reservation`. The two `Reservation`s being merged must have same properties. |
 | <CopyableCode code="split" /> | `EXEC` | <CopyableCode code="reservationOrderId" /> | Split a `Reservation` into two `Reservation`s with specified quantity distribution. |
-| <CopyableCode code="unarchive" /> | `EXEC` | <CopyableCode code="reservationId, reservationOrderId" /> | Restores a `Reservation` to the state it was before archiving.
- |
+| <CopyableCode code="unarchive" /> | `EXEC` | <CopyableCode code="reservationId, reservationOrderId" /> | Restores a `Reservation` to the state it was before archiving. |
 
 ## `SELECT` examples
 

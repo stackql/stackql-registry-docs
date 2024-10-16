@@ -39,8 +39,7 @@ Creates, updates, deletes, gets or lists a <code>descendants</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | List all entities that descend from a management group.
- |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | List all entities that descend from a management group. |
 
 ## `SELECT` examples
 

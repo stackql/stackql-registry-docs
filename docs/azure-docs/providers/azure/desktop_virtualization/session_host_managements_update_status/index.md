@@ -52,7 +52,7 @@ Creates, updates, deletes, gets or lists a <code>session_host_managements_update
 | <CopyableCode code="scheduled_date_time" /> | `text` | field from the `properties` object |
 | <CopyableCode code="session_host_management" /> | `text` | field from the `properties` object |
 | <CopyableCode code="start_time" /> | `text` | field from the `properties` object |
-| <CopyableCode code="status" /> | `text` | Operation status. Current defined values are < Error | Scheduled | UpdatingSessionHosts | ValidatingSessionHostUpdate | Paused | Pausing | Cancelling > | Succeeded | Failed | Canceled |
+| <CopyableCode code="status" /> | `text` | Operation status. Current defined values are < Error \| Scheduled \| UpdatingSessionHosts \| ValidatingSessionHostUpdate \| Paused \| Pausing \| Cancelling > \| Succeeded \| Failed \| Canceled |
 | <CopyableCode code="subscriptionId" /> | `text` | field from the `properties` object |
 </TabItem>
 <TabItem value="resource">
@@ -66,7 +66,7 @@ Creates, updates, deletes, gets or lists a <code>session_host_managements_update
 | <CopyableCode code="percentComplete" /> | `number` | Percent of the operation that is complete. |
 | <CopyableCode code="properties" /> | `object` | Properties bag to hold custom RP properties for sessionHostManagement Update Statuses. |
 | <CopyableCode code="startTime" /> | `string` | The start time of the operation. |
-| <CopyableCode code="status" /> | `string` | Operation status. Current defined values are < Error | Scheduled | UpdatingSessionHosts | ValidatingSessionHostUpdate | Paused | Pausing | Cancelling > | Succeeded | Failed | Canceled |
+| <CopyableCode code="status" /> | `string` | Operation status. Current defined values are < Error \| Scheduled \| UpdatingSessionHosts \| ValidatingSessionHostUpdate \| Paused \| Pausing \| Cancelling > \| Succeeded \| Failed \| Canceled |
 </TabItem></Tabs>
 
 ## Methods

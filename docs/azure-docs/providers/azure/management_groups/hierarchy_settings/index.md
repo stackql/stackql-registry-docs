@@ -39,16 +39,11 @@ Creates, updates, deletes, gets or lists a <code>hierarchy_settings</code> resou
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
- |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="groupId" /> | Gets all the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
- |
-| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="groupId" /> | Creates or updates the hierarchy settings defined at the Management Group level.
- |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId" /> | Deletes the hierarchy settings defined at the Management Group level.
- |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="groupId" /> | Updates the hierarchy settings defined at the Management Group level.
- |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="groupId" /> | Gets all the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy. |
+| <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="groupId" /> | Creates or updates the hierarchy settings defined at the Management Group level. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId" /> | Deletes the hierarchy settings defined at the Management Group level. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="groupId" /> | Updates the hierarchy settings defined at the Management Group level. |
 
 ## `SELECT` examples
 

@@ -39,8 +39,7 @@ Creates, updates, deletes, gets or lists a <code>entities</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
- |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | List all entities (Management Groups, Subscriptions, etc.) for the authenticated user. |
 
 ## `SELECT` examples
 

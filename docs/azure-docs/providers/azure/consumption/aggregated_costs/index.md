@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>aggregated_costs</code> resourc
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `text` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event. |
 | <CopyableCode code="azure_charges" /> | `text` | field from the `properties` object |
 | <CopyableCode code="billing_period_id" /> | `text` | field from the `properties` object |
 | <CopyableCode code="charges_billed_separately" /> | `text` | field from the `properties` object |
@@ -62,7 +62,7 @@ Creates, updates, deletes, gets or lists a <code>aggregated_costs</code> resourc
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="properties" /> | `object` | The properties of the Management Group Aggregated Cost. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |

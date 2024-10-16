@@ -35,10 +35,8 @@ Creates, updates, deletes, gets or lists a <code>management_group_subscriptions<
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="groupId, subscriptionId" /> | Associates existing subscription with the management group.
- |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId, subscriptionId" /> | De-associates subscription from the management group.
- |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="groupId, subscriptionId" /> | Associates existing subscription with the management group. |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId, subscriptionId" /> | De-associates subscription from the management group. |
 
 ## `INSERT` example
 

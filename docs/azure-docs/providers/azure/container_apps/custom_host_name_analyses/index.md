@@ -35,13 +35,13 @@ Creates, updates, deletes, gets or lists a <code>custom_host_name_analyses</code
 | <CopyableCode code="alternateCNameRecords" /> | `array` | Alternate CName records visible for this hostname. |
 | <CopyableCode code="alternateTxtRecords" /> | `array` | Alternate TXT records visible for this hostname. |
 | <CopyableCode code="cNameRecords" /> | `array` | CName records visible for this hostname. |
-| <CopyableCode code="conflictWithEnvironmentCustomDomain" /> | `boolean` | <code>true</code> if there is a conflict on the Container App's managed environment level custom domain; otherwise, <code>false</code>. |
+| <CopyableCode code="conflictWithEnvironmentCustomDomain" /> | `boolean` | `true` if there is a conflict on the Container App's managed environment level custom domain; otherwise, `false`. |
 | <CopyableCode code="conflictingContainerAppResourceId" /> | `string` | Name of the conflicting Container App on the Managed Environment if it's within the same subscription. |
 | <CopyableCode code="customDomainVerificationFailureInfo" /> | `object` | Raw failure information if DNS verification fails. |
 | <CopyableCode code="customDomainVerificationTest" /> | `string` | DNS verification test result. |
-| <CopyableCode code="hasConflictOnManagedEnvironment" /> | `boolean` | <code>true</code> if there is a conflict on the Container App's managed environment; otherwise, <code>false</code>. |
+| <CopyableCode code="hasConflictOnManagedEnvironment" /> | `boolean` | `true` if there is a conflict on the Container App's managed environment; otherwise, `false`. |
 | <CopyableCode code="hostName" /> | `string` | Host name that was analyzed |
-| <CopyableCode code="isHostnameAlreadyVerified" /> | `boolean` | <code>true</code> if hostname is already verified; otherwise, <code>false</code>. |
+| <CopyableCode code="isHostnameAlreadyVerified" /> | `boolean` | `true` if hostname is already verified; otherwise, `false`. |
 | <CopyableCode code="txtRecords" /> | `array` | TXT records visible for this hostname. |
 
 ## Methods

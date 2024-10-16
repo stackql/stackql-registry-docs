@@ -75,7 +75,7 @@ Creates, updates, deletes, gets or lists a <code>b2c_tenants</code> resource.
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Get all the Azure AD B2C tenant resources in a resource group. |
 | <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Get all the Azure AD B2C tenant resources in a subscription. |
 | <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId, data__location, data__properties, data__sku" /> | Initiates an async request to create both the Azure AD B2C tenant and the corresponding Azure resource linked to a subscription. Note: Please check name availability before creating a new tenant. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Initiates an async operation to delete the Azure AD B2C tenant and Azure resource. The resource deletion can only happen as the last step in [the tenant deletion process](https://aka.ms/deleteB2Ctenant).  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Initiates an async operation to delete the Azure AD B2C tenant and Azure resource. The resource deletion can only happen as the last step in [the tenant deletion process](https://aka.ms/deleteB2Ctenant). |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="resourceGroupName, resourceName, subscriptionId" /> | Update the Azure AD B2C tenant resource. |
 
 ## `SELECT` examples

@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>balances_for_billing_period_by_
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `text` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event. |
 | <CopyableCode code="adjustment_details" /> | `text` | field from the `properties` object |
 | <CopyableCode code="adjustments" /> | `text` | field from the `properties` object |
 | <CopyableCode code="azure_marketplace_service_charges" /> | `text` | field from the `properties` object |
@@ -69,7 +69,7 @@ Creates, updates, deletes, gets or lists a <code>balances_for_billing_period_by_
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="properties" /> | `object` | The properties of the balance. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |

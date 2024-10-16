@@ -32,11 +32,9 @@ Creates, updates, deletes, gets or lists a <code>quota_by_counter_keys</code> re
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="counterKey" /> | `string` | The Key value of the Counter. Must not be empty. |
-| <CopyableCode code="periodEndTime" /> | `string` | The date of the end of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
- |
+| <CopyableCode code="periodEndTime" /> | `string` | The date of the end of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard. |
 | <CopyableCode code="periodKey" /> | `string` | Identifier of the Period for which the counter was collected. Must not be empty. |
-| <CopyableCode code="periodStartTime" /> | `string` | The date of the start of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
- |
+| <CopyableCode code="periodStartTime" /> | `string` | The date of the start of Counter Period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard. |
 | <CopyableCode code="value" /> | `object` | Quota counter value details. |
 
 ## Methods

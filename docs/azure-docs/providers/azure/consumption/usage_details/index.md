@@ -32,7 +32,7 @@ Creates, updates, deletes, gets or lists a <code>usage_details</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="kind" /> | `string` | Specifies the kind of usage details. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |

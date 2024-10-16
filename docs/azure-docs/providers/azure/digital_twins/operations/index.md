@@ -31,7 +31,7 @@ Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{read | write | action | delete} |
+| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{read \| write \| action \| delete} |
 | <CopyableCode code="display" /> | `object` | The object that represents the operation. |
 | <CopyableCode code="isDataAction" /> | `boolean` | If the operation is a data action (for data plane rbac). |
 | <CopyableCode code="origin" /> | `string` | The intended executor of the operation. |

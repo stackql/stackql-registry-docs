@@ -32,7 +32,7 @@ Creates, updates, deletes, gets or lists a <code>marketplaces</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="properties" /> | `object` | The properties of the marketplace usage detail. |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |

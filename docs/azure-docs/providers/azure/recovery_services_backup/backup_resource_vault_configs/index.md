@@ -70,7 +70,7 @@ Creates, updates, deletes, gets or lists a <code>backup_resource_vault_configs</
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Fetches resource vault config. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Updates vault security config. |
-| <CopyableCode code="put" /> | `REPLACE` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Updates vault security config.  |
+| <CopyableCode code="put" /> | `REPLACE` | <CopyableCode code="resourceGroupName, subscriptionId, vaultName" /> | Updates vault security config. |
 
 ## `SELECT` examples
 

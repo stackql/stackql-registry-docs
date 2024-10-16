@@ -35,4 +35,4 @@ Creates, updates, deletes, gets or lists a <code>problem_classifications_no_subs
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="classify_problems" /> | `EXEC` | <CopyableCode code="problemServiceName, data__issueSummary" /> | Classify the right problem classifications (categories) available for a specific Azure service.  |
+| <CopyableCode code="classify_problems" /> | `EXEC` | <CopyableCode code="problemServiceName, data__issueSummary" /> | Classify the right problem classifications (categories) available for a specific Azure service. |
