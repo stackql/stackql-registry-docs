@@ -1,9 +1,9 @@
 ---
-title: subscriptions
+title: changes
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - subscriptions
+  - changes
   - resources
   - google
   - stackql
@@ -19,13 +19,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>subscriptions</code> resource.
+Creates, updates, deletes, gets or lists a <code>changes</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>subscriptions</code></td></tr>
+<tr><td><b>Name</b></td><td><code>changes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="azure.resources.subscriptions" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="azure.resources.changes" /></td></tr>
 </tbody></table>
 
 ## Fields
