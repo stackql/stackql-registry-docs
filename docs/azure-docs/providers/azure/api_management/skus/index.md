@@ -43,7 +43,7 @@ Creates, updates, deletes, gets or lists a <code>skus</code> resource.
 | <CopyableCode code="resourceType" /> | `string` | The type of resource the SKU applies to. |
 | <CopyableCode code="restrictions" /> | `array` | The restrictions because of which SKU cannot be used. This is empty if there are no restrictions. |
 | <CopyableCode code="size" /> | `string` | The Size of the SKU. |
-| <CopyableCode code="tier" /> | `string` | Specifies the tier of virtual machines in a scale set.   Possible Values:   **Standard**   **Basic** |
+| <CopyableCode code="tier" /> | `string` | Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic** |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
