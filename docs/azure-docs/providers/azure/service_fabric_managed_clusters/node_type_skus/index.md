@@ -32,7 +32,7 @@ Creates, updates, deletes, gets or lists a <code>node_type_skus</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="capacity" /> | `object` | Provides information about how node type can be scaled. |
-| <CopyableCode code="resourceType" /> | `string` | The type of resource the sku applies to.    Value: Microsoft.ServiceFabric/managedClusters/nodeTypes. |
+| <CopyableCode code="resourceType" /> | `string` | The type of resource the sku applies to.  <br /><br />Value: Microsoft.ServiceFabric/managedClusters/nodeTypes. |
 | <CopyableCode code="sku" /> | `object` | Describes a node type supported sku. |
 
 ## Methods
