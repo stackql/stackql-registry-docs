@@ -77,7 +77,7 @@ Creates, updates, deletes, gets or lists a <code>commitment_plans_plans</code> r
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> | Returns a Cognitive Services commitment plan specified by the parameters. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> | Create Cognitive Services commitment plan. |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> | Deletes a Cognitive Services commitment plan from the resource group.  |
+| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> | Deletes a Cognitive Services commitment plan from the resource group. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="commitmentPlanName, resourceGroupName, subscriptionId" /> | Create Cognitive Services commitment plan. |
 
 ## `SELECT` examples

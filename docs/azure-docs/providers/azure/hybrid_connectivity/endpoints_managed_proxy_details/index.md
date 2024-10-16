@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>endpoints_managed_proxy_details
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri, data__service" /> | Fetches the managed proxy details  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri, data__service" /> | Fetches the managed proxy details |
 
 ## `SELECT` examples
 

@@ -39,8 +39,7 @@ Creates, updates, deletes, gets or lists a <code>management_group_subscriptions_
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Retrieves details about all subscriptions which are associated with the management group.
- |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Retrieves details about all subscriptions which are associated with the management group. |
 
 ## `SELECT` examples
 

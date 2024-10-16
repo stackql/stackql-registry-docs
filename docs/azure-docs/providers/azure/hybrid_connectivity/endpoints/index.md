@@ -60,7 +60,7 @@ Creates, updates, deletes, gets or lists a <code>endpoints</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri" /> | Gets the endpoint to the resource. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceUri" /> | List of endpoints to the target resource. |
-| <CopyableCode code="list_ingress_gateway_credentials" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri" /> | Gets the ingress gateway endpoint credentials  |
+| <CopyableCode code="list_ingress_gateway_credentials" /> | `SELECT` | <CopyableCode code="endpointName, resourceUri" /> | Gets the ingress gateway endpoint credentials |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="endpointName, resourceUri" /> | Create or update the endpoint to the target resource. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="endpointName, resourceUri" /> | Deletes the endpoint access to the target resource. |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="endpointName, resourceUri" /> | Update the endpoint to the target resource. |

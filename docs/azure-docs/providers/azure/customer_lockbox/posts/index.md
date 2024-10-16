@@ -35,5 +35,5 @@ Creates, updates, deletes, gets or lists a <code>posts</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="disable_lockbox" /> | `EXEC` | <CopyableCode code="" /> | Disable Tenant for Lockbox  |
-| <CopyableCode code="enable_lockbox" /> | `EXEC` | <CopyableCode code="" /> | Enable Tenant for Lockbox  |
+| <CopyableCode code="disable_lockbox" /> | `EXEC` | <CopyableCode code="" /> | Disable Tenant for Lockbox |
+| <CopyableCode code="enable_lockbox" /> | `EXEC` | <CopyableCode code="" /> | Enable Tenant for Lockbox |

@@ -33,7 +33,7 @@ Creates, updates, deletes, gets or lists a <code>workspace_features</code> resou
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Specifies the feature ID |
 | <CopyableCode code="description" /> | `string` | Describes the feature for user experience |
-| <CopyableCode code="displayName" /> | `string` | Specifies the feature name  |
+| <CopyableCode code="displayName" /> | `string` | Specifies the feature name |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |

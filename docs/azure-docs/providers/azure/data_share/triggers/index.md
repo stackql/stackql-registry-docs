@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>triggers</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId, triggerName" /> | Get a Trigger in a shareSubscription |
 | <CopyableCode code="list_by_share_subscription" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId" /> | List Triggers in a share subscription |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId, triggerName, data__kind" /> | Create a Trigger  |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId, triggerName, data__kind" /> | Create a Trigger |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId, triggerName" /> | Delete a Trigger in a shareSubscription |
 
 ## `SELECT` examples

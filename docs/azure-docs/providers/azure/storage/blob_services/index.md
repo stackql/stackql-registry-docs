@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>blob_services</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List blob services of storage account. It returns a collection of one object named default. |
-| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="BlobServicesName, accountName, resourceGroupName, subscriptionId" /> | Sets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.  |
+| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="BlobServicesName, accountName, resourceGroupName, subscriptionId" /> | Sets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. |
 
 ## `SELECT` examples
 

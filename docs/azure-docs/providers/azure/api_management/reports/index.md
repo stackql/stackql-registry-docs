@@ -54,8 +54,7 @@ Creates, updates, deletes, gets or lists a <code>reports</code> resource.
 | <CopyableCode code="serviceTimeMax" /> | `number` | Maximum time it took to process request on backend. |
 | <CopyableCode code="serviceTimeMin" /> | `number` | Minimum time it took to process request on backend. |
 | <CopyableCode code="subscriptionId" /> | `string` | Subscription identifier path. /subscriptions/{subscriptionId} |
-| <CopyableCode code="timestamp" /> | `string` | Start of aggregation period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
- |
+| <CopyableCode code="timestamp" /> | `string` | Start of aggregation period. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard. |
 | <CopyableCode code="userId" /> | `string` | User identifier path. /users/{userId} |
 | <CopyableCode code="zip" /> | `string` | Zip code to which this record data is related. |
 

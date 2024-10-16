@@ -31,7 +31,7 @@ Creates, updates, deletes, gets or lists a <code>tenant_opted_in</code> resource
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="isOptedIn" /> | `boolean` | True if tenant is opted in, false otherwise  |
+| <CopyableCode code="isOptedIn" /> | `boolean` | True if tenant is opted in, false otherwise |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |

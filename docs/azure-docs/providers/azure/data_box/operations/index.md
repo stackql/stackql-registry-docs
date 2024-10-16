@@ -31,10 +31,10 @@ Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the operation. Format: {resourceProviderNamespace}/{resourceType}/{read|write|delete|action} |
+| <CopyableCode code="name" /> | `string` | Name of the operation. Format: {resourceProviderNamespace}/{resourceType}/{read\|write\|delete\|action} |
 | <CopyableCode code="display" /> | `object` | Operation display |
 | <CopyableCode code="isDataAction" /> | `boolean` | Indicates whether the operation is a data action |
-| <CopyableCode code="origin" /> | `string` | Origin of the operation. Can be : user|system|user,system |
+| <CopyableCode code="origin" /> | `string` | Origin of the operation. Can be : user\|system\|user,system |
 | <CopyableCode code="properties" /> | `object` | Operation properties. |
 
 ## Methods

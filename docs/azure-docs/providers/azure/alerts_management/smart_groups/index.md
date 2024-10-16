@@ -73,7 +73,7 @@ Creates, updates, deletes, gets or lists a <code>smart_groups</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_all" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all the Smart Groups within a specified subscription.  |
+| <CopyableCode code="get_all" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | List all the Smart Groups within a specified subscription. |
 | <CopyableCode code="get_by_id" /> | `SELECT` | <CopyableCode code="smartGroupId, subscriptionId" /> | Get information related to a specific Smart Group. |
 | <CopyableCode code="change_state" /> | `EXEC` | <CopyableCode code="newState, smartGroupId, subscriptionId" /> | Change the state of a Smart Group. |
 

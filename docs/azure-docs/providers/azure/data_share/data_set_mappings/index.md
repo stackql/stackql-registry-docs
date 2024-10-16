@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>data_set_mappings</code> resour
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, dataSetMappingName, resourceGroupName, shareSubscriptionName, subscriptionId" /> | Get a DataSetMapping in a shareSubscription |
 | <CopyableCode code="list_by_share_subscription" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, shareSubscriptionName, subscriptionId" /> | List DataSetMappings in a share subscription |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, dataSetMappingName, resourceGroupName, shareSubscriptionName, subscriptionId, data__kind" /> | Create a DataSetMapping  |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, dataSetMappingName, resourceGroupName, shareSubscriptionName, subscriptionId, data__kind" /> | Create a DataSetMapping |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, dataSetMappingName, resourceGroupName, shareSubscriptionName, subscriptionId" /> | Delete a DataSetMapping in a shareSubscription |
 
 ## `SELECT` examples

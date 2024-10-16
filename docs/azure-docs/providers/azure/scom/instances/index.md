@@ -73,7 +73,7 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Get SCOM managed instance details |
 | <CopyableCode code="list_by_resource_group" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Lists all SCOM managed instances in a resource group |
-| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all SCOM managed instances in a subscription  |
+| <CopyableCode code="list_by_subscription" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Lists all SCOM managed instances in a subscription |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Create or update SCOM managed instance |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Delete a SCOM managed instance |
 | <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="instanceName, resourceGroupName, subscriptionId" /> | Patch SCOM managed instance |

@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>price_sheets</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `text` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event. |
 | <CopyableCode code="billingPeriodName" /> | `text` | field from the `properties` object |
 | <CopyableCode code="download" /> | `text` | field from the `properties` object |
 | <CopyableCode code="etag" /> | `text` | The etag for the resource. |
@@ -56,7 +56,7 @@ Creates, updates, deletes, gets or lists a <code>price_sheets</code> resource.
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="properties" /> | `object` | price sheet result. It contains the pricesheet associated with billing period |
 | <CopyableCode code="tags" /> | `object` | Resource tags. |

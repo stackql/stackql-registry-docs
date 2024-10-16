@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>configuration_profiles_versions
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="configurationProfileName, resourceGroupName, subscriptionId" /> | Retrieve a list of configuration profile version for a configuration profile  |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="configurationProfileName, resourceGroupName, subscriptionId" /> | Retrieve a list of configuration profile version for a configuration profile |
 
 ## `SELECT` examples
 

@@ -35,5 +35,4 @@ Creates, updates, deletes, gets or lists a <code>exchanges</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="" /> | Returns one or more `Reservations` in exchange for one or more `Reservation` purchases.
- |
+| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="" /> | Returns one or more `Reservations` in exchange for one or more `Reservation` purchases. |

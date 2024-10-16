@@ -49,7 +49,7 @@ Creates, updates, deletes, gets or lists a <code>jobs</code> resource.
 | <CopyableCode code="drive_list" /> | `text` | field from the `properties` object |
 | <CopyableCode code="encryption_key" /> | `text` | field from the `properties` object |
 | <CopyableCode code="export" /> | `text` | field from the `properties` object |
-| <CopyableCode code="identity" /> | `text` | Specifies the identity properties.  |
+| <CopyableCode code="identity" /> | `text` | Specifies the identity properties. |
 | <CopyableCode code="incomplete_blob_list_uri" /> | `text` | field from the `properties` object |
 | <CopyableCode code="jobName" /> | `text` | field from the `properties` object |
 | <CopyableCode code="job_type" /> | `text` | field from the `properties` object |
@@ -75,7 +75,7 @@ Creates, updates, deletes, gets or lists a <code>jobs</code> resource.
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | Specifies the resource identifier of the job. |
 | <CopyableCode code="name" /> | `string` | Specifies the name of the job. |
-| <CopyableCode code="identity" /> | `object` | Specifies the identity properties.  |
+| <CopyableCode code="identity" /> | `object` | Specifies the identity properties. |
 | <CopyableCode code="location" /> | `string` | Specifies the Azure location where the job is created. |
 | <CopyableCode code="properties" /> | `object` | Specifies the job properties |
 | <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |

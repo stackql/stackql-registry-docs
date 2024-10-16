@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>reservation_recommendation_deta
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `text` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `text` | The ID that uniquely identifies an event. |
 | <CopyableCode code="currency" /> | `text` | field from the `properties` object |
 | <CopyableCode code="etag" /> | `text` | The etag for the resource. |
 | <CopyableCode code="location" /> | `text` | Resource Location. |
@@ -64,7 +64,7 @@ Creates, updates, deletes, gets or lists a <code>reservation_recommendation_deta
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
 | <CopyableCode code="id" /> | `string` | The full qualified ARM ID of an event. |
-| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event.  |
+| <CopyableCode code="name" /> | `string` | The ID that uniquely identifies an event. |
 | <CopyableCode code="etag" /> | `string` | The etag for the resource. |
 | <CopyableCode code="location" /> | `string` | Resource Location. |
 | <CopyableCode code="properties" /> | `object` | The properties of the reservation recommendation. |

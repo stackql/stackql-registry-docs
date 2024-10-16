@@ -35,7 +35,7 @@ Creates, updates, deletes, gets or lists a <code>service_members</code> resource
 | <CopyableCode code="additionalInformation" /> | `string` | The additional information, if any, for the server. |
 | <CopyableCode code="createdDate" /> | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
 | <CopyableCode code="dimensions" /> | `object` | The server specific configuration related dimensions. |
-| <CopyableCode code="disabled" /> | `boolean` | Indicates if the server is disabled or not.  |
+| <CopyableCode code="disabled" /> | `boolean` | Indicates if the server is disabled or not. |
 | <CopyableCode code="disabledReason" /> | `integer` | The reason for disabling the server. |
 | <CopyableCode code="installedQfes" /> | `object` | The list of installed QFEs for the server. |
 | <CopyableCode code="lastDisabled" /> | `string` | The date and time , in UTC, when the server was last disabled. |

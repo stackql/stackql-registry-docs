@@ -34,9 +34,9 @@ Creates, updates, deletes, gets or lists a <code>environments_capacities</code> 
 | <CopyableCode code="name" /> | `string` | Name of the stamp. |
 | <CopyableCode code="availableCapacity" /> | `integer` | Available capacity (# of machines, bytes of storage etc...). |
 | <CopyableCode code="computeMode" /> | `string` | Shared/dedicated workers. |
-| <CopyableCode code="excludeFromCapacityAllocation" /> | `boolean` | If <code>true</code>, it includes basic apps.
+| <CopyableCode code="excludeFromCapacityAllocation" /> | `boolean` | If `true`, it includes basic apps.
 Basic apps are not used for capacity allocation. |
-| <CopyableCode code="isApplicableForAllComputeModes" /> | `boolean` | <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>. |
+| <CopyableCode code="isApplicableForAllComputeModes" /> | `boolean` | `true` if capacity is applicable for all apps; otherwise, `false`. |
 | <CopyableCode code="isLinux" /> | `boolean` | Is this a linux stamp capacity |
 | <CopyableCode code="siteMode" /> | `string` | Shared or Dedicated. |
 | <CopyableCode code="totalCapacity" /> | `integer` | Total capacity (# of machines, bytes of storage etc...). |

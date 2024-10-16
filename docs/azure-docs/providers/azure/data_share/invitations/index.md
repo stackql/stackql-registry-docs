@@ -76,7 +76,7 @@ Creates, updates, deletes, gets or lists a <code>invitations</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, invitationName, resourceGroupName, shareName, subscriptionId" /> | Get an invitation in a share |
 | <CopyableCode code="list_by_share" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, shareName, subscriptionId" /> | List invitations in a share |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, invitationName, resourceGroupName, shareName, subscriptionId" /> | Create an invitation  |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, invitationName, resourceGroupName, shareName, subscriptionId" /> | Create an invitation |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, invitationName, resourceGroupName, shareName, subscriptionId" /> | Delete an invitation in a share |
 
 ## `SELECT` examples

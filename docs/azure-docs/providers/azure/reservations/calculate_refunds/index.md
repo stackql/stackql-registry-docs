@@ -35,5 +35,4 @@ Creates, updates, deletes, gets or lists a <code>calculate_refunds</code> resour
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="reservationOrderId" /> | Calculate price for returning `Reservations` if there are no policy errors.
- |
+| <CopyableCode code="post" /> | `EXEC` | <CopyableCode code="reservationOrderId" /> | Calculate price for returning `Reservations` if there are no policy errors. |

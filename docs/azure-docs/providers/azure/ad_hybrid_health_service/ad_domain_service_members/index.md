@@ -37,7 +37,7 @@ Creates, updates, deletes, gets or lists a <code>ad_domain_service_members</code
 | <CopyableCode code="createdDate" /> | `string` | The date time , in UTC, when the server was onboarded to Azure Active Directory Connect Health. |
 | <CopyableCode code="dcTypes" /> | `array` | The list of domain controller types. |
 | <CopyableCode code="dimensions" /> | `array` | The server specific configuration related dimensions. |
-| <CopyableCode code="disabled" /> | `boolean` | Indicates if the server is disabled or not.  |
+| <CopyableCode code="disabled" /> | `boolean` | Indicates if the server is disabled or not. |
 | <CopyableCode code="disabledReason" /> | `integer` | The reason for disabling the server. |
 | <CopyableCode code="domainName" /> | `string` | The domain name. |
 | <CopyableCode code="gcReachable" /> | `boolean` | Indicates if the global catalog for this domain is reachable or not. |

@@ -31,7 +31,7 @@ Creates, updates, deletes, gets or lists a <code>operations</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{read | write | action | delete} |
+| <CopyableCode code="name" /> | `string` | Operation name: {provider}/{resource}/{read \| write \| action \| delete} |
 | <CopyableCode code="display" /> | `` | The object that represents the operation. |
 
 ## Methods

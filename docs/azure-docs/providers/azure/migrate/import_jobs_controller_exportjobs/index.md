@@ -62,7 +62,7 @@ Creates, updates, deletes, gets or lists a <code>import_jobs_controller_exportjo
 | <CopyableCode code="name" /> | `string` | Gets or sets the Job ID. |
 | <CopyableCode code="displayName" /> | `string` | Gets or sets the Display name. |
 | <CopyableCode code="endTime" /> | `string` | Gets or sets the Job end time. |
-| <CopyableCode code="properties" /> | `object` |  Export Imported Machines JobEntity Properties  |
+| <CopyableCode code="properties" /> | `object` | Export Imported Machines JobEntity Properties |
 | <CopyableCode code="startTime" /> | `string` | Gets or sets the Job start time. |
 | <CopyableCode code="status" /> | `string` | Gets or sets the Job status. |
 | <CopyableCode code="type" /> | `string` | Type name for export job. |

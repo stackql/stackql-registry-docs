@@ -62,7 +62,7 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_all" /> | `SELECT` | <CopyableCode code="scope" /> | List all existing alerts, where the results can be filtered on the basis of multiple parameters (e.g. time range). The results can then be sorted on the basis specific fields, with the default being lastModifiedDateTime.  |
+| <CopyableCode code="get_all" /> | `SELECT` | <CopyableCode code="scope" /> | List all existing alerts, where the results can be filtered on the basis of multiple parameters (e.g. time range). The results can then be sorted on the basis specific fields, with the default being lastModifiedDateTime. |
 | <CopyableCode code="get_by_id" /> | `SELECT` | <CopyableCode code="alertId, scope" /> | Get information related to a specific alert |
 | <CopyableCode code="change_state" /> | `EXEC` | <CopyableCode code="alertId, newState, scope" /> | Change the state of an alert. |
 | <CopyableCode code="meta_data" /> | `EXEC` | <CopyableCode code="identifier" /> | List alerts meta data information based on value of identifier parameter. |

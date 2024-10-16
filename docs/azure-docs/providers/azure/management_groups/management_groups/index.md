@@ -62,18 +62,13 @@ Creates, updates, deletes, gets or lists a <code>management_groups</code> resour
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Get the details of the management group.
- |
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | List management groups for the authenticated user.
- |
+| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="groupId" /> | Get the details of the management group. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="" /> | List management groups for the authenticated user. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="groupId" /> | Create or update a management group.
-If a management group is already created and a subsequent create request is issued with different properties, the management group properties will be updated.
- |
+If a management group is already created and a subsequent create request is issued with different properties, the management group properties will be updated. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="groupId" /> | Delete management group.
-If a management group contains child resources, the request will fail.
- |
-| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="groupId" /> | Update a management group.
- |
+If a management group contains child resources, the request will fail. |
+| <CopyableCode code="update" /> | `UPDATE` | <CopyableCode code="groupId" /> | Update a management group. |
 
 ## `SELECT` examples
 

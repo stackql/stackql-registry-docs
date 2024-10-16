@@ -35,7 +35,7 @@ Creates, updates, deletes, gets or lists a <code>services_export_errors_v2</code
 | <CopyableCode code="attributeName" /> | `string` | The attribute name. |
 | <CopyableCode code="attributeValue" /> | `string` | The attribute value. |
 | <CopyableCode code="createdDate" /> | `string` | The date and time, in UTC, when the error was created. |
-| <CopyableCode code="csObjectId" /> | `string` |  the cs object Id. |
+| <CopyableCode code="csObjectId" /> | `string` | the cs object Id. |
 | <CopyableCode code="dn" /> | `string` | the DN of the object. |
 | <CopyableCode code="existingObject" /> | `object` | Object that hold sync object details. |
 | <CopyableCode code="exportErrorStatus" /> | `integer` | The export error status. |
@@ -57,7 +57,7 @@ Creates, updates, deletes, gets or lists a <code>services_export_errors_v2</code
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="errorBucket, serviceName" /> |  Gets the categorized export errors. |
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="errorBucket, serviceName" /> | Gets the categorized export errors. |
 
 ## `SELECT` examples
 

@@ -42,7 +42,7 @@ Creates, updates, deletes, gets or lists a <code>data_sets</code> resource.
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="accountName, dataSetName, resourceGroupName, shareName, subscriptionId" /> | Get a DataSet in a share |
 | <CopyableCode code="list_by_share" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, shareName, subscriptionId" /> | List DataSets in a share |
-| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, dataSetName, resourceGroupName, shareName, subscriptionId, data__kind" /> | Create a DataSet  |
+| <CopyableCode code="create" /> | `INSERT` | <CopyableCode code="accountName, dataSetName, resourceGroupName, shareName, subscriptionId, data__kind" /> | Create a DataSet |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="accountName, dataSetName, resourceGroupName, shareName, subscriptionId" /> | Delete a DataSet in a share |
 
 ## `SELECT` examples

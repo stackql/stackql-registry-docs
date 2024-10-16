@@ -31,7 +31,7 @@ Creates, updates, deletes, gets or lists a <code>virtual_networks_ddos_protectio
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="ddosProtectionPlanId" /> | `string` |  DDoS protection plan Resource Id of a if IP address is protected through a plan. |
+| <CopyableCode code="ddosProtectionPlanId" /> | `string` | DDoS protection plan Resource Id of a if IP address is protected through a plan. |
 | <CopyableCode code="isWorkloadProtected" /> | `string` | Value indicating whether the IP address is DDoS workload protected or not. |
 | <CopyableCode code="publicIpAddress" /> | `string` | IP Address of the Public IP Resource |
 | <CopyableCode code="publicIpAddressId" /> | `string` | Public IP ARM resource ID |

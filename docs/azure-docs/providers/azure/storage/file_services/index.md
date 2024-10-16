@@ -41,7 +41,7 @@ Creates, updates, deletes, gets or lists a <code>file_services</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="accountName, resourceGroupName, subscriptionId" /> | List all file services in storage accounts |
-| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="FileServicesName, accountName, resourceGroupName, subscriptionId" /> | Sets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.  |
+| <CopyableCode code="set_service_properties" /> | `EXEC` | <CopyableCode code="FileServicesName, accountName, resourceGroupName, subscriptionId" /> | Sets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules. |
 
 ## `SELECT` examples
 
