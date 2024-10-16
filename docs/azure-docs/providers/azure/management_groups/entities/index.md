@@ -46,7 +46,6 @@ Creates, updates, deletes, gets or lists a <code>entities</code> resource.
 List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
 
-
 ```sql
 SELECT
 id,

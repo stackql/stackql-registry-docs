@@ -84,7 +84,7 @@ Creates, updates, deletes, gets or lists a <code>instances</code> resource.
 
 ## `SELECT` examples
 
-Lists all SCOM managed instances in a subscription 
+Lists all SCOM managed instances in a subscription
 
 <Tabs
     defaultValue="view"

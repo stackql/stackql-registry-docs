@@ -50,7 +50,6 @@ Creates, updates, deletes, gets or lists a <code>hierarchy_settings</code> resou
 Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
 
 
-
 ```sql
 SELECT
 id,

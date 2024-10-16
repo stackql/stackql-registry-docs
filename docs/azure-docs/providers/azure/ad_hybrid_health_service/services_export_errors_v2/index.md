@@ -61,7 +61,7 @@ Creates, updates, deletes, gets or lists a <code>services_export_errors_v2</code
 
 ## `SELECT` examples
 
- Gets the categorized export errors.
+Gets the categorized export errors.
 
 
 ```sql
