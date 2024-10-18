@@ -5,14 +5,14 @@ hide_table_of_contents: false
 keywords:
   - subscriptions_locations
   - resources
-  - google
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/google/stackql-google-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -29,9 +29,35 @@ Creates, updates, deletes, gets or lists a <code>subscriptions_locations</code> 
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
-
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="id" /> | `string` | The fully qualified ID of the location. For example, /subscriptions/00000000-0000-0000-0000-000000000000/locations/westus. |
+| <CopyableCode code="name" /> | `string` | The location name. |
+| <CopyableCode code="displayName" /> | `string` | The display name of the location. |
+| <CopyableCode code="metadata" /> | `object` | Location metadata information |
+| <CopyableCode code="regionalDisplayName" /> | `string` | The display name of the location and its region. |
+| <CopyableCode code="subscriptionId" /> | `string` | The subscription ID. |
+| <CopyableCode code="type" /> | `string` | The location type. |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | This operation provides all the locations that are available for resource providers; however, each resource provider may support a subset of this list. |
+
+## `SELECT` examples
+
+This operation provides all the locations that are available for resource providers; however, each resource provider may support a subset of this list.
+
+
+```sql
+SELECT
+id,
+name,
+displayName,
+metadata,
+regionalDisplayName,
+subscriptionId,
+type
+FROM azure.resources.subscriptions_locations
+WHERE subscriptionId = '{{ subscriptionId }}';
+```
