@@ -131,6 +131,11 @@ stackql.exe shell --auth=$Auth
 """
 
 provider_data = {
+  'openai': {
+      'meta_description': 'Query, deploy, and manage OpenAI and ChatGPT resources using SQL.',
+      'description': 'AI models for natural language processing and content generation.',
+      'image': '/img/providers/openai/stackql-openai-provider-featured-image.png'
+  },
   'digitalocean': {
       'meta_description': 'Query, deploy and manage Sumologic resources using SQL',
       'description': 'Cloud computing services and Infrastructure as a Service (IaaS).',
@@ -234,6 +239,23 @@ provider_data = {
 }
 
 auth_blocks = {
+# 
+# OpenAI
+#  
+  'openai': {
+        'custom': False,
+        'variables': """
+- <CopyableCode code="OPENAI_API_KEY" /> - OpenAI API key (see <a href="https://platform.openai.com/account/api-keys">How to Create an OpenAI API Key</a>)
+        """,
+        'linux': """
+AUTH='{ "openai": { "type": "bearer", "credentialsenvvar": "OPENAI_API_KEY" }}'
+stackql shell --auth="${AUTH}"
+        """,
+        'windows': """
+$Auth = "{ 'openai': { 'type': 'bearer', 'credentialsenvvar': 'OPENAI_API_KEY' }}"
+stackql.exe shell --auth=$Auth
+        """,
+},
 # 
 # Linode
 #  
