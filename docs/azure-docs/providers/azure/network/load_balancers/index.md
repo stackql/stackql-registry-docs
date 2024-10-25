@@ -5,14 +5,14 @@ hide_table_of_contents: false
 keywords:
   - load_balancers
   - network
-  - google
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Google Cloud Platform (GCP) infrastructure and resources using SQL
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/google/stackql-google-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -31,7 +31,14 @@ Creates, updates, deletes, gets or lists a <code>load_balancers</code> resource.
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="inboundNatRulePortMappings" /> | `array` | Collection of inbound NAT rule port mappings. |
+| <CopyableCode code="id" /> | `string` | Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}" |
+| <CopyableCode code="name" /> | `string` | The name of the resource |
+| <CopyableCode code="etag" /> | `string` | A unique read-only string that changes whenever the resource is updated. |
+| <CopyableCode code="extendedLocation" /> | `object` | ExtendedLocation complex type. |
+| <CopyableCode code="properties" /> | `object` | Properties of the load balancer. |
+| <CopyableCode code="sku" /> | `object` | SKU of a load balancer. |
+| <CopyableCode code="systemData" /> | `object` | Metadata pertaining to creation and last modification of the resource. |
+| <CopyableCode code="type" /> | `string` | The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts" |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -39,7 +46,6 @@ Creates, updates, deletes, gets or lists a <code>load_balancers</code> resource.
 | <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Gets the specified load balancer. |
 | <CopyableCode code="list" /> | `SELECT` | <CopyableCode code="resourceGroupName, subscriptionId" /> | Gets all the load balancers in a resource group. |
 | <CopyableCode code="list_all" /> | `SELECT` | <CopyableCode code="subscriptionId" /> | Gets all the load balancers in a subscription. |
-| <CopyableCode code="list_inbound_nat_rule_port_mappings" /> | `SELECT` | <CopyableCode code="backendPoolName, groupName, loadBalancerName, subscriptionId" /> | List of inbound NAT rule port mappings. |
 | <CopyableCode code="create_or_update" /> | `INSERT` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Creates or updates a load balancer. |
 | <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="loadBalancerName, resourceGroupName, subscriptionId" /> | Deletes the specified load balancer. |
 | <CopyableCode code="migrate_to_ip_based" /> | `EXEC` | <CopyableCode code="groupName, loadBalancerName, subscriptionId" /> | Migrate load balancer to IP Based |
@@ -53,7 +59,14 @@ Gets all the load balancers in a subscription.
 
 ```sql
 SELECT
-inboundNatRulePortMappings
+id,
+name,
+etag,
+extendedLocation,
+properties,
+sku,
+systemData,
+type
 FROM azure.network.load_balancers
 WHERE subscriptionId = '{{ subscriptionId }}';
 ```
@@ -78,10 +91,7 @@ resourceGroupName,
 subscriptionId,
 extendedLocation,
 sku,
-properties,
-id,
-location,
-tags
+properties
 )
 SELECT 
 '{{ loadBalancerName }}',
@@ -89,10 +99,7 @@ SELECT
 '{{ subscriptionId }}',
 '{{ extendedLocation }}',
 '{{ sku }}',
-'{{ properties }}',
-'{{ id }}',
-'{{ location }}',
-'{{ tags }}'
+'{{ properties }}'
 ;
 ```
 </TabItem>
@@ -185,10 +192,8 @@ SELECT
                                                     value: string
                                                   - name: type
                                                     value: string
-                                                  - name: location
-                                                    value: string
-                                                  - name: tags
-                                                    value: object
+                                                  - name: systemData
+                                                    value: []
                                             - name: destinationAddressPrefix
                                               value: string
                                             - name: destinationAddressPrefixes
@@ -204,10 +209,6 @@ SELECT
                                                     value: string
                                                   - name: type
                                                     value: string
-                                                  - name: location
-                                                    value: string
-                                                  - name: tags
-                                                    value: object
                                             - name: sourcePortRanges
                                               value:
                                                 - string
@@ -260,10 +261,6 @@ SELECT
                                                   value: string
                                                 - name: type
                                                   value: string
-                                                - name: location
-                                                  value: string
-                                                - name: tags
-                                                  value: object
                                             - name: ipConfigurations
                                               value:
                                                 - - name: properties
@@ -335,10 +332,6 @@ SELECT
                                                   value: string
                                                 - name: type
                                                   value: string
-                                                - name: location
-                                                  value: string
-                                                - name: tags
-                                                  value: object
                                             - name: migrationPhase
                                               value: string
                                             - name: auxiliaryMode
@@ -353,10 +346,6 @@ SELECT
                                           value: string
                                         - name: type
                                           value: string
-                                        - name: location
-                                          value: string
-                                        - name: tags
-                                          value: object
                                   - name: subnets
                                     value:
                                       - - name: name
@@ -415,10 +404,6 @@ SELECT
                                           value: string
                                         - name: type
                                           value: string
-                                        - name: location
-                                          value: string
-                                        - name: tags
-                                          value: object
                                   - name: resourceGuid
                                     value: string
                               - name: etag
@@ -429,10 +414,6 @@ SELECT
                                 value: string
                               - name: type
                                 value: string
-                              - name: location
-                                value: string
-                              - name: tags
-                                value: object
                           - name: routeTable
                             value:
                               - name: properties
@@ -479,10 +460,6 @@ SELECT
                                 value: string
                               - name: type
                                 value: string
-                              - name: location
-                                value: string
-                              - name: tags
-                                value: object
                           - name: serviceEndpoints
                             value:
                               - - name: service
@@ -540,10 +517,6 @@ SELECT
                                   value: string
                                 - name: type
                                   value: string
-                                - name: location
-                                  value: string
-                                - name: tags
-                                  value: object
                           - name: privateEndpoints
                             value:
                               - - name: etag
@@ -554,10 +527,6 @@ SELECT
                                   value: string
                                 - name: type
                                   value: string
-                                - name: location
-                                  value: string
-                                - name: tags
-                                  value: object
                           - name: ipConfigurations
                             value:
                               - - name: properties
@@ -625,10 +594,6 @@ SELECT
                                                   value: string
                                                 - name: type
                                                   value: string
-                                                - name: location
-                                                  value: string
-                                                - name: tags
-                                                  value: object
                                             - name: migrationPhase
                                               value: string
                                             - name: deleteOption
@@ -644,10 +609,6 @@ SELECT
                                           value: string
                                         - name: type
                                           value: string
-                                        - name: location
-                                          value: string
-                                        - name: tags
-                                          value: object
                                 - name: name
                                   value: string
                                 - name: etag
@@ -989,10 +950,6 @@ SELECT
       value: string
     - name: type
       value: string
-    - name: location
-      value: string
-    - name: tags
-      value: object
 
 ```
 </TabItem>
