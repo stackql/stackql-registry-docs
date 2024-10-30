@@ -14,19 +14,17 @@ const isLocal = process.env.NODE_ENV=== 'development'
 const registry = process.env.REGISTRY || 'root'
 
 const providers = [
+  {name: 'aws'},
+  {name: 'azure'}, 
   {name: 'google'},
   {name: 'googleadmin'},
-  {name: 'azure'}, 
-  {name: 'aws'},
   {name: 'digitalocean'},   
   {name: 'github'},
   {name: 'openai'},
+  {name: 'anthropic'},
   {name: 'linode'},
   {name: 'netlify'},
   {name: 'okta'},
-  {name: 'azure_extras'},
-  {name: 'azure_isv'},
-  {name: 'azure_stack'},
   {name: 'sumologic'},
   {name: 'firebase'}, 
   {name: 'k8s'},
@@ -35,6 +33,9 @@ const providers = [
   {name: 'datadog'},
   {name: 'godaddy'},
   {name: 'homebrew'},     
+  {name: 'azure_extras'},
+  {name: 'azure_isv'},
+  {name: 'azure_stack'},  
 ]
 
 const getProviderSiteUrl = (name) =>{

@@ -28,6 +28,8 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Azure ISV | [![Netlify Status](https://api.netlify.com/api/v1/badges/35fc840c-0494-462f-9b3f-cbd3418a3c78/deploy-status)](https://app.netlify.com/sites/stackql-azure-isv-docs/deploys) | [azure-isv-docs.stackql.io](https://azure-isv-docs.stackql.io)<br/>[azure-isv.stackql.io](https://azure-isv.stackql.io) |
 | Netlify Deploy Azure Stack | [![Netlify Status](https://api.netlify.com/api/v1/badges/53abcb20-0194-41dd-b466-4d933cfffcad/deploy-status)](https://app.netlify.com/sites/stackql-azure-stack-docs/deploys) | [azure-stack-docs.stackql.io](https://azure-stack-docs.stackql.io)<br/>[azure-stack.stackql.io](https://azure-stack.stackql.io) |
 | Netlify Deploy OpenAI | [![Netlify Status](https://api.netlify.com/api/v1/badges/6df5743b-8c5d-4949-866e-eda4ca3f74d0/deploy-status)](https://app.netlify.com/sites/stackql-openai-docs/deploys) | [openai-docs.stackql.io](https://openai-docs.stackql.io)<br/>[openai.stackql.io](https://openai.stackql.io) |
+| Netlify Deploy Anthropic | [![Netlify Status](https://api.netlify.com/api/v1/badges/114c5a2a-9b76-4941-a0e8-3669ee7d2016/deploy-status)](https://app.netlify.com/sites/stackql-anthropic-docs/deploys) | [anthropic-docs.stackql.io](https://anthropic-docs.stackql.io)<br/>[anthropic.stackql.io](https://anthropic.stackql.io) |
+
 
 ## Adding Docs for a New Provider
 
