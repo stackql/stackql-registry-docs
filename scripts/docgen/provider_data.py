@@ -131,6 +131,11 @@ stackql.exe shell --auth=$Auth
 """
 
 provider_data = {
+  'anthropic': {
+      'meta_description': 'Query, deploy, and manage Anthropic resources using SQL.',
+      'description': 'AI models including Claude for advanced language understanding and generation.',
+      'image': '/img/providers/anthropic/stackql-anthropic-provider-featured-image.png'
+  },    
   'openai': {
       'meta_description': 'Query, deploy, and manage OpenAI and ChatGPT resources using SQL.',
       'description': 'AI models for natural language processing and content generation.',
@@ -239,6 +244,23 @@ provider_data = {
 }
 
 auth_blocks = {
+# 
+# Anthropic
+#  
+'anthropic': {
+    'custom': False,
+    'variables': """
+- <CopyableCode code="ANTHROPIC_API_KEY" /> - Anthropic API key (see <a href="https://docs.anthropic.com/claude/reference/getting-started-with-the-api">How to Create an Anthropic API Key</a>)
+    """,
+    'linux': """
+AUTH='{ "anthropic": { "type": "bearer", "credentialsenvvar": "MY_ANTHROPIC_API_KEY" }}'
+stackql shell --auth="${AUTH}"
+    """,
+    'windows': """
+$Auth = "{ 'anthropic': { 'type': 'bearer', 'credentialsenvvar': 'MY_ANTHROPIC_API_KEY' }}"
+stackql.exe shell --auth=$Auth
+    """,
+},
 # 
 # OpenAI
 #  

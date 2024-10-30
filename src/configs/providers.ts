@@ -8,6 +8,7 @@ export const providers = [
     {name: 'digitalocean', description: 'Cloud computing services and Infrastructure as a Service (IaaS).', title: 'Digital Ocean'},
     {name: 'github', description: 'Web-based version-control and collaboration.', title: 'GitHub'},
     {name: 'openai', description: 'AI models and services by OpenAI.', title: 'OpenAI'},
+    {name: 'anthropic', description: 'AI language models and services powered by Claude.', title: 'Anthropic'},
     {name: 'linode', description: 'Cloud computing services by Akamai.', title: 'Linode'},
     {name: 'netlify', description: 'Web development and content distribution platform.', title: 'Netlify'},
     {name: 'okta', description: 'Authentication and authorization services.', title: 'Okta'},

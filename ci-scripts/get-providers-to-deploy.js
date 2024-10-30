@@ -16,6 +16,7 @@ const allProviders = [
     'firebase', 
     'github',
     'openai', 
+    'anthropic',
     'google', 
     'googleadmin',
     'k8s',
