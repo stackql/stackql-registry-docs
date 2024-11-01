@@ -59,7 +59,7 @@ To help you choose the right model for your needs, we’ve compiled a table comp
 | **Multilingual**      | Yes                                   | Yes                         | Yes                         | Yes                                          |
 | **Vision**            | Yes                                   | Yes                         | Yes                         | Yes                                          |
 | **Message Batches API** | Yes                                 | Yes                         | No                          | Yes                                          |
-| **API model name**    | Upgraded version: `claude-3-5-sonnet-20241022` <br> Previous version: `claude-3-5-sonnet-20240620` | `claude-3-opus-20240229`    | `claude-3-sonnet-20240229`                   | `claude-3-haiku-20240307`                   |
+| **API model name**    | Upgraded version: `claude-3-5-sonnet-20241022` <br /> Previous version: `claude-3-5-sonnet-20240620` | `claude-3-opus-20240229`    | `claude-3-sonnet-20240229`                   | `claude-3-haiku-20240307`                   |
 | **Comparative latency** | Fast                                | Moderately fast             | Fast                        | Fastest                                      |
 | **Context window**    | 200K                                  | 200K                        | 200K                        | 200K                                         |
 | **Max output**        | 8192 tokens                           | 4096 tokens                 | 4096 tokens                 | 4096 tokens                                  |
