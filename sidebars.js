@@ -20,6 +20,7 @@ const providers = [
   {name: 'googleadmin'},
   {name: 'digitalocean'},   
   {name: 'github'},
+  {name: 'confluent'},
   {name: 'openai'},
   {name: 'anthropic'},
   {name: 'linode'},

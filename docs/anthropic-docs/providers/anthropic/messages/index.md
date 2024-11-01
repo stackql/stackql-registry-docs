@@ -20,9 +20,9 @@ Given A List Of Messages Comprising A Conversation, The Model Will Return A Resp
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -34,15 +34,14 @@ Given A List Of Messages Comprising A Conversation, The Model Will Return A Resp
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Anthropic API - Messages</td></tr>
 <tr><td><b>Description</b></td><td>Given A List Of Messages Comprising A Conversation, The Model Will Return A Response.</td></tr>
-<tr><td><b>Id</b></td><td><code>messages:v24.10.00267</code></td></tr>
+<tr><td><b>Id</b></td><td><code>messages:v24.11.00270</code></td></tr>
 </tbody></table>
 
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/anthropic/messages/claude_35_chat/">claude_35_chat</a><br />
+<a href="/providers/anthropic/messages/message/">message</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/anthropic/messages/message/">message</a><br />
 </div>
 </div>
