@@ -15,6 +15,7 @@ const allProviders = [
     'digitalocean',
     'firebase', 
     'github',
+    'confluent',
     'openai', 
     'anthropic',
     'google', 

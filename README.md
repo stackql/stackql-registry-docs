@@ -29,7 +29,7 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Azure Stack | [![Netlify Status](https://api.netlify.com/api/v1/badges/53abcb20-0194-41dd-b466-4d933cfffcad/deploy-status)](https://app.netlify.com/sites/stackql-azure-stack-docs/deploys) | [azure-stack-docs.stackql.io](https://azure-stack-docs.stackql.io)<br/>[azure-stack.stackql.io](https://azure-stack.stackql.io) |
 | Netlify Deploy OpenAI | [![Netlify Status](https://api.netlify.com/api/v1/badges/6df5743b-8c5d-4949-866e-eda4ca3f74d0/deploy-status)](https://app.netlify.com/sites/stackql-openai-docs/deploys) | [openai-docs.stackql.io](https://openai-docs.stackql.io)<br/>[openai.stackql.io](https://openai.stackql.io) |
 | Netlify Deploy Anthropic | [![Netlify Status](https://api.netlify.com/api/v1/badges/114c5a2a-9b76-4941-a0e8-3669ee7d2016/deploy-status)](https://app.netlify.com/sites/stackql-anthropic-docs/deploys) | [anthropic-docs.stackql.io](https://anthropic-docs.stackql.io)<br/>[anthropic.stackql.io](https://anthropic.stackql.io) |
-
+| Netlify Deploy Confluent | [![Netlify Status](https://api.netlify.com/api/v1/badges/63149c2f-6c3d-43f1-be38-80c55c223ac0/deploy-status)](https://app.netlify.com/sites/stackql-confluent-docs/deploys) | [confluent-docs.stackql.io](https://confluent-docs.stackql.io)<br/>[confluent.stackql.io](https://confluent.stackql.io) |
 
 ## Adding Docs for a New Provider
 

@@ -1,0 +1,39 @@
+---
+title: versions
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - versions
+  - schema_registry
+  - confluent    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy, and manage Confluent Cloud resources using SQL.
+custom_edit_url: null
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>versions</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="confluent.schema_registry.versions" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="subject" /> | `string` | Name of the subject |
+| <CopyableCode code="version" /> | `integer` | Version number |
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_versions" /> | `SELECT` | <CopyableCode code="id" /> | Get all the subject-version pairs associated with the input ID. |
+| <CopyableCode code="list_versions" /> | `EXEC` | <CopyableCode code="subject" /> | Retrieves a list of versions registered under the specified subject. |

@@ -131,6 +131,11 @@ stackql.exe shell --auth=$Auth
 """
 
 provider_data = {
+  'confluent': {
+      'meta_description': 'Query, deploy, and manage Confluent Cloud resources using SQL.',
+      'description': 'Confluent Cloud for managing Kafka clusters, topics, and streaming services in a scalable cloud environment.',
+      'image': '/img/providers/confluent/stackql-confluent-provider-featured-image.png'
+  },
   'anthropic': {
       'meta_description': 'Query, deploy, and manage Anthropic resources using SQL.',
       'description': 'AI models including Claude for advanced language understanding and generation.',
@@ -245,6 +250,24 @@ provider_data = {
 
 auth_blocks = {
 # 
+# Confluent
+#  
+'confluent': {
+    'custom': False,
+    'variables': """
+- <CopyableCode code="CONFLUENT_CLOUD_API_KEY" /> - Confluent Cloud API key (see <a href="https://confluent.cloud/settings/api-keys">Confluent Cloud API keys</a>)
+- <CopyableCode code="CONFLUENT_CLOUD_API_SECRET" /> - Confluent Cloud API secret (see <a href="https://confluent.cloud/settings/api-keys">Confluent Cloud API keys</a>)
+    """,
+    'linux': """
+AUTH='{ "anthropic": { "type": "basic", "username_var": "MY_CONFLUENT_CLOUD_API_KEY_VAR", "password_var": "MY_CONFLUENT_CLOUD_API_SECRET_VAR" }}'
+stackql shell --auth="${AUTH}"
+    """,
+    'windows': """
+$Auth = "{ 'anthropic': { 'type': 'basic', 'username_var': 'MY_CONFLUENT_CLOUD_API_KEY_VAR', 'password_var': 'MY_CONFLUENT_CLOUD_API_SECRET_VAR' }}"
+stackql.exe shell --auth=$Auth
+    """,
+},
+# 
 # Anthropic
 #  
 'anthropic': {
@@ -253,11 +276,11 @@ auth_blocks = {
 - <CopyableCode code="ANTHROPIC_API_KEY" /> - Anthropic API key (see <a href="https://docs.anthropic.com/claude/reference/getting-started-with-the-api">How to Create an Anthropic API Key</a>)
     """,
     'linux': """
-AUTH='{ "anthropic": { "type": "bearer", "credentialsenvvar": "MY_ANTHROPIC_API_KEY" }}'
+AUTH='{ "anthropic": { "type": "bearer", "credentialsenvvar": "MY_ANTHROPIC_API_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
     """,
     'windows': """
-$Auth = "{ 'anthropic': { 'type': 'bearer', 'credentialsenvvar': 'MY_ANTHROPIC_API_KEY' }}"
+$Auth = "{ 'anthropic': { 'type': 'bearer', 'credentialsenvvar': 'MY_ANTHROPIC_API_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
     """,
 },
@@ -270,11 +293,11 @@ stackql.exe shell --auth=$Auth
 - <CopyableCode code="OPENAI_API_KEY" /> - OpenAI API key (see <a href="https://platform.openai.com/account/api-keys">How to Create an OpenAI API Key</a>)
         """,
         'linux': """
-AUTH='{ "openai": { "type": "bearer", "credentialsenvvar": "OPENAI_API_KEY" }}'
+AUTH='{ "openai": { "type": "bearer", "credentialsenvvar": "MY_OPENAI_API_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
         """,
         'windows': """
-$Auth = "{ 'openai': { 'type': 'bearer', 'credentialsenvvar': 'OPENAI_API_KEY' }}"
+$Auth = "{ 'openai': { 'type': 'bearer', 'credentialsenvvar': 'MY_OPENAI_API_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
         """,
 },

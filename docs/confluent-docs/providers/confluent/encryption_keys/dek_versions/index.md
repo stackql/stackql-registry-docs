@@ -1,0 +1,47 @@
+---
+title: dek_versions
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - dek_versions
+  - encryption_keys
+  - confluent    
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy, and manage Confluent Cloud resources using SQL.
+custom_edit_url: null
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+
+
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>dek_versions</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="confluent.encryption_keys.dek_versions" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="algorithm" /> | `string` | Algorithm of the dek |
+| <CopyableCode code="deleted" /> | `boolean` | Whether the dek is deleted |
+| <CopyableCode code="encryptedKeyMaterial" /> | `string` | Encrypted key material of the dek |
+| <CopyableCode code="kekName" /> | `string` | Kek name of the dek |
+| <CopyableCode code="keyMaterial" /> | `string` | Raw key material of the dek |
+| <CopyableCode code="subject" /> | `string` | Subject of the dek |
+| <CopyableCode code="ts" /> | `integer` | Timestamp of the dek |
+| <CopyableCode code="version" /> | `integer` | Version of the dek |
+## Methods
+| Name | Accessible by | Required Params |
+|:-----|:--------------|:----------------|
+| <CopyableCode code="get_dek_by_version" /> | `SELECT` | <CopyableCode code="name, subject, version" /> |
+| <CopyableCode code="delete_dek_version" /> | `DELETE` | <CopyableCode code="name, subject, version" /> |
+| <CopyableCode code="get_dek_versions" /> | `EXEC` | <CopyableCode code="name, subject" /> |
+| <CopyableCode code="undelete_dek_version" /> | `EXEC` | <CopyableCode code="name, subject, version" /> |

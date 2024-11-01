@@ -19,16 +19,16 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 AI models including Claude for advanced language understanding and generation.  
     
-:::info Provider Summary (v24.10.00267)
+:::info Provider Summary (v24.11.00270)
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>1</b></span><br />
-<span>total methods:&nbsp;<b>2</b></span><br />
+<span>total methods:&nbsp;<b>1</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>2</b></span><br />
-<span>total selectable resources:&nbsp;<b>2</b></span><br />
+<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total selectable resources:&nbsp;<b>1</b></span><br />
 </div>
 </div>
 
@@ -63,7 +63,7 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 ```bash
 
-AUTH='{ "anthropic": { "type": "bearer", "credentialsenvvar": "MY_ANTHROPIC_API_KEY" }}'
+AUTH='{ "anthropic": { "type": "bearer", "credentialsenvvar": "MY_ANTHROPIC_API_KEY_VAR" }}'
 stackql shell --auth="${AUTH}"
     
 ```
@@ -71,7 +71,7 @@ or using PowerShell:
 
 ```powershell
 
-$Auth = "{ 'anthropic': { 'type': 'bearer', 'credentialsenvvar': 'MY_ANTHROPIC_API_KEY' }}"
+$Auth = "{ 'anthropic': { 'type': 'bearer', 'credentialsenvvar': 'MY_ANTHROPIC_API_KEY_VAR' }}"
 stackql.exe shell --auth=$Auth
     
 ```
