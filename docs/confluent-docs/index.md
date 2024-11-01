@@ -64,7 +64,7 @@ To use different environment variables (instead of the defaults), use the `--aut
 
 ```bash
 
-AUTH='{ "anthropic": { "type": "basic", "username_var": "MY_CONFLUENT_CLOUD_API_KEY_VAR", "password_var": "MY_CONFLUENT_CLOUD_API_SECRET_VAR" }}'
+AUTH='{ "confluent": { "type": "basic", "username_var": "MY_CONFLUENT_CLOUD_API_KEY_VAR", "password_var": "MY_CONFLUENT_CLOUD_API_SECRET_VAR" }}'
 stackql shell --auth="${AUTH}"
     
 ```
@@ -72,7 +72,7 @@ or using PowerShell:
 
 ```powershell
 
-$Auth = "{ 'anthropic': { 'type': 'basic', 'username_var': 'MY_CONFLUENT_CLOUD_API_KEY_VAR', 'password_var': 'MY_CONFLUENT_CLOUD_API_SECRET_VAR' }}"
+$Auth = "{ 'confluent': { 'type': 'basic', 'username_var': 'MY_CONFLUENT_CLOUD_API_KEY_VAR', 'password_var': 'MY_CONFLUENT_CLOUD_API_SECRET_VAR' }}"
 stackql.exe shell --auth=$Auth
     
 ```
