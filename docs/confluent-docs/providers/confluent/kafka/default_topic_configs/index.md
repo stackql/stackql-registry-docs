@@ -28,8 +28,12 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="data" /> | `array` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="list_kafka_default_topic_configs" /> | `EXEC` | <CopyableCode code="cluster_id, topic_name" /> |
+| <CopyableCode code="list_kafka_default_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id, topic_name" /> |

@@ -34,7 +34,7 @@ Schema Registry Clusters
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Schema Registry Clusters</td></tr>
 <tr><td><b>Description</b></td><td>Schema Registry Clusters</td></tr>
-<tr><td><b>Id</b></td><td><code>schema_registry_clusters:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>schema_registry_clusters:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

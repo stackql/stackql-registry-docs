@@ -28,8 +28,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="get_schema_types" /> | `EXEC` |  |
+| <CopyableCode code="get_schema_types" /> | `SELECT` |  |

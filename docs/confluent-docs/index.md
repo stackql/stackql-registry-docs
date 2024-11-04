@@ -19,7 +19,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Confluent Cloud for managing Kafka clusters, topics, and streaming services in a scalable cloud environment.  
     
-:::info Provider Summary (v24.11.00270)
+:::info Provider Summary (v24.11.00272)
 
 <div class="row">
 <div class="providerDocColumn">
@@ -27,8 +27,8 @@ Confluent Cloud for managing Kafka clusters, topics, and streaming services in a
 <span>total methods:&nbsp;<b>391</b></span><br />
 </div>
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>111</b></span><br />
-<span>total selectable resources:&nbsp;<b>81</b></span><br />
+<span>total resources:&nbsp;<b>113</b></span><br />
+<span>total selectable resources:&nbsp;<b>104</b></span><br />
 </div>
 </div>
 

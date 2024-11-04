@@ -28,8 +28,19 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="acls" /> | `object` |
+| <CopyableCode code="broker_configs" /> | `object` |
+| <CopyableCode code="brokers" /> | `object` |
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="consumer_groups" /> | `object` |
+| <CopyableCode code="controller" /> | `object` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="partition_reassignments" /> | `object` |
+| <CopyableCode code="topics" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="get_kafka_cluster" /> | `EXEC` | <CopyableCode code="cluster_id" /> |
+| <CopyableCode code="get_kafka_cluster" /> | `SELECT` | <CopyableCode code="cluster_id" /> |

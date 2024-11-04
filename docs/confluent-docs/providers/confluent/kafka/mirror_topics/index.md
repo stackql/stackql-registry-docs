@@ -28,14 +28,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="link_name" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="mirror_lags" /> | `array` |
+| <CopyableCode code="mirror_state_transition_errors" /> | `array` |
+| <CopyableCode code="mirror_status" /> | `string` |
+| <CopyableCode code="mirror_topic_name" /> | `string` |
+| <CopyableCode code="num_partitions" /> | `integer` |
+| <CopyableCode code="source_topic_name" /> | `string` |
+| <CopyableCode code="state_time_ms" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_kafka_mirror_topics" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />List all mirror topics in the cluster |
+| <CopyableCode code="list_kafka_mirror_topics_under_link" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />List all mirror topics under the link |
+| <CopyableCode code="read_kafka_mirror_topic" /> | `SELECT` | <CopyableCode code="cluster_id, link_name, mirror_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="create_kafka_mirror_topic" /> | `INSERT` | <CopyableCode code="cluster_id, link_name, data__source_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Create a topic in the destination cluster mirroring a topic in<br />the source cluster |
-| <CopyableCode code="list_kafka_mirror_topics" /> | `EXEC` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />List all mirror topics in the cluster |
-| <CopyableCode code="list_kafka_mirror_topics_under_link" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />List all mirror topics under the link |
-| <CopyableCode code="read_kafka_mirror_topic" /> | `EXEC` | <CopyableCode code="cluster_id, link_name, mirror_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_mirror_topics_failover" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_mirror_topics_pause" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_mirror_topics_promote" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |

@@ -36,4 +36,4 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="get_versions" /> | `SELECT` | <CopyableCode code="id" /> | Get all the subject-version pairs associated with the input ID. |
-| <CopyableCode code="list_versions" /> | `EXEC` | <CopyableCode code="subject" /> | Retrieves a list of versions registered under the specified subject. |
+| <CopyableCode code="list_versions" /> | `SELECT` | <CopyableCode code="subject" /> | Retrieves a list of versions registered under the specified subject. |

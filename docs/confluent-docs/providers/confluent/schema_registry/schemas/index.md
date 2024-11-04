@@ -40,4 +40,3 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="get_schema" /> | `SELECT` | <CopyableCode code="id" /> | Retrieves the schema string identified by the input ID. |
 | <CopyableCode code="get_schemas" /> | `SELECT` |  | Get the schemas matching the specified parameters. |
 | <CopyableCode code="get_schema_only" /> | `EXEC` | <CopyableCode code="id" /> | Retrieves the schema identified by the input ID. |
-| <CopyableCode code="get_subjects" /> | `EXEC` | <CopyableCode code="id" /> | Retrieves all the subjects associated with a particular schema ID. |

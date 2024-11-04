@@ -42,8 +42,8 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="get_kek" /> | `SELECT` | <CopyableCode code="name" /> |
+| <CopyableCode code="get_kek_names" /> | `SELECT` |  |
 | <CopyableCode code="create_kek" /> | `INSERT` |  |
 | <CopyableCode code="delete_kek" /> | `DELETE` | <CopyableCode code="name" /> |
 | <CopyableCode code="put_kek" /> | `REPLACE` | <CopyableCode code="name" /> |
-| <CopyableCode code="get_kek_names" /> | `EXEC` |  |
 | <CopyableCode code="undelete_kek" /> | `EXEC` | <CopyableCode code="name" /> |

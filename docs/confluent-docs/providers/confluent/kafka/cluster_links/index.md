@@ -28,11 +28,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="cluster_link_id" /> | `string` |
+| <CopyableCode code="destination_cluster_id" /> | `string` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="link_error" /> | `string` |
+| <CopyableCode code="link_error_message" /> | `string` |
+| <CopyableCode code="link_id" /> | `string` |
+| <CopyableCode code="link_name" /> | `string` |
+| <CopyableCode code="link_state" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="remote_cluster_id" /> | `string` |
+| <CopyableCode code="source_cluster_id" /> | `string` |
+| <CopyableCode code="tasks" /> | `array` |
+| <CopyableCode code="topic_names" /> | `array` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_kafka_link" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />``link_id`` in ``ListLinksResponseData`` is deprecated and may be removed in a future release. Use the new ``cluster_link_id`` instead. |
+| <CopyableCode code="list_kafka_links" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />``link_id`` in ``ListLinksResponseData`` is deprecated and may be removed in a future release. Use the new ``cluster_link_id`` instead. |
 | <CopyableCode code="create_kafka_link" /> | `INSERT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Cluster link creation requires source cluster security configurations in<br />the configs JSON section of the data request payload. |
 | <CopyableCode code="delete_kafka_link" /> | `DELETE` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
-| <CopyableCode code="get_kafka_link" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />``link_id`` in ``ListLinksResponseData`` is deprecated and may be removed in a future release. Use the new ``cluster_link_id`` instead. |
-| <CopyableCode code="list_kafka_links" /> | `EXEC` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />``link_id`` in ``ListLinksResponseData`` is deprecated and may be removed in a future release. Use the new ``cluster_link_id`` instead. |

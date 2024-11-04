@@ -28,9 +28,18 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="assignments" /> | `object` |
+| <CopyableCode code="client_id" /> | `string` |
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="consumer_group_id" /> | `string` |
+| <CopyableCode code="consumer_id" /> | `string` |
+| <CopyableCode code="instance_id" /> | `string` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_consumer" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id, consumer_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the consumer specified by the ``consumer_id``. |
-| <CopyableCode code="list_kafka_consumers" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return a list of consumers that belong to the specified consumer<br />group. |
+| <CopyableCode code="get_kafka_consumer" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id, consumer_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the consumer specified by the ``consumer_id``. |
+| <CopyableCode code="list_kafka_consumers" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return a list of consumers that belong to the specified consumer<br />group. |
