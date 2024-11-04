@@ -34,7 +34,7 @@ Flink Artifacts
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Flink Artifacts</td></tr>
 <tr><td><b>Description</b></td><td>Flink Artifacts</td></tr>
-<tr><td><b>Id</b></td><td><code>flink_artifacts:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>flink_artifacts:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

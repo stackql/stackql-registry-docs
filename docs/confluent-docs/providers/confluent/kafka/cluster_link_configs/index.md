@@ -28,12 +28,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="name" /> | `string` |
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="link_name" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="read_only" /> | `boolean` |
+| <CopyableCode code="sensitive" /> | `boolean` |
+| <CopyableCode code="source" /> | `string` |
+| <CopyableCode code="synonyms" /> | `array` |
+| <CopyableCode code="value" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_kafka_link_configs" /> | `SELECT` | <CopyableCode code="cluster_id, config_name, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
+| <CopyableCode code="list_kafka_link_configs" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="delete_kafka_link_config" /> | `DELETE` | <CopyableCode code="cluster_id, config_name, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
-| <CopyableCode code="get_kafka_link_configs" /> | `EXEC` | <CopyableCode code="cluster_id, config_name, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
-| <CopyableCode code="list_kafka_link_configs" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_link_config" /> | `EXEC` | <CopyableCode code="cluster_id, config_name, link_name, data__value" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_link_config_batch" /> | `EXEC` | <CopyableCode code="cluster_id, link_name, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Batch Alter Cluster Link Configs |

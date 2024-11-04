@@ -28,18 +28,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Name of the exporter |
+| <CopyableCode code="config" /> | `object` | The map containing exporter’s configurations |
+| <CopyableCode code="context" /> | `string` | Customized context of the exporter if contextType equals CUSTOM. |
+| <CopyableCode code="contextType" /> | `string` | Context type of the exporter. One of CUSTOM, NONE or AUTO (default) |
+| <CopyableCode code="subjectRenameFormat" /> | `string` | Format string for the subject name in the destination cluster, which may contain $&#123;subject&#125; as a placeholder for the originating subject name. For example, dc_$&#123;subject&#125; for the subject orders will map to the destination subject name dc_orders. |
+| <CopyableCode code="subjects" /> | `array` | Name of each exporter subject |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_exporter_info_by_name" /> | `SELECT` | <CopyableCode code="name" /> | Retrieves the information of the schema exporter. |
 | <CopyableCode code="delete_exporter" /> | `DELETE` | <CopyableCode code="name" /> | Deletes the schema exporter. |
-| <CopyableCode code="get_exporter_config_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Retrieves the config of the schema exporter. |
-| <CopyableCode code="get_exporter_info_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Retrieves the information of the schema exporter. |
-| <CopyableCode code="get_exporter_status_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Retrieves the status of the schema exporter. |
 | <CopyableCode code="list_exporters" /> | `EXEC` |  | Retrieves a list of schema exporters that have been created. |
 | <CopyableCode code="pause_exporter_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Pauses the state of the schema exporter. |
 | <CopyableCode code="register_exporter" /> | `EXEC` |  | Creates a new schema exporter. All attributes in request body are optional except config. |
 | <CopyableCode code="reset_exporter_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Reset the state of the schema exporter. |
 | <CopyableCode code="resume_exporter_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Resume running of the schema exporter. |
-| <CopyableCode code="update_exporter_config_by_name" /> | `EXEC` | <CopyableCode code="name" /> | Retrieves the config of the schema exporter. |
 | <CopyableCode code="update_exporter_info" /> | `EXEC` | <CopyableCode code="name" /> | Updates the information or configurations of the schema exporter. All attributes in request body are optional. |

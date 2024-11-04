@@ -28,9 +28,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="client_id" /> | `string` |
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="consumer_group_id" /> | `string` |
+| <CopyableCode code="consumer_id" /> | `string` |
+| <CopyableCode code="current_offset" /> | `integer` |
+| <CopyableCode code="instance_id" /> | `string` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="lag" /> | `integer` |
+| <CopyableCode code="log_end_offset" /> | `integer` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="partition_id" /> | `integer` |
+| <CopyableCode code="topic_name" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_consumer_lag" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id, partition_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Available in dedicated clusters only](https://img.shields.io/badge/-Available%20in%20dedicated%20clusters%20only-%23bc8540)](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#dedicated-cluster)<br /><br />Return the consumer lag on a partition with the given `partition_id`. |
-| <CopyableCode code="list_kafka_consumer_lags" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Available in dedicated clusters only](https://img.shields.io/badge/-Available%20in%20dedicated%20clusters%20only-%23bc8540)](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#dedicated-cluster)<br /><br />Return a list of consumer lags of the consumers belonging to the<br />specified consumer group. |
+| <CopyableCode code="get_kafka_consumer_lag" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id, partition_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Available in dedicated clusters only](https://img.shields.io/badge/-Available%20in%20dedicated%20clusters%20only-%23bc8540)](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#dedicated-cluster)<br /><br />Return the consumer lag on a partition with the given `partition_id`. |
+| <CopyableCode code="list_kafka_consumer_lags" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Available in dedicated clusters only](https://img.shields.io/badge/-Available%20in%20dedicated%20clusters%20only-%23bc8540)](https://docs.confluent.io/cloud/current/clusters/cluster-types.html#dedicated-cluster)<br /><br />Return a list of consumer lags of the consumers belonging to the<br />specified consumer group. |

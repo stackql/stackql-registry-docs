@@ -28,9 +28,20 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="consumer" /> | `object` |
+| <CopyableCode code="consumer_group_id" /> | `string` |
+| <CopyableCode code="coordinator" /> | `object` |
+| <CopyableCode code="is_simple" /> | `boolean` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="lag_summary" /> | `object` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="partition_assignor" /> | `string` |
+| <CopyableCode code="state" /> | `string` |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_consumer_group" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the consumer group specified by the ``consumer_group_id``. |
-| <CopyableCode code="list_kafka_consumer_groups" /> | `EXEC` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the list of consumer groups that belong to the specified<br />Kafka cluster. |
+| <CopyableCode code="get_kafka_consumer_group" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the consumer group specified by the ``consumer_group_id``. |
+| <CopyableCode code="list_kafka_consumer_groups" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Return the list of consumer groups that belong to the specified<br />Kafka cluster. |

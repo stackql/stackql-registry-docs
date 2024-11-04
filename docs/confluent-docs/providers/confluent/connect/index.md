@@ -20,8 +20,8 @@ Connect
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>11</b></span><br />
-<span>total selectable resources:&nbsp;<b>5</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total selectable resources:&nbsp;<b>8</b></span><br />
 <span>total methods:&nbsp;<b>22</b></span><br />
 </div>
 </div>
@@ -34,7 +34,7 @@ Connect
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Connect</td></tr>
 <tr><td><b>Description</b></td><td>Connect</td></tr>
-<tr><td><b>Id</b></td><td><code>connect:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>connect:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources
@@ -42,7 +42,6 @@ Connect
 <div class="providerDocColumn">
 <a href="/providers/confluent/connect/connector_config/">connector_config</a><br />
 <a href="/providers/confluent/connect/connector_offsets/">connector_offsets</a><br />
-<a href="/providers/confluent/connect/connector_offsets_request_status/">connector_offsets_request_status</a><br />
 <a href="/providers/confluent/connect/connector_offsets_requests/">connector_offsets_requests</a><br />
 <a href="/providers/confluent/connect/connector_status/">connector_status</a><br />
 <a href="/providers/confluent/connect/connector_tasks/">connector_tasks</a><br />

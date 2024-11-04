@@ -34,7 +34,7 @@ Catalog
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Catalog</td></tr>
 <tr><td><b>Description</b></td><td>Catalog</td></tr>
-<tr><td><b>Id</b></td><td><code>catalog:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>catalog:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

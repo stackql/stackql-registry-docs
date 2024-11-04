@@ -34,7 +34,7 @@ Flink Compute Pools
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Flink Compute Pools</td></tr>
 <tr><td><b>Description</b></td><td>Flink Compute Pools</td></tr>
-<tr><td><b>Id</b></td><td><code>flink_compute_pools:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>flink_compute_pools:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

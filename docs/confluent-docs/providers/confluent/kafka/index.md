@@ -21,7 +21,7 @@ Kafka
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>15</b></span><br />
-<span>total selectable resources:&nbsp;<b>0</b></span><br />
+<span>total selectable resources:&nbsp;<b>14</b></span><br />
 <span>total methods:&nbsp;<b>52</b></span><br />
 </div>
 </div>
@@ -34,7 +34,7 @@ Kafka
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Kafka</td></tr>
 <tr><td><b>Description</b></td><td>Kafka</td></tr>
-<tr><td><b>Id</b></td><td><code>kafka:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>kafka:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

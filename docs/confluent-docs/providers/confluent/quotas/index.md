@@ -34,7 +34,7 @@ Quotas
 <tr><td><b>Type</b></td><td>Service</td></tr>
 <tr><td><b>Title</b></td><td>Confluent Cloud APIs - Quotas</td></tr>
 <tr><td><b>Description</b></td><td>Quotas</td></tr>
-<tr><td><b>Id</b></td><td><code>quotas:v24.10.00268</code></td></tr>
+<tr><td><b>Id</b></td><td><code>quotas:v24.11.00272</code></td></tr>
 </tbody></table>
 
 ## Resources

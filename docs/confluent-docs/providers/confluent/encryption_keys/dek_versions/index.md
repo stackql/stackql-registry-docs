@@ -42,6 +42,6 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
 | <CopyableCode code="get_dek_by_version" /> | `SELECT` | <CopyableCode code="name, subject, version" /> |
+| <CopyableCode code="get_dek_versions" /> | `SELECT` | <CopyableCode code="name, subject" /> |
 | <CopyableCode code="delete_dek_version" /> | `DELETE` | <CopyableCode code="name, subject, version" /> |
-| <CopyableCode code="get_dek_versions" /> | `EXEC` | <CopyableCode code="name, subject" /> |
 | <CopyableCode code="undelete_dek_version" /> | `EXEC` | <CopyableCode code="name, subject, version" /> |

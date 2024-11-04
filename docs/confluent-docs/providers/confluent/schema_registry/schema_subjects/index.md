@@ -1,9 +1,9 @@
 ---
-title: contexts
+title: schema_subjects
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - contexts
+  - schema_subjects
   - schema_registry
   - confluent    
   - stackql
@@ -22,13 +22,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>contexts</code></td></tr>
+<tr><td><b>Name</b></td><td><code>schema_subjects</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="confluent.schema_registry.contexts" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="confluent.schema_registry.schema_subjects" /></td></tr>
 </tbody></table>
 
 ## Fields
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="list_contexts" /> | `SELECT` |  |
+| <CopyableCode code="get_subjects" /> | `SELECT` | <CopyableCode code="id" /> |

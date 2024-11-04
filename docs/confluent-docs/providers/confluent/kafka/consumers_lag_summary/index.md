@@ -28,8 +28,22 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+| Name | Datatype |
+|:-----|:---------|
+| <CopyableCode code="cluster_id" /> | `string` |
+| <CopyableCode code="consumer_group_id" /> | `string` |
+| <CopyableCode code="kind" /> | `string` |
+| <CopyableCode code="max_lag" /> | `integer` |
+| <CopyableCode code="max_lag_client_id" /> | `string` |
+| <CopyableCode code="max_lag_consumer" /> | `object` |
+| <CopyableCode code="max_lag_consumer_id" /> | `string` |
+| <CopyableCode code="max_lag_instance_id" /> | `string` |
+| <CopyableCode code="max_lag_partition" /> | `object` |
+| <CopyableCode code="max_lag_partition_id" /> | `integer` |
+| <CopyableCode code="max_lag_topic_name" /> | `string` |
+| <CopyableCode code="metadata" /> | `object` |
+| <CopyableCode code="total_lag" /> | `integer` |
 ## Methods
 | Name | Accessible by | Required Params |
 |:-----|:--------------|:----------------|
-| <CopyableCode code="get_kafka_consumer_group_lag_summary" /> | `EXEC` | <CopyableCode code="cluster_id, consumer_group_id" /> |
+| <CopyableCode code="get_kafka_consumer_group_lag_summary" /> | `SELECT` | <CopyableCode code="cluster_id, consumer_group_id" /> |
