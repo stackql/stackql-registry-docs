@@ -124,7 +124,7 @@ Updates a <code>v2_clusters</code> resource.
 /*+ update */
 UPDATE confluent.schema_registry_clusters.v2_clusters
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

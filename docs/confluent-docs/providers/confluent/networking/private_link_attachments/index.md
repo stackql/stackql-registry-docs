@@ -122,7 +122,7 @@ Updates a <code>private_link_attachments</code> resource.
 /*+ update */
 UPDATE confluent.networking.private_link_attachments
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

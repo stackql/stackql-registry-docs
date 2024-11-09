@@ -125,7 +125,7 @@ Updates a <code>pipelines</code> resource.
 /*+ update */
 UPDATE confluent.pipelines.pipelines
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

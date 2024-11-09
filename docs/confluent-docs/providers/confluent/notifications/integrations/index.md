@@ -134,10 +134,7 @@ Updates a <code>integrations</code> resource.
 /*+ update */
 UPDATE confluent.notifications.integrations
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-description = '{{ description }}',
-target = '{{ target }}'
+
 WHERE 
 id = '{{ id }}';
 ```

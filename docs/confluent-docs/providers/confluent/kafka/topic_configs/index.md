@@ -100,7 +100,7 @@ Updates a <code>topic_configs</code> resource.
 /*+ update */
 UPDATE confluent.kafka.topic_configs
 SET 
-
+data = '{{ data }}'
 WHERE 
 cluster_id = '{{ cluster_id }}'
 AND topic_name = '{{ topic_name }}'

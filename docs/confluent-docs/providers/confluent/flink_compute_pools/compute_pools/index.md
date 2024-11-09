@@ -124,7 +124,7 @@ Updates a <code>compute_pools</code> resource.
 /*+ update */
 UPDATE confluent.flink_compute_pools.compute_pools
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

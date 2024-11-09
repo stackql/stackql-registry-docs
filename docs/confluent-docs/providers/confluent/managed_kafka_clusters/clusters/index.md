@@ -223,7 +223,7 @@ Updates a <code>clusters</code> resource.
 /*+ update */
 UPDATE confluent.managed_kafka_clusters.clusters
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

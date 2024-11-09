@@ -124,7 +124,7 @@ Updates a <code>transit_gateway_attachments</code> resource.
 /*+ update */
 UPDATE confluent.networking.transit_gateway_attachments
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

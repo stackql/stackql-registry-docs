@@ -132,10 +132,7 @@ Updates a <code>group_mappings</code> resource.
 /*+ update */
 UPDATE confluent.iam.group_mappings
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-description = '{{ description }}',
-filter = '{{ filter }}'
+
 WHERE 
 id = '{{ id }}';
 ```

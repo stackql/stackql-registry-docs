@@ -145,11 +145,7 @@ Updates a <code>identity_pools</code> resource.
 /*+ update */
 UPDATE confluent.iam.identity_pools
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-description = '{{ description }}',
-identity_claim = '{{ identity_claim }}',
-filter = '{{ filter }}'
+
 WHERE 
 id = '{{ id }}'
 AND provider_id = '{{ provider_id }}';

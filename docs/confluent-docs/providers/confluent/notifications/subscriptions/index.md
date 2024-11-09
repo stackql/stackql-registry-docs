@@ -134,9 +134,7 @@ Updates a <code>subscriptions</code> resource.
 /*+ update */
 UPDATE confluent.notifications.subscriptions
 SET 
-metadata = '{{ metadata }}',
-current_state = '{{ current_state }}',
-integrations = '{{ integrations }}'
+
 WHERE 
 id = '{{ id }}';
 ```

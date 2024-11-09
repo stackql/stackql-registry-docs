@@ -143,11 +143,7 @@ Updates a <code>identity_providers</code> resource.
 /*+ update */
 UPDATE confluent.iam.identity_providers
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-description = '{{ description }}',
-issuer = '{{ issuer }}',
-jwks_uri = '{{ jwks_uri }}'
+
 WHERE 
 id = '{{ id }}';
 ```

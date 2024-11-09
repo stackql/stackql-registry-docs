@@ -178,9 +178,7 @@ Updates a <code>environments</code> resource.
 /*+ update */
 UPDATE confluent.org.environments
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-stream_governance_config = '{{ stream_governance_config }}'
+
 WHERE 
 id = '{{ id }}';
 ```

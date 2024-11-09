@@ -160,12 +160,7 @@ Updates a <code>custom_connector_plugins</code> resource.
 /*+ update */
 UPDATE confluent.connect.custom_connector_plugins
 SET 
-metadata = '{{ metadata }}',
-display_name = '{{ display_name }}',
-description = '{{ description }}',
-documentation_link = '{{ documentation_link }}',
-sensitive_config_properties = '{{ sensitive_config_properties }}',
-upload_source = '{{ upload_source }}'
+
 WHERE 
 id = '{{ id }}';
 ```

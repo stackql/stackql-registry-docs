@@ -195,16 +195,7 @@ Updates a <code>flink_artifacts</code> resource.
 /*+ update */
 UPDATE confluent.flink_artifacts.flink_artifacts
 SET 
-metadata = '{{ metadata }}',
-cloud = '{{ cloud }}',
-region = '{{ region }}',
-environment = '{{ environment }}',
-display_name = '{{ display_name }}',
-content_format = '{{ content_format }}',
-description = '{{ description }}',
-documentation_link = '{{ documentation_link }}',
-runtime_language = '{{ runtime_language }}',
-versions = '{{ versions }}'
+
 WHERE 
 cloud = '{{ cloud }}'
 AND id = '{{ id }}'
