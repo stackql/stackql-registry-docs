@@ -123,9 +123,7 @@ Replaces all fields in the specified <code>key_encryption_keys</code> resource.
 /*+ update */
 REPLACE confluent.encryption_keys.key_encryption_keys
 SET 
-kmsProps = '{{ kmsProps }}',
-doc = '{{ doc }}',
-shared = true|false
+
 WHERE 
 name = '{{ name }}';
 ```

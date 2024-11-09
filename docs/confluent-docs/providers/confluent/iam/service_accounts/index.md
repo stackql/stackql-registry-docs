@@ -123,8 +123,7 @@ Updates a <code>service_accounts</code> resource.
 /*+ update */
 UPDATE confluent.iam.service_accounts
 SET 
-metadata = '{{ metadata }}',
-description = '{{ description }}'
+
 WHERE 
 id = '{{ id }}';
 ```

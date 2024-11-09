@@ -124,7 +124,7 @@ Updates a <code>private_link_accesses</code> resource.
 /*+ update */
 UPDATE confluent.networking.private_link_accesses
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

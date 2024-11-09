@@ -132,10 +132,7 @@ Updates a <code>ip_filters</code> resource.
 /*+ update */
 UPDATE confluent.iam.ip_filters
 SET 
-metadata = '{{ metadata }}',
-filter_name = '{{ filter_name }}',
-resource_group = '{{ resource_group }}',
-ip_groups = '{{ ip_groups }}'
+
 WHERE 
 id = '{{ id }}';
 ```

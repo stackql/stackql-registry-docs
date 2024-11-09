@@ -124,7 +124,7 @@ Updates a <code>peerings</code> resource.
 /*+ update */
 UPDATE confluent.networking.peerings
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

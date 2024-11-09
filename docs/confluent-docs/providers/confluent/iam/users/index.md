@@ -85,8 +85,7 @@ Updates a <code>users</code> resource.
 /*+ update */
 UPDATE confluent.iam.users
 SET 
-metadata = '{{ metadata }}',
-full_name = '{{ full_name }}'
+
 WHERE 
 id = '{{ id }}';
 ```

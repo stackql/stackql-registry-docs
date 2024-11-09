@@ -123,9 +123,7 @@ Updates a <code>ip_groups</code> resource.
 /*+ update */
 UPDATE confluent.iam.ip_groups
 SET 
-metadata = '{{ metadata }}',
-group_name = '{{ group_name }}',
-cidr_blocks = '{{ cidr_blocks }}'
+
 WHERE 
 id = '{{ id }}';
 ```

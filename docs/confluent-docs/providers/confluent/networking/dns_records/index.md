@@ -124,7 +124,7 @@ Updates a <code>dns_records</code> resource.
 /*+ update */
 UPDATE confluent.networking.dns_records
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

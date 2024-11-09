@@ -122,7 +122,7 @@ Updates a <code>client_quotas</code> resource.
 /*+ update */
 UPDATE confluent.quotas.client_quotas
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

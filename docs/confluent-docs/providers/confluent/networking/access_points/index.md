@@ -124,7 +124,7 @@ Updates a <code>access_points</code> resource.
 /*+ update */
 UPDATE confluent.networking.access_points
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

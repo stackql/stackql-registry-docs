@@ -130,8 +130,7 @@ Updates a <code>api_keys</code> resource.
 /*+ update */
 UPDATE confluent.iam.api_keys
 SET 
-metadata = '{{ metadata }}',
-spec = '{{ spec }}'
+
 WHERE 
 id = '{{ id }}';
 ```
