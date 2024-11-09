@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - users
   - iam
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>users</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,10 +38,65 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="full_name" /> | `string` | The user's full name |
 | <CopyableCode code="kind" /> | `string` | Kind defines the object this REST resource represents. |
 | <CopyableCode code="metadata" /> | `` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_iam_v2user" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to read a user. |
-| <CopyableCode code="list_iam_v2users" /> | `SELECT` |  | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve a sorted, filtered, paginated list of all users. |
-| <CopyableCode code="delete_iam_v2user" /> | `DELETE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to delete a user.<br /><br />If successful, this request will also recursively delete all of the user's associated resources,<br />including its cloud and cluster API keys.<br /> |
-| <CopyableCode code="update_iam_v2user" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to update a user.<br /><br /> |
+| <CopyableCode code="get_iam_v2user" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to read a user. |
+| <CopyableCode code="list_iam_v2users" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all users. |
+| <CopyableCode code="delete_iam_v2user" /> | `DELETE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to delete a user.
+
+If successful, this request will also recursively delete all of the user's associated resources,
+including its cloud and cluster API keys. |
+| <CopyableCode code="update_iam_v2user" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to update a user. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all users.
+
+
+```sql
+SELECT
+id,
+api_version,
+auth_type,
+email,
+full_name,
+kind,
+metadata
+FROM confluent.iam.users
+;
+```
+## `UPDATE` example
+
+Updates a <code>users</code> resource.
+
+```sql
+/*+ update */
+UPDATE confluent.iam.users
+SET 
+metadata = '{{ metadata }}',
+full_name = '{{ full_name }}'
+WHERE 
+id = '{{ id }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>users</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM confluent.iam.users
+WHERE id = '{{ id }}';
+```

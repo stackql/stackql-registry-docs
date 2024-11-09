@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - cluster_config
   - schema_registry
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>cluster_config</code> resource.
 
 ## Overview
 <table><tbody>
@@ -32,7 +33,21 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 |:-----|:---------|:------------|
 | <CopyableCode code="maxRequestsPerSec" /> | `integer` | Maximum number of allowed requests per second |
 | <CopyableCode code="maxSchemas" /> | `integer` | Maximum number of registered schemas allowed |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_cluster_config" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_cluster_config" /> | `SELECT` | <CopyableCode code="" /> | Retrieves cluster config information. |
+
+## `SELECT` examples
+
+Retrieves cluster config information.
+
+
+```sql
+SELECT
+maxRequestsPerSec,
+maxSchemas
+FROM confluent.schema_registry.cluster_config
+;
+```

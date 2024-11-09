@@ -4,38 +4,28 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - connect
-  - confluent
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Connect  
-    
+connect service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>10</b></span><br />
-<span>total selectable resources:&nbsp;<b>8</b></span><br />
-<span>total methods:&nbsp;<b>22</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>confluent.connect</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Confluent Cloud APIs - Connect</td></tr>
-<tr><td><b>Description</b></td><td>Connect</td></tr>
-<tr><td><b>Id</b></td><td><code>connect:v24.11.00272</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -44,13 +34,13 @@ Connect
 <a href="/providers/confluent/connect/connector_offsets/">connector_offsets</a><br />
 <a href="/providers/confluent/connect/connector_offsets_requests/">connector_offsets_requests</a><br />
 <a href="/providers/confluent/connect/connector_status/">connector_status</a><br />
-<a href="/providers/confluent/connect/connector_tasks/">connector_tasks</a><br />
+<a href="/providers/confluent/connect/connector_tasks/">connector_tasks</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/confluent/connect/connectors/">connectors</a><br />
 <a href="/providers/confluent/connect/connectors_with_expansions/">connectors_with_expansions</a><br />
 <a href="/providers/confluent/connect/custom_connector_plugins/">custom_connector_plugins</a><br />
 <a href="/providers/confluent/connect/managed_connector_plugins/">managed_connector_plugins</a><br />
-<a href="/providers/confluent/connect/presigned_urls/">presigned_urls</a><br />
+<a href="/providers/confluent/connect/presigned_urls/">presigned_urls</a>
 </div>
 </div>

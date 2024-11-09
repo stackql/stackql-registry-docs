@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - consumer_shares
   - stream_sharing
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>consumer_shares</code> resource.
 
 ## Overview
 <table><tbody>
@@ -41,9 +42,49 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="provider_organization_name" /> | `string` | Provider organization name |
 | <CopyableCode code="provider_user_name" /> | `string` | Name or email of the provider user |
 | <CopyableCode code="status" /> | `object` | The status of the Consumer Share |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_cdx_v1consumer_share" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to read a consumer share. |
-| <CopyableCode code="list_cdx_v1consumer_shares" /> | `SELECT` |  | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve a sorted, filtered, paginated list of all consumer shares. |
-| <CopyableCode code="delete_cdx_v1consumer_share" /> | `DELETE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to delete a consumer share. |
+| <CopyableCode code="get_cdx_v1consumer_share" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to read a consumer share. |
+| <CopyableCode code="list_cdx_v1consumer_shares" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all consumer shares. |
+| <CopyableCode code="delete_cdx_v1consumer_share" /> | `DELETE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to delete a consumer share. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all consumer shares.
+
+
+```sql
+SELECT
+id,
+api_version,
+consumer_organization_name,
+consumer_user,
+consumer_user_name,
+invite_expires_at,
+kind,
+metadata,
+provider_organization_name,
+provider_user_name,
+status
+FROM confluent.stream_sharing.consumer_shares
+;
+```
+## `DELETE` example
+
+Deletes the specified <code>consumer_shares</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM confluent.stream_sharing.consumer_shares
+WHERE id = '{{ id }}';
+```

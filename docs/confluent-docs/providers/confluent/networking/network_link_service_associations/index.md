@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - network_link_service_associations
   - networking
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>network_link_service_associations</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,8 +38,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metadata" /> | `` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
 | <CopyableCode code="spec" /> | `object` | The desired state of the Network Link Service Association |
 | <CopyableCode code="status" /> | `object` | The status of the Network Link Service Association |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_networking_v1network_link_service_association" /> | `SELECT` | <CopyableCode code="environment, id, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to read a network link service association. |
-| <CopyableCode code="list_networking_v1network_link_service_associations" /> | `SELECT` | <CopyableCode code="environment, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve a sorted, filtered, paginated list of all network link service associations. |
+| <CopyableCode code="get_networking_v1network_link_service_association" /> | `SELECT` | <CopyableCode code="environment, id, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to read a network link service association. |
+| <CopyableCode code="list_networking_v1network_link_service_associations" /> | `SELECT` | <CopyableCode code="environment, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all network link service associations. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all network link service associations.
+
+
+```sql
+SELECT
+id,
+_spec,
+api_version,
+kind,
+metadata,
+spec,
+status
+FROM confluent.networking.network_link_service_associations
+WHERE environment = '{{ environment }}'
+AND spec.network_link_service = '{{ spec.network_link_service }}';
+```
