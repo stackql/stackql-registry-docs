@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - costs
   - billing
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>costs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -46,7 +47,40 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resource" /> | `object` | The resource for a given object |
 | <CopyableCode code="start_date" /> | `string` | Start date of time period (inclusive) to retrieve billing costs. It is represented in RFC3339 format and is in UTC. |
 | <CopyableCode code="unit" /> | `string` | Unit of the line item. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_billing_v1costs" /> | `SELECT` | <CopyableCode code="end_date, start_date" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_billing_v1costs" /> | `SELECT` | <CopyableCode code="end_date, start_date" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all costs. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all costs.
+
+
+```sql
+SELECT
+id,
+amount,
+api_version,
+discount_amount,
+end_date,
+granularity,
+kind,
+line_type,
+network_access_type,
+original_amount,
+price,
+product,
+quantity,
+resource,
+start_date,
+unit
+FROM confluent.billing.costs
+WHERE end_date = '{{ end_date }}'
+AND start_date = '{{ start_date }}';
+```

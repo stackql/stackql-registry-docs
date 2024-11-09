@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - dek_versions
   - encryption_keys
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>dek_versions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,10 +39,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="subject" /> | `string` | Subject of the dek |
 | <CopyableCode code="ts" /> | `integer` | Timestamp of the dek |
 | <CopyableCode code="version" /> | `integer` | Version of the dek |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_dek_by_version" /> | `SELECT` | <CopyableCode code="name, subject, version" /> |
-| <CopyableCode code="get_dek_versions" /> | `SELECT` | <CopyableCode code="name, subject" /> |
-| <CopyableCode code="delete_dek_version" /> | `DELETE` | <CopyableCode code="name, subject, version" /> |
-| <CopyableCode code="undelete_dek_version" /> | `EXEC` | <CopyableCode code="name, subject, version" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_dek_by_version" /> | `SELECT` | <CopyableCode code="name, subject, version" /> |  |
+| <CopyableCode code="get_dek_versions" /> | `SELECT` | <CopyableCode code="name, subject" /> |  |
+| <CopyableCode code="delete_dek_version" /> | `DELETE` | <CopyableCode code="name, subject, version" /> |  |
+| <CopyableCode code="undelete_dek_version" /> | `EXEC` | <CopyableCode code="name, subject, version" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+algorithm,
+deleted,
+encryptedKeyMaterial,
+kekName,
+keyMaterial,
+subject,
+ts,
+version
+FROM confluent.encryption_keys.dek_versions
+WHERE name = '{{ name }}'
+AND subject = '{{ subject }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>dek_versions</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM confluent.encryption_keys.dek_versions
+WHERE name = '{{ name }}'
+AND subject = '{{ subject }}'
+AND version = '{{ version }}';
+```

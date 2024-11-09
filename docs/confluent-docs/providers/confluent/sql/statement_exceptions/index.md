@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - statement_exceptions
   - sql
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>statement_exceptions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,7 +35,29 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | Kind defines the object this REST resource represents. |
 | <CopyableCode code="message" /> | `string` | Error message of the statement exception. |
 | <CopyableCode code="timestamp" /> | `string` | The date and time at which the exception occurred. It is represented in RFC3339 format and is in UTC. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="get_sqlv1statement_exceptions" /> | `SELECT` | <CopyableCode code="environment_id, organization_id, statement_name" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="get_sqlv1statement_exceptions" /> | `SELECT` | <CopyableCode code="environment_id, organization_id, statement_name" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a list of the 10 most recent statement exceptions. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a list of the 10 most recent statement exceptions.
+
+
+```sql
+SELECT
+name,
+kind,
+message,
+timestamp
+FROM confluent.sql.statement_exceptions
+WHERE environment_id = '{{ environment_id }}'
+AND organization_id = '{{ organization_id }}'
+AND statement_name = '{{ statement_name }}';
+```

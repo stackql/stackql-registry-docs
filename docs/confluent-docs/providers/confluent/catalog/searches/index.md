@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - searches
   - catalog
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>searches</code> resource.
 
 ## Overview
 <table><tbody>
@@ -34,8 +35,30 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="referredEntities" /> | `object` | The referred entities |
 | <CopyableCode code="searchParameters" /> | `object` | Search paramas to filter results |
 | <CopyableCode code="types" /> | `array` | The types |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="search_using_attribute" /> | `SELECT` |  | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve data for the specified attribute search query. |
-| <CopyableCode code="search_using_basic" /> | `SELECT` |  | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve data for the specified fulltext query. |
+| <CopyableCode code="search_using_attribute" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve data for the specified attribute search query. |
+| <CopyableCode code="search_using_basic" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve data for the specified fulltext query. |
+
+## `SELECT` examples
+
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve data for the specified attribute search query.
+
+
+```sql
+SELECT
+entities,
+referredEntities,
+searchParameters,
+types
+FROM confluent.catalog.searches
+;
+```

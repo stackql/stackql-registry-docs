@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - ip_addresses
   - networking
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>ip_addresses</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,7 +38,34 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="kind" /> | `string` | Kind defines the object this REST resource represents. |
 | <CopyableCode code="region" /> | `string` | The region/location where the IP Address is in use. |
 | <CopyableCode code="services" /> | `array` | The service types that will use the address. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_networking_v1ip_addresses" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_networking_v1ip_addresses" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Related guide: [Use Public Egress IP addresses on Confluent Cloud](https://docs.confluent.io/cloud/current/networking/static-egress-ip-addresses.html)
+
+Retrieve a sorted, filtered, paginated list of all IP Addresses. |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Related guide: [Use Public Egress IP addresses on Confluent Cloud](https://docs.confluent.io/cloud/current/networking/static-egress-ip-addresses.html)
+
+Retrieve a sorted, filtered, paginated list of all IP Addresses.
+
+
+```sql
+SELECT
+address_type,
+api_version,
+cloud,
+ip_prefix,
+kind,
+region,
+services
+FROM confluent.networking.ip_addresses
+;
+```

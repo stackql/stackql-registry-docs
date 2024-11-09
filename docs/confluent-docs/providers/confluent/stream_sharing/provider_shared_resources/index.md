@@ -5,20 +5,21 @@ hide_table_of_contents: false
 keywords:
   - provider_shared_resources
   - stream_sharing
-  - confluent    
-  - stackql
+  - azure
+  - microsoft azure
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>provider_shared_resources</code> resource.
 
 ## Overview
 <table><tbody>
@@ -48,12 +49,83 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="resources" /> | `array` | List of resource crns that are shared together |
 | <CopyableCode code="schemas" /> | `array` | List of schemas in JSON format. This field is work in progress and subject to changes. |
 | <CopyableCode code="tags" /> | `array` | list of tags |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_cdx_v1provider_shared_resource" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to read a provider shared resource. |
-| <CopyableCode code="list_cdx_v1provider_shared_resources" /> | `SELECT` |  | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Retrieve a sorted, filtered, paginated list of all provider shared resources. |
-| <CopyableCode code="delete_image_cdx_v1provider_shared_resource" /> | `DELETE` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Deletes the image file for the shared resource |
-| <CopyableCode code="update_cdx_v1provider_shared_resource" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Make a request to update a provider shared resource.<br /><br /> |
-| <CopyableCode code="upload_image_cdx_v1provider_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Upload the image file for the shared resource |
-| <CopyableCode code="view_image_cdx_v1provider_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)<br /><br />Returns the image file for the shared resource |
+| <CopyableCode code="get_cdx_v1provider_shared_resource" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to read a provider shared resource. |
+| <CopyableCode code="list_cdx_v1provider_shared_resources" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all provider shared resources. |
+| <CopyableCode code="delete_image_cdx_v1provider_shared_resource" /> | `DELETE` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Deletes the image file for the shared resource |
+| <CopyableCode code="update_cdx_v1provider_shared_resource" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Make a request to update a provider shared resource. |
+| <CopyableCode code="upload_image_cdx_v1provider_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Upload the image file for the shared resource |
+| <CopyableCode code="view_image_cdx_v1provider_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Returns the image file for the shared resource |
+
+## `SELECT` examples
+
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
+
+Retrieve a sorted, filtered, paginated list of all provider shared resources.
+
+
+```sql
+SELECT
+id,
+description,
+_cloud_cluster,
+api_version,
+cloud_cluster,
+cluster_name,
+crn,
+display_name,
+environment_name,
+kind,
+logo_url,
+metadata,
+organization_contact,
+organization_description,
+organization_name,
+resources,
+schemas,
+tags
+FROM confluent.stream_sharing.provider_shared_resources
+;
+```
+## `UPDATE` example
+
+Updates a <code>provider_shared_resources</code> resource.
+
+```sql
+/*+ update */
+UPDATE confluent.stream_sharing.provider_shared_resources
+SET 
+metadata = '{{ metadata }}',
+resources = '{{ resources }}',
+display_name = '{{ display_name }}',
+organization_description = '{{ organization_description }}',
+organization_contact = '{{ organization_contact }}'
+WHERE 
+id = '{{ id }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>provider_shared_resources</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM confluent.stream_sharing.provider_shared_resources
+WHERE file_name = '{{ file_name }}'
+AND id = '{{ id }}';
+```

@@ -4,38 +4,28 @@ hide_title: false
 hide_table_of_contents: false
 keywords:
   - schema_registry
-  - confluent
+  - azure
+  - microsoft azure
   - stackql
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage Confluent Cloud resources using SQL.
+description: Query, deploy and manage Microsoft Azure resources using SQL
 custom_edit_url: null
-image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
+image: /img/providers/azure/stackql-azure-provider-featured-image.png
 ---
 
-Schema Registry  
-    
+schema_registry service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>14</b></span><br />
-<span>total selectable resources:&nbsp;<b>13</b></span><br />
-<span>total methods:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
 :::
-
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>confluent.schema_registry</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>Confluent Cloud APIs - Schema Registry</td></tr>
-<tr><td><b>Description</b></td><td>Schema Registry</td></tr>
-<tr><td><b>Id</b></td><td><code>schema_registry:v24.11.00272</code></td></tr>
-</tbody></table>
 
 ## Resources
 <div class="row">
@@ -46,7 +36,7 @@ Schema Registry
 <a href="/providers/confluent/schema_registry/exporter_configs/">exporter_configs</a><br />
 <a href="/providers/confluent/schema_registry/exporter_status/">exporter_status</a><br />
 <a href="/providers/confluent/schema_registry/exporters/">exporters</a><br />
-<a href="/providers/confluent/schema_registry/modes/">modes</a><br />
+<a href="/providers/confluent/schema_registry/modes/">modes</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/confluent/schema_registry/schema_subjects/">schema_subjects</a><br />
@@ -55,6 +45,6 @@ Schema Registry
 <a href="/providers/confluent/schema_registry/subjects/">subjects</a><br />
 <a href="/providers/confluent/schema_registry/top_level_config/">top_level_config</a><br />
 <a href="/providers/confluent/schema_registry/types/">types</a><br />
-<a href="/providers/confluent/schema_registry/versions/">versions</a><br />
+<a href="/providers/confluent/schema_registry/versions/">versions</a>
 </div>
 </div>
