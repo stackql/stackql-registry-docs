@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - dns_forwarders
   - networking
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -42,27 +41,15 @@ Creates, updates, deletes, gets or lists a <code>dns_forwarders</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_networking_v1dns_forwarder" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to read a DNS forwarder. |
-| <CopyableCode code="list_networking_v1dns_forwarders" /> | `SELECT` | <CopyableCode code="environment" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all DNS forwarders. |
-| <CopyableCode code="create_networking_v1dns_forwarder" /> | `INSERT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to create a DNS forwarder. |
-| <CopyableCode code="delete_networking_v1dns_forwarder" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to delete a DNS forwarder. |
-| <CopyableCode code="update_networking_v1dns_forwarder" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to update a DNS forwarder. |
+| <CopyableCode code="get_networking_v1dns_forwarder" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to read a DNS forwarder. |
+| <CopyableCode code="list_networking_v1dns_forwarders" /> | `SELECT` | <CopyableCode code="environment" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all DNS forwarders. |
+| <CopyableCode code="create_networking_v1dns_forwarder" /> | `INSERT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to create a DNS forwarder. |
+| <CopyableCode code="delete_networking_v1dns_forwarder" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to delete a DNS forwarder. |
+| <CopyableCode code="update_networking_v1dns_forwarder" /> | `UPDATE` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to update a DNS forwarder. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all DNS forwarders.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all DNS forwarders.
 
 
 ```sql

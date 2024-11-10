@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - acls
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -45,24 +44,14 @@ Creates, updates, deletes, gets or lists a <code>acls</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_acls" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of ACLs that match the search criteria. |
-| <CopyableCode code="create_kafka_acls" /> | `INSERT` | <CopyableCode code="cluster_id, data__host, data__operation, data__pattern_type, data__permission, data__principal, data__resource_name, data__resource_type" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Create an ACL. |
-| <CopyableCode code="delete_kafka_acls" /> | `DELETE` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Delete the ACLs that match the search criteria. |
-| <CopyableCode code="batch_create_kafka_acls" /> | `EXEC` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Create ACLs. |
+| <CopyableCode code="get_kafka_acls" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of ACLs that match the search criteria. |
+| <CopyableCode code="create_kafka_acls" /> | `INSERT` | <CopyableCode code="cluster_id, data__host, data__operation, data__pattern_type, data__permission, data__principal, data__resource_name, data__resource_type" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Create an ACL. |
+| <CopyableCode code="delete_kafka_acls" /> | `DELETE` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Delete the ACLs that match the search criteria. |
+| <CopyableCode code="batch_create_kafka_acls" /> | `EXEC` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Create ACLs. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of ACLs that match the search criteria.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of ACLs that match the search criteria.
 
 
 ```sql

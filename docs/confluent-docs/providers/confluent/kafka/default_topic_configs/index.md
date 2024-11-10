@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - default_topic_configs
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -38,15 +37,11 @@ Creates, updates, deletes, gets or lists a <code>default_topic_configs</code> re
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_kafka_default_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-List the default configuration parameters used if the topic were to be newly created. |
+| <CopyableCode code="list_kafka_default_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) List the default configuration parameters used if the topic were to be newly created. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-List the default configuration parameters used if the topic were to be newly created.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) List the default configuration parameters used if the topic were to be newly created.
 
 
 ```sql

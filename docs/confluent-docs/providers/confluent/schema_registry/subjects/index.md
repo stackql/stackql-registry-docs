@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - subjects
   - schema_registry
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -50,9 +49,7 @@ Creates, updates, deletes, gets or lists a <code>subjects</code> resource.
 | <CopyableCode code="get_referenced_by" /> | `EXEC` | <CopyableCode code="subject, version" /> | Retrieves the IDs of schemas that reference the specified schema. |
 | <CopyableCode code="get_schema_only_1" /> | `EXEC` | <CopyableCode code="subject, version" /> | Retrieves the schema for the specified version of this subject. Only the unescaped schema string is returned. |
 | <CopyableCode code="look_up_schema_under_subject" /> | `EXEC` | <CopyableCode code="subject" /> | Check if a schema has already been registered under the specified subject. If so, this returns the schema string along with its globally unique identifier, its version under this subject and the subject name. |
-| <CopyableCode code="register" /> | `EXEC` | <CopyableCode code="subject" /> | Register a new schema under the specified subject. If successfully registered, this returns the unique identifier of this schema in the registry. The returned identifier should be used to retrieve this schema from the schemas resource and is different from the schema's version which is associated with the subject. If the same schema is registered under a different subject, the same identifier will be returned. However, the version of the schema may be different under different subjects.
-A schema should be compatible with the previously registered schema or schemas (if there are any) as per the configured compatibility level. The configured compatibility level can be obtained by issuing a GET http:get:: /config/(string: subject). If that returns null, then GET http:get:: /config
-When there are multiple instances of Schema Registry running in the same cluster, the schema registration request will be forwarded to one of the instances designated as the primary. If the primary is not available, the client will get an error code indicating that the forwarding has failed. |
+| <CopyableCode code="register" /> | `EXEC` | <CopyableCode code="subject" /> | Register a new schema under the specified subject. If successfully registered, this returns the unique identifier of this schema in the registry. The returned identifier should be used to retrieve this schema from the schemas resource and is different from the schema's version which is associated with the subject. If the same schema is registered under a different subject, the same identifier will be returned. However, the version of the schema may be different under different subjects. A schema should be compatible with the previously registered schema or schemas (if there are any) as per the configured compatibility level. The configured compatibility level can be obtained by issuing a GET http:get:: /config/(string: subject). If that returns null, then GET http:get:: /config When there are multiple instances of Schema Registry running in the same cluster, the schema registration request will be forwarded to one of the instances designated as the primary. If the primary is not available, the client will get an error code indicating that the forwarding has failed. |
 
 ## `SELECT` examples
 

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - network_link_service_associations
   - networking
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -42,18 +41,12 @@ Creates, updates, deletes, gets or lists a <code>network_link_service_associatio
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_networking_v1network_link_service_association" /> | `SELECT` | <CopyableCode code="environment, id, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to read a network link service association. |
-| <CopyableCode code="list_networking_v1network_link_service_associations" /> | `SELECT` | <CopyableCode code="environment, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all network link service associations. |
+| <CopyableCode code="get_networking_v1network_link_service_association" /> | `SELECT` | <CopyableCode code="environment, id, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to read a network link service association. |
+| <CopyableCode code="list_networking_v1network_link_service_associations" /> | `SELECT` | <CopyableCode code="environment, spec.network_link_service" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all network link service associations. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all network link service associations.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all network link service associations.
 
 
 ```sql

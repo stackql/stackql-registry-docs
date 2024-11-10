@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - v2_clusters
   - schema_registry_clusters
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -42,27 +41,15 @@ Creates, updates, deletes, gets or lists a <code>v2_clusters</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_srcm_v2cluster" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to read a cluster. |
-| <CopyableCode code="list_srcm_v2clusters" /> | `SELECT` | <CopyableCode code="environment" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all clusters. |
-| <CopyableCode code="create_srcm_v2cluster" /> | `INSERT` | <CopyableCode code="" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to create a cluster. |
-| <CopyableCode code="delete_srcm_v2cluster" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to delete a cluster. |
-| <CopyableCode code="update_srcm_v2cluster" /> | `UPDATE` | <CopyableCode code="id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to update a cluster. |
+| <CopyableCode code="get_srcm_v2cluster" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Make a request to read a cluster. |
+| <CopyableCode code="list_srcm_v2clusters" /> | `SELECT` | <CopyableCode code="environment" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all clusters. |
+| <CopyableCode code="create_srcm_v2cluster" /> | `INSERT` | <CopyableCode code="" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Make a request to create a cluster. |
+| <CopyableCode code="delete_srcm_v2cluster" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Make a request to delete a cluster. |
+| <CopyableCode code="update_srcm_v2cluster" /> | `UPDATE` | <CopyableCode code="id" /> | [![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Make a request to update a cluster. |
 
 ## `SELECT` examples
 
-[![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all clusters.
+[![Deprecated](https://img.shields.io/badge/Lifecycle%20Stage-Deprecated-%23ff005c)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all clusters.
 
 
 ```sql

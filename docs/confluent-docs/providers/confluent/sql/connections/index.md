@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - connections
   - sql
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -42,27 +41,15 @@ Creates, updates, deletes, gets or lists a <code>connections</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_sqlv1connection" /> | `SELECT` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to read a Connection. |
-| <CopyableCode code="list_sqlv1connections" /> | `SELECT` | <CopyableCode code="environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered and paginated list of all Connections. |
-| <CopyableCode code="create_sqlv1connection" /> | `INSERT` | <CopyableCode code="environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to create a Connection. |
-| <CopyableCode code="delete_sqlv1connection" /> | `DELETE` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to delete a statement. |
-| <CopyableCode code="update_sqlv1connection" /> | `EXEC` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to update a connection. |
+| <CopyableCode code="get_sqlv1connection" /> | `SELECT` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Make a request to read a Connection. |
+| <CopyableCode code="list_sqlv1connections" /> | `SELECT` | <CopyableCode code="environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered and paginated list of all Connections. |
+| <CopyableCode code="create_sqlv1connection" /> | `INSERT` | <CopyableCode code="environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Make a request to create a Connection. |
+| <CopyableCode code="delete_sqlv1connection" /> | `DELETE` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Make a request to delete a statement. |
+| <CopyableCode code="update_sqlv1connection" /> | `EXEC` | <CopyableCode code="connection_name, environment_id, organization_id" /> | [![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Make a request to update a connection. |
 
 ## `SELECT` examples
 
-[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered and paginated list of all Connections.
+[![Preview](https://img.shields.io/badge/Lifecycle%20Stage-Preview-%2300afba)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered and paginated list of all Connections.
 
 
 ```sql

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - business_metadata
   - catalog
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -40,26 +39,14 @@ Creates, updates, deletes, gets or lists a <code>business_metadata</code> resour
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_business_metadata" /> | `SELECT` | <CopyableCode code="qualifiedName, typeName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Gets the list of business metadata for a given entity represented
-by a qualified name. |
-| <CopyableCode code="create_business_metadata" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk API to create multiple business metadata. |
-| <CopyableCode code="delete_business_metadata" /> | `DELETE` | <CopyableCode code="bmName, qualifiedName, typeName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Delete a business metadata on an entity. |
-| <CopyableCode code="update_business_metadata" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk API to update multiple business metadata. |
+| <CopyableCode code="get_business_metadata" /> | `SELECT` | <CopyableCode code="qualifiedName, typeName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Gets the list of business metadata for a given entity represented by a qualified name. |
+| <CopyableCode code="create_business_metadata" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk API to create multiple business metadata. |
+| <CopyableCode code="delete_business_metadata" /> | `DELETE` | <CopyableCode code="bmName, qualifiedName, typeName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Delete a business metadata on an entity. |
+| <CopyableCode code="update_business_metadata" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk API to update multiple business metadata. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Gets the list of business metadata for a given entity represented
-by a qualified name.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Gets the list of business metadata for a given entity represented by a qualified name.
 
 
 ```sql

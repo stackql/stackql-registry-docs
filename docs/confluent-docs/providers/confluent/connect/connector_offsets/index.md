@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - connector_offsets
   - connect
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -39,17 +38,11 @@ Creates, updates, deletes, gets or lists a <code>connector_offsets</code> resour
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_connectv1connector_offsets" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the current offsets for the connector. The offsets provide information on the point in the source system, 
-from which the connector is pulling in data. The offsets of a connector are continuously observed periodically and are queryable via this API. |
+| <CopyableCode code="get_connectv1connector_offsets" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the current offsets for the connector. The offsets provide information on the point in the source system, from which the connector is pulling in data. The offsets of a connector are continuously observed periodically and are queryable via this API. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the current offsets for the connector. The offsets provide information on the point in the source system, 
-from which the connector is pulling in data. The offsets of a connector are continuously observed periodically and are queryable via this API.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the current offsets for the connector. The offsets provide information on the point in the source system, from which the connector is pulling in data. The offsets of a connector are continuously observed periodically and are queryable via this API.
 
 
 ```sql

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - presigned_urls
   - flink_artifacts
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -35,6 +34,4 @@ Creates, updates, deletes, gets or lists a <code>presigned_urls</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="presigned_upload_url_artifact_v1presigned_url" /> | `EXEC` | <CopyableCode code="" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Flink Artifact API EA](https://img.shields.io/badge/-Request%20Access%20To%20Flink%20Artifact%20API%20EA-%23bc8540)](mailto:ccloud-api-access+artifact-v1-early-access@confluent.io?subject=Request%20to%20join%20artifact/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20artifact/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Request a presigned upload URL to upload a Flink Artifact archive. |
+| <CopyableCode code="presigned_upload_url_artifact_v1presigned_url" /> | `EXEC` | <CopyableCode code="" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Flink Artifact API EA](https://img.shields.io/badge/-Request%20Access%20To%20Flink%20Artifact%20API%20EA-%23bc8540)](mailto:ccloud-api-access+artifact-v1-early-access@confluent.io?subject=Request%20to%20join%20artifact/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20artifact/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Request a presigned upload URL to upload a Flink Artifact archive. |

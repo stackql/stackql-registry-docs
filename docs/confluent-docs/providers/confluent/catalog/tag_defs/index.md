@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - tag_defs
   - catalog
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -51,27 +50,15 @@ Creates, updates, deletes, gets or lists a <code>tag_defs</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_all_tag_defs" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk retrieval API for retrieving tag definitions. |
-| <CopyableCode code="get_tag_def_by_name" /> | `SELECT` | <CopyableCode code="tagName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the tag definition with the given name. |
-| <CopyableCode code="create_tag_defs" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk create API for tag definitions. |
-| <CopyableCode code="delete_tag_def" /> | `DELETE` | <CopyableCode code="tagName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Delete API for tag definition identified by its name. |
-| <CopyableCode code="update_tag_defs" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk update API for tag definitions. |
+| <CopyableCode code="get_all_tag_defs" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk retrieval API for retrieving tag definitions. |
+| <CopyableCode code="get_tag_def_by_name" /> | `SELECT` | <CopyableCode code="tagName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the tag definition with the given name. |
+| <CopyableCode code="create_tag_defs" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk create API for tag definitions. |
+| <CopyableCode code="delete_tag_def" /> | `DELETE` | <CopyableCode code="tagName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Delete API for tag definition identified by its name. |
+| <CopyableCode code="update_tag_defs" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk update API for tag definitions. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk retrieval API for retrieving tag definitions.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk retrieval API for retrieving tag definitions.
 
 
 ```sql

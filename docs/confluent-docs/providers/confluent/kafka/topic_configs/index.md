@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - topic_configs
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -46,34 +45,16 @@ Creates, updates, deletes, gets or lists a <code>topic_configs</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_topic_config" /> | `SELECT` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return the configuration parameter with the given `name`. |
-| <CopyableCode code="list_kafka_all_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return the list of configuration parameters for all topics hosted by the specified
-cluster. |
-| <CopyableCode code="list_kafka_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return the list of configuration parameters that belong to the specified topic. |
-| <CopyableCode code="delete_kafka_topic_config" /> | `DELETE` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Reset the configuration parameter with given `name` to its default value. |
-| <CopyableCode code="update_kafka_topic_config_batch" /> | `UPDATE` | <CopyableCode code="cluster_id, topic_name, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Update or delete a set of topic configuration parameters.
-Also supports a dry-run mode that only validates whether the operation would succeed if the
-``validate_only`` request property is explicitly specified and set to true. |
-| <CopyableCode code="update_kafka_topic_config" /> | `EXEC` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Update the configuration parameter with given `name`. |
+| <CopyableCode code="get_kafka_topic_config" /> | `SELECT` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return the configuration parameter with the given `name`. |
+| <CopyableCode code="list_kafka_all_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return the list of configuration parameters for all topics hosted by the specified cluster. |
+| <CopyableCode code="list_kafka_topic_configs" /> | `SELECT` | <CopyableCode code="cluster_id, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return the list of configuration parameters that belong to the specified topic. |
+| <CopyableCode code="delete_kafka_topic_config" /> | `DELETE` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Reset the configuration parameter with given `name` to its default value. |
+| <CopyableCode code="update_kafka_topic_config_batch" /> | `UPDATE` | <CopyableCode code="cluster_id, topic_name, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Update or delete a set of topic configuration parameters. Also supports a dry-run mode that only validates whether the operation would succeed if the ``validate_only`` request property is explicitly specified and set to true. |
+| <CopyableCode code="update_kafka_topic_config" /> | `EXEC` | <CopyableCode code="cluster_id, name, topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Update the configuration parameter with given `name`. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return the list of configuration parameters for all topics hosted by the specified
-cluster.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return the list of configuration parameters for all topics hosted by the specified cluster.
 
 
 ```sql
