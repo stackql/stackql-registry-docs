@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - business_metadata_defs
   - catalog
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -48,27 +47,15 @@ Creates, updates, deletes, gets or lists a <code>business_metadata_defs</code> r
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_all_business_metadata_defs" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk retrieval API for retrieving business metadata definitions. |
-| <CopyableCode code="get_business_metadata_def_by_name" /> | `SELECT` | <CopyableCode code="bmName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the business metadata definition with the given name. |
-| <CopyableCode code="create_business_metadata_defs" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk create API for business metadata definitions. |
-| <CopyableCode code="delete_business_metadata_def" /> | `DELETE` | <CopyableCode code="bmName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Delete API for business metadata definition identified by its name. |
-| <CopyableCode code="update_business_metadata_defs" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk update API for business metadata definitions. |
+| <CopyableCode code="get_all_business_metadata_defs" /> | `SELECT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk retrieval API for retrieving business metadata definitions. |
+| <CopyableCode code="get_business_metadata_def_by_name" /> | `SELECT` | <CopyableCode code="bmName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the business metadata definition with the given name. |
+| <CopyableCode code="create_business_metadata_defs" /> | `INSERT` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk create API for business metadata definitions. |
+| <CopyableCode code="delete_business_metadata_def" /> | `DELETE` | <CopyableCode code="bmName" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Delete API for business metadata definition identified by its name. |
+| <CopyableCode code="update_business_metadata_defs" /> | `EXEC` | <CopyableCode code="" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk update API for business metadata definitions. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Bulk retrieval API for retrieving business metadata definitions.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Bulk retrieval API for retrieving business metadata definitions.
 
 
 ```sql

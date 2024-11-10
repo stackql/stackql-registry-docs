@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - integrations
   - provider_integrations
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -44,30 +43,14 @@ Creates, updates, deletes, gets or lists a <code>integrations</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_pim_v1integration" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Make a request to read an integration. |
-| <CopyableCode code="list_pim_v1integrations" /> | `SELECT` | <CopyableCode code="environment" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Retrieve a sorted, filtered, paginated list of all integrations.
-
-If no `provider` filter is specified, returns provider integrations from all clouds. |
-| <CopyableCode code="create_pim_v1integration" /> | `INSERT` | <CopyableCode code="" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Make a request to create an integration. |
-| <CopyableCode code="delete_pim_v1integration" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Make a request to delete an integration.
-
-This request fails if existing workloads are using this CSP integration. |
+| <CopyableCode code="get_pim_v1integration" /> | `SELECT` | <CopyableCode code="environment, id" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Make a request to read an integration. |
+| <CopyableCode code="list_pim_v1integrations" /> | `SELECT` | <CopyableCode code="environment" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Retrieve a sorted, filtered, paginated list of all integrations. If no `provider` filter is specified, returns provider integrations from all clouds. |
+| <CopyableCode code="create_pim_v1integration" /> | `INSERT` | <CopyableCode code="" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Make a request to create an integration. |
+| <CopyableCode code="delete_pim_v1integration" /> | `DELETE` | <CopyableCode code="environment, id" /> | [![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Make a request to delete an integration. This request fails if existing workloads are using this CSP integration. |
 
 ## `SELECT` examples
 
-[![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.)
-
-Retrieve a sorted, filtered, paginated list of all integrations.
-
-If no `provider` filter is specified, returns provider integrations from all clouds.
+[![Early Access](https://img.shields.io/badge/Lifecycle%20Stage-Early%20Access-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) [![Request Access To Provider Integration](https://img.shields.io/badge/-Request%20Access%20To%20Provider%20Integration-%23bc8540)](mailto:ccloud-api-access+pim-v1-early-access@confluent.io?subject=Request%20to%20join%20pim/v1%20API%20Early%20Access&body=I%E2%80%99d%20like%20to%20join%20the%20Confluent%20Cloud%20API%20Early%20Access%20for%20pim/v1%20to%20provide%20early%20feedback%21%20My%20Cloud%20Organization%20ID%20is%20%3Cretrieve%20from%20https%3A//confluent.cloud/settings/billing/payment%3E.) Retrieve a sorted, filtered, paginated list of all integrations. If no `provider` filter is specified, returns provider integrations from all clouds.
 
 
 ```sql

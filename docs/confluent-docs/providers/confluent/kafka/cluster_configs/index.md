@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - cluster_configs
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -46,30 +45,15 @@ Creates, updates, deletes, gets or lists a <code>cluster_configs</code> resource
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_kafka_cluster_config" /> | `SELECT` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return the dynamic cluster-wide broker configuration parameter specified by ``name``. |
-| <CopyableCode code="list_kafka_cluster_configs" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of dynamic cluster-wide broker configuration parameters for the specified Kafka
-cluster. Returns an empty list if there are no dynamic cluster-wide broker configuration parameters. |
-| <CopyableCode code="delete_kafka_cluster_config" /> | `DELETE` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Reset the configuration parameter specified by ``name`` to its
-default value by deleting a dynamic cluster-wide configuration. |
-| <CopyableCode code="update_kafka_cluster_configs" /> | `UPDATE` | <CopyableCode code="cluster_id, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Update or delete a set of dynamic cluster-wide broker configuration parameters. |
-| <CopyableCode code="update_kafka_cluster_config" /> | `EXEC` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Update the dynamic cluster-wide broker configuration parameter specified by ``name``. |
+| <CopyableCode code="get_kafka_cluster_config" /> | `SELECT` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return the dynamic cluster-wide broker configuration parameter specified by ``name``. |
+| <CopyableCode code="list_kafka_cluster_configs" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of dynamic cluster-wide broker configuration parameters for the specified Kafka cluster. Returns an empty list if there are no dynamic cluster-wide broker configuration parameters. |
+| <CopyableCode code="delete_kafka_cluster_config" /> | `DELETE` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Reset the configuration parameter specified by ``name`` to its default value by deleting a dynamic cluster-wide configuration. |
+| <CopyableCode code="update_kafka_cluster_configs" /> | `UPDATE` | <CopyableCode code="cluster_id, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Update or delete a set of dynamic cluster-wide broker configuration parameters. |
+| <CopyableCode code="update_kafka_cluster_config" /> | `EXEC` | <CopyableCode code="cluster_id, name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Update the dynamic cluster-wide broker configuration parameter specified by ``name``. |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of dynamic cluster-wide broker configuration parameters for the specified Kafka
-cluster. Returns an empty list if there are no dynamic cluster-wide broker configuration parameters.
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of dynamic cluster-wide broker configuration parameters for the specified Kafka cluster. Returns an empty list if there are no dynamic cluster-wide broker configuration parameters.
 
 
 ```sql

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - consumer_shared_resources
   - stream_sharing
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -39,8 +38,7 @@ Creates, updates, deletes, gets or lists a <code>consumer_shared_resources</code
 | <CopyableCode code="kind" /> | `string` | Kind defines the object this REST resource represents. |
 | <CopyableCode code="logo_url" /> | `string` | Resource logo url |
 | <CopyableCode code="metadata" /> | `` | ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create. |
-| <CopyableCode code="network_connection_types" /> | `array` | The network connection types of the provider shared cluster. If the shared cluster is on public internet,
-then the list will be empty |
+| <CopyableCode code="network_connection_types" /> | `array` | The network connection types of the provider shared cluster. If the shared cluster is on public internet, then the list will be empty |
 | <CopyableCode code="organization_contact" /> | `string` | Email of the shared resource's organization contact |
 | <CopyableCode code="organization_description" /> | `string` | Shared resource's organization description |
 | <CopyableCode code="organization_name" /> | `string` | Shared resource's organization name |
@@ -50,24 +48,14 @@ then the list will be empty |
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_cdx_v1consumer_shared_resource" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Make a request to read a consumer shared resource. |
-| <CopyableCode code="list_cdx_v1consumer_shared_resources" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all consumer shared resources. |
-| <CopyableCode code="image_cdx_v1consumer_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Returns the image file for the shared resource |
-| <CopyableCode code="network_cdx_v1consumer_shared_resource" /> | `EXEC` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Returns network information of the shared resource |
+| <CopyableCode code="get_cdx_v1consumer_shared_resource" /> | `SELECT` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Make a request to read a consumer shared resource. |
+| <CopyableCode code="list_cdx_v1consumer_shared_resources" /> | `SELECT` | <CopyableCode code="" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all consumer shared resources. |
+| <CopyableCode code="image_cdx_v1consumer_shared_resource" /> | `EXEC` | <CopyableCode code="file_name, id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Returns the image file for the shared resource |
+| <CopyableCode code="network_cdx_v1consumer_shared_resource" /> | `EXEC` | <CopyableCode code="id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Returns network information of the shared resource |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Retrieve a sorted, filtered, paginated list of all consumer shared resources.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Retrieve a sorted, filtered, paginated list of all consumer shared resources.
 
 
 ```sql

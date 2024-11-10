@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - connector_config
   - connect
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -43,16 +42,12 @@ Creates, updates, deletes, gets or lists a <code>connector_config</code> resourc
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_connectv1connector_config" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the configuration for the connector. |
+| <CopyableCode code="get_connectv1connector_config" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the configuration for the connector. |
 | <CopyableCode code="create_or_update_connectv1connector_config" /> | `INSERT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id, data__connector.class, data__kafka.api.key, data__kafka.api.secret, data__name" /> | Create a new connector using the given configuration, or update the configuration for an existing connector. Returns information about the connector after the change has been made. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the configuration for the connector.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the configuration for the connector.
 
 
 ```sql

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - cluster_link_configs
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -49,9 +48,7 @@ Creates, updates, deletes, gets or lists a <code>cluster_link_configs</code> res
 | <CopyableCode code="list_kafka_link_configs" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="delete_kafka_link_config" /> | `DELETE` | <CopyableCode code="cluster_id, config_name, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_link_config" /> | `EXEC` | <CopyableCode code="cluster_id, config_name, link_name, data__value" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
-| <CopyableCode code="update_kafka_link_config_batch" /> | `EXEC` | <CopyableCode code="cluster_id, link_name, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Batch Alter Cluster Link Configs |
+| <CopyableCode code="update_kafka_link_config_batch" /> | `EXEC` | <CopyableCode code="cluster_id, link_name, data__data" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Batch Alter Cluster Link Configs |
 
 ## `SELECT` examples
 

@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - mirror_topics
   - kafka
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -45,17 +44,10 @@ Creates, updates, deletes, gets or lists a <code>mirror_topics</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_kafka_mirror_topics" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-List all mirror topics in the cluster |
-| <CopyableCode code="list_kafka_mirror_topics_under_link" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-List all mirror topics under the link |
+| <CopyableCode code="list_kafka_mirror_topics" /> | `SELECT` | <CopyableCode code="cluster_id" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) List all mirror topics in the cluster |
+| <CopyableCode code="list_kafka_mirror_topics_under_link" /> | `SELECT` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) List all mirror topics under the link |
 | <CopyableCode code="read_kafka_mirror_topic" /> | `SELECT` | <CopyableCode code="cluster_id, link_name, mirror_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
-| <CopyableCode code="create_kafka_mirror_topic" /> | `INSERT` | <CopyableCode code="cluster_id, link_name, data__source_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Create a topic in the destination cluster mirroring a topic in
-the source cluster |
+| <CopyableCode code="create_kafka_mirror_topic" /> | `INSERT` | <CopyableCode code="cluster_id, link_name, data__source_topic_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Create a topic in the destination cluster mirroring a topic in the source cluster |
 | <CopyableCode code="update_kafka_mirror_topics_failover" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_mirror_topics_pause" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
 | <CopyableCode code="update_kafka_mirror_topics_promote" /> | `EXEC` | <CopyableCode code="cluster_id, link_name" /> | [![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) |
@@ -66,9 +58,7 @@ the source cluster |
 
 ## `SELECT` examples
 
-[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-List all mirror topics in the cluster
+[![Generally Available](https://img.shields.io/badge/Lifecycle%20Stage-Generally%20Available-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) List all mirror topics in the cluster
 
 
 ```sql

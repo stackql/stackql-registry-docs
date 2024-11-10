@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - connector_offsets_requests
   - connect
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -39,20 +38,12 @@ Creates, updates, deletes, gets or lists a <code>connector_offsets_requests</cod
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_connectv1connector_offsets_request_status" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the status of the previous alter offset request. |
-| <CopyableCode code="alter_connectv1connector_offsets_request" /> | `EXEC` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id, data__type" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Request to alter the offsets of a connector. This supports the ability to PATCH/DELETE the offsets of a connector.
-Note, you will see momentary downtime as this will internally stop the connector, while the offsets are being altered.
-You can only make one alter offsets request at a time for a connector. |
+| <CopyableCode code="get_connectv1connector_offsets_request_status" /> | `SELECT` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the status of the previous alter offset request. |
+| <CopyableCode code="alter_connectv1connector_offsets_request" /> | `EXEC` | <CopyableCode code="connector_name, environment_id, kafka_cluster_id, data__type" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Request to alter the offsets of a connector. This supports the ability to PATCH/DELETE the offsets of a connector. Note, you will see momentary downtime as this will internally stop the connector, while the offsets are being altered. You can only make one alter offsets request at a time for a connector. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Get the status of the previous alter offset request.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Get the status of the previous alter offset request.
 
 
 ```sql

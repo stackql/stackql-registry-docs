@@ -5,14 +5,13 @@ hide_table_of_contents: false
 keywords:
   - managed_connector_plugins
   - connect
-  - azure
-  - microsoft azure
+  - confluent
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Microsoft Azure infrastructure and resources using SQL
+description: Query, deploy and manage confluent resources using SQL
 custom_edit_url: null
-image: /img/providers/azure/stackql-azure-provider-featured-image.png
+image: /img/providers/confluent/stackql-confluent-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
@@ -38,18 +37,12 @@ Creates, updates, deletes, gets or lists a <code>managed_connector_plugins</code
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_connectv1connector_plugins" /> | `SELECT` | <CopyableCode code="environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of Managed Connector plugins installed in the Kafka Connect cluster. |
-| <CopyableCode code="validate_connectv1connector_plugin" /> | `EXEC` | <CopyableCode code="environment_id, kafka_cluster_id, plugin_name" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Validate the provided configuration values against the configuration definition. This API performs per config validation and returns suggested values and validation error messages. |
+| <CopyableCode code="list_connectv1connector_plugins" /> | `SELECT` | <CopyableCode code="environment_id, kafka_cluster_id" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of Managed Connector plugins installed in the Kafka Connect cluster. |
+| <CopyableCode code="validate_connectv1connector_plugin" /> | `EXEC` | <CopyableCode code="environment_id, kafka_cluster_id, plugin_name" /> | [![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Validate the provided configuration values against the configuration definition. This API performs per config validation and returns suggested values and validation error messages. |
 
 ## `SELECT` examples
 
-[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy)
-
-Return a list of Managed Connector plugins installed in the Kafka Connect cluster.
+[![General Availability](https://img.shields.io/badge/Lifecycle%20Stage-General%20Availability-%2345c6e8)](#section/Versioning/API-Lifecycle-Policy) Return a list of Managed Connector plugins installed in the Kafka Connect cluster.
 
 
 ```sql
