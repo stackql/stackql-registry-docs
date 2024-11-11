@@ -72,6 +72,7 @@ Use the following StackQL query and manifest file to create a new <code>connecto
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -85,6 +86,10 @@ data__connector.class,
 data__name,
 data__kafka.api.key,
 data__kafka.api.secret,
+data__confluent.connector.type,
+data__confluent.custom.plugin.id,
+data__confluent.custom.connection.endpoints,
+data__confluent.custom.schema.registry.auto,
 connector_name,
 environment_id,
 kafka_cluster_id
@@ -94,16 +99,42 @@ SELECT
 '{{ name }}',
 '{{ kafka.api.key }}',
 '{{ kafka.api.secret }}',
+'{{ confluent.connector.type }}',
+'{{ confluent.custom.plugin.id }}',
+'{{ confluent.custom.connection.endpoints }}',
+'{{ confluent.custom.schema.registry.auto }}',
 '{{ connector_name }}',
 '{{ environment_id }}',
-'{{ kafka_cluster_id }}',
-'{{ data__connector.class }}',
-'{{ data__kafka.api.key }}',
-'{{ data__kafka.api.secret }}',
-'{{ data__name }}'
+'{{ kafka_cluster_id }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.connect.connector_config (
+    data__connector.class,
+data__name,
+data__kafka.api.key,
+data__kafka.api.secret,
+connector_name,
+environment_id,
+kafka_cluster_id
+    )
+    SELECT 
+    '{{ connector.class }}',
+'{{ name }}',
+'{{ kafka.api.key }}',
+'{{ kafka.api.secret }}',
+'{{ connector_name }}',
+'{{ environment_id }}',
+'{{ kafka_cluster_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

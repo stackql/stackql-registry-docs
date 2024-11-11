@@ -73,6 +73,7 @@ Use the following StackQL query and manifest file to create a new <code>data_enc
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -82,13 +83,37 @@ Use the following StackQL query and manifest file to create a new <code>data_enc
 ```sql
 /*+ create */
 INSERT INTO confluent.encryption_keys.data_encryption_keys (
+data__subject,
+data__version,
+data__algorithm,
+data__encryptedKeyMaterial,
+data__deleted,
 name
 )
 SELECT 
+'{{ subject }}',
+'{{ version }}',
+'{{ algorithm }}',
+'{{ encryptedKeyMaterial }}',
+'{{ deleted }}',
 '{{ name }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.encryption_keys.data_encryption_keys (
+    name
+    )
+    SELECT 
+    '{{ name }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

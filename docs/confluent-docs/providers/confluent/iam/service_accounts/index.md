@@ -69,6 +69,7 @@ Use the following StackQL query and manifest file to create a new <code>service_
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -78,13 +79,29 @@ Use the following StackQL query and manifest file to create a new <code>service_
 ```sql
 /*+ create */
 INSERT INTO confluent.iam.service_accounts (
-data__display_name
+data__display_name,
+data__description
 )
 SELECT 
-'{{ display_name }}'
+'{{ display_name }}',
+'{{ description }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.iam.service_accounts (
+    data__display_name
+    )
+    SELECT 
+    '{{ display_name }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -107,7 +124,7 @@ Updates a <code>service_accounts</code> resource.
 /*+ update */
 UPDATE confluent.iam.service_accounts
 SET 
-
+description = '{{ description }}'
 WHERE 
 id = '{{ id }}';
 ```

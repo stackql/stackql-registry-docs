@@ -74,6 +74,7 @@ Use the following StackQL query and manifest file to create a new <code>key_encr
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -83,13 +84,26 @@ Use the following StackQL query and manifest file to create a new <code>key_encr
 ```sql
 /*+ create */
 INSERT INTO confluent.encryption_keys.key_encryption_keys (
-
+data__name,
+data__kmsType,
+data__kmsKeyId,
+data__kmsProps,
+data__doc,
+data__shared,
+data__deleted
 )
 SELECT 
-
+'{{ name }}',
+'{{ kmsType }}',
+'{{ kmsKeyId }}',
+'{{ kmsProps }}',
+'{{ doc }}',
+'{{ shared }}',
+'{{ deleted }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -122,7 +136,9 @@ Replaces all fields in the specified <code>key_encryption_keys</code> resource.
 /*+ update */
 REPLACE confluent.encryption_keys.key_encryption_keys
 SET 
-
+kmsProps = '{{ kmsProps }}',
+doc = '{{ doc }}',
+shared = true|false
 WHERE 
 name = '{{ name }}';
 ```

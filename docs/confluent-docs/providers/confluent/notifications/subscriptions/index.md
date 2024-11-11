@@ -71,6 +71,7 @@ Use the following StackQL query and manifest file to create a new <code>subscrip
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -80,15 +81,33 @@ Use the following StackQL query and manifest file to create a new <code>subscrip
 ```sql
 /*+ create */
 INSERT INTO confluent.notifications.subscriptions (
+data__current_state,
 data__notification_type,
 data__integrations
 )
 SELECT 
+'{{ current_state }}',
 '{{ notification_type }}',
 '{{ integrations }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.notifications.subscriptions (
+    data__notification_type,
+data__integrations
+    )
+    SELECT 
+    '{{ notification_type }}',
+'{{ integrations }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -118,7 +137,8 @@ Updates a <code>subscriptions</code> resource.
 /*+ update */
 UPDATE confluent.notifications.subscriptions
 SET 
-
+current_state = '{{ current_state }}',
+integrations = '{{ integrations }}'
 WHERE 
 id = '{{ id }}';
 ```

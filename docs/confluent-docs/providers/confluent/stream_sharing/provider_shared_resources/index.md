@@ -95,7 +95,10 @@ Updates a <code>provider_shared_resources</code> resource.
 /*+ update */
 UPDATE confluent.stream_sharing.provider_shared_resources
 SET 
-
+resources = '{{ resources }}',
+display_name = '{{ display_name }}',
+organization_description = '{{ organization_description }}',
+organization_contact = '{{ organization_contact }}'
 WHERE 
 id = '{{ id }}';
 ```

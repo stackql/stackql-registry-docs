@@ -79,6 +79,7 @@ Use the following StackQL query and manifest file to create a new <code>topics</
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -89,15 +90,38 @@ Use the following StackQL query and manifest file to create a new <code>topics</
 /*+ create */
 INSERT INTO confluent.kafka.topics (
 data__topic_name,
+data__partitions_count,
+data__replication_factor,
+data__configs,
+data__validate_only,
 cluster_id
 )
 SELECT 
 '{{ topic_name }}',
-'{{ cluster_id }}',
-'{{ data__topic_name }}'
+'{{ partitions_count }}',
+'{{ replication_factor }}',
+'{{ configs }}',
+'{{ validate_only }}',
+'{{ cluster_id }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.kafka.topics (
+    data__topic_name,
+cluster_id
+    )
+    SELECT 
+    '{{ topic_name }}',
+'{{ cluster_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

@@ -82,6 +82,7 @@ Use the following StackQL query and manifest file to create a new <code>cluster_
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -91,13 +92,37 @@ Use the following StackQL query and manifest file to create a new <code>cluster_
 ```sql
 /*+ create */
 INSERT INTO confluent.kafka.cluster_links (
+data__source_cluster_id,
+data__destination_cluster_id,
+data__remote_cluster_id,
+data__cluster_link_id,
+data__configs,
 cluster_id
 )
 SELECT 
+'{{ source_cluster_id }}',
+'{{ destination_cluster_id }}',
+'{{ remote_cluster_id }}',
+'{{ cluster_link_id }}',
+'{{ configs }}',
 '{{ cluster_id }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.kafka.cluster_links (
+    cluster_id
+    )
+    SELECT 
+    '{{ cluster_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

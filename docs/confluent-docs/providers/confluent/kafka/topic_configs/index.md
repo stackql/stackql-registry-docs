@@ -81,7 +81,8 @@ Updates a <code>topic_configs</code> resource.
 /*+ update */
 UPDATE confluent.kafka.topic_configs
 SET 
-data = '{{ data }}'
+data = '{{ data }}',
+validate_only = true|false
 WHERE 
 cluster_id = '{{ cluster_id }}'
 AND topic_name = '{{ topic_name }}'

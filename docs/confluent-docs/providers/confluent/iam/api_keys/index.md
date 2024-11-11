@@ -69,6 +69,7 @@ Use the following StackQL query and manifest file to create a new <code>api_keys
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -85,6 +86,7 @@ SELECT
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -109,7 +111,7 @@ Updates a <code>api_keys</code> resource.
 /*+ update */
 UPDATE confluent.iam.api_keys
 SET 
-
+spec = '{{ spec }}'
 WHERE 
 id = '{{ id }}';
 ```

@@ -77,6 +77,7 @@ Use the following StackQL query and manifest file to create a new <code>identity
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -99,6 +100,7 @@ SELECT
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -125,7 +127,10 @@ Updates a <code>identity_providers</code> resource.
 /*+ update */
 UPDATE confluent.iam.identity_providers
 SET 
-
+display_name = '{{ display_name }}',
+description = '{{ description }}',
+issuer = '{{ issuer }}',
+jwks_uri = '{{ jwks_uri }}'
 WHERE 
 id = '{{ id }}';
 ```

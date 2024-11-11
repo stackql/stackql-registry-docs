@@ -83,6 +83,7 @@ Use the following StackQL query and manifest file to create a new <code>mirror_t
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -93,17 +94,40 @@ Use the following StackQL query and manifest file to create a new <code>mirror_t
 /*+ create */
 INSERT INTO confluent.kafka.mirror_topics (
 data__source_topic_name,
+data__mirror_topic_name,
+data__replication_factor,
+data__configs,
 cluster_id,
 link_name
 )
 SELECT 
 '{{ source_topic_name }}',
+'{{ mirror_topic_name }}',
+'{{ replication_factor }}',
+'{{ configs }}',
 '{{ cluster_id }}',
-'{{ link_name }}',
-'{{ data__source_topic_name }}'
+'{{ link_name }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.kafka.mirror_topics (
+    data__source_topic_name,
+cluster_id,
+link_name
+    )
+    SELECT 
+    '{{ source_topic_name }}',
+'{{ cluster_id }}',
+'{{ link_name }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

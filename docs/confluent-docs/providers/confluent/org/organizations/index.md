@@ -119,7 +119,8 @@ Updates a <code>organizations</code> resource.
 /*+ update */
 UPDATE confluent.org.organizations
 SET 
-
+display_name = '{{ display_name }}',
+jit_enabled = true|false
 WHERE 
 id = '{{ id }}';
 ```

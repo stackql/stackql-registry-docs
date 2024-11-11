@@ -86,6 +86,7 @@ Use the following StackQL query and manifest file to create a new <code>flink_ar
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -100,6 +101,10 @@ data__region,
 data__environment,
 data__display_name,
 data__class,
+data__content_format,
+data__description,
+data__documentation_link,
+data__runtime_language,
 data__upload_source,
 cloud,
 region
@@ -110,16 +115,40 @@ SELECT
 '{{ environment }}',
 '{{ display_name }}',
 '{{ class }}',
-'{{ upload_source }}',
-'{{ data__class }}',
-'{{ data__cloud }}',
-'{{ data__display_name }}',
-'{{ data__environment }}',
-'{{ data__region }}',
-'{{ data__upload_source }}'
+'{{ content_format }}',
+'{{ description }}',
+'{{ documentation_link }}',
+'{{ runtime_language }}',
+'{{ upload_source }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.flink_artifacts.flink_artifacts (
+    data__cloud,
+data__region,
+data__environment,
+data__display_name,
+data__class,
+data__upload_source,
+cloud,
+region
+    )
+    SELECT 
+    '{{ cloud }}',
+'{{ region }}',
+'{{ environment }}',
+'{{ display_name }}',
+'{{ class }}',
+'{{ upload_source }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -178,7 +207,15 @@ Updates a <code>flink_artifacts</code> resource.
 /*+ update */
 UPDATE confluent.flink_artifacts.flink_artifacts
 SET 
-
+cloud = '{{ cloud }}',
+region = '{{ region }}',
+environment = '{{ environment }}',
+display_name = '{{ display_name }}',
+content_format = '{{ content_format }}',
+description = '{{ description }}',
+documentation_link = '{{ documentation_link }}',
+runtime_language = '{{ runtime_language }}',
+versions = '{{ versions }}'
 WHERE 
 cloud = '{{ cloud }}'
 AND id = '{{ id }}'

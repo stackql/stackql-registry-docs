@@ -74,6 +74,7 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -83,15 +84,35 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 ```sql
 /*+ create */
 INSERT INTO confluent.provider_integrations.integrations (
+data__display_name,
+data__provider,
 data__config,
 data__environment
 )
 SELECT 
+'{{ display_name }}',
+'{{ provider }}',
 '{{ config }}',
 '{{ environment }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.provider_integrations.integrations (
+    data__config,
+data__environment
+    )
+    SELECT 
+    '{{ config }}',
+'{{ environment }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
