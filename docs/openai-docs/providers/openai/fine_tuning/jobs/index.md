@@ -120,21 +120,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.fine_tuning.jobs (
-    data__model,
+```sql
+/*+ create */
+INSERT INTO openai.fine_tuning.jobs (
+data__model,
 data__training_file
-    )
-    SELECT 
-    '{{ model }}',
+)
+SELECT 
+'{{ model }}',
 '{{ training_file }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

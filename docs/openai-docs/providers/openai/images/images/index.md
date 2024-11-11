@@ -75,19 +75,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.images.images (
-    data__prompt
-    )
-    SELECT 
-    '{{ prompt }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO openai.images.images (
+data__prompt
+)
+SELECT 
+'{{ prompt }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

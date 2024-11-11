@@ -94,21 +94,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.notifications.integrations (
-    data__display_name,
+```sql
+/*+ create */
+INSERT INTO confluent.notifications.integrations (
+data__display_name,
 data__target
-    )
-    SELECT 
-    '{{ display_name }}',
+)
+SELECT 
+'{{ display_name }}',
 '{{ target }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

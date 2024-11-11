@@ -110,19 +110,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.kafka.cluster_links (
-    cluster_id
-    )
-    SELECT 
-    '{{ cluster_id }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO confluent.kafka.cluster_links (
+cluster_id
+)
+SELECT 
+'{{ cluster_id }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

@@ -102,19 +102,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.iam.invitations (
-    data__email
-    )
-    SELECT 
-    '{{ email }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO confluent.iam.invitations (
+data__email
+)
+SELECT 
+'{{ email }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

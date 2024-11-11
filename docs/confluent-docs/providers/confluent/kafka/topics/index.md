@@ -107,21 +107,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.kafka.topics (
-    data__topic_name,
+```sql
+/*+ create */
+INSERT INTO confluent.kafka.topics (
+data__topic_name,
 cluster_id
-    )
-    SELECT 
-    '{{ topic_name }}',
+)
+SELECT 
+'{{ topic_name }}',
 '{{ cluster_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

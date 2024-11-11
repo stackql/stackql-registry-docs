@@ -120,23 +120,23 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.batch.batches (
-    data__input_file_id,
+```sql
+/*+ create */
+INSERT INTO openai.batch.batches (
+data__input_file_id,
 data__endpoint,
 data__completion_window
-    )
-    SELECT 
-    '{{ input_file_id }}',
+)
+SELECT 
+'{{ input_file_id }}',
 '{{ endpoint }}',
 '{{ completion_window }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

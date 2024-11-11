@@ -95,21 +95,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.completions.completions (
-    data__model,
+```sql
+/*+ create */
+INSERT INTO openai.completions.completions (
+data__model,
 data__prompt
-    )
-    SELECT 
-    '{{ model }}',
+)
+SELECT 
+'{{ model }}',
 '{{ prompt }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

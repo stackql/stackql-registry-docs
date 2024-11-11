@@ -115,25 +115,25 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.connect.custom_connector_plugins (
-    data__display_name,
+```sql
+/*+ create */
+INSERT INTO confluent.connect.custom_connector_plugins (
+data__display_name,
 data__connector_class,
 data__connector_type,
 data__upload_source
-    )
-    SELECT 
-    '{{ display_name }}',
+)
+SELECT 
+'{{ display_name }}',
 '{{ connector_class }}',
 '{{ connector_type }}',
 '{{ upload_source }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

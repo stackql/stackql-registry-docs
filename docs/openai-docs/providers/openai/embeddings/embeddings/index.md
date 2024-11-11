@@ -69,21 +69,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.embeddings.embeddings (
-    data__model,
+```sql
+/*+ create */
+INSERT INTO openai.embeddings.embeddings (
+data__model,
 data__input
-    )
-    SELECT 
-    '{{ model }}',
+)
+SELECT 
+'{{ model }}',
 '{{ input }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

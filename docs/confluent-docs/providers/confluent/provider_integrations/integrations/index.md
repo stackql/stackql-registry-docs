@@ -98,21 +98,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.provider_integrations.integrations (
-    data__config,
+```sql
+/*+ create */
+INSERT INTO confluent.provider_integrations.integrations (
+data__config,
 data__environment
-    )
-    SELECT 
-    '{{ config }}',
+)
+SELECT 
+'{{ config }}',
 '{{ environment }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

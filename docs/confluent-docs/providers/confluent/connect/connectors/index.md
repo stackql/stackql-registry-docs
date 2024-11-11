@@ -93,21 +93,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.connect.connectors (
-    environment_id,
+```sql
+/*+ create */
+INSERT INTO confluent.connect.connectors (
+environment_id,
 kafka_cluster_id
-    )
-    SELECT 
-    '{{ environment_id }}',
+)
+SELECT 
+'{{ environment_id }}',
 '{{ kafka_cluster_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

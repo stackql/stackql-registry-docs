@@ -111,23 +111,23 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.assistants.messages (
-    data__role,
+```sql
+/*+ create */
+INSERT INTO openai.assistants.messages (
+data__role,
 data__content,
 thread_id
-    )
-    SELECT 
-    '{{ role }}',
+)
+SELECT 
+'{{ role }}',
 '{{ content }}',
 '{{ thread_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

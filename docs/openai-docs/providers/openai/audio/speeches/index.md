@@ -69,23 +69,23 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.audio.speeches (
-    data__model,
+```sql
+/*+ create */
+INSERT INTO openai.audio.speeches (
+data__model,
 data__input,
 data__voice
-    )
-    SELECT 
-    '{{ model }}',
+)
+SELECT 
+'{{ model }}',
 '{{ input }}',
 '{{ voice }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

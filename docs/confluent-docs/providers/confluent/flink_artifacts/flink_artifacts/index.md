@@ -148,7 +148,7 @@ SELECT
 ;
 ```
 </TabItem>
-    
+
 <TabItem value="manifest">
 
 ```yaml

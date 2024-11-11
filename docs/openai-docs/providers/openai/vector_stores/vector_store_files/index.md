@@ -94,21 +94,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.vector_stores.vector_store_files (
-    data__file_id,
+```sql
+/*+ create */
+INSERT INTO openai.vector_stores.vector_store_files (
+data__file_id,
 vector_store_id
-    )
-    SELECT 
-    '{{ file_id }}',
+)
+SELECT 
+'{{ file_id }}',
 '{{ vector_store_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

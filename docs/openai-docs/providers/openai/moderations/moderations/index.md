@@ -63,19 +63,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.moderations.moderations (
-    data__input
-    )
-    SELECT 
-    '{{ input }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO openai.moderations.moderations (
+data__input
+)
+SELECT 
+'{{ input }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

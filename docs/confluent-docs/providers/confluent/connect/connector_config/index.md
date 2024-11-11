@@ -110,31 +110,31 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.connect.connector_config (
-    data__connector.class,
+```sql
+/*+ create */
+INSERT INTO confluent.connect.connector_config (
+data__connector.class,
 data__name,
 data__kafka.api.key,
 data__kafka.api.secret,
 connector_name,
 environment_id,
 kafka_cluster_id
-    )
-    SELECT 
-    '{{ connector.class }}',
+)
+SELECT 
+'{{ connector.class }}',
 '{{ name }}',
 '{{ kafka.api.key }}',
 '{{ kafka.api.secret }}',
 '{{ connector_name }}',
 '{{ environment_id }}',
 '{{ kafka_cluster_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

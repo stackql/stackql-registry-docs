@@ -142,19 +142,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.org.environments (
-    data__display_name
-    )
-    SELECT 
-    '{{ display_name }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO confluent.org.environments (
+data__display_name
+)
+SELECT 
+'{{ display_name }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
