@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - job_checkpoints
   - fine_tuning
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>job_checkpoints</code> resource.
 
 ## Overview
 <table><tbody>
@@ -37,7 +37,26 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="metrics" /> | `object` | Metrics at the step number during the fine-tuning job. |
 | <CopyableCode code="object" /> | `string` | The object type, which is always "fine_tuning.job.checkpoint". |
 | <CopyableCode code="step_number" /> | `integer` | The step number that the checkpoint was created at. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_fine_tuning_job_checkpoints" /> | `SELECT` | <CopyableCode code="fine_tuning_job_id" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_fine_tuning_job_checkpoints" /> | `SELECT` | <CopyableCode code="fine_tuning_job_id" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+created_at,
+fine_tuned_model_checkpoint,
+fine_tuning_job_id,
+metrics,
+object,
+step_number
+FROM openai.fine_tuning.job_checkpoints
+WHERE fine_tuning_job_id = '{{ fine_tuning_job_id }}';
+```

@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - project_api_keys
   - projects
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>project_api_keys</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,9 +36,37 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="object" /> | `string` | The object type, which is always `organization.project.api_key` |
 | <CopyableCode code="owner" /> | `object` |  |
 | <CopyableCode code="redacted_value" /> | `string` | The redacted value of the API key |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_project_api_keys" /> | `SELECT` | <CopyableCode code="project_id" /> |
-| <CopyableCode code="retrieve_project_api_key" /> | `SELECT` | <CopyableCode code="key_id, project_id" /> |
-| <CopyableCode code="delete_project_api_key" /> | `DELETE` | <CopyableCode code="key_id, project_id" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_project_api_keys" /> | `SELECT` | <CopyableCode code="project_id" /> |  |
+| <CopyableCode code="retrieve_project_api_key" /> | `SELECT` | <CopyableCode code="key_id, project_id" /> |  |
+| <CopyableCode code="delete_project_api_key" /> | `DELETE` | <CopyableCode code="key_id, project_id" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+name,
+created_at,
+object,
+owner,
+redacted_value
+FROM openai.projects.project_api_keys
+WHERE project_id = '{{ project_id }}';
+```
+## `DELETE` example
+
+Deletes the specified <code>project_api_keys</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM openai.projects.project_api_keys
+WHERE key_id = '{{ key_id }}'
+AND project_id = '{{ project_id }}';
+```

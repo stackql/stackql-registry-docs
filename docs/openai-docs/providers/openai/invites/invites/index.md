@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - invites
   - invites
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>invites</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,9 +38,38 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="object" /> | `string` | The object type, which is always `organization.invite` |
 | <CopyableCode code="role" /> | `string` | `owner` or `reader` |
 | <CopyableCode code="status" /> | `string` | `accepted`,`expired`, or `pending` |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_invites" /> | `SELECT` |  |
-| <CopyableCode code="retrieve_invite" /> | `SELECT` | <CopyableCode code="invite_id" /> |
-| <CopyableCode code="delete_invite" /> | `DELETE` | <CopyableCode code="invite_id" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_invites" /> | `SELECT` | <CopyableCode code="" /> |  |
+| <CopyableCode code="retrieve_invite" /> | `SELECT` | <CopyableCode code="invite_id" /> |  |
+| <CopyableCode code="delete_invite" /> | `DELETE` | <CopyableCode code="invite_id" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+accepted_at,
+email,
+expires_at,
+invited_at,
+object,
+role,
+status
+FROM openai.invites.invites
+;
+```
+## `DELETE` example
+
+Deletes the specified <code>invites</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM openai.invites.invites
+WHERE invite_id = '{{ invite_id }}';
+```

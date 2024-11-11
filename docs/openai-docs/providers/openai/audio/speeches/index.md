@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - speeches
   - audio
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>speeches</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,8 +28,92 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource and then invoke a supported method using the `EXEC` command  
+`SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
+
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="create_speech" /> | `INSERT` | <CopyableCode code="data__input, data__model, data__voice" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="create_speech" /> | `INSERT` | <CopyableCode code="data__input, data__model, data__voice" /> |  |
+
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>speeches</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO openai.audio.speeches (
+data__model,
+data__input,
+data__voice,
+data__response_format,
+data__speed
+)
+SELECT 
+'{{ model }}',
+'{{ input }}',
+'{{ voice }}',
+'{{ response_format }}',
+'{{ speed }}',
+'{{ data__input }}',
+'{{ data__model }}',
+'{{ data__voice }}'
+;
+```
+</TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO openai.audio.speeches (
+    data__model,
+data__input,
+data__voice
+    )
+    SELECT 
+    '{{ model }}',
+'{{ input }}',
+'{{ voice }}',
+'{{ data__input }}',
+'{{ data__model }}',
+'{{ data__voice }}'
+    ;
+    ```
+    </TabItem>
+    
+<TabItem value="manifest">
+
+```yaml
+- name: speeches
+  props:
+    - name: data__input
+      value: string
+    - name: data__model
+      value: string
+    - name: data__voice
+      value: string
+    - name: model
+      value: string
+    - name: input
+      value: string
+    - name: voice
+      value: string
+    - name: response_format
+      value: string
+    - name: speed
+      value: number
+
+```
+</TabItem>
+</Tabs>

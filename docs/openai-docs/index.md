@@ -17,18 +17,15 @@ slug: /providers/openai
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-AI models for natural language processing and content generation.  
-    
-:::info Provider Summary (v24.10.00267)
+AI models for natural language processing and content generation.
+
+
+:::info Provider Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>17</b></span><br />
-<span>total methods:&nbsp;<b>94</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>35</b></span><br />
-<span>total selectable resources:&nbsp;<b>23</b></span><br />
+<span>total resources:&nbsp;<b>52</b></span><br />
 </div>
 </div>
 
@@ -76,6 +73,7 @@ stackql.exe shell --auth=$Auth
         
 ```
 </details>
+
 
 ## Services
 <div class="row">
