@@ -101,19 +101,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.encryption_keys.data_encryption_keys (
-    name
-    )
-    SELECT 
-    '{{ name }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO confluent.encryption_keys.data_encryption_keys (
+name
+)
+SELECT 
+'{{ name }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

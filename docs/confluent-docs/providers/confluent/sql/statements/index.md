@@ -107,25 +107,25 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.sql.statements (
-    data__spec,
+```sql
+/*+ create */
+INSERT INTO confluent.sql.statements (
+data__spec,
 data__name,
 environment_id,
 organization_id
-    )
-    SELECT 
-    '{{ spec }}',
+)
+SELECT 
+'{{ spec }}',
 '{{ name }}',
 '{{ environment_id }}',
 '{{ organization_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

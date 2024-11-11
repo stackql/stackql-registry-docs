@@ -107,25 +107,25 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.partner.entitlements (
-    data__external_id,
+```sql
+/*+ create */
+INSERT INTO confluent.partner.entitlements (
+data__external_id,
 data__name,
 data__plan_id,
 data__product_id
-    )
-    SELECT 
-    '{{ external_id }}',
+)
+SELECT 
+'{{ external_id }}',
 '{{ name }}',
 '{{ plan_id }}',
 '{{ product_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
