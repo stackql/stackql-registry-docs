@@ -126,10 +126,10 @@ SELECT
 
 <TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO confluent.flink_artifacts.flink_artifacts (
-    data__cloud,
+```sql
+/*+ create */
+INSERT INTO confluent.flink_artifacts.flink_artifacts (
+data__cloud,
 data__region,
 data__environment,
 data__display_name,
@@ -137,16 +137,16 @@ data__class,
 data__upload_source,
 cloud,
 region
-    )
-    SELECT 
-    '{{ cloud }}',
+)
+SELECT 
+'{{ cloud }}',
 '{{ region }}',
 '{{ environment }}',
 '{{ display_name }}',
 '{{ class }}',
 '{{ upload_source }}'
-    ;
-    ```
+;
+```
 </TabItem>
     
 <TabItem value="manifest">
