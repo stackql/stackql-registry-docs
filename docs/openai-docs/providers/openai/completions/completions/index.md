@@ -90,9 +90,7 @@ SELECT
 '{{ suffix }}',
 '{{ temperature }}',
 '{{ top_p }}',
-'{{ user }}',
-'{{ data__model }}',
-'{{ data__prompt }}'
+'{{ user }}'
 ;
 ```
 </TabItem>
@@ -107,9 +105,7 @@ data__prompt
     )
     SELECT 
     '{{ model }}',
-'{{ prompt }}',
-'{{ data__model }}',
-'{{ data__prompt }}'
+'{{ prompt }}'
     ;
     ```
     </TabItem>

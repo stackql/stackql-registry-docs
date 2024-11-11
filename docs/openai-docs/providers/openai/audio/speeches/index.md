@@ -64,10 +64,7 @@ SELECT
 '{{ input }}',
 '{{ voice }}',
 '{{ response_format }}',
-'{{ speed }}',
-'{{ data__input }}',
-'{{ data__model }}',
-'{{ data__voice }}'
+'{{ speed }}'
 ;
 ```
 </TabItem>
@@ -84,10 +81,7 @@ data__voice
     SELECT 
     '{{ model }}',
 '{{ input }}',
-'{{ voice }}',
-'{{ data__input }}',
-'{{ data__model }}',
-'{{ data__voice }}'
+'{{ voice }}'
     ;
     ```
     </TabItem>

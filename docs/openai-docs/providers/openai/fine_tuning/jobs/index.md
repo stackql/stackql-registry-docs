@@ -115,9 +115,7 @@ SELECT
 '{{ suffix }}',
 '{{ validation_file }}',
 '{{ integrations }}',
-'{{ seed }}',
-'{{ data__model }}',
-'{{ data__training_file }}'
+'{{ seed }}'
 ;
 ```
 </TabItem>
@@ -132,9 +130,7 @@ data__training_file
     )
     SELECT 
     '{{ model }}',
-'{{ training_file }}',
-'{{ data__model }}',
-'{{ data__training_file }}'
+'{{ training_file }}'
     ;
     ```
     </TabItem>

@@ -157,8 +157,7 @@ SELECT
 '{{ tool_choice }}',
 '{{ parallel_tool_calls }}',
 '{{ response_format }}',
-'{{ thread_id }}',
-'{{ data__assistant_id }}'
+'{{ thread_id }}'
 ;
 ```
 </TabItem>
@@ -173,8 +172,7 @@ thread_id
     )
     SELECT 
     '{{ assistant_id }}',
-'{{ thread_id }}',
-'{{ data__assistant_id }}'
+'{{ thread_id }}'
     ;
     ```
     </TabItem>

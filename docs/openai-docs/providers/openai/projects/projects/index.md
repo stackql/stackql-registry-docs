@@ -82,8 +82,7 @@ INSERT INTO openai.projects.projects (
 data__name
 )
 SELECT 
-'{{ name }}',
-'{{ data__name }}'
+'{{ name }}'
 ;
 ```
 </TabItem>

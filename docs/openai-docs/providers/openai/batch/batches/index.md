@@ -115,10 +115,7 @@ SELECT
 '{{ input_file_id }}',
 '{{ endpoint }}',
 '{{ completion_window }}',
-'{{ metadata }}',
-'{{ data__completion_window }}',
-'{{ data__endpoint }}',
-'{{ data__input_file_id }}'
+'{{ metadata }}'
 ;
 ```
 </TabItem>
@@ -135,10 +132,7 @@ data__completion_window
     SELECT 
     '{{ input_file_id }}',
 '{{ endpoint }}',
-'{{ completion_window }}',
-'{{ data__completion_window }}',
-'{{ data__endpoint }}',
-'{{ data__input_file_id }}'
+'{{ completion_window }}'
     ;
     ```
     </TabItem>

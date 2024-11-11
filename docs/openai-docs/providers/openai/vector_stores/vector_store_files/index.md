@@ -89,8 +89,7 @@ vector_store_id
 SELECT 
 '{{ file_id }}',
 '{{ chunking_strategy }}',
-'{{ vector_store_id }}',
-'{{ data__file_id }}'
+'{{ vector_store_id }}'
 ;
 ```
 </TabItem>
@@ -105,8 +104,7 @@ vector_store_id
     )
     SELECT 
     '{{ file_id }}',
-'{{ vector_store_id }}',
-'{{ data__file_id }}'
+'{{ vector_store_id }}'
     ;
     ```
     </TabItem>

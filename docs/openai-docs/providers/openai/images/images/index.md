@@ -70,8 +70,7 @@ SELECT
 '{{ response_format }}',
 '{{ size }}',
 '{{ style }}',
-'{{ user }}',
-'{{ data__prompt }}'
+'{{ user }}'
 ;
 ```
 </TabItem>
@@ -84,8 +83,7 @@ SELECT
     data__prompt
     )
     SELECT 
-    '{{ prompt }}',
-'{{ data__prompt }}'
+    '{{ prompt }}'
     ;
     ```
     </TabItem>
