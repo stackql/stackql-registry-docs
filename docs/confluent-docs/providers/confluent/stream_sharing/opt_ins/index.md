@@ -61,7 +61,7 @@ Updates a <code>opt_ins</code> resource.
 /*+ update */
 UPDATE confluent.stream_sharing.opt_ins
 SET 
-
+stream_share_enabled = true|false
 WHERE 
 ;
 ```

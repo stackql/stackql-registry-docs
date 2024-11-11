@@ -79,6 +79,7 @@ Use the following StackQL query and manifest file to create a new <code>statemen
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -88,19 +89,43 @@ Use the following StackQL query and manifest file to create a new <code>statemen
 ```sql
 /*+ create */
 INSERT INTO confluent.sql.statements (
-data__spec,
 data__name,
+data__organization_id,
+data__environment_id,
+data__spec,
+data__result,
 environment_id,
 organization_id
 )
 SELECT 
-'{{ spec }}',
 '{{ name }}',
+'{{ organization_id }}',
 '{{ environment_id }}',
-'{{ organization_id }}'
+'{{ spec }}',
+'{{ result }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.sql.statements (
+    data__spec,
+data__name,
+environment_id,
+organization_id
+    )
+    SELECT 
+    '{{ spec }}',
+'{{ name }}',
+'{{ environment_id }}',
+'{{ organization_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

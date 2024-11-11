@@ -72,6 +72,7 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -81,19 +82,20 @@ Use the following StackQL query and manifest file to create a new <code>connecti
 ```sql
 /*+ create */
 INSERT INTO confluent.sql.connections (
-data__spec,
 data__name,
+data__spec,
 environment_id,
 organization_id
 )
 SELECT 
-'{{ spec }}',
 '{{ name }}',
+'{{ spec }}',
 '{{ environment_id }}',
 '{{ organization_id }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

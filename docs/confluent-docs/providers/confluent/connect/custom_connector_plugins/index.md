@@ -83,6 +83,7 @@ Use the following StackQL query and manifest file to create a new <code>custom_c
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -93,18 +94,46 @@ Use the following StackQL query and manifest file to create a new <code>custom_c
 /*+ create */
 INSERT INTO confluent.connect.custom_connector_plugins (
 data__display_name,
+data__description,
+data__documentation_link,
 data__connector_class,
 data__connector_type,
+data__cloud,
+data__sensitive_config_properties,
 data__upload_source
 )
 SELECT 
 '{{ display_name }}',
+'{{ description }}',
+'{{ documentation_link }}',
 '{{ connector_class }}',
 '{{ connector_type }}',
+'{{ cloud }}',
+'{{ sensitive_config_properties }}',
 '{{ upload_source }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.connect.custom_connector_plugins (
+    data__display_name,
+data__connector_class,
+data__connector_type,
+data__upload_source
+    )
+    SELECT 
+    '{{ display_name }}',
+'{{ connector_class }}',
+'{{ connector_type }}',
+'{{ upload_source }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -143,7 +172,11 @@ Updates a <code>custom_connector_plugins</code> resource.
 /*+ update */
 UPDATE confluent.connect.custom_connector_plugins
 SET 
-
+display_name = '{{ display_name }}',
+description = '{{ description }}',
+documentation_link = '{{ documentation_link }}',
+sensitive_config_properties = '{{ sensitive_config_properties }}',
+upload_source = '{{ upload_source }}'
 WHERE 
 id = '{{ id }}';
 ```

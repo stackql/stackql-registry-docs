@@ -77,6 +77,7 @@ Use the following StackQL query and manifest file to create a new <code>entitlem
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -89,16 +90,42 @@ INSERT INTO confluent.partner.entitlements (
 data__external_id,
 data__name,
 data__plan_id,
-data__product_id
+data__product_id,
+data__usage_reporting_id,
+data__resource_id,
+data__organization
 )
 SELECT 
 '{{ external_id }}',
 '{{ name }}',
 '{{ plan_id }}',
-'{{ product_id }}'
+'{{ product_id }}',
+'{{ usage_reporting_id }}',
+'{{ resource_id }}',
+'{{ organization }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.partner.entitlements (
+    data__external_id,
+data__name,
+data__plan_id,
+data__product_id
+    )
+    SELECT 
+    '{{ external_id }}',
+'{{ name }}',
+'{{ plan_id }}',
+'{{ product_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

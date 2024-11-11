@@ -80,7 +80,8 @@ Updates a <code>cluster_configs</code> resource.
 /*+ update */
 UPDATE confluent.kafka.cluster_configs
 SET 
-data = '{{ data }}'
+data = '{{ data }}',
+validate_only = true|false
 WHERE 
 cluster_id = '{{ cluster_id }}'
 AND data__data = '{{ data__data }}';

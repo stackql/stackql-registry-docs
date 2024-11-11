@@ -72,6 +72,7 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -82,14 +83,32 @@ Use the following StackQL query and manifest file to create a new <code>integrat
 /*+ create */
 INSERT INTO confluent.notifications.integrations (
 data__display_name,
+data__description,
 data__target
 )
 SELECT 
 '{{ display_name }}',
+'{{ description }}',
 '{{ target }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.notifications.integrations (
+    data__display_name,
+data__target
+    )
+    SELECT 
+    '{{ display_name }}',
+'{{ target }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -118,7 +137,9 @@ Updates a <code>integrations</code> resource.
 /*+ update */
 UPDATE confluent.notifications.integrations
 SET 
-
+display_name = '{{ display_name }}',
+description = '{{ description }}',
+target = '{{ target }}'
 WHERE 
 id = '{{ id }}';
 ```

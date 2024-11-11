@@ -78,6 +78,7 @@ Use the following StackQL query and manifest file to create a new <code>invitati
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -87,13 +88,33 @@ Use the following StackQL query and manifest file to create a new <code>invitati
 ```sql
 /*+ create */
 INSERT INTO confluent.iam.invitations (
-data__email
+data__email,
+data__auth_type,
+data__user,
+data__creator
 )
 SELECT 
-'{{ email }}'
+'{{ email }}',
+'{{ auth_type }}',
+'{{ user }}',
+'{{ creator }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.iam.invitations (
+    data__email
+    )
+    SELECT 
+    '{{ email }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

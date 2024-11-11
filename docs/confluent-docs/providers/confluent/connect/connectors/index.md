@@ -67,6 +67,7 @@ Use the following StackQL query and manifest file to create a new <code>connecto
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -76,15 +77,37 @@ Use the following StackQL query and manifest file to create a new <code>connecto
 ```sql
 /*+ create */
 INSERT INTO confluent.connect.connectors (
+data__name,
+data__config,
+data__offsets,
 environment_id,
 kafka_cluster_id
 )
 SELECT 
+'{{ name }}',
+'{{ config }}',
+'{{ offsets }}',
 '{{ environment_id }}',
 '{{ kafka_cluster_id }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.connect.connectors (
+    environment_id,
+kafka_cluster_id
+    )
+    SELECT 
+    '{{ environment_id }}',
+'{{ kafka_cluster_id }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml

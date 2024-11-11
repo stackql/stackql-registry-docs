@@ -75,6 +75,7 @@ Use the following StackQL query and manifest file to create a new <code>group_ma
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -95,6 +96,7 @@ SELECT
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -119,7 +121,9 @@ Updates a <code>group_mappings</code> resource.
 /*+ update */
 UPDATE confluent.iam.group_mappings
 SET 
-
+display_name = '{{ display_name }}',
+description = '{{ description }}',
+filter = '{{ filter }}'
 WHERE 
 id = '{{ id }}';
 ```

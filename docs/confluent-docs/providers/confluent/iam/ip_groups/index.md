@@ -69,6 +69,7 @@ Use the following StackQL query and manifest file to create a new <code>ip_group
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -87,6 +88,7 @@ SELECT
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -109,7 +111,8 @@ Updates a <code>ip_groups</code> resource.
 /*+ update */
 UPDATE confluent.iam.ip_groups
 SET 
-
+group_name = '{{ group_name }}',
+cidr_blocks = '{{ cidr_blocks }}'
 WHERE 
 id = '{{ id }}';
 ```

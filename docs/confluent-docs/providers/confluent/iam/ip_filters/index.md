@@ -71,6 +71,7 @@ Use the following StackQL query and manifest file to create a new <code>ip_filte
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -91,6 +92,7 @@ SELECT
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
@@ -118,7 +120,9 @@ Updates a <code>ip_filters</code> resource.
 /*+ update */
 UPDATE confluent.iam.ip_filters
 SET 
-
+filter_name = '{{ filter_name }}',
+resource_group = '{{ resource_group }}',
+ip_groups = '{{ ip_groups }}'
 WHERE 
 id = '{{ id }}';
 ```

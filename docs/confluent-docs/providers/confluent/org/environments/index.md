@@ -122,6 +122,7 @@ Use the following StackQL query and manifest file to create a new <code>environm
 <Tabs
     defaultValue="all"
     values={[
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -131,13 +132,29 @@ Use the following StackQL query and manifest file to create a new <code>environm
 ```sql
 /*+ create */
 INSERT INTO confluent.org.environments (
-data__display_name
+data__display_name,
+data__stream_governance_config
 )
 SELECT 
-'{{ display_name }}'
+'{{ display_name }}',
+'{{ stream_governance_config }}'
 ;
 ```
 </TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO confluent.org.environments (
+    data__display_name
+    )
+    SELECT 
+    '{{ display_name }}'
+    ;
+    ```
+    </TabItem>
+    
 <TabItem value="manifest">
 
 ```yaml
@@ -162,7 +179,8 @@ Updates a <code>environments</code> resource.
 /*+ update */
 UPDATE confluent.org.environments
 SET 
-
+display_name = '{{ display_name }}',
+stream_governance_config = '{{ stream_governance_config }}'
 WHERE 
 id = '{{ id }}';
 ```

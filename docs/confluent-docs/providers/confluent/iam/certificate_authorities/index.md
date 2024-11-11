@@ -85,6 +85,7 @@ Use the following StackQL query and manifest file to create a new <code>certific
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -94,13 +95,24 @@ Use the following StackQL query and manifest file to create a new <code>certific
 ```sql
 /*+ create */
 INSERT INTO confluent.iam.certificate_authorities (
-
+data__display_name,
+data__description,
+data__certificate_chain,
+data__certificate_chain_filename,
+data__crl_url,
+data__crl_chain
 )
 SELECT 
-
+'{{ display_name }}',
+'{{ description }}',
+'{{ certificate_chain }}',
+'{{ certificate_chain_filename }}',
+'{{ crl_url }}',
+'{{ crl_chain }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

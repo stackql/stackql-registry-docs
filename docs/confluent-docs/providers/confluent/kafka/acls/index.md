@@ -76,6 +76,7 @@ Use the following StackQL query and manifest file to create a new <code>acls</co
 <Tabs
     defaultValue="all"
     values={[
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -102,17 +103,11 @@ SELECT
 '{{ host }}',
 '{{ operation }}',
 '{{ permission }}',
-'{{ cluster_id }}',
-'{{ data__host }}',
-'{{ data__operation }}',
-'{{ data__pattern_type }}',
-'{{ data__permission }}',
-'{{ data__principal }}',
-'{{ data__resource_name }}',
-'{{ data__resource_type }}'
+'{{ cluster_id }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
