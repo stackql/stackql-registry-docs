@@ -124,7 +124,7 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
     ```sql
     /*+ create */
@@ -147,7 +147,7 @@ region
 '{{ upload_source }}'
     ;
     ```
-    </TabItem>
+</TabItem>
     
 <TabItem value="manifest">
 
