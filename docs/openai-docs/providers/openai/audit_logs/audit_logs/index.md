@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - audit_logs
   - audit_logs
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>audit_logs</code> resource.
 
 ## Overview
 <table><tbody>
@@ -53,7 +53,42 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="user.added" /> | `object` | The details for events with this `type`. |
 | <CopyableCode code="user.deleted" /> | `object` | The details for events with this `type`. |
 | <CopyableCode code="user.updated" /> | `object` | The details for events with this `type`. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_audit_logs" /> | `SELECT` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_audit_logs" /> | `SELECT` | <CopyableCode code="" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+actor,
+api_key.created,
+api_key.deleted,
+api_key.updated,
+effective_at,
+invite.accepted,
+invite.deleted,
+invite.sent,
+login.failed,
+logout.failed,
+organization.updated,
+project,
+project.archived,
+project.created,
+project.updated,
+service_account.created,
+service_account.deleted,
+service_account.updated,
+type,
+user.added,
+user.deleted,
+user.updated
+FROM openai.audit_logs.audit_logs
+;
+```

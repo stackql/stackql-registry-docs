@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - batches
   - batch
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>batches</code> resource.
 
 ## Overview
 <table><tbody>
@@ -45,15 +45,124 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="finalizing_at" /> | `integer` | The Unix timestamp (in seconds) for when the batch started finalizing. |
 | <CopyableCode code="in_progress_at" /> | `integer` | The Unix timestamp (in seconds) for when the batch started processing. |
 | <CopyableCode code="input_file_id" /> | `string` | The ID of the input file for the batch. |
-| <CopyableCode code="metadata" /> | `object` | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.<br /> |
+| <CopyableCode code="metadata" /> | `object` | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long. |
 | <CopyableCode code="object" /> | `string` | The object type, which is always `batch`. |
 | <CopyableCode code="output_file_id" /> | `string` | The ID of the file containing the outputs of successfully executed requests. |
 | <CopyableCode code="request_counts" /> | `object` | The request counts for different statuses within the batch. |
 | <CopyableCode code="status" /> | `string` | The current status of the batch. |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_batches" /> | `SELECT` |  |
-| <CopyableCode code="retrieve_batch" /> | `SELECT` | <CopyableCode code="batch_id" /> |
-| <CopyableCode code="create_batch" /> | `INSERT` | <CopyableCode code="data__completion_window, data__endpoint, data__input_file_id" /> |
-| <CopyableCode code="cancel_batch" /> | `EXEC` | <CopyableCode code="batch_id" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_batches" /> | `SELECT` | <CopyableCode code="" /> |  |
+| <CopyableCode code="retrieve_batch" /> | `SELECT` | <CopyableCode code="batch_id" /> |  |
+| <CopyableCode code="create_batch" /> | `INSERT` | <CopyableCode code="data__completion_window, data__endpoint, data__input_file_id" /> |  |
+| <CopyableCode code="cancel_batch" /> | `EXEC` | <CopyableCode code="batch_id" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+cancelled_at,
+cancelling_at,
+completed_at,
+completion_window,
+created_at,
+endpoint,
+error_file_id,
+errors,
+expired_at,
+expires_at,
+failed_at,
+finalizing_at,
+in_progress_at,
+input_file_id,
+metadata,
+object,
+output_file_id,
+request_counts,
+status
+FROM openai.batch.batches
+;
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>batches</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO openai.batch.batches (
+data__input_file_id,
+data__endpoint,
+data__completion_window,
+data__metadata
+)
+SELECT 
+'{{ input_file_id }}',
+'{{ endpoint }}',
+'{{ completion_window }}',
+'{{ metadata }}',
+'{{ data__completion_window }}',
+'{{ data__endpoint }}',
+'{{ data__input_file_id }}'
+;
+```
+</TabItem>
+
+    <TabItem value="required">
+
+    ```sql
+    /*+ create */
+    INSERT INTO openai.batch.batches (
+    data__input_file_id,
+data__endpoint,
+data__completion_window
+    )
+    SELECT 
+    '{{ input_file_id }}',
+'{{ endpoint }}',
+'{{ completion_window }}',
+'{{ data__completion_window }}',
+'{{ data__endpoint }}',
+'{{ data__input_file_id }}'
+    ;
+    ```
+    </TabItem>
+    
+<TabItem value="manifest">
+
+```yaml
+- name: batches
+  props:
+    - name: data__completion_window
+      value: string
+    - name: data__endpoint
+      value: string
+    - name: data__input_file_id
+      value: string
+    - name: input_file_id
+      value: string
+    - name: endpoint
+      value: string
+    - name: completion_window
+      value: string
+    - name: metadata
+      value: object
+
+```
+</TabItem>
+</Tabs>

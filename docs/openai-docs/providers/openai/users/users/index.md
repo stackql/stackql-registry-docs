@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - users
   - users
-  - openai    
-  - stackql
+  - openai
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy, and manage OpenAI and ChatGPT resources using SQL.
+description: Query, deploy and manage openai resources using SQL
 custom_edit_url: null
 image: /img/providers/openai/stackql-openai-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>users</code> resource.
 
 ## Overview
 <table><tbody>
@@ -36,10 +36,51 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="email" /> | `string` | The email address of the user |
 | <CopyableCode code="object" /> | `string` | The object type, which is always `organization.user` |
 | <CopyableCode code="role" /> | `string` | `owner` or `reader` |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_users" /> | `SELECT` |  |
-| <CopyableCode code="retrieve_user" /> | `SELECT` | <CopyableCode code="user_id" /> |
-| <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="user_id" /> |
-| <CopyableCode code="modify_user" /> | `UPDATE` | <CopyableCode code="user_id, data__role" /> |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="list_users" /> | `SELECT` | <CopyableCode code="" /> |  |
+| <CopyableCode code="retrieve_user" /> | `SELECT` | <CopyableCode code="user_id" /> |  |
+| <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="user_id" /> |  |
+| <CopyableCode code="modify_user" /> | `UPDATE` | <CopyableCode code="user_id, data__role" /> |  |
+
+## `SELECT` examples
+
+
+
+
+```sql
+SELECT
+id,
+name,
+added_at,
+email,
+object,
+role
+FROM openai.users.users
+;
+```
+## `UPDATE` example
+
+Updates a <code>users</code> resource.
+
+```sql
+/*+ update */
+UPDATE openai.users.users
+SET 
+role = '{{ role }}'
+WHERE 
+user_id = '{{ user_id }}'
+AND data__role = '{{ data__role }}';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>users</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM openai.users.users
+WHERE user_id = '{{ user_id }}';
+```
