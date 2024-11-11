@@ -86,9 +86,7 @@ project_id
 SELECT 
 '{{ user_id }}',
 '{{ role }}',
-'{{ project_id }}',
-'{{ data__role }}',
-'{{ data__user_id }}'
+'{{ project_id }}'
 ;
 ```
 </TabItem>

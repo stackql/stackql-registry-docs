@@ -64,9 +64,7 @@ SELECT
 '{{ model }}',
 '{{ encoding_format }}',
 '{{ dimensions }}',
-'{{ user }}',
-'{{ data__input }}',
-'{{ data__model }}'
+'{{ user }}'
 ;
 ```
 </TabItem>
@@ -81,9 +79,7 @@ data__input
     )
     SELECT 
     '{{ model }}',
-'{{ input }}',
-'{{ data__input }}',
-'{{ data__model }}'
+'{{ input }}'
     ;
     ```
     </TabItem>

@@ -106,9 +106,7 @@ SELECT
 '{{ content }}',
 '{{ attachments }}',
 '{{ metadata }}',
-'{{ thread_id }}',
-'{{ data__content }}',
-'{{ data__role }}'
+'{{ thread_id }}'
 ;
 ```
 </TabItem>
@@ -125,9 +123,7 @@ thread_id
     SELECT 
     '{{ role }}',
 '{{ content }}',
-'{{ thread_id }}',
-'{{ data__content }}',
-'{{ data__role }}'
+'{{ thread_id }}'
     ;
     ```
     </TabItem>

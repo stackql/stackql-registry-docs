@@ -64,11 +64,7 @@ SELECT
 '{{ filename }}',
 '{{ purpose }}',
 '{{ bytes }}',
-'{{ mime_type }}',
-'{{ data__bytes }}',
-'{{ data__filename }}',
-'{{ data__mime_type }}',
-'{{ data__purpose }}'
+'{{ mime_type }}'
 ;
 ```
 </TabItem>

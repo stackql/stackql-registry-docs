@@ -114,8 +114,7 @@ SELECT
 '{{ metadata }}',
 '{{ temperature }}',
 '{{ top_p }}',
-'{{ response_format }}',
-'{{ data__model }}'
+'{{ response_format }}'
 ;
 ```
 </TabItem>
@@ -128,8 +127,7 @@ SELECT
     data__model
     )
     SELECT 
-    '{{ model }}',
-'{{ data__model }}'
+    '{{ model }}'
     ;
     ```
     </TabItem>

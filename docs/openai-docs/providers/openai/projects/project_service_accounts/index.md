@@ -81,8 +81,7 @@ project_id
 )
 SELECT 
 '{{ name }}',
-'{{ project_id }}',
-'{{ data__name }}'
+'{{ project_id }}'
 ;
 ```
 </TabItem>

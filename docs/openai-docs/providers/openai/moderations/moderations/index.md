@@ -58,8 +58,7 @@ data__model
 )
 SELECT 
 '{{ input }}',
-'{{ model }}',
-'{{ data__input }}'
+'{{ model }}'
 ;
 ```
 </TabItem>
@@ -72,8 +71,7 @@ SELECT
     data__input
     )
     SELECT 
-    '{{ input }}',
-'{{ data__input }}'
+    '{{ input }}'
     ;
     ```
     </TabItem>
