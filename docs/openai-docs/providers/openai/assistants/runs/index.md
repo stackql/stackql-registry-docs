@@ -162,21 +162,21 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.assistants.runs (
-    data__assistant_id,
+```sql
+/*+ create */
+INSERT INTO openai.assistants.runs (
+data__assistant_id,
 thread_id
-    )
-    SELECT 
-    '{{ assistant_id }}',
+)
+SELECT 
+'{{ assistant_id }}',
 '{{ thread_id }}'
-    ;
-    ```
-    </TabItem>
-    
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml

@@ -119,19 +119,19 @@ SELECT
 ```
 </TabItem>
 
-    <TabItem value="required">
+<TabItem value="required">
 
-    ```sql
-    /*+ create */
-    INSERT INTO openai.assistants.assistants (
-    data__model
-    )
-    SELECT 
-    '{{ model }}'
-    ;
-    ```
-    </TabItem>
-    
+```sql
+/*+ create */
+INSERT INTO openai.assistants.assistants (
+data__model
+)
+SELECT 
+'{{ model }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
