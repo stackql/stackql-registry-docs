@@ -9,47 +9,36 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
-Container Registry  
-    
+container_registry service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>9</b></span><br />
-<span>total methods:&nbsp;<b>27</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>digitalocean.container_registry</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>DigitalOcean API - Container Registry</td></tr>
-<tr><td><b>Description</b></td><td>Container Registry</td></tr>
-<tr><td><b>Id</b></td><td><code>container_registry:v23.04.00139</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/digitalocean/container_registry/container_registry/">container_registry</a><br />
-<a href="/providers/digitalocean/container_registry/digests/">digests</a><br />
-<a href="/providers/digitalocean/container_registry/docker_credentials/">docker_credentials</a><br />
-<a href="/providers/digitalocean/container_registry/garbage_collection/">garbage_collection</a><br />
-<a href="/providers/digitalocean/container_registry/options/">options</a><br />
+<a href="/providers/digitalocean/container_registry/registries/">registries</a><br />
+<a href="/providers/digitalocean/container_registry/registry_docker_credentials/">registry_docker_credentials</a><br />
+<a href="/providers/digitalocean/container_registry/registry_garbage_collections/">registry_garbage_collections</a><br />
+<a href="/providers/digitalocean/container_registry/registry_options/">registry_options</a><br />
+<a href="/providers/digitalocean/container_registry/registry_repositories/">registry_repositories</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/digitalocean/container_registry/repositories/">repositories</a><br />
-<a href="/providers/digitalocean/container_registry/repositories_v2/">repositories_v2</a><br />
-<a href="/providers/digitalocean/container_registry/subscription/">subscription</a><br />
-<a href="/providers/digitalocean/container_registry/tags/">tags</a><br />
+<a href="/providers/digitalocean/container_registry/registry_repositories_digests/">registry_repositories_digests</a><br />
+<a href="/providers/digitalocean/container_registry/registry_repositories_tags/">registry_repositories_tags</a><br />
+<a href="/providers/digitalocean/container_registry/registry_repositories_v2/">registry_repositories_v2</a><br />
+<a href="/providers/digitalocean/container_registry/registry_subscriptions/">registry_subscriptions</a>
 </div>
 </div>

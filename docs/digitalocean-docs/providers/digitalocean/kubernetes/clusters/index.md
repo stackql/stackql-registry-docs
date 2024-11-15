@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - clusters
   - kubernetes
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>clusters</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,37 +30,184 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | A unique ID that can be used to identify and reference a Kubernetes cluster. |
-| <CopyableCode code="name" /> | `string` | A human-readable name for a Kubernetes cluster. |
-| <CopyableCode code="auto_upgrade" /> | `boolean` | A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window. |
-| <CopyableCode code="cluster_subnet" /> | `string` | The range of IP addresses in the overlay network of the Kubernetes cluster in CIDR notation. |
-| <CopyableCode code="created_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was created. |
-| <CopyableCode code="endpoint" /> | `string` | The base URL of the API server on the Kubernetes master node. |
-| <CopyableCode code="ha" /> | `boolean` | A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled. |
-| <CopyableCode code="ipv4" /> | `string` | The public IPv4 address of the Kubernetes master node. This will not be set if high availability is configured on the cluster (v1.21+) |
-| <CopyableCode code="maintenance_policy" /> | `object` | An object specifying the maintenance window policy for the Kubernetes cluster. |
-| <CopyableCode code="node_pools" /> | `array` | An object specifying the details of the worker nodes available to the Kubernetes cluster. |
-| <CopyableCode code="region" /> | `string` | The slug identifier for the region where the Kubernetes cluster is located. |
-| <CopyableCode code="registry_enabled" /> | `boolean` | A read-only boolean value indicating if a container registry is integrated with the cluster. |
-| <CopyableCode code="service_subnet" /> | `string` | The range of assignable IP addresses for services running in the Kubernetes cluster in CIDR notation. |
-| <CopyableCode code="status" /> | `object` | An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster. |
-| <CopyableCode code="surge_upgrade" /> | `boolean` | A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes. |
-| <CopyableCode code="tags" /> | `array` | An array of tags applied to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`. |
-| <CopyableCode code="updated_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the Kubernetes cluster was last updated. |
-| <CopyableCode code="version" /> | `string` | The slug identifier for the version of Kubernetes used for the cluster. If set to a minor version (e.g. "1.14"), the latest version within it will be used (e.g. "1.14.6-do.1"); if set to "latest", the latest published version will be used. See the `/v2/kubernetes/options` endpoint to find all currently available versions. |
-| <CopyableCode code="vpc_uuid" /> | `string` | A string specifying the UUID of the VPC to which the Kubernetes cluster is assigned. |
+| <CopyableCode code="column_anon" /> | `` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_cluster" /> | `SELECT` | <CopyableCode code="cluster_id" /> | To show information about an existing Kubernetes cluster, send a GET request<br />to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`.<br /> |
-| <CopyableCode code="list_clusters" /> | `SELECT` |  | To list all of the Kubernetes clusters on your account, send a GET request<br />to `/v2/kubernetes/clusters`.<br /> |
-| <CopyableCode code="create_cluster" /> | `INSERT` | <CopyableCode code="data__name, data__node_pools, data__region, data__version" /> | To create a new Kubernetes cluster, send a POST request to<br />`/v2/kubernetes/clusters`. The request must contain at least one node pool<br />with at least one worker.<br /><br />The request may contain a maintenance window policy describing a time period<br />when disruptive maintenance tasks may be carried out. Omitting the policy<br />implies that a window will be chosen automatically. See<br />[here](https://www.digitalocean.com/docs/kubernetes/how-to/upgrade-cluster/)<br />for details.<br /> |
-| <CopyableCode code="delete_cluster" /> | `DELETE` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster and all services deployed to it, send a DELETE<br />request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`.<br /><br />A 204 status code with no body will be returned in response to a successful<br />request.<br /> |
-| <CopyableCode code="_get_cluster" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To show information about an existing Kubernetes cluster, send a GET request<br />to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`.<br /> |
-| <CopyableCode code="_list_clusters" /> | `EXEC` |  | To list all of the Kubernetes clusters on your account, send a GET request<br />to `/v2/kubernetes/clusters`.<br /> |
-| <CopyableCode code="destroy_associatedResourcesDangerous" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster with all of its associated resources, send a<br />DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous`.<br />A 204 status code with no body will be returned in response to a successful request.<br /> |
-| <CopyableCode code="destroy_associatedResourcesSelective" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster along with a subset of its associated resources,<br />send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective`.<br /><br />The JSON body of the request should include `load_balancers`, `volumes`, or<br />`volume_snapshots` keys each set to an array of IDs for the associated<br />resources to be destroyed.<br /><br />The IDs can be found by querying the cluster's associated resources endpoint.<br />Any associated resource not included in the request will remain and continue<br />to accrue changes on your account.<br /> |
-| <CopyableCode code="get_kubeconfig" /> | `EXEC` | <CopyableCode code="cluster_id" /> | This endpoint returns a kubeconfig file in YAML format. It can be used to<br />connect to and administer the cluster using the Kubernetes command line tool,<br />`kubectl`, or other programs supporting kubeconfig files (e.g., client libraries).<br /><br />The resulting kubeconfig file uses token-based authentication for clusters<br />supporting it, and certificate-based authentication otherwise. For a list of<br />supported versions and more information, see "[How to Connect to a DigitalOcean<br />Kubernetes Cluster with kubectl](https://www.digitalocean.com/docs/kubernetes/how-to/connect-with-kubectl/)".<br /><br />To retrieve a kubeconfig file for use with a Kubernetes cluster, send a GET<br />request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig`.<br /><br />Clusters supporting token-based authentication may define an expiration by<br />passing a duration in seconds as a query parameter to<br />`/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS`.<br />If not set or 0, then the token will have a 7 day expiry. The query parameter<br />has no impact in certificate-based authentication.<br /> |
-| <CopyableCode code="list_associatedResources" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To list the associated billable resources that can be destroyed along with a cluster, send a GET request to the `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources` endpoint. |
-| <CopyableCode code="update_cluster" /> | `EXEC` | <CopyableCode code="cluster_id, data__name" /> | To update a Kubernetes cluster, send a PUT request to<br />`/v2/kubernetes/clusters/$K8S_CLUSTER_ID` and specify one or more of the<br />attributes below.<br /> |
-| <CopyableCode code="upgrade_cluster" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To immediately upgrade a Kubernetes cluster to a newer patch release of<br />Kubernetes, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrade`.<br />The body of the request must specify a version attribute.<br /><br />Available upgrade versions for a cluster can be fetched from<br />`/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`.<br /> |
+| <CopyableCode code="kubernetes_get_cluster" /> | `SELECT` | <CopyableCode code="cluster_id" /> | To show information about an existing Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`. |
+| <CopyableCode code="kubernetes_list_clusters" /> | `SELECT` | <CopyableCode code="" /> | To list all of the Kubernetes clusters on your account, send a GET request to `/v2/kubernetes/clusters`. |
+| <CopyableCode code="kubernetes_create_cluster" /> | `INSERT` | <CopyableCode code="data__name, data__node_pools, data__region, data__version" /> | To create a new Kubernetes cluster, send a POST request to `/v2/kubernetes/clusters`. The request must contain at least one node pool with at least one worker. The request may contain a maintenance window policy describing a time period when disruptive maintenance tasks may be carried out. Omitting the policy implies that a window will be chosen automatically. See [here](https://docs.digitalocean.com/products/kubernetes/how-to/upgrade-cluster/) for details. |
+| <CopyableCode code="kubernetes_delete_cluster" /> | `DELETE` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster and all services deployed to it, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`. A 204 status code with no body will be returned in response to a successful request. |
+| <CopyableCode code="kubernetes_destroy_associated_resources_dangerous" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster with all of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous`. A 204 status code with no body will be returned in response to a successful request. |
+| <CopyableCode code="kubernetes_destroy_associated_resources_selective" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To delete a Kubernetes cluster along with a subset of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective`. The JSON body of the request should include `load_balancers`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the cluster's associated resources endpoint. Any associated resource not included in the request will remain and continue to accrue changes on your account. |
+| <CopyableCode code="kubernetes_get_kubeconfig" /> | `EXEC` | <CopyableCode code="cluster_id" /> | This endpoint returns a kubeconfig file in YAML format. It can be used to connect to and administer the cluster using the Kubernetes command line tool, `kubectl`, or other programs supporting kubeconfig files (e.g., client libraries). The resulting kubeconfig file uses token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "[How to Connect to a DigitalOcean Kubernetes Cluster](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)". To retrieve a kubeconfig file for use with a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig`. Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS`. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact in certificate-based authentication. |
+| <CopyableCode code="kubernetes_update_cluster" /> | `EXEC` | <CopyableCode code="cluster_id, data__name" /> | To update a Kubernetes cluster, send a PUT request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID` and specify one or more of the attributes below. |
+| <CopyableCode code="kubernetes_upgrade_cluster" /> | `EXEC` | <CopyableCode code="cluster_id" /> | To immediately upgrade a Kubernetes cluster to a newer patch release of Kubernetes, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrade`. The body of the request must specify a version attribute. Available upgrade versions for a cluster can be fetched from `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`. |
+
+## `SELECT` examples
+
+To list all of the Kubernetes clusters on your account, send a GET request to `/v2/kubernetes/clusters`.
+
+
+```sql
+SELECT
+column_anon
+FROM digitalocean.kubernetes.clusters
+;
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>clusters</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.kubernetes.clusters (
+data__name,
+data__region,
+data__version,
+data__cluster_subnet,
+data__service_subnet,
+data__vpc_uuid,
+data__tags,
+data__node_pools,
+data__maintenance_policy,
+data__auto_upgrade,
+data__surge_upgrade,
+data__ha,
+data__control_plane_firewall
+)
+SELECT 
+'{{ name }}',
+'{{ region }}',
+'{{ version }}',
+'{{ cluster_subnet }}',
+'{{ service_subnet }}',
+'{{ vpc_uuid }}',
+'{{ tags }}',
+'{{ node_pools }}',
+'{{ maintenance_policy }}',
+'{{ auto_upgrade }}',
+'{{ surge_upgrade }}',
+'{{ ha }}',
+'{{ control_plane_firewall }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.kubernetes.clusters (
+data__name,
+data__region,
+data__version,
+data__node_pools
+)
+SELECT 
+'{{ name }}',
+'{{ region }}',
+'{{ version }}',
+'{{ node_pools }}'
+;
+```
+</TabItem>
+
+<TabItem value="manifest">
+
+```yaml
+- name: clusters
+  props:
+    - name: data__name
+      value: string
+    - name: data__node_pools
+      value: string
+    - name: data__region
+      value: string
+    - name: data__version
+      value: string
+    - name: name
+      value: string
+    - name: region
+      value: string
+    - name: version
+      value: string
+    - name: cluster_subnet
+      value: string
+    - name: service_subnet
+      value: string
+    - name: vpc_uuid
+      value: string
+    - name: tags
+      value: array
+    - name: node_pools
+      value: array
+      props:
+        - name: size
+          value: string
+        - name: name
+          value: string
+        - name: count
+          value: integer
+        - name: tags
+          value: array
+        - name: labels
+          value: object
+        - name: taints
+          value: array
+          props:
+            - name: key
+              value: string
+            - name: value
+              value: string
+            - name: effect
+              value: string
+        - name: auto_scale
+          value: boolean
+        - name: min_nodes
+          value: integer
+        - name: max_nodes
+          value: integer
+    - name: maintenance_policy
+      props:
+        - name: start_time
+          value: string
+        - name: day
+          value: string
+    - name: auto_upgrade
+      value: boolean
+    - name: surge_upgrade
+      value: boolean
+    - name: ha
+      value: boolean
+    - name: control_plane_firewall
+      props:
+        - name: enable
+          value: boolean
+        - name: allowed_addresses
+          value: array
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>clusters</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM digitalocean.kubernetes.clusters
+WHERE cluster_id = '{{ cluster_id }}';
+```

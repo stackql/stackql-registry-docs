@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - domains
   - domains
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>domains</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,16 +30,74 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the domain itself. This should follow the standard domain format of domain.TLD. For instance, `example.com` is a valid domain name. |
-| <CopyableCode code="ip_address" /> | `string` | This optional attribute may contain an IP address. When provided, an A record will be automatically created pointing to the apex domain. |
-| <CopyableCode code="ttl" /> | `integer` | This value is the time to live for the records on this domain, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested. |
-| <CopyableCode code="zone_file" /> | `string` | This attribute contains the complete contents of the zone file for the selected domain. Individual domain record resources should be used to get more granular control over records. However, this attribute can also be used to get information about the SOA record, which is created automatically and is not accessible as an individual record resource. |
+| <CopyableCode code="column_anon" /> | `` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="domain_name" /> | To get details about a specific domain, send a GET request to `/v2/domains/$DOMAIN_NAME`. |
-| <CopyableCode code="list" /> | `SELECT` |  | To retrieve a list of all of the domains in your account, send a GET request to `/v2/domains`. |
-| <CopyableCode code="create" /> | `INSERT` |  | To create a new domain, send a POST request to `/v2/domains`. Set the "name"<br />attribute to the domain name you are adding. Optionally, you may set the<br />"ip_address" attribute, and an A record will be automatically created pointing<br />to the apex domain.<br /> |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="domain_name" /> | To delete a domain, send a DELETE request to `/v2/domains/$DOMAIN_NAME`.<br /> |
-| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="domain_name" /> | To get details about a specific domain, send a GET request to `/v2/domains/$DOMAIN_NAME`. |
-| <CopyableCode code="_list" /> | `EXEC` |  | To retrieve a list of all of the domains in your account, send a GET request to `/v2/domains`. |
+| <CopyableCode code="domains_get" /> | `SELECT` | <CopyableCode code="domain_name" /> | To get details about a specific domain, send a GET request to `/v2/domains/$DOMAIN_NAME`. |
+| <CopyableCode code="domains_list" /> | `SELECT` | <CopyableCode code="" /> | To retrieve a list of all of the domains in your account, send a GET request to `/v2/domains`. |
+| <CopyableCode code="domains_create" /> | `INSERT` | <CopyableCode code="" /> | To create a new domain, send a POST request to `/v2/domains`. Set the "name" attribute to the domain name you are adding. Optionally, you may set the "ip_address" attribute, and an A record will be automatically created pointing to the apex domain. |
+| <CopyableCode code="domains_delete" /> | `DELETE` | <CopyableCode code="domain_name" /> | To delete a domain, send a DELETE request to `/v2/domains/$DOMAIN_NAME`. |
+
+## `SELECT` examples
+
+To retrieve a list of all of the domains in your account, send a GET request to `/v2/domains`.
+
+
+```sql
+SELECT
+column_anon
+FROM digitalocean.domains.domains
+;
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>domains</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.domains.domains (
+data__name,
+data__ip_address
+)
+SELECT 
+'{{ name }}',
+'{{ ip_address }}'
+;
+```
+</TabItem>
+
+<TabItem value="manifest">
+
+```yaml
+- name: domains
+  props:
+    - name: name
+      value: string
+    - name: ip_address
+      value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>domains</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM digitalocean.domains.domains
+WHERE domain_name = '{{ domain_name }}';
+```

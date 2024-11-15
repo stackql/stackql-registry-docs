@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - regions
   - apps
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>regions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -38,8 +38,27 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 | <CopyableCode code="label" /> | `string` |  |
 | <CopyableCode code="reason" /> | `string` |  |
 | <CopyableCode code="slug" /> | `string` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_regions" /> | `SELECT` |  |
-| <CopyableCode code="_list_regions" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="apps_list_regions" /> | `SELECT` | <CopyableCode code="" /> | List all regions supported by App Platform. |
+
+## `SELECT` examples
+
+List all regions supported by App Platform.
+
+
+```sql
+SELECT
+continent,
+data_centers,
+default,
+disabled,
+flag,
+label,
+reason,
+slug
+FROM digitalocean.apps.regions
+;
+```

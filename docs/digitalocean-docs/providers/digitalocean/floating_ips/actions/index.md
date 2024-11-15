@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - actions
   - floating_ips
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>actions</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,20 +30,23 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `integer` | A unique numeric ID that can be used to identify and reference an action. |
-| <CopyableCode code="completed_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the action was completed. |
-| <CopyableCode code="region" /> | `object` |  |
-| <CopyableCode code="region_slug" /> | `string` | A human-readable string that is used as a unique identifier for each region. |
-| <CopyableCode code="resource_id" /> | `integer` | A unique identifier for the resource that the action is associated with. |
-| <CopyableCode code="resource_type" /> | `string` | The type of resource that the action is associated with. |
-| <CopyableCode code="started_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the action was initiated. |
-| <CopyableCode code="status" /> | `string` | The current status of the action. This can be "in-progress", "completed", or "errored". |
-| <CopyableCode code="type" /> | `string` | This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action. |
+| <CopyableCode code="column_anon" /> | `` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="floatingIPsAction_get" /> | `SELECT` | <CopyableCode code="action_id, floating_ip" /> | To retrieve the status of a floating IP action, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID`. |
-| <CopyableCode code="floatingIPsAction_list" /> | `SELECT` | <CopyableCode code="floating_ip" /> | To retrieve all actions that have been executed on a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions`. |
-| <CopyableCode code="floatingIPsAction_post" /> | `INSERT` | <CopyableCode code="floating_ip" /> | To initiate an action on a floating IP send a POST request to<br />`/v2/floating_ips/$FLOATING_IP/actions`. In the JSON body to the request,<br />set the `type` attribute to on of the supported action types:<br /><br />\| Action     \| Details<br />\|------------\|--------<br />\| `assign`   \| Assigns a floating IP to a Droplet<br />\| `unassign` \| Unassign a floating IP from a Droplet<br /> |
-| <CopyableCode code="_floatingIPsAction_get" /> | `EXEC` | <CopyableCode code="action_id, floating_ip" /> | To retrieve the status of a floating IP action, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID`. |
-| <CopyableCode code="_floatingIPsAction_list" /> | `EXEC` | <CopyableCode code="floating_ip" /> | To retrieve all actions that have been executed on a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions`. |
+| <CopyableCode code="floating_ips_action_get" /> | `SELECT` | <CopyableCode code="action_id, floating_ip" /> | To retrieve the status of a floating IP action, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID`. |
+| <CopyableCode code="floating_ips_action_list" /> | `SELECT` | <CopyableCode code="floating_ip" /> | To retrieve all actions that have been executed on a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions`. |
+| <CopyableCode code="floating_ips_action_post" /> | `EXEC` | <CopyableCode code="floating_ip" /> | To initiate an action on a floating IP send a POST request to `/v2/floating_ips/$FLOATING_IP/actions`. In the JSON body to the request, set the `type` attribute to on of the supported action types: \| Action \| Details \|------------\|-------- \| `assign` \| Assigns a floating IP to a Droplet \| `unassign` \| Unassign a floating IP from a Droplet |
+
+## `SELECT` examples
+
+To retrieve all actions that have been executed on a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions`.
+
+
+```sql
+SELECT
+column_anon
+FROM digitalocean.floating_ips.actions
+WHERE floating_ip = '{{ floating_ip }}';
+```

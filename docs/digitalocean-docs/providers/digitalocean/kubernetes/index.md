@@ -9,47 +9,37 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
-Kubernetes  
-    
+kubernetes service documentation.
+
 :::info Service Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>9</b></span><br />
-<span>total selectable resources:&nbsp;<b>7</b></span><br />
-<span>total methods:&nbsp;<b>31</b></span><br />
+<span>total resources:&nbsp;<b>10</b></span><br />
 </div>
 </div>
 
 :::
 
-## Overview
-<table><tbody>
-<tr><td><b>Name</b></td><td><code>digitalocean.kubernetes</code></td></tr>
-<tr><td><b>Type</b></td><td>Service</td></tr>
-<tr><td><b>Title</b></td><td>DigitalOcean API - Kubernetes</td></tr>
-<tr><td><b>Description</b></td><td>Kubernetes</td></tr>
-<tr><td><b>Id</b></td><td><code>kubernetes:v23.04.00139</code></td></tr>
-</tbody></table>
-
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/digitalocean/kubernetes/clusterlint/">clusterlint</a><br />
 <a href="/providers/digitalocean/kubernetes/clusters/">clusters</a><br />
-<a href="/providers/digitalocean/kubernetes/container_registry/">container_registry</a><br />
-<a href="/providers/digitalocean/kubernetes/credentials/">credentials</a><br />
-<a href="/providers/digitalocean/kubernetes/node_pools/">node_pools</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_associated_resources/">clusters_associated_resources</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_available_upgrades/">clusters_available_upgrades</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_clusterlints/">clusters_clusterlints</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_credentials/">clusters_credentials</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/digitalocean/kubernetes/nodes/">nodes</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_node_pools/">clusters_node_pools</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_node_pools_nodes/">clusters_node_pools_nodes</a><br />
+<a href="/providers/digitalocean/kubernetes/clusters_users/">clusters_users</a><br />
 <a href="/providers/digitalocean/kubernetes/options/">options</a><br />
-<a href="/providers/digitalocean/kubernetes/upgrades/">upgrades</a><br />
-<a href="/providers/digitalocean/kubernetes/user/">user</a><br />
+<a href="/providers/digitalocean/kubernetes/registries/">registries</a>
 </div>
 </div>
