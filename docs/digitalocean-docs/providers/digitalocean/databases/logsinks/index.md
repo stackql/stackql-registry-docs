@@ -59,12 +59,31 @@ Use the following StackQL query and manifest file to create a new <code>logsinks
 <Tabs
     defaultValue="all"
     values={[
-        
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.databases.logsinks (
+data__sink_name,
+data__sink_type,
+data__config,
+database_cluster_uuid
+)
+SELECT 
+'{{ sink_name }}',
+'{{ sink_type }}',
+'{{ config }}',
+'{{ database_cluster_uuid }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -84,6 +103,30 @@ SELECT
   props:
     - name: database_cluster_uuid
       value: string
+    - name: sink_name
+      value: string
+    - name: sink_type
+      value: string
+    - name: config
+      props:
+        - name: server
+          value: string
+        - name: port
+          value: integer
+        - name: tls
+          value: boolean
+        - name: format
+          value: string
+        - name: logline
+          value: string
+        - name: sd
+          value: string
+        - name: ca
+          value: string
+        - name: key
+          value: string
+        - name: cert
+          value: string
 
 ```
 </TabItem>

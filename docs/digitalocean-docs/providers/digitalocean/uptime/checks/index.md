@@ -79,10 +79,18 @@ Use the following StackQL query and manifest file to create a new <code>checks</
 ```sql
 /*+ create */
 INSERT INTO digitalocean.uptime.checks (
-
+data__name,
+data__type,
+data__target,
+data__regions,
+data__enabled
 )
 SELECT 
-
+'{{ name }}',
+'{{ type }}',
+'{{ target }}',
+'{{ regions }}',
+'{{ enabled }}'
 ;
 ```
 </TabItem>
@@ -91,7 +99,17 @@ SELECT
 
 ```yaml
 - name: checks
-  props: []
+  props:
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: target
+      value: string
+    - name: regions
+      value: array
+    - name: enabled
+      value: boolean
 
 ```
 </TabItem>

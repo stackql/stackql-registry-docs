@@ -77,10 +77,10 @@ Use the following StackQL query and manifest file to create a new <code>vpc_peer
 ```sql
 /*+ create */
 INSERT INTO digitalocean.vpc_peerings.vpc_peerings (
-
+data__vpc_ids
 )
 SELECT 
-
+'{{ vpc_ids }}'
 ;
 ```
 </TabItem>
@@ -89,7 +89,9 @@ SELECT
 
 ```yaml
 - name: vpc_peerings
-  props: []
+  props:
+    - name: vpc_ids
+      value: array
 
 ```
 </TabItem>
@@ -103,7 +105,7 @@ Updates a <code>vpc_peerings</code> resource.
 /*+ update */
 UPDATE digitalocean.vpc_peerings.vpc_peerings
 SET 
-
+name = '{{ name }}'
 WHERE 
 vpc_peering_id = '{{ vpc_peering_id }}';
 ```

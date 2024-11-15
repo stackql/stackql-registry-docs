@@ -82,14 +82,16 @@ Use the following StackQL query and manifest file to create a new <code>users</c
 ```sql
 /*+ create */
 INSERT INTO digitalocean.databases.users (
-data__readonly,
-database_cluster_uuid,
-data__name
+data__name,
+data__mysql_settings,
+data__settings,
+database_cluster_uuid
 )
 SELECT 
-'{{ readonly }}',
-'{{ database_cluster_uuid }}',
-'{{ name }}'
+'{{ name }}',
+'{{ mysql_settings }}',
+'{{ settings }}',
+'{{ database_cluster_uuid }}'
 ;
 ```
 </TabItem>
@@ -118,8 +120,32 @@ SELECT
       value: string
     - name: data__name
       value: string
-    - name: readonly
-      value: boolean
+    - name: name
+      value: string
+    - name: mysql_settings
+      props:
+        - name: auth_plugin
+          value: string
+    - name: settings
+      props:
+        - name: pg_allow_replication
+          value: boolean
+        - name: opensearch_acl
+          value: array
+          props:
+            - name: index
+              value: string
+            - name: permission
+              value: string
+        - name: acl
+          value: array
+          props:
+            - name: id
+              value: string
+            - name: topic
+              value: string
+            - name: permission
+              value: string
 
 ```
 </TabItem>

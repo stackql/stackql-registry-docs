@@ -114,7 +114,7 @@ Updates a <code>peerings</code> resource.
 /*+ update */
 UPDATE digitalocean.vpcs.peerings
 SET 
-
+name = '{{ name }}'
 WHERE 
 vpc_id = '{{ vpc_id }}'
 AND vpc_peering_id = '{{ vpc_peering_id }}';

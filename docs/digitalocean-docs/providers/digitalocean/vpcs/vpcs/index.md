@@ -84,10 +84,12 @@ Use the following StackQL query and manifest file to create a new <code>vpcs</co
 ```sql
 /*+ create */
 INSERT INTO digitalocean.vpcs.vpcs (
-
+data__region,
+data__ip_range
 )
 SELECT 
-
+'{{ region }}',
+'{{ ip_range }}'
 ;
 ```
 </TabItem>
@@ -96,7 +98,11 @@ SELECT
 
 ```yaml
 - name: vpcs
-  props: []
+  props:
+    - name: region
+      value: string
+    - name: ip_range
+      value: string
 
 ```
 </TabItem>
@@ -110,7 +116,7 @@ Updates a <code>vpcs</code> resource.
 /*+ update */
 UPDATE digitalocean.vpcs.vpcs
 SET 
-
+default = true|false
 WHERE 
 vpc_id = '{{ vpc_id }}';
 ```

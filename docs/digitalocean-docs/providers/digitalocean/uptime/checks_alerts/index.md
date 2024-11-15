@@ -71,12 +71,37 @@ Use the following StackQL query and manifest file to create a new <code>checks_a
 <Tabs
     defaultValue="all"
     values={[
-        
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.uptime.checks_alerts (
+data__name,
+data__type,
+data__threshold,
+data__comparison,
+data__notifications,
+data__period,
+check_id
+)
+SELECT 
+'{{ name }}',
+'{{ type }}',
+'{{ threshold }}',
+'{{ comparison }}',
+'{{ notifications }}',
+'{{ period }}',
+'{{ check_id }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -95,6 +120,27 @@ SELECT
 - name: checks_alerts
   props:
     - name: check_id
+      value: string
+    - name: name
+      value: string
+    - name: type
+      value: string
+    - name: threshold
+      value: integer
+    - name: comparison
+      value: string
+    - name: notifications
+      props:
+        - name: email
+          value: array
+        - name: slack
+          value: array
+          props:
+            - name: channel
+              value: string
+            - name: url
+              value: string
+    - name: period
       value: string
 
 ```

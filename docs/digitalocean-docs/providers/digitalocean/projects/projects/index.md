@@ -70,10 +70,16 @@ Use the following StackQL query and manifest file to create a new <code>projects
 ```sql
 /*+ create */
 INSERT INTO digitalocean.projects.projects (
-
+data__name,
+data__description,
+data__purpose,
+data__environment
 )
 SELECT 
-
+'{{ name }}',
+'{{ description }}',
+'{{ purpose }}',
+'{{ environment }}'
 ;
 ```
 </TabItem>
@@ -82,7 +88,15 @@ SELECT
 
 ```yaml
 - name: projects
-  props: []
+  props:
+    - name: name
+      value: string
+    - name: description
+      value: string
+    - name: purpose
+      value: string
+    - name: environment
+      value: string
 
 ```
 </TabItem>
