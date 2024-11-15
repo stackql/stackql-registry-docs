@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - options
   - databases
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>options</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,14 +28,25 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 </tbody></table>
 
 ## Fields
-| Name | Datatype |
-|:-----|:---------|
-| <CopyableCode code="mongodb" /> | `object` |
-| <CopyableCode code="mysql" /> | `object` |
-| <CopyableCode code="pg" /> | `object` |
-| <CopyableCode code="redis" /> | `object` |
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="options" /> | `object` |  |
+| <CopyableCode code="version_availability" /> | `object` |  |
+
 ## Methods
-| Name | Accessible by | Required Params |
-|:-----|:--------------|:----------------|
-| <CopyableCode code="list_options" /> | `SELECT` |  |
-| <CopyableCode code="_list_options" /> | `EXEC` |  |
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="databases_list_options" /> | `SELECT` | <CopyableCode code="" /> | To list all of the options available for the offered database engines, send a GET request to `/v2/databases/options`. The result will be a JSON object with an `options` key. |
+
+## `SELECT` examples
+
+To list all of the options available for the offered database engines, send a GET request to `/v2/databases/options`. The result will be a JSON object with an `options` key.
+
+
+```sql
+SELECT
+options,
+version_availability
+FROM digitalocean.databases.options
+;
+```

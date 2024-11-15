@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - droplets
   - droplets
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>droplets</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,40 +30,151 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `integer` | A unique identifier for each Droplet instance. This is automatically generated upon Droplet creation. |
-| <CopyableCode code="name" /> | `string` | The human-readable name set for the Droplet instance. |
-| <CopyableCode code="backup_ids" /> | `array` | An array of backup IDs of any backups that have been taken of the Droplet instance.  Droplet backups are enabled at the time of the instance creation. |
-| <CopyableCode code="created_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the Droplet was created. |
-| <CopyableCode code="disk" /> | `integer` | The size of the Droplet's disk in gigabytes. |
-| <CopyableCode code="features" /> | `array` | An array of features enabled on this Droplet. |
-| <CopyableCode code="image" /> | `object` |  |
-| <CopyableCode code="kernel" /> | `object` | **Note**: All Droplets created after March 2017 use internal kernels by default.<br />These Droplets will have this attribute set to `null`.<br /><br />The current [kernel](https://www.digitalocean.com/docs/droplets/how-to/kernel/)<br />for Droplets with externally managed kernels. This will initially be set to<br />the kernel of the base image when the Droplet is created.<br /> |
-| <CopyableCode code="locked" /> | `boolean` | A boolean value indicating whether the Droplet has been locked, preventing actions by users. |
-| <CopyableCode code="memory" /> | `integer` | Memory of the Droplet in megabytes. |
-| <CopyableCode code="networks" /> | `object` | The details of the network that are configured for the Droplet instance.  This is an object that contains keys for IPv4 and IPv6.  The value of each of these is an array that contains objects describing an individual IP resource allocated to the Droplet.  These will define attributes like the IP address, netmask, and gateway of the specific network depending on the type of network it is. |
-| <CopyableCode code="next_backup_window" /> | `object` | The details of the Droplet's backups feature, if backups are configured for the Droplet. This object contains keys for the start and end times of the window during which the backup will start. |
-| <CopyableCode code="region" /> | `object` |  |
-| <CopyableCode code="size" /> | `object` |  |
-| <CopyableCode code="size_slug" /> | `string` | The unique slug identifier for the size of this Droplet. |
-| <CopyableCode code="snapshot_ids" /> | `array` | An array of snapshot IDs of any snapshots created from the Droplet instance. |
-| <CopyableCode code="status" /> | `string` | A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive". |
-| <CopyableCode code="tags" /> | `array` | An array of Tags the Droplet has been tagged with. |
-| <CopyableCode code="vcpus" /> | `integer` | The number of virtual CPUs. |
-| <CopyableCode code="volume_ids" /> | `array` | A flat array including the unique identifier for each Block Storage volume attached to the Droplet. |
-| <CopyableCode code="vpc_uuid" /> | `string` | A string specifying the UUID of the VPC to which the Droplet is assigned. |
+| <CopyableCode code="column_anon" /> | `` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="droplet_id" /> | To show information about an individual Droplet, send a GET request to<br />`/v2/droplets/$DROPLET_ID`.<br /> |
-| <CopyableCode code="list" /> | `SELECT` |  | To list all Droplets in your account, send a GET request to `/v2/droplets`.<br /><br />The response body will be a JSON object with a key of `droplets`. This will be<br />set to an array containing objects each representing a Droplet. These will<br />contain the standard Droplet attributes.<br /><br />### Filtering Results by Tag<br /><br />It's possible to request filtered results by including certain query parameters.<br />To only list Droplets assigned to a specific tag, include the `tag_name` query<br />parameter set to the name of the tag in your GET request. For example,<br />`/v2/droplets?tag_name=$TAG_NAME`.<br /> |
-| <CopyableCode code="create" /> | `INSERT` |  | To create a new Droplet, send a POST request to `/v2/droplets` setting the<br />required attributes.<br /><br />A Droplet will be created using the provided information. The response body<br />will contain a JSON object with a key called `droplet`. The value will be an<br />object containing the standard attributes for your new Droplet. The response<br />code, 202 Accepted, does not indicate the success or failure of the operation,<br />just that the request has been accepted for processing. The `actions` returned<br />as part of the response's `links` object can be used to check the status<br />of the Droplet create event.<br /><br />### Create Multiple Droplets<br /><br />Creating multiple Droplets is very similar to creating a single Droplet.<br />Instead of sending `name` as a string, send `names` as an array of strings. A<br />Droplet will be created for each name you send using the associated<br />information. Up to ten Droplets may be created this way at a time.<br /><br />Rather than returning a single Droplet, the response body will contain a JSON<br />array with a key called `droplets`. This will be set to an array of JSON<br />objects, each of which will contain the standard Droplet attributes. The<br />response code, 202 Accepted, does not indicate the success or failure of any<br />operation, just that the request has been accepted for processing. The array<br />of `actions` returned as part of the response's `links` object can be used to<br />check the status of each individual Droplet create event.<br /> |
-| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To show information about an individual Droplet, send a GET request to<br />`/v2/droplets/$DROPLET_ID`.<br /> |
-| <CopyableCode code="_list" /> | `EXEC` |  | To list all Droplets in your account, send a GET request to `/v2/droplets`.<br /><br />The response body will be a JSON object with a key of `droplets`. This will be<br />set to an array containing objects each representing a Droplet. These will<br />contain the standard Droplet attributes.<br /><br />### Filtering Results by Tag<br /><br />It's possible to request filtered results by including certain query parameters.<br />To only list Droplets assigned to a specific tag, include the `tag_name` query<br />parameter set to the name of the tag in your GET request. For example,<br />`/v2/droplets?tag_name=$TAG_NAME`.<br /> |
-| <CopyableCode code="destroy" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To delete a Droplet, send a DELETE request to `/v2/droplets/$DROPLET_ID`.<br /><br />A successful request will receive a 204 status code with no body in response.<br />This indicates that the request was processed successfully.<br /> |
-| <CopyableCode code="destroy_byTag" /> | `EXEC` | <CopyableCode code="tag_name" /> | To delete **all** Droplets assigned to a specific tag, include the `tag_name`<br />query parameter set to the name of the tag in your DELETE request. For<br />example,  `/v2/droplets?tag_name=$TAG_NAME`.<br /><br />A successful request will receive a 204 status code with no body in response.<br />This indicates that the request was processed successfully.<br /> |
-| <CopyableCode code="destroy_retryWithAssociatedResources" /> | `EXEC` | <CopyableCode code="droplet_id" /> | If the status of a request to destroy a Droplet with its associated resources<br />reported any errors, it can be retried by sending a POST request to the<br />`/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/retry` endpoint.<br /><br />Only one destroy can be active at a time per Droplet. If a retry is issued<br />while another destroy is in progress for the Droplet a 409 status code will<br />be returned. A successful response will include a 202 response code and no<br />content.<br /> |
-| <CopyableCode code="destroy_withAssociatedResourcesDangerous" /> | `EXEC` | <CopyableCode code="X-Dangerous, droplet_id" /> | To destroy a Droplet along with all of its associated resources, send a DELETE<br />request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous`<br />endpoint. The headers of this request must include an `X-Dangerous` key set to<br />`true`. To preview which resources will be destroyed, first query the<br />Droplet's associated resources. This operation _can not_ be reverse and should<br />be used with caution.<br /><br />A successful response will include a 202 response code and no content. Use the<br />status endpoint to check on the success or failure of the destruction of the<br />individual resources.<br /> |
-| <CopyableCode code="destroy_withAssociatedResourcesSelective" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To destroy a Droplet along with a sub-set of its associated resources, send a<br />DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective`<br />endpoint. The JSON body of the request should include `reserved_ips`, `snapshots`, `volumes`,<br />or `volume_snapshots` keys each set to an array of IDs for the associated<br />resources to be destroyed. The IDs can be found by querying the Droplet's<br />associated resources. Any associated resource not included in the request<br />will remain and continue to accrue changes on your account.<br /><br />A successful response will include a 202 response code and no content. Use<br />the status endpoint to check on the success or failure of the destruction of<br />the individual resources.<br /> |
-| <CopyableCode code="get_DestroyAssociatedResourcesStatus" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To check on the status of a request to destroy a Droplet with its associated<br />resources, send a GET request to the<br />`/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/status` endpoint.<br /> |
-| <CopyableCode code="list_associatedResources" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To list the associated billable resources that can be destroyed along with a<br />Droplet, send a GET request to the<br />`/v2/droplets/$DROPLET_ID/destroy_with_associated_resources` endpoint.<br /><br />The response will be a JSON object containing `snapshots`, `volumes`, and<br />`volume_snapshots` keys. Each will be set to an array of objects containing<br />information about the associated resources.<br /> |
-| <CopyableCode code="list_neighborsIds" /> | `EXEC` |  | To retrieve a list of all Droplets that are co-located on the same physical<br />hardware, send a GET request to `/v2/reports/droplet_neighbors_ids`.<br /><br />The results will be returned as a JSON object with a key of `neighbor_ids`.<br />This will be set to an array of arrays. Each array will contain a set of<br />Droplet IDs for Droplets that share a physical server. An empty array<br />indicates that all Droplets associated with your account are located on<br />separate physical hardware.<br /> |
+| <CopyableCode code="droplets_get" /> | `SELECT` | <CopyableCode code="droplet_id" /> | To show information about an individual Droplet, send a GET request to `/v2/droplets/$DROPLET_ID`. |
+| <CopyableCode code="droplets_list" /> | `SELECT` | <CopyableCode code="" /> | To list all Droplets in your account, send a GET request to `/v2/droplets`. The response body will be a JSON object with a key of `droplets`. This will be set to an array containing objects each representing a Droplet. These will contain the standard Droplet attributes. ### Filtering Results by Tag It's possible to request filtered results by including certain query parameters. To only list Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your GET request. For example, `/v2/droplets?tag_name=$TAG_NAME`. ### GPU Droplets By default, only non-GPU Droplets are returned. To list only GPU Droplets, set the `type` query parameter to `gpus`. For example, `/v2/droplets?type=gpus`. |
+| <CopyableCode code="droplets_create" /> | `INSERT` | <CopyableCode code="" /> | To create a new Droplet, send a POST request to `/v2/droplets` setting the required attributes. A Droplet will be created using the provided information. The response body will contain a JSON object with a key called `droplet`. The value will be an object containing the standard attributes for your new Droplet. The response code, 202 Accepted, does not indicate the success or failure of the operation, just that the request has been accepted for processing. The `actions` returned as part of the response's `links` object can be used to check the status of the Droplet create event. ### Create Multiple Droplets Creating multiple Droplets is very similar to creating a single Droplet. Instead of sending `name` as a string, send `names` as an array of strings. A Droplet will be created for each name you send using the associated information. Up to ten Droplets may be created this way at a time. Rather than returning a single Droplet, the response body will contain a JSON array with a key called `droplets`. This will be set to an array of JSON objects, each of which will contain the standard Droplet attributes. The response code, 202 Accepted, does not indicate the success or failure of any operation, just that the request has been accepted for processing. The array of `actions` returned as part of the response's `links` object can be used to check the status of each individual Droplet create event. |
+| <CopyableCode code="droplets_destroy" /> | `DELETE` | <CopyableCode code="droplet_id" /> | To delete a Droplet, send a DELETE request to `/v2/droplets/$DROPLET_ID`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. |
+| <CopyableCode code="droplets_destroy_by_tag" /> | `DELETE` | <CopyableCode code="tag_name" /> | To delete **all** Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your DELETE request. For example, `/v2/droplets?tag_name=$TAG_NAME`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. |
+| <CopyableCode code="droplets_destroy_retry_with_associated_resources" /> | `EXEC` | <CopyableCode code="droplet_id" /> | If the status of a request to destroy a Droplet with its associated resources reported any errors, it can be retried by sending a POST request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/retry` endpoint. Only one destroy can be active at a time per Droplet. If a retry is issued while another destroy is in progress for the Droplet a 409 status code will be returned. A successful response will include a 202 response code and no content. |
+| <CopyableCode code="droplets_destroy_with_associated_resources_dangerous" /> | `EXEC` | <CopyableCode code="X-Dangerous, droplet_id" /> | To destroy a Droplet along with all of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous` endpoint. The headers of this request must include an `X-Dangerous` key set to `true`. To preview which resources will be destroyed, first query the Droplet's associated resources. This operation _can not_ be reverse and should be used with caution. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources. |
+| <CopyableCode code="droplets_destroy_with_associated_resources_selective" /> | `EXEC` | <CopyableCode code="droplet_id" /> | To destroy a Droplet along with a sub-set of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective` endpoint. The JSON body of the request should include `reserved_ips`, `snapshots`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the Droplet's associated resources. Any associated resource not included in the request will remain and continue to accrue changes on your account. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources. |
+
+## `SELECT` examples
+
+To list all Droplets in your account, send a GET request to `/v2/droplets`. The response body will be a JSON object with a key of `droplets`. This will be set to an array containing objects each representing a Droplet. These will contain the standard Droplet attributes. ### Filtering Results by Tag It's possible to request filtered results by including certain query parameters. To only list Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your GET request. For example, `/v2/droplets?tag_name=$TAG_NAME`. ### GPU Droplets By default, only non-GPU Droplets are returned. To list only GPU Droplets, set the `type` query parameter to `gpus`. For example, `/v2/droplets?type=gpus`.
+
+
+```sql
+SELECT
+column_anon
+FROM digitalocean.droplets.droplets
+;
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>droplets</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.droplets.droplets (
+data__name,
+data__region,
+data__size,
+data__image,
+data__ssh_keys,
+data__backups,
+data__backup_policy,
+data__ipv6,
+data__monitoring,
+data__tags,
+data__user_data,
+data__private_networking,
+data__volumes,
+data__vpc_uuid,
+data__with_droplet_agent
+)
+SELECT 
+'{{ name }}',
+'{{ region }}',
+'{{ size }}',
+'{{ image }}',
+'{{ ssh_keys }}',
+'{{ backups }}',
+'{{ backup_policy }}',
+'{{ ipv6 }}',
+'{{ monitoring }}',
+'{{ tags }}',
+'{{ user_data }}',
+'{{ private_networking }}',
+'{{ volumes }}',
+'{{ vpc_uuid }}',
+'{{ with_droplet_agent }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.droplets.droplets (
+data__size,
+data__image
+)
+SELECT 
+'{{ size }}',
+'{{ image }}'
+;
+```
+</TabItem>
+
+<TabItem value="manifest">
+
+```yaml
+- name: droplets
+  props:
+    - name: name
+      value: string
+    - name: region
+      value: string
+    - name: size
+      value: string
+    - name: image
+      value: string
+    - name: ssh_keys
+      value: array
+    - name: backups
+      value: boolean
+    - name: backup_policy
+      props:
+        - name: plan
+          value: string
+        - name: weekday
+          value: string
+        - name: hour
+          value: integer
+    - name: ipv6
+      value: boolean
+    - name: monitoring
+      value: boolean
+    - name: tags
+      value: array
+    - name: user_data
+      value: string
+    - name: private_networking
+      value: boolean
+    - name: volumes
+      value: array
+    - name: vpc_uuid
+      value: string
+    - name: with_droplet_agent
+      value: boolean
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>droplets</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM digitalocean.droplets.droplets
+WHERE tag_name = '{{ tag_name }}';
+```

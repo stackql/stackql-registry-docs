@@ -8,27 +8,25 @@ keywords:
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage Digital Ocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 id: digitalocean-doc
 slug: /providers/digitalocean
+
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-Cloud computing services and Infrastructure as a Service (IaaS).  
-    
-:::info Provider Summary (v23.04.00139)
+DigitalOcean for managing cloud servers, databases, networking, and storage in a simplified, developer-friendly environment.
+
+
+:::info Provider Summary
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total services:&nbsp;<b>28</b></span><br />
-<span>total methods:&nbsp;<b>408</b></span><br />
-</div>
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>104</b></span><br />
-<span>total selectable resources:&nbsp;<b>93</b></span><br />
+<span>total services:&nbsp;<b>29</b></span><br />
+<span>total resources:&nbsp;<b>179</b></span><br />
 </div>
 </div>
 
@@ -77,6 +75,7 @@ stackql.exe shell --auth=$Auth
 ```
 </details>
 
+
 ## Services
 <div class="row">
 <div class="providerDocColumn">
@@ -94,9 +93,9 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/digitalocean/firewalls/">firewalls</a><br />
 <a href="/providers/digitalocean/floating_ips/">floating_ips</a><br />
 <a href="/providers/digitalocean/functions/">functions</a><br />
+<a href="/providers/digitalocean/images/">images</a><br />
 </div>
 <div class="providerDocColumn">
-<a href="/providers/digitalocean/images/">images</a><br />
 <a href="/providers/digitalocean/kubernetes/">kubernetes</a><br />
 <a href="/providers/digitalocean/load_balancers/">load_balancers</a><br />
 <a href="/providers/digitalocean/monitoring/">monitoring</a><br />
@@ -109,6 +108,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/digitalocean/ssh_keys/">ssh_keys</a><br />
 <a href="/providers/digitalocean/tags/">tags</a><br />
 <a href="/providers/digitalocean/uptime/">uptime</a><br />
+<a href="/providers/digitalocean/vpc_peerings/">vpc_peerings</a><br />
 <a href="/providers/digitalocean/vpcs/">vpcs</a><br />
 </div>
 </div>

@@ -5,20 +5,20 @@ hide_table_of_contents: false
 keywords:
   - firewalls
   - firewalls
-  - digitalocean    
-  - stackql
+  - digitalocean
   - infrastructure-as-code
   - configuration-as-data
   - cloud inventory
-description: Query, deploy and manage Sumologic resources using SQL
+description: Query, deploy and manage digitalocean resources using SQL
 custom_edit_url: null
 image: /img/providers/digitalocean/stackql-digitalocean-provider-featured-image.png
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-
-
+Creates, updates, deletes, gets or lists a <code>firewalls</code> resource.
 
 ## Overview
 <table><tbody>
@@ -30,22 +30,82 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 ## Fields
 | Name | Datatype | Description |
 |:-----|:---------|:------------|
-| <CopyableCode code="id" /> | `string` | A unique ID that can be used to identify and reference a firewall. |
-| <CopyableCode code="name" /> | `string` | A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-). |
-| <CopyableCode code="created_at" /> | `string` | A time value given in ISO8601 combined date and time format that represents when the firewall was created. |
-| <CopyableCode code="droplet_ids" /> | `array` | An array containing the IDs of the Droplets assigned to the firewall. |
-| <CopyableCode code="inbound_rules" /> | `array` |  |
-| <CopyableCode code="outbound_rules" /> | `array` |  |
-| <CopyableCode code="pending_changes" /> | `array` | An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied. |
-| <CopyableCode code="status" /> | `string` | A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed". |
-| <CopyableCode code="tags" /> | `array` | A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. |
+| <CopyableCode code="column_anon" /> | `` |  |
+
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get" /> | `SELECT` | <CopyableCode code="firewall_id" /> | To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`. |
-| <CopyableCode code="list" /> | `SELECT` |  | To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`. |
-| <CopyableCode code="create" /> | `INSERT` |  | To create a new firewall, send a POST request to `/v2/firewalls`. The request<br />must contain at least one inbound or outbound access rule.<br /> |
-| <CopyableCode code="delete" /> | `DELETE` | <CopyableCode code="firewall_id" /> | To delete a firewall send a DELETE request to `/v2/firewalls/$FIREWALL_ID`.<br /><br />No response body will be sent back, but the response code will indicate<br />success. Specifically, the response code will be a 204, which means that the<br />action was successful with no returned body data.<br /> |
-| <CopyableCode code="_get" /> | `EXEC` | <CopyableCode code="firewall_id" /> | To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`. |
-| <CopyableCode code="_list" /> | `EXEC` |  | To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`. |
-| <CopyableCode code="update" /> | `EXEC` | <CopyableCode code="firewall_id, data__name" /> | To update the configuration of an existing firewall, send a PUT request to<br />`/v2/firewalls/$FIREWALL_ID`. The request should contain a full representation<br />of the firewall including existing attributes. **Note that any attributes that<br />are not provided will be reset to their default values.**<br /> |
+| <CopyableCode code="firewalls_get" /> | `SELECT` | <CopyableCode code="firewall_id" /> | To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`. |
+| <CopyableCode code="firewalls_list" /> | `SELECT` | <CopyableCode code="" /> | To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`. |
+| <CopyableCode code="firewalls_create" /> | `INSERT` | <CopyableCode code="" /> | To create a new firewall, send a POST request to `/v2/firewalls`. The request must contain at least one inbound or outbound access rule. |
+| <CopyableCode code="firewalls_delete" /> | `DELETE` | <CopyableCode code="firewall_id" /> | To delete a firewall send a DELETE request to `/v2/firewalls/$FIREWALL_ID`. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data. |
+| <CopyableCode code="firewalls_update" /> | `EXEC` | <CopyableCode code="firewall_id" /> | To update the configuration of an existing firewall, send a PUT request to `/v2/firewalls/$FIREWALL_ID`. The request should contain a full representation of the firewall including existing attributes. **Note that any attributes that are not provided will be reset to their default values.** |
+
+## `SELECT` examples
+
+To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`.
+
+
+```sql
+SELECT
+column_anon
+FROM digitalocean.firewalls.firewalls
+;
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>firewalls</code> resource.
+
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.firewalls.firewalls (
+
+)
+SELECT 
+
+;
+```
+</TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.firewalls.firewalls (
+data__inbound_rules
+)
+SELECT 
+'{{ inbound_rules }}'
+;
+```
+</TabItem>
+
+<TabItem value="manifest">
+
+```yaml
+- name: firewalls
+  props: []
+
+```
+</TabItem>
+</Tabs>
+
+## `DELETE` example
+
+Deletes the specified <code>firewalls</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM digitalocean.firewalls.firewalls
+WHERE firewall_id = '{{ firewall_id }}';
+```
