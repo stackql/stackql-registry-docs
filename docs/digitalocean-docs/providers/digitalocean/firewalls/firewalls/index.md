@@ -59,7 +59,7 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 <Tabs
     defaultValue="all"
     values={[
-        { label: 'Required Properties', value: 'required' },
+        
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -69,23 +69,18 @@ Use the following StackQL query and manifest file to create a new <code>firewall
 ```sql
 /*+ create */
 INSERT INTO digitalocean.firewalls.firewalls (
-
+data__name,
+data__droplet_ids,
+data__tags,
+data__inbound_rules,
+data__outbound_rules
 )
 SELECT 
-
-;
-```
-</TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO digitalocean.firewalls.firewalls (
-data__inbound_rules
-)
-SELECT 
-'{{ inbound_rules }}'
+'{{ name }}',
+'{{ droplet_ids }}',
+'{{ tags }}',
+'{{ inbound_rules }}',
+'{{ outbound_rules }}'
 ;
 ```
 </TabItem>
@@ -94,7 +89,51 @@ SELECT
 
 ```yaml
 - name: firewalls
-  props: []
+  props:
+    - name: name
+      value: string
+    - name: droplet_ids
+      value: array
+    - name: tags
+      value: array
+    - name: inbound_rules
+      value: array
+      props:
+        - name: protocol
+          value: string
+        - name: ports
+          value: string
+        - name: sources
+          props:
+            - name: addresses
+              value: array
+            - name: droplet_ids
+              value: array
+            - name: load_balancer_uids
+              value: array
+            - name: kubernetes_ids
+              value: array
+            - name: tags
+              value: array
+    - name: outbound_rules
+      value: array
+      props:
+        - name: protocol
+          value: string
+        - name: ports
+          value: string
+        - name: destinations
+          props:
+            - name: addresses
+              value: array
+            - name: droplet_ids
+              value: array
+            - name: load_balancer_uids
+              value: array
+            - name: kubernetes_ids
+              value: array
+            - name: tags
+              value: array
 
 ```
 </TabItem>

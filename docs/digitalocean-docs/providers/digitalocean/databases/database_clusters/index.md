@@ -123,20 +123,30 @@ Use the following StackQL query and manifest file to create a new <code>database
 ```sql
 /*+ create */
 INSERT INTO digitalocean.databases.database_clusters (
-data__backup_restore,
-data__engine,
 data__name,
+data__engine,
+data__version,
 data__num_nodes,
+data__size,
 data__region,
-data__size
+data__private_network_uuid,
+data__tags,
+data__project_id,
+data__rules,
+data__storage_size_mib
 )
 SELECT 
-'{{ backup_restore }}',
-'{{ engine }}',
 '{{ name }}',
+'{{ engine }}',
+'{{ version }}',
 '{{ num_nodes }}',
+'{{ size }}',
 '{{ region }}',
-'{{ size }}'
+'{{ private_network_uuid }}',
+'{{ tags }}',
+'{{ project_id }}',
+'{{ rules }}',
+'{{ storage_size_mib }}'
 ;
 ```
 </TabItem>
@@ -177,12 +187,37 @@ SELECT
       value: string
     - name: data__size
       value: string
-    - name: backup_restore
+    - name: name
+      value: string
+    - name: engine
+      value: string
+    - name: version
+      value: string
+    - name: num_nodes
+      value: integer
+    - name: size
+      value: string
+    - name: region
+      value: string
+    - name: private_network_uuid
+      value: string
+    - name: tags
+      value: array
+    - name: project_id
+      value: string
+    - name: rules
+      value: array
       props:
-        - name: database_name
+        - name: uuid
           value: string
-        - name: backup_created_at
+        - name: cluster_uuid
           value: string
+        - name: type
+          value: string
+        - name: value
+          value: string
+    - name: storage_size_mib
+      value: integer
 
 ```
 </TabItem>

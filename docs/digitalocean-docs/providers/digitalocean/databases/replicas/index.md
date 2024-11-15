@@ -79,7 +79,7 @@ Use the following StackQL query and manifest file to create a new <code>replicas
 <Tabs
     defaultValue="all"
     values={[
-        
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
@@ -89,12 +89,37 @@ Use the following StackQL query and manifest file to create a new <code>replicas
 ```sql
 /*+ create */
 INSERT INTO digitalocean.databases.replicas (
-database_cluster_uuid,
-data__name
+data__name,
+data__region,
+data__size,
+data__tags,
+data__private_network_uuid,
+data__storage_size_mib,
+database_cluster_uuid
 )
 SELECT 
-'{{ database_cluster_uuid }}',
-'{{ name }}'
+'{{ name }}',
+'{{ region }}',
+'{{ size }}',
+'{{ tags }}',
+'{{ private_network_uuid }}',
+'{{ storage_size_mib }}',
+'{{ database_cluster_uuid }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.databases.replicas (
+data__name,
+database_cluster_uuid
+)
+SELECT 
+'{{ name }}',
+'{{ database_cluster_uuid }}'
 ;
 ```
 </TabItem>
@@ -108,6 +133,18 @@ SELECT
       value: string
     - name: data__name
       value: string
+    - name: name
+      value: string
+    - name: region
+      value: string
+    - name: size
+      value: string
+    - name: tags
+      value: array
+    - name: private_network_uuid
+      value: string
+    - name: storage_size_mib
+      value: integer
 
 ```
 </TabItem>

@@ -59,12 +59,33 @@ Use the following StackQL query and manifest file to create a new <code>topics</
 <Tabs
     defaultValue="all"
     values={[
-        
+        { label: 'Required Properties', value: 'required' },
         { label: 'All Properties', value: 'all', },
         { label: 'Manifest', value: 'manifest', },
     ]
 }>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO digitalocean.databases.topics (
+data__name,
+data__replication_factor,
+data__partition_count,
+data__config,
+database_cluster_uuid
+)
+SELECT 
+'{{ name }}',
+'{{ replication_factor }}',
+'{{ partition_count }}',
+'{{ config }}',
+'{{ database_cluster_uuid }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -84,6 +105,56 @@ SELECT
   props:
     - name: database_cluster_uuid
       value: string
+    - name: name
+      value: string
+    - name: replication_factor
+      value: integer
+    - name: partition_count
+      value: integer
+    - name: config
+      props:
+        - name: cleanup_policy
+          value: string
+        - name: compression_type
+          value: string
+        - name: delete_retention_ms
+          value: integer
+        - name: file_delete_delay_ms
+          value: integer
+        - name: flush_messages
+          value: integer
+        - name: flush_ms
+          value: integer
+        - name: index_interval_bytes
+          value: integer
+        - name: max_compaction_lag_ms
+          value: integer
+        - name: max_message_bytes
+          value: integer
+        - name: message_down_conversion_enable
+          value: boolean
+        - name: message_format_version
+          value: string
+        - name: message_timestamp_type
+          value: string
+        - name: min_cleanable_dirty_ratio
+          value: number
+        - name: min_compaction_lag_ms
+          value: integer
+        - name: min_insync_replicas
+          value: integer
+        - name: preallocate
+          value: boolean
+        - name: retention_bytes
+          value: integer
+        - name: retention_ms
+          value: integer
+        - name: segment_bytes
+          value: integer
+        - name: segment_jitter_ms
+          value: integer
+        - name: segment_ms
+          value: integer
 
 ```
 </TabItem>

@@ -54,9 +54,13 @@ Use the following StackQL query and manifest file to create a new <code>rules</c
 ```sql
 /*+ create */
 INSERT INTO digitalocean.firewalls.rules (
+data__inbound_rules,
+data__outbound_rules,
 firewall_id
 )
 SELECT 
+'{{ inbound_rules }}',
+'{{ outbound_rules }}',
 '{{ firewall_id }}'
 ;
 ```
@@ -67,11 +71,9 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO digitalocean.firewalls.rules (
-data__inbound_rules,
 firewall_id
 )
 SELECT 
-'{{ inbound_rules }}',
 '{{ firewall_id }}'
 ;
 ```
@@ -84,6 +86,44 @@ SELECT
   props:
     - name: firewall_id
       value: string
+    - name: inbound_rules
+      value: array
+      props:
+        - name: protocol
+          value: string
+        - name: ports
+          value: string
+        - name: sources
+          props:
+            - name: addresses
+              value: array
+            - name: droplet_ids
+              value: array
+            - name: load_balancer_uids
+              value: array
+            - name: kubernetes_ids
+              value: array
+            - name: tags
+              value: array
+    - name: outbound_rules
+      value: array
+      props:
+        - name: protocol
+          value: string
+        - name: ports
+          value: string
+        - name: destinations
+          props:
+            - name: addresses
+              value: array
+            - name: droplet_ids
+              value: array
+            - name: load_balancer_uids
+              value: array
+            - name: kubernetes_ids
+              value: array
+            - name: tags
+              value: array
 
 ```
 </TabItem>
