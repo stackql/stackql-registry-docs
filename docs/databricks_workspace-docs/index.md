@@ -18,7 +18,7 @@ slug: /providers/databricks_workspace
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-Services from Databricks.
+Manage clusters, jobs, notebooks, MLflow and other Databricks workspace resources.
 
 :::info Provider Summary
 

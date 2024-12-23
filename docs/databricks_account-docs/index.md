@@ -18,7 +18,7 @@ slug: /providers/databricks_account
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
-Services from Databricks.
+Account-level features, identity and provisioning for Databricks.
 
 :::info Provider Summary
 
