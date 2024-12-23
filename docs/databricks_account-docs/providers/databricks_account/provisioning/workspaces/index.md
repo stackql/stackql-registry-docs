@@ -33,31 +33,29 @@ Operations on a <code>workspaces</code> resource.
 <Tabs
     defaultValue="view"
     values={[
-        { label: 'account_id', value: 'view', },
-        { label: 'account_id', value: 'resource', },
+        { label: 'vw_workspaces', value: 'view', },
+        { label: 'workspaces', value: 'resource', },
     ]
 }>
 <TabItem value="view">
 
 | Name | Datatype |
 |:-----|:---------|
-| <CopyableCode code="account_id" /> | `string` |
-| <CopyableCode code="aws_region" /> | `string` |
+| <CopyableCode code="account_id" /> | `text` |
+| <CopyableCode code="aws_region" /> | `text` |
+| <CopyableCode code="compliance_security_profile_enabled" /> | `unknown` |
 | <CopyableCode code="creation_time" /> | `integer` |
-| <CopyableCode code="credentials_id" /> | `string` |
-| <CopyableCode code="custom_tags" /> | `object` |
-| <CopyableCode code="deployment_name" /> | `string` |
+| <CopyableCode code="credentials_id" /> | `text` |
+| <CopyableCode code="deployment_name" /> | `text` |
+| <CopyableCode code="enhanced_security_monitoring_enabled" /> | `unknown` |
+| <CopyableCode code="identity_federation_enabled" /> | `unknown` |
 | <CopyableCode code="is_no_public_ip_enabled" /> | `boolean` |
-| <CopyableCode code="managed_services_customer_managed_key_id" /> | `string` |
-| <CopyableCode code="network_id" /> | `string` |
-| <CopyableCode code="pricing_tier" /> | `string` |
-| <CopyableCode code="private_access_settings_id" /> | `string` |
-| <CopyableCode code="storage_configuration_id" /> | `string` |
-| <CopyableCode code="storage_customer_managed_key_id" /> | `string` |
+| <CopyableCode code="pricing_tier" /> | `text` |
+| <CopyableCode code="storage_configuration_id" /> | `text` |
 | <CopyableCode code="workspace_id" /> | `integer` |
-| <CopyableCode code="workspace_name" /> | `string` |
-| <CopyableCode code="workspace_status" /> | `string` |
-| <CopyableCode code="workspace_status_message" /> | `string` |
+| <CopyableCode code="workspace_name" /> | `text` |
+| <CopyableCode code="workspace_status" /> | `text` |
+| <CopyableCode code="workspace_status_message" /> | `text` |
 </TabItem>
 <TabItem value="resource">
 
@@ -108,22 +106,21 @@ Operations on a <code>workspaces</code> resource.
 SELECT
 account_id,
 aws_region,
+compliance_security_profile_enabled,
 creation_time,
 credentials_id,
-custom_tags,
 deployment_name,
+enhanced_security_monitoring_enabled,
+identity_federation_enabled,
 is_no_public_ip_enabled,
-managed_services_customer_managed_key_id,
-network_id,
 pricing_tier,
-private_access_settings_id,
 storage_configuration_id,
-storage_customer_managed_key_id,
 workspace_id,
 workspace_name,
 workspace_status,
 workspace_status_message
-FROM databricks_account.provisioning.vw_workspaces;
+FROM databricks_account.provisioning.vw_workspaces
+WHERE account_id = '{{ account_id }}';
 ```
 
 </TabItem>
@@ -269,8 +266,10 @@ Updates a <code>workspaces</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_account.provisioning.workspaces
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE account_id = '{{ account_id }}' AND
 workspace_id = '{{ workspace_id }}';
 ```
