@@ -15,16 +15,14 @@ custom_edit_url: null
 image: /img/providers/databricks_account/stackql-databricks-provider-featured-image.png
 ---
 
-__`billing`__ service documentation.
+**`billing`** service documentation.
 
 :::info Service Summary
-
 <div class="row">
 <div class="providerDocColumn">
 <span>total resources:&nbsp;<b>3</b></span><br />
 </div>
 </div>
-
 :::
 
 ## Resources
