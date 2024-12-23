@@ -61,8 +61,10 @@ Updates a <code>cluster_policies_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.compute.cluster_policies_permissions
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE cluster_policy_id = '{{ cluster_policy_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
@@ -73,8 +75,10 @@ Replaces a <code>cluster_policies_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.compute.cluster_policies_permissions
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE cluster_policy_id = '{{ cluster_policy_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

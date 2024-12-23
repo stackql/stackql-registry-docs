@@ -159,8 +159,10 @@ Updates a <code>credentials</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.credentials
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE name_arg = '{{ name_arg }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

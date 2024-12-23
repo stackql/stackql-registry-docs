@@ -210,19 +210,25 @@ Updates a <code>serving_endpoints</code> resource.
     ]
 }>
 <TabItem value="patch">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.realtimeserving.serving_endpoints
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE name = '{{ name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
 </TabItem>
 <TabItem value="updateconfig">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.realtimeserving.serving_endpoints
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE name = '{{ name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
@@ -235,8 +241,10 @@ Replaces a <code>serving_endpoints</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.realtimeserving.serving_endpoints
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE name = '{{ name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

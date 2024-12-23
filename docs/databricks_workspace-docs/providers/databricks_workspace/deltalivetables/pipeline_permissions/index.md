@@ -61,8 +61,10 @@ Updates a <code>pipeline_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.deltalivetables.pipeline_permissions
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE pipeline_id = '{{ pipeline_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
@@ -73,8 +75,10 @@ Replaces a <code>pipeline_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.deltalivetables.pipeline_permissions
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE pipeline_id = '{{ pipeline_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

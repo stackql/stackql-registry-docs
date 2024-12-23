@@ -58,7 +58,9 @@ Replaces a <code>feature_status</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.workspace.feature_status
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE deployment_name = '{{ deployment_name }}';
 ```

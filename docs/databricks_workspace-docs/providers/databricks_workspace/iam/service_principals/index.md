@@ -195,19 +195,25 @@ Updates a <code>service_principals</code> resource.
     ]
 }>
 <TabItem value="patch">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.iam.service_principals
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE id = '{{ id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
 </TabItem>
 <TabItem value="update">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.iam.service_principals
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE id = '{{ id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
