@@ -177,8 +177,10 @@ Replaces a <code>metastores</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_account.unity_catalog.metastores
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE account_id = '{{ account_id }}' AND
 metastore_id = '{{ metastore_id }}';
 ```

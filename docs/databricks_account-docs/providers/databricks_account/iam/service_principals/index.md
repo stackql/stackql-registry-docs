@@ -157,8 +157,10 @@ Updates a <code>service_principals</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_account.iam.service_principals
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE account_id = '{{ account_id }}' AND
 id = '{{ id }}';
 ```
@@ -169,8 +171,10 @@ Replaces a <code>service_principals</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_account.iam.service_principals
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE account_id = '{{ account_id }}' AND
 id = '{{ id }}';
 ```

@@ -145,8 +145,10 @@ Updates a <code>published_app_integrations</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_account.oauth.published_app_integrations
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE account_id = '{{ account_id }}' AND
 integration_id = '{{ integration_id }}';
 ```

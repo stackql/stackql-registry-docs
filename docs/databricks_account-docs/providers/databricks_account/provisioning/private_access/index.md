@@ -155,8 +155,10 @@ Replaces a <code>private_access</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_account.provisioning.private_access
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE account_id = '{{ account_id }}' AND
 private_access_settings_id = '{{ private_access_settings_id }}';
 ```

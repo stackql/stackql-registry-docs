@@ -59,7 +59,9 @@ Updates a <code>compliance_security_profile</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_account.settings.compliance_security_profile
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE account_id = '{{ account_id }}';
 ```
