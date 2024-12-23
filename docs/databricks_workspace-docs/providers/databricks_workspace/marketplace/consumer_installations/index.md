@@ -141,8 +141,10 @@ Updates a <code>consumer_installations</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.marketplace.consumer_installations
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE installation_id = '{{ installation_id }}' AND
 listing_id = '{{ listing_id }}' AND
 deployment_name = '{{ deployment_name }}';

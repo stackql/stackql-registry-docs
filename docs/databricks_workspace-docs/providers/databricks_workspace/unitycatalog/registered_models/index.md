@@ -175,8 +175,10 @@ Updates a <code>registered_models</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.registered_models
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE full_name = '{{ full_name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

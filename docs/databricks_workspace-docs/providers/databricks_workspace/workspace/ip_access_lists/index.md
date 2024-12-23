@@ -157,8 +157,10 @@ Updates a <code>ip_access_lists</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.workspace.ip_access_lists
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE ip_access_list_id = '{{ ip_access_list_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
@@ -169,8 +171,10 @@ Replaces a <code>ip_access_lists</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.workspace.ip_access_lists
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE ip_access_list_id = '{{ ip_access_list_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

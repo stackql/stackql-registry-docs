@@ -156,8 +156,10 @@ Updates a <code>global_init_scripts</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.compute.global_init_scripts
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE script_id = '{{ script_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

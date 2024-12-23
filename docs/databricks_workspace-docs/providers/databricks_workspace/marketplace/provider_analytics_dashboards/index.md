@@ -94,8 +94,10 @@ Updates a <code>provider_analytics_dashboards</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.marketplace.provider_analytics_dashboards
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE id = '{{ id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

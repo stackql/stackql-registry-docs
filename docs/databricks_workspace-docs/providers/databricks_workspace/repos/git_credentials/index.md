@@ -134,8 +134,10 @@ Updates a <code>git_credentials</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.repos.git_credentials
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE credential_id = '{{ credential_id }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

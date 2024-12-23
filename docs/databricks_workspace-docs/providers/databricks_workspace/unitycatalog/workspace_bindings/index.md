@@ -66,19 +66,25 @@ Updates a <code>workspace_bindings</code> resource.
     ]
 }>
 <TabItem value="update">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.workspace_bindings
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE name = '{{ name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
 </TabItem>
 <TabItem value="updatebindings">
+
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.workspace_bindings
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE securable_name = '{{ securable_name }}' AND
 securable_type = '{{ securable_type }}' AND
 deployment_name = '{{ deployment_name }}';

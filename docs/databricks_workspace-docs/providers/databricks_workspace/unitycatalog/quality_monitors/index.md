@@ -199,8 +199,10 @@ Updates a <code>quality_monitors</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.quality_monitors
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE table_name = '{{ table_name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

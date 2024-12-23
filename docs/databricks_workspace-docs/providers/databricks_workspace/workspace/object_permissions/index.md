@@ -62,8 +62,10 @@ Updates a <code>object_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.workspace.object_permissions
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE workspace_object_id = '{{ workspace_object_id }}' AND
 workspace_object_type = '{{ workspace_object_type }}' AND
 deployment_name = '{{ deployment_name }}';
@@ -75,8 +77,10 @@ Replaces a <code>object_permissions</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.workspace.object_permissions
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE workspace_object_id = '{{ workspace_object_id }}' AND
 workspace_object_type = '{{ workspace_object_type }}' AND
 deployment_name = '{{ deployment_name }}';

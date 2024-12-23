@@ -186,8 +186,10 @@ Updates a <code>external_locations</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update        
 UPDATE databricks_workspace.unitycatalog.external_locations
-SET { field = value }
+SET field1 = '{{ value1 }}',
+field2 = '{{ value2 }}', ...
 WHERE name = '{{ name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```

@@ -43,8 +43,10 @@ Replaces a <code>data_vector_indexes</code> resource.
 
 ```sql
 /*+ update */
+-- replace field1, field2, etc. with the fields you want to update
 REPLACE databricks_workspace.vectorsearch.data_vector_indexes
-SET { field = value }
+SET field1 = '{ value1 }',
+field2 = '{ value2 }', ...
 WHERE index_name = '{{ index_name }}' AND
 deployment_name = '{{ deployment_name }}';
 ```
