@@ -35,9 +35,9 @@ This repository contains documentation for StackQL providers, which is published
 
 Adding docs for a new provider requires creating a new web property (subdomain) and will force an update to the root/base site and all other providers.  The steps are:  
 
-- [ ] update `scripts/docgen/provider_data.py` with metadata for new provider
-- [ ] generate docs for provider using `cd scripts; sh docgen.sh {provider}`
-- [ ] publish docs for provider using `cd scripts; sh publish.sh {provider}`
+- [ ] update `scripts/docgen/provider_data.py` with metadata for new provider (not applicable if docs are built elsewhere)
+- [ ] generate docs for provider using `cd scripts; sh docgen.sh {provider}` (not applicable if docs are built elsewhere)
+- [ ] publish docs for provider using `cd scripts; sh publish.sh {provider}` (not applicable if docs are built elsewhere)
 - [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
 - [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
 - [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)
