@@ -20,6 +20,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Manage clusters, jobs, notebooks, MLflow and other Databricks workspace resources.
 
+:::info
+
+For Databricks account operations use the [__`databricks_account`__](https://databricks-account.stackql.io/providers/databricks_account/) provider.
+
+:::
+
+
 :::info Provider Summary
 
 <div class="row">

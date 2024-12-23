@@ -20,6 +20,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 
 Account-level features, identity and provisioning for Databricks.
 
+:::info
+
+For Databricks workspace operations use the [__`databricks_workspace`__](https://databricks-workspace.stackql.io/providers/databricks_workspace/) provider.
+
+:::
+
+
 :::info Provider Summary
 
 <div class="row">
