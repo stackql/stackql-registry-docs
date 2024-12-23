@@ -30,14 +30,16 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy OpenAI | [![Netlify Status](https://api.netlify.com/api/v1/badges/6df5743b-8c5d-4949-866e-eda4ca3f74d0/deploy-status)](https://app.netlify.com/sites/stackql-openai-docs/deploys) | [openai-docs.stackql.io](https://openai-docs.stackql.io)<br/>[openai.stackql.io](https://openai.stackql.io) |
 | Netlify Deploy Anthropic | [![Netlify Status](https://api.netlify.com/api/v1/badges/114c5a2a-9b76-4941-a0e8-3669ee7d2016/deploy-status)](https://app.netlify.com/sites/stackql-anthropic-docs/deploys) | [anthropic-docs.stackql.io](https://anthropic-docs.stackql.io)<br/>[anthropic.stackql.io](https://anthropic.stackql.io) |
 | Netlify Deploy Confluent | [![Netlify Status](https://api.netlify.com/api/v1/badges/63149c2f-6c3d-43f1-be38-80c55c223ac0/deploy-status)](https://app.netlify.com/sites/stackql-confluent-docs/deploys) | [confluent-docs.stackql.io](https://confluent-docs.stackql.io)<br/>[confluent.stackql.io](https://confluent.stackql.io) |
+| Netlify Deploy Databricks Account | [![Netlify Status](https://api.netlify.com/api/v1/badges/9250b360-9e36-49dd-8cc8-b8cbe2f8d983/deploy-status)](https://app.netlify.com/sites/stackql-databricks-account-docs/deploys) | [databricks-account-docs.stackql.io](https://databricks-account-docs.stackql.io)<br/>[databricks-account.stackql.io](https://databricks-account.stackql.io) |
+| Netlify Deploy Databricks Workspace | [![Netlify Status](https://api.netlify.com/api/v1/badges/7456d122-1d4a-445c-b410-7a9aa1bd3f05/deploy-status)](https://app.netlify.com/sites/stackql-databricks-workspace-docs/deploys) | [databricks-workspace-docs.stackql.io](https://databricks-workspace-docs.stackql.io)<br/>[databricks-workspace.stackql.io](https://databricks-workspace.stackql.io) |
 
 ## Adding Docs for a New Provider
 
 Adding docs for a new provider requires creating a new web property (subdomain) and will force an update to the root/base site and all other providers.  The steps are:  
 
-- [ ] update `scripts/docgen/provider_data.py` with metadata for new provider
-- [ ] generate docs for provider using `cd scripts; sh docgen.sh {provider}`
-- [ ] publish docs for provider using `cd scripts; sh publish.sh {provider}`
+- [ ] update `scripts/docgen/provider_data.py` with metadata for new provider (not applicable if docs are built elsewhere)
+- [ ] generate docs for provider using `cd scripts; sh docgen.sh {provider}` (not applicable if docs are built elsewhere)
+- [ ] publish docs for provider using `cd scripts; sh publish.sh {provider}` (not applicable if docs are built elsewhere)
 - [x] add the new provider docs to `docs/{provider}-docs` (following directory structure of existing providers) (done automatically by `scripts/publish.sh`)
 - [x] update frontmatter in the `index.md` at the root of the new providers docs, set `slug` to `/providers/{provider}` and `id` to `{provider}-doc` (done automatically by `scripts/docgen.sh`)
 - [x] update `stackql-provider-registry.mdx` in the root of the new provider to add the `currentProvider` prop, e.g. `<RegistryPage currentProvider="okta" />` (done automatically by `scripts/docgen.sh`)

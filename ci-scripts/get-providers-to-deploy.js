@@ -16,6 +16,8 @@ const allProviders = [
     'firebase', 
     'github',
     'confluent',
+    'databricks_account',
+    'databricks_workspace',
     'openai', 
     'anthropic',
     'google', 
