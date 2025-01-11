@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>application_version</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html"><code>AWS::ElasticBeanstalk::ApplicationVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -207,4 +209,3 @@ elasticbeanstalk:DeleteApplicationVersion
 ```json
 elasticbeanstalk:DescribeApplicationVersions
 ```
-

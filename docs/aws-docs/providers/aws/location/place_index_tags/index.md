@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>place_index_tags</code> resource, see <a href="/providers/aws/location/place_indices/#permissions"><code>place_indices</code></a>
 
-

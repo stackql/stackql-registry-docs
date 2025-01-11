@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>link_associations_list_only</code> resource, see <a href="/providers/aws/networkmanager/link_associations/#permissions"><code>link_associations</code></a>
 
-

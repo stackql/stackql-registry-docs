@@ -39,9 +39,12 @@ Creates, updates, deletes or gets a <code>decoder_manifest</code> resource or li
 <tr><td><CopyableCode code="network_interfaces" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="signal_decoders" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_for_unmapped_signals" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html"><code>AWS::IoTFleetWise::DecoderManifest</code></a>.
 
 ## Methods
 
@@ -92,6 +95,7 @@ name,
 network_interfaces,
 signal_decoders,
 status,
+default_for_unmapped_signals,
 tags
 FROM aws.iotfleetwise.decoder_manifests
 WHERE region = 'us-east-1';
@@ -109,6 +113,7 @@ name,
 network_interfaces,
 signal_decoders,
 status,
+default_for_unmapped_signals,
 tags
 FROM aws.iotfleetwise.decoder_manifests
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
@@ -152,6 +157,7 @@ INSERT INTO aws.iotfleetwise.decoder_manifests (
  NetworkInterfaces,
  SignalDecoders,
  Status,
+ DefaultForUnmappedSignals,
  Tags,
  region
 )
@@ -162,6 +168,7 @@ SELECT
  '{{ NetworkInterfaces }}',
  '{{ SignalDecoders }}',
  '{{ Status }}',
+ '{{ DefaultForUnmappedSignals }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -194,6 +201,8 @@ resources:
           - null
       - name: Status
         value: '{{ Status }}'
+      - name: DefaultForUnmappedSignals
+        value: '{{ DefaultForUnmappedSignals }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -256,4 +265,3 @@ iotfleetwise:GetDecoderManifest
 ```json
 iotfleetwise:ListDecoderManifests
 ```
-

@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>account_audit_configuration</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html"><code>AWS::IoT::AccountAuditConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -234,4 +236,3 @@ iot:DeleteAccountAuditConfiguration
 ```json
 iot:DescribeAccountAuditConfiguration
 ```
-

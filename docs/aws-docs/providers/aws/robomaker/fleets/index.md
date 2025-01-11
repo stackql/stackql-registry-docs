@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html"><code>AWS::RoboMaker::Fleet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -194,4 +196,3 @@ robomaker:UntagResource
 ```json
 robomaker:ListFleets
 ```
-

@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>network_insights_path_tags</code> resource, see <a href="/providers/aws/ec2/network_insights_paths/#permissions"><code>network_insights_paths</code></a>
 
-

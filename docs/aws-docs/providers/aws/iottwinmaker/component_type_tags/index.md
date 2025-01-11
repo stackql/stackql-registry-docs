@@ -96,4 +96,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>component_type_tags</code> resource, see <a href="/providers/aws/iottwinmaker/component_types/#permissions"><code>component_types</code></a>
 
-

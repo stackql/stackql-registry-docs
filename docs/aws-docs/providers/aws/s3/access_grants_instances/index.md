@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>access_grants_instance</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html"><code>AWS::S3::AccessGrantsInstance</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -182,7 +184,8 @@ s3:TagResource
 
 ### Read
 ```json
-s3:GetAccessGrantsInstance
+s3:GetAccessGrantsInstance,
+s3:ListTagsForResource
 ```
 
 ### Delete
@@ -192,11 +195,11 @@ s3:DeleteAccessGrantsInstance
 
 ### Update
 ```json
-s3:TagResource
+s3:TagResource,
+s3:UntagResource
 ```
 
 ### List
 ```json
 s3:ListAccessGrantsInstances
 ```
-

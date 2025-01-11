@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>dhcp_options_tags</code> resource, see <a href="/providers/aws/ec2/dhcp_options/#permissions"><code>dhcp_options</code></a>
 
-

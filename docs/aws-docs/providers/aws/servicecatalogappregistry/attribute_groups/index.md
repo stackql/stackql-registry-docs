@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>attribute_group</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html"><code>AWS::ServiceCatalogAppRegistry::AttributeGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -217,4 +219,3 @@ servicecatalog:DeleteAttributeGroup
 ```json
 servicecatalog:ListAttributeGroups
 ```
-

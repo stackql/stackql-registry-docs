@@ -52,6 +52,8 @@ Creates, updates, deletes or gets an <code>api</code> resource or lists <code>ap
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html"><code>AWS::ApiGatewayV2::Api</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -357,4 +359,3 @@ s3:getObject
 apigateway:GET,
 s3:getObject
 ```
-

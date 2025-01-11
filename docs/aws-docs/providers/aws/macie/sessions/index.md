@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>session</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html"><code>AWS::Macie::Session</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -200,4 +202,3 @@ macie2:UpdateMacieSession
 ```json
 macie2:DisableMacie
 ```
-

@@ -100,4 +100,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>inference_experiment_tags</code> resource, see <a href="/providers/aws/sagemaker/inference_experiments/#permissions"><code>inference_experiments</code></a>
 
-

@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>billing_group_tags</code> resource, see <a href="/providers/aws/iot/billing_groups/#permissions"><code>billing_groups</code></a>
 
-

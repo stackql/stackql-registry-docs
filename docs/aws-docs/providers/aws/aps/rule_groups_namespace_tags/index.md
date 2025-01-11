@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>rule_groups_namespace_tags</code> resource, see <a href="/providers/aws/aps/rule_groups_namespaces/#permissions"><code>rule_groups_namespaces</code></a>
 
-

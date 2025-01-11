@@ -31,11 +31,6 @@ Lists <code>datasets</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Dataset name</td></tr>
-<tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td>Dataset format</td></tr>
-<tr><td><CopyableCode code="format_options" /></td><td><code>object</code></td><td>Format options for dataset</td></tr>
-<tr><td><CopyableCode code="input" /></td><td><code>object</code></td><td>Input</td></tr>
-<tr><td><CopyableCode code="path_options" /></td><td><code>object</code></td><td>PathOptions</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>datasets_list_only</code> resource, see <a href="/providers/aws/databrew/datasets/#permissions"><code>datasets</code></a>
-
 

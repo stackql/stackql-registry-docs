@@ -30,13 +30,8 @@ Lists <code>resiliency_policies</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td>Name of Resiliency Policy.</td></tr>
-<tr><td><CopyableCode code="policy_description" /></td><td><code>string</code></td><td>Description of Resiliency Policy.</td></tr>
-<tr><td><CopyableCode code="data_location_constraint" /></td><td><code>string</code></td><td>Data Location Constraint of the Policy.</td></tr>
-<tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td>Resiliency Policy Tier.</td></tr>
-<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>resiliency_policies_list_only</code> resource, see <a href="/providers/aws/resiliencehub/resiliency_policies/#permissions"><code>resiliency_policies</code></a>
-
 

@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>capacity_reservation_tags</code> resource, see <a href="/providers/aws/athena/capacity_reservations/#permissions"><code>capacity_reservations</code></a>
 
-

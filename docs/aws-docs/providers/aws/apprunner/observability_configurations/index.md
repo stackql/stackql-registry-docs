@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>observability_configuration</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html"><code>AWS::AppRunner::ObservabilityConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -201,4 +203,3 @@ apprunner:DeleteObservabilityConfiguration
 ```json
 apprunner:ListObservabilityConfigurations
 ```
-

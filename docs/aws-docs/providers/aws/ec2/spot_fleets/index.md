@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>spot_fleet</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html"><code>AWS::EC2::SpotFleet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -254,6 +256,10 @@ resources:
                 AcceleratorTotalMemoryMiB:
                   Min: '{{ Min }}'
                   Max: '{{ Max }}'
+                BaselinePerformanceFactors:
+                  Cpu:
+                    References:
+                      - InstanceFamily: '{{ InstanceFamily }}'
           LaunchTemplateConfigs:
             - LaunchTemplateSpecification:
                 LaunchTemplateId: '{{ LaunchTemplateId }}'
@@ -340,4 +346,3 @@ ec2:DescribeSpotFleetRequests
 ec2:ModifySpotFleetRequest,
 ec2:DescribeSpotFleetRequests
 ```
-

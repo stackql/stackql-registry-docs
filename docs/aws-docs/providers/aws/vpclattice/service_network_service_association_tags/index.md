@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>service_network_service_association_tags</code> resource, see <a href="/providers/aws/vpclattice/service_network_service_associations/#permissions"><code>service_network_service_associations</code></a>
 
-

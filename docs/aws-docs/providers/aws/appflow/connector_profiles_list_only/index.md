@@ -30,14 +30,7 @@ Lists <code>connector_profiles</code> in a region or regions, for all properties
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connector_profile_arn" /></td><td><code>string</code></td><td>Unique identifier for connector profile resources</td></tr>
-<tr><td><CopyableCode code="connector_label" /></td><td><code>string</code></td><td>The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.</td></tr>
-<tr><td><CopyableCode code="connector_profile_name" /></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
-<tr><td><CopyableCode code="kms_arn" /></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
-<tr><td><CopyableCode code="connector_type" /></td><td><code>string</code></td><td>List of Saas providers that need connector profile to be created</td></tr>
-<tr><td><CopyableCode code="connection_mode" /></td><td><code>string</code></td><td>Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular</td></tr>
-<tr><td><CopyableCode code="connector_profile_config" /></td><td><code>object</code></td><td>Connector specific configurations needed to create connector profile</td></tr>
-<tr><td><CopyableCode code="credentials_arn" /></td><td><code>string</code></td><td>A unique Arn for Connector-Profile resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connector_profile_name" /></td><td><code>string</code></td><td>The maximum number of items to retrieve in a single batch.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>connector_profiles_list_only</code> resource, see <a href="/providers/aws/appflow/connector_profiles/#permissions"><code>connector_profiles</code></a>
-
 

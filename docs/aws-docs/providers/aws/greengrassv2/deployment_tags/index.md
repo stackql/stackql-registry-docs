@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>deployment_tags</code> resource, see <a href="/providers/aws/greengrassv2/deployments/#permissions"><code>deployments</code></a>
 
-

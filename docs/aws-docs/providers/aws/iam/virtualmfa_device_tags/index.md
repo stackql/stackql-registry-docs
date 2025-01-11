@@ -74,4 +74,3 @@ FROM aws.iam.virtualmfa_device_tags
 
 For permissions required to operate on the <code>virtualmfa_device_tags</code> resource, see <a href="/providers/aws/iam/virtualmfa_devices/#permissions"><code>virtualmfa_devices</code></a>
 
-

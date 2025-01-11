@@ -38,6 +38,8 @@ Expands all tag keys and values for <code>portals</code> in a region
 <tr><td><CopyableCode code="portal_id" /></td><td><code>string</code></td><td>The ID of the portal.</td></tr>
 <tr><td><CopyableCode code="portal_name" /></td><td><code>string</code></td><td>A friendly name for the portal.</td></tr>
 <tr><td><CopyableCode code="portal_start_url" /></td><td><code>string</code></td><td>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</td></tr>
+<tr><td><CopyableCode code="portal_type" /></td><td><code>string</code></td><td>The type of portal</td></tr>
+<tr><td><CopyableCode code="portal_type_configuration" /></td><td><code>object</code></td><td>Map to associate detail of configuration related with a PortalType.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.</td></tr>
 <tr><td><CopyableCode code="notification_sender_email" /></td><td><code>string</code></td><td>The email address that sends alarm notifications.</td></tr>
 <tr><td><CopyableCode code="alarms" /></td><td><code>object</code></td><td>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.</td></tr>
@@ -74,6 +76,8 @@ portal_description,
 portal_id,
 portal_name,
 portal_start_url,
+portal_type,
+portal_type_configuration,
 role_arn,
 notification_sender_email,
 alarms,
@@ -87,5 +91,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>portal_tags</code> resource, see <a href="/providers/aws/iotsitewise/portals/#permissions"><code>portals</code></a>
-
 

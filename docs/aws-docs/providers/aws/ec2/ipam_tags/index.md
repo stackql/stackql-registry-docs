@@ -41,6 +41,7 @@ Expands all tag keys and values for <code>ipams</code> in a region
 <tr><td><CopyableCode code="scope_count" /></td><td><code>integer</code></td><td>The number of scopes that currently exist in this IPAM.</td></tr>
 <tr><td><CopyableCode code="operating_regions" /></td><td><code>array</code></td><td>The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring</td></tr>
 <tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td>The tier of the IPAM.</td></tr>
+<tr><td><CopyableCode code="enable_private_gua" /></td><td><code>boolean</code></td><td>Enable provisioning of GUA space in private pools.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -77,6 +78,7 @@ private_default_scope_id,
 scope_count,
 operating_regions,
 tier,
+enable_private_gua,
 tag_key,
 tag_value
 FROM aws.ec2.ipam_tags
@@ -87,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>ipam_tags</code> resource, see <a href="/providers/aws/ec2/ipams/#permissions"><code>ipams</code></a>
-
 

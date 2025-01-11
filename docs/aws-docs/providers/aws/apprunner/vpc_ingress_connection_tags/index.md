@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>vpc_ingress_connection_tags</code> resource, see <a href="/providers/aws/apprunner/vpc_ingress_connections/#permissions"><code>vpc_ingress_connections</code></a>
 
-

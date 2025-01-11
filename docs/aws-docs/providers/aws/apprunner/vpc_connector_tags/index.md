@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>vpc_connector_tags</code> resource, see <a href="/providers/aws/apprunner/vpc_connectors/#permissions"><code>vpc_connectors</code></a>
 
-

@@ -78,4 +78,3 @@ FROM aws.iam.server_certificate_tags
 
 For permissions required to operate on the <code>server_certificate_tags</code> resource, see <a href="/providers/aws/iam/server_certificates/#permissions"><code>server_certificates</code></a>
 
-

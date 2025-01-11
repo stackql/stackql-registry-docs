@@ -30,20 +30,7 @@ Lists <code>job_templates</code> in a region or regions, for all properties use 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_arn" /></td><td><code>string</code></td><td>Optional for copying a JobTemplate from a pre-existing Job configuration.</td></tr>
-<tr><td><CopyableCode code="job_template_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the Job Template.</td></tr>
-<tr><td><CopyableCode code="document" /></td><td><code>string</code></td><td>The job document. Required if you don't specify a value for documentSource.</td></tr>
-<tr><td><CopyableCode code="document_source" /></td><td><code>string</code></td><td>An S3 link to the job document to use in the template. Required if you don't specify a value for document.</td></tr>
-<tr><td><CopyableCode code="timeout_config" /></td><td><code>object</code></td><td>Specifies the amount of time each device has to finish its execution of the job.</td></tr>
-<tr><td><CopyableCode code="job_executions_rollout_config" /></td><td><code>object</code></td><td>Allows you to create a staged rollout of a job.</td></tr>
-<tr><td><CopyableCode code="abort_config" /></td><td><code>object</code></td><td>The criteria that determine when and how a job abort takes place.</td></tr>
-<tr><td><CopyableCode code="presigned_url_config" /></td><td><code>object</code></td><td>Configuration for pre-signed S3 URLs.</td></tr>
-<tr><td><CopyableCode code="job_executions_retry_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="maintenance_windows" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="destination_package_versions" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata that can be used to manage the JobTemplate.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_template_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -76,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>job_templates_list_only</code> resource, see <a href="/providers/aws/iot/job_templates/#permissions"><code>job_templates</code></a>
-
 

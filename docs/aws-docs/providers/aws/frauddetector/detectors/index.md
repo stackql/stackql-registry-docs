@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>detector</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html"><code>AWS::FraudDetector::Detector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -386,4 +388,3 @@ frauddetector:GetOutcomes,
 frauddetector:GetEntityTypes,
 frauddetector:ListTagsForResource
 ```
-

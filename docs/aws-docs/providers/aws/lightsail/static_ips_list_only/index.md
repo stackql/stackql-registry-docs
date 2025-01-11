@@ -31,10 +31,6 @@ Lists <code>static_ips</code> in a region or regions, for all properties use <a 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="static_ip_name" /></td><td><code>string</code></td><td>The name of the static IP address.</td></tr>
-<tr><td><CopyableCode code="attached_to" /></td><td><code>string</code></td><td>The instance where the static IP is attached.</td></tr>
-<tr><td><CopyableCode code="is_attached" /></td><td><code>boolean</code></td><td>A Boolean value indicating whether the static IP is attached.</td></tr>
-<tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>The static IP address.</td></tr>
-<tr><td><CopyableCode code="static_ip_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>static_ips_list_only</code> resource, see <a href="/providers/aws/lightsail/static_ips/#permissions"><code>static_ips</code></a>
-
 

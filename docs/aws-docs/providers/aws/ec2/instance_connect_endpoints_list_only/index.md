@@ -31,11 +31,6 @@ Lists <code>instance_connect_endpoints</code> in a region or regions, for all pr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The id of the instance connect endpoint</td></tr>
-<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The subnet id of the instance connect endpoint</td></tr>
-<tr><td><CopyableCode code="client_token" /></td><td><code>string</code></td><td>The client token of the instance connect endpoint.</td></tr>
-<tr><td><CopyableCode code="preserve_client_ip" /></td><td><code>boolean</code></td><td>If true, the address of the instance connect endpoint client is preserved when connecting to the end resource</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags of the instance connect endpoint.</td></tr>
-<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The security group IDs of the instance connect endpoint.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>instance_connect_endpoints_list_only</code> resource, see <a href="/providers/aws/ec2/instance_connect_endpoints/#permissions"><code>instance_connect_endpoints</code></a>
-
 

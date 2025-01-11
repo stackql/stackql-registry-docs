@@ -30,15 +30,7 @@ Lists <code>assets</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Asset.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time the Asset was initially submitted for Ingest.</td></tr>
-<tr><td><CopyableCode code="egress_endpoints" /></td><td><code>array</code></td><td>The list of egress endpoints available for the Asset.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier for the Asset.</td></tr>
-<tr><td><CopyableCode code="packaging_group_id" /></td><td><code>string</code></td><td>The ID of the PackagingGroup for the Asset.</td></tr>
-<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>The resource ID to include in SPEKE key requests.</td></tr>
-<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td>ARN of the source object in S3.</td></tr>
-<tr><td><CopyableCode code="source_role_arn" /></td><td><code>string</code></td><td>The IAM role_arn used to access the source S3 bucket.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier for the Asset.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>assets_list_only</code> resource, see <a href="/providers/aws/mediapackage/assets/#permissions"><code>assets</code></a>
-
 

@@ -96,4 +96,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>stack_set_tags</code> resource, see <a href="/providers/aws/cloudformation/stack_sets/#permissions"><code>stack_sets</code></a>
 
-

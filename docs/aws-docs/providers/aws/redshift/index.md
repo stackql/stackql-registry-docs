@@ -20,7 +20,7 @@ The redshift service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>18</b></span><br />
+<span>total resources:&nbsp;<b>21</b></span><br />
 </div>
 </div>
 
@@ -37,16 +37,19 @@ The redshift service documentation.
 <a href="/providers/aws/redshift/cluster_subnet_groups_list_only/">cluster_subnet_groups_list_only</a><br />
 <a href="/providers/aws/redshift/cluster_tags/">cluster_tags</a><br />
 <a href="/providers/aws/redshift/clusters/">clusters</a><br />
-<a href="/providers/aws/redshift/clusters_list_only/">clusters_list_only</a>
+<a href="/providers/aws/redshift/clusters_list_only/">clusters_list_only</a><br />
+<a href="/providers/aws/redshift/endpoint_accesses/">endpoint_accesses</a><br />
+<a href="/providers/aws/redshift/endpoint_accesses_list_only/">endpoint_accesses_list_only</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/redshift/endpoint_accesses/">endpoint_accesses</a><br />
-<a href="/providers/aws/redshift/endpoint_accesses_list_only/">endpoint_accesses_list_only</a><br />
 <a href="/providers/aws/redshift/endpoint_authorizations/">endpoint_authorizations</a><br />
 <a href="/providers/aws/redshift/endpoint_authorizations_list_only/">endpoint_authorizations_list_only</a><br />
 <a href="/providers/aws/redshift/event_subscription_tags/">event_subscription_tags</a><br />
 <a href="/providers/aws/redshift/event_subscriptions/">event_subscriptions</a><br />
 <a href="/providers/aws/redshift/event_subscriptions_list_only/">event_subscriptions_list_only</a><br />
+<a href="/providers/aws/redshift/integration_tags/">integration_tags</a><br />
+<a href="/providers/aws/redshift/integrations/">integrations</a><br />
+<a href="/providers/aws/redshift/integrations_list_only/">integrations_list_only</a><br />
 <a href="/providers/aws/redshift/scheduled_actions/">scheduled_actions</a><br />
 <a href="/providers/aws/redshift/scheduled_actions_list_only/">scheduled_actions_list_only</a>
 </div>

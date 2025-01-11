@@ -25,17 +25,19 @@ Creates, updates, deletes or gets a <code>finding_aggregator</code> resource or 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>finding_aggregators</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::SecurityHub::FindingAggregator resource represents the AWS Security Hub Finding Aggregator in your account. One finding aggregator resource is created for each account in non opt-in region in which you configure region linking mode.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::FindingAggregator</code> resource enables cross-Region aggregation. When cross-Region aggregation is enabled, you can aggregate findings, finding updates, insights, control compliance statuses, and security scores from one or more linked Regions to a single aggregation Region. You can then view and manage all of this data from the aggregation Region. For more details about cross-Region aggregation, see &#91;Cross-Region aggregation&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html) in the *User Guide* <br />This resource must be created in the Region that you want to designate as your aggregation Region.<br />Cross-Region aggregation is also a prerequisite for using &#91;central configuration&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.finding_aggregators" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="finding_aggregator_arn" /></td><td><code>string</code></td><td>The ARN of the FindingAggregator being created and assigned as the unique identifier</td></tr>
-<tr><td><CopyableCode code="region_linking_mode" /></td><td><code>string</code></td><td>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions</td></tr>
-<tr><td><CopyableCode code="regions" /></td><td><code>array</code></td><td>The list of excluded Regions or included Regions</td></tr>
-<tr><td><CopyableCode code="finding_aggregation_region" /></td><td><code>string</code></td><td>The aggregation Region of the FindingAggregator</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="finding_aggregator_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="region_linking_mode" /></td><td><code>string</code></td><td>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.<br />The selected option also determines how to use the Regions provided in the Regions list.<br />The options are as follows:<br />+ <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. <br />+ <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them. <br />+ <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions. <br />+ <code>NO_REGIONS</code> - Aggregates no data because no Regions are selected as linked Regions.</td></tr>
+<tr><td><CopyableCode code="regions" /></td><td><code>array</code></td><td>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that don't replicate and send findings to the home Region.<br />If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do replicate and send findings to the home Region. <br />An <code>InvalidInputException</code> error results if you populate this field while <code>RegionLinkingMode</code> is <code>NO_REGIONS</code>.</td></tr>
+<tr><td><CopyableCode code="finding_aggregation_region" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html"><code>AWS::SecurityHub::FindingAggregator</code></a>.
 
 ## Methods
 
@@ -197,4 +199,3 @@ securityhub:DeleteFindingAggregator
 ```json
 securityhub:ListFindingAggregators
 ```
-

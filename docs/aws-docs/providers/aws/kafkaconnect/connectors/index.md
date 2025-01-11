@@ -47,6 +47,8 @@ Creates, updates, deletes or gets a <code>connector</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html"><code>AWS::KafkaConnect::Connector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -372,4 +374,3 @@ firehose:TagDeliveryStream
 ```json
 kafkaconnect:ListConnectors
 ```
-

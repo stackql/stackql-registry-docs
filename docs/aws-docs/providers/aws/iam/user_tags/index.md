@@ -82,4 +82,3 @@ FROM aws.iam.user_tags
 
 For permissions required to operate on the <code>user_tags</code> resource, see <a href="/providers/aws/iam/users/#permissions"><code>users</code></a>
 
-

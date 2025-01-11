@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>api_key</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-apikey.html"><code>AWS::Location::APIKey</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -245,7 +247,21 @@ geo:SearchPlaceIndexForPosition,
 geo:SearchPlaceIndexForSuggestions,
 geo:GetPlace,
 geo:CalculateRoute,
-geo:CalculateRouteMatrix
+geo:CalculateRouteMatrix,
+geo-maps:GetTile,
+geo-maps:GetStaticMap,
+geo-places:Autocomplete,
+geo-places:Geocode,
+geo-places:GetPlace,
+geo-places:ReverseGeocode,
+geo-places:SearchNearby,
+geo-places:SearchText,
+geo-places:Suggest,
+geo-routes:CalculateIsolines,
+geo-routes:CalculateRouteMatrix,
+geo-routes:CalculateRoutes,
+geo-routes:OptimizeWaypoints,
+geo-routes:SnapToRoads
 ```
 
 ### Read
@@ -269,6 +285,20 @@ geo:SearchPlaceIndexForSuggestions,
 geo:GetPlace,
 geo:CalculateRoute,
 geo:CalculateRouteMatrix,
+geo-maps:GetTile,
+geo-maps:GetStaticMap,
+geo-places:Autocomplete,
+geo-places:Geocode,
+geo-places:GetPlace,
+geo-places:ReverseGeocode,
+geo-places:SearchNearby,
+geo-places:SearchText,
+geo-places:Suggest,
+geo-routes:CalculateIsolines,
+geo-routes:CalculateRouteMatrix,
+geo-routes:CalculateRoutes,
+geo-routes:OptimizeWaypoints,
+geo-routes:SnapToRoads,
 geo:UpdateKey
 ```
 
@@ -282,4 +312,3 @@ geo:DescribeKey
 ```json
 geo:ListKeys
 ```
-

@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>hook_default_version</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html"><code>AWS::CloudFormation::HookDefaultVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -185,4 +187,3 @@ cloudformation:SetTypeDefaultVersion
 ```json
 cloudformation:ListTypes
 ```
-

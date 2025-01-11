@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>pod_identity_association</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html"><code>AWS::EKS::PodIdentityAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -235,4 +237,3 @@ eks:DescribePodIdentityAssociation
 ```json
 eks:ListPodIdentityAssociations
 ```
-

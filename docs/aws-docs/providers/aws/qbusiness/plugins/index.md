@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>plugin</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-plugin.html"><code>AWS::QBusiness::Plugin</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -57,7 +59,7 @@ Creates, updates, deletes or gets a <code>plugin</code> resource or lists <code>
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="ApplicationId, AuthConfiguration, DisplayName, Type, region" /></td>
+    <td><CopyableCode code="AuthConfiguration, DisplayName, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -140,15 +142,13 @@ Use the following StackQL query and manifest file to create a new <code>plugin</
 ```sql
 /*+ create */
 INSERT INTO aws.qbusiness.plugins (
- ApplicationId,
  AuthConfiguration,
  DisplayName,
  Type,
  region
 )
 SELECT 
-'{{ ApplicationId }}',
- '{{ AuthConfiguration }}',
+'{{ AuthConfiguration }}',
  '{{ DisplayName }}',
  '{{ Type }}',
 '{{ region }}';
@@ -240,8 +240,7 @@ iam:PassRole,
 qbusiness:CreatePlugin,
 qbusiness:GetPlugin,
 qbusiness:ListTagsForResource,
-qbusiness:TagResource,
-qbusiness:UpdatePlugin
+qbusiness:TagResource
 ```
 
 ### Read
@@ -270,4 +269,3 @@ qbusiness:GetPlugin
 ```json
 qbusiness:ListPlugins
 ```
-

@@ -31,17 +31,6 @@ Lists <code>report_definitions</code> in a region or regions, for all properties
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="report_name" /></td><td><code>string</code></td><td>The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces.</td></tr>
-<tr><td><CopyableCode code="time_unit" /></td><td><code>string</code></td><td>The granularity of the line items in the report.</td></tr>
-<tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td>The format that AWS saves the report in.</td></tr>
-<tr><td><CopyableCode code="compression" /></td><td><code>string</code></td><td>The compression format that AWS uses for the report.</td></tr>
-<tr><td><CopyableCode code="additional_schema_elements" /></td><td><code>array</code></td><td>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.</td></tr>
-<tr><td><CopyableCode code="s3_bucket" /></td><td><code>string</code></td><td>The S3 bucket where AWS delivers the report.</td></tr>
-<tr><td><CopyableCode code="s3_prefix" /></td><td><code>string</code></td><td>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces.</td></tr>
-<tr><td><CopyableCode code="s3_region" /></td><td><code>string</code></td><td>The region of the S3 bucket that AWS delivers the report into.</td></tr>
-<tr><td><CopyableCode code="additional_artifacts" /></td><td><code>array</code></td><td>A list of manifests that you want Amazon Web Services to create for this report.</td></tr>
-<tr><td><CopyableCode code="refresh_closed_reports" /></td><td><code>boolean</code></td><td>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees.</td></tr>
-<tr><td><CopyableCode code="report_versioning" /></td><td><code>string</code></td><td>Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions.</td></tr>
-<tr><td><CopyableCode code="billing_view_arn" /></td><td><code>string</code></td><td>The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>report_definitions_list_only</code> resource, see <a href="/providers/aws/cur/report_definitions/#permissions"><code>report_definitions</code></a>
-
 

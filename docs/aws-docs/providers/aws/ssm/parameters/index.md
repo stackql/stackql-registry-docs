@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>parameter</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html"><code>AWS::SSM::Parameter</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -246,4 +248,3 @@ ssm:DeleteParameter
 ```json
 ssm:DescribeParameters
 ```
-

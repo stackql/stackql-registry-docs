@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>reference_store</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html"><code>AWS::Omics::ReferenceStore</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -189,7 +191,8 @@ To operate on the <code>reference_stores</code> resource, the following permissi
 ### Create
 ```json
 omics:CreateReferenceStore,
-omics:TagResource
+omics:TagResource,
+kms:DescribeKey
 ```
 
 ### Read
@@ -207,4 +210,3 @@ omics:DeleteReferenceStore
 ```json
 omics:ListReferenceStores
 ```
-

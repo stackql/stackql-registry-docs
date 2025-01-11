@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>slack_channel_configuration</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackchannelconfiguration.html"><code>AWS::SupportApp::SlackChannelConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -241,4 +243,3 @@ supportapp:ListSlackChannelConfigurations
 ```json
 supportapp:ListSlackChannelConfigurations
 ```
-

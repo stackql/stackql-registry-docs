@@ -35,6 +35,7 @@ Expands all tag keys and values for <code>task_templates</code> in a region
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the task template.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the task template.</td></tr>
 <tr><td><CopyableCode code="contact_flow_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
+<tr><td><CopyableCode code="self_assign_contact_flow_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
 <tr><td><CopyableCode code="constraints" /></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
 <tr><td><CopyableCode code="defaults" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
@@ -70,6 +71,7 @@ instance_arn,
 name,
 description,
 contact_flow_arn,
+self_assign_contact_flow_arn,
 constraints,
 defaults,
 fields,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>task_template_tags</code> resource, see <a href="/providers/aws/connect/task_templates/#permissions"><code>task_templates</code></a>
-
 

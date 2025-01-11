@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_source_tags</code> resource, see <a href="/providers/aws/kendra/data_sources/#permissions"><code>data_sources</code></a>
 
-

@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>fleet_metric_tags</code> resource, see <a href="/providers/aws/iot/fleet_metrics/#permissions"><code>fleet_metrics</code></a>
 
-

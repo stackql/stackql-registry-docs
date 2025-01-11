@@ -40,8 +40,11 @@ Creates, updates, deletes or gets a <code>slack_channel_configuration</code> res
 <tr><td><CopyableCode code="guardrail_policies" /></td><td><code>array</code></td><td>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to add to the configuration</td></tr>
 <tr><td><CopyableCode code="user_role_required" /></td><td><code>boolean</code></td><td>Enables use of a user role requirement in your chat configuration</td></tr>
+<tr><td><CopyableCode code="customization_resource_arns" /></td><td><code>array</code></td><td>ARNs of Custom Actions to associate with notifications in the provided chat channel.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html"><code>AWS::Chatbot::SlackChannelConfiguration</code></a>.
 
 ## Methods
 
@@ -92,7 +95,8 @@ logging_level,
 arn,
 guardrail_policies,
 tags,
-user_role_required
+user_role_required,
+customization_resource_arns
 FROM aws.chatbot.slack_channel_configurations
 WHERE region = 'us-east-1';
 ```
@@ -109,7 +113,8 @@ logging_level,
 arn,
 guardrail_policies,
 tags,
-user_role_required
+user_role_required,
+customization_resource_arns
 FROM aws.chatbot.slack_channel_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -159,6 +164,7 @@ INSERT INTO aws.chatbot.slack_channel_configurations (
  GuardrailPolicies,
  Tags,
  UserRoleRequired,
+ CustomizationResourceArns,
  region
 )
 SELECT 
@@ -171,6 +177,7 @@ SELECT
  '{{ GuardrailPolicies }}',
  '{{ Tags }}',
  '{{ UserRoleRequired }}',
+ '{{ CustomizationResourceArns }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -210,6 +217,9 @@ resources:
             Key: '{{ Key }}'
       - name: UserRoleRequired
         value: '{{ UserRoleRequired }}'
+      - name: CustomizationResourceArns
+        value:
+          - '{{ CustomizationResourceArns[0] }}'
 
 ```
 </TabItem>
@@ -232,13 +242,16 @@ To operate on the <code>slack_channel_configurations</code> resource, the follow
 ```json
 chatbot:CreateSlackChannelConfiguration,
 chatbot:TagResource,
+chatbot:AssociateToConfiguration,
+chatbot:ListAssociations,
 iam:PassRole,
 iam:CreateServiceLinkedRole
 ```
 
 ### Read
 ```json
-chatbot:DescribeSlackChannelConfigurations
+chatbot:DescribeSlackChannelConfigurations,
+chatbot:ListAssociations
 ```
 
 ### Update
@@ -247,16 +260,21 @@ chatbot:UpdateSlackChannelConfiguration,
 chatbot:TagResource,
 chatbot:UntagResource,
 chatbot:ListTagsForResource,
+chatbot:AssociateToConfiguration,
+chatbot:DisassociateFromConfiguration,
+chatbot:ListAssociations,
 iam:PassRole
 ```
 
 ### Delete
 ```json
-chatbot:DeleteSlackChannelConfiguration
+chatbot:DeleteSlackChannelConfiguration,
+chatbot:DisassociateFromConfiguration,
+chatbot:ListAssociations
 ```
 
 ### List
 ```json
-chatbot:DescribeSlackChannelConfigurations
+chatbot:DescribeSlackChannelConfigurations,
+chatbot:ListAssociations
 ```
-

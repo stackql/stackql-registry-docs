@@ -31,14 +31,6 @@ Lists <code>ipam_resource_discoveries</code> in a region or regions, for all pro
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_resource_discovery_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
-<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>Owner Account ID of the Resource Discovery</td></tr>
-<tr><td><CopyableCode code="operating_regions" /></td><td><code>array</code></td><td>The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring</td></tr>
-<tr><td><CopyableCode code="ipam_resource_discovery_region" /></td><td><code>string</code></td><td>The region the resource discovery is setup in.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="is_default" /></td><td><code>boolean</code></td><td>Determines whether or not address space from this pool is publicly advertised. Must be set if and only if the pool is IPv6.</td></tr>
-<tr><td><CopyableCode code="ipam_resource_discovery_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (Arn) for the Resource Discovery.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of this Resource Discovery.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>ipam_resource_discoveries_list_only</code> resource, see <a href="/providers/aws/ec2/ipam_resource_discoveries/#permissions"><code>ipam_resource_discoveries</code></a>
-
 

@@ -40,8 +40,11 @@ Creates, updates, deletes or gets a <code>matching_workflow</code> resource or l
 <tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default MatchingWorkflow arn</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
+<tr><td><CopyableCode code="incremental_run_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-matchingworkflow.html"><code>AWS::EntityResolution::MatchingWorkflow</code></a>.
 
 ## Methods
 
@@ -92,7 +95,8 @@ role_arn,
 tags,
 workflow_arn,
 created_at,
-updated_at
+updated_at,
+incremental_run_config
 FROM aws.entityresolution.matching_workflows
 WHERE region = 'us-east-1';
 ```
@@ -109,7 +113,8 @@ role_arn,
 tags,
 workflow_arn,
 created_at,
-updated_at
+updated_at,
+incremental_run_config
 FROM aws.entityresolution.matching_workflows
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkflowName>';
 ```
@@ -159,6 +164,7 @@ INSERT INTO aws.entityresolution.matching_workflows (
  ResolutionTechniques,
  RoleArn,
  Tags,
+ IncrementalRunConfig,
  region
 )
 SELECT 
@@ -169,6 +175,7 @@ SELECT
  '{{ ResolutionTechniques }}',
  '{{ RoleArn }}',
  '{{ Tags }}',
+ '{{ IncrementalRunConfig }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -212,6 +219,7 @@ resources:
                 MatchingKeys:
                   - null
             AttributeMatchingModel: '{{ AttributeMatchingModel }}'
+            MatchPurpose: '{{ MatchPurpose }}'
           ProviderProperties:
             ProviderServiceArn: '{{ ProviderServiceArn }}'
             ProviderConfiguration: {}
@@ -223,6 +231,9 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: IncrementalRunConfig
+        value:
+          IncrementalRunType: '{{ IncrementalRunType }}'
 
 ```
 </TabItem>
@@ -248,7 +259,11 @@ entityresolution:GetMatchingWorkflow,
 entityresolution:TagResource,
 kms:CreateGrant,
 kms:DescribeKey,
-iam:PassRole
+iam:PassRole,
+events:PutRule,
+events:DeleteRule,
+events:PutTargets,
+events:ListTargetsByRule
 ```
 
 ### Read
@@ -261,7 +276,12 @@ entityresolution:ListTagsForResource
 ```json
 entityresolution:DeleteMatchingWorkflow,
 entityresolution:GetMatchingWorkflow,
-entityresolution:UntagResource
+entityresolution:UntagResource,
+events:PutRule,
+events:DeleteRule,
+events:PutTargets,
+events:RemoveTargets,
+events:ListTargetsByRule
 ```
 
 ### List
@@ -278,6 +298,10 @@ entityresolution:TagResource,
 entityresolution:UntagResource,
 iam:PassRole,
 kms:CreateGrant,
-kms:DescribeKey
+kms:DescribeKey,
+events:PutRule,
+events:DeleteRule,
+events:PutTargets,
+events:RemoveTargets,
+events:ListTargetsByRule
 ```
-

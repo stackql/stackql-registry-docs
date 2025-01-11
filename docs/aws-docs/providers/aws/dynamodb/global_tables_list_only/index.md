@@ -30,21 +30,7 @@ Lists <code>global_tables</code> in a region or regions, for all properties use 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="stream_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="attribute_definitions" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="billing_mode" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="global_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_schema" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="local_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="write_provisioned_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="write_on_demand_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="replicas" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable server-side encryption.</td></tr>
-<tr><td><CopyableCode code="stream_specification" /></td><td><code>object</code></td><td>Represents the DynamoDB Streams configuration for a table in DynamoDB.</td></tr>
-<tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="table_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="time_to_live_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>global_tables_list_only</code> resource, see <a href="/providers/aws/dynamodb/global_tables/#permissions"><code>global_tables</code></a>
-
 

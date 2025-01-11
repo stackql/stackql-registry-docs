@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>place_index</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html"><code>AWS::Location::PlaceIndex</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -243,4 +245,3 @@ geo:DescribePlaceIndex
 ```json
 geo:ListPlaceIndexes
 ```
-

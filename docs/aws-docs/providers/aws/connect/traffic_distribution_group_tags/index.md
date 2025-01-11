@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>traffic_distribution_group_tags</code> resource, see <a href="/providers/aws/connect/traffic_distribution_groups/#permissions"><code>traffic_distribution_groups</code></a>
 
-

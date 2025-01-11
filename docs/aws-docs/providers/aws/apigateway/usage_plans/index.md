@@ -31,14 +31,16 @@ Creates, updates, deletes or gets an <code>usage_plan</code> resource or lists <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="api_stages" /></td><td><code>array</code></td><td>The associated API stages of a usage plan.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of a usage plan.</td></tr>
-<tr><td><CopyableCode code="quota" /></td><td><code>object</code></td><td>The target maximum number of permitted requests per a given unit time interval.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The collection of tags. Each tag element is associated with a given resource.</td></tr>
-<tr><td><CopyableCode code="throttle" /></td><td><code>object</code></td><td>A map containing method level throttling information for API stage in a usage plan.</td></tr>
-<tr><td><CopyableCode code="usage_plan_name" /></td><td><code>string</code></td><td>The name of a usage plan.</td></tr>
+<tr><td><CopyableCode code="api_stages" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="quota" /></td><td><code>object</code></td><td><code>QuotaSettings</code> is a property of the &#91;AWS::ApiGateway::UsagePlan&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.<br />In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using &#91;&#93;(https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and &#91;&#93;(https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="throttle" /></td><td><code>object</code></td><td><code>ThrottleSettings</code> is a property of the &#91;AWS::ApiGateway::UsagePlan&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.</td></tr>
+<tr><td><CopyableCode code="usage_plan_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html"><code>AWS::ApiGateway::UsagePlan</code></a>.
 
 ## Methods
 
@@ -248,4 +250,3 @@ apigateway:PATCH
 ```json
 apigateway:GET
 ```
-

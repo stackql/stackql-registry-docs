@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>scheduled_action</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html"><code>AWS::Redshift::ScheduledAction</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -254,4 +256,3 @@ redshift:DescribeTags,
 redshift:DescribeScheduledActions,
 redshift:DeleteScheduledAction
 ```
-

@@ -25,7 +25,7 @@ Creates, updates, deletes or gets an <code>user_pool</code> resource or lists <c
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>user_pools</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Cognito::UserPool</td></tr>
+<tr><td><b>Description</b></td><td>Definition of AWS::Cognito::UserPool Resource Type</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cognito.user_pools" /></td></tr>
 </tbody></table>
 
@@ -46,8 +46,12 @@ Creates, updates, deletes or gets an <code>user_pool</code> resource or lists <c
 <tr><td><CopyableCode code="mfa_configuration" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enabled_mfas" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sms_authentication_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="email_authentication_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="email_authentication_subject" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sms_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="sms_verification_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="web_authn_relying_party_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="web_authn_user_verification" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schema" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="username_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_attribute_update_settings" /></td><td><code>object</code></td><td></td></tr>
@@ -58,8 +62,11 @@ Creates, updates, deletes or gets an <code>user_pool</code> resource or lists <c
 <tr><td><CopyableCode code="provider_url" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="user_pool_tier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html"><code>AWS::Cognito::UserPool</code></a>.
 
 ## Methods
 
@@ -117,8 +124,12 @@ lambda_config,
 mfa_configuration,
 enabled_mfas,
 sms_authentication_message,
+email_authentication_message,
+email_authentication_subject,
 sms_configuration,
 sms_verification_message,
+web_authn_relying_party_id,
+web_authn_user_verification,
 schema,
 username_configuration,
 user_attribute_update_settings,
@@ -128,7 +139,8 @@ user_pool_add_ons,
 provider_name,
 provider_url,
 arn,
-user_pool_id
+user_pool_id,
+user_pool_tier
 FROM aws.cognito.user_pools
 WHERE region = 'us-east-1';
 ```
@@ -152,8 +164,12 @@ lambda_config,
 mfa_configuration,
 enabled_mfas,
 sms_authentication_message,
+email_authentication_message,
+email_authentication_subject,
 sms_configuration,
 sms_verification_message,
+web_authn_relying_party_id,
+web_authn_user_verification,
 schema,
 username_configuration,
 user_attribute_update_settings,
@@ -163,7 +179,8 @@ user_pool_add_ons,
 provider_name,
 provider_url,
 arn,
-user_pool_id
+user_pool_id,
+user_pool_tier
 FROM aws.cognito.user_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<UserPoolId>';
 ```
@@ -201,14 +218,19 @@ INSERT INTO aws.cognito.user_pools (
  MfaConfiguration,
  EnabledMfas,
  SmsAuthenticationMessage,
+ EmailAuthenticationMessage,
+ EmailAuthenticationSubject,
  SmsConfiguration,
  SmsVerificationMessage,
+ WebAuthnRelyingPartyID,
+ WebAuthnUserVerification,
  Schema,
  UsernameConfiguration,
  UserAttributeUpdateSettings,
  UserPoolTags,
  VerificationMessageTemplate,
  UserPoolAddOns,
+ UserPoolTier,
  region
 )
 SELECT 
@@ -228,14 +250,19 @@ SELECT
  '{{ MfaConfiguration }}',
  '{{ EnabledMfas }}',
  '{{ SmsAuthenticationMessage }}',
+ '{{ EmailAuthenticationMessage }}',
+ '{{ EmailAuthenticationSubject }}',
  '{{ SmsConfiguration }}',
  '{{ SmsVerificationMessage }}',
+ '{{ WebAuthnRelyingPartyID }}',
+ '{{ WebAuthnUserVerification }}',
  '{{ Schema }}',
  '{{ UsernameConfiguration }}',
  '{{ UserAttributeUpdateSettings }}',
  '{{ UserPoolTags }}',
  '{{ VerificationMessageTemplate }}',
  '{{ UserPoolAddOns }}',
+ '{{ UserPoolTier }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -260,14 +287,19 @@ INSERT INTO aws.cognito.user_pools (
  MfaConfiguration,
  EnabledMfas,
  SmsAuthenticationMessage,
+ EmailAuthenticationMessage,
+ EmailAuthenticationSubject,
  SmsConfiguration,
  SmsVerificationMessage,
+ WebAuthnRelyingPartyID,
+ WebAuthnUserVerification,
  Schema,
  UsernameConfiguration,
  UserAttributeUpdateSettings,
  UserPoolTags,
  VerificationMessageTemplate,
  UserPoolAddOns,
+ UserPoolTier,
  region
 )
 SELECT 
@@ -287,14 +319,19 @@ SELECT
  '{{ MfaConfiguration }}',
  '{{ EnabledMfas }}',
  '{{ SmsAuthenticationMessage }}',
+ '{{ EmailAuthenticationMessage }}',
+ '{{ EmailAuthenticationSubject }}',
  '{{ SmsConfiguration }}',
  '{{ SmsVerificationMessage }}',
+ '{{ WebAuthnRelyingPartyID }}',
+ '{{ WebAuthnUserVerification }}',
  '{{ Schema }}',
  '{{ UsernameConfiguration }}',
  '{{ UserAttributeUpdateSettings }}',
  '{{ UserPoolTags }}',
  '{{ VerificationMessageTemplate }}',
  '{{ UserPoolAddOns }}',
+ '{{ UserPoolTier }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -323,6 +360,10 @@ resources:
             RequireSymbols: '{{ RequireSymbols }}'
             RequireUppercase: '{{ RequireUppercase }}'
             TemporaryPasswordValidityDays: '{{ TemporaryPasswordValidityDays }}'
+            PasswordHistorySize: '{{ PasswordHistorySize }}'
+          SignInPolicy:
+            AllowedFirstAuthFactors:
+              - '{{ AllowedFirstAuthFactors[0] }}'
       - name: AccountRecoverySetting
         value:
           RecoveryMechanisms:
@@ -391,6 +432,10 @@ resources:
           - '{{ EnabledMfas[0] }}'
       - name: SmsAuthenticationMessage
         value: '{{ SmsAuthenticationMessage }}'
+      - name: EmailAuthenticationMessage
+        value: '{{ EmailAuthenticationMessage }}'
+      - name: EmailAuthenticationSubject
+        value: '{{ EmailAuthenticationSubject }}'
       - name: SmsConfiguration
         value:
           ExternalId: '{{ ExternalId }}'
@@ -398,6 +443,10 @@ resources:
           SnsRegion: '{{ SnsRegion }}'
       - name: SmsVerificationMessage
         value: '{{ SmsVerificationMessage }}'
+      - name: WebAuthnRelyingPartyID
+        value: '{{ WebAuthnRelyingPartyID }}'
+      - name: WebAuthnUserVerification
+        value: '{{ WebAuthnUserVerification }}'
       - name: Schema
         value:
           - AttributeDataType: '{{ AttributeDataType }}'
@@ -431,6 +480,10 @@ resources:
       - name: UserPoolAddOns
         value:
           AdvancedSecurityMode: '{{ AdvancedSecurityMode }}'
+          AdvancedSecurityAdditionalFlows:
+            CustomAuthMode: '{{ CustomAuthMode }}'
+      - name: UserPoolTier
+        value: '{{ UserPoolTier }}'
 
 ```
 </TabItem>
@@ -456,12 +509,14 @@ iam:PassRole,
 cognito-idp:SetUserPoolMfaConfig,
 cognito-idp:DescribeUserPool,
 kms:CreateGrant,
-iam:CreateServiceLinkedRole
+iam:CreateServiceLinkedRole,
+cognito-idp:TagResource
 ```
 
 ### Read
 ```json
-cognito-idp:DescribeUserPool
+cognito-idp:DescribeUserPool,
+cognito-idp:GetUserPoolMfaConfig
 ```
 
 ### Update
@@ -473,6 +528,7 @@ cognito-idp:TagResource,
 cognito-idp:SetUserPoolMfaConfig,
 cognito-idp:AddCustomAttributes,
 cognito-idp:DescribeUserPool,
+cognito-idp:GetUserPoolMfaConfig,
 iam:PassRole
 ```
 
@@ -485,4 +541,3 @@ cognito-idp:DeleteUserPool
 ```json
 cognito-idp:ListUserPools
 ```
-

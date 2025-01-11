@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>view</code> resource or lists <code>vi
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html"><code>AWS::Connect::View</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -241,4 +243,3 @@ connect:UpdateViewContent,
 connect:TagResource,
 connect:UntagResource
 ```
-

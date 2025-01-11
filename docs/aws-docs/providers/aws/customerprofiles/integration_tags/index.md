@@ -37,6 +37,7 @@ Expands all tag keys and values for <code>integrations</code> in a region
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this integration got created</td></tr>
 <tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The time of this integration got last updated at</td></tr>
 <tr><td><CopyableCode code="object_type_names" /></td><td><code>array</code></td><td>The mapping between 3rd party event types and ObjectType names</td></tr>
+<tr><td><CopyableCode code="event_trigger_names" /></td><td><code>array</code></td><td>A list of unique names for active event triggers associated with the integration.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -69,6 +70,7 @@ object_type_name,
 created_at,
 last_updated_at,
 object_type_names,
+event_trigger_names,
 tag_key,
 tag_value
 FROM aws.customerprofiles.integration_tags
@@ -79,5 +81,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>integration_tags</code> resource, see <a href="/providers/aws/customerprofiles/integrations/#permissions"><code>integrations</code></a>
-
 

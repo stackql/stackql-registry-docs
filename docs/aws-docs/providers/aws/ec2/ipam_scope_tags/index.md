@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ipam_scope_tags</code> resource, see <a href="/providers/aws/ec2/ipam_scopes/#permissions"><code>ipam_scopes</code></a>
 
-

@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>collection_tags</code> resource, see <a href="/providers/aws/opensearchserverless/collections/#permissions"><code>collections</code></a>
 
-

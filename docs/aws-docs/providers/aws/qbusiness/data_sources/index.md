@@ -38,6 +38,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="document_enrichment_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="media_extraction_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="index_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
@@ -48,6 +49,8 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <tr><td><CopyableCode code="vpc_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html"><code>AWS::QBusiness::DataSource</code></a>.
 
 ## Methods
 
@@ -97,6 +100,7 @@ data_source_id,
 description,
 display_name,
 document_enrichment_configuration,
+media_extraction_configuration,
 index_id,
 role_arn,
 status,
@@ -120,6 +124,7 @@ data_source_id,
 description,
 display_name,
 document_enrichment_configuration,
+media_extraction_configuration,
 index_id,
 role_arn,
 status,
@@ -173,6 +178,7 @@ INSERT INTO aws.qbusiness.data_sources (
  Description,
  DisplayName,
  DocumentEnrichmentConfiguration,
+ MediaExtractionConfiguration,
  IndexId,
  RoleArn,
  SyncSchedule,
@@ -186,6 +192,7 @@ SELECT
  '{{ Description }}',
  '{{ DisplayName }}',
  '{{ DocumentEnrichmentConfiguration }}',
+ '{{ MediaExtractionConfiguration }}',
  '{{ IndexId }}',
  '{{ RoleArn }}',
  '{{ SyncSchedule }}',
@@ -234,6 +241,10 @@ resources:
             S3BucketName: '{{ S3BucketName }}'
             RoleArn: '{{ RoleArn }}'
           PostExtractionHookConfiguration: null
+      - name: MediaExtractionConfiguration
+        value:
+          ImageExtractionConfiguration:
+            ImageExtractionStatus: '{{ ImageExtractionStatus }}'
       - name: IndexId
         value: '{{ IndexId }}'
       - name: RoleArn
@@ -303,4 +314,3 @@ qbusiness:GetDataSource
 ```json
 qbusiness:ListDataSources
 ```
-

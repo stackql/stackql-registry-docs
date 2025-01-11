@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>custom_line_item_tags</code> resource, see <a href="/providers/aws/billingconductor/custom_line_items/#permissions"><code>custom_line_items</code></a>
 
-

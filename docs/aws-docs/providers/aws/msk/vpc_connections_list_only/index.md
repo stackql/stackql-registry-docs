@@ -31,12 +31,6 @@ Lists <code>vpc_connections</code> in a region or regions, for all properties us
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="authentication" /></td><td><code>string</code></td><td>The type of private link authentication</td></tr>
-<tr><td><CopyableCode code="client_subnets" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="target_cluster_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the target cluster</td></tr>
-<tr><td><CopyableCode code="security_groups" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>vpc_connections_list_only</code> resource, see <a href="/providers/aws/msk/vpc_connections/#permissions"><code>vpc_connections</code></a>
-
 

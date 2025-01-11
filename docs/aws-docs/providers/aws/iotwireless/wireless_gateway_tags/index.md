@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>wireless_gateway_tags</code> resource, see <a href="/providers/aws/iotwireless/wireless_gateways/#permissions"><code>wireless_gateways</code></a>
 
-

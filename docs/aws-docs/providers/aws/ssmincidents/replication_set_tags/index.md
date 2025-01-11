@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>replication_set_tags</code> resource, see <a href="/providers/aws/ssmincidents/replication_sets/#permissions"><code>replication_sets</code></a>
 
-

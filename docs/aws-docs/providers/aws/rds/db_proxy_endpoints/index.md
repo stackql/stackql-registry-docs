@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>db_proxy_endpoint</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html"><code>AWS::RDS::DBProxyEndpoint</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -243,4 +245,3 @@ rds:DeleteDBProxyEndpoint
 ```json
 rds:DescribeDBProxyEndpoints
 ```
-

@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>bridge_output</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html"><code>AWS::MediaConnect::BridgeOutput</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -189,4 +191,3 @@ mediaconnect:UpdateBridgeOutput
 ```json
 mediaconnect:RemoveBridgeOutput
 ```
-

@@ -30,18 +30,7 @@ Lists <code>variant_stores</code> in a region or regions, for all properties use
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="reference" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="sse_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="store_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="store_size_bytes" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of resource tags</td></tr>
-<tr><td><CopyableCode code="update_time" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>variant_stores_list_only</code> resource, see <a href="/providers/aws/omics/variant_stores/#permissions"><code>variant_stores</code></a>
-
 

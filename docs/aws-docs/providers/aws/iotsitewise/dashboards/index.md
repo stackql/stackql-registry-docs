@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>dashboard</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html"><code>AWS::IoTSiteWise::Dashboard</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -238,6 +240,6 @@ iotsitewise:DeleteDashboard
 
 ### List
 ```json
-iotsitewise:ListDashboards
+iotsitewise:ListDashboards,
+iotsitewise:ListTagsForResource
 ```
-

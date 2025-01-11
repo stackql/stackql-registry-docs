@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>certificate_provider</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificateprovider.html"><code>AWS::IoT::CertificateProvider</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,4 +223,3 @@ iot:DescribeCertificateProvider
 ```json
 iot:ListCertificateProviders
 ```
-

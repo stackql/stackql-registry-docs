@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>monitoring_schedule_tags</code> resource, see <a href="/providers/aws/sagemaker/monitoring_schedules/#permissions"><code>monitoring_schedules</code></a>
 
-

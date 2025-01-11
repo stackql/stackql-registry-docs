@@ -30,16 +30,18 @@ Creates, updates, deletes or gets a <code>transit_gateway_vpc_attachment</code> 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="options" /></td><td><code>object</code></td><td>The options for the transit gateway vpc attachment.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="remove_subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="add_subnet_ids" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="remove_subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="options" /></td><td><code>object</code></td><td>The options for the transit gateway vpc attachment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayvpcattachment.html"><code>AWS::EC2::TransitGatewayVpcAttachment</code></a>.
 
 ## Methods
 
@@ -81,14 +83,14 @@ Gets all <code>transit_gateway_vpc_attachments</code> in a region.
 ```sql
 SELECT
 region,
-options,
+id,
 transit_gateway_id,
 vpc_id,
-remove_subnet_ids,
-id,
 subnet_ids,
 add_subnet_ids,
-tags
+remove_subnet_ids,
+tags,
+options
 FROM aws.ec2.transit_gateway_vpc_attachments
 WHERE region = 'us-east-1';
 ```
@@ -96,14 +98,14 @@ Gets all properties from an individual <code>transit_gateway_vpc_attachment</cod
 ```sql
 SELECT
 region,
-options,
+id,
 transit_gateway_id,
 vpc_id,
-remove_subnet_ids,
-id,
 subnet_ids,
 add_subnet_ids,
-tags
+remove_subnet_ids,
+tags,
+options
 FROM aws.ec2.transit_gateway_vpc_attachments
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -142,23 +144,23 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.transit_gateway_vpc_attachments (
- Options,
  TransitGatewayId,
  VpcId,
- RemoveSubnetIds,
  SubnetIds,
  AddSubnetIds,
+ RemoveSubnetIds,
  Tags,
+ Options,
  region
 )
 SELECT 
- '{{ Options }}',
  '{{ TransitGatewayId }}',
  '{{ VpcId }}',
- '{{ RemoveSubnetIds }}',
  '{{ SubnetIds }}',
  '{{ AddSubnetIds }}',
+ '{{ RemoveSubnetIds }}',
  '{{ Tags }}',
+ '{{ Options }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -176,28 +178,29 @@ globals:
 resources:
   - name: transit_gateway_vpc_attachment
     props:
-      - name: Options
-        value:
-          Ipv6Support: '{{ Ipv6Support }}'
-          ApplianceModeSupport: '{{ ApplianceModeSupport }}'
-          DnsSupport: '{{ DnsSupport }}'
       - name: TransitGatewayId
         value: '{{ TransitGatewayId }}'
       - name: VpcId
         value: '{{ VpcId }}'
-      - name: RemoveSubnetIds
-        value:
-          - '{{ RemoveSubnetIds[0] }}'
       - name: SubnetIds
         value:
           - '{{ SubnetIds[0] }}'
       - name: AddSubnetIds
         value:
           - '{{ AddSubnetIds[0] }}'
+      - name: RemoveSubnetIds
+        value:
+          - '{{ RemoveSubnetIds[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: Options
+        value:
+          DnsSupport: '{{ DnsSupport }}'
+          Ipv6Support: '{{ Ipv6Support }}'
+          ApplianceModeSupport: '{{ ApplianceModeSupport }}'
+          SecurityGroupReferencingSupport: '{{ SecurityGroupReferencingSupport }}'
 
 ```
 </TabItem>
@@ -216,19 +219,6 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateway_vpc_attachments</code> resource, the following permissions are required:
 
-### Read
-```json
-ec2:DescribeTransitGatewayAttachments,
-ec2:DescribeTransitGatewayVpcAttachments,
-ec2:CreateTransitGatewayVpcAttachment,
-ec2:DeleteTransitGatewayVpcAttachment,
-ec2:CreateTags,
-ec2:DeleteTags,
-ec2:DescribeTags,
-ec2:DescribeTransitGatewayAttachments,
-ec2:ModifyTransitGatewayVpcAttachment
-```
-
 ### Create
 ```json
 ec2:DescribeTransitGatewayAttachments,
@@ -242,27 +232,16 @@ ec2:DescribeTransitGatewayAttachments,
 ec2:ModifyTransitGatewayVpcAttachment
 ```
 
-### Update
+### Read
 ```json
 ec2:DescribeTransitGatewayAttachments,
 ec2:DescribeTransitGatewayVpcAttachments,
-ec2:DescribeTags,
 ec2:CreateTransitGatewayVpcAttachment,
-ec2:CreateTags,
 ec2:DeleteTransitGatewayVpcAttachment,
+ec2:CreateTags,
 ec2:DeleteTags,
-ec2:ModifyTransitGatewayVpcAttachment
-```
-
-### List
-```json
+ec2:DescribeTags,
 ec2:DescribeTransitGatewayAttachments,
-ec2:DescribeTransitGatewayVpcAttachments,
-ec2:DescribeTags,
-ec2:CreateTransitGatewayVpcAttachment,
-ec2:CreateTags,
-ec2:DeleteTransitGatewayVpcAttachment,
-ec2:DeleteTags,
 ec2:ModifyTransitGatewayVpcAttachment
 ```
 
@@ -279,3 +258,26 @@ ec2:DescribeTransitGatewayAttachments,
 ec2:ModifyTransitGatewayVpcAttachment
 ```
 
+### List
+```json
+ec2:DescribeTransitGatewayAttachments,
+ec2:DescribeTransitGatewayVpcAttachments,
+ec2:DescribeTags,
+ec2:CreateTransitGatewayVpcAttachment,
+ec2:CreateTags,
+ec2:DeleteTransitGatewayVpcAttachment,
+ec2:DeleteTags,
+ec2:ModifyTransitGatewayVpcAttachment
+```
+
+### Update
+```json
+ec2:DescribeTransitGatewayAttachments,
+ec2:DescribeTransitGatewayVpcAttachments,
+ec2:DescribeTags,
+ec2:CreateTransitGatewayVpcAttachment,
+ec2:CreateTags,
+ec2:DeleteTransitGatewayVpcAttachment,
+ec2:DeleteTags,
+ec2:ModifyTransitGatewayVpcAttachment
+```

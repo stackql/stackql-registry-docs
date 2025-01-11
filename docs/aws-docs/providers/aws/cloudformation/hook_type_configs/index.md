@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>hook_type_config</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html"><code>AWS::CloudFormation::HookTypeConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -214,4 +216,3 @@ cloudformation:SetTypeConfiguration
 cloudformation:ListTypes,
 cloudformation:BatchDescribeTypeConfigurations
 ```
-

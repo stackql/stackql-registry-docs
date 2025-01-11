@@ -56,6 +56,8 @@ Creates, updates, deletes or gets a <code>stack</code> resource or lists <code>s
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html"><code>AWS::CloudFormation::Stack</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -318,4 +320,3 @@ cloudformation:GetTemplate
 ```json
 cloudformation:ListStacks
 ```
-

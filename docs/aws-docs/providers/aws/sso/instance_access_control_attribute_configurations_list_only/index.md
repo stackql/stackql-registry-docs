@@ -31,8 +31,6 @@ Lists <code>instance_access_control_attribute_configurations</code> in a region 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The ARN of the AWS SSO instance under which the operation will be executed.</td></tr>
-<tr><td><CopyableCode code="instance_access_control_attribute_configuration" /></td><td><code>object</code></td><td>The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use AccessControlAttributes property instead.</td></tr>
-<tr><td><CopyableCode code="access_control_attributes" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>instance_access_control_attribute_configurations_list_only</code> resource, see <a href="/providers/aws/sso/instance_access_control_attribute_configurations/#permissions"><code>instance_access_control_attribute_configurations</code></a>
-
 

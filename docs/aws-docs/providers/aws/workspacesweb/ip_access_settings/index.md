@@ -42,6 +42,8 @@ Creates, updates, deletes or gets an <code>ip_access_setting</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-ipaccesssetting.html"><code>AWS::WorkSpacesWeb::IpAccessSettings</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -214,10 +216,12 @@ workspaces-web:GetIpAccessSettings,
 workspaces-web:ListIpAccessSettings,
 workspaces-web:ListTagsForResource,
 workspaces-web:TagResource,
-kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt
+kms:Decrypt,
+kms:GenerateDataKeyWithoutPlaintext,
+kms:ReEncryptTo,
+kms:ReEncryptFrom
 ```
 
 ### Read
@@ -260,4 +264,3 @@ kms:Decrypt
 ```json
 workspaces-web:ListIpAccessSettings
 ```
-

@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>verified_access_trust_provider</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html"><code>AWS::EC2::VerifiedAccessTrustProvider</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -297,4 +299,3 @@ kms:DescribeKey,
 kms:GenerateDataKey,
 kms:Decrypt
 ```
-

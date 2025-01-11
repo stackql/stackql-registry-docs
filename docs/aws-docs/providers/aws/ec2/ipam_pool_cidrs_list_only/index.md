@@ -33,8 +33,6 @@ Lists <code>ipam_pool_cidrs</code> in a region or regions, for all properties us
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ipam_pool_cidr_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool Cidr.</td></tr>
 <tr><td><CopyableCode code="ipam_pool_id" /></td><td><code>string</code></td><td>Id of the IPAM Pool.</td></tr>
 <tr><td><CopyableCode code="cidr" /></td><td><code>string</code></td><td>Represents a single IPv4 or IPv6 CIDR</td></tr>
-<tr><td><CopyableCode code="netmask_length" /></td><td><code>integer</code></td><td>The desired netmask length of the provision. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>Provisioned state of the cidr.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +66,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>ipam_pool_cidrs_list_only</code> resource, see <a href="/providers/aws/ec2/ipam_pool_cidrs/#permissions"><code>ipam_pool_cidrs</code></a>
-
 

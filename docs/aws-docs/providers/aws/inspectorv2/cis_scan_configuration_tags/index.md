@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>cis_scan_configuration_tags</code> resource, see <a href="/providers/aws/inspectorv2/cis_scan_configurations/#permissions"><code>cis_scan_configurations</code></a>
 
-

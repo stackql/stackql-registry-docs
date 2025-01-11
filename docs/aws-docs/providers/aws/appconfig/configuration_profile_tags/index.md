@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>configuration_profiles</code> in a reg
 <tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.</td></tr>
 <tr><td><CopyableCode code="validators" /></td><td><code>array</code></td><td>A list of methods for validating the configuration.</td></tr>
 <tr><td><CopyableCode code="retrieval_role_arn" /></td><td><code>string</code></td><td>The ARN of an IAM role with permission to access the configuration at the specified LocationUri.</td></tr>
+<tr><td><CopyableCode code="deletion_protection_check" /></td><td><code>string</code></td><td>On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The application ID.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the configuration profile.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
@@ -73,6 +74,7 @@ description,
 kms_key_arn,
 validators,
 retrieval_role_arn,
+deletion_protection_check,
 application_id,
 name,
 tag_key,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>configuration_profile_tags</code> resource, see <a href="/providers/aws/appconfig/configuration_profiles/#permissions"><code>configuration_profiles</code></a>
-
 

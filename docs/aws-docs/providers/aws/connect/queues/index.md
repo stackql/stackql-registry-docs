@@ -36,6 +36,7 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 <tr><td><CopyableCode code="max_contacts" /></td><td><code>integer</code></td><td>The maximum number of contacts that can be in the queue before it is considered full.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the queue.</td></tr>
 <tr><td><CopyableCode code="outbound_caller_config" /></td><td><code>object</code></td><td>The outbound caller ID name, number, and outbound whisper flow.</td></tr>
+<tr><td><CopyableCode code="outbound_email_config" /></td><td><code>object</code></td><td>The outbound email address ID.</td></tr>
 <tr><td><CopyableCode code="queue_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the queue.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the queue.</td></tr>
 <tr><td><CopyableCode code="quick_connect_arns" /></td><td><code>array</code></td><td>The quick connects available to agents who are working the queue.</td></tr>
@@ -43,6 +44,8 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of queue.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html"><code>AWS::Connect::Queue</code></a>.
 
 ## Methods
 
@@ -90,6 +93,7 @@ hours_of_operation_arn,
 max_contacts,
 name,
 outbound_caller_config,
+outbound_email_config,
 queue_arn,
 status,
 quick_connect_arns,
@@ -108,6 +112,7 @@ hours_of_operation_arn,
 max_contacts,
 name,
 outbound_caller_config,
+outbound_email_config,
 queue_arn,
 status,
 quick_connect_arns,
@@ -157,6 +162,7 @@ INSERT INTO aws.connect.queues (
  MaxContacts,
  Name,
  OutboundCallerConfig,
+ OutboundEmailConfig,
  Status,
  QuickConnectArns,
  Tags,
@@ -169,6 +175,7 @@ SELECT
  '{{ MaxContacts }}',
  '{{ Name }}',
  '{{ OutboundCallerConfig }}',
+ '{{ OutboundEmailConfig }}',
  '{{ Status }}',
  '{{ QuickConnectArns }}',
  '{{ Tags }}',
@@ -204,6 +211,9 @@ resources:
           OutboundCallerIdName: '{{ OutboundCallerIdName }}'
           OutboundCallerIdNumberArn: '{{ OutboundCallerIdNumberArn }}'
           OutboundFlowArn: '{{ OutboundFlowArn }}'
+      - name: OutboundEmailConfig
+        value:
+          OutboundEmailAddressId: '{{ OutboundEmailAddressId }}'
       - name: Status
         value: '{{ Status }}'
       - name: QuickConnectArns
@@ -255,6 +265,7 @@ connect:UpdateQueueHoursOfOperation,
 connect:UpdateQueueMaxContacts,
 connect:UpdateQueueName,
 connect:UpdateQueueOutboundCallerConfig,
+connect:UpdateQueueOutboundEmailConfig,
 connect:UpdateQueueStatus,
 connect:AssociateQueueQuickConnects,
 connect:DisassociateQueueQuickConnects,
@@ -267,4 +278,3 @@ connect:UntagResource
 connect:ListQueues,
 connect:ListQueueQuickConnects
 ```
-

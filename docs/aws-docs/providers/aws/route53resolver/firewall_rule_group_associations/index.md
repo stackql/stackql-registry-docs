@@ -47,6 +47,8 @@ Creates, updates, deletes or gets a <code>firewall_rule_group_association</code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html"><code>AWS::Route53Resolver::FirewallRuleGroupAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -204,8 +206,8 @@ resources:
         value: '{{ MutationProtection }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -226,51 +228,38 @@ To operate on the <code>firewall_rule_group_associations</code> resource, the fo
 
 ### Create
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:AssociateFirewallRuleGroup,
+route53resolver:GetFirewallRuleGroupAssociation,
+route53resolver:TagResource,
+route53resolver:ListTagsForResource,
+ec2:DescribeVpcs
 ```
 
 ### Read
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallRuleGroupAssociation,
+route53resolver:ListTagsForResource
 ```
 
 ### List
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:ListFirewallRuleGroupAssociations,
+route53resolver:ListTagsForResource
 ```
 
 ### Delete
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:DisassociateFirewallRuleGroup,
+route53resolver:GetFirewallRuleGroupAssociation,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
 
 ### Update
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:UpdateFirewallRuleGroupAssociation,
+route53resolver:GetFirewallRuleGroupAssociation,
+route53resolver:TagResource,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
-

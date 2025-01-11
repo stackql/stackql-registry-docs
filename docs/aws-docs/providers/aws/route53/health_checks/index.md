@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>health_check</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html"><code>AWS::Route53::HealthCheck</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ route53:DeleteHealthCheck
 route53:ListHealthChecks,
 route53:ListTagsForResource
 ```
-

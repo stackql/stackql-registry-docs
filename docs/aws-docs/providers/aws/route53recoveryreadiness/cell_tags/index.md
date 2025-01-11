@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>cell_tags</code> resource, see <a href="/providers/aws/route53recoveryreadiness/cells/#permissions"><code>cells</code></a>
 
-

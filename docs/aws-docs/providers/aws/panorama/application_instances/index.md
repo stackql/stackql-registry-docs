@@ -25,29 +25,31 @@ Creates, updates, deletes or gets an <code>application_instance</code> resource 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_instances</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Schema for ApplicationInstance CloudFormation Resource</td></tr>
+<tr><td><b>Description</b></td><td>Creates an application instance and deploys it to a device.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.panorama.application_instances" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_runtime_context_device_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>string</code></td><td>The device's ID.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the application instance.</td></tr>
+<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>string</code></td><td>The ID of an application instance to replace with the new instance.</td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="health_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>object</code></td><td>Setting overrides for the application manifest.</td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td>The ARN of a runtime role for the application instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the application instance.</td></tr>
 <tr><td><CopyableCode code="application_instance_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_payload" /></td><td><code>object</code></td><td>The application's manifest document.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for the application instance.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html"><code>AWS::Panorama::ApplicationInstance</code></a>.
 
 ## Methods
 
@@ -294,4 +296,3 @@ s3:ListObjects,
 s3:GetObject,
 s3:GetObjectVersion
 ```
-

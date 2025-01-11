@@ -44,6 +44,8 @@ Creates, updates, deletes or gets an <code>endpoint_access</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html"><code>AWS::Redshift::EndpointAccess</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -275,4 +277,3 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
 ec2:DescribeVpcEndpoint
 ```
-

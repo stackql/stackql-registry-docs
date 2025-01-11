@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>listener</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html"><code>AWS::GlobalAccelerator::Listener</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ globalaccelerator:DescribeAccelerator
 ```json
 globalaccelerator:ListListeners
 ```
-

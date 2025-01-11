@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>cross_account_attachment</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-crossaccountattachment.html"><code>AWS::GlobalAccelerator::CrossAccountAttachment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -165,6 +167,7 @@ resources:
       - name: Resources
         value:
           - EndpointId: '{{ EndpointId }}'
+            Cidr: '{{ Cidr }}'
             Region: '{{ Region }}'
       - name: Tags
         value:
@@ -218,4 +221,3 @@ globalaccelerator:DeleteCrossAccountAttachment
 ```json
 globalaccelerator:ListCrossAccountAttachments
 ```
-

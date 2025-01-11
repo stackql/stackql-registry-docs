@@ -20,7 +20,7 @@ The apigatewayv2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>23</b></span><br />
+<span>total resources:&nbsp;<b>25</b></span><br />
 </div>
 </div>
 
@@ -40,11 +40,13 @@ The apigatewayv2 service documentation.
 <a href="/providers/aws/apigatewayv2/deployments_list_only/">deployments_list_only</a><br />
 <a href="/providers/aws/apigatewayv2/domain_name_tags/">domain_name_tags</a><br />
 <a href="/providers/aws/apigatewayv2/domain_names/">domain_names</a><br />
-<a href="/providers/aws/apigatewayv2/domain_names_list_only/">domain_names_list_only</a>
+<a href="/providers/aws/apigatewayv2/domain_names_list_only/">domain_names_list_only</a><br />
+<a href="/providers/aws/apigatewayv2/integration_responses/">integration_responses</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/apigatewayv2/integration_responses/">integration_responses</a><br />
 <a href="/providers/aws/apigatewayv2/integration_responses_list_only/">integration_responses_list_only</a><br />
+<a href="/providers/aws/apigatewayv2/integrations/">integrations</a><br />
+<a href="/providers/aws/apigatewayv2/integrations_list_only/">integrations_list_only</a><br />
 <a href="/providers/aws/apigatewayv2/models/">models</a><br />
 <a href="/providers/aws/apigatewayv2/models_list_only/">models_list_only</a><br />
 <a href="/providers/aws/apigatewayv2/route_responses/">route_responses</a><br />

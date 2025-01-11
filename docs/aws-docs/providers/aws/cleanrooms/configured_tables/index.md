@@ -38,9 +38,11 @@ Creates, updates, deletes or gets a <code>configured_table</code> resource or li
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="analysis_rules" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="table_reference" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="table_reference" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtable.html"><code>AWS::CleanRooms::ConfiguredTable</code></a>.
 
 ## Methods
 
@@ -200,10 +202,7 @@ resources:
             Policy:
               V1: null
       - name: TableReference
-        value:
-          Glue:
-            TableName: '{{ TableName }}'
-            DatabaseName: '{{ DatabaseName }}'
+        value: null
 
 ```
 </TabItem>
@@ -240,7 +239,8 @@ glue:BatchGetPartition,
 glue:GetSchemaVersion,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:ListConfiguredTables
+cleanrooms:ListConfiguredTables,
+athena:GetTableMetadata
 ```
 
 ### Read
@@ -294,4 +294,3 @@ glue:GetSchemaVersion
 ```json
 cleanrooms:ListConfiguredTables
 ```
-

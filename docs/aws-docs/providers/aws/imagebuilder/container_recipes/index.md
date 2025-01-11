@@ -49,6 +49,8 @@ Creates, updates, deletes or gets a <code>container_recipe</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html"><code>AWS::ImageBuilder::ContainerRecipe</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -317,7 +319,10 @@ kms:Encrypt,
 kms:Decrypt,
 kms:ReEncryptFrom,
 kms:ReEncryptTo,
-kms:GenerateDataKey*,
+kms:GenerateDataKey,
+kms:GenerateDataKeyPair,
+kms:GenerateDataKeyPairWithoutPlaintext,
+kms:GenerateDataKeyWithoutPlaintext,
 s3:GetObject,
 s3:ListBucket,
 ecr:DescribeRepositories,
@@ -326,7 +331,8 @@ ec2:DescribeImages
 
 ### Read
 ```json
-imagebuilder:GetContainerRecipe
+imagebuilder:GetContainerRecipe,
+kms:Decrypt
 ```
 
 ### Delete
@@ -340,4 +346,3 @@ imagebuilder:DeleteContainerRecipe
 ```json
 imagebuilder:ListContainerRecipes
 ```
-

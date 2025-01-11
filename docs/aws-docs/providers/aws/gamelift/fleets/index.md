@@ -35,7 +35,6 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="apply_capacity" /></td><td><code>string</code></td><td>Determines whether to apply fleet or location capacities on fleet creation.</td></tr>
 <tr><td><CopyableCode code="certificate_configuration" /></td><td><code>object</code></td><td>Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.</td></tr>
 <tr><td><CopyableCode code="compute_type" /></td><td><code>string</code></td><td>ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.</td></tr>
-<tr><td><CopyableCode code="container_groups_configuration" /></td><td><code>object</code></td><td>Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A human-readable description of a fleet.</td></tr>
 <tr><td><CopyableCode code="desired_ec2_instances" /></td><td><code>integer</code></td><td>&#91;DEPRECATED&#93; The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.</td></tr>
 <tr><td><CopyableCode code="e_c2_inbound_permissions" /></td><td><code>array</code></td><td>A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.</td></tr>
@@ -61,6 +60,8 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="server_launch_path" /></td><td><code>string</code></td><td>This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html"><code>AWS::GameLift::Fleet</code></a>.
 
 ## Methods
 
@@ -107,7 +108,6 @@ anywhere_configuration,
 apply_capacity,
 certificate_configuration,
 compute_type,
-container_groups_configuration,
 description,
 desired_ec2_instances,
 e_c2_inbound_permissions,
@@ -143,7 +143,6 @@ anywhere_configuration,
 apply_capacity,
 certificate_configuration,
 compute_type,
-container_groups_configuration,
 description,
 desired_ec2_instances,
 e_c2_inbound_permissions,
@@ -206,7 +205,6 @@ INSERT INTO aws.gamelift.fleets (
  ApplyCapacity,
  CertificateConfiguration,
  ComputeType,
- ContainerGroupsConfiguration,
  Description,
  DesiredEC2Instances,
  EC2InboundPermissions,
@@ -237,7 +235,6 @@ SELECT
  '{{ ApplyCapacity }}',
  '{{ CertificateConfiguration }}',
  '{{ ComputeType }}',
- '{{ ContainerGroupsConfiguration }}',
  '{{ Description }}',
  '{{ DesiredEC2Instances }}',
  '{{ EC2InboundPermissions }}',
@@ -305,16 +302,6 @@ resources:
           CertificateType: '{{ CertificateType }}'
       - name: ComputeType
         value: '{{ ComputeType }}'
-      - name: ContainerGroupsConfiguration
-        value:
-          ContainerGroupDefinitionNames:
-            - '{{ ContainerGroupDefinitionNames[0] }}'
-          ConnectionPortRange:
-            FromPort: '{{ FromPort }}'
-            ToPort: '{{ ToPort }}'
-          ContainerGroupsPerInstance:
-            DesiredReplicaContainerGroupsPerInstance: '{{ DesiredReplicaContainerGroupsPerInstance }}'
-            MaxReplicaContainerGroupsPerInstance: '{{ MaxReplicaContainerGroupsPerInstance }}'
       - name: Description
         value: '{{ Description }}'
       - name: DesiredEC2Instances
@@ -448,4 +435,3 @@ gamelift:DeleteScalingPolicy
 ```json
 gamelift:ListFleets
 ```
-

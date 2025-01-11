@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_smb_tags</code> resource, see <a href="/providers/aws/datasync/location_smbs/#permissions"><code>location_smbs</code></a>
 
-

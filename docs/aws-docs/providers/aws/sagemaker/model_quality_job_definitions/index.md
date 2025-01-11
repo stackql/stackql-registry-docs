@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>model_quality_job_definition</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html"><code>AWS::SageMaker::ModelQualityJobDefinition</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -314,4 +316,3 @@ sagemaker:DescribeModelQualityJobDefinition
 sagemaker:ListModelQualityJobDefinitions,
 sagemaker:ListTags
 ```
-

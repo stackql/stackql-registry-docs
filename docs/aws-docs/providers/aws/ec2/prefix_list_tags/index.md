@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>prefix_list_tags</code> resource, see <a href="/providers/aws/ec2/prefix_lists/#permissions"><code>prefix_lists</code></a>
 
-

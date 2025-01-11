@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>entity_tags</code> resource, see <a href="/providers/aws/iottwinmaker/entities/#permissions"><code>entities</code></a>
 
-

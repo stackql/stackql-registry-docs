@@ -32,6 +32,8 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td>The AWS account in which the Amazon DataZone environment is created.</td></tr>
 <tr><td><CopyableCode code="aws_account_region" /></td><td><code>string</code></td><td>The AWS region in which the Amazon DataZone environment is created.</td></tr>
+<tr><td><CopyableCode code="environment_account_identifier" /></td><td><code>string</code></td><td>The AWS account in which the Amazon DataZone environment is created.</td></tr>
+<tr><td><CopyableCode code="environment_account_region" /></td><td><code>string</code></td><td>The AWS region in which the Amazon DataZone environment is created.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the environment was created.</td></tr>
 <tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who created the environment.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the Amazon DataZone environment.</td></tr>
@@ -41,6 +43,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="environment_profile_id" /></td><td><code>string</code></td><td>The ID of the environment profile with which the Amazon DataZone environment was created.</td></tr>
 <tr><td><CopyableCode code="environment_profile_identifier" /></td><td><code>string</code></td><td>The ID of the environment profile with which the Amazon DataZone environment would be created.</td></tr>
 <tr><td><CopyableCode code="glossary_terms" /></td><td><code>array</code></td><td>The glossary terms that can be used in the Amazon DataZone environment.</td></tr>
+<tr><td><CopyableCode code="environment_role_arn" /></td><td><code>string</code></td><td>Environment role arn for custom aws environment permissions</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone environment.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
 <tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone project in which the environment is created.</td></tr>
@@ -51,6 +54,8 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="user_parameters" /></td><td><code>array</code></td><td>The user parameters of the Amazon DataZone environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environment.html"><code>AWS::DataZone::Environment</code></a>.
 
 ## Methods
 
@@ -63,7 +68,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="EnvironmentProfileIdentifier, Name, ProjectIdentifier, DomainIdentifier, region" /></td>
+    <td><CopyableCode code="Name, ProjectIdentifier, DomainIdentifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -94,6 +99,8 @@ SELECT
 region,
 aws_account_id,
 aws_account_region,
+environment_account_identifier,
+environment_account_region,
 created_at,
 created_by,
 description,
@@ -103,6 +110,7 @@ environment_blueprint_id,
 environment_profile_id,
 environment_profile_identifier,
 glossary_terms,
+environment_role_arn,
 id,
 name,
 project_id,
@@ -120,6 +128,8 @@ SELECT
 region,
 aws_account_id,
 aws_account_region,
+environment_account_identifier,
+environment_account_region,
 created_at,
 created_by,
 description,
@@ -129,6 +139,7 @@ environment_blueprint_id,
 environment_profile_id,
 environment_profile_identifier,
 glossary_terms,
+environment_role_arn,
 id,
 name,
 project_id,
@@ -159,14 +170,12 @@ Use the following StackQL query and manifest file to create a new <code>environm
 /*+ create */
 INSERT INTO aws.datazone.environments (
  DomainIdentifier,
- EnvironmentProfileIdentifier,
  Name,
  ProjectIdentifier,
  region
 )
 SELECT 
 '{{ DomainIdentifier }}',
- '{{ EnvironmentProfileIdentifier }}',
  '{{ Name }}',
  '{{ ProjectIdentifier }}',
 '{{ region }}';
@@ -177,20 +186,26 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.datazone.environments (
+ EnvironmentAccountIdentifier,
+ EnvironmentAccountRegion,
  Description,
  DomainIdentifier,
  EnvironmentProfileIdentifier,
  GlossaryTerms,
+ EnvironmentRoleArn,
  Name,
  ProjectIdentifier,
  UserParameters,
  region
 )
 SELECT 
+ '{{ EnvironmentAccountIdentifier }}',
+ '{{ EnvironmentAccountRegion }}',
  '{{ Description }}',
  '{{ DomainIdentifier }}',
  '{{ EnvironmentProfileIdentifier }}',
  '{{ GlossaryTerms }}',
+ '{{ EnvironmentRoleArn }}',
  '{{ Name }}',
  '{{ ProjectIdentifier }}',
  '{{ UserParameters }}',
@@ -211,6 +226,10 @@ globals:
 resources:
   - name: environment
     props:
+      - name: EnvironmentAccountIdentifier
+        value: '{{ EnvironmentAccountIdentifier }}'
+      - name: EnvironmentAccountRegion
+        value: '{{ EnvironmentAccountRegion }}'
       - name: Description
         value: '{{ Description }}'
       - name: DomainIdentifier
@@ -220,6 +239,8 @@ resources:
       - name: GlossaryTerms
         value:
           - '{{ GlossaryTerms[0] }}'
+      - name: EnvironmentRoleArn
+        value: '{{ EnvironmentRoleArn }}'
       - name: Name
         value: '{{ Name }}'
       - name: ProjectIdentifier
@@ -250,7 +271,9 @@ To operate on the <code>environments</code> resource, the following permissions 
 ```json
 datazone:CreateEnvironment,
 datazone:GetEnvironment,
-datazone:DeleteEnvironment
+datazone:DeleteEnvironment,
+datazone:AssociateEnvironmentRole,
+iam:PassRole
 ```
 
 ### Read
@@ -262,7 +285,10 @@ datazone:GetEnvironment
 ```json
 datazone:UpdateEnvironment,
 datazone:GetEnvironment,
-datazone:DeleteEnvironment
+datazone:DeleteEnvironment,
+datazone:AssociateEnvironmentRole,
+datazone:DisassociateEnvironmentRole,
+iam:PassRole
 ```
 
 ### Delete
@@ -275,4 +301,3 @@ datazone:GetEnvironment
 ```json
 datazone:ListEnvironments
 ```
-

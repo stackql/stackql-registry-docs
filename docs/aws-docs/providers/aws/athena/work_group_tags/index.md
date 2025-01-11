@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>work_group_tags</code> resource, see <a href="/providers/aws/athena/work_groups/#permissions"><code>work_groups</code></a>
 
-

@@ -51,6 +51,8 @@ Creates, updates, deletes or gets a <code>matchmaking_configuration</code> resou
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html"><code>AWS::GameLift::MatchmakingConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -318,4 +320,3 @@ gamelift:ListTagsForResource,
 gamelift:TagResource,
 gamelift:UntagResource
 ```
-

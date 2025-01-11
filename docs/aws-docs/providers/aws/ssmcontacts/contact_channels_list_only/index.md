@@ -30,12 +30,7 @@ Lists <code>contact_channels</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="contact_id" /></td><td><code>string</code></td><td>ARN of the contact resource</td></tr>
-<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td>The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.</td></tr>
-<tr><td><CopyableCode code="channel_type" /></td><td><code>string</code></td><td>Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.</td></tr>
-<tr><td><CopyableCode code="defer_activation" /></td><td><code>boolean</code></td><td>If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.</td></tr>
-<tr><td><CopyableCode code="channel_address" /></td><td><code>string</code></td><td>The details that SSM Incident Manager uses when trying to engage the contact channel.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the engagement to a contact channel.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the engagement to a contact channel.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>contact_channels_list_only</code> resource, see <a href="/providers/aws/ssmcontacts/contact_channels/#permissions"><code>contact_channels</code></a>
-
 

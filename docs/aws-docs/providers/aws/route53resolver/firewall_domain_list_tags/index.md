@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>firewall_domain_list_tags</code> resource, see <a href="/providers/aws/route53resolver/firewall_domain_lists/#permissions"><code>firewall_domain_lists</code></a>
 
-

@@ -50,6 +50,8 @@ Creates, updates, deletes or gets a <code>namespace</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html"><code>AWS::RedshiftServerless::Namespace</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -276,6 +278,7 @@ To operate on the <code>namespaces</code> resource, the following permissions ar
 
 ### Create
 ```json
+iam:CreateServiceLinkedRole,
 iam:PassRole,
 kms:TagResource,
 kms:UntagResource,
@@ -294,6 +297,8 @@ redshift-serverless:CreateNamespace,
 redshift-serverless:GetNamespace,
 redshift-serverless:ListSnapshotCopyConfigurations,
 redshift-serverless:CreateSnapshotCopyConfiguration,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:TagResource,
 redshift:GetResourcePolicy,
 redshift:PutResourcePolicy,
 secretsmanager:CreateSecret,
@@ -306,6 +311,7 @@ secretsmanager:DescribeSecret
 ```json
 iam:PassRole,
 redshift-serverless:GetNamespace,
+redshift-serverless:ListTagsForResource,
 redshift:GetResourcePolicy,
 redshift-serverless:ListSnapshotCopyConfigurations
 ```
@@ -332,6 +338,9 @@ redshift-serverless:ListSnapshotCopyConfigurations,
 redshift-serverless:CreateSnapshotCopyConfiguration,
 redshift-serverless:UpdateSnapshotCopyConfiguration,
 redshift-serverless:DeleteSnapshotCopyConfiguration,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:TagResource,
+redshift-serverless:UntagResource,
 redshift:GetResourcePolicy,
 redshift:PutResourcePolicy,
 redshift:DeleteResourcePolicy,
@@ -348,6 +357,8 @@ secretsmanager:DeleteSecret
 iam:PassRole,
 redshift-serverless:DeleteNamespace,
 redshift-serverless:GetNamespace,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:UntagResource,
 kms:RetireGrant,
 secretsmanager:DescribeSecret,
 secretsmanager:DeleteSecret,
@@ -357,6 +368,6 @@ redshift:DeleteResourcePolicy
 ### List
 ```json
 iam:PassRole,
-redshift-serverless:ListNamespaces
+redshift-serverless:ListNamespaces,
+redshift-serverless:ListTagsForResource
 ```
-

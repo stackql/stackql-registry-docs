@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>playback_key_pair</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html"><code>AWS::IVS::PlaybackKeyPair</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ ivs:UntagResource
 ivs:ListPlaybackKeyPairs,
 ivs:ListTagsForResource
 ```
-

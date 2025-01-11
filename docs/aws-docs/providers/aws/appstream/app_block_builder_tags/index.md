@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>app_block_builder_tags</code> resource, see <a href="/providers/aws/appstream/app_block_builders/#permissions"><code>app_block_builders</code></a>
 
-

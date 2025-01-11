@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html"><code>AWS::EC2::TransitGatewayRouteTable</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -53,6 +55,11 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table</code> res
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -166,6 +173,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateway_route_tables</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeTransitGatewayRouteTables
+```
+
 ### Create
 ```json
 ec2:CreateTransitGatewayRouteTable,
@@ -173,7 +185,14 @@ ec2:CreateTags,
 ec2:DescribeTransitGatewayRouteTables
 ```
 
-### Read
+### Update
+```json
+ec2:DescribeTransitGatewayRouteTables,
+ec2:CreateTags,
+ec2:DeleteTags
+```
+
+### List
 ```json
 ec2:DescribeTransitGatewayRouteTables
 ```
@@ -185,9 +204,3 @@ ec2:DescribeTransitGatewayRouteTables,
 ec2:GetTransitGatewayRouteTableAssociations,
 ec2:DisassociateTransitGatewayRouteTable
 ```
-
-### List
-```json
-ec2:DescribeTransitGatewayRouteTables
-```
-

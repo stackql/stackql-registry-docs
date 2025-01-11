@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>authorizer_tags</code> resource, see <a href="/providers/aws/iot/authorizers/#permissions"><code>authorizers</code></a>
 
-

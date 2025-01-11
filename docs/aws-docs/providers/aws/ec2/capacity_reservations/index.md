@@ -46,8 +46,11 @@ Creates, updates, deletes or gets a <code>capacity_reservation</code> resource o
 <tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ephemeral_storage" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="instance_match_criteria" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="unused_reservation_billing_owner_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html"><code>AWS::EC2::CapacityReservation</code></a>.
 
 ## Methods
 
@@ -104,7 +107,8 @@ instance_platform,
 id,
 instance_type,
 ephemeral_storage,
-instance_match_criteria
+instance_match_criteria,
+unused_reservation_billing_owner_id
 FROM aws.ec2.capacity_reservations
 WHERE region = 'us-east-1';
 ```
@@ -127,7 +131,8 @@ instance_platform,
 id,
 instance_type,
 ephemeral_storage,
-instance_match_criteria
+instance_match_criteria,
+unused_reservation_billing_owner_id
 FROM aws.ec2.capacity_reservations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -181,6 +186,7 @@ INSERT INTO aws.ec2.capacity_reservations (
  InstanceType,
  EphemeralStorage,
  InstanceMatchCriteria,
+ UnusedReservationBillingOwnerId,
  region
 )
 SELECT 
@@ -197,6 +203,7 @@ SELECT
  '{{ InstanceType }}',
  '{{ EphemeralStorage }}',
  '{{ InstanceMatchCriteria }}',
+ '{{ UnusedReservationBillingOwnerId }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -244,6 +251,8 @@ resources:
         value: '{{ EphemeralStorage }}'
       - name: InstanceMatchCriteria
         value: '{{ InstanceMatchCriteria }}'
+      - name: UnusedReservationBillingOwnerId
+        value: '{{ UnusedReservationBillingOwnerId }}'
 
 ```
 </TabItem>
@@ -294,7 +303,7 @@ ec2:ModifyCapacityReservation,
 ec2:CreateCapacityReservation,
 ec2:DescribeCapacityReservations,
 ec2:CancelCapacityReservation,
+ec2:AssociateCapacityReservationBillingOwner,
 ec2:CreateTags,
 ec2:DeleteTags
 ```
-

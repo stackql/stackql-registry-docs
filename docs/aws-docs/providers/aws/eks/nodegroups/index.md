@@ -47,11 +47,14 @@ Creates, updates, deletes or gets a <code>nodegroup</code> resource or lists <co
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.</td></tr>
 <tr><td><CopyableCode code="taints" /></td><td><code>array</code></td><td>The Kubernetes taints to be applied to the nodes in the node group when they are created.</td></tr>
 <tr><td><CopyableCode code="update_config" /></td><td><code>object</code></td><td>The node group update configuration.</td></tr>
+<tr><td><CopyableCode code="node_repair_config" /></td><td><code>object</code></td><td>The node auto repair configuration for node group.</td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The Kubernetes version to use for your managed nodes.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html"><code>AWS::EKS::Nodegroup</code></a>.
 
 ## Methods
 
@@ -110,6 +113,7 @@ subnets,
 tags,
 taints,
 update_config,
+node_repair_config,
 version,
 id,
 arn
@@ -137,6 +141,7 @@ subnets,
 tags,
 taints,
 update_config,
+node_repair_config,
 version,
 id,
 arn
@@ -195,6 +200,7 @@ INSERT INTO aws.eks.nodegroups (
  Tags,
  Taints,
  UpdateConfig,
+ NodeRepairConfig,
  Version,
  region
 )
@@ -216,6 +222,7 @@ SELECT
  '{{ Tags }}',
  '{{ Taints }}',
  '{{ UpdateConfig }}',
+ '{{ NodeRepairConfig }}',
  '{{ Version }}',
  '{{ region }}';
 ```
@@ -284,6 +291,9 @@ resources:
         value:
           MaxUnavailable: null
           MaxUnavailablePercentage: null
+      - name: NodeRepairConfig
+        value:
+          Enabled: '{{ Enabled }}'
       - name: Version
         value: '{{ Version }}'
 
@@ -353,4 +363,3 @@ eks:UntagResource,
 eks:UpdateNodegroupConfig,
 eks:UpdateNodegroupVersion
 ```
-

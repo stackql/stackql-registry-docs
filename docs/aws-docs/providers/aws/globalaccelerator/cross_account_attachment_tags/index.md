@@ -74,4 +74,3 @@ FROM aws.globalaccelerator.cross_account_attachment_tags
 
 For permissions required to operate on the <code>cross_account_attachment_tags</code> resource, see <a href="/providers/aws/globalaccelerator/cross_account_attachments/#permissions"><code>cross_account_attachments</code></a>
 
-

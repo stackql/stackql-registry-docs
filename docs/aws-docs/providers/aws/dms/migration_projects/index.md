@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>migration_project</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html"><code>AWS::DMS::MigrationProject</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -293,7 +295,7 @@ dms:ListTagsForResource
 dms:UpdateMigrationProject,
 dms:ModifyMigrationProject,
 dms:AddTagsToResource,
-dms:RemoveTagsToResource,
+dms:RemoveTagsFromResource,
 dms:ListTagsForResource,
 iam:PassRole
 ```
@@ -309,4 +311,3 @@ dms:ListMigrationProjects,
 dms:DescribeMigrationProjects,
 dms:ListTagsForResource
 ```
-

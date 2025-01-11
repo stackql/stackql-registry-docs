@@ -49,6 +49,8 @@ Creates, updates, deletes or gets a <code>stack_set</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html"><code>AWS::CloudFormation::StackSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -238,6 +240,7 @@ resources:
           RegionOrder:
             - '{{ RegionOrder[0] }}'
           RegionConcurrencyType: '{{ RegionConcurrencyType }}'
+          ConcurrencyMode: '{{ ConcurrencyMode }}'
       - name: StackInstancesGroup
         value:
           - DeploymentTargets:
@@ -338,4 +341,3 @@ cloudformation:DescribeStackSet,
 cloudformation:ListStackInstances,
 cloudformation:DescribeStackInstance
 ```
-

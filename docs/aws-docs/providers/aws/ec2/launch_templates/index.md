@@ -33,12 +33,14 @@ Creates, updates, deletes or gets a <code>launch_template</code> resource or lis
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="launch_template_name" /></td><td><code>string</code></td><td>A name for the launch template.</td></tr>
 <tr><td><CopyableCode code="launch_template_data" /></td><td><code>object</code></td><td>The information for the launch template.</td></tr>
 <tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td>A description for the first version of the launch template.</td></tr>
-<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.<br />To specify the tags for the resources that are created when an instance is launched, you must use &#91;TagSpecifications&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).</td></tr>
+<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.<br />To specify the tags for resources that are created during instance launch, use &#91;TagSpecifications&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).</td></tr>
 <tr><td><CopyableCode code="latest_version_number" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="launch_template_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_version_number" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html"><code>AWS::EC2::LaunchTemplate</code></a>.
 
 ## Methods
 
@@ -174,6 +176,7 @@ resources:
               Tags:
                 - Key: '{{ Key }}'
                   Value: '{{ Value }}'
+          NetworkPerformanceOptions: null
           UserData: '{{ UserData }}'
           BlockDeviceMappings:
             - DeviceName: '{{ DeviceName }}'
@@ -215,27 +218,27 @@ resources:
                 - Primary: '{{ Primary }}'
                   PrivateIpAddress: '{{ PrivateIpAddress }}'
               SecondaryPrivateIpAddressCount: '{{ SecondaryPrivateIpAddressCount }}'
+              Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
               Ipv4Prefixes:
                 - Ipv4Prefix: '{{ Ipv4Prefix }}'
               Ipv4PrefixCount: '{{ Ipv4PrefixCount }}'
+              EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
               GroupSet:
                 - '{{ GroupSet[0] }}'
               Ipv6Addresses:
                 - Ipv6Address: '{{ Ipv6Address }}'
               Ipv6Prefixes:
                 - Ipv6Prefix: '{{ Ipv6Prefix }}'
-              Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
               SubnetId: '{{ SubnetId }}'
               SourceDestCheck: '{{ SourceDestCheck }}'
               InterfaceType: '{{ InterfaceType }}'
               Ipv6AddressCount: '{{ Ipv6AddressCount }}'
-              EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
-              ConnectionTrackingSpecification:
-                TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
-                UdpStreamTimeout: '{{ UdpStreamTimeout }}'
-                UdpTimeout: '{{ UdpTimeout }}'
               Tags:
                 - null
+              ConnectionTrackingSpecification:
+                UdpTimeout: '{{ UdpTimeout }}'
+                TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
+                UdpStreamTimeout: '{{ UdpStreamTimeout }}'
           EnclaveOptions:
             Enabled: '{{ Enabled }}'
           ImageId: '{{ ImageId }}'
@@ -275,13 +278,8 @@ resources:
               ValidUntil: '{{ ValidUntil }}'
             MarketType: '{{ MarketType }}'
           InstanceRequirements:
-            LocalStorageTypes:
-              - '{{ LocalStorageTypes[0] }}'
             InstanceGenerations:
               - '{{ InstanceGenerations[0] }}'
-            NetworkInterfaceCount:
-              Min: '{{ Min }}'
-              Max: '{{ Max }}'
             MemoryGiBPerVCpu:
               Min: null
               Max: null
@@ -290,38 +288,47 @@ resources:
             VCpuCount:
               Min: '{{ Min }}'
               Max: '{{ Max }}'
-            ExcludedInstanceTypes:
-              - '{{ ExcludedInstanceTypes[0] }}'
             AcceleratorManufacturers:
               - '{{ AcceleratorManufacturers[0] }}'
-            AllowedInstanceTypes:
-              - '{{ AllowedInstanceTypes[0] }}'
             LocalStorage: '{{ LocalStorage }}'
             CpuManufacturers:
               - '{{ CpuManufacturers[0] }}'
+            BareMetal: '{{ BareMetal }}'
+            RequireHibernateSupport: '{{ RequireHibernateSupport }}'
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: '{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}'
+            OnDemandMaxPricePercentageOverLowestPrice: '{{ OnDemandMaxPricePercentageOverLowestPrice }}'
+            MemoryMiB:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            LocalStorageTypes:
+              - '{{ LocalStorageTypes[0] }}'
+            NetworkInterfaceCount:
+              Min: '{{ Min }}'
+              Max: '{{ Max }}'
+            ExcludedInstanceTypes:
+              - '{{ ExcludedInstanceTypes[0] }}'
+            AllowedInstanceTypes:
+              - '{{ AllowedInstanceTypes[0] }}'
             AcceleratorCount:
               Min: '{{ Min }}'
               Max: '{{ Max }}'
             NetworkBandwidthGbps:
               Min: null
               Max: null
-            BareMetal: '{{ BareMetal }}'
-            RequireHibernateSupport: '{{ RequireHibernateSupport }}'
-            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: '{{ MaxSpotPriceAsPercentageOfOptimalOnDemandPrice }}'
+            BaselinePerformanceFactors:
+              Cpu:
+                References:
+                  - InstanceFamily: '{{ InstanceFamily }}'
             SpotMaxPricePercentageOverLowestPrice: '{{ SpotMaxPricePercentageOverLowestPrice }}'
             BaselineEbsBandwidthMbps:
               Min: '{{ Min }}'
               Max: '{{ Max }}'
-            OnDemandMaxPricePercentageOverLowestPrice: '{{ OnDemandMaxPricePercentageOverLowestPrice }}'
             AcceleratorNames:
               - '{{ AcceleratorNames[0] }}'
             AcceleratorTotalMemoryMiB:
               Min: '{{ Min }}'
               Max: '{{ Max }}'
             BurstablePerformance: '{{ BurstablePerformance }}'
-            MemoryMiB:
-              Min: '{{ Min }}'
-              Max: '{{ Max }}'
             TotalLocalStorageGB:
               Min: null
               Max: null
@@ -385,4 +392,3 @@ ec2:DeleteLaunchTemplate,
 ec2:DeleteTags,
 ec2:DescribeLaunchTemplates
 ```
-

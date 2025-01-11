@@ -30,12 +30,8 @@ Lists <code>route_responses</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_response_key" /></td><td><code>string</code></td><td>The route response key.</td></tr>
-<tr><td><CopyableCode code="response_parameters" /></td><td><code>undefined</code></td><td>The route response parameters.</td></tr>
-<tr><td><CopyableCode code="route_id" /></td><td><code>string</code></td><td>The route ID.</td></tr>
-<tr><td><CopyableCode code="model_selection_expression" /></td><td><code>string</code></td><td>The model selection expression for the route response. Supported only for WebSocket APIs.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_id" /></td><td><code>string</code></td><td>The route ID.</td></tr>
 <tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td>The API identifier.</td></tr>
-<tr><td><CopyableCode code="response_models" /></td><td><code>object</code></td><td>The response models for the route response.</td></tr>
 <tr><td><CopyableCode code="route_response_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -71,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>route_responses_list_only</code> resource, see <a href="/providers/aws/apigatewayv2/route_responses/#permissions"><code>route_responses</code></a>
-
 

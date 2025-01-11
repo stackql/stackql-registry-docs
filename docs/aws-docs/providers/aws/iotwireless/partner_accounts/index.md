@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>partner_account</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-partneraccount.html"><code>AWS::IoTWireless::PartnerAccount</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -230,7 +232,7 @@ To operate on the <code>partner_accounts</code> resource, the following permissi
 ```json
 iotwireless:AssociateAwsAccountWithPartnerAccount,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:GetPartnerAccount
 ```
 
 ### Read
@@ -247,13 +249,15 @@ iotwireless:ListTagsForResource
 
 ### Update
 ```json
+iotwireless:GetPartnerAccount,
+iotwireless:AssociateAwsAccountWithPartnerAccount,
 iotwireless:UpdatePartnerAccount,
-iotwireless:UntagResource,
-iotwireless:ListTagsForResource
+iotwireless:ListTagsForResource,
+iotwireless:TagResource,
+iotwireless:UntagResource
 ```
 
 ### Delete
 ```json
 iotwireless:DisassociateAwsAccountFromPartnerAccount
 ```
-

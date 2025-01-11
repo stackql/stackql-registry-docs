@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>certificate_authority_tags</code> resource, see <a href="/providers/aws/acmpca/certificate_authorities/#permissions"><code>certificate_authorities</code></a>
 
-

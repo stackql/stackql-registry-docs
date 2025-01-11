@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>security_configuration</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html"><code>AWS::EMR::SecurityConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -181,4 +183,3 @@ elasticmapreduce:DeleteSecurityConfiguration
 ```json
 elasticmapreduce:ListSecurityConfigurations
 ```
-

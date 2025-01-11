@@ -20,7 +20,7 @@ The cloudtrail service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>10</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -32,10 +32,13 @@ The cloudtrail service documentation.
 <a href="/providers/aws/cloudtrail/channel_tags/">channel_tags</a><br />
 <a href="/providers/aws/cloudtrail/channels/">channels</a><br />
 <a href="/providers/aws/cloudtrail/channels_list_only/">channels_list_only</a><br />
-<a href="/providers/aws/cloudtrail/event_data_store_tags/">event_data_store_tags</a><br />
-<a href="/providers/aws/cloudtrail/event_data_stores/">event_data_stores</a>
+<a href="/providers/aws/cloudtrail/dashboard_tags/">dashboard_tags</a><br />
+<a href="/providers/aws/cloudtrail/dashboards/">dashboards</a><br />
+<a href="/providers/aws/cloudtrail/dashboards_list_only/">dashboards_list_only</a><br />
+<a href="/providers/aws/cloudtrail/event_data_store_tags/">event_data_store_tags</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudtrail/event_data_stores/">event_data_stores</a><br />
 <a href="/providers/aws/cloudtrail/event_data_stores_list_only/">event_data_stores_list_only</a><br />
 <a href="/providers/aws/cloudtrail/resource_policies/">resource_policies</a><br />
 <a href="/providers/aws/cloudtrail/trail_tags/">trail_tags</a><br />

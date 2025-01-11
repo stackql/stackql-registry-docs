@@ -31,13 +31,13 @@ Expands all tag keys and values for <code>api_keys</code> in a region
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_key_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="customer_id" /></td><td><code>string</code></td><td>An MKT customer identifier, when integrating with the AWS SaaS Marketplace.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the ApiKey.</td></tr>
-<tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td>Specifies whether the ApiKey can be used by callers.</td></tr>
-<tr><td><CopyableCode code="generate_distinct_id" /></td><td><code>boolean</code></td><td>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.</td></tr>
+<tr><td><CopyableCode code="customer_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="generate_distinct_id" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see &#91;Name Type&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).<br />If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.</td></tr>
-<tr><td><CopyableCode code="stage_keys" /></td><td><code>array</code></td><td>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</td></tr>
-<tr><td><CopyableCode code="value" /></td><td><code>string</code></td><td>Specifies a value of the API key.</td></tr>
+<tr><td><CopyableCode code="stage_keys" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="value" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -81,5 +81,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>api_key_tags</code> resource, see <a href="/providers/aws/apigateway/api_keys/#permissions"><code>api_keys</code></a>
-
 

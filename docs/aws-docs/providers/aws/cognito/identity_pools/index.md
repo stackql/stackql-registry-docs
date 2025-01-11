@@ -43,8 +43,11 @@ Creates, updates, deletes or gets an <code>identity_pool</code> resource or list
 <tr><td><CopyableCode code="saml_provider_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="open_id_connect_provider_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="allow_classic_flow" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_pool_tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html"><code>AWS::Cognito::IdentityPool</code></a>.
 
 ## Methods
 
@@ -98,7 +101,8 @@ identity_pool_name,
 allow_unauthenticated_identities,
 saml_provider_arns,
 open_id_connect_provider_arns,
-allow_classic_flow
+allow_classic_flow,
+identity_pool_tags
 FROM aws.cognito.identity_pools
 WHERE region = 'us-east-1';
 ```
@@ -118,7 +122,8 @@ identity_pool_name,
 allow_unauthenticated_identities,
 saml_provider_arns,
 open_id_connect_provider_arns,
-allow_classic_flow
+allow_classic_flow,
+identity_pool_tags
 FROM aws.cognito.identity_pools
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -164,6 +169,7 @@ INSERT INTO aws.cognito.identity_pools (
  SamlProviderARNs,
  OpenIdConnectProviderARNs,
  AllowClassicFlow,
+ IdentityPoolTags,
  region
 )
 SELECT 
@@ -178,6 +184,7 @@ SELECT
  '{{ SamlProviderARNs }}',
  '{{ OpenIdConnectProviderARNs }}',
  '{{ AllowClassicFlow }}',
+ '{{ IdentityPoolTags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -228,6 +235,10 @@ resources:
           - '{{ OpenIdConnectProviderARNs[0] }}'
       - name: AllowClassicFlow
         value: '{{ AllowClassicFlow }}'
+      - name: IdentityPoolTags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -251,6 +262,7 @@ To operate on the <code>identity_pools</code> resource, the following permission
 cognito-identity:CreateIdentityPool,
 cognito-sync:SetIdentityPoolConfiguration,
 cognito-sync:SetCognitoEvents,
+cognito-identity:TagResource,
 iam:PassRole
 ```
 
@@ -265,6 +277,8 @@ cognito-identity:UpdateIdentityPool,
 cognito-identity:DescribeIdentityPool,
 cognito-sync:SetIdentityPoolConfiguration,
 cognito-sync:SetCognitoEvents,
+cognito-identity:TagResource,
+cognito-identity:UntagResource,
 iam:PassRole
 ```
 
@@ -277,4 +291,3 @@ cognito-identity:DeleteIdentityPool
 ```json
 cognito-identity:ListIdentityPools
 ```
-

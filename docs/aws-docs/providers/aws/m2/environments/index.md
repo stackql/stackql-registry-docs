@@ -39,6 +39,7 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
 <tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
+<tr><td><CopyableCode code="network_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
 <tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
 <tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
@@ -47,6 +48,8 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html"><code>AWS::M2::Environment</code></a>.
 
 ## Methods
 
@@ -97,6 +100,7 @@ high_availability_config,
 instance_type,
 kms_key_id,
 name,
+network_type,
 preferred_maintenance_window,
 publicly_accessible,
 security_group_ids,
@@ -119,6 +123,7 @@ high_availability_config,
 instance_type,
 kms_key_id,
 name,
+network_type,
 preferred_maintenance_window,
 publicly_accessible,
 security_group_ids,
@@ -170,6 +175,7 @@ INSERT INTO aws.m2.environments (
  InstanceType,
  KmsKeyId,
  Name,
+ NetworkType,
  PreferredMaintenanceWindow,
  PubliclyAccessible,
  SecurityGroupIds,
@@ -186,6 +192,7 @@ SELECT
  '{{ InstanceType }}',
  '{{ KmsKeyId }}',
  '{{ Name }}',
+ '{{ NetworkType }}',
  '{{ PreferredMaintenanceWindow }}',
  '{{ PubliclyAccessible }}',
  '{{ SecurityGroupIds }}',
@@ -224,6 +231,8 @@ resources:
         value: '{{ KmsKeyId }}'
       - name: Name
         value: '{{ Name }}'
+      - name: NetworkType
+        value: '{{ NetworkType }}'
       - name: PreferredMaintenanceWindow
         value: '{{ PreferredMaintenanceWindow }}'
       - name: PubliclyAccessible
@@ -308,4 +317,3 @@ m2:GetEnvironment
 ```json
 m2:ListEnvironments
 ```
-

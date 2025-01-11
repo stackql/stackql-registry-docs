@@ -30,11 +30,7 @@ Lists <code>members</code> in a region or regions, for all properties use <a hre
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="member_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="message" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="disable_email_notification" /></td><td><code>boolean</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="member_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -69,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>members_list_only</code> resource, see <a href="/providers/aws/guardduty/members/#permissions"><code>members</code></a>
-
 

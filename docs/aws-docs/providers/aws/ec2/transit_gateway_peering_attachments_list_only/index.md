@@ -30,15 +30,7 @@ Lists <code>transit_gateway_peering_attachments</code> in a region or regions, f
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>object</code></td><td>The status of the transit gateway peering attachment.</td></tr>
-<tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td>The ID of the transit gateway.</td></tr>
-<tr><td><CopyableCode code="peer_transit_gateway_id" /></td><td><code>string</code></td><td>The ID of the peer transit gateway.</td></tr>
-<tr><td><CopyableCode code="peer_account_id" /></td><td><code>string</code></td><td>The ID of the peer account</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time the transit gateway peering attachment was created.</td></tr>
-<tr><td><CopyableCode code="peer_region" /></td><td><code>string</code></td><td>Peer Region</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the transit gateway peering attachment.</td></tr>
-<tr><td><CopyableCode code="transit_gateway_attachment_id" /></td><td><code>string</code></td><td>The ID of the transit gateway peering attachment.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="transit_gateway_attachment_id" /></td><td><code>string</code></td><td>The ID of the transit gateway peering attachment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>transit_gateway_peering_attachments_list_only</code> resource, see <a href="/providers/aws/ec2/transit_gateway_peering_attachments/#permissions"><code>transit_gateway_peering_attachments</code></a>
-
 

@@ -38,8 +38,11 @@ Creates, updates, deletes or gets a <code>configured_table_association</code> re
 <tr><td><CopyableCode code="membership_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="configured_table_association_analysis_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-configuredtableassociation.html"><code>AWS::CleanRooms::ConfiguredTableAssociation</code></a>.
 
 ## Methods
 
@@ -88,7 +91,8 @@ configured_table_identifier,
 description,
 membership_identifier,
 name,
-role_arn
+role_arn,
+configured_table_association_analysis_rules
 FROM aws.cleanrooms.configured_table_associations
 WHERE region = 'us-east-1';
 ```
@@ -103,7 +107,8 @@ configured_table_identifier,
 description,
 membership_identifier,
 name,
-role_arn
+role_arn,
+configured_table_association_analysis_rules
 FROM aws.cleanrooms.configured_table_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<ConfiguredTableAssociationIdentifier>|<MembershipIdentifier>';
 ```
@@ -150,6 +155,7 @@ INSERT INTO aws.cleanrooms.configured_table_associations (
  MembershipIdentifier,
  Name,
  RoleArn,
+ ConfiguredTableAssociationAnalysisRules,
  region
 )
 SELECT 
@@ -159,6 +165,7 @@ SELECT
  '{{ MembershipIdentifier }}',
  '{{ Name }}',
  '{{ RoleArn }}',
+ '{{ ConfiguredTableAssociationAnalysisRules }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -190,6 +197,11 @@ resources:
         value: '{{ Name }}'
       - name: RoleArn
         value: '{{ RoleArn }}'
+      - name: ConfiguredTableAssociationAnalysisRules
+        value:
+          - Type: '{{ Type }}'
+            Policy:
+              V1: null
 
 ```
 </TabItem>
@@ -215,13 +227,18 @@ iam:PassRole,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
 cleanrooms:GetConfiguredTableAssociation,
-cleanrooms:ListConfiguredTableAssociations
+cleanrooms:ListConfiguredTableAssociations,
+cleanrooms:DeleteConfiguredTableAssociation,
+cleanrooms:DeleteConfiguredTableAssociationAnalysisRule,
+cleanrooms:CreateConfiguredTableAssociationAnalysisRule,
+cleanrooms:GetConfiguredTableAssociationAnalysisRule
 ```
 
 ### Read
 ```json
 cleanrooms:GetConfiguredTableAssociation,
-cleanrooms:ListTagsForResource
+cleanrooms:ListTagsForResource,
+cleanrooms:GetConfiguredTableAssociationAnalysisRule
 ```
 
 ### Update
@@ -231,7 +248,11 @@ cleanrooms:GetConfiguredTableAssociation,
 iam:PassRole,
 cleanrooms:ListTagsForResource,
 cleanrooms:TagResource,
-cleanrooms:UntagResource
+cleanrooms:UntagResource,
+cleanrooms:DeleteConfiguredTableAssociationAnalysisRule,
+cleanrooms:CreateConfiguredTableAssociationAnalysisRule,
+cleanrooms:GetConfiguredTableAssociationAnalysisRule,
+cleanrooms:UpdateConfiguredTableAssociationAnalysisRule
 ```
 
 ### Delete
@@ -240,11 +261,12 @@ cleanrooms:DeleteConfiguredTableAssociation,
 cleanrooms:GetConfiguredTableAssociation,
 cleanrooms:ListConfiguredTableAssociations,
 cleanrooms:ListTagsForResource,
-cleanrooms:UntagResource
+cleanrooms:UntagResource,
+cleanrooms:DeleteConfiguredTableAssociationAnalysisRule,
+cleanrooms:GetConfiguredTableAssociationAnalysisRule
 ```
 
 ### List
 ```json
 cleanrooms:ListConfiguredTableAssociations
 ```
-

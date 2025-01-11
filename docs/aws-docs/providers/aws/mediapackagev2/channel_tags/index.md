@@ -36,7 +36,9 @@ Expands all tag keys and values for <code>channels</code> in a region
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the channel was created.</p></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the channel.</p></td></tr>
 <tr><td><CopyableCode code="ingest_endpoints" /></td><td><code>array</code></td><td><p>The list of ingest endpoints.</p></td></tr>
+<tr><td><CopyableCode code="input_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the channel was modified.</p></td></tr>
+<tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -68,7 +70,9 @@ channel_name,
 created_at,
 description,
 ingest_endpoints,
+input_type,
 modified_at,
+ingest_endpoint_urls,
 tag_key,
 tag_value
 FROM aws.mediapackagev2.channel_tags
@@ -79,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>channel_tags</code> resource, see <a href="/providers/aws/mediapackagev2/channels/#permissions"><code>channels</code></a>
-
 

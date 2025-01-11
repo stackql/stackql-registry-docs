@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>target_group_tags</code> resource, see <a href="/providers/aws/vpclattice/target_groups/#permissions"><code>target_groups</code></a>
 
-

@@ -32,14 +32,16 @@ Creates, updates, deletes or gets a <code>customer_gateway</code> resource or li
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</td></tr>
 <tr><td><CopyableCode code="customer_gateway_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static.</td></tr>
-<tr><td><CopyableCode code="bgp_asn_extended" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For devices that support BGP, the customer gateway's BGP ASN.<br />Default: 65000</td></tr>
+<tr><td><CopyableCode code="ip_address" /></td><td><code>string</code></td><td>IPv4 address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a public IPv4 address.</td></tr>
+<tr><td><CopyableCode code="bgp_asn_extended" /></td><td><code>number</code></td><td>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.<br />Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code></td></tr>
+<tr><td><CopyableCode code="bgp_asn" /></td><td><code>integer</code></td><td>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.<br />Default: 65000<br />Valid values: <code>1</code> to <code>2,147,483,647</code></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags for the customer gateway.</td></tr>
-<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the customer gateway certificate.</td></tr>
 <tr><td><CopyableCode code="device_name" /></td><td><code>string</code></td><td>The name of customer gateway device.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html"><code>AWS::EC2::CustomerGateway</code></a>.
 
 ## Methods
 
@@ -235,7 +237,5 @@ ec2:DescribeCustomerGateways
 ### Delete
 ```json
 ec2:DeleteCustomerGateway,
-ec2:DescribeCustomerGateways,
-ec2:DeleteTags
+ec2:DescribeCustomerGateways
 ```
-

@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>detector</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html"><code>AWS::GuardDuty::Detector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -216,7 +218,8 @@ iam:GetRole
 
 ### Read
 ```json
-guardduty:GetDetector
+guardduty:GetDetector,
+guardduty:ListTagsForResource
 ```
 
 ### Delete
@@ -232,11 +235,12 @@ guardduty:UpdateDetector,
 guardduty:GetDetector,
 guardduty:ListDetectors,
 iam:CreateServiceLinkedRole,
-iam:GetRole
+iam:GetRole,
+guardduty:TagResource,
+guardduty:UntagResource
 ```
 
 ### List
 ```json
 guardduty:ListDetectors
 ```
-

@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table_propagatio
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html"><code>AWS::EC2::TransitGatewayRouteTablePropagation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -163,13 +165,18 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateway_route_table_propagations</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:GetTransitGatewayRouteTablePropagations
+```
+
 ### Create
 ```json
 ec2:GetTransitGatewayRouteTablePropagations,
 ec2:EnableTransitGatewayRouteTablePropagation
 ```
 
-### Read
+### List
 ```json
 ec2:GetTransitGatewayRouteTablePropagations
 ```
@@ -179,9 +186,3 @@ ec2:GetTransitGatewayRouteTablePropagations
 ec2:GetTransitGatewayRouteTablePropagations,
 ec2:DisableTransitGatewayRouteTablePropagation
 ```
-
-### List
-```json
-ec2:GetTransitGatewayRouteTablePropagations
-```
-

@@ -31,16 +31,6 @@ Lists <code>compute_environments</code> in a region or regions, for all properti
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="compute_environment_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compute_environment_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compute_resources" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="replace_compute_environment" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_role" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="update_policy" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="unmanagedv_cpus" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="eks_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>compute_environments_list_only</code> resource, see <a href="/providers/aws/batch/compute_environments/#permissions"><code>compute_environments</code></a>
-
 

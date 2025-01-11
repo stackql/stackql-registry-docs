@@ -30,18 +30,20 @@ Creates, updates, deletes or gets an <code>id_mapping_workflow</code> resource o
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workflow_name" /></td><td><code>string</code></td><td>The name of the IdMappingWorkflow</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the IdMappingWorkflow</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the IdMappingWorkflow</td></tr>
 <tr><td><CopyableCode code="input_source_config" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="output_source_config" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="id_mapping_techniques" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="workflow_name" /></td><td><code>string</code></td><td>The name of the IdMappingWorkflow</td></tr>
+<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
+<tr><td><CopyableCode code="output_source_config" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default IdMappingWorkflow arn</td></tr>
+<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default IdMappingWorkflow arn</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idmappingworkflow.html"><code>AWS::EntityResolution::IdMappingWorkflow</code></a>.
 
 ## Methods
 
@@ -83,16 +85,16 @@ Gets all <code>id_mapping_workflows</code> in a region.
 ```sql
 SELECT
 region,
-workflow_name,
 description,
 input_source_config,
-output_source_config,
 id_mapping_techniques,
-role_arn,
-tags,
-workflow_arn,
+workflow_name,
 created_at,
-updated_at
+output_source_config,
+workflow_arn,
+updated_at,
+role_arn,
+tags
 FROM aws.entityresolution.id_mapping_workflows
 WHERE region = 'us-east-1';
 ```
@@ -100,16 +102,16 @@ Gets all properties from an individual <code>id_mapping_workflow</code>.
 ```sql
 SELECT
 region,
-workflow_name,
 description,
 input_source_config,
-output_source_config,
 id_mapping_techniques,
-role_arn,
-tags,
-workflow_arn,
+workflow_name,
 created_at,
-updated_at
+output_source_config,
+workflow_arn,
+updated_at,
+role_arn,
+tags
 FROM aws.entityresolution.id_mapping_workflows
 WHERE region = 'us-east-1' AND data__Identifier = '<WorkflowName>';
 ```
@@ -131,16 +133,16 @@ Use the following StackQL query and manifest file to create a new <code>id_mappi
 ```sql
 /*+ create */
 INSERT INTO aws.entityresolution.id_mapping_workflows (
- WorkflowName,
  InputSourceConfig,
  IdMappingTechniques,
+ WorkflowName,
  RoleArn,
  region
 )
 SELECT 
-'{{ WorkflowName }}',
- '{{ InputSourceConfig }}',
+'{{ InputSourceConfig }}',
  '{{ IdMappingTechniques }}',
+ '{{ WorkflowName }}',
  '{{ RoleArn }}',
 '{{ region }}';
 ```
@@ -150,21 +152,21 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.entityresolution.id_mapping_workflows (
- WorkflowName,
  Description,
  InputSourceConfig,
- OutputSourceConfig,
  IdMappingTechniques,
+ WorkflowName,
+ OutputSourceConfig,
  RoleArn,
  Tags,
  region
 )
 SELECT 
- '{{ WorkflowName }}',
  '{{ Description }}',
  '{{ InputSourceConfig }}',
- '{{ OutputSourceConfig }}',
  '{{ IdMappingTechniques }}',
+ '{{ WorkflowName }}',
+ '{{ OutputSourceConfig }}',
  '{{ RoleArn }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -184,27 +186,35 @@ globals:
 resources:
   - name: id_mapping_workflow
     props:
-      - name: WorkflowName
-        value: '{{ WorkflowName }}'
       - name: Description
         value: '{{ Description }}'
       - name: InputSourceConfig
         value:
-          - InputSourceARN: '{{ InputSourceARN }}'
+          - Type: '{{ Type }}'
+            InputSourceARN: '{{ InputSourceARN }}'
             SchemaArn: '{{ SchemaArn }}'
-            Type: '{{ Type }}'
-      - name: OutputSourceConfig
-        value:
-          - OutputS3Path: '{{ OutputS3Path }}'
-            KMSArn: '{{ KMSArn }}'
       - name: IdMappingTechniques
         value:
-          IdMappingType: '{{ IdMappingType }}'
+          RuleBasedProperties:
+            AttributeMatchingModel: '{{ AttributeMatchingModel }}'
+            RuleDefinitionType: '{{ RuleDefinitionType }}'
+            Rules:
+              - RuleName: '{{ RuleName }}'
+                MatchingKeys:
+                  - '{{ MatchingKeys[0] }}'
+            RecordMatchingModel: '{{ RecordMatchingModel }}'
           ProviderProperties:
             ProviderServiceArn: '{{ ProviderServiceArn }}'
             ProviderConfiguration: {}
             IntermediateSourceConfiguration:
               IntermediateS3Path: '{{ IntermediateS3Path }}'
+          IdMappingType: '{{ IdMappingType }}'
+      - name: WorkflowName
+        value: '{{ WorkflowName }}'
+      - name: OutputSourceConfig
+        value:
+          - KMSArn: '{{ KMSArn }}'
+            OutputS3Path: '{{ OutputS3Path }}'
       - name: RoleArn
         value: '{{ RoleArn }}'
       - name: Tags
@@ -229,6 +239,12 @@ AND region = 'us-east-1';
 
 To operate on the <code>id_mapping_workflows</code> resource, the following permissions are required:
 
+### Read
+```json
+entityresolution:GetIdMappingWorkflow,
+entityresolution:ListTagsForResource
+```
+
 ### Create
 ```json
 entityresolution:CreateIdMappingWorkflow,
@@ -251,10 +267,9 @@ kms:CreateGrant,
 kms:DescribeKey
 ```
 
-### Read
+### List
 ```json
-entityresolution:GetIdMappingWorkflow,
-entityresolution:ListTagsForResource
+entityresolution:ListIdMappingWorkflows
 ```
 
 ### Delete
@@ -263,9 +278,3 @@ entityresolution:DeleteIdMappingWorkflow,
 entityresolution:GetIdMappingWorkflow,
 entityresolution:UntagResource
 ```
-
-### List
-```json
-entityresolution:ListIdMappingWorkflows
-```
-

@@ -30,15 +30,7 @@ Lists <code>rules</code> in a region or regions, for all properties use <a href=
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="action" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="listener_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="match" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>rules_list_only</code> resource, see <a href="/providers/aws/vpclattice/rules/#permissions"><code>rules</code></a>
-
 

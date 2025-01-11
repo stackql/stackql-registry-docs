@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>replication_configuration</code> resou
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html"><code>AWS::ECR::ReplicationConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -193,4 +195,3 @@ iam:CreateServiceLinkedRole
 ```json
 ecr:DescribeRegistry
 ```
-

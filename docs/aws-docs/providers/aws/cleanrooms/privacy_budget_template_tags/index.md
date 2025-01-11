@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>privacy_budget_template_tags</code> resource, see <a href="/providers/aws/cleanrooms/privacy_budget_templates/#permissions"><code>privacy_budget_templates</code></a>
 
-

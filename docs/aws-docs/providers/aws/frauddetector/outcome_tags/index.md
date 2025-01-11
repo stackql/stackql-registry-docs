@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>outcome_tags</code> resource, see <a href="/providers/aws/frauddetector/outcomes/#permissions"><code>outcomes</code></a>
 
-

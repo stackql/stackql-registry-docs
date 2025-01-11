@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>domain_tags</code> resource, see <a href="/providers/aws/voiceid/domains/#permissions"><code>domains</code></a>
 
-

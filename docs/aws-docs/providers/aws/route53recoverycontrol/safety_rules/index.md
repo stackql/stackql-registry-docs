@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>safety_rule</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html"><code>AWS::Route53RecoveryControl::SafetyRule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -248,4 +250,3 @@ route53-recovery-control-config:DeleteSafetyRule
 ```json
 route53-recovery-control-config:ListSafetyRules
 ```
-

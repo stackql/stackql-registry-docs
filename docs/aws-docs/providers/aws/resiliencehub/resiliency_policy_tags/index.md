@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>resiliency_policy_tags</code> resource, see <a href="/providers/aws/resiliencehub/resiliency_policies/#permissions"><code>resiliency_policies</code></a>
 
-

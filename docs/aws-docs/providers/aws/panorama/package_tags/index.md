@@ -25,15 +25,15 @@ Expands all tag keys and values for <code>packages</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>package_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Schema for Package CloudFormation Resource</td></tr>
+<tr><td><b>Description</b></td><td>Creates a package and storage location in an Amazon S3 access point.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.panorama.package_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td>A name for the package.</td></tr>
 <tr><td><CopyableCode code="package_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="storage_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="storage_location" /></td><td><code>object</code></td><td>A storage location.</td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -75,5 +75,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>package_tags</code> resource, see <a href="/providers/aws/panorama/packages/#permissions"><code>packages</code></a>
-
 

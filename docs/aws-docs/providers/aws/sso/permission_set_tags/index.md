@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>permission_set_tags</code> resource, see <a href="/providers/aws/sso/permission_sets/#permissions"><code>permission_sets</code></a>
 
-

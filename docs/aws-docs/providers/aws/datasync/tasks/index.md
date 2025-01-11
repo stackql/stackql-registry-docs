@@ -42,11 +42,14 @@ Creates, updates, deletes or gets a <code>task</code> resource or lists <code>ta
 <tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td>Specifies the schedule you want your task to use for repeated executions.</td></tr>
 <tr><td><CopyableCode code="source_location_arn" /></td><td><code>string</code></td><td>The ARN of the source location for the task.</td></tr>
 <tr><td><CopyableCode code="task_arn" /></td><td><code>string</code></td><td>The ARN of the task.</td></tr>
+<tr><td><CopyableCode code="task_mode" /></td><td><code>string</code></td><td>Specifies the task mode for the task.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the task that was described.</td></tr>
 <tr><td><CopyableCode code="source_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the source ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
 <tr><td><CopyableCode code="destination_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the destination ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html"><code>AWS::DataSync::Task</code></a>.
 
 ## Methods
 
@@ -100,6 +103,7 @@ manifest_config,
 schedule,
 source_location_arn,
 task_arn,
+task_mode,
 status,
 source_network_interface_arns,
 destination_network_interface_arns
@@ -122,6 +126,7 @@ manifest_config,
 schedule,
 source_location_arn,
 task_arn,
+task_mode,
 status,
 source_network_interface_arns,
 destination_network_interface_arns
@@ -172,6 +177,7 @@ INSERT INTO aws.datasync.tasks (
  ManifestConfig,
  Schedule,
  SourceLocationArn,
+ TaskMode,
  region
 )
 SELECT 
@@ -186,6 +192,7 @@ SELECT
  '{{ ManifestConfig }}',
  '{{ Schedule }}',
  '{{ SourceLocationArn }}',
+ '{{ TaskMode }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -272,6 +279,8 @@ resources:
           Status: '{{ Status }}'
       - name: SourceLocationArn
         value: '{{ SourceLocationArn }}'
+      - name: TaskMode
+        value: '{{ TaskMode }}'
 
 ```
 </TabItem>
@@ -349,4 +358,3 @@ iam:GetRole
 ```json
 datasync:ListTasks
 ```
-

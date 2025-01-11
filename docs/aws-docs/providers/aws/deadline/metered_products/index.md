@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>metered_product</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html"><code>AWS::Deadline::MeteredProduct</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -116,17 +118,11 @@ Use the following StackQL query and manifest file to create a new <code>metered_
 INSERT INTO aws.deadline.metered_products (
  LicenseEndpointId,
  ProductId,
- Port,
- Family,
- Vendor,
  region
 )
 SELECT 
 '{{ LicenseEndpointId }}',
  '{{ ProductId }}',
- '{{ Port }}',
- '{{ Family }}',
- '{{ Vendor }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -137,17 +133,11 @@ SELECT
 INSERT INTO aws.deadline.metered_products (
  LicenseEndpointId,
  ProductId,
- Port,
- Family,
- Vendor,
  region
 )
 SELECT 
  '{{ LicenseEndpointId }}',
  '{{ ProductId }}',
- '{{ Port }}',
- '{{ Family }}',
- '{{ Vendor }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -169,12 +159,6 @@ resources:
         value: '{{ LicenseEndpointId }}'
       - name: ProductId
         value: '{{ ProductId }}'
-      - name: Port
-        value: '{{ Port }}'
-      - name: Family
-        value: '{{ Family }}'
-      - name: Vendor
-        value: '{{ Vendor }}'
 
 ```
 </TabItem>
@@ -215,4 +199,3 @@ deadline:ListMeteredProducts
 ```json
 deadline:ListMeteredProducts
 ```
-

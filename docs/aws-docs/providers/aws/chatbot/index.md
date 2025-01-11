@@ -20,7 +20,7 @@ The chatbot service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>6</b></span><br />
+<span>total resources:&nbsp;<b>9</b></span><br />
 </div>
 </div>
 
@@ -29,11 +29,14 @@ The chatbot service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/chatbot/custom_action_tags/">custom_action_tags</a><br />
+<a href="/providers/aws/chatbot/custom_actions/">custom_actions</a><br />
+<a href="/providers/aws/chatbot/custom_actions_list_only/">custom_actions_list_only</a><br />
 <a href="/providers/aws/chatbot/microsoft_teams_channel_configuration_tags/">microsoft_teams_channel_configuration_tags</a><br />
-<a href="/providers/aws/chatbot/microsoft_teams_channel_configurations/">microsoft_teams_channel_configurations</a><br />
-<a href="/providers/aws/chatbot/microsoft_teams_channel_configurations_list_only/">microsoft_teams_channel_configurations_list_only</a>
+<a href="/providers/aws/chatbot/microsoft_teams_channel_configurations/">microsoft_teams_channel_configurations</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/chatbot/microsoft_teams_channel_configurations_list_only/">microsoft_teams_channel_configurations_list_only</a><br />
 <a href="/providers/aws/chatbot/slack_channel_configuration_tags/">slack_channel_configuration_tags</a><br />
 <a href="/providers/aws/chatbot/slack_channel_configurations/">slack_channel_configurations</a><br />
 <a href="/providers/aws/chatbot/slack_channel_configurations_list_only/">slack_channel_configurations_list_only</a>

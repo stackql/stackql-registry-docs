@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>outpost_resolver</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html"><code>AWS::Route53Resolver::OutpostResolver</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -194,8 +196,8 @@ resources:
         value: '{{ InstanceCount }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -219,7 +221,8 @@ To operate on the <code>outpost_resolvers</code> resource, the following permiss
 route53resolver:CreateOutpostResolver,
 route53resolver:GetOutpostResolver,
 route53resolver:ListTagsForResource,
-outposts:GetOutpost
+outposts:GetOutpost,
+route53resolver:TagResource
 ```
 
 ### Read
@@ -250,4 +253,3 @@ route53resolver:ListResolverEndpoints
 route53resolver:ListOutpostResolvers,
 route53resolver:ListTagsForResource
 ```
-

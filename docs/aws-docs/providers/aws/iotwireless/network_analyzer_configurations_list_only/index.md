@@ -31,12 +31,6 @@ Lists <code>network_analyzer_configurations</code> in a region or regions, for a
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the network analyzer configuration</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the new resource</td></tr>
-<tr><td><CopyableCode code="trace_content" /></td><td><code>object</code></td><td>Trace content for your wireless gateway and wireless device resources</td></tr>
-<tr><td><CopyableCode code="wireless_devices" /></td><td><code>array</code></td><td>List of wireless gateway resources that have been added to the network analyzer configuration</td></tr>
-<tr><td><CopyableCode code="wireless_gateways" /></td><td><code>array</code></td><td>List of wireless gateway resources that have been added to the network analyzer configuration</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Arn for network analyzer configuration, Returned upon successful create.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>network_analyzer_configurations_list_only</code> resource, see <a href="/providers/aws/iotwireless/network_analyzer_configurations/#permissions"><code>network_analyzer_configurations</code></a>
-
 

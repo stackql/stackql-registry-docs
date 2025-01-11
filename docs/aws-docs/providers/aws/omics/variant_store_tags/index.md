@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>variant_store_tags</code> resource, see <a href="/providers/aws/omics/variant_stores/#permissions"><code>variant_stores</code></a>
 
-

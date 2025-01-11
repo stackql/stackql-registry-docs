@@ -31,22 +31,6 @@ Lists <code>canaries</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the canary.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the canary</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>State of the canary</td></tr>
-<tr><td><CopyableCode code="code" /></td><td><code>object</code></td><td>Provide the canary script source</td></tr>
-<tr><td><CopyableCode code="artifact_s3_location" /></td><td><code>string</code></td><td>Provide the s3 bucket output location for test results</td></tr>
-<tr><td><CopyableCode code="artifact_config" /></td><td><code>object</code></td><td>Provide artifact configuration</td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td>Frequency to run your canaries</td></tr>
-<tr><td><CopyableCode code="execution_role_arn" /></td><td><code>string</code></td><td>Lambda Execution role used to run your canaries</td></tr>
-<tr><td><CopyableCode code="runtime_version" /></td><td><code>string</code></td><td>Runtime version of Synthetics Library</td></tr>
-<tr><td><CopyableCode code="success_retention_period" /></td><td><code>integer</code></td><td>Retention period of successful canary runs represented in number of days</td></tr>
-<tr><td><CopyableCode code="failure_retention_period" /></td><td><code>integer</code></td><td>Retention period of failed canary runs represented in number of days</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td>Provide VPC Configuration if enabled.</td></tr>
-<tr><td><CopyableCode code="run_config" /></td><td><code>object</code></td><td>Provide canary run configuration</td></tr>
-<tr><td><CopyableCode code="start_canary_after_creation" /></td><td><code>boolean</code></td><td>Runs canary if set to True. Default is False</td></tr>
-<tr><td><CopyableCode code="visual_reference" /></td><td><code>object</code></td><td>Visual reference configuration for visual testing</td></tr>
-<tr><td><CopyableCode code="delete_lambda_resources_on_canary_deletion" /></td><td><code>boolean</code></td><td>Deletes associated lambda resources created by Synthetics if set to True. Default is False</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -79,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>canaries_list_only</code> resource, see <a href="/providers/aws/synthetics/canaries/#permissions"><code>canaries</code></a>
-
 

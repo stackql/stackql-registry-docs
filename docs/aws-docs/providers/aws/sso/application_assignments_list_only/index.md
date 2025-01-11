@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>application_assignments_list_only</code> resource, see <a href="/providers/aws/sso/application_assignments/#permissions"><code>application_assignments</code></a>
 
-

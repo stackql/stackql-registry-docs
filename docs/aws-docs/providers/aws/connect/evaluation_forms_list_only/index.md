@@ -25,19 +25,12 @@ Lists <code>evaluation_forms</code> in a region or regions, for all properties u
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>evaluation_forms_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Connect::EvaluationForm</td></tr>
+<tr><td><b>Description</b></td><td>Creates an evaluation form for the specified CON instance.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.connect.evaluation_forms_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="title" /></td><td><code>string</code></td><td>The title of the evaluation form.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the evaluation form.</td></tr>
-<tr><td><CopyableCode code="evaluation_form_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the evaluation form.</td></tr>
-<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the instance.</td></tr>
-<tr><td><CopyableCode code="items" /></td><td><code>array</code></td><td>The list of evaluation form items.</td></tr>
-<tr><td><CopyableCode code="scoring_strategy" /></td><td><code>object</code></td><td>The scoring strategy.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the evaluation form.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="evaluation_form_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>evaluation_forms_list_only</code> resource, see <a href="/providers/aws/connect/evaluation_forms/#permissions"><code>evaluation_forms</code></a>
-
 

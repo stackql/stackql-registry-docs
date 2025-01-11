@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>environment_account_connection</code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-environmentaccountconnection.html"><code>AWS::Proton::EnvironmentAccountConnection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -265,4 +267,3 @@ proton:GetEnvironmentAccountConnection
 ```json
 proton:ListEnvironmentAccountConnections
 ```
-

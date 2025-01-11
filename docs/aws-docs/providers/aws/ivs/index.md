@@ -20,7 +20,7 @@ The ivs service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>24</b></span><br />
+<span>total resources:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -35,6 +35,9 @@ The ivs service documentation.
 <a href="/providers/aws/ivs/encoder_configuration_tags/">encoder_configuration_tags</a><br />
 <a href="/providers/aws/ivs/encoder_configurations/">encoder_configurations</a><br />
 <a href="/providers/aws/ivs/encoder_configurations_list_only/">encoder_configurations_list_only</a><br />
+<a href="/providers/aws/ivs/ingest_configuration_tags/">ingest_configuration_tags</a><br />
+<a href="/providers/aws/ivs/ingest_configurations/">ingest_configurations</a><br />
+<a href="/providers/aws/ivs/ingest_configurations_list_only/">ingest_configurations_list_only</a><br />
 <a href="/providers/aws/ivs/playback_key_pair_tags/">playback_key_pair_tags</a><br />
 <a href="/providers/aws/ivs/playback_key_pairs/">playback_key_pairs</a><br />
 <a href="/providers/aws/ivs/playback_key_pairs_list_only/">playback_key_pairs_list_only</a><br />
@@ -43,6 +46,9 @@ The ivs service documentation.
 <a href="/providers/aws/ivs/playback_restriction_policy_tags/">playback_restriction_policy_tags</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/ivs/public_key_tags/">public_key_tags</a><br />
+<a href="/providers/aws/ivs/public_keys/">public_keys</a><br />
+<a href="/providers/aws/ivs/public_keys_list_only/">public_keys_list_only</a><br />
 <a href="/providers/aws/ivs/recording_configuration_tags/">recording_configuration_tags</a><br />
 <a href="/providers/aws/ivs/recording_configurations/">recording_configurations</a><br />
 <a href="/providers/aws/ivs/recording_configurations_list_only/">recording_configurations_list_only</a><br />

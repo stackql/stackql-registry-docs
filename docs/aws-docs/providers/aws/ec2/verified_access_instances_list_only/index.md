@@ -31,14 +31,6 @@ Lists <code>verified_access_instances</code> in a region or regions, for all pro
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="verified_access_instance_id" /></td><td><code>string</code></td><td>The ID of the AWS Verified Access instance.</td></tr>
-<tr><td><CopyableCode code="verified_access_trust_providers" /></td><td><code>array</code></td><td>AWS Verified Access trust providers.</td></tr>
-<tr><td><CopyableCode code="verified_access_trust_provider_ids" /></td><td><code>array</code></td><td>The IDs of the AWS Verified Access trust providers.</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Time this Verified Access Instance was created.</td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>Time this Verified Access Instance was last updated.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the AWS Verified Access instance.</td></tr>
-<tr><td><CopyableCode code="logging_configurations" /></td><td><code>object</code></td><td>The configuration options for AWS Verified Access instances.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="fips_enabled" /></td><td><code>boolean</code></td><td>Indicates whether FIPS is enabled</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>verified_access_instances_list_only</code> resource, see <a href="/providers/aws/ec2/verified_access_instances/#permissions"><code>verified_access_instances</code></a>
-
 

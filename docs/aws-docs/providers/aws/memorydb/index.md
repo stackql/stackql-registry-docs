@@ -20,7 +20,7 @@ The memorydb service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total resources:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -35,10 +35,13 @@ The memorydb service documentation.
 <a href="/providers/aws/memorydb/cluster_tags/">cluster_tags</a><br />
 <a href="/providers/aws/memorydb/clusters/">clusters</a><br />
 <a href="/providers/aws/memorydb/clusters_list_only/">clusters_list_only</a><br />
-<a href="/providers/aws/memorydb/parameter_group_tags/">parameter_group_tags</a><br />
-<a href="/providers/aws/memorydb/parameter_groups/">parameter_groups</a>
+<a href="/providers/aws/memorydb/multi_region_cluster_tags/">multi_region_cluster_tags</a><br />
+<a href="/providers/aws/memorydb/multi_region_clusters/">multi_region_clusters</a><br />
+<a href="/providers/aws/memorydb/multi_region_clusters_list_only/">multi_region_clusters_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/memorydb/parameter_group_tags/">parameter_group_tags</a><br />
+<a href="/providers/aws/memorydb/parameter_groups/">parameter_groups</a><br />
 <a href="/providers/aws/memorydb/parameter_groups_list_only/">parameter_groups_list_only</a><br />
 <a href="/providers/aws/memorydb/subnet_group_tags/">subnet_group_tags</a><br />
 <a href="/providers/aws/memorydb/subnet_groups/">subnet_groups</a><br />

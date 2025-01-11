@@ -31,13 +31,6 @@ Lists <code>grants</code> in a region or regions, for all properties use <a href
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="grant_arn" /></td><td><code>string</code></td><td>Arn of the grant.</td></tr>
-<tr><td><CopyableCode code="grant_name" /></td><td><code>string</code></td><td>Name for the created Grant.</td></tr>
-<tr><td><CopyableCode code="license_arn" /></td><td><code>string</code></td><td>License Arn for the grant.</td></tr>
-<tr><td><CopyableCode code="home_region" /></td><td><code>string</code></td><td>Home region for the created grant.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the grant.</td></tr>
-<tr><td><CopyableCode code="allowed_operations" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="principals" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>grants_list_only</code> resource, see <a href="/providers/aws/licensemanager/grants/#permissions"><code>grants</code></a>
-
 

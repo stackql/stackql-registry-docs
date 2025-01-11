@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>profile</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profile.html"><code>AWS::Route53Profiles::Profile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -203,7 +205,8 @@ route53profiles:ListTagsForResource
 ```json
 route53profiles:DeleteProfile,
 route53profiles:GetProfile,
-route53profiles:UntagResource
+route53profiles:UntagResource,
+route53profiles:ListTagsForResource
 ```
 
 ### List
@@ -211,4 +214,3 @@ route53profiles:UntagResource
 route53profiles:ListProfiles,
 route53profiles:ListTagsForResource
 ```
-

@@ -54,6 +54,8 @@ Creates, updates, deletes or gets a <code>flow_source</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html"><code>AWS::MediaConnect::FlowSource</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -330,4 +332,3 @@ mediaconnect:RemoveFlowSource
 ```json
 mediaconnect:DescribeFlow
 ```
-

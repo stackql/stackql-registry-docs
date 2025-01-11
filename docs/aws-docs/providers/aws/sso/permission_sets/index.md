@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>permission_set</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html"><code>AWS::SSO::PermissionSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -292,4 +294,3 @@ sso:DeletePermissionSet
 ```json
 sso:DescribePermissionSet
 ```
-

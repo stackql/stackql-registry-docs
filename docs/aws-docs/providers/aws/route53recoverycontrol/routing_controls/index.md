@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>routing_control</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html"><code>AWS::Route53RecoveryControl::RoutingControl</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -209,4 +211,3 @@ route53-recovery-control-config:DeleteRoutingControl
 ```json
 route53-recovery-control-config:ListRoutingControls
 ```
-

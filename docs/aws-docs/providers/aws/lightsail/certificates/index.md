@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>certificate</code> resource or lists <
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Lightsail::Certificate.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lightsail.certificates" /></td></tr>
 </tbody></table>
 
@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>certificate</code> resource or lists <
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html"><code>AWS::Lightsail::Certificate</code></a>.
 
 ## Methods
 
@@ -221,4 +223,3 @@ lightsail:GetCertificates
 ```json
 lightsail:GetCertificates
 ```
-

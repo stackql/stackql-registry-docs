@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html"><code>AWS::CodeArtifact::Domain</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -193,7 +195,8 @@ codeartifact:CreateDomain,
 codeartifact:DescribeDomain,
 codeartifact:PutDomainPermissionsPolicy,
 codeartifact:GetDomainPermissionsPolicy,
-codeartifact:TagResource
+codeartifact:TagResource,
+codeartifact:ListTagsForResource
 ```
 
 ### Read
@@ -205,11 +208,13 @@ codeartifact:ListTagsForResource
 
 ### Update
 ```json
+codeartifact:DescribeDomain,
 codeartifact:PutDomainPermissionsPolicy,
 codeartifact:DeleteDomainPermissionsPolicy,
 codeartifact:GetDomainPermissionsPolicy,
 codeartifact:TagResource,
-codeartifact:UntagResource
+codeartifact:UntagResource,
+codeartifact:ListTagsForResource
 ```
 
 ### Delete
@@ -222,4 +227,3 @@ codeartifact:DescribeDomain
 ```json
 codeartifact:ListDomains
 ```
-

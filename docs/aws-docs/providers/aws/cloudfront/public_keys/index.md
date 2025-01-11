@@ -25,16 +25,18 @@ Creates, updates, deletes or gets a <code>public_key</code> resource or lists <c
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>public_keys</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::PublicKey</td></tr>
+<tr><td><b>Description</b></td><td>A public key that you can use with &#91;signed URLs and signed cookies&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with &#91;field-level encryption&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.public_keys" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="public_key_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="public_key_config" /></td><td><code>object</code></td><td>Configuration information about a public key that you can use with &#91;signed URLs and signed cookies&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with &#91;field-level encryption&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html"><code>AWS::CloudFront::PublicKey</code></a>.
 
 ## Methods
 
@@ -195,4 +197,3 @@ cloudfront:GetPublicKey
 cloudfront:UpdatePublicKey,
 cloudfront:GetPublicKey
 ```
-

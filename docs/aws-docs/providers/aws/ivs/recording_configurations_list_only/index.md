@@ -31,13 +31,6 @@ Lists <code>recording_configurations</code> in a region or regions, for all prop
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Recording Configuration Name.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>Recording Configuration State.</td></tr>
-<tr><td><CopyableCode code="recording_reconnect_window_seconds" /></td><td><code>integer</code></td><td>Recording Reconnect Window Seconds. (0 means disabled)</td></tr>
-<tr><td><CopyableCode code="destination_configuration" /></td><td><code>object</code></td><td>Recording Destination Configuration.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
-<tr><td><CopyableCode code="thumbnail_configuration" /></td><td><code>object</code></td><td>Recording Thumbnail Configuration.</td></tr>
-<tr><td><CopyableCode code="rendition_configuration" /></td><td><code>object</code></td><td>Rendition Configuration describes which renditions should be recorded for a stream.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>recording_configurations_list_only</code> resource, see <a href="/providers/aws/ivs/recording_configurations/#permissions"><code>recording_configurations</code></a>
-
 

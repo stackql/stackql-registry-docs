@@ -25,17 +25,12 @@ Lists <code>eip_associations</code> in a region or regions, for all properties u
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>eip_associations_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource schema for EC2 EIP association.</td></tr>
+<tr><td><b>Description</b></td><td>Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see &#91;Elastic IP address concepts and rules&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).<br />You must specify <code>AllocationId</code> and either <code>InstanceId</code>, <code>NetworkInterfaceId</code>, or <code>PrivateIpAddress</code>.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.eip_associations_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Composite ID of non-empty properties, to determine the identification.</td></tr>
-<tr><td><CopyableCode code="allocation_id" /></td><td><code>string</code></td><td>The allocation ID. This is required for EC2-VPC.</td></tr>
-<tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the network interface.</td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance.</td></tr>
-<tr><td><CopyableCode code="private_ip_address" /></td><td><code>string</code></td><td>The primary or secondary private IP address to associate with the Elastic IP address.</td></tr>
-<tr><td><CopyableCode code="e_ip" /></td><td><code>string</code></td><td>The Elastic IP address to associate with the instance.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>eip_associations_list_only</code> resource, see <a href="/providers/aws/ec2/eip_associations/#permissions"><code>eip_associations</code></a>
-
 

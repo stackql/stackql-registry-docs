@@ -31,7 +31,7 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="alarm_name" /></td><td><code>string</code></td><td>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.</td></tr>
-<tr><td><CopyableCode code="monitored_resource_name" /></td><td><code>string</code></td><td>The validation status of the SSL/TLS certificate.</td></tr>
+<tr><td><CopyableCode code="monitored_resource_name" /></td><td><code>string</code></td><td>The name of the Lightsail resource that the alarm monitors.</td></tr>
 <tr><td><CopyableCode code="metric_name" /></td><td><code>string</code></td><td>The name of the metric to associate with the alarm.</td></tr>
 <tr><td><CopyableCode code="comparison_operator" /></td><td><code>string</code></td><td>The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.</td></tr>
 <tr><td><CopyableCode code="contact_protocols" /></td><td><code>array</code></td><td>The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.</td></tr>
@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The current state of the alarm.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html"><code>AWS::Lightsail::Alarm</code></a>.
 
 ## Methods
 
@@ -274,4 +276,3 @@ lightsail:GetAlarms
 ```json
 lightsail:GetAlarms
 ```
-

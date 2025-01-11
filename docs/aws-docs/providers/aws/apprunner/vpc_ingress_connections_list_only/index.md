@@ -31,12 +31,6 @@ Lists <code>vpc_ingress_connections</code> in a region or regions, for all prope
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vpc_ingress_connection_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VpcIngressConnection.</td></tr>
-<tr><td><CopyableCode code="vpc_ingress_connection_name" /></td><td><code>string</code></td><td>The customer-provided Vpc Ingress Connection name.</td></tr>
-<tr><td><CopyableCode code="service_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the service.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The current status of the VpcIngressConnection.</td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The Domain name associated with the VPC Ingress Connection.</td></tr>
-<tr><td><CopyableCode code="ingress_vpc_configuration" /></td><td><code>object</code></td><td>The configuration of customer’s VPC and related VPC endpoint</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>vpc_ingress_connections_list_only</code> resource, see <a href="/providers/aws/apprunner/vpc_ingress_connections/#permissions"><code>vpc_ingress_connections</code></a>
-
 

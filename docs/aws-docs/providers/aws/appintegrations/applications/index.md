@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html"><code>AWS::AppIntegrations::Application</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -52,7 +54,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Name, Description, ApplicationSourceConfig, region" /></td>
+    <td><CopyableCode code="Name, Namespace, Description, ApplicationSourceConfig, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -126,12 +128,14 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 /*+ create */
 INSERT INTO aws.appintegrations.applications (
  Name,
+ Namespace,
  Description,
  ApplicationSourceConfig,
  region
 )
 SELECT 
 '{{ Name }}',
+ '{{ Namespace }}',
  '{{ Description }}',
  '{{ ApplicationSourceConfig }}',
 '{{ region }}';
@@ -240,4 +244,3 @@ app-integrations:UntagResource
 ```json
 app-integrations:DeleteApplication
 ```
-

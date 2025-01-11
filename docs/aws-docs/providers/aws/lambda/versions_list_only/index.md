@@ -31,13 +31,6 @@ Lists <code>versions</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="function_arn" /></td><td><code>string</code></td><td>The ARN of the version.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version number.</td></tr>
-<tr><td><CopyableCode code="code_sha256" /></td><td><code>string</code></td><td>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the version to override the description in the function configuration. Updates are not supported for this property.</td></tr>
-<tr><td><CopyableCode code="function_name" /></td><td><code>string</code></td><td>The name of the Lambda function.</td></tr>
-<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>The resource policy of your function</td></tr>
-<tr><td><CopyableCode code="provisioned_concurrency_config" /></td><td><code>object</code></td><td>Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.</td></tr>
-<tr><td><CopyableCode code="runtime_policy" /></td><td><code>object</code></td><td>Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>versions_list_only</code> resource, see <a href="/providers/aws/lambda/versions/#permissions"><code>versions</code></a>
-
 

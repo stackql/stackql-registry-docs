@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>role_alias</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-rolealias.html"><code>AWS::IoT::RoleAlias</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ iot:DescribeRoleAlias
 ```json
 iot:ListRoleAliases
 ```
-

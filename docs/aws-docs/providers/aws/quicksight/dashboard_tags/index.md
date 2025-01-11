@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>dashboards</code> in a region
 <tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this dashboard was updated.</p></td></tr>
 <tr><td><CopyableCode code="validation_strategy" /></td><td><code>object</code></td><td><p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p></td></tr>
+<tr><td><CopyableCode code="folder_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="dashboard_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="link_sharing_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
@@ -81,6 +82,7 @@ theme_arn,
 definition,
 last_updated_time,
 validation_strategy,
+folder_arns,
 dashboard_id,
 link_sharing_configuration,
 name,
@@ -101,5 +103,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>dashboard_tags</code> resource, see <a href="/providers/aws/quicksight/dashboards/#permissions"><code>dashboards</code></a>
-
 

@@ -30,11 +30,7 @@ Lists <code>parameter_groups</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for this cache parameter group.</td></tr>
-<tr><td><CopyableCode code="properties" /></td><td><code>object</code></td><td>A comma-delimited list of parameter name/value pairs. For more information see ModifyCacheParameterGroup in the Amazon ElastiCache API Reference Guide.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.</td></tr>
-<tr><td><CopyableCode code="cache_parameter_group_name" /></td><td><code>string</code></td><td>The name of the Cache Parameter Group.</td></tr>
-<tr><td><CopyableCode code="cache_parameter_group_family" /></td><td><code>string</code></td><td>The name of the cache parameter group family that this cache parameter group is compatible with.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cache_parameter_group_name" /></td><td><code>string</code></td><td>The name of the Cache Parameter Group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>parameter_groups_list_only</code> resource, see <a href="/providers/aws/elasticache/parameter_groups/#permissions"><code>parameter_groups</code></a>
-
 

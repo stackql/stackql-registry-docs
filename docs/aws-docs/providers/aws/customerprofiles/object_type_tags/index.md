@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>object_type_tags</code> resource, see <a href="/providers/aws/customerprofiles/object_types/#permissions"><code>object_types</code></a>
 
-

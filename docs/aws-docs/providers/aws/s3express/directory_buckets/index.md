@@ -30,12 +30,17 @@ Creates, updates, deletes or gets a <code>directory_bucket</code> resource or li
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td>Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.</td></tr>
-<tr><td><CopyableCode code="location_name" /></td><td><code>string</code></td><td>Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.</td></tr>
-<tr><td><CopyableCode code="data_redundancy" /></td><td><code>string</code></td><td>Specifies the number of Availability Zone that's used for redundancy for the bucket.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td>Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.</td></tr>
+<tr><td><CopyableCode code="location_name" /></td><td><code>string</code></td><td>Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.</td></tr>
+<tr><td><CopyableCode code="availability_zone_name" /></td><td><code>string</code></td><td>Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.</td></tr>
+<tr><td><CopyableCode code="data_redundancy" /></td><td><code>string</code></td><td>Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Returns the Amazon Resource Name (ARN) of the specified bucket.</td></tr>
+<tr><td><CopyableCode code="bucket_encryption" /></td><td><code>object</code></td><td>Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).</td></tr>
+<tr><td><CopyableCode code="lifecycle_configuration" /></td><td><code>object</code></td><td>Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html"><code>AWS::S3Express::DirectoryBucket</code></a>.
 
 ## Methods
 
@@ -56,6 +61,11 @@ Creates, updates, deletes or gets a <code>directory_bucket</code> resource or li
     <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
+  </tr>
+  <tr>
     <td><CopyableCode code="list_resources" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="region" /></td>
@@ -74,8 +84,11 @@ SELECT
 region,
 bucket_name,
 location_name,
+availability_zone_name,
 data_redundancy,
-arn
+arn,
+bucket_encryption,
+lifecycle_configuration
 FROM aws.s3express.directory_buckets
 WHERE region = 'us-east-1';
 ```
@@ -85,8 +98,11 @@ SELECT
 region,
 bucket_name,
 location_name,
+availability_zone_name,
 data_redundancy,
-arn
+arn,
+bucket_encryption,
+lifecycle_configuration
 FROM aws.s3express.directory_buckets
 WHERE region = 'us-east-1' AND data__Identifier = '<BucketName>';
 ```
@@ -126,12 +142,16 @@ INSERT INTO aws.s3express.directory_buckets (
  BucketName,
  LocationName,
  DataRedundancy,
+ BucketEncryption,
+ LifecycleConfiguration,
  region
 )
 SELECT 
  '{{ BucketName }}',
  '{{ LocationName }}',
  '{{ DataRedundancy }}',
+ '{{ BucketEncryption }}',
+ '{{ LifecycleConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -155,6 +175,24 @@ resources:
         value: '{{ LocationName }}'
       - name: DataRedundancy
         value: '{{ DataRedundancy }}'
+      - name: BucketEncryption
+        value:
+          ServerSideEncryptionConfiguration:
+            - BucketKeyEnabled: '{{ BucketKeyEnabled }}'
+              ServerSideEncryptionByDefault:
+                KMSMasterKeyID: '{{ KMSMasterKeyID }}'
+                SSEAlgorithm: '{{ SSEAlgorithm }}'
+      - name: LifecycleConfiguration
+        value:
+          Rules:
+            - AbortIncompleteMultipartUpload:
+                DaysAfterInitiation: '{{ DaysAfterInitiation }}'
+              ExpirationInDays: '{{ ExpirationInDays }}'
+              Id: '{{ Id }}'
+              Prefix: '{{ Prefix }}'
+              Status: '{{ Status }}'
+              ObjectSizeGreaterThan: '{{ ObjectSizeGreaterThan }}'
+              ObjectSizeLessThan: '{{ ObjectSizeLessThan }}'
 
 ```
 </TabItem>
@@ -175,13 +213,28 @@ To operate on the <code>directory_buckets</code> resource, the following permiss
 
 ### Create
 ```json
+kms:GenerateDataKey,
+kms:Decrypt,
 s3express:CreateBucket,
-s3express:ListAllMyDirectoryBuckets
+s3express:ListAllMyDirectoryBuckets,
+s3express:PutEncryptionConfiguration,
+s3express:PutLifecycleConfiguration
 ```
 
 ### Read
 ```json
-s3express:ListAllMyDirectoryBuckets
+s3express:ListAllMyDirectoryBuckets,
+ec2:DescribeAvailabilityZones,
+s3express:GetEncryptionConfiguration,
+s3express:GetLifecycleConfiguration
+```
+
+### Update
+```json
+kms:GenerateDataKey,
+kms:Decrypt,
+s3express:PutEncryptionConfiguration,
+s3express:PutLifecycleConfiguration
 ```
 
 ### Delete
@@ -194,4 +247,3 @@ s3express:ListAllMyDirectoryBuckets
 ```json
 s3express:ListAllMyDirectoryBuckets
 ```
-

@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>document_classifier_tags</code> resource, see <a href="/providers/aws/comprehend/document_classifiers/#permissions"><code>document_classifiers</code></a>
 
-

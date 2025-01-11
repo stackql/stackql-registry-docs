@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>custom_action_type_tags</code> resource, see <a href="/providers/aws/codepipeline/custom_action_types/#permissions"><code>custom_action_types</code></a>
 
-

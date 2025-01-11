@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>configuration_set</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html"><code>AWS::SES::ConfigurationSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -186,10 +188,12 @@ resources:
       - name: TrackingOptions
         value:
           CustomRedirectDomain: '{{ CustomRedirectDomain }}'
+          HttpsPolicy: '{{ HttpsPolicy }}'
       - name: DeliveryOptions
         value:
           TlsPolicy: '{{ TlsPolicy }}'
           SendingPoolName: '{{ SendingPoolName }}'
+          MaxDeliverySeconds: null
       - name: ReputationOptions
         value:
           ReputationMetricsEnabled: '{{ ReputationMetricsEnabled }}'
@@ -254,4 +258,3 @@ ses:DeleteConfigurationSet
 ```json
 ses:ListConfigurationSets
 ```
-

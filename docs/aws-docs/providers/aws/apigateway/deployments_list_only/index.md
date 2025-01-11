@@ -31,11 +31,7 @@ Lists <code>deployments</code> in a region or regions, for all properties use <a
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for the Deployment resource to create.</td></tr>
-<tr><td><CopyableCode code="stage_description" /></td><td><code>object</code></td><td>The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.</td></tr>
-<tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td>The name of the Stage resource for the Deployment resource to create.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><CopyableCode code="deployment_canary_settings" /></td><td><code>object</code></td><td>The input configuration for a canary deployment.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>deployments_list_only</code> resource, see <a href="/providers/aws/apigateway/deployments/#permissions"><code>deployments</code></a>
-
 

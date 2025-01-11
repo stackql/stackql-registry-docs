@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>replicator</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html"><code>AWS::MSK::Replicator</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -208,6 +210,8 @@ resources:
               DetectAndCopyNewTopics: '{{ DetectAndCopyNewTopics }}'
               StartingPosition:
                 Type: '{{ Type }}'
+              TopicNameConfiguration:
+                Type: '{{ Type }}'
             ConsumerGroupReplication:
               ConsumerGroupsToReplicate:
                 - '{{ ConsumerGroupsToReplicate[0] }}'
@@ -283,4 +287,3 @@ kafka:UntagResource
 ```json
 kafka:ListReplicators
 ```
-

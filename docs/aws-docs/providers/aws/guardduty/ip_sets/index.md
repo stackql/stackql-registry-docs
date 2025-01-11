@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html"><code>AWS::GuardDuty::IPSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -229,11 +231,12 @@ iam:DeleteRolePolicy
 guardduty:UpdateIPSet,
 guardduty:GetIPSet,
 guardduty:ListIPSets,
-iam:PutRolePolicy
+iam:PutRolePolicy,
+guardduty:TagResource,
+guardduty:UntagResource
 ```
 
 ### List
 ```json
 guardduty:ListIPSets
 ```
-

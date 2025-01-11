@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>hub</code> resource or lists <code>hub
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-hub.html"><code>AWS::SecurityHub::Hub</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -225,4 +227,3 @@ securityhub:DisableSecurityHub
 securityhub:DescribeHub,
 securityhub:ListTagsForResource
 ```
-

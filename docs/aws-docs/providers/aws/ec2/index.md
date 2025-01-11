@@ -20,7 +20,7 @@ The ec2 service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>208</b></span><br />
+<span>total resources:&nbsp;<b>216</b></span><br />
 </div>
 </div>
 
@@ -132,13 +132,13 @@ The ec2 service documentation.
 <a href="/providers/aws/ec2/placement_groups/">placement_groups</a><br />
 <a href="/providers/aws/ec2/placement_groups_list_only/">placement_groups_list_only</a><br />
 <a href="/providers/aws/ec2/prefix_list_tags/">prefix_list_tags</a><br />
-<a href="/providers/aws/ec2/prefix_lists/">prefix_lists</a>
-</div>
-<div class="providerDocColumn">
+<a href="/providers/aws/ec2/prefix_lists/">prefix_lists</a><br />
 <a href="/providers/aws/ec2/prefix_lists_list_only/">prefix_lists_list_only</a><br />
 <a href="/providers/aws/ec2/route_table_tags/">route_table_tags</a><br />
 <a href="/providers/aws/ec2/route_tables/">route_tables</a><br />
-<a href="/providers/aws/ec2/route_tables_list_only/">route_tables_list_only</a><br />
+<a href="/providers/aws/ec2/route_tables_list_only/">route_tables_list_only</a>
+</div>
+<div class="providerDocColumn">
 <a href="/providers/aws/ec2/routes/">routes</a><br />
 <a href="/providers/aws/ec2/routes_list_only/">routes_list_only</a><br />
 <a href="/providers/aws/ec2/security_group_egresses/">security_group_egresses</a><br />
@@ -146,6 +146,8 @@ The ec2 service documentation.
 <a href="/providers/aws/ec2/security_group_ingresses/">security_group_ingresses</a><br />
 <a href="/providers/aws/ec2/security_group_ingresses_list_only/">security_group_ingresses_list_only</a><br />
 <a href="/providers/aws/ec2/security_group_tags/">security_group_tags</a><br />
+<a href="/providers/aws/ec2/security_group_vpc_associations/">security_group_vpc_associations</a><br />
+<a href="/providers/aws/ec2/security_group_vpc_associations_list_only/">security_group_vpc_associations_list_only</a><br />
 <a href="/providers/aws/ec2/security_groups/">security_groups</a><br />
 <a href="/providers/aws/ec2/security_groups_list_only/">security_groups_list_only</a><br />
 <a href="/providers/aws/ec2/snapshot_block_public_accesses/">snapshot_block_public_accesses</a><br />
@@ -211,14 +213,20 @@ The ec2 service documentation.
 <a href="/providers/aws/ec2/volume_tags/">volume_tags</a><br />
 <a href="/providers/aws/ec2/volumes/">volumes</a><br />
 <a href="/providers/aws/ec2/volumes_list_only/">volumes_list_only</a><br />
+<a href="/providers/aws/ec2/vpc_block_public_access_exclusion_tags/">vpc_block_public_access_exclusion_tags</a><br />
+<a href="/providers/aws/ec2/vpc_block_public_access_exclusions/">vpc_block_public_access_exclusions</a><br />
+<a href="/providers/aws/ec2/vpc_block_public_access_exclusions_list_only/">vpc_block_public_access_exclusions_list_only</a><br />
+<a href="/providers/aws/ec2/vpc_block_public_access_options/">vpc_block_public_access_options</a><br />
 <a href="/providers/aws/ec2/vpc_cidr_blocks/">vpc_cidr_blocks</a><br />
 <a href="/providers/aws/ec2/vpc_cidr_blocks_list_only/">vpc_cidr_blocks_list_only</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_connection_notifications/">vpc_endpoint_connection_notifications</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_connection_notifications_list_only/">vpc_endpoint_connection_notifications_list_only</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_service_permissions/">vpc_endpoint_service_permissions</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_service_permissions_list_only/">vpc_endpoint_service_permissions_list_only</a><br />
+<a href="/providers/aws/ec2/vpc_endpoint_service_tags/">vpc_endpoint_service_tags</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_services/">vpc_endpoint_services</a><br />
 <a href="/providers/aws/ec2/vpc_endpoint_services_list_only/">vpc_endpoint_services_list_only</a><br />
+<a href="/providers/aws/ec2/vpc_endpoint_tags/">vpc_endpoint_tags</a><br />
 <a href="/providers/aws/ec2/vpc_endpoints/">vpc_endpoints</a><br />
 <a href="/providers/aws/ec2/vpc_endpoints_list_only/">vpc_endpoints_list_only</a><br />
 <a href="/providers/aws/ec2/vpc_gateway_attachments/">vpc_gateway_attachments</a><br />

@@ -46,6 +46,8 @@ Expands all tag keys and values for <code>canaries</code> in a region
 <tr><td><CopyableCode code="start_canary_after_creation" /></td><td><code>boolean</code></td><td>Runs canary if set to True. Default is False</td></tr>
 <tr><td><CopyableCode code="visual_reference" /></td><td><code>object</code></td><td>Visual reference configuration for visual testing</td></tr>
 <tr><td><CopyableCode code="delete_lambda_resources_on_canary_deletion" /></td><td><code>boolean</code></td><td>Deletes associated lambda resources created by Synthetics if set to True. Default is False</td></tr>
+<tr><td><CopyableCode code="resources_to_replicate_tags" /></td><td><code>array</code></td><td>List of resources which canary tags should be replicated to.</td></tr>
+<tr><td><CopyableCode code="provisioned_resource_cleanup" /></td><td><code>string</code></td><td>Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -87,6 +89,8 @@ run_config,
 start_canary_after_creation,
 visual_reference,
 delete_lambda_resources_on_canary_deletion,
+resources_to_replicate_tags,
+provisioned_resource_cleanup,
 tag_key,
 tag_value
 FROM aws.synthetics.canary_tags
@@ -97,5 +101,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>canary_tags</code> resource, see <a href="/providers/aws/synthetics/canaries/#permissions"><code>canaries</code></a>
-
 

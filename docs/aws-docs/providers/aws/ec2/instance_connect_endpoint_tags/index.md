@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>instance_connect_endpoint_tags</code> resource, see <a href="/providers/aws/ec2/instance_connect_endpoints/#permissions"><code>instance_connect_endpoints</code></a>
 
-

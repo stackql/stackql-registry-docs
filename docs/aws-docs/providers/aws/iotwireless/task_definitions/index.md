@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html"><code>AWS::IoTWireless::TaskDefinition</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -58,6 +60,11 @@ Creates, updates, deletes or gets a <code>task_definition</code> resource or lis
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -213,9 +220,15 @@ To operate on the <code>task_definitions</code> resource, the following permissi
 ```json
 iotwireless:CreateWirelessGatewayTaskDefinition,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource,
 iam:GetRole,
 iam:PassRole
+```
+
+### Update
+```json
+iotwireless:GetWirelessGatewayTaskDefinition,
+iotwireless:TagResource,
+iotwireless:UntagResource
 ```
 
 ### Read
@@ -234,4 +247,3 @@ iotwireless:DeleteWirelessGatewayTaskDefinition
 iotwireless:ListWirelessGatewayTaskDefinitions,
 iotwireless:ListTagsForResource
 ```
-

@@ -49,6 +49,8 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html"><code>AWS::MediaPackage::OriginEndpoint</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -332,6 +334,10 @@ mediapackage:DescribeOriginEndpoint
 ### Update
 ```json
 mediapackage:UpdateOriginEndpoint,
+mediapackage:TagResource,
+mediapackage:ListTagsForResource,
+mediapackage:UntagResource,
+mediapackage:DescribeOriginEndpoint,
 iam:PassRole
 ```
 
@@ -344,4 +350,3 @@ mediapackage:DeleteOriginEndpoint
 ```json
 mediapackage:ListOriginEndpoints
 ```
-

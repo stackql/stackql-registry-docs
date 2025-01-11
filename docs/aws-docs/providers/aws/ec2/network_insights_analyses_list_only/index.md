@@ -30,21 +30,7 @@ Lists <code>network_insights_analyses</code> in a region or regions, for all pro
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="return_path_components" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_insights_analysis_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_insights_path_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_path_found" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="suggested_accounts" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="filter_in_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_insights_analysis_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="start_date" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="alternate_path_hints" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="explanations" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="forward_path_components" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="additional_accounts" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="network_insights_analysis_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>network_insights_analyses_list_only</code> resource, see <a href="/providers/aws/ec2/network_insights_analyses/#permissions"><code>network_insights_analyses</code></a>
-
 

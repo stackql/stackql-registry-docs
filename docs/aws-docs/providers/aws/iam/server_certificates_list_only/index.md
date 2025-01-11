@@ -30,13 +30,7 @@ Lists <code>server_certificates</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_body" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_chain" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_certificate_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="path" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="private_key" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the server certificate</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="server_certificate_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ FROM aws.iam.server_certificates_list_only
 ## Permissions
 
 For permissions required to operate on the <code>server_certificates_list_only</code> resource, see <a href="/providers/aws/iam/server_certificates/#permissions"><code>server_certificates</code></a>
-
 

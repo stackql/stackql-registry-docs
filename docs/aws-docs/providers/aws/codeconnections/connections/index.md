@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>connection</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeconnections-connection.html"><code>AWS::CodeConnections::Connection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -220,4 +222,3 @@ codeconnections:DeleteConnection
 codeconnections:ListConnections,
 codeconnections:ListTagsForResource
 ```
-

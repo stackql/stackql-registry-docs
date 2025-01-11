@@ -34,6 +34,7 @@ Expands all tag keys and values for <code>datasets</code> in a region
 <tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td>Dataset format</td></tr>
 <tr><td><CopyableCode code="format_options" /></td><td><code>object</code></td><td>Format options for dataset</td></tr>
 <tr><td><CopyableCode code="input" /></td><td><code>object</code></td><td>Input</td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td>Source type of the dataset</td></tr>
 <tr><td><CopyableCode code="path_options" /></td><td><code>object</code></td><td>PathOptions</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -64,6 +65,7 @@ name,
 format,
 format_options,
 input,
+source,
 path_options,
 tag_key,
 tag_value
@@ -75,5 +77,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>dataset_tags</code> resource, see <a href="/providers/aws/databrew/datasets/#permissions"><code>datasets</code></a>
-
 

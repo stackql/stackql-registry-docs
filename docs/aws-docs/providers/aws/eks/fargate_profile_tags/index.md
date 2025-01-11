@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>fargate_profile_tags</code> resource, see <a href="/providers/aws/eks/fargate_profiles/#permissions"><code>fargate_profiles</code></a>
 
-

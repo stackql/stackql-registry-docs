@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>regex_pattern_set</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html"><code>AWS::WAFv2::RegexPatternSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,11 +223,12 @@ wafv2:ListTagsForResource
 ```json
 wafv2:UpdateRegexPatternSet,
 wafv2:GetRegexPatternSet,
-wafv2:ListTagsForResource
+wafv2:ListTagsForResource,
+wafv2:TagResource,
+wafv2:UntagResource
 ```
 
 ### List
 ```json
 wafv2:listRegexPatternSets
 ```
-

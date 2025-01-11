@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>conformance_pack</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html"><code>AWS::Config::ConformancePack</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -241,4 +243,3 @@ config:DescribeConformancePackStatus
 ```json
 config:DescribeConformancePacks
 ```
-

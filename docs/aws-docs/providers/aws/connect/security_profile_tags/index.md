@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>security_profile_tags</code> resource, see <a href="/providers/aws/connect/security_profiles/#permissions"><code>security_profiles</code></a>
 
-

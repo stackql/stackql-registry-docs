@@ -33,10 +33,14 @@ Expands all tag keys and values for <code>transformers</code> in a region
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="edi_type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="file_format" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="input_conversion" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="mapping" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td>This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.</td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_conversion" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td>This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.</td></tr>
+<tr><td><CopyableCode code="sample_documents" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_id" /></td><td><code>string</code></td><td></td></tr>
@@ -68,10 +72,14 @@ region,
 created_at,
 edi_type,
 file_format,
+input_conversion,
+mapping,
 mapping_template,
 modified_at,
 name,
+output_conversion,
 sample_document,
+sample_documents,
 status,
 transformer_arn,
 transformer_id,
@@ -85,5 +93,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>transformer_tags</code> resource, see <a href="/providers/aws/b2bi/transformers/#permissions"><code>transformers</code></a>
-
 

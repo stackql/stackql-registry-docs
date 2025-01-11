@@ -30,9 +30,7 @@ Lists <code>template_group_access_control_entries</code> in a region or regions,
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_rights" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="group_display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="group_security_identifier" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="group_security_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="template_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>template_group_access_control_entries_list_only</code> resource, see <a href="/providers/aws/pcaconnectorad/template_group_access_control_entries/#permissions"><code>template_group_access_control_entries</code></a>
-
 

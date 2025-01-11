@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>training_dataset</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanroomsml-trainingdataset.html"><code>AWS::CleanRoomsML::TrainingDataset</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -238,4 +240,3 @@ cleanrooms-ml:ListTrainingDatasets
 cleanrooms-ml:TagResource,
 cleanrooms-ml:UntagResource
 ```
-

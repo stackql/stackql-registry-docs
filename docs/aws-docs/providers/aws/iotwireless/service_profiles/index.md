@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>service_profile</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html"><code>AWS::IoTWireless::ServiceProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -55,6 +57,11 @@ Creates, updates, deletes or gets a <code>service_profile</code> resource or lis
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -198,8 +205,14 @@ To operate on the <code>service_profiles</code> resource, the following permissi
 ### Create
 ```json
 iotwireless:CreateServiceProfile,
+iotwireless:TagResource
+```
+
+### Update
+```json
+iotwireless:GetServiceProfile,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:UntagResource
 ```
 
 ### Read
@@ -218,4 +231,3 @@ iotwireless:DeleteServiceProfile
 iotwireless:ListServiceProfiles,
 iotwireless:ListTagsForResource
 ```
-

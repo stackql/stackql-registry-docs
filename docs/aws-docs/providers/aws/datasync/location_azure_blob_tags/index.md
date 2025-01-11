@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_azure_blob_tags</code> resource, see <a href="/providers/aws/datasync/location_azure_blobs/#permissions"><code>location_azure_blobs</code></a>
 
-

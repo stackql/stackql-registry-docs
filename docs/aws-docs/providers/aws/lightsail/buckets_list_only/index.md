@@ -31,15 +31,6 @@ Lists <code>buckets</code> in a region or regions, for all properties use <a hre
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td>The name for the bucket.</td></tr>
-<tr><td><CopyableCode code="bundle_id" /></td><td><code>string</code></td><td>The ID of the bundle to use for the bucket.</td></tr>
-<tr><td><CopyableCode code="bucket_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="object_versioning" /></td><td><code>boolean</code></td><td>Specifies whether to enable or disable versioning of objects in the bucket.</td></tr>
-<tr><td><CopyableCode code="access_rules" /></td><td><code>object</code></td><td>An object that sets the public accessibility of objects in the specified bucket.</td></tr>
-<tr><td><CopyableCode code="resources_receiving_access" /></td><td><code>array</code></td><td>The names of the Lightsail resources for which to set bucket access.</td></tr>
-<tr><td><CopyableCode code="read_only_access_accounts" /></td><td><code>array</code></td><td>An array of strings to specify the AWS account IDs that can access the bucket.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="url" /></td><td><code>string</code></td><td>The URL of the bucket.</td></tr>
-<tr><td><CopyableCode code="able_to_update_bundle" /></td><td><code>boolean</code></td><td>Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>buckets_list_only</code> resource, see <a href="/providers/aws/lightsail/buckets/#permissions"><code>buckets</code></a>
-
 

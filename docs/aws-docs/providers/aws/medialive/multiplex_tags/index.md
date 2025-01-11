@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>multiplex_tags</code> resource, see <a href="/providers/aws/medialive/multiplexes/#permissions"><code>multiplexes</code></a>
 
-

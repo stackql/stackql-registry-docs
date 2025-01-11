@@ -33,12 +33,19 @@ Expands all tag keys and values for <code>applications</code> in a region
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="attachments_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_subscription_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_ids_for_oid_c" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="iam_identity_provider_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_center_application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_center_instance_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="personalization_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="q_apps_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="quick_sight_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
@@ -70,12 +77,19 @@ region,
 application_arn,
 application_id,
 attachments_configuration,
+auto_subscription_configuration,
+client_ids_for_oid_c,
 created_at,
 description,
 display_name,
 encryption_configuration,
+iam_identity_provider_arn,
 identity_center_application_arn,
 identity_center_instance_arn,
+identity_type,
+personalization_configuration,
+q_apps_configuration,
+quick_sight_configuration,
 role_arn,
 status,
 updated_at,
@@ -89,5 +103,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>application_tags</code> resource, see <a href="/providers/aws/qbusiness/applications/#permissions"><code>applications</code></a>
-
 

@@ -35,6 +35,7 @@ Expands all tag keys and values for <code>restore_testing_plans</code> in a regi
 <tr><td><CopyableCode code="restore_testing_plan_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule_expression_timezone" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="start_window_hours" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -66,6 +67,7 @@ restore_testing_plan_arn,
 restore_testing_plan_name,
 schedule_expression,
 schedule_expression_timezone,
+schedule_status,
 start_window_hours,
 tag_key,
 tag_value
@@ -77,5 +79,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>restore_testing_plan_tags</code> resource, see <a href="/providers/aws/backup/restore_testing_plans/#permissions"><code>restore_testing_plans</code></a>
-
 

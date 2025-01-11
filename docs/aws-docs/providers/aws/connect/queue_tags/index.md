@@ -36,6 +36,7 @@ Expands all tag keys and values for <code>queues</code> in a region
 <tr><td><CopyableCode code="max_contacts" /></td><td><code>integer</code></td><td>The maximum number of contacts that can be in the queue before it is considered full.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the queue.</td></tr>
 <tr><td><CopyableCode code="outbound_caller_config" /></td><td><code>object</code></td><td>The outbound caller ID name, number, and outbound whisper flow.</td></tr>
+<tr><td><CopyableCode code="outbound_email_config" /></td><td><code>object</code></td><td>The outbound email address ID.</td></tr>
 <tr><td><CopyableCode code="queue_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the queue.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the queue.</td></tr>
 <tr><td><CopyableCode code="quick_connect_arns" /></td><td><code>array</code></td><td>The quick connects available to agents who are working the queue.</td></tr>
@@ -71,6 +72,7 @@ hours_of_operation_arn,
 max_contacts,
 name,
 outbound_caller_config,
+outbound_email_config,
 queue_arn,
 status,
 quick_connect_arns,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>queue_tags</code> resource, see <a href="/providers/aws/connect/queues/#permissions"><code>queues</code></a>
-
 

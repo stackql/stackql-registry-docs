@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html"><code>AWS::Bedrock::DataSource</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,6 +198,50 @@ resources:
             InclusionPrefixes:
               - '{{ InclusionPrefixes[0] }}'
             BucketOwnerAccountId: '{{ BucketOwnerAccountId }}'
+          ConfluenceConfiguration:
+            SourceConfiguration:
+              HostUrl: '{{ HostUrl }}'
+              HostType: '{{ HostType }}'
+              AuthType: '{{ AuthType }}'
+              CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+            CrawlerConfiguration:
+              FilterConfiguration:
+                Type: '{{ Type }}'
+                PatternObjectFilter:
+                  Filters:
+                    - ObjectType: '{{ ObjectType }}'
+                      InclusionFilters:
+                        - '{{ InclusionFilters[0] }}'
+                      ExclusionFilters: null
+          SalesforceConfiguration:
+            SourceConfiguration:
+              HostUrl: '{{ HostUrl }}'
+              AuthType: '{{ AuthType }}'
+              CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+            CrawlerConfiguration:
+              FilterConfiguration: null
+          SharePointConfiguration:
+            SourceConfiguration:
+              SiteUrls:
+                - '{{ SiteUrls[0] }}'
+              HostType: '{{ HostType }}'
+              AuthType: '{{ AuthType }}'
+              CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+              TenantId: '{{ TenantId }}'
+              Domain: '{{ Domain }}'
+            CrawlerConfiguration:
+              FilterConfiguration: null
+          WebConfiguration:
+            SourceConfiguration:
+              UrlConfiguration:
+                SeedUrls:
+                  - Url: '{{ Url }}'
+            CrawlerConfiguration:
+              CrawlerLimits:
+                RateLimit: '{{ RateLimit }}'
+              InclusionFilters: null
+              ExclusionFilters: null
+              Scope: '{{ Scope }}'
       - name: Description
         value: '{{ Description }}'
       - name: KnowledgeBaseId
@@ -212,6 +258,32 @@ resources:
             FixedSizeChunkingConfiguration:
               MaxTokens: '{{ MaxTokens }}'
               OverlapPercentage: '{{ OverlapPercentage }}'
+            HierarchicalChunkingConfiguration:
+              LevelConfigurations:
+                - MaxTokens: '{{ MaxTokens }}'
+              OverlapTokens: '{{ OverlapTokens }}'
+            SemanticChunkingConfiguration:
+              BreakpointPercentileThreshold: '{{ BreakpointPercentileThreshold }}'
+              BufferSize: '{{ BufferSize }}'
+              MaxTokens: '{{ MaxTokens }}'
+          CustomTransformationConfiguration:
+            IntermediateStorage:
+              S3Location:
+                URI: '{{ URI }}'
+            Transformations:
+              - StepToApply: '{{ StepToApply }}'
+                TransformationFunction:
+                  TransformationLambdaConfiguration:
+                    LambdaArn: '{{ LambdaArn }}'
+          ParsingConfiguration:
+            ParsingStrategy: '{{ ParsingStrategy }}'
+            BedrockFoundationModelConfiguration:
+              ModelArn: '{{ ModelArn }}'
+              ParsingPrompt:
+                ParsingPromptText: '{{ ParsingPromptText }}'
+              ParsingModality: '{{ ParsingModality }}'
+            BedrockDataAutomationConfiguration:
+              ParsingModality: null
       - name: DataDeletionPolicy
         value: '{{ DataDeletionPolicy }}'
 
@@ -260,4 +332,3 @@ bedrock:DeleteDataSource
 ```json
 bedrock:ListDataSources
 ```
-

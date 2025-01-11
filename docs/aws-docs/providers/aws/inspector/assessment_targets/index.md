@@ -36,6 +36,8 @@ Creates, updates, deletes or gets an <code>assessment_target</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html"><code>AWS::Inspector::AssessmentTarget</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -198,4 +200,3 @@ inspector:DeleteAssessmentTarget
 ```json
 inspector:ListAssessmentTargets
 ```
-

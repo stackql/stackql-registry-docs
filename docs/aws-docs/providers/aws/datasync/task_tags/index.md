@@ -41,6 +41,7 @@ Expands all tag keys and values for <code>tasks</code> in a region
 <tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td>Specifies the schedule you want your task to use for repeated executions.</td></tr>
 <tr><td><CopyableCode code="source_location_arn" /></td><td><code>string</code></td><td>The ARN of the source location for the task.</td></tr>
 <tr><td><CopyableCode code="task_arn" /></td><td><code>string</code></td><td>The ARN of the task.</td></tr>
+<tr><td><CopyableCode code="task_mode" /></td><td><code>string</code></td><td>Specifies the task mode for the task.</td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the task that was described.</td></tr>
 <tr><td><CopyableCode code="source_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the source ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
 <tr><td><CopyableCode code="destination_network_interface_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the destination ENIs (Elastic Network Interfaces) that were created for your subnet.</td></tr>
@@ -80,6 +81,7 @@ manifest_config,
 schedule,
 source_location_arn,
 task_arn,
+task_mode,
 status,
 source_network_interface_arns,
 destination_network_interface_arns,
@@ -93,5 +95,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>task_tags</code> resource, see <a href="/providers/aws/datasync/tasks/#permissions"><code>tasks</code></a>
-
 

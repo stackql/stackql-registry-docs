@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>id_namespace_tags</code> resource, see <a href="/providers/aws/entityresolution/id_namespaces/#permissions"><code>id_namespaces</code></a>
 
-

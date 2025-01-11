@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>accessor</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-accessor.html"><code>AWS::ManagedBlockchain::Accessor</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ managedblockchain:DeleteAccessor
 ```json
 managedblockchain:ListAccessors
 ```
-

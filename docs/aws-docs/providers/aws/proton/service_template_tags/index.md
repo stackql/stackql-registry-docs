@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>service_template_tags</code> resource, see <a href="/providers/aws/proton/service_templates/#permissions"><code>service_templates</code></a>
 
-

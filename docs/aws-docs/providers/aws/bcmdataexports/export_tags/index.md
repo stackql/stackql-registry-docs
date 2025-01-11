@@ -70,4 +70,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>export_tags</code> resource, see <a href="/providers/aws/bcmdataexports/exports/#permissions"><code>exports</code></a>
 
-

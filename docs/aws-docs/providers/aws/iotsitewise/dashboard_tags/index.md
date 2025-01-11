@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>dashboard_tags</code> resource, see <a href="/providers/aws/iotsitewise/dashboards/#permissions"><code>dashboards</code></a>
 
-

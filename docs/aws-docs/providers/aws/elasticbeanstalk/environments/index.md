@@ -46,6 +46,8 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html"><code>AWS::ElasticBeanstalk::Environment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -259,6 +261,8 @@ elasticbeanstalk:ListTagsForResource
 ```json
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:CreateEnvironment,
+elasticbeanstalk:AddTags,
+elasticbeanstalk:ListTagsForResource,
 iam:PassRole
 ```
 
@@ -266,15 +270,22 @@ iam:PassRole
 ```json
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:UpdateEnvironment,
-elasticbeanstalk:UpdateTagsForResource,
 elasticbeanstalk:AssociateEnvironmentOperationsRole,
 elasticbeanstalk:DisassociateEnvironmentOperationsRole,
+elasticbeanstalk:AddTags,
+elasticbeanstalk:ListTagsForResource,
+elasticbeanstalk:RemoveTags,
+s3:GetBucketLocation,
+s3:GetBucketPolicy,
+s3:ListBucket,
+s3:PutBucketPolicy,
 iam:PassRole
 ```
 
 ### List
 ```json
-elasticbeanstalk:DescribeEnvironments
+elasticbeanstalk:DescribeEnvironments,
+elasticbeanstalk:ListTagsForResource
 ```
 
 ### Delete
@@ -282,4 +293,3 @@ elasticbeanstalk:DescribeEnvironments
 elasticbeanstalk:DescribeEnvironments,
 elasticbeanstalk:TerminateEnvironment
 ```
-

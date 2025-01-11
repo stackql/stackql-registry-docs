@@ -47,8 +47,12 @@ Creates, updates, deletes or gets a <code>canary</code> resource or lists <code>
 <tr><td><CopyableCode code="start_canary_after_creation" /></td><td><code>boolean</code></td><td>Runs canary if set to True. Default is False</td></tr>
 <tr><td><CopyableCode code="visual_reference" /></td><td><code>object</code></td><td>Visual reference configuration for visual testing</td></tr>
 <tr><td><CopyableCode code="delete_lambda_resources_on_canary_deletion" /></td><td><code>boolean</code></td><td>Deletes associated lambda resources created by Synthetics if set to True. Default is False</td></tr>
+<tr><td><CopyableCode code="resources_to_replicate_tags" /></td><td><code>array</code></td><td>List of resources which canary tags should be replicated to.</td></tr>
+<tr><td><CopyableCode code="provisioned_resource_cleanup" /></td><td><code>string</code></td><td>Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html"><code>AWS::Synthetics::Canary</code></a>.
 
 ## Methods
 
@@ -106,7 +110,9 @@ vpc_config,
 run_config,
 start_canary_after_creation,
 visual_reference,
-delete_lambda_resources_on_canary_deletion
+delete_lambda_resources_on_canary_deletion,
+resources_to_replicate_tags,
+provisioned_resource_cleanup
 FROM aws.synthetics.canaries
 WHERE region = 'us-east-1';
 ```
@@ -130,7 +136,9 @@ vpc_config,
 run_config,
 start_canary_after_creation,
 visual_reference,
-delete_lambda_resources_on_canary_deletion
+delete_lambda_resources_on_canary_deletion,
+resources_to_replicate_tags,
+provisioned_resource_cleanup
 FROM aws.synthetics.canaries
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
@@ -190,6 +198,8 @@ INSERT INTO aws.synthetics.canaries (
  StartCanaryAfterCreation,
  VisualReference,
  DeleteLambdaResourcesOnCanaryDeletion,
+ ResourcesToReplicateTags,
+ ProvisionedResourceCleanup,
  region
 )
 SELECT 
@@ -208,6 +218,8 @@ SELECT
  '{{ StartCanaryAfterCreation }}',
  '{{ VisualReference }}',
  '{{ DeleteLambdaResourcesOnCanaryDeletion }}',
+ '{{ ResourcesToReplicateTags }}',
+ '{{ ProvisionedResourceCleanup }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -265,6 +277,7 @@ resources:
             - '{{ SubnetIds[0] }}'
           SecurityGroupIds:
             - '{{ SecurityGroupIds[0] }}'
+          Ipv6AllowedForDualStack: '{{ Ipv6AllowedForDualStack }}'
       - name: RunConfig
         value:
           TimeoutInSeconds: '{{ TimeoutInSeconds }}'
@@ -282,6 +295,11 @@ resources:
                 - '{{ IgnoreCoordinates[0] }}'
       - name: DeleteLambdaResourcesOnCanaryDeletion
         value: '{{ DeleteLambdaResourcesOnCanaryDeletion }}'
+      - name: ResourcesToReplicateTags
+        value:
+          - '{{ ResourcesToReplicateTags[0] }}'
+      - name: ProvisionedResourceCleanup
+        value: '{{ ProvisionedResourceCleanup }}'
 
 ```
 </TabItem>
@@ -315,11 +333,13 @@ s3:GetBucketLocation,
 lambda:CreateFunction,
 lambda:AddPermission,
 lambda:PublishVersion,
+lambda:UpdateFunctionCode,
 lambda:UpdateFunctionConfiguration,
 lambda:GetFunctionConfiguration,
 lambda:GetLayerVersionByArn,
 lambda:GetLayerVersion,
 lambda:PublishLayerVersion,
+lambda:TagResource,
 ec2:DescribeVpcs,
 ec2:DescribeSubnets,
 ec2:DescribeSecurityGroups,
@@ -341,12 +361,19 @@ s3:PutEncryptionConfiguration,
 s3:GetBucketLocation,
 lambda:AddPermission,
 lambda:PublishVersion,
+lambda:UpdateFunctionCode,
 lambda:UpdateFunctionConfiguration,
 lambda:GetFunctionConfiguration,
 lambda:GetLayerVersionByArn,
 lambda:GetLayerVersion,
 lambda:PublishLayerVersion,
-iam:PassRole
+lambda:ListTags,
+lambda:TagResource,
+lambda:UntagResource,
+iam:PassRole,
+ec2:DescribeVpcs,
+ec2:DescribeSubnets,
+ec2:DescribeSecurityGroups
 ```
 
 ### Read
@@ -362,11 +389,12 @@ s3:GetBucketLocation
 ### Delete
 ```json
 synthetics:DeleteCanary,
-synthetics:GetCanary
+synthetics:GetCanary,
+lambda:DeleteFunction,
+lambda:DeleteLayerVersion
 ```
 
 ### List
 ```json
 synthetics:DescribeCanaries
 ```
-

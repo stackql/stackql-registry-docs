@@ -44,6 +44,7 @@ Expands all tag keys and values for <code>agents</code> in a region
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
 <tr><td><CopyableCode code="failure_reasons" /></td><td><code>array</code></td><td>Failure Reasons for Error.</td></tr>
 <tr><td><CopyableCode code="foundation_model" /></td><td><code>string</code></td><td>ARN or name of a Bedrock model.</td></tr>
+<tr><td><CopyableCode code="guardrail_configuration" /></td><td><code>object</code></td><td>Configuration for a guardrail</td></tr>
 <tr><td><CopyableCode code="idle_session_ttl_in_seconds" /></td><td><code>number</code></td><td>Max Session Time.</td></tr>
 <tr><td><CopyableCode code="instruction" /></td><td><code>string</code></td><td>Instruction for the agent.</td></tr>
 <tr><td><CopyableCode code="knowledge_bases" /></td><td><code>array</code></td><td>List of Agent Knowledge Bases</td></tr>
@@ -91,6 +92,7 @@ skip_resource_in_use_check_on_delete,
 description,
 failure_reasons,
 foundation_model,
+guardrail_configuration,
 idle_session_ttl_in_seconds,
 instruction,
 knowledge_bases,
@@ -109,5 +111,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>agent_tags</code> resource, see <a href="/providers/aws/bedrock/agents/#permissions"><code>agents</code></a>
-
 

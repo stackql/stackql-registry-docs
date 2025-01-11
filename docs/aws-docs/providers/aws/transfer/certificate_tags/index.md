@@ -94,4 +94,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>certificate_tags</code> resource, see <a href="/providers/aws/transfer/certificates/#permissions"><code>certificates</code></a>
 
-

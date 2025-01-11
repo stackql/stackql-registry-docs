@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>playback_restriction_policy</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html"><code>AWS::IVS::PlaybackRestrictionPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -228,4 +230,3 @@ ivs:UntagResource
 ivs:ListPlaybackRestrictionPolicies,
 ivs:ListTagsForResource
 ```
-

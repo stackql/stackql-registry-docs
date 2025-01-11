@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>stream_key_tags</code> resource, see <a href="/providers/aws/ivs/stream_keys/#permissions"><code>stream_keys</code></a>
 
-

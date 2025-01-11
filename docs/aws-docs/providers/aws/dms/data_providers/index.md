@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>data_provider</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html"><code>AWS::DMS::DataProvider</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,6 +217,30 @@ resources:
             DatabaseName: '{{ DatabaseName }}'
             SslMode: null
             CertificateArn: '{{ CertificateArn }}'
+          RedshiftSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+          MariaDbSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            SslMode: null
+            CertificateArn: '{{ CertificateArn }}'
+          DocDbSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+            SslMode: '{{ SslMode }}'
+            CertificateArn: '{{ CertificateArn }}'
+          MongoDbSettings:
+            ServerName: '{{ ServerName }}'
+            Port: '{{ Port }}'
+            DatabaseName: '{{ DatabaseName }}'
+            SslMode: null
+            CertificateArn: '{{ CertificateArn }}'
+            AuthType: '{{ AuthType }}'
+            AuthSource: '{{ AuthSource }}'
+            AuthMechanism: '{{ AuthMechanism }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -243,7 +269,9 @@ dms:CreateDataProvider,
 dms:ListDataProviders,
 dms:DescribeDataProviders,
 dms:AddTagsToResource,
-dms:ListTagsForResource
+dms:ListTagsForResource,
+iam:GetRole,
+iam:PassRole
 ```
 
 ### Read
@@ -258,7 +286,7 @@ dms:ListTagsForResource
 dms:UpdateDataProvider,
 dms:ModifyDataProvider,
 dms:AddTagsToResource,
-dms:RemoveTagsToResource,
+dms:RemoveTagsFromResource,
 dms:ListTagsForResource
 ```
 
@@ -273,4 +301,3 @@ dms:ListDataProviders,
 dms:DescribeDataProviders,
 dms:ListTagsForResource
 ```
-

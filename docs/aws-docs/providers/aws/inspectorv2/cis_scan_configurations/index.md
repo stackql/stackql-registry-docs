@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>cis_scan_configuration</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-cisscanconfiguration.html"><code>AWS::InspectorV2::CisScanConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -50,7 +52,7 @@ Creates, updates, deletes or gets a <code>cis_scan_configuration</code> resource
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="ScanName, SecurityLevel, Schedule, Targets, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -123,7 +125,6 @@ INSERT INTO aws.inspectorv2.cis_scan_configurations (
  SecurityLevel,
  Schedule,
  Targets,
- Tags,
  region
 )
 SELECT 
@@ -131,7 +132,6 @@ SELECT
  '{{ SecurityLevel }}',
  '{{ Schedule }}',
  '{{ Targets }}',
- '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -232,4 +232,3 @@ inspector2:UntagResource
 inspector2:ListCisScanConfigurations,
 inspector2:ListTagsForResource
 ```
-

@@ -25,14 +25,12 @@ Lists <code>response_headers_policies</code> in a region or regions, for all pro
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>response_headers_policies_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy</td></tr>
+<tr><td><b>Description</b></td><td>A response headers policy.<br />A response headers policy contains information about a set of HTTP response headers.<br />After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.<br />For more information, see &#91;Adding or removing HTTP headers in CloudFront responses&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.response_headers_policies_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="response_headers_policy_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.cloudfront.response_headers_policies_list_only
 ## Permissions
 
 For permissions required to operate on the <code>response_headers_policies_list_only</code> resource, see <a href="/providers/aws/cloudfront/response_headers_policies/#permissions"><code>response_headers_policies</code></a>
-
 

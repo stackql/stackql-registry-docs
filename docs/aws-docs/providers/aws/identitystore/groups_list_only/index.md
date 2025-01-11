@@ -30,9 +30,7 @@ Lists <code>groups</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A string containing the description of the group.</td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>A string containing the name of the group. This value is commonly displayed when the group is referenced.</td></tr>
-<tr><td><CopyableCode code="group_id" /></td><td><code>string</code></td><td>The unique identifier for a group in the identity store.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="group_id" /></td><td><code>string</code></td><td>The unique identifier for a group in the identity store.</td></tr>
 <tr><td><CopyableCode code="identity_store_id" /></td><td><code>string</code></td><td>The globally unique identifier for the identity store.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>groups_list_only</code> resource, see <a href="/providers/aws/identitystore/groups/#permissions"><code>groups</code></a>
-
 

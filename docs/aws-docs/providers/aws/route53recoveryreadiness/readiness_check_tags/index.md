@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>readiness_check_tags</code> resource, see <a href="/providers/aws/route53recoveryreadiness/readiness_checks/#permissions"><code>readiness_checks</code></a>
 
-

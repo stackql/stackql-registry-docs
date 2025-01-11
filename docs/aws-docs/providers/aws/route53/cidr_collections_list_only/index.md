@@ -31,9 +31,6 @@ Lists <code>cidr_collections</code> in a region or regions, for all properties u
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>UUID of the CIDR collection.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A unique name for the CIDR collection.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon resource name (ARN) to uniquely identify the AWS resource.</td></tr>
-<tr><td><CopyableCode code="locations" /></td><td><code>array</code></td><td>A complex type that contains information about the list of CIDR locations.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ FROM aws.route53.cidr_collections_list_only
 ## Permissions
 
 For permissions required to operate on the <code>cidr_collections_list_only</code> resource, see <a href="/providers/aws/route53/cidr_collections/#permissions"><code>cidr_collections</code></a>
-
 

@@ -48,6 +48,8 @@ Creates, updates, deletes or gets an <code>environment_profile</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentprofile.html"><code>AWS::DataZone::EnvironmentProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -268,4 +270,3 @@ datazone:GetEnvironmentProfile
 ```json
 datazone:ListEnvironmentProfiles
 ```
-

@@ -66,4 +66,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>tracker_consumers_list_only</code> resource, see <a href="/providers/aws/location/tracker_consumers/#permissions"><code>tracker_consumers</code></a>
 
-

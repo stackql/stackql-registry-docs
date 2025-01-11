@@ -34,6 +34,7 @@ Expands all tag keys and values for <code>apps</code> in a region
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>App description.</td></tr>
 <tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
 <tr><td><CopyableCode code="resiliency_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="regulatory_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Regulatory Policy.</td></tr>
 <tr><td><CopyableCode code="app_template_body" /></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
 <tr><td><CopyableCode code="resource_mappings" /></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
 <tr><td><CopyableCode code="app_assessment_schedule" /></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>
@@ -69,6 +70,7 @@ name,
 description,
 app_arn,
 resiliency_policy_arn,
+regulatory_policy_arn,
 app_template_body,
 resource_mappings,
 app_assessment_schedule,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>app_tags</code> resource, see <a href="/providers/aws/resiliencehub/apps/#permissions"><code>apps</code></a>
-
 

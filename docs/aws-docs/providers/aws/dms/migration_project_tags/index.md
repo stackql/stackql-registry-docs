@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>migration_project_tags</code> resource, see <a href="/providers/aws/dms/migration_projects/#permissions"><code>migration_projects</code></a>
 
-

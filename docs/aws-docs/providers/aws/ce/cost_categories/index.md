@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>cost_category</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html"><code>AWS::CE::CostCategory</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,4 +223,3 @@ ce:DeleteCostCategoryDefinition
 ```json
 ce:ListCostCategoryDefinitions
 ```
-

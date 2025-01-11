@@ -30,12 +30,7 @@ Lists <code>labels</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the label.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this label.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The label description.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The label ARN.</td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The timestamp when the label was created.</td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The timestamp when the label was last updated.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The label ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>labels_list_only</code> resource, see <a href="/providers/aws/frauddetector/labels/#permissions"><code>labels</code></a>
-
 

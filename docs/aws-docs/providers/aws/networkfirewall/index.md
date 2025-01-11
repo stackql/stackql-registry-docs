@@ -20,7 +20,7 @@ The networkfirewall service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>14</b></span><br />
+<span>total resources:&nbsp;<b>13</b></span><br />
 </div>
 </div>
 
@@ -38,7 +38,6 @@ The networkfirewall service documentation.
 <a href="/providers/aws/networkfirewall/logging_configurations/">logging_configurations</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/networkfirewall/logging_configurations_list_only/">logging_configurations_list_only</a><br />
 <a href="/providers/aws/networkfirewall/rule_group_tags/">rule_group_tags</a><br />
 <a href="/providers/aws/networkfirewall/rule_groups/">rule_groups</a><br />
 <a href="/providers/aws/networkfirewall/rule_groups_list_only/">rule_groups_list_only</a><br />

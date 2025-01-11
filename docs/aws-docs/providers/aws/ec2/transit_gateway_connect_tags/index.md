@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>transit_gateway_connect_tags</code> resource, see <a href="/providers/aws/ec2/transit_gateway_connects/#permissions"><code>transit_gateway_connects</code></a>
 
-

@@ -20,7 +20,7 @@ The cloudformation service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total resources:&nbsp;<b>29</b></span><br />
 </div>
 </div>
 
@@ -29,21 +29,25 @@ The cloudformation service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudformation/guard_hooks/">guard_hooks</a><br />
+<a href="/providers/aws/cloudformation/guard_hooks_list_only/">guard_hooks_list_only</a><br />
 <a href="/providers/aws/cloudformation/hook_default_versions/">hook_default_versions</a><br />
 <a href="/providers/aws/cloudformation/hook_default_versions_list_only/">hook_default_versions_list_only</a><br />
 <a href="/providers/aws/cloudformation/hook_type_configs/">hook_type_configs</a><br />
 <a href="/providers/aws/cloudformation/hook_type_configs_list_only/">hook_type_configs_list_only</a><br />
 <a href="/providers/aws/cloudformation/hook_versions/">hook_versions</a><br />
 <a href="/providers/aws/cloudformation/hook_versions_list_only/">hook_versions_list_only</a><br />
+<a href="/providers/aws/cloudformation/lambda_hooks/">lambda_hooks</a><br />
+<a href="/providers/aws/cloudformation/lambda_hooks_list_only/">lambda_hooks_list_only</a><br />
 <a href="/providers/aws/cloudformation/module_default_versions/">module_default_versions</a><br />
 <a href="/providers/aws/cloudformation/module_default_versions_list_only/">module_default_versions_list_only</a><br />
 <a href="/providers/aws/cloudformation/module_versions/">module_versions</a><br />
 <a href="/providers/aws/cloudformation/public_type_versions/">public_type_versions</a><br />
-<a href="/providers/aws/cloudformation/public_type_versions_list_only/">public_type_versions_list_only</a><br />
-<a href="/providers/aws/cloudformation/publishers/">publishers</a><br />
-<a href="/providers/aws/cloudformation/publishers_list_only/">publishers_list_only</a>
+<a href="/providers/aws/cloudformation/public_type_versions_list_only/">public_type_versions_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudformation/publishers/">publishers</a><br />
+<a href="/providers/aws/cloudformation/publishers_list_only/">publishers_list_only</a><br />
 <a href="/providers/aws/cloudformation/resource_default_versions/">resource_default_versions</a><br />
 <a href="/providers/aws/cloudformation/resource_default_versions_list_only/">resource_default_versions_list_only</a><br />
 <a href="/providers/aws/cloudformation/resource_versions/">resource_versions</a><br />

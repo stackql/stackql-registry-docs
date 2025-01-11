@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>schema_mapping_tags</code> resource, see <a href="/providers/aws/entityresolution/schema_mappings/#permissions"><code>schema_mappings</code></a>
 
-

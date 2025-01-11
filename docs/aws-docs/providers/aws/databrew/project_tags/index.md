@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>project_tags</code> resource, see <a href="/providers/aws/databrew/projects/#permissions"><code>projects</code></a>
 
-

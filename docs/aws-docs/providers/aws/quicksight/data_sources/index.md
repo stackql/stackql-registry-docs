@@ -38,6 +38,7 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <tr><td><CopyableCode code="data_source_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_source_parameters" /></td><td><code>object</code></td><td><p>The parameters that Amazon QuickSight uses to connect to your underlying data source.<br />This is a variant type structure. For this structure to be valid, only one of the<br />attributes can be non-null.</p></td></tr>
 <tr><td><CopyableCode code="error_info" /></td><td><code>object</code></td><td><p>Error information for the data source creation or update.</p></td></tr>
+<tr><td><CopyableCode code="folder_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this data source was updated.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
@@ -48,6 +49,8 @@ Creates, updates, deletes or gets a <code>data_source</code> resource or lists <
 <tr><td><CopyableCode code="vpc_connection_properties" /></td><td><code>object</code></td><td><p>VPC connection properties.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html"><code>AWS::QuickSight::DataSource</code></a>.
 
 ## Methods
 
@@ -97,6 +100,7 @@ credentials,
 data_source_id,
 data_source_parameters,
 error_info,
+folder_arns,
 last_updated_time,
 name,
 permissions,
@@ -120,6 +124,7 @@ credentials,
 data_source_id,
 data_source_parameters,
 error_info,
+folder_arns,
 last_updated_time,
 name,
 permissions,
@@ -170,6 +175,7 @@ INSERT INTO aws.quicksight.data_sources (
  DataSourceId,
  DataSourceParameters,
  ErrorInfo,
+ FolderArns,
  Name,
  Permissions,
  SslProperties,
@@ -185,6 +191,7 @@ SELECT
  '{{ DataSourceId }}',
  '{{ DataSourceParameters }}',
  '{{ ErrorInfo }}',
+ '{{ FolderArns }}',
  '{{ Name }}',
  '{{ Permissions }}',
  '{{ SslProperties }}',
@@ -268,6 +275,14 @@ resources:
               Host: '{{ Host }}'
               Database: '{{ Database }}'
               Warehouse: '{{ Warehouse }}'
+              AuthenticationType: '{{ AuthenticationType }}'
+              DatabaseAccessControlRole: '{{ DatabaseAccessControlRole }}'
+              OAuthParameters:
+                TokenProviderUrl: '{{ TokenProviderUrl }}'
+                OAuthScope: '{{ OAuthScope }}'
+                IdentityProviderVpcConnectionProperties:
+                  VpcConnectionArn: '{{ VpcConnectionArn }}'
+                IdentityProviderResourceUri: '{{ IdentityProviderResourceUri }}'
             SparkParameters:
               Host: '{{ Host }}'
               Port: null
@@ -290,6 +305,9 @@ resources:
               Port: null
               Catalog: '{{ Catalog }}'
               ProductType: '{{ ProductType }}'
+              DatabaseAccessControlRole: '{{ DatabaseAccessControlRole }}'
+              AuthenticationType: null
+              OAuthParameters: null
             TrinoParameters:
               Host: '{{ Host }}'
               Port: null
@@ -313,6 +331,9 @@ resources:
         value:
           Type: '{{ Type }}'
           Message: '{{ Message }}'
+      - name: FolderArns
+        value:
+          - '{{ FolderArns[0] }}'
       - name: Name
         value: '{{ Name }}'
       - name: Permissions
@@ -330,8 +351,7 @@ resources:
       - name: Type
         value: '{{ Type }}'
       - name: VpcConnectionProperties
-        value:
-          VpcConnectionArn: '{{ VpcConnectionArn }}'
+        value: null
 
 ```
 </TabItem>
@@ -363,7 +383,10 @@ quicksight:CreateDataSource,
 quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:TagResource,
-quicksight:ListTagsForResource
+quicksight:ListTagsForResource,
+quicksight:CreateFolderMembership,
+quicksight:DeleteFolderMembership,
+quicksight:ListFoldersForResource
 ```
 
 ### Update
@@ -372,6 +395,9 @@ quicksight:DescribeDataSource,
 quicksight:DescribeDataSourcePermissions,
 quicksight:UpdateDataSource,
 quicksight:UpdateDataSourcePermissions,
+quicksight:CreateFolderMembership,
+quicksight:DeleteFolderMembership,
+quicksight:ListFoldersForResource,
 quicksight:TagResource,
 quicksight:UntagResource,
 quicksight:ListTagsForResource
@@ -390,4 +416,3 @@ quicksight:ListTagsForResource
 quicksight:DescribeDataSource,
 quicksight:ListDataSources
 ```
-

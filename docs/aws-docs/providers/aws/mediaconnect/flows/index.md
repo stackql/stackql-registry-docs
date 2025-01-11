@@ -40,8 +40,11 @@ Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>fl
 <tr><td><CopyableCode code="vpc_interfaces" /></td><td><code>array</code></td><td>The VPC interfaces that you added to this flow.</td></tr>
 <tr><td><CopyableCode code="media_streams" /></td><td><code>array</code></td><td>The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.</td></tr>
 <tr><td><CopyableCode code="maintenance" /></td><td><code>object</code></td><td>The maintenance settings you want to use for the flow.</td></tr>
+<tr><td><CopyableCode code="source_monitoring_config" /></td><td><code>object</code></td><td>The source monitoring config of the flow.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html"><code>AWS::MediaConnect::Flow</code></a>.
 
 ## Methods
 
@@ -92,7 +95,8 @@ source,
 source_failover_config,
 vpc_interfaces,
 media_streams,
-maintenance
+maintenance,
+source_monitoring_config
 FROM aws.mediaconnect.flows
 WHERE region = 'us-east-1';
 ```
@@ -109,7 +113,8 @@ source,
 source_failover_config,
 vpc_interfaces,
 media_streams,
-maintenance
+maintenance,
+source_monitoring_config
 FROM aws.mediaconnect.flows
 WHERE region = 'us-east-1' AND data__Identifier = '<FlowArn>';
 ```
@@ -153,6 +158,7 @@ INSERT INTO aws.mediaconnect.flows (
  VpcInterfaces,
  MediaStreams,
  Maintenance,
+ SourceMonitoringConfig,
  region
 )
 SELECT 
@@ -163,6 +169,7 @@ SELECT
  '{{ VpcInterfaces }}',
  '{{ MediaStreams }}',
  '{{ Maintenance }}',
+ '{{ SourceMonitoringConfig }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -266,6 +273,9 @@ resources:
         value:
           MaintenanceDay: '{{ MaintenanceDay }}'
           MaintenanceStartHour: '{{ MaintenanceStartHour }}'
+      - name: SourceMonitoringConfig
+        value:
+          ThumbnailState: '{{ ThumbnailState }}'
 
 ```
 </TabItem>
@@ -317,4 +327,3 @@ mediaconnect:DeleteFlow
 ```json
 mediaconnect:ListFlows
 ```
-

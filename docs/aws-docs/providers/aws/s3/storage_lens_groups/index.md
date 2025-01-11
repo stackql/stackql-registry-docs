@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>storage_lens_group</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html"><code>AWS::S3::StorageLensGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -236,4 +238,3 @@ s3:DeleteStorageLensGroup
 ```json
 s3:ListStorageLensGroups
 ```
-

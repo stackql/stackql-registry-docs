@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>identity_pool_role_attachment</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html"><code>AWS::Cognito::IdentityPoolRoleAttachment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -205,4 +207,3 @@ cognito-identity:SetIdentityPoolRoles
 ```json
 cognito-identity:GetIdentityPoolRoles
 ```
-

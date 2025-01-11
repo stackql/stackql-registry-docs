@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>multiplex</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html"><code>AWS::MediaLive::Multiplex</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -244,4 +246,3 @@ medialive:DescribeMultiplex
 ```json
 medialive:ListMultiplexes
 ```
-

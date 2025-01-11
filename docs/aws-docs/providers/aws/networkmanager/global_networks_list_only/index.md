@@ -30,12 +30,7 @@ Lists <code>global_networks</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the global network.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the global network.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the global network.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time that the global network was created.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the global network.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>global_networks_list_only</code> resource, see <a href="/providers/aws/networkmanager/global_networks/#permissions"><code>global_networks</code></a>
-
 

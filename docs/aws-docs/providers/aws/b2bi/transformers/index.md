@@ -33,16 +33,22 @@ Creates, updates, deletes or gets a <code>transformer</code> resource or lists <
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="edi_type" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="file_format" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="input_conversion" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="mapping" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="mapping_template" /></td><td><code>string</code></td><td>This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.</td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="output_conversion" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="sample_document" /></td><td><code>string</code></td><td>This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.</td></tr>
+<tr><td><CopyableCode code="sample_documents" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transformer_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html"><code>AWS::B2BI::Transformer</code></a>.
 
 ## Methods
 
@@ -55,7 +61,7 @@ Creates, updates, deletes or gets a <code>transformer</code> resource or lists <
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="EdiType, FileFormat, MappingTemplate, Name, Status, region" /></td>
+    <td><CopyableCode code="Name, Status, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -87,10 +93,14 @@ region,
 created_at,
 edi_type,
 file_format,
+input_conversion,
+mapping,
 mapping_template,
 modified_at,
 name,
+output_conversion,
 sample_document,
+sample_documents,
 status,
 tags,
 transformer_arn,
@@ -105,10 +115,14 @@ region,
 created_at,
 edi_type,
 file_format,
+input_conversion,
+mapping,
 mapping_template,
 modified_at,
 name,
+output_conversion,
 sample_document,
+sample_documents,
 status,
 tags,
 transformer_arn,
@@ -134,18 +148,12 @@ Use the following StackQL query and manifest file to create a new <code>transfor
 ```sql
 /*+ create */
 INSERT INTO aws.b2bi.transformers (
- EdiType,
- FileFormat,
- MappingTemplate,
  Name,
  Status,
  region
 )
 SELECT 
-'{{ EdiType }}',
- '{{ FileFormat }}',
- '{{ MappingTemplate }}',
- '{{ Name }}',
+'{{ Name }}',
  '{{ Status }}',
 '{{ region }}';
 ```
@@ -157,9 +165,13 @@ SELECT
 INSERT INTO aws.b2bi.transformers (
  EdiType,
  FileFormat,
+ InputConversion,
+ Mapping,
  MappingTemplate,
  Name,
+ OutputConversion,
  SampleDocument,
+ SampleDocuments,
  Status,
  Tags,
  region
@@ -167,9 +179,13 @@ INSERT INTO aws.b2bi.transformers (
 SELECT 
  '{{ EdiType }}',
  '{{ FileFormat }}',
+ '{{ InputConversion }}',
+ '{{ Mapping }}',
  '{{ MappingTemplate }}',
  '{{ Name }}',
+ '{{ OutputConversion }}',
  '{{ SampleDocument }}',
+ '{{ SampleDocuments }}',
  '{{ Status }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -193,12 +209,30 @@ resources:
         value: null
       - name: FileFormat
         value: '{{ FileFormat }}'
+      - name: InputConversion
+        value:
+          FromFormat: '{{ FromFormat }}'
+          FormatOptions: null
+      - name: Mapping
+        value:
+          TemplateLanguage: '{{ TemplateLanguage }}'
+          Template: '{{ Template }}'
       - name: MappingTemplate
         value: '{{ MappingTemplate }}'
       - name: Name
         value: '{{ Name }}'
+      - name: OutputConversion
+        value:
+          ToFormat: '{{ ToFormat }}'
+          FormatOptions: null
       - name: SampleDocument
         value: '{{ SampleDocument }}'
+      - name: SampleDocuments
+        value:
+          BucketName: '{{ BucketName }}'
+          Keys:
+            - Input: '{{ Input }}'
+              Output: '{{ Output }}'
       - name: Status
         value: '{{ Status }}'
       - name: Tags
@@ -263,4 +297,3 @@ logs:ListLogDeliveries
 ```json
 b2bi:ListTransformers
 ```
-

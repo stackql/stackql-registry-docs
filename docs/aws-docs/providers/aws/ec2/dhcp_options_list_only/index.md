@@ -31,13 +31,6 @@ Lists <code>dhcp_options</code> in a region or regions, for all properties use <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="dhcp_options_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>This value is used to complete unqualified DNS hostnames.</td></tr>
-<tr><td><CopyableCode code="domain_name_servers" /></td><td><code>array</code></td><td>The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.</td></tr>
-<tr><td><CopyableCode code="netbios_name_servers" /></td><td><code>array</code></td><td>The IPv4 addresses of up to four NetBIOS name servers.</td></tr>
-<tr><td><CopyableCode code="netbios_node_type" /></td><td><code>integer</code></td><td>The NetBIOS node type (1, 2, 4, or 8).</td></tr>
-<tr><td><CopyableCode code="ntp_servers" /></td><td><code>array</code></td><td>The IPv4 addresses of up to four Network Time Protocol (NTP) servers.</td></tr>
-<tr><td><CopyableCode code="ipv6_address_preferred_lease_time" /></td><td><code>integer</code></td><td>The preferred Lease Time for ipV6 address in seconds.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the DHCP options set.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>dhcp_options_list_only</code> resource, see <a href="/providers/aws/ec2/dhcp_options/#permissions"><code>dhcp_options</code></a>
-
 

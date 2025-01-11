@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>replication_config</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html"><code>AWS::DMS::ReplicationConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -55,7 +57,7 @@ Creates, updates, deletes or gets a <code>replication_config</code> resource or 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="ReplicationConfigIdentifier, SourceEndpointArn, TargetEndpointArn, ReplicationType, ComputeConfig, TableMappings, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -135,30 +137,20 @@ Use the following StackQL query and manifest file to create a new <code>replicat
 /*+ create */
 INSERT INTO aws.dms.replication_configs (
  ReplicationConfigIdentifier,
- ReplicationConfigArn,
  SourceEndpointArn,
  TargetEndpointArn,
  ReplicationType,
  ComputeConfig,
- ReplicationSettings,
- SupplementalSettings,
- ResourceIdentifier,
  TableMappings,
- Tags,
  region
 )
 SELECT 
 '{{ ReplicationConfigIdentifier }}',
- '{{ ReplicationConfigArn }}',
  '{{ SourceEndpointArn }}',
  '{{ TargetEndpointArn }}',
  '{{ ReplicationType }}',
  '{{ ComputeConfig }}',
- '{{ ReplicationSettings }}',
- '{{ SupplementalSettings }}',
- '{{ ResourceIdentifier }}',
  '{{ TableMappings }}',
- '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -168,7 +160,6 @@ SELECT
 /*+ create */
 INSERT INTO aws.dms.replication_configs (
  ReplicationConfigIdentifier,
- ReplicationConfigArn,
  SourceEndpointArn,
  TargetEndpointArn,
  ReplicationType,
@@ -182,7 +173,6 @@ INSERT INTO aws.dms.replication_configs (
 )
 SELECT 
  '{{ ReplicationConfigIdentifier }}',
- '{{ ReplicationConfigArn }}',
  '{{ SourceEndpointArn }}',
  '{{ TargetEndpointArn }}',
  '{{ ReplicationType }}',
@@ -211,8 +201,6 @@ resources:
     props:
       - name: ReplicationConfigIdentifier
         value: '{{ ReplicationConfigIdentifier }}'
-      - name: ReplicationConfigArn
-        value: '{{ ReplicationConfigArn }}'
       - name: SourceEndpointArn
         value: '{{ SourceEndpointArn }}'
       - name: TargetEndpointArn
@@ -282,7 +270,7 @@ dms:ListTagsForResource
 ```json
 dms:ModifyReplicationConfig,
 dms:AddTagsToResource,
-dms:RemoveTagsToResource,
+dms:RemoveTagsFromResource,
 dms:ListTagsForResource,
 iam:CreateServiceLinkedRole,
 iam:AttachRolePolicy,
@@ -304,4 +292,3 @@ dms:ListTagsForResource,
 iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
-

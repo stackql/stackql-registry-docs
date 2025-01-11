@@ -40,6 +40,7 @@ Expands all tag keys and values for <code>profiles</code> in a region
 <tr><td><CopyableCode code="role_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="session_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="attribute_mappings" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="accept_role_session_name" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -75,6 +76,7 @@ require_instance_properties,
 role_arns,
 session_policy,
 attribute_mappings,
+accept_role_session_name,
 tag_key,
 tag_value
 FROM aws.rolesanywhere.profile_tags
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>profile_tags</code> resource, see <a href="/providers/aws/rolesanywhere/profiles/#permissions"><code>profiles</code></a>
-
 

@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html"><code>AWS::DataSync::Agent</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -240,4 +242,3 @@ datasync:DeleteAgent
 ```json
 datasync:ListAgents
 ```
-

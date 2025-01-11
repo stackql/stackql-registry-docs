@@ -31,16 +31,7 @@ Lists <code>retrievers</code> in a region or regions, for all properties use <a 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="retriever_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="retriever_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>retrievers_list_only</code> resource, see <a href="/providers/aws/qbusiness/retrievers/#permissions"><code>retrievers</code></a>
-
 

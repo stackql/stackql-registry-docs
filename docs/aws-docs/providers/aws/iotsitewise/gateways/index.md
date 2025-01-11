@@ -30,13 +30,15 @@ Creates, updates, deletes or gets a <code>gateway</code> resource or lists <code
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="gateway_name" /></td><td><code>string</code></td><td>A unique, friendly name for the gateway.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="gateway_capability_summaries" /></td><td><code>array</code></td><td>A list of gateway capability summaries that each contain a namespace and status.</td></tr>
+<tr><td><CopyableCode code="gateway_name" /></td><td><code>string</code></td><td>A unique, friendly name for the gateway.</td></tr>
 <tr><td><CopyableCode code="gateway_platform" /></td><td><code>object</code></td><td>The gateway's platform. You can only specify one platform in a gateway.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the gateway.</td></tr>
 <tr><td><CopyableCode code="gateway_id" /></td><td><code>string</code></td><td>The ID of the gateway device.</td></tr>
-<tr><td><CopyableCode code="gateway_capability_summaries" /></td><td><code>array</code></td><td>A list of gateway capability summaries that each contain a namespace and status.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the gateway.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html"><code>AWS::IoTSiteWise::Gateway</code></a>.
 
 ## Methods
 
@@ -78,11 +80,11 @@ Gets all <code>gateways</code> in a region.
 ```sql
 SELECT
 region,
+gateway_capability_summaries,
 gateway_name,
 gateway_platform,
-tags,
 gateway_id,
-gateway_capability_summaries
+tags
 FROM aws.iotsitewise.gateways
 WHERE region = 'us-east-1';
 ```
@@ -90,11 +92,11 @@ Gets all properties from an individual <code>gateway</code>.
 ```sql
 SELECT
 region,
+gateway_capability_summaries,
 gateway_name,
 gateway_platform,
-tags,
 gateway_id,
-gateway_capability_summaries
+tags
 FROM aws.iotsitewise.gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<GatewayId>';
 ```
@@ -131,17 +133,17 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.iotsitewise.gateways (
+ GatewayCapabilitySummaries,
  GatewayName,
  GatewayPlatform,
  Tags,
- GatewayCapabilitySummaries,
  region
 )
 SELECT 
+ '{{ GatewayCapabilitySummaries }}',
  '{{ GatewayName }}',
  '{{ GatewayPlatform }}',
  '{{ Tags }}',
- '{{ GatewayCapabilitySummaries }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -159,24 +161,24 @@ globals:
 resources:
   - name: gateway
     props:
+      - name: GatewayCapabilitySummaries
+        value:
+          - CapabilityNamespace: '{{ CapabilityNamespace }}'
+            CapabilityConfiguration: '{{ CapabilityConfiguration }}'
       - name: GatewayName
         value: '{{ GatewayName }}'
       - name: GatewayPlatform
         value:
-          Greengrass:
-            GroupArn: '{{ GroupArn }}'
           GreengrassV2:
             CoreDeviceThingName: '{{ CoreDeviceThingName }}'
+          Greengrass:
+            GroupArn: '{{ GroupArn }}'
           SiemensIE:
             IotCoreThingName: '{{ IotCoreThingName }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
-      - name: GatewayCapabilitySummaries
-        value:
-          - CapabilityNamespace: '{{ CapabilityNamespace }}'
-            CapabilityConfiguration: '{{ CapabilityConfiguration }}'
 
 ```
 </TabItem>
@@ -195,6 +197,13 @@ AND region = 'us-east-1';
 
 To operate on the <code>gateways</code> resource, the following permissions are required:
 
+### Read
+```json
+iotsitewise:DescribeGateway,
+iotsitewise:DescribeGatewayCapabilityConfiguration,
+iotsitewise:ListTagsForResource
+```
+
 ### Create
 ```json
 iotsitewise:CreateGateway,
@@ -209,13 +218,6 @@ iotsitewise:TagResource,
 iot:DescribeThing
 ```
 
-### Read
-```json
-iotsitewise:DescribeGateway,
-iotsitewise:DescribeGatewayCapabilityConfiguration,
-iotsitewise:ListTagsForResource
-```
-
 ### Update
 ```json
 iotsitewise:UpdateGateway,
@@ -227,15 +229,15 @@ iotsitewise:DescribeGatewayCapabilityConfiguration,
 iotsitewise:ListTagsForResource
 ```
 
+### List
+```json
+iotsitewise:ListGateways,
+iotsitewise:ListTagsForResource
+```
+
 ### Delete
 ```json
 iotsitewise:DescribeGateway,
 iotsitewise:DescribeGatewayCapabilityConfiguration,
 iotsitewise:DeleteGateway
 ```
-
-### List
-```json
-iotsitewise:ListGateways
-```
-

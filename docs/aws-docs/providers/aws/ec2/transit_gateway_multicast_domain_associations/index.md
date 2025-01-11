@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_domain_assoc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html"><code>AWS::EC2::TransitGatewayMulticastDomainAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,4 +204,3 @@ ec2:GetTransitGatewayMulticastDomainAssociations
 ```json
 ec2:GetTransitGatewayMulticastDomainAssociations
 ```
-

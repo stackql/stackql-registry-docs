@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>packaging_group_tags</code> resource, see <a href="/providers/aws/mediapackage/packaging_groups/#permissions"><code>packaging_groups</code></a>
 
-

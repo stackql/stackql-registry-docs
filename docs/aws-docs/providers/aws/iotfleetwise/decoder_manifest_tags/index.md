@@ -39,6 +39,7 @@ Expands all tag keys and values for <code>decoder_manifests</code> in a region
 <tr><td><CopyableCode code="network_interfaces" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="signal_decoders" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_for_unmapped_signals" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -73,6 +74,7 @@ name,
 network_interfaces,
 signal_decoders,
 status,
+default_for_unmapped_signals,
 tag_key,
 tag_value
 FROM aws.iotfleetwise.decoder_manifest_tags
@@ -83,5 +85,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>decoder_manifest_tags</code> resource, see <a href="/providers/aws/iotfleetwise/decoder_manifests/#permissions"><code>decoder_manifests</code></a>
-
 

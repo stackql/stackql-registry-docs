@@ -20,7 +20,7 @@ The customerprofiles service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total resources:&nbsp;<b>21</b></span><br />
 </div>
 </div>
 
@@ -36,15 +36,21 @@ The customerprofiles service documentation.
 <a href="/providers/aws/customerprofiles/domains/">domains</a><br />
 <a href="/providers/aws/customerprofiles/domains_list_only/">domains_list_only</a><br />
 <a href="/providers/aws/customerprofiles/event_stream_tags/">event_stream_tags</a><br />
-<a href="/providers/aws/customerprofiles/event_streams/">event_streams</a>
+<a href="/providers/aws/customerprofiles/event_streams/">event_streams</a><br />
+<a href="/providers/aws/customerprofiles/event_streams_list_only/">event_streams_list_only</a><br />
+<a href="/providers/aws/customerprofiles/event_trigger_tags/">event_trigger_tags</a><br />
+<a href="/providers/aws/customerprofiles/event_triggers/">event_triggers</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/customerprofiles/event_streams_list_only/">event_streams_list_only</a><br />
+<a href="/providers/aws/customerprofiles/event_triggers_list_only/">event_triggers_list_only</a><br />
 <a href="/providers/aws/customerprofiles/integration_tags/">integration_tags</a><br />
 <a href="/providers/aws/customerprofiles/integrations/">integrations</a><br />
 <a href="/providers/aws/customerprofiles/integrations_list_only/">integrations_list_only</a><br />
 <a href="/providers/aws/customerprofiles/object_type_tags/">object_type_tags</a><br />
 <a href="/providers/aws/customerprofiles/object_types/">object_types</a><br />
-<a href="/providers/aws/customerprofiles/object_types_list_only/">object_types_list_only</a>
+<a href="/providers/aws/customerprofiles/object_types_list_only/">object_types_list_only</a><br />
+<a href="/providers/aws/customerprofiles/segment_definition_tags/">segment_definition_tags</a><br />
+<a href="/providers/aws/customerprofiles/segment_definitions/">segment_definitions</a><br />
+<a href="/providers/aws/customerprofiles/segment_definitions_list_only/">segment_definitions_list_only</a>
 </div>
 </div>

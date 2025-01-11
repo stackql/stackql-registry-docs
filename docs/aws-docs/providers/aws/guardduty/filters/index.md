@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>filter</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html"><code>AWS::GuardDuty::Filter</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -51,7 +53,7 @@ Creates, updates, deletes or gets a <code>filter</code> resource or lists <code>
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="FindingCriteria, region" /></td>
+    <td><CopyableCode code="DetectorId, Name, FindingCriteria, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -122,11 +124,15 @@ Use the following StackQL query and manifest file to create a new <code>filter</
 ```sql
 /*+ create */
 INSERT INTO aws.guardduty.filters (
+ DetectorId,
  FindingCriteria,
+ Name,
  region
 )
 SELECT 
-'{{ FindingCriteria }}',
+'{{ DetectorId }}',
+ '{{ FindingCriteria }}',
+ '{{ Name }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -213,7 +219,8 @@ guardduty:TagResource
 
 ### Read
 ```json
-guardduty:GetFilter
+guardduty:GetFilter,
+guardduty:ListTagsForResource
 ```
 
 ### Delete
@@ -228,11 +235,12 @@ guardduty:DeleteFilter
 ```json
 guardduty:UpdateFilter,
 guardduty:GetFilter,
-guardduty:ListFilters
+guardduty:ListFilters,
+guardduty:TagResource,
+guardduty:UntagResource
 ```
 
 ### List
 ```json
 guardduty:ListFilters
 ```
-

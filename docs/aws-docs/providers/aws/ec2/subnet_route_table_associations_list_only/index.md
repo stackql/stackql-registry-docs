@@ -31,8 +31,6 @@ Lists <code>subnet_route_table_associations</code> in a region or regions, for a
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.<br />The physical ID changes when the route table ID is changed.</td></tr>
-<tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>subnet_route_table_associations_list_only</code> resource, see <a href="/providers/aws/ec2/subnet_route_table_associations/#permissions"><code>subnet_route_table_associations</code></a>
-
 

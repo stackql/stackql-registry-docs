@@ -31,13 +31,6 @@ Lists <code>pricing_plans</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Pricing Plan ARN</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="pricing_rule_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="size" /></td><td><code>integer</code></td><td>Number of associated pricing rules</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pricing_plans_list_only</code> resource, see <a href="/providers/aws/billingconductor/pricing_plans/#permissions"><code>pricing_plans</code></a>
-
 

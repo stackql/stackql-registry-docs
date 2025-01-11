@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>organizational_unit_tags</code> resource, see <a href="/providers/aws/organizations/organizational_units/#permissions"><code>organizational_units</code></a>
 
-

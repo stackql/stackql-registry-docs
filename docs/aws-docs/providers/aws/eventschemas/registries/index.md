@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>registry</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html"><code>AWS::EventSchemas::Registry</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -213,4 +215,3 @@ schemas:DeleteRegistry
 ```json
 schemas:ListRegistries
 ```
-

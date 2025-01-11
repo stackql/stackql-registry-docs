@@ -35,6 +35,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="cwe_monitor_enabled" /></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr>
 <tr><td><CopyableCode code="ops_center_enabled" /></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr>
 <tr><td><CopyableCode code="ops_item_sns_topic_arn" /></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr>
+<tr><td><CopyableCode code="sns_notification_arn" /></td><td><code>string</code></td><td>Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags of Application Insights application.</td></tr>
 <tr><td><CopyableCode code="custom_components" /></td><td><code>array</code></td><td>The custom grouped components.</td></tr>
 <tr><td><CopyableCode code="log_pattern_sets" /></td><td><code>array</code></td><td>The log pattern sets.</td></tr>
@@ -44,6 +45,8 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="attach_missing_permission" /></td><td><code>boolean</code></td><td>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html"><code>AWS::ApplicationInsights::Application</code></a>.
 
 ## Methods
 
@@ -90,6 +93,7 @@ application_arn,
 cwe_monitor_enabled,
 ops_center_enabled,
 ops_item_sns_topic_arn,
+sns_notification_arn,
 tags,
 custom_components,
 log_pattern_sets,
@@ -109,6 +113,7 @@ application_arn,
 cwe_monitor_enabled,
 ops_center_enabled,
 ops_item_sns_topic_arn,
+sns_notification_arn,
 tags,
 custom_components,
 log_pattern_sets,
@@ -154,6 +159,7 @@ INSERT INTO aws.applicationinsights.applications (
  CWEMonitorEnabled,
  OpsCenterEnabled,
  OpsItemSNSTopicArn,
+ SNSNotificationArn,
  Tags,
  CustomComponents,
  LogPatternSets,
@@ -168,6 +174,7 @@ SELECT
  '{{ CWEMonitorEnabled }}',
  '{{ OpsCenterEnabled }}',
  '{{ OpsItemSNSTopicArn }}',
+ '{{ SNSNotificationArn }}',
  '{{ Tags }}',
  '{{ CustomComponents }}',
  '{{ LogPatternSets }}',
@@ -200,6 +207,8 @@ resources:
         value: '{{ OpsCenterEnabled }}'
       - name: OpsItemSNSTopicArn
         value: '{{ OpsItemSNSTopicArn }}'
+      - name: SNSNotificationArn
+        value: '{{ SNSNotificationArn }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -303,26 +312,90 @@ To operate on the <code>applications</code> resource, the following permissions 
 
 ### Create
 ```json
-*
+applicationinsights:CreateApplication,
+applicationinsights:DescribeApplication,
+applicationinsights:CreateComponent,
+applicationinsights:DescribeComponent,
+applicationinsights:CreateLogPattern,
+applicationinsights:DescribeLogPattern,
+applicationinsights:DescribeComponentConfigurationRecommendation,
+applicationinsights:UpdateComponentConfiguration,
+applicationinsights:ListComponents,
+applicationinsights:TagResource,
+ec2:DescribeInstances,
+ec2:DescribeVolumes,
+rds:DescribeDBInstances,
+rds:DescribeDBClusters,
+sqs:ListQueues,
+elasticloadbalancing:DescribeLoadBalancers,
+elasticloadbalancing:DescribeTargetGroups,
+elasticloadbalancing:DescribeTargetHealth,
+autoscaling:DescribeAutoScalingGroups,
+lambda:ListFunctions,
+dynamodb:ListTables,
+s3:ListAllMyBuckets,
+sns:ListTopics,
+states:ListStateMachines,
+apigateway:GET,
+ecs:ListClusters,
+ecs:DescribeTaskDefinition,
+ecs:ListServices,
+ecs:ListTasks,
+eks:ListClusters,
+eks:ListNodegroups,
+fsx:DescribeFileSystems,
+logs:DescribeLogGroups,
+elasticfilesystem:DescribeFileSystems
 ```
 
 ### Read
 ```json
-*
+applicationinsights:DescribeApplication,
+applicationinsights:ListTagsForResource,
+applicationinsights:DescribeComponent,
+applicationinsights:ListComponents,
+applicationinsights:DescribeLogPattern,
+applicationinsights:ListLogPatterns,
+applicationinsights:ListLogPatternSets
 ```
 
 ### Update
 ```json
-*
+applicationinsights:CreateApplication,
+applicationinsights:DescribeApplication,
+applicationinsights:UpdateApplication,
+applicationinsights:TagResource,
+applicationinsights:UntagResource,
+applicationinsights:ListTagsForResource,
+applicationinsights:CreateComponent,
+applicationinsights:DescribeComponent,
+applicationinsights:DeleteComponent,
+applicationinsights:ListComponents,
+applicationinsights:CreateLogPattern,
+applicationinsights:DeleteLogPattern,
+applicationinsights:DescribeLogPattern,
+applicationinsights:ListLogPatterns,
+applicationinsights:ListLogPatternSets,
+applicationinsights:UpdateLogPattern,
+applicationinsights:DescribeComponentConfiguration,
+applicationinsights:DescribeComponentConfigurationRecommendation,
+applicationinsights:UpdateComponentConfiguration
 ```
 
 ### Delete
 ```json
-*
+applicationinsights:DeleteApplication,
+applicationinsights:DescribeApplication
 ```
 
 ### List
 ```json
-*
+applicationinsights:ListApplications,
+applicationinsights:DescribeApplication,
+applicationinsights:ListTagsForResource,
+applicationinsights:DescribeComponent,
+applicationinsights:ListComponents,
+applicationinsights:DescribeLogPattern,
+applicationinsights:ListLogPatterns,
+applicationinsights:ListLogPatternSets
 ```
-

@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>analyzer</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html"><code>AWS::AccessAnalyzer::Analyzer</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -186,6 +188,12 @@ resources:
         value:
           UnusedAccessConfiguration:
             UnusedAccessAge: '{{ UnusedAccessAge }}'
+            AnalysisRule:
+              Exclusions:
+                - AccountIds:
+                    - '{{ AccountIds[0] }}'
+                  ResourceTags:
+                    - - null
 
 ```
 </TabItem>
@@ -227,6 +235,7 @@ access-analyzer:DeleteArchiveRule,
 access-analyzer:ListAnalyzers,
 access-analyzer:TagResource,
 access-analyzer:UntagResource,
+access-analyzer:UpdateAnalyzer,
 access-analyzer:UpdateArchiveRule
 ```
 
@@ -239,4 +248,3 @@ access-analyzer:DeleteAnalyzer
 ```json
 access-analyzer:ListAnalyzers
 ```
-

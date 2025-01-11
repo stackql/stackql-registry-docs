@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>endpoint_authorization</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointauthorization.html"><code>AWS::Redshift::EndpointAuthorization</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -242,4 +244,3 @@ ec2:DescribeAddresses,
 ec2:DescribeInternetGateways,
 ec2:DescribeSubnets
 ```
-

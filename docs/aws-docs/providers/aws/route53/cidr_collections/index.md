@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>cidr_collection</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html"><code>AWS::Route53::CidrCollection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -195,7 +197,8 @@ route53:ChangeCidrCollection
 ### Delete
 ```json
 route53:DeleteCidrCollection,
-route53:ChangeCidrCollection
+route53:ChangeCidrCollection,
+route53:ListCidrBlocks
 ```
 
 ### List
@@ -203,4 +206,3 @@ route53:ChangeCidrCollection
 route53:ListCidrCollections,
 route53:ListCidrBlocks
 ```
-

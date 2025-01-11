@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>vpn_connection_route</code> resource o
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpn_connection_routes</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::EC2::VPNConnectionRoute</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a static route for a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.<br />For more information, see &#91;&#93;(https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.vpn_connection_routes" /></td></tr>
 </tbody></table>
 
@@ -34,6 +34,8 @@ Creates, updates, deletes or gets a <code>vpn_connection_route</code> resource o
 <tr><td><CopyableCode code="vpn_connection_id" /></td><td><code>string</code></td><td>The ID of the VPN connection.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectionroute.html"><code>AWS::EC2::VPNConnectionRoute</code></a>.
 
 ## Methods
 
@@ -163,13 +165,18 @@ AND region = 'us-east-1';
 
 To operate on the <code>vpn_connection_routes</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeVpnConnections
+```
+
 ### Create
 ```json
 ec2:CreateVpnConnectionRoute,
 ec2:DescribeVpnConnections
 ```
 
-### Read
+### List
 ```json
 ec2:DescribeVpnConnections
 ```
@@ -179,9 +186,3 @@ ec2:DescribeVpnConnections
 ec2:DeleteVpnConnectionRoute,
 ec2:DescribeVpnConnections
 ```
-
-### List
-```json
-ec2:DescribeVpnConnections
-```
-

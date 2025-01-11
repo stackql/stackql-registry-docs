@@ -30,18 +30,8 @@ Lists <code>endpoint_authorizations</code> in a region or regions, for all prope
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the authorization action.</td></tr>
-<tr><td><CopyableCode code="grantee" /></td><td><code>string</code></td><td>The AWS account ID of the grantee of the cluster.</td></tr>
-<tr><td><CopyableCode code="account" /></td><td><code>string</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
-<tr><td><CopyableCode code="grantor" /></td><td><code>string</code></td><td>The AWS account ID of the cluster owner.</td></tr>
-<tr><td><CopyableCode code="endpoint_count" /></td><td><code>integer</code></td><td>The number of Redshift-managed VPC endpoints created for the authorization.</td></tr>
-<tr><td><CopyableCode code="authorize_time" /></td><td><code>string</code></td><td>The time (UTC) when the authorization was created.</td></tr>
-<tr><td><CopyableCode code="allowed_vpcs" /></td><td><code>array</code></td><td>The VPCs allowed access to the cluster.</td></tr>
-<tr><td><CopyableCode code="force" /></td><td><code>boolean</code></td><td>Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</td></tr>
-<tr><td><CopyableCode code="allowed_all_vpcs" /></td><td><code>boolean</code></td><td>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</td></tr>
-<tr><td><CopyableCode code="vpc_ids" /></td><td><code>array</code></td><td>The virtual private cloud (VPC) identifiers to grant or revoke access to.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account" /></td><td><code>string</code></td><td>The target AWS account ID to grant or revoke access for.</td></tr>
 <tr><td><CopyableCode code="cluster_identifier" /></td><td><code>string</code></td><td>The cluster identifier.</td></tr>
-<tr><td><CopyableCode code="cluster_status" /></td><td><code>string</code></td><td>The status of the cluster.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>endpoint_authorizations_list_only</code> resource, see <a href="/providers/aws/redshift/endpoint_authorizations/#permissions"><code>endpoint_authorizations</code></a>
-
 

@@ -41,8 +41,11 @@ Creates, updates, deletes or gets a <code>profile</code> resource or lists <code
 <tr><td><CopyableCode code="session_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="attribute_mappings" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="accept_role_session_name" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html"><code>AWS::RolesAnywhere::Profile</code></a>.
 
 ## Methods
 
@@ -94,7 +97,8 @@ require_instance_properties,
 role_arns,
 session_policy,
 tags,
-attribute_mappings
+attribute_mappings,
+accept_role_session_name
 FROM aws.rolesanywhere.profiles
 WHERE region = 'us-east-1';
 ```
@@ -112,7 +116,8 @@ require_instance_properties,
 role_arns,
 session_policy,
 tags,
-attribute_mappings
+attribute_mappings,
+accept_role_session_name
 FROM aws.rolesanywhere.profiles
 WHERE region = 'us-east-1' AND data__Identifier = '<ProfileId>';
 ```
@@ -158,6 +163,7 @@ INSERT INTO aws.rolesanywhere.profiles (
  SessionPolicy,
  Tags,
  AttributeMappings,
+ AcceptRoleSessionName,
  region
 )
 SELECT 
@@ -170,6 +176,7 @@ SELECT
  '{{ SessionPolicy }}',
  '{{ Tags }}',
  '{{ AttributeMappings }}',
+ '{{ AcceptRoleSessionName }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -212,6 +219,8 @@ resources:
           - MappingRules:
               - Specifier: '{{ Specifier }}'
             CertificateField: '{{ CertificateField }}'
+      - name: AcceptRoleSessionName
+        value: '{{ AcceptRoleSessionName }}'
 
 ```
 </TabItem>
@@ -274,4 +283,3 @@ rolesanywhere:DeleteProfile
 rolesanywhere:ListProfiles,
 rolesanywhere:ListTagsForResource
 ```
-

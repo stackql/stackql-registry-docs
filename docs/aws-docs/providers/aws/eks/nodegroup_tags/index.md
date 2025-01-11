@@ -46,6 +46,7 @@ Expands all tag keys and values for <code>nodegroups</code> in a region
 <tr><td><CopyableCode code="subnets" /></td><td><code>array</code></td><td>The subnets to use for the Auto Scaling group that is created for your node group.</td></tr>
 <tr><td><CopyableCode code="taints" /></td><td><code>array</code></td><td>The Kubernetes taints to be applied to the nodes in the node group when they are created.</td></tr>
 <tr><td><CopyableCode code="update_config" /></td><td><code>object</code></td><td>The node group update configuration.</td></tr>
+<tr><td><CopyableCode code="node_repair_config" /></td><td><code>object</code></td><td>The node auto repair configuration for node group.</td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The Kubernetes version to use for your managed nodes.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
@@ -90,6 +91,7 @@ scaling_config,
 subnets,
 taints,
 update_config,
+node_repair_config,
 version,
 id,
 arn,
@@ -103,5 +105,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>nodegroup_tags</code> resource, see <a href="/providers/aws/eks/nodegroups/#permissions"><code>nodegroups</code></a>
-
 

@@ -30,14 +30,7 @@ Lists <code>applications</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name you want to assign to this Identity Center (SSO) Application</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description information for the Identity Center (SSO) Application</td></tr>
-<tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The ARN of the instance of IAM Identity Center under which the operation will run</td></tr>
-<tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td>The Application ARN that is returned upon creation of the Identity Center (SSO) Application</td></tr>
-<tr><td><CopyableCode code="application_provider_arn" /></td><td><code>string</code></td><td>The ARN of the application provider under which the operation will run</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Specifies whether the application is enabled or disabled</td></tr>
-<tr><td><CopyableCode code="portal_options" /></td><td><code>object</code></td><td>A structure that describes the options for the portal associated with an application</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td>The Application ARN that is returned upon creation of the Identity Center (SSO) Application</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>applications_list_only</code> resource, see <a href="/providers/aws/sso/applications/#permissions"><code>applications</code></a>
-
 

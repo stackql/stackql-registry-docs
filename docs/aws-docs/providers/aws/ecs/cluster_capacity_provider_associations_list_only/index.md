@@ -30,9 +30,7 @@ Lists <code>cluster_capacity_provider_associations</code> in a region or regions
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capacity_providers" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
-<tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The name of the cluster</td></tr>
-<tr><td><CopyableCode code="default_capacity_provider_strategy" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The name of the cluster</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>cluster_capacity_provider_associations_list_only</code> resource, see <a href="/providers/aws/ecs/cluster_capacity_provider_associations/#permissions"><code>cluster_capacity_provider_associations</code></a>
-
 

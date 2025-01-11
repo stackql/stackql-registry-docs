@@ -35,6 +35,10 @@ Expands all tag keys and values for <code>deliveries</code> in a region
 <tr><td><CopyableCode code="delivery_source_name" /></td><td><code>string</code></td><td>The name of the delivery source that is associated with this delivery.</td></tr>
 <tr><td><CopyableCode code="delivery_destination_arn" /></td><td><code>string</code></td><td>The ARN of the delivery destination that is associated with this delivery.</td></tr>
 <tr><td><CopyableCode code="delivery_destination_type" /></td><td><code>string</code></td><td>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</td></tr>
+<tr><td><CopyableCode code="record_fields" /></td><td><code>array</code></td><td>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</td></tr>
+<tr><td><CopyableCode code="field_delimiter" /></td><td><code>string</code></td><td>The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.</td></tr>
+<tr><td><CopyableCode code="s3_suffix_path" /></td><td><code>string</code></td><td>This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.</td></tr>
+<tr><td><CopyableCode code="s3_enable_hive_compatible_path" /></td><td><code>boolean</code></td><td>This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -65,6 +69,10 @@ arn,
 delivery_source_name,
 delivery_destination_arn,
 delivery_destination_type,
+record_fields,
+field_delimiter,
+s3_suffix_path,
+s3_enable_hive_compatible_path,
 tag_key,
 tag_value
 FROM aws.logs.delivery_tags
@@ -75,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>delivery_tags</code> resource, see <a href="/providers/aws/logs/deliveries/#permissions"><code>deliveries</code></a>
-
 

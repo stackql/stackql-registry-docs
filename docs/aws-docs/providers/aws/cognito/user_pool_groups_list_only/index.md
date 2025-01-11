@@ -30,10 +30,7 @@ Lists <code>user_pool_groups</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="precedence" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>user_pool_groups_list_only</code> resource, see <a href="/providers/aws/cognito/user_pool_groups/#permissions"><code>user_pool_groups</code></a>
-
 

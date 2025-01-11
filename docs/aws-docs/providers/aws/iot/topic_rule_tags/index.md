@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>topic_rule_tags</code> resource, see <a href="/providers/aws/iot/topic_rules/#permissions"><code>topic_rules</code></a>
 
-

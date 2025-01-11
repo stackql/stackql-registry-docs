@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>fhir_datastore_tags</code> resource, see <a href="/providers/aws/healthlake/fhir_datastores/#permissions"><code>fhir_datastores</code></a>
 
-

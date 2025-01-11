@@ -112,4 +112,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ipam_pool_tags</code> resource, see <a href="/providers/aws/ec2/ipam_pools/#permissions"><code>ipam_pools</code></a>
 
-

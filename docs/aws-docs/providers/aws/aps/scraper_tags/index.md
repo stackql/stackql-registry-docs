@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>scraper_tags</code> resource, see <a href="/providers/aws/aps/scrapers/#permissions"><code>scrapers</code></a>
 
-

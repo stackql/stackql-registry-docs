@@ -20,7 +20,7 @@ The backup service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>15</b></span><br />
+<span>total resources:&nbsp;<b>17</b></span><br />
 </div>
 </div>
 
@@ -36,9 +36,11 @@ The backup service documentation.
 <a href="/providers/aws/backup/backup_vaults/">backup_vaults</a><br />
 <a href="/providers/aws/backup/backup_vaults_list_only/">backup_vaults_list_only</a><br />
 <a href="/providers/aws/backup/frameworks/">frameworks</a><br />
-<a href="/providers/aws/backup/frameworks_list_only/">frameworks_list_only</a>
+<a href="/providers/aws/backup/frameworks_list_only/">frameworks_list_only</a><br />
+<a href="/providers/aws/backup/logically_air_gapped_backup_vaults/">logically_air_gapped_backup_vaults</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/backup/logically_air_gapped_backup_vaults_list_only/">logically_air_gapped_backup_vaults_list_only</a><br />
 <a href="/providers/aws/backup/report_plans/">report_plans</a><br />
 <a href="/providers/aws/backup/report_plans_list_only/">report_plans_list_only</a><br />
 <a href="/providers/aws/backup/restore_testing_plan_tags/">restore_testing_plan_tags</a><br />

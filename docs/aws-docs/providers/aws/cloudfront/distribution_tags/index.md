@@ -72,4 +72,3 @@ FROM aws.cloudfront.distribution_tags
 
 For permissions required to operate on the <code>distribution_tags</code> resource, see <a href="/providers/aws/cloudfront/distributions/#permissions"><code>distributions</code></a>
 
-

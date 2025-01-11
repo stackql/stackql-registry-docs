@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>connector</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-connector.html"><code>AWS::PCAConnectorAD::Connector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -200,7 +202,8 @@ ec2:CreateTags,
 ec2:CreateVpcEndpoint,
 ec2:DescribeVpcEndpoints,
 pca-connector-ad:CreateConnector,
-pca-connector-ad:GetConnector
+pca-connector-ad:GetConnector,
+pca-connector-ad:TagResource
 ```
 
 ### Read
@@ -211,10 +214,11 @@ pca-connector-ad:GetConnector
 
 ### Delete
 ```json
+ec2:DeleteVpcEndpoints,
+ec2:DescribeVpcEndpoints,
 pca-connector-ad:GetConnector,
 pca-connector-ad:DeleteConnector,
-ec2:DeleteVpcEndpoints,
-ec2:DescribeVpcEndpoints
+pca-connector-ad:UntagResource
 ```
 
 ### List
@@ -228,4 +232,3 @@ pca-connector-ad:ListTagsForResource,
 pca-connector-ad:TagResource,
 pca-connector-ad:UntagResource
 ```
-

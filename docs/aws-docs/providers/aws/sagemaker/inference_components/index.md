@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>inference_component</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html"><code>AWS::SageMaker::InferenceComponent</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -56,7 +58,7 @@ Creates, updates, deletes or gets an <code>inference_component</code> resource o
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="EndpointName, VariantName, Specification, RuntimeConfig, region" /></td>
+    <td><CopyableCode code="EndpointName, Specification, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -138,16 +140,12 @@ Use the following StackQL query and manifest file to create a new <code>inferenc
 /*+ create */
 INSERT INTO aws.sagemaker.inference_components (
  EndpointName,
- VariantName,
  Specification,
- RuntimeConfig,
  region
 )
 SELECT 
 '{{ EndpointName }}',
- '{{ VariantName }}',
  '{{ Specification }}',
- '{{ RuntimeConfig }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -201,6 +199,7 @@ resources:
       - name: Specification
         value:
           ModelName: '{{ ModelName }}'
+          BaseInferenceComponentName: '{{ BaseInferenceComponentName }}'
           Container:
             DeployedImage:
               SpecifiedImage: '{{ SpecifiedImage }}'
@@ -281,4 +280,3 @@ sagemaker:ListInferenceComponents,
 sagemaker:DescribeInferenceComponent,
 sagemaker:ListTags
 ```
-

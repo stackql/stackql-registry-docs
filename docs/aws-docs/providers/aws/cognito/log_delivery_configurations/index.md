@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>log_delivery_configuration</code> reso
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html"><code>AWS::Cognito::LogDeliveryConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -141,6 +143,10 @@ resources:
             EventSource: '{{ EventSource }}'
             CloudWatchLogsConfiguration:
               LogGroupArn: '{{ LogGroupArn }}'
+            S3Configuration:
+              BucketArn: '{{ BucketArn }}'
+            FirehoseConfiguration:
+              StreamArn: '{{ StreamArn }}'
 
 ```
 </TabItem>
@@ -170,7 +176,14 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups
+logs:DescribeLogGroups,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:ListBucket,
+s3:PutObject,
+s3:GetBucketAcl,
+firehose:TagDeliveryStream,
+iam:CreateServiceLinkedRole
 ```
 
 ### Read
@@ -189,7 +202,14 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups
+logs:DescribeLogGroups,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:ListBucket,
+s3:PutObject,
+s3:GetBucketAcl,
+firehose:TagDeliveryStream,
+iam:CreateServiceLinkedRole
 ```
 
 ### Delete
@@ -203,6 +223,12 @@ logs:DeleteLogDelivery,
 logs:ListLogDeliveries,
 logs:PutResourcePolicy,
 logs:DescribeResourcePolicies,
-logs:DescribeLogGroups
+logs:DescribeLogGroups,
+s3:GetBucketPolicy,
+s3:PutBucketPolicy,
+s3:ListBucket,
+s3:PutObject,
+s3:GetBucketAcl,
+firehose:TagDeliveryStream,
+iam:CreateServiceLinkedRole
 ```
-

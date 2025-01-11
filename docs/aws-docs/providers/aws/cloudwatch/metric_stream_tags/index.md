@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>metric_stream_tags</code> resource, see <a href="/providers/aws/cloudwatch/metric_streams/#permissions"><code>metric_streams</code></a>
 
-

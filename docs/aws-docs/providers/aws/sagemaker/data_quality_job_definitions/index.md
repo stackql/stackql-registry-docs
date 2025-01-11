@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>data_quality_job_definition</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html"><code>AWS::SageMaker::DataQualityJobDefinition</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -313,4 +315,3 @@ sagemaker:DescribeDataQualityJobDefinition
 sagemaker:ListDataQualityJobDefinitions,
 sagemaker:ListTags
 ```
-

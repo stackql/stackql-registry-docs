@@ -88,6 +88,8 @@ Creates, updates, deletes or gets a <code>cluster</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html"><code>AWS::Redshift::Cluster</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -437,8 +439,8 @@ resources:
         value: '{{ MultiAZ }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
       - name: SnapshotClusterIdentifier
         value: '{{ SnapshotClusterIdentifier }}'
       - name: IamRoles
@@ -465,6 +467,9 @@ resources:
         value:
           BucketName: '{{ BucketName }}'
           S3KeyPrefix: '{{ S3KeyPrefix }}'
+          LogDestinationType: '{{ LogDestinationType }}'
+          LogExports:
+            - '{{ LogExports[0] }}'
       - name: DeferMaintenance
         value: '{{ DeferMaintenance }}'
       - name: NodeType
@@ -629,4 +634,3 @@ redshift:DescribeTags,
 redshift:DescribeClusters,
 redshift:DeleteCluster
 ```
-

@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>experiment_templates</code> in a regio
 <tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</td></tr>
 <tr><td><CopyableCode code="experiment_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="experiment_report_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -71,6 +72,7 @@ stop_conditions,
 log_configuration,
 role_arn,
 experiment_options,
+experiment_report_configuration,
 tag_key,
 tag_value
 FROM aws.fis.experiment_template_tags
@@ -81,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>experiment_template_tags</code> resource, see <a href="/providers/aws/fis/experiment_templates/#permissions"><code>experiment_templates</code></a>
-
 

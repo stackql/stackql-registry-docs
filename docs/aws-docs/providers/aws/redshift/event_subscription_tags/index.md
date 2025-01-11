@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_subscription_tags</code> resource, see <a href="/providers/aws/redshift/event_subscriptions/#permissions"><code>event_subscriptions</code></a>
 
-

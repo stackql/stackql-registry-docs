@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>table</code> resource or lists <code>t
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html"><code>AWS::Timestream::Table</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -261,4 +263,3 @@ timestream:DescribeTable
 timestream:ListTables,
 timestream:DescribeEndpoints
 ```
-

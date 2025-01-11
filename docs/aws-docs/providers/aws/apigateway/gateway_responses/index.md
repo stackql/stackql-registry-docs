@@ -31,13 +31,15 @@ Creates, updates, deletes or gets a <code>gateway_response</code> resource or li
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><CopyableCode code="response_type" /></td><td><code>string</code></td><td>The response type of the associated GatewayResponse.</td></tr>
-<tr><td><CopyableCode code="status_code" /></td><td><code>string</code></td><td>The HTTP status code for this GatewayResponse.</td></tr>
-<tr><td><CopyableCode code="response_parameters" /></td><td><code>object</code></td><td>Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.</td></tr>
-<tr><td><CopyableCode code="response_templates" /></td><td><code>object</code></td><td>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="response_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="status_code" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="response_parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="response_templates" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html"><code>AWS::ApiGateway::GatewayResponse</code></a>.
 
 ## Methods
 
@@ -219,4 +221,3 @@ apigateway:DELETE
 ```json
 apigateway:GET
 ```
-

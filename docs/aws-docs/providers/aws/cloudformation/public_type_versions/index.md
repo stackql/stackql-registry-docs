@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>public_type_version</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html"><code>AWS::CloudFormation::PublicTypeVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -205,4 +207,3 @@ cloudformation:DescribePublisher
 ```json
 cloudformation:ListTypes
 ```
-

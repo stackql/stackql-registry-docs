@@ -30,10 +30,8 @@ Lists <code>base_path_mappings</code> in a region or regions, for all properties
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="base_path" /></td><td><code>string</code></td><td>The base path name that callers of the API must provide as part of the URL after the domain name.</td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The domain name of the BasePathMapping resource to be described.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td>The name of the associated stage.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="base_path" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>base_path_mappings_list_only</code> resource, see <a href="/providers/aws/apigateway/base_path_mappings/#permissions"><code>base_path_mappings</code></a>
-
 

@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>report_plan</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html"><code>AWS::Backup::ReportPlan</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -241,4 +243,3 @@ backup:DescribeReportPlan
 ```json
 backup:ListReportPlans
 ```
-

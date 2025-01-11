@@ -37,6 +37,7 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="basic_auth_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="cache_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_headers" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_domain" /></td><td><code>string</code></td><td></td></tr>
@@ -51,6 +52,8 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html"><code>AWS::Amplify::App</code></a>.
 
 ## Methods
 
@@ -99,6 +102,7 @@ arn,
 auto_branch_creation_config,
 basic_auth_config,
 build_spec,
+cache_config,
 custom_headers,
 custom_rules,
 default_domain,
@@ -125,6 +129,7 @@ arn,
 auto_branch_creation_config,
 basic_auth_config,
 build_spec,
+cache_config,
 custom_headers,
 custom_rules,
 default_domain,
@@ -175,6 +180,7 @@ INSERT INTO aws.amplify.apps (
  AutoBranchCreationConfig,
  BasicAuthConfig,
  BuildSpec,
+ CacheConfig,
  CustomHeaders,
  CustomRules,
  Description,
@@ -193,6 +199,7 @@ SELECT
  '{{ AutoBranchCreationConfig }}',
  '{{ BasicAuthConfig }}',
  '{{ BuildSpec }}',
+ '{{ CacheConfig }}',
  '{{ CustomHeaders }}',
  '{{ CustomRules }}',
  '{{ Description }}',
@@ -246,6 +253,9 @@ resources:
         value: null
       - name: BuildSpec
         value: '{{ BuildSpec }}'
+      - name: CacheConfig
+        value:
+          Type: '{{ Type }}'
       - name: CustomHeaders
         value: '{{ CustomHeaders }}'
       - name: CustomRules
@@ -349,4 +359,3 @@ sns:Subscribe,
 sns:Unsubscribe,
 iam:PassRole
 ```
-

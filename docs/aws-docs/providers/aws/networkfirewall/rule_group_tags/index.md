@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>rule_group_tags</code> resource, see <a href="/providers/aws/networkfirewall/rule_groups/#permissions"><code>rule_groups</code></a>
 
-

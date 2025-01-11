@@ -30,17 +30,7 @@ Lists <code>profiles</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="business_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="phone" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="profile_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>profiles_list_only</code> resource, see <a href="/providers/aws/b2bi/profiles/#permissions"><code>profiles</code></a>
-
 

@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>tracker_consumer</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html"><code>AWS::Location::TrackerConsumer</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -184,4 +186,3 @@ geo:ListTrackerConsumers
 ```json
 geo:ListTrackerConsumers
 ```
-

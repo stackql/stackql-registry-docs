@@ -31,9 +31,6 @@ Lists <code>pull_through_cache_rules</code> in a region or regions, for all prop
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="ecr_repository_prefix" /></td><td><code>string</code></td><td>The ECRRepositoryPrefix is a custom alias for upstream registry url.</td></tr>
-<tr><td><CopyableCode code="upstream_registry_url" /></td><td><code>string</code></td><td>The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached</td></tr>
-<tr><td><CopyableCode code="credential_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.</td></tr>
-<tr><td><CopyableCode code="upstream_registry" /></td><td><code>string</code></td><td>The name of the upstream registry.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pull_through_cache_rules_list_only</code> resource, see <a href="/providers/aws/ecr/pull_through_cache_rules/#permissions"><code>pull_through_cache_rules</code></a>
-
 

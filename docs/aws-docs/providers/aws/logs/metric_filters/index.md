@@ -33,9 +33,12 @@ Creates, updates, deletes or gets a <code>metric_filter</code> resource or lists
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="metric_transformations" /></td><td><code>array</code></td><td>The metric transformations.</td></tr>
 <tr><td><CopyableCode code="filter_pattern" /></td><td><code>string</code></td><td>A filter pattern for extracting metric data out of ingested log events. For more information, see &#91;Filter and Pattern Syntax&#93;(https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).</td></tr>
 <tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The name of an existing log group that you want to associate with this metric filter.</td></tr>
+<tr><td><CopyableCode code="apply_on_transformed_logs" /></td><td><code>boolean</code></td><td>This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see &#91;PutTransformer&#93;(https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).<br />If this value is <code>true</code>, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.</td></tr>
 <tr><td><CopyableCode code="filter_name" /></td><td><code>string</code></td><td>The name of the metric filter.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html"><code>AWS::Logs::MetricFilter</code></a>.
 
 ## Methods
 
@@ -80,6 +83,7 @@ region,
 metric_transformations,
 filter_pattern,
 log_group_name,
+apply_on_transformed_logs,
 filter_name
 FROM aws.logs.metric_filters
 WHERE region = 'us-east-1';
@@ -91,6 +95,7 @@ region,
 metric_transformations,
 filter_pattern,
 log_group_name,
+apply_on_transformed_logs,
 filter_name
 FROM aws.logs.metric_filters
 WHERE region = 'us-east-1' AND data__Identifier = '<LogGroupName>|<FilterName>';
@@ -133,6 +138,7 @@ INSERT INTO aws.logs.metric_filters (
  MetricTransformations,
  FilterPattern,
  LogGroupName,
+ ApplyOnTransformedLogs,
  FilterName,
  region
 )
@@ -140,6 +146,7 @@ SELECT
  '{{ MetricTransformations }}',
  '{{ FilterPattern }}',
  '{{ LogGroupName }}',
+ '{{ ApplyOnTransformedLogs }}',
  '{{ FilterName }}',
  '{{ region }}';
 ```
@@ -172,6 +179,8 @@ resources:
         value: '{{ FilterPattern }}'
       - name: LogGroupName
         value: '{{ LogGroupName }}'
+      - name: ApplyOnTransformedLogs
+        value: '{{ ApplyOnTransformedLogs }}'
       - name: FilterName
         value: '{{ FilterName }}'
 
@@ -218,4 +227,3 @@ logs:DescribeMetricFilters
 ```json
 logs:DeleteMetricFilter
 ```
-

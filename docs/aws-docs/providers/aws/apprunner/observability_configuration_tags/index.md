@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>observability_configuration_tags</code> resource, see <a href="/providers/aws/apprunner/observability_configurations/#permissions"><code>observability_configurations</code></a>
 
-

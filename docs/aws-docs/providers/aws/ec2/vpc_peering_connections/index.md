@@ -30,15 +30,17 @@ Creates, updates, deletes or gets a <code>vpc_peering_connection</code> resource
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="peer_owner_id" /></td><td><code>string</code></td><td>The AWS account ID of the owner of the accepter VPC.</td></tr>
-<tr><td><CopyableCode code="peer_region" /></td><td><code>string</code></td><td>The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.</td></tr>
-<tr><td><CopyableCode code="peer_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.</td></tr>
-<tr><td><CopyableCode code="peer_vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="peer_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="peer_vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="peer_region" /></td><td><code>string</code></td><td>The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.</td></tr>
+<tr><td><CopyableCode code="peer_owner_id" /></td><td><code>string</code></td><td>The AWS account ID of the owner of the accepter VPC.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html"><code>AWS::EC2::VPCPeeringConnection</code></a>.
 
 ## Methods
 
@@ -80,12 +82,12 @@ Gets all <code>vpc_peering_connections</code> in a region.
 ```sql
 SELECT
 region,
-id,
-peer_owner_id,
-peer_region,
 peer_role_arn,
-peer_vpc_id,
 vpc_id,
+peer_vpc_id,
+id,
+peer_region,
+peer_owner_id,
 tags
 FROM aws.ec2.vpc_peering_connections
 WHERE region = 'us-east-1';
@@ -94,12 +96,12 @@ Gets all properties from an individual <code>vpc_peering_connection</code>.
 ```sql
 SELECT
 region,
-id,
-peer_owner_id,
-peer_region,
 peer_role_arn,
-peer_vpc_id,
 vpc_id,
+peer_vpc_id,
+id,
+peer_region,
+peer_owner_id,
 tags
 FROM aws.ec2.vpc_peering_connections
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
@@ -122,13 +124,13 @@ Use the following StackQL query and manifest file to create a new <code>vpc_peer
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.vpc_peering_connections (
- PeerVpcId,
  VpcId,
+ PeerVpcId,
  region
 )
 SELECT 
-'{{ PeerVpcId }}',
- '{{ VpcId }}',
+'{{ VpcId }}',
+ '{{ PeerVpcId }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -137,20 +139,20 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.vpc_peering_connections (
- PeerOwnerId,
- PeerRegion,
  PeerRoleArn,
- PeerVpcId,
  VpcId,
+ PeerVpcId,
+ PeerRegion,
+ PeerOwnerId,
  Tags,
  region
 )
 SELECT 
- '{{ PeerOwnerId }}',
- '{{ PeerRegion }}',
  '{{ PeerRoleArn }}',
- '{{ PeerVpcId }}',
  '{{ VpcId }}',
+ '{{ PeerVpcId }}',
+ '{{ PeerRegion }}',
+ '{{ PeerOwnerId }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -169,16 +171,16 @@ globals:
 resources:
   - name: vpc_peering_connection
     props:
-      - name: PeerOwnerId
-        value: '{{ PeerOwnerId }}'
-      - name: PeerRegion
-        value: '{{ PeerRegion }}'
       - name: PeerRoleArn
         value: '{{ PeerRoleArn }}'
-      - name: PeerVpcId
-        value: '{{ PeerVpcId }}'
       - name: VpcId
         value: '{{ VpcId }}'
+      - name: PeerVpcId
+        value: '{{ PeerVpcId }}'
+      - name: PeerRegion
+        value: '{{ PeerRegion }}'
+      - name: PeerOwnerId
+        value: '{{ PeerOwnerId }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -201,6 +203,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>vpc_peering_connections</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeVpcPeeringConnections
+```
+
 ### Create
 ```json
 ec2:CreateVpcPeeringConnection,
@@ -210,21 +217,10 @@ ec2:CreateTags,
 sts:AssumeRole
 ```
 
-### Read
-```json
-ec2:DescribeVpcPeeringConnections
-```
-
 ### Update
 ```json
 ec2:CreateTags,
 ec2:DeleteTags,
-ec2:DescribeVpcPeeringConnections
-```
-
-### Delete
-```json
-ec2:DeleteVpcPeeringConnection,
 ec2:DescribeVpcPeeringConnections
 ```
 
@@ -233,3 +229,8 @@ ec2:DescribeVpcPeeringConnections
 ec2:DescribeVpcPeeringConnections
 ```
 
+### Delete
+```json
+ec2:DeleteVpcPeeringConnection,
+ec2:DescribeVpcPeeringConnections
+```

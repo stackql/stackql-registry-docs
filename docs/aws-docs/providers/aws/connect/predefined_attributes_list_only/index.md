@@ -32,9 +32,6 @@ Lists <code>predefined_attributes</code> in a region or regions, for all propert
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the predefined attribute.</td></tr>
-<tr><td><CopyableCode code="values" /></td><td><code>object</code></td><td>The values of a predefined attribute.</td></tr>
-<tr><td><CopyableCode code="last_modified_region" /></td><td><code>string</code></td><td>Last modified region.</td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>number</code></td><td>Last modified time.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>predefined_attributes_list_only</code> resource, see <a href="/providers/aws/connect/predefined_attributes/#permissions"><code>predefined_attributes</code></a>
-
 

@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>queue_fleet_associations_list_only</code> resource, see <a href="/providers/aws/deadline/queue_fleet_associations/#permissions"><code>queue_fleet_associations</code></a>
 
-

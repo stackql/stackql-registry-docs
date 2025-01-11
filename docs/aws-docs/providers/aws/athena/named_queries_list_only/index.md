@@ -31,10 +31,6 @@ Lists <code>named_queries</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The query name.</td></tr>
-<tr><td><CopyableCode code="database" /></td><td><code>string</code></td><td>The database to which the query belongs.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The query description.</td></tr>
-<tr><td><CopyableCode code="query_string" /></td><td><code>string</code></td><td>The contents of the query with all query statements.</td></tr>
-<tr><td><CopyableCode code="work_group" /></td><td><code>string</code></td><td>The name of the workgroup that contains the named query.</td></tr>
 <tr><td><CopyableCode code="named_query_id" /></td><td><code>string</code></td><td>The unique ID of the query.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -68,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>named_queries_list_only</code> resource, see <a href="/providers/aws/athena/named_queries/#permissions"><code>named_queries</code></a>
-
 

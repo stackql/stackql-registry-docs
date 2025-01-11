@@ -30,12 +30,14 @@ Creates, updates, deletes or gets a <code>resource</code> resource or lists <cod
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td>The parent resource's identifier.</td></tr>
-<tr><td><CopyableCode code="path_part" /></td><td><code>string</code></td><td>The last path segment for this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="path_part" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html"><code>AWS::ApiGateway::Resource</code></a>.
 
 ## Methods
 
@@ -205,4 +207,3 @@ apigateway:GET
 ```json
 apigateway:DELETE
 ```
-

@@ -30,13 +30,7 @@ Lists <code>launch_templates</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="launch_template_name" /></td><td><code>string</code></td><td>A name for the launch template.</td></tr>
-<tr><td><CopyableCode code="launch_template_data" /></td><td><code>object</code></td><td>The information for the launch template.</td></tr>
-<tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td>A description for the first version of the launch template.</td></tr>
-<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.<br />To specify the tags for the resources that are created when an instance is launched, you must use &#91;TagSpecifications&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).</td></tr>
-<tr><td><CopyableCode code="latest_version_number" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="launch_template_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_version_number" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="launch_template_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>launch_templates_list_only</code> resource, see <a href="/providers/aws/ec2/launch_templates/#permissions"><code>launch_templates</code></a>
-
 

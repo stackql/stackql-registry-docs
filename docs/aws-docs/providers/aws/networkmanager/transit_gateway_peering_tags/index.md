@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>transit_gateway_peering_tags</code> resource, see <a href="/providers/aws/networkmanager/transit_gateway_peerings/#permissions"><code>transit_gateway_peerings</code></a>
 
-

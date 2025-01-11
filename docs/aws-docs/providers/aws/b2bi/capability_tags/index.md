@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>capability_tags</code> resource, see <a href="/providers/aws/b2bi/capabilities/#permissions"><code>capabilities</code></a>
 
-

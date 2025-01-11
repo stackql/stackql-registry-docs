@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>control_panel_tags</code> resource, see <a href="/providers/aws/route53recoverycontrol/control_panels/#permissions"><code>control_panels</code></a>
 
-

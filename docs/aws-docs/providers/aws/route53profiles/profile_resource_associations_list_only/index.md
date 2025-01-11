@@ -30,12 +30,7 @@ Lists <code>profile_resource_associations</code> in a region or regions, for all
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="profile_id" /></td><td><code>string</code></td><td>The ID of the profile that you associated the resource to that is specified by ResourceArn.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Primary Identifier for Profile Resource Association</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of an association between the Profile and resource.</td></tr>
-<tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The arn of the resource that you associated to the Profile.</td></tr>
-<tr><td><CopyableCode code="resource_properties" /></td><td><code>string</code></td><td>A JSON-formatted string with key-value pairs specifying the properties of the associated resource.</td></tr>
-<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The type of the resource associated to the Profile.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Primary Identifier for Profile Resource Association</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>profile_resource_associations_list_only</code> resource, see <a href="/providers/aws/route53profiles/profile_resource_associations/#permissions"><code>profile_resource_associations</code></a>
-
 

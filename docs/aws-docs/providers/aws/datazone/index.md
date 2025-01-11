@@ -20,7 +20,7 @@ The datazone service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>21</b></span><br />
+<span>total resources:&nbsp;<b>23</b></span><br />
 </div>
 </div>
 
@@ -34,14 +34,16 @@ The datazone service documentation.
 <a href="/providers/aws/datazone/domain_tags/">domain_tags</a><br />
 <a href="/providers/aws/datazone/domains/">domains</a><br />
 <a href="/providers/aws/datazone/domains_list_only/">domains_list_only</a><br />
+<a href="/providers/aws/datazone/environment_actions/">environment_actions</a><br />
+<a href="/providers/aws/datazone/environment_actions_list_only/">environment_actions_list_only</a><br />
 <a href="/providers/aws/datazone/environment_blueprint_configurations/">environment_blueprint_configurations</a><br />
 <a href="/providers/aws/datazone/environment_blueprint_configurations_list_only/">environment_blueprint_configurations_list_only</a><br />
 <a href="/providers/aws/datazone/environment_profiles/">environment_profiles</a><br />
 <a href="/providers/aws/datazone/environment_profiles_list_only/">environment_profiles_list_only</a><br />
-<a href="/providers/aws/datazone/environments/">environments</a><br />
-<a href="/providers/aws/datazone/environments_list_only/">environments_list_only</a>
+<a href="/providers/aws/datazone/environments/">environments</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/datazone/environments_list_only/">environments_list_only</a><br />
 <a href="/providers/aws/datazone/group_profiles/">group_profiles</a><br />
 <a href="/providers/aws/datazone/group_profiles_list_only/">group_profiles_list_only</a><br />
 <a href="/providers/aws/datazone/project_memberships/">project_memberships</a><br />

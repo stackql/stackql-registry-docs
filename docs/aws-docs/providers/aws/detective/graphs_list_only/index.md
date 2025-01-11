@@ -31,8 +31,6 @@ Lists <code>graphs</code> in a region or regions, for all properties use <a href
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Detective graph ARN</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_enable_members" /></td><td><code>boolean</code></td><td>Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>graphs_list_only</code> resource, see <a href="/providers/aws/detective/graphs/#permissions"><code>graphs</code></a>
-
 

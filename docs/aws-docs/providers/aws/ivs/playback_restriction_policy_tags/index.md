@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>playback_restriction_policy_tags</code> resource, see <a href="/providers/aws/ivs/playback_restriction_policies/#permissions"><code>playback_restriction_policies</code></a>
 
-

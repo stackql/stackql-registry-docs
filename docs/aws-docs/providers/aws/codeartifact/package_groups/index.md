@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>package_group</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-packagegroup.html"><code>AWS::CodeArtifact::PackageGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -254,4 +256,3 @@ codeartifact:DescribePackageGroup
 ```json
 codeartifact:ListPackageGroups
 ```
-

@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>template</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html"><code>AWS::SES::Template</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,4 +198,3 @@ ses:UpdateTemplate
 ses:ListEmailTemplates,
 ses:ListTemplates
 ```
-

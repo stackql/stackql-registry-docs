@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>connector_profile</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html"><code>AWS::AppFlow::ConnectorProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -399,4 +401,3 @@ secretsmanager:CreateSecret,
 secretsmanager:GetSecretValue,
 secretsmanager:PutResourcePolicy
 ```
-

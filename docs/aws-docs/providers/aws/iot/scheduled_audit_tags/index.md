@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>scheduled_audit_tags</code> resource, see <a href="/providers/aws/iot/scheduled_audits/#permissions"><code>scheduled_audits</code></a>
 
-

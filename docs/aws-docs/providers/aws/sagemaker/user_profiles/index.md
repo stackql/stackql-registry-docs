@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>user_profile</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html"><code>AWS::SageMaker::UserProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -185,23 +187,34 @@ resources:
               InstanceType: '{{ InstanceType }}'
               SageMakerImageArn: '{{ SageMakerImageArn }}'
               SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+              LifecycleConfigArn: '{{ LifecycleConfigArn }}'
+            LifecycleConfigArns:
+              - '{{ LifecycleConfigArns[0] }}'
           KernelGatewayAppSettings:
             CustomImages:
               - AppImageConfigName: '{{ AppImageConfigName }}'
                 ImageName: '{{ ImageName }}'
                 ImageVersionNumber: '{{ ImageVersionNumber }}'
             DefaultResourceSpec: null
+            LifecycleConfigArns:
+              - null
           RStudioServerProAppSettings:
             AccessStatus: '{{ AccessStatus }}'
             UserGroup: '{{ UserGroup }}'
           JupyterLabAppSettings:
             DefaultResourceSpec: null
             LifecycleConfigArns:
-              - '{{ LifecycleConfigArns[0] }}'
+              - null
             CodeRepositories:
               - RepositoryUrl: '{{ RepositoryUrl }}'
             CustomImages:
               - null
+            AppLifecycleManagement:
+              IdleSettings:
+                LifecycleManagement: '{{ LifecycleManagement }}'
+                IdleTimeoutInMinutes: '{{ IdleTimeoutInMinutes }}'
+                MinIdleTimeoutInMinutes: '{{ MinIdleTimeoutInMinutes }}'
+                MaxIdleTimeoutInMinutes: '{{ MaxIdleTimeoutInMinutes }}'
           SpaceStorageSettings:
             DefaultEbsStorageSettings:
               DefaultEbsVolumeSizeInGb: '{{ DefaultEbsVolumeSizeInGb }}'
@@ -212,6 +225,12 @@ resources:
               - null
             CustomImages:
               - null
+            AppLifecycleManagement: null
+          StudioWebPortalSettings:
+            HiddenMlTools:
+              - '{{ HiddenMlTools[0] }}'
+            HiddenAppTypes:
+              - '{{ HiddenAppTypes[0] }}'
           DefaultLandingUri: '{{ DefaultLandingUri }}'
           StudioWebPortal: '{{ StudioWebPortal }}'
           CustomPosixUserConfig:
@@ -219,6 +238,9 @@ resources:
             Gid: '{{ Gid }}'
           CustomFileSystemConfigs:
             - EFSFileSystemConfig:
+                FileSystemPath: '{{ FileSystemPath }}'
+                FileSystemId: '{{ FileSystemId }}'
+              FSxLustreFileSystemConfig:
                 FileSystemPath: '{{ FileSystemPath }}'
                 FileSystemId: '{{ FileSystemId }}'
           SecurityGroups:
@@ -282,4 +304,3 @@ sagemaker:DescribeUserProfile
 ```json
 sagemaker:ListUserProfiles
 ```
-

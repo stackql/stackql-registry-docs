@@ -30,15 +30,7 @@ Lists <code>applications</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_configuration" /></td><td><code>object</code></td><td>Use this parameter to configure the application.</td></tr>
-<tr><td><CopyableCode code="application_description" /></td><td><code>string</code></td><td>The description of the application.</td></tr>
-<tr><td><CopyableCode code="application_mode" /></td><td><code>string</code></td><td>To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.</td></tr>
-<tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the application.</td></tr>
-<tr><td><CopyableCode code="runtime_environment" /></td><td><code>string</code></td><td>The runtime environment for the application.</td></tr>
-<tr><td><CopyableCode code="service_execution_role" /></td><td><code>string</code></td><td>Specifies the IAM role that the application uses to access external resources.</td></tr>
-<tr><td><CopyableCode code="run_configuration" /></td><td><code>object</code></td><td>Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.</td></tr>
-<tr><td><CopyableCode code="application_maintenance_configuration" /></td><td><code>object</code></td><td>Used to configure start of maintenance window.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>The name of the application.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>applications_list_only</code> resource, see <a href="/providers/aws/kinesisanalyticsv2/applications/#permissions"><code>applications</code></a>
-
 

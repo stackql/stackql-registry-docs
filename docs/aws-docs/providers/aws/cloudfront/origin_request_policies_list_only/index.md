@@ -25,14 +25,12 @@ Lists <code>origin_request_policies</code> in a region or regions, for all prope
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>origin_request_policies_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::OriginRequestPolicy</td></tr>
+<tr><td><b>Description</b></td><td>An origin request policy.<br />When it's attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:<br />+ The request body and the URL path (without the domain name) from the viewer request.<br />+ The headers that CloudFront automatically includes in every origin request, including <code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.<br />+ All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.<br /><br />CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use <code>CachePolicy</code>.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.origin_request_policies_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="origin_request_policy_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.cloudfront.origin_request_policies_list_only
 ## Permissions
 
 For permissions required to operate on the <code>origin_request_policies_list_only</code> resource, see <a href="/providers/aws/cloudfront/origin_request_policies/#permissions"><code>origin_request_policies</code></a>
-
 

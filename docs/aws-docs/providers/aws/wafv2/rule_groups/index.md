@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html"><code>AWS::WAFv2::RuleGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -488,6 +490,8 @@ wafv2:ListTagsForResource
 
 ### Update
 ```json
+wafv2:TagResource,
+wafv2:UntagResource,
 wafv2:UpdateRuleGroup,
 wafv2:GetRuleGroup,
 wafv2:ListTagsForResource
@@ -497,4 +501,3 @@ wafv2:ListTagsForResource
 ```json
 wafv2:listRuleGroups
 ```
-

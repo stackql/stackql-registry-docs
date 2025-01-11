@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_peering</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewaypeering.html"><code>AWS::NetworkManager::TransitGatewayPeering</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -217,8 +219,7 @@ ec2:DescribeRegions
 
 ### Read
 ```json
-networkmanager:GetTransitGatewayPeering,
-networkmanager:TagResource
+networkmanager:GetTransitGatewayPeering
 ```
 
 ### Update
@@ -241,4 +242,3 @@ ec2:DescribeRegions
 ```json
 networkmanager:ListPeerings
 ```
-

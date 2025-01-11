@@ -42,6 +42,9 @@ Expands all tag keys and values for <code>domain_configurations</code> in a regi
 <tr><td><CopyableCode code="server_certificate_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="server_certificates" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tls_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_protocol" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_certificate_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -79,6 +82,9 @@ domain_type,
 server_certificate_config,
 server_certificates,
 tls_config,
+authentication_type,
+application_protocol,
+client_certificate_config,
 tag_key,
 tag_value
 FROM aws.iot.domain_configuration_tags
@@ -89,5 +95,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>domain_configuration_tags</code> resource, see <a href="/providers/aws/iot/domain_configurations/#permissions"><code>domain_configurations</code></a>
-
 

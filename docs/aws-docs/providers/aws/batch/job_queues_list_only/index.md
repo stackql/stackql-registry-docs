@@ -30,14 +30,7 @@ Lists <code>job_queues</code> in a region or regions, for all properties use <a 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_queue_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_queue_arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
-<tr><td><CopyableCode code="compute_environment_order" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="job_state_time_limit_actions" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="scheduling_policy_arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="job_queue_arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>job_queues_list_only</code> resource, see <a href="/providers/aws/batch/job_queues/#permissions"><code>job_queues</code></a>
-
 

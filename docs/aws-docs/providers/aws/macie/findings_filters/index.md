@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>findings_filter</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html"><code>AWS::Macie::FindingsFilter</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -234,4 +236,3 @@ macie2:DeleteFindingsFilter
 ```json
 macie2:ListFindingsFilters
 ```
-

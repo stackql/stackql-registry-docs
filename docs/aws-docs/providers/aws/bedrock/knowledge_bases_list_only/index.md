@@ -30,18 +30,7 @@ Lists <code>knowledge_bases</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
-<tr><td><CopyableCode code="knowledge_base_configuration" /></td><td><code>object</code></td><td>Contains details about the embeddings model used for the knowledge base.</td></tr>
-<tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td>The unique identifier of the knowledge base.</td></tr>
-<tr><td><CopyableCode code="knowledge_base_arn" /></td><td><code>string</code></td><td>The ARN of the knowledge base.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the knowledge base.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of a knowledge base.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time at which the knowledge base was created.</td></tr>
-<tr><td><CopyableCode code="failure_reasons" /></td><td><code>array</code></td><td>A list of reasons that the API operation on the knowledge base failed.</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time at which the knowledge base was last updated.</td></tr>
-<tr><td><CopyableCode code="storage_configuration" /></td><td><code>object</code></td><td>The vector store service in which the knowledge base is stored.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of tag keys and values</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="knowledge_base_id" /></td><td><code>string</code></td><td>The unique identifier of the knowledge base.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>knowledge_bases_list_only</code> resource, see <a href="/providers/aws/bedrock/knowledge_bases/#permissions"><code>knowledge_bases</code></a>
-
 

@@ -31,18 +31,6 @@ Lists <code>app_block_builders</code> in a region or regions, for all properties
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="access_endpoints" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_default_internet_access" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="iam_role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="app_block_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>app_block_builders_list_only</code> resource, see <a href="/providers/aws/appstream/app_block_builders/#permissions"><code>app_block_builders</code></a>
-
 

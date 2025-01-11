@@ -35,6 +35,8 @@ Creates, updates, deletes or gets an <code>approved_origin</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html"><code>AWS::Connect::ApprovedOrigin</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -184,4 +186,3 @@ connect:ListApprovedOrigins
 ```json
 connect:ListApprovedOrigins
 ```
-

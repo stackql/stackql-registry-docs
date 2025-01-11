@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>partner_account_tags</code> resource, see <a href="/providers/aws/iotwireless/partner_accounts/#permissions"><code>partner_accounts</code></a>
 
-

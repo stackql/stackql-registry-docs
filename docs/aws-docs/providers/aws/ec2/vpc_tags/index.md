@@ -25,7 +25,7 @@ Expands all tag keys and values for <code>vpcs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>vpc_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies a virtual private cloud (VPC).<br />You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).<br />For more information, see &#91;Virtual private clouds (VPC)&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a virtual private cloud (VPC).<br />To add an IPv6 CIDR block to the VPC, see &#91;AWS::EC2::VPCCidrBlock&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html).<br />For more information, see &#91;Virtual private clouds (VPC)&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.vpc_tags" /></td></tr>
 </tbody></table>
 
@@ -87,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>vpc_tags</code> resource, see <a href="/providers/aws/ec2/vpcs/#permissions"><code>vpcs</code></a>
-
 

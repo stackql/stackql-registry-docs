@@ -41,8 +41,11 @@ Creates, updates, deletes or gets a <code>compute_environment</code> resource or
 <tr><td><CopyableCode code="update_policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="unmanagedv_cpus" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="eks_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html"><code>AWS::Batch::ComputeEnvironment</code></a>.
 
 ## Methods
 
@@ -94,7 +97,8 @@ tags,
 type,
 update_policy,
 unmanagedv_cpus,
-eks_configuration
+eks_configuration,
+context
 FROM aws.batch.compute_environments
 WHERE region = 'us-east-1';
 ```
@@ -112,7 +116,8 @@ tags,
 type,
 update_policy,
 unmanagedv_cpus,
-eks_configuration
+eks_configuration,
+context
 FROM aws.batch.compute_environments
 WHERE region = 'us-east-1' AND data__Identifier = '<ComputeEnvironmentArn>';
 ```
@@ -157,6 +162,7 @@ INSERT INTO aws.batch.compute_environments (
  UpdatePolicy,
  UnmanagedvCpus,
  EksConfiguration,
+ Context,
  region
 )
 SELECT 
@@ -170,6 +176,7 @@ SELECT
  '{{ UpdatePolicy }}',
  '{{ UnmanagedvCpus }}',
  '{{ EksConfiguration }}',
+ '{{ Context }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -207,6 +214,12 @@ resources:
             LaunchTemplateId: '{{ LaunchTemplateId }}'
             LaunchTemplateName: '{{ LaunchTemplateName }}'
             Version: '{{ Version }}'
+            Overrides:
+              - LaunchTemplateId: '{{ LaunchTemplateId }}'
+                LaunchTemplateName: '{{ LaunchTemplateName }}'
+                Version: '{{ Version }}'
+                TargetInstanceTypes:
+                  - '{{ TargetInstanceTypes[0] }}'
           MaxvCpus: '{{ MaxvCpus }}'
           MinvCpus: '{{ MinvCpus }}'
           PlacementGroup: '{{ PlacementGroup }}'
@@ -238,6 +251,8 @@ resources:
         value:
           EksClusterArn: '{{ EksClusterArn }}'
           KubernetesNamespace: '{{ KubernetesNamespace }}'
+      - name: Context
+        value: '{{ Context }}'
 
 ```
 </TabItem>
@@ -294,4 +309,3 @@ Eks:DescribeCluster
 ```json
 Batch:DescribeComputeEnvironments
 ```
-

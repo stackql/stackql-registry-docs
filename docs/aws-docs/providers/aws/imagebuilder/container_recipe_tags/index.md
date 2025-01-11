@@ -96,4 +96,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>container_recipe_tags</code> resource, see <a href="/providers/aws/imagebuilder/container_recipes/#permissions"><code>container_recipes</code></a>
 
-

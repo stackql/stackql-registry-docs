@@ -25,17 +25,12 @@ Lists <code>key_value_stores</code> in a region or regions, for all properties u
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_value_stores_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::KeyValueStore</td></tr>
+<tr><td><b>Description</b></td><td>The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.key_value_stores_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="comment" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="import_source" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the key value store.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ FROM aws.cloudfront.key_value_stores_list_only
 ## Permissions
 
 For permissions required to operate on the <code>key_value_stores_list_only</code> resource, see <a href="/providers/aws/cloudfront/key_value_stores/#permissions"><code>key_value_stores</code></a>
-
 

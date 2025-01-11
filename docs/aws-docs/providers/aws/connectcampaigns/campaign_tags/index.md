@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>campaign_tags</code> resource, see <a href="/providers/aws/connectcampaigns/campaigns/#permissions"><code>campaigns</code></a>
 
-

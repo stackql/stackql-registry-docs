@@ -35,6 +35,7 @@ Expands all tag keys and values for <code>applications</code> in a region
 <tr><td><CopyableCode code="cwe_monitor_enabled" /></td><td><code>boolean</code></td><td>Indicates whether Application Insights can listen to CloudWatch events for the application resources.</td></tr>
 <tr><td><CopyableCode code="ops_center_enabled" /></td><td><code>boolean</code></td><td>When set to true, creates opsItems for any problems detected on an application.</td></tr>
 <tr><td><CopyableCode code="ops_item_sns_topic_arn" /></td><td><code>string</code></td><td>The SNS topic provided to Application Insights that is associated to the created opsItem.</td></tr>
+<tr><td><CopyableCode code="sns_notification_arn" /></td><td><code>string</code></td><td>Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.</td></tr>
 <tr><td><CopyableCode code="custom_components" /></td><td><code>array</code></td><td>The custom grouped components.</td></tr>
 <tr><td><CopyableCode code="log_pattern_sets" /></td><td><code>array</code></td><td>The log pattern sets.</td></tr>
 <tr><td><CopyableCode code="auto_configuration_enabled" /></td><td><code>boolean</code></td><td>If set to true, application will be configured with recommended monitoring configuration.</td></tr>
@@ -71,6 +72,7 @@ application_arn,
 cwe_monitor_enabled,
 ops_center_enabled,
 ops_item_sns_topic_arn,
+sns_notification_arn,
 custom_components,
 log_pattern_sets,
 auto_configuration_enabled,
@@ -87,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>application_tags</code> resource, see <a href="/providers/aws/applicationinsights/applications/#permissions"><code>applications</code></a>
-
 

@@ -30,15 +30,15 @@ Expands all tag keys and values for <code>id_mapping_workflows</code> in a regio
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workflow_name" /></td><td><code>string</code></td><td>The name of the IdMappingWorkflow</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the IdMappingWorkflow</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the IdMappingWorkflow</td></tr>
 <tr><td><CopyableCode code="input_source_config" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="output_source_config" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="id_mapping_techniques" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default IdMappingWorkflow arn</td></tr>
+<tr><td><CopyableCode code="workflow_name" /></td><td><code>string</code></td><td>The name of the IdMappingWorkflow</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
+<tr><td><CopyableCode code="output_source_config" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default IdMappingWorkflow arn</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -64,15 +64,15 @@ Expands tags for all <code>id_mapping_workflows</code> in a region.
 ```sql
 SELECT
 region,
-workflow_name,
 description,
 input_source_config,
-output_source_config,
 id_mapping_techniques,
-role_arn,
-workflow_arn,
+workflow_name,
 created_at,
+output_source_config,
+workflow_arn,
 updated_at,
+role_arn,
 tag_key,
 tag_value
 FROM aws.entityresolution.id_mapping_workflow_tags
@@ -83,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>id_mapping_workflow_tags</code> resource, see <a href="/providers/aws/entityresolution/id_mapping_workflows/#permissions"><code>id_mapping_workflows</code></a>
-
 

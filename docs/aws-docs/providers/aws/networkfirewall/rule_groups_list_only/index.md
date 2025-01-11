@@ -30,14 +30,8 @@ Lists <code>rule_groups</code> in a region or regions, for all properties use <a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="rule_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rule_group_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
-<tr><td><CopyableCode code="rule_group_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="rule_group_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="rule_group" /></td><td><code>object</code></td><td>Resource type definition for AWS::NetworkFirewall::RuleGroup</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="capacity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>rule_groups_list_only</code> resource, see <a href="/providers/aws/networkfirewall/rule_groups/#permissions"><code>rule_groups</code></a>
-
 

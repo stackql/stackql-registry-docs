@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>in_app_template_tags</code> resource, see <a href="/providers/aws/pinpoint/in_app_templates/#permissions"><code>in_app_templates</code></a>
 
-

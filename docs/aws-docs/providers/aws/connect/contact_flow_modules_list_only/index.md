@@ -30,14 +30,7 @@ Lists <code>contact_flow_modules</code> in a region or regions, for all properti
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance (ARN).</td></tr>
-<tr><td><CopyableCode code="contact_flow_module_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow module (ARN).</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the contact flow module.</td></tr>
-<tr><td><CopyableCode code="content" /></td><td><code>string</code></td><td>The content of the contact flow module in JSON format.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the contact flow module.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the contact flow module.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the contact flow module.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="contact_flow_module_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow module (ARN).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>contact_flow_modules_list_only</code> resource, see <a href="/providers/aws/connect/contact_flow_modules/#permissions"><code>contact_flow_modules</code></a>
-
 

@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>slack_workspace_configuration</code> r
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-supportapp-slackworkspaceconfiguration.html"><code>AWS::SupportApp::SlackWorkspaceConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -193,4 +195,3 @@ supportapp:DeleteSlackWorkspaceConfiguration
 ```json
 supportapp:ListSlackWorkspaceConfigurations
 ```
-

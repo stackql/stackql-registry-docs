@@ -32,8 +32,6 @@ Lists <code>aggregation_authorizations</code> in a region or regions, for all pr
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="authorized_account_id" /></td><td><code>string</code></td><td>The 12-digit account ID of the account authorized to aggregate data.</td></tr>
 <tr><td><CopyableCode code="authorized_aws_region" /></td><td><code>string</code></td><td>The region authorized to collect aggregated data.</td></tr>
-<tr><td><CopyableCode code="aggregation_authorization_arn" /></td><td><code>string</code></td><td>The ARN of the AggregationAuthorization.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the AggregationAuthorization.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>aggregation_authorizations_list_only</code> resource, see <a href="/providers/aws/config/aggregation_authorizations/#permissions"><code>aggregation_authorizations</code></a>
-
 

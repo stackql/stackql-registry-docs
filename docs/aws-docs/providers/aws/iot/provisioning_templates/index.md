@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>provisioning_template</code> resource 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html"><code>AWS::IoT::ProvisioningTemplate</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -257,4 +259,3 @@ iot:DescribeProvisioningTemplate
 ```json
 iot:ListProvisioningTemplates
 ```
-

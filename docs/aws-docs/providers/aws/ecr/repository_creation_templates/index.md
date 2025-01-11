@@ -38,10 +38,13 @@ Creates, updates, deletes or gets a <code>repository_creation_template</code> re
 <tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td>The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest. By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.<br />For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html</td></tr>
 <tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="applied_for" /></td><td><code>array</code></td><td>A list of enumerable Strings representing the repository creation scenarios that the template will apply towards.</td></tr>
+<tr><td><CopyableCode code="custom_role_arn" /></td><td><code>string</code></td><td>The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Create timestamp of the template.</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Update timestamp of the template.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repositorycreationtemplate.html"><code>AWS::ECR::RepositoryCreationTemplate</code></a>.
 
 ## Methods
 
@@ -91,6 +94,7 @@ lifecycle_policy,
 encryption_configuration,
 resource_tags,
 applied_for,
+custom_role_arn,
 created_at,
 updated_at
 FROM aws.ecr.repository_creation_templates
@@ -108,6 +112,7 @@ lifecycle_policy,
 encryption_configuration,
 resource_tags,
 applied_for,
+custom_role_arn,
 created_at,
 updated_at
 FROM aws.ecr.repository_creation_templates
@@ -154,6 +159,7 @@ INSERT INTO aws.ecr.repository_creation_templates (
  EncryptionConfiguration,
  ResourceTags,
  AppliedFor,
+ CustomRoleArn,
  region
 )
 SELECT 
@@ -165,6 +171,7 @@ SELECT
  '{{ EncryptionConfiguration }}',
  '{{ ResourceTags }}',
  '{{ AppliedFor }}',
+ '{{ CustomRoleArn }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -203,6 +210,8 @@ resources:
       - name: AppliedFor
         value:
           - '{{ AppliedFor[0] }}'
+      - name: CustomRoleArn
+        value: '{{ CustomRoleArn }}'
 
 ```
 </TabItem>
@@ -225,7 +234,10 @@ To operate on the <code>repository_creation_templates</code> resource, the follo
 ```json
 ecr:CreateRepositoryCreationTemplate,
 ecr:PutLifecyclePolicy,
-ecr:SetRepositoryPolicy
+ecr:SetRepositoryPolicy,
+ecr:CreateRepository,
+iam:CreateServiceLinkedRole,
+iam:PassRole
 ```
 
 ### Read
@@ -238,7 +250,10 @@ ecr:DescribeRepositoryCreationTemplates
 ecr:DescribeRepositoryCreationTemplates,
 ecr:UpdateRepositoryCreationTemplate,
 ecr:PutLifecyclePolicy,
-ecr:SetRepositoryPolicy
+ecr:SetRepositoryPolicy,
+ecr:CreateRepository,
+iam:CreateServiceLinkedRole,
+iam:PassRole
 ```
 
 ### Delete
@@ -250,4 +265,3 @@ ecr:DeleteRepositoryCreationTemplate
 ```json
 ecr:DescribeRepositoryCreationTemplates
 ```
-

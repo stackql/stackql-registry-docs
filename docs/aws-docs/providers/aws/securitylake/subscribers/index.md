@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>subscriber</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscriber.html"><code>AWS::SecurityLake::Subscriber</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -237,6 +239,7 @@ securitylake:CreateCustomLogSource,
 securitylake:CreateDataLake,
 securitylake:TagResource,
 securitylake:GetSubscriber,
+securitylake:ListSubscribers,
 securitylake:ListTagsForResource,
 iam:GetRole,
 iam:GetRolePolicy,
@@ -327,4 +330,3 @@ sqs:GetQueueUrl
 ```json
 securitylake:ListSubscribers
 ```
-

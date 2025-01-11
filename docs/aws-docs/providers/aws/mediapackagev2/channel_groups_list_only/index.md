@@ -31,12 +31,6 @@ Lists <code>channel_groups</code> in a region or regions, for all properties use
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) associated with the resource.</p></td></tr>
-<tr><td><CopyableCode code="channel_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the channel group was created.</p></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the channel group.</p></td></tr>
-<tr><td><CopyableCode code="egress_domain" /></td><td><code>string</code></td><td><p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p></td></tr>
-<tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the channel group was modified.</p></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>channel_groups_list_only</code> resource, see <a href="/providers/aws/mediapackagev2/channel_groups/#permissions"><code>channel_groups</code></a>
-
 

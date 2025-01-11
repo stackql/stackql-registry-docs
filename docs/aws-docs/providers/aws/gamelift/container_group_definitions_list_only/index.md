@@ -30,15 +30,7 @@ Lists <code>container_group_definitions</code> in a region or regions, for all p
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="container_group_definition_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A descriptive label for the container group definition.</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").</td></tr>
-<tr><td><CopyableCode code="scheduling_strategy" /></td><td><code>string</code></td><td>Specifies whether the container group includes replica or daemon containers.</td></tr>
-<tr><td><CopyableCode code="total_memory_limit" /></td><td><code>integer</code></td><td>The maximum amount of memory (in MiB) to allocate for this container group.</td></tr>
-<tr><td><CopyableCode code="total_cpu_limit" /></td><td><code>integer</code></td><td>The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)</td></tr>
-<tr><td><CopyableCode code="container_definitions" /></td><td><code>array</code></td><td>A collection of container definitions that define the containers in this group.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="operating_system" /></td><td><code>string</code></td><td>The operating system of the container group</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A descriptive label for the container group definition.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>container_group_definitions_list_only</code> resource, see <a href="/providers/aws/gamelift/container_group_definitions/#permissions"><code>container_group_definitions</code></a>
-
 

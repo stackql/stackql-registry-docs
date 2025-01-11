@@ -31,11 +31,6 @@ Lists <code>execution_plans</code> in a region or regions, for all properties us
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Unique ID of rescore execution plan</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the execution plan</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for labeling the execution plan</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of kendra ranking rescore execution plan</td></tr>
-<tr><td><CopyableCode code="capacity_units" /></td><td><code>object</code></td><td>Capacity units</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>execution_plans_list_only</code> resource, see <a href="/providers/aws/kendraranking/execution_plans/#permissions"><code>execution_plans</code></a>
-
 

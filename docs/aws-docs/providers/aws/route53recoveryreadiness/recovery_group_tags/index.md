@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>recovery_group_tags</code> resource, see <a href="/providers/aws/route53recoveryreadiness/recovery_groups/#permissions"><code>recovery_groups</code></a>
 
-

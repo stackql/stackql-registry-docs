@@ -36,6 +36,8 @@ Creates, updates, deletes or gets an <code>user_pool_user_to_group_attachment</c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html"><code>AWS::Cognito::UserPoolUserToGroupAttachment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -174,4 +176,3 @@ cognito-idp:AdminListGroupsForUser
 ```json
 cognito-idp:AdminListGroupsForUser
 ```
-

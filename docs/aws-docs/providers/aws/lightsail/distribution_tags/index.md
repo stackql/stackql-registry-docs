@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>distribution_tags</code> resource, see <a href="/providers/aws/lightsail/distributions/#permissions"><code>distributions</code></a>
 
-

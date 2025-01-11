@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>model_package_group_tags</code> resource, see <a href="/providers/aws/sagemaker/model_package_groups/#permissions"><code>model_package_groups</code></a>
 
-

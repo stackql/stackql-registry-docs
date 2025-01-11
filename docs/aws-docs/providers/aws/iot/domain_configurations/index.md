@@ -42,9 +42,14 @@ Creates, updates, deletes or gets a <code>domain_configuration</code> resource o
 <tr><td><CopyableCode code="server_certificate_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="server_certificates" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tls_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="authentication_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="application_protocol" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_certificate_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html"><code>AWS::IoT::DomainConfiguration</code></a>.
 
 ## Methods
 
@@ -98,6 +103,9 @@ domain_type,
 server_certificate_config,
 server_certificates,
 tls_config,
+authentication_type,
+application_protocol,
+client_certificate_config,
 tags
 FROM aws.iot.domain_configurations
 WHERE region = 'us-east-1';
@@ -118,6 +126,9 @@ domain_type,
 server_certificate_config,
 server_certificates,
 tls_config,
+authentication_type,
+application_protocol,
+client_certificate_config,
 tags
 FROM aws.iot.domain_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainConfigurationName>';
@@ -162,6 +173,9 @@ INSERT INTO aws.iot.domain_configurations (
  DomainConfigurationStatus,
  ServerCertificateConfig,
  TlsConfig,
+ AuthenticationType,
+ ApplicationProtocol,
+ ClientCertificateConfig,
  Tags,
  region
 )
@@ -175,6 +189,9 @@ SELECT
  '{{ DomainConfigurationStatus }}',
  '{{ ServerCertificateConfig }}',
  '{{ TlsConfig }}',
+ '{{ AuthenticationType }}',
+ '{{ ApplicationProtocol }}',
+ '{{ ClientCertificateConfig }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -213,9 +230,18 @@ resources:
       - name: ServerCertificateConfig
         value:
           EnableOCSPCheck: '{{ EnableOCSPCheck }}'
+          OcspLambdaArn: '{{ OcspLambdaArn }}'
+          OcspAuthorizedResponderArn: '{{ OcspAuthorizedResponderArn }}'
       - name: TlsConfig
         value:
           SecurityPolicy: '{{ SecurityPolicy }}'
+      - name: AuthenticationType
+        value: '{{ AuthenticationType }}'
+      - name: ApplicationProtocol
+        value: '{{ ApplicationProtocol }}'
+      - name: ClientCertificateConfig
+        value:
+          ClientCertificateCallbackArn: '{{ ClientCertificateCallbackArn }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -274,4 +300,3 @@ iot:UpdateDomainConfiguration
 ```json
 iot:ListDomainConfigurations
 ```
-

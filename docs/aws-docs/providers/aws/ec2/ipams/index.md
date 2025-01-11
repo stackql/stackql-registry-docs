@@ -41,9 +41,12 @@ Creates, updates, deletes or gets an <code>ipam</code> resource or lists <code>i
 <tr><td><CopyableCode code="scope_count" /></td><td><code>integer</code></td><td>The number of scopes that currently exist in this IPAM.</td></tr>
 <tr><td><CopyableCode code="operating_regions" /></td><td><code>array</code></td><td>The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring</td></tr>
 <tr><td><CopyableCode code="tier" /></td><td><code>string</code></td><td>The tier of the IPAM.</td></tr>
+<tr><td><CopyableCode code="enable_private_gua" /></td><td><code>boolean</code></td><td>Enable provisioning of GUA space in private pools.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html"><code>AWS::EC2::IPAM</code></a>.
 
 ## Methods
 
@@ -96,6 +99,7 @@ private_default_scope_id,
 scope_count,
 operating_regions,
 tier,
+enable_private_gua,
 tags
 FROM aws.ec2.ipams
 WHERE region = 'us-east-1';
@@ -115,6 +119,7 @@ private_default_scope_id,
 scope_count,
 operating_regions,
 tier,
+enable_private_gua,
 tags
 FROM aws.ec2.ipams
 WHERE region = 'us-east-1' AND data__Identifier = '<IpamId>';
@@ -153,6 +158,7 @@ INSERT INTO aws.ec2.ipams (
  Description,
  OperatingRegions,
  Tier,
+ EnablePrivateGua,
  Tags,
  region
 )
@@ -160,6 +166,7 @@ SELECT
  '{{ Description }}',
  '{{ OperatingRegions }}',
  '{{ Tier }}',
+ '{{ EnablePrivateGua }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -185,6 +192,8 @@ resources:
           - RegionName: '{{ RegionName }}'
       - name: Tier
         value: '{{ Tier }}'
+      - name: EnablePrivateGua
+        value: '{{ EnablePrivateGua }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -239,4 +248,3 @@ ec2:DescribeIpams
 ```json
 ec2:DescribeIpams
 ```
-

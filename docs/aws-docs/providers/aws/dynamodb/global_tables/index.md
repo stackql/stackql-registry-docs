@@ -37,8 +37,10 @@ Creates, updates, deletes or gets a <code>global_table</code> resource or lists 
 <tr><td><CopyableCode code="global_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="key_schema" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="local_secondary_indexes" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="point_in_time_recovery_specification" /></td><td><code>object</code></td><td>The settings used to enable point in time recovery.</td></tr>
 <tr><td><CopyableCode code="write_provisioned_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="write_on_demand_throughput_settings" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="warm_throughput" /></td><td><code>object</code></td><td>Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the <code>UpdateTable</code> operation to meet the throughput requirements of an upcoming peak event.</td></tr>
 <tr><td><CopyableCode code="replicas" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable server-side encryption.</td></tr>
 <tr><td><CopyableCode code="stream_specification" /></td><td><code>object</code></td><td>Represents the DynamoDB Streams configuration for a table in DynamoDB.</td></tr>
@@ -47,6 +49,8 @@ Creates, updates, deletes or gets a <code>global_table</code> resource or lists 
 <tr><td><CopyableCode code="time_to_live_specification" /></td><td><code>object</code></td><td>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html"><code>AWS::DynamoDB::GlobalTable</code></a>.
 
 ## Methods
 
@@ -95,8 +99,10 @@ billing_mode,
 global_secondary_indexes,
 key_schema,
 local_secondary_indexes,
+point_in_time_recovery_specification,
 write_provisioned_throughput_settings,
 write_on_demand_throughput_settings,
+warm_throughput,
 replicas,
 sse_specification,
 stream_specification,
@@ -117,8 +123,10 @@ billing_mode,
 global_secondary_indexes,
 key_schema,
 local_secondary_indexes,
+point_in_time_recovery_specification,
 write_provisioned_throughput_settings,
 write_on_demand_throughput_settings,
+warm_throughput,
 replicas,
 sse_specification,
 stream_specification,
@@ -168,8 +176,10 @@ INSERT INTO aws.dynamodb.global_tables (
  GlobalSecondaryIndexes,
  KeySchema,
  LocalSecondaryIndexes,
+ PointInTimeRecoverySpecification,
  WriteProvisionedThroughputSettings,
  WriteOnDemandThroughputSettings,
+ WarmThroughput,
  Replicas,
  SSESpecification,
  StreamSpecification,
@@ -183,8 +193,10 @@ SELECT
  '{{ GlobalSecondaryIndexes }}',
  '{{ KeySchema }}',
  '{{ LocalSecondaryIndexes }}',
+ '{{ PointInTimeRecoverySpecification }}',
  '{{ WriteProvisionedThroughputSettings }}',
  '{{ WriteOnDemandThroughputSettings }}',
+ '{{ WarmThroughput }}',
  '{{ Replicas }}',
  '{{ SSESpecification }}',
  '{{ StreamSpecification }}',
@@ -231,6 +243,9 @@ resources:
             KeySchema:
               - KeyType: '{{ KeyType }}'
                 AttributeName: '{{ AttributeName }}'
+            WarmThroughput:
+              ReadUnitsPerSecond: '{{ ReadUnitsPerSecond }}'
+              WriteUnitsPerSecond: '{{ WriteUnitsPerSecond }}'
       - name: KeySchema
         value:
           - null
@@ -240,6 +255,10 @@ resources:
             Projection: null
             KeySchema:
               - null
+      - name: PointInTimeRecoverySpecification
+        value:
+          PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
+          RecoveryPeriodInDays: '{{ RecoveryPeriodInDays }}'
       - name: WriteProvisionedThroughputSettings
         value:
           WriteCapacityAutoScalingSettings:
@@ -254,6 +273,8 @@ resources:
       - name: WriteOnDemandThroughputSettings
         value:
           MaxWriteRequestUnits: '{{ MaxWriteRequestUnits }}'
+      - name: WarmThroughput
+        value: null
       - name: Replicas
         value:
           - Region: '{{ Region }}'
@@ -266,8 +287,7 @@ resources:
                 ReadOnDemandThroughputSettings:
                   MaxReadRequestUnits: '{{ MaxReadRequestUnits }}'
             ContributorInsightsSpecification: null
-            PointInTimeRecoverySpecification:
-              PointInTimeRecoveryEnabled: '{{ PointInTimeRecoveryEnabled }}'
+            PointInTimeRecoverySpecification: null
             TableClass: '{{ TableClass }}'
             DeletionProtectionEnabled: '{{ DeletionProtectionEnabled }}'
             SSESpecification:
@@ -432,4 +452,3 @@ application-autoscaling:RegisterScalableTarget
 dynamodb:ListTables,
 cloudwatch:PutMetricData
 ```
-

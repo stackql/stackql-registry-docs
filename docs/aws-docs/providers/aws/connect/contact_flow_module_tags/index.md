@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>contact_flow_module_tags</code> resource, see <a href="/providers/aws/connect/contact_flow_modules/#permissions"><code>contact_flow_modules</code></a>
 
-

@@ -30,11 +30,7 @@ Lists <code>virtual_clusters</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="container_provider" /></td><td><code>object</code></td><td>Container provider of the virtual cluster.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the virtual cluster.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the virtual cluster.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this virtual cluster.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id of the virtual cluster.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>virtual_clusters_list_only</code> resource, see <a href="/providers/aws/emrcontainers/virtual_clusters/#permissions"><code>virtual_clusters</code></a>
-
 

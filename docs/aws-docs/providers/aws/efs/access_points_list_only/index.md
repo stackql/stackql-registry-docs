@@ -31,12 +31,6 @@ Lists <code>access_points</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_point_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="client_token" /></td><td><code>string</code></td><td>The opaque string specified in the request to ensure idempotent creation.</td></tr>
-<tr><td><CopyableCode code="access_point_tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.<br />For more information, see &#91;Tag&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).</td></tr>
-<tr><td><CopyableCode code="file_system_id" /></td><td><code>string</code></td><td>The ID of the EFS file system that the access point applies to. Accepts only the ID format for input when specifying a file system, for example <code>fs-0123456789abcedf2</code>.</td></tr>
-<tr><td><CopyableCode code="posix_user" /></td><td><code>object</code></td><td>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.</td></tr>
-<tr><td><CopyableCode code="root_directory" /></td><td><code>object</code></td><td>The directory on the EFS file system that the access point exposes as the root directory to NFS clients using the access point.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>access_points_list_only</code> resource, see <a href="/providers/aws/efs/access_points/#permissions"><code>access_points</code></a>
-
 

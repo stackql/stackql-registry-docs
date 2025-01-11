@@ -30,9 +30,7 @@ Lists <code>schema_versions</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td>Identifier for the schema where the schema version will be created.</td></tr>
-<tr><td><CopyableCode code="schema_definition" /></td><td><code>string</code></td><td>Complete definition of the schema in plain-text.</td></tr>
-<tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="version_id" /></td><td><code>string</code></td><td>Represents the version ID associated with the schema version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>schema_versions_list_only</code> resource, see <a href="/providers/aws/glue/schema_versions/#permissions"><code>schema_versions</code></a>
-
 

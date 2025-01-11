@@ -31,10 +31,13 @@ Creates, updates, deletes or gets an <code>activity</code> resource or lists <co
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html"><code>AWS::StepFunctions::Activity</code></a>.
 
 ## Methods
 
@@ -77,8 +80,9 @@ Gets all <code>activities</code> in a region.
 SELECT
 region,
 arn,
+name,
 tags,
-name
+encryption_configuration
 FROM aws.stepfunctions.activities
 WHERE region = 'us-east-1';
 ```
@@ -87,8 +91,9 @@ Gets all properties from an individual <code>activity</code>.
 SELECT
 region,
 arn,
+name,
 tags,
-name
+encryption_configuration
 FROM aws.stepfunctions.activities
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -123,13 +128,15 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.stepfunctions.activities (
- Tags,
  Name,
+ Tags,
+ EncryptionConfiguration,
  region
 )
 SELECT 
- '{{ Tags }}',
  '{{ Name }}',
+ '{{ Tags }}',
+ '{{ EncryptionConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -147,12 +154,17 @@ globals:
 resources:
   - name: activity
     props:
-      - name: Tags
-        value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
       - name: Name
         value: '{{ Name }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: EncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          KmsDataKeyReusePeriodSeconds: '{{ KmsDataKeyReusePeriodSeconds }}'
+          Type: '{{ Type }}'
 
 ```
 </TabItem>
@@ -171,16 +183,17 @@ AND region = 'us-east-1';
 
 To operate on the <code>activities</code> resource, the following permissions are required:
 
+### Create
+```json
+states:CreateActivity,
+states:TagResource,
+kms:DescribeKey
+```
+
 ### Read
 ```json
 states:DescribeActivity,
 states:ListTagsForResource
-```
-
-### Create
-```json
-states:CreateActivity,
-states:TagResource
 ```
 
 ### Update
@@ -190,14 +203,13 @@ states:TagResource,
 states:UntagResource
 ```
 
-### List
-```json
-states:ListActivities
-```
-
 ### Delete
 ```json
 states:DescribeActivity,
 states:DeleteActivity
 ```
 
+### List
+```json
+states:ListActivities
+```

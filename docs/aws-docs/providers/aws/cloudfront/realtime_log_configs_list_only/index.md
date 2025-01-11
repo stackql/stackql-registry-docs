@@ -25,16 +25,12 @@ Lists <code>realtime_log_configs</code> in a region or regions, for all properti
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>realtime_log_configs_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::RealtimeLogConfig</td></tr>
+<tr><td><b>Description</b></td><td>A real-time log configuration.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.realtime_log_configs_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="end_points" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sampling_rate" /></td><td><code>number</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ FROM aws.cloudfront.realtime_log_configs_list_only
 ## Permissions
 
 For permissions required to operate on the <code>realtime_log_configs_list_only</code> resource, see <a href="/providers/aws/cloudfront/realtime_log_configs/#permissions"><code>realtime_log_configs</code></a>
-
 

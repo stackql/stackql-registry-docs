@@ -30,17 +30,8 @@ Lists <code>links</code> in a region or regions, for all properties use <a href=
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="link_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the link.</td></tr>
-<tr><td><CopyableCode code="link_id" /></td><td><code>string</code></td><td>The ID of the link.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="link_id" /></td><td><code>string</code></td><td>The ID of the link.</td></tr>
 <tr><td><CopyableCode code="global_network_id" /></td><td><code>string</code></td><td>The ID of the global network.</td></tr>
-<tr><td><CopyableCode code="site_id" /></td><td><code>string</code></td><td>The ID of the site</td></tr>
-<tr><td><CopyableCode code="bandwidth" /></td><td><code>object</code></td><td>The Bandwidth for the link.</td></tr>
-<tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the link.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the link.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the link.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the link.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time that the device was created.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the link.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>links_list_only</code> resource, see <a href="/providers/aws/networkmanager/links/#permissions"><code>links</code></a>
-
 

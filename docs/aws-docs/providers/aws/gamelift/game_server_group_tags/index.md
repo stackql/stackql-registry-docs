@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>game_server_group_tags</code> resource, see <a href="/providers/aws/gamelift/game_server_groups/#permissions"><code>game_server_groups</code></a>
 
-

@@ -30,13 +30,7 @@ Lists <code>protections</code> in a region or regions, for all properties use <a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="protection_id" /></td><td><code>string</code></td><td>The unique identifier (ID) of the protection.</td></tr>
-<tr><td><CopyableCode code="protection_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the protection.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Friendly name for the Protection.</td></tr>
-<tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the resource to be protected.</td></tr>
-<tr><td><CopyableCode code="health_check_arns" /></td><td><code>array</code></td><td>The Amazon Resource Names (ARNs) of the health check to associate with the protection.</td></tr>
-<tr><td><CopyableCode code="application_layer_automatic_response_configuration" /></td><td><code>object</code></td><td>The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tag key-value pairs for the Protection object.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="protection_arn" /></td><td><code>string</code></td><td>The ARN (Amazon Resource Name) of the protection.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ FROM aws.shield.protections_list_only
 ## Permissions
 
 For permissions required to operate on the <code>protections_list_only</code> resource, see <a href="/providers/aws/shield/protections/#permissions"><code>protections</code></a>
-
 

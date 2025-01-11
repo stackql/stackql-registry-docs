@@ -30,24 +30,7 @@ Lists <code>associations</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="association_name" /></td><td><code>string</code></td><td>The name of the association.</td></tr>
-<tr><td><CopyableCode code="calendar_names" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td>A Cron or Rate expression that specifies when the association is applied to the target.</td></tr>
-<tr><td><CopyableCode code="max_errors" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="parameters" /></td><td><code>object</code></td><td>Parameter values that the SSM document uses at runtime.</td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance that the SSM document is associated with.</td></tr>
-<tr><td><CopyableCode code="wait_for_success_timeout_seconds" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="max_concurrency" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compliance_severity" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="targets" /></td><td><code>array</code></td><td>The targets that the SSM document sends commands to.</td></tr>
-<tr><td><CopyableCode code="sync_compliance" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="output_location" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule_offset" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the SSM document.</td></tr>
-<tr><td><CopyableCode code="apply_only_at_cron_interval" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="document_version" /></td><td><code>string</code></td><td>The version of the SSM document to associate with the target.</td></tr>
-<tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
-<tr><td><CopyableCode code="automation_target_parameter_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="association_id" /></td><td><code>string</code></td><td>Unique identifier of the association.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -80,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>associations_list_only</code> resource, see <a href="/providers/aws/ssm/associations/#permissions"><code>associations</code></a>
-
 

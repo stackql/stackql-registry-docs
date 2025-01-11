@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>event_integration</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html"><code>AWS::AppIntegrations::EventIntegration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -226,4 +228,3 @@ app-integrations:UntagResource
 ```json
 app-integrations:DeleteEventIntegration
 ```
-

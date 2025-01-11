@@ -32,9 +32,6 @@ Lists <code>enclave_certificate_iam_role_associations</code> in a region or regi
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.</td></tr>
-<tr><td><CopyableCode code="certificate_s3_bucket_name" /></td><td><code>string</code></td><td>The name of the Amazon S3 bucket to which the certificate was uploaded.</td></tr>
-<tr><td><CopyableCode code="certificate_s3_object_key" /></td><td><code>string</code></td><td>The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.</td></tr>
-<tr><td><CopyableCode code="encryption_kms_key_id" /></td><td><code>string</code></td><td>The ID of the AWS KMS CMK used to encrypt the private key of the certificate.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>enclave_certificate_iam_role_associations_list_only</code> resource, see <a href="/providers/aws/ec2/enclave_certificate_iam_role_associations/#permissions"><code>enclave_certificate_iam_role_associations</code></a>
-
 

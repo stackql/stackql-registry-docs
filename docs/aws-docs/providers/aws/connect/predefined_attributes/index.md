@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>predefined_attribute</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html"><code>AWS::Connect::PredefinedAttribute</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -209,4 +211,3 @@ connect:UpdatePredefinedAttribute
 ```json
 connect:ListPredefinedAttributes
 ```
-

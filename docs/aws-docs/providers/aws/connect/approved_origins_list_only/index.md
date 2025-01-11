@@ -66,4 +66,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>approved_origins_list_only</code> resource, see <a href="/providers/aws/connect/approved_origins/#permissions"><code>approved_origins</code></a>
 
-

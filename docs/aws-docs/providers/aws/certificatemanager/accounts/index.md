@@ -35,6 +35,8 @@ Creates, updates, deletes or gets an <code>account</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html"><code>AWS::CertificateManager::Account</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -172,4 +174,3 @@ acm:PutAccountConfiguration
 acm:GetAccountConfiguration,
 acm:PutAccountConfiguration
 ```
-

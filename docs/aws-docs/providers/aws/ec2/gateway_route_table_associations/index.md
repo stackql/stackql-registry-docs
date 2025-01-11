@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>gateway_route_table_association</code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html"><code>AWS::EC2::GatewayRouteTableAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -179,4 +181,3 @@ ec2:ReplaceRouteTableAssociation
 ec2:DescribeRouteTables,
 ec2:DisassociateRouteTable
 ```
-

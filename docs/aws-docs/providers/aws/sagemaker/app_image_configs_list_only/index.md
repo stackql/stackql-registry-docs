@@ -30,12 +30,7 @@ Lists <code>app_image_configs</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_image_config_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AppImageConfig.</td></tr>
-<tr><td><CopyableCode code="app_image_config_name" /></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
-<tr><td><CopyableCode code="kernel_gateway_image_config" /></td><td><code>object</code></td><td>The KernelGatewayImageConfig.</td></tr>
-<tr><td><CopyableCode code="jupyter_lab_app_image_config" /></td><td><code>object</code></td><td>The JupyterLabAppImageConfig.</td></tr>
-<tr><td><CopyableCode code="code_editor_app_image_config" /></td><td><code>object</code></td><td>The CodeEditorAppImageConfig.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags to apply to the AppImageConfig.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_image_config_name" /></td><td><code>string</code></td><td>The Name of the AppImageConfig.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>app_image_configs_list_only</code> resource, see <a href="/providers/aws/sagemaker/app_image_configs/#permissions"><code>app_image_configs</code></a>
-
 

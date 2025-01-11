@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>channel_group</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html"><code>AWS::MediaPackageV2::ChannelGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -216,4 +218,3 @@ mediapackagev2:DeleteChannelGroup
 ```json
 mediapackagev2:ListChannelGroups
 ```
-

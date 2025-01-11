@@ -31,19 +31,6 @@ Lists <code>service_network_service_associations</code> in a region or regions, 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="dns_entry" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_network_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_network_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_network_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_network_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -76,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>service_network_service_associations_list_only</code> resource, see <a href="/providers/aws/vpclattice/service_network_service_associations/#permissions"><code>service_network_service_associations</code></a>
-
 

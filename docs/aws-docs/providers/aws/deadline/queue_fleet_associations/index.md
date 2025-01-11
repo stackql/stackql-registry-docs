@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>queue_fleet_association</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuefleetassociation.html"><code>AWS::Deadline::QueueFleetAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -198,4 +200,3 @@ identitystore:ListGroupMembershipsForMember
 deadline:ListQueueFleetAssociations,
 identitystore:ListGroupMembershipsForMember
 ```
-

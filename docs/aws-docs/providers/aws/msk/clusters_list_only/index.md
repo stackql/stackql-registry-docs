@@ -30,20 +30,7 @@ Lists <code>clusters</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="broker_node_group_info" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="enhanced_monitoring" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="kafka_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="number_of_broker_nodes" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="encryption_info" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="open_monitoring" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="current_version" /></td><td><code>string</code></td><td>The current version of the MSK cluster</td></tr>
-<tr><td><CopyableCode code="client_authentication" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging_info" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
-<tr><td><CopyableCode code="configuration_info" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="storage_mode" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -76,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>clusters_list_only</code> resource, see <a href="/providers/aws/msk/clusters/#permissions"><code>clusters</code></a>
-
 

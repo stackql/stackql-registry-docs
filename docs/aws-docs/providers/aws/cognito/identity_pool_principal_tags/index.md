@@ -39,6 +39,8 @@ Expands all tag keys and values for <code>identity_pool_principals</code> in a r
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html"><code>AWS::Cognito::IdentityPoolPrincipalTag</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -213,4 +215,3 @@ cognito-identity:SetPrincipalTagAttributeMap
 ```json
 cognito-identity:GetPrincipalTagAttributeMap
 ```
-

@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>registry_tags</code> resource, see <a href="/providers/aws/eventschemas/registries/#permissions"><code>registries</code></a>
 
-

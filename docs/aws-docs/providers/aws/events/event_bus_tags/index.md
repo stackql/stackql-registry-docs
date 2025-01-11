@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_bus_tags</code> resource, see <a href="/providers/aws/events/event_buses/#permissions"><code>event_buses</code></a>
 
-

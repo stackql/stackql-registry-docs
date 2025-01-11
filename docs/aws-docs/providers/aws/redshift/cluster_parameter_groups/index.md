@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>cluster_parameter_group</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html"><code>AWS::Redshift::ClusterParameterGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -173,8 +175,8 @@ resources:
             ParameterValue: '{{ ParameterValue }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -249,4 +251,3 @@ redshift:DescribeClusterParameterGroups,
 redshift:DescribeClusterParameters,
 initech:ListReports
 ```
-

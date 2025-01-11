@@ -31,9 +31,6 @@ Lists <code>storage_configurations</code> in a region or regions, for all proper
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Storage Configuration Name.</td></tr>
-<tr><td><CopyableCode code="s3" /></td><td><code>object</code></td><td>A complex type that describes an S3 location where recorded videos will be stored.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>storage_configurations_list_only</code> resource, see <a href="/providers/aws/ivs/storage_configurations/#permissions"><code>storage_configurations</code></a>
-
 

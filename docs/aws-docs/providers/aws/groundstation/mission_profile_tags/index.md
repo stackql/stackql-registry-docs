@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>mission_profile_tags</code> resource, see <a href="/providers/aws/groundstation/mission_profiles/#permissions"><code>mission_profiles</code></a>
 
-

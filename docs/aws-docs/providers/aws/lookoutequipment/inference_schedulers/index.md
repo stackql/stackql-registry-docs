@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>inference_scheduler</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutequipment-inferencescheduler.html"><code>AWS::LookoutEquipment::InferenceScheduler</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -270,4 +272,3 @@ lookoutequipment:StartInferenceScheduler
 ```json
 lookoutequipment:ListInferenceSchedulers
 ```
-

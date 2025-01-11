@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>multicast_group</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-multicastgroup.html"><code>AWS::IoTWireless::MulticastGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -212,8 +214,7 @@ To operate on the <code>multicast_groups</code> resource, the following permissi
 ### Create
 ```json
 iotwireless:CreateMulticastGroup,
-iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Read
@@ -225,8 +226,9 @@ iotwireless:ListTagsForResource
 ### Update
 ```json
 iotwireless:UpdateMulticastGroup,
+iotwireless:GetMulticastGroup,
+iotwireless:TagResource,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource,
 iotwireless:AssociateWirelessDeviceWithMulticastGroup,
 iotwireless:DisassociateWirelessDeviceFromMulticastGroup
 ```
@@ -241,4 +243,3 @@ iotwireless:DeleteMulticastGroup
 iotwireless:ListMulticastGroups,
 iotwireless:ListTagsForResource
 ```
-

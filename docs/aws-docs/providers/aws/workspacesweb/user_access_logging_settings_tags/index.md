@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>user_access_logging_settings_tags</code> resource, see <a href="/providers/aws/workspacesweb/user_access_logging_settings/#permissions"><code>user_access_logging_settings</code></a>
 
-

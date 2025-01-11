@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>membership</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html"><code>AWS::CleanRooms::Membership</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -188,11 +190,17 @@ resources:
               ResultFormat: '{{ ResultFormat }}'
               Bucket: '{{ Bucket }}'
               KeyPrefix: '{{ KeyPrefix }}'
+              SingleFileOutput: '{{ SingleFileOutput }}'
           RoleArn: '{{ RoleArn }}'
       - name: PaymentConfiguration
         value:
           QueryCompute:
             IsResponsible: '{{ IsResponsible }}'
+          MachineLearning:
+            ModelTraining:
+              IsResponsible: '{{ IsResponsible }}'
+            ModelInference:
+              IsResponsible: '{{ IsResponsible }}'
 
 ```
 </TabItem>
@@ -275,4 +283,3 @@ logs:GetLogDelivery
 ```json
 cleanrooms:ListMemberships
 ```
-

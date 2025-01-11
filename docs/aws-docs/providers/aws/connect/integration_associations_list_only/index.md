@@ -30,8 +30,7 @@ Lists <code>integration_associations</code> in a region or regions, for all prop
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="integration_association_id" /></td><td><code>string</code></td><td>Identifier of the association with Connect Instance</td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>Amazon Connect instance identifier</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>Amazon Connect instance identifier</td></tr>
 <tr><td><CopyableCode code="integration_arn" /></td><td><code>string</code></td><td>ARN of Integration being associated with the instance</td></tr>
 <tr><td><CopyableCode code="integration_type" /></td><td><code>string</code></td><td>Specifies the integration type to be associated with the instance</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -68,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>integration_associations_list_only</code> resource, see <a href="/providers/aws/connect/integration_associations/#permissions"><code>integration_associations</code></a>
-
 

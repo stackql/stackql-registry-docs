@@ -84,4 +84,3 @@ FROM aws.globalaccelerator.accelerator_tags
 
 For permissions required to operate on the <code>accelerator_tags</code> resource, see <a href="/providers/aws/globalaccelerator/accelerators/#permissions"><code>accelerators</code></a>
 
-

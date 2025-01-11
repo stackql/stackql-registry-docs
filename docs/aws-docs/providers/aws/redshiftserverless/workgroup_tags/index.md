@@ -40,6 +40,7 @@ Expands all tag keys and values for <code>workgroups</code> in a region
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>A list of subnet IDs the workgroup is associated with.</td></tr>
 <tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>A value that specifies whether the workgroup can be accessible from a public network.</td></tr>
 <tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</td></tr>
+<tr><td><CopyableCode code="price_performance_target" /></td><td><code>object</code></td><td>A property that represents the price performance target settings for the workgroup.</td></tr>
 <tr><td><CopyableCode code="workgroup" /></td><td><code>object</code></td><td>Definition for workgroup resource</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -76,6 +77,7 @@ security_group_ids,
 subnet_ids,
 publicly_accessible,
 port,
+price_performance_target,
 workgroup,
 tag_key,
 tag_value
@@ -87,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>workgroup_tags</code> resource, see <a href="/providers/aws/redshiftserverless/workgroups/#permissions"><code>workgroups</code></a>
-
 

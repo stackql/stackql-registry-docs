@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>cluster_subnet_group</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html"><code>AWS::Redshift::ClusterSubnetGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -161,8 +163,8 @@ resources:
           - '{{ SubnetIds[0] }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -266,4 +268,3 @@ ec2:DescribeSecurityGroups,
 ec2:DescribeSubnets,
 ec2:DescribeVpcs
 ```
-

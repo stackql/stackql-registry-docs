@@ -30,13 +30,7 @@ Lists <code>restore_testing_plans</code> in a region or regions, for all propert
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="recovery_point_selection" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="restore_testing_plan_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="restore_testing_plan_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule_expression_timezone" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="start_window_hours" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="restore_testing_plan_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>restore_testing_plans_list_only</code> resource, see <a href="/providers/aws/backup/restore_testing_plans/#permissions"><code>restore_testing_plans</code></a>
-
 

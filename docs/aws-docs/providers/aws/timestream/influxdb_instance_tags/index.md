@@ -108,4 +108,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>influxdb_instance_tags</code> resource, see <a href="/providers/aws/timestream/influxdb_instances/#permissions"><code>influxdb_instances</code></a>
 
-

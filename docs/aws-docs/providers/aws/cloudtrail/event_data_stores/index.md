@@ -51,6 +51,8 @@ Creates, updates, deletes or gets an <code>event_data_store</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html"><code>AWS::CloudTrail::EventDataStore</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -218,21 +220,21 @@ resources:
     props:
       - name: AdvancedEventSelectors
         value:
-          - Name: '{{ Name }}'
-            FieldSelectors:
+          - FieldSelectors:
               - Field: '{{ Field }}'
                 Equals:
                   - '{{ Equals[0] }}'
+                NotStartsWith:
+                  - '{{ NotStartsWith[0] }}'
+                NotEndsWith:
+                  - '{{ NotEndsWith[0] }}'
                 StartsWith:
                   - '{{ StartsWith[0] }}'
                 EndsWith:
                   - '{{ EndsWith[0] }}'
                 NotEquals:
                   - '{{ NotEquals[0] }}'
-                NotStartsWith:
-                  - '{{ NotStartsWith[0] }}'
-                NotEndsWith:
-                  - '{{ NotEndsWith[0] }}'
+            Name: '{{ Name }}'
       - name: FederationEnabled
         value: '{{ FederationEnabled }}'
       - name: FederationRoleArn
@@ -253,8 +255,8 @@ resources:
         value: '{{ KmsKeyId }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
       - name: InsightSelectors
         value:
           - InsightType: '{{ InsightType }}'
@@ -351,4 +353,3 @@ CloudTrail:GetEventDataStore,
 CloudTrail:GetInsightSelectors,
 CloudTrail:ListTags
 ```
-

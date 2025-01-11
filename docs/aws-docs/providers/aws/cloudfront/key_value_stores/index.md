@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>key_value_store</code> resource or lis
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_value_stores</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::KeyValueStore</td></tr>
+<tr><td><b>Description</b></td><td>The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.key_value_stores" /></td></tr>
 </tbody></table>
 
@@ -33,11 +33,13 @@ Creates, updates, deletes or gets a <code>key_value_store</code> resource or lis
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="comment" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="import_source" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the key value store.</td></tr>
+<tr><td><CopyableCode code="comment" /></td><td><code>string</code></td><td>A comment for the key value store.</td></tr>
+<tr><td><CopyableCode code="import_source" /></td><td><code>object</code></td><td>The import source for the key value store.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html"><code>AWS::CloudFront::KeyValueStore</code></a>.
 
 ## Methods
 
@@ -214,4 +216,3 @@ cloudfront:DescribeKeyValueStore
 cloudfront:UpdateKeyValueStore,
 cloudfront:DescribeKeyValueStore
 ```
-

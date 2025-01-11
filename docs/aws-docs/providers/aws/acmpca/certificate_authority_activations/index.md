@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>certificate_authority_activation</code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html"><code>AWS::ACMPCA::CertificateAuthorityActivation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -191,4 +193,3 @@ acm-pca:UpdateCertificateAuthority
 acm-pca:ImportCertificateAuthorityCertificate,
 acm-pca:UpdateCertificateAuthority
 ```
-

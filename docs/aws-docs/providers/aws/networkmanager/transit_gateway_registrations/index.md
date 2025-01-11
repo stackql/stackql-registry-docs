@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_registration</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html"><code>AWS::NetworkManager::TransitGatewayRegistration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -184,4 +186,3 @@ networkmanager:GetTransitGatewayRegistrations
 networkmanager:DeregisterTransitGateway,
 networkmanager:GetTransitGatewayRegistrations
 ```
-

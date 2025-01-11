@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>schedule</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html"><code>AWS::Scheduler::Schedule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -315,4 +317,3 @@ scheduler:GetSchedule
 ```json
 scheduler:ListSchedules
 ```
-

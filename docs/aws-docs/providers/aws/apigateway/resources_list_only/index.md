@@ -30,10 +30,8 @@ Lists <code>resources</code> in a region or regions, for all properties use <a h
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="parent_id" /></td><td><code>string</code></td><td>The parent resource's identifier.</td></tr>
-<tr><td><CopyableCode code="path_part" /></td><td><code>string</code></td><td>The last path segment for this resource.</td></tr>
-<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>resources_list_only</code> resource, see <a href="/providers/aws/apigateway/resources/#permissions"><code>resources</code></a>
-
 

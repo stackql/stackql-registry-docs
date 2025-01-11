@@ -47,6 +47,8 @@ Creates, updates, deletes or gets an <code>event_subscription</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html"><code>AWS::Redshift::EventSubscription</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -210,8 +212,8 @@ resources:
         value: '{{ SnsTopicArn }}'
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -266,4 +268,3 @@ redshift:DeleteEventSubscription,
 redshift:DescribeTags,
 redshift:DeleteTags
 ```
-

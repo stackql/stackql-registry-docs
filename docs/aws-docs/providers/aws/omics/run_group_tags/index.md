@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>run_group_tags</code> resource, see <a href="/providers/aws/omics/run_groups/#permissions"><code>run_groups</code></a>
 
-

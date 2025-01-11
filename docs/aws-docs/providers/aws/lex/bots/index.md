@@ -43,8 +43,11 @@ Creates, updates, deletes or gets a <code>bot</code> resource or lists <code>bot
 <tr><td><CopyableCode code="test_bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the test alias for a bot, , which can only be added at bot/bot alias creation.</td></tr>
 <tr><td><CopyableCode code="auto_build_bot_locales" /></td><td><code>boolean</code></td><td>Specifies whether to build the bot locales after bot creation completes.</td></tr>
 <tr><td><CopyableCode code="test_bot_alias_settings" /></td><td><code>object</code></td><td>Configuring the test bot alias settings for a given bot</td></tr>
+<tr><td><CopyableCode code="replication" /></td><td><code>object</code></td><td>Parameter used to create a replication of the source bot in the secondary region.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html"><code>AWS::Lex::Bot</code></a>.
 
 ## Methods
 
@@ -98,7 +101,8 @@ bot_file_s3_location,
 bot_tags,
 test_bot_alias_tags,
 auto_build_bot_locales,
-test_bot_alias_settings
+test_bot_alias_settings,
+replication
 FROM aws.lex.bots
 WHERE region = 'us-east-1';
 ```
@@ -118,7 +122,8 @@ bot_file_s3_location,
 bot_tags,
 test_bot_alias_tags,
 auto_build_bot_locales,
-test_bot_alias_settings
+test_bot_alias_settings,
+replication
 FROM aws.lex.bots
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -170,6 +175,7 @@ INSERT INTO aws.lex.bots (
  TestBotAliasTags,
  AutoBuildBotLocales,
  TestBotAliasSettings,
+ Replication,
  region
 )
 SELECT 
@@ -184,6 +190,7 @@ SELECT
  '{{ TestBotAliasTags }}',
  '{{ AutoBuildBotLocales }}',
  '{{ TestBotAliasSettings }}',
+ '{{ Replication }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -454,6 +461,10 @@ resources:
           Description: null
           SentimentAnalysisSettings:
             DetectSentiment: '{{ DetectSentiment }}'
+      - name: Replication
+        value:
+          ReplicaRegions:
+            - '{{ ReplicaRegions[0] }}'
 
 ```
 </TabItem>
@@ -503,13 +514,19 @@ lex:CreateCustomVocabulary,
 lex:UpdateCustomVocabulary,
 lex:DeleteCustomVocabulary,
 s3:GetObject,
-lex:UpdateBotAlias
+lex:UpdateBotAlias,
+iam:CreateServiceLinkedRole,
+iam:GetRole,
+lex:CreateBotReplica,
+lex:DescribeBotReplica,
+lex:DeleteBotReplica
 ```
 
 ### Read
 ```json
 lex:DescribeBot,
-lex:ListTagsForResource
+lex:ListTagsForResource,
+lex:DescribeBotReplica
 ```
 
 ### Update
@@ -544,7 +561,10 @@ lex:CreateCustomVocabulary,
 lex:UpdateCustomVocabulary,
 lex:DeleteCustomVocabulary,
 s3:GetObject,
-lex:UpdateBotAlias
+lex:UpdateBotAlias,
+lex:CreateBotReplica,
+lex:DescribeBotReplica,
+lex:DeleteBotReplica
 ```
 
 ### Delete
@@ -558,11 +578,12 @@ lex:DeleteSlot,
 lex:DeleteBotVersion,
 lex:DeleteBotChannel,
 lex:DeleteBotAlias,
-lex:DeleteCustomVocabulary
+lex:DeleteCustomVocabulary,
+lex:DeleteBotReplica
 ```
 
 ### List
 ```json
-lex:ListBots
+lex:ListBots,
+lex:ListBotReplicas
 ```
-

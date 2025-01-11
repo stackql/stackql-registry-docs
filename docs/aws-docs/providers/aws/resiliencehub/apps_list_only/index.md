@@ -30,17 +30,7 @@ Lists <code>apps</code> in a region or regions, for all properties use <a href="
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the app.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>App description.</td></tr>
-<tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
-<tr><td><CopyableCode code="resiliency_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="app_template_body" /></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
-<tr><td><CopyableCode code="resource_mappings" /></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
-<tr><td><CopyableCode code="app_assessment_schedule" /></td><td><code>string</code></td><td>Assessment execution schedule.</td></tr>
-<tr><td><CopyableCode code="permission_model" /></td><td><code>object</code></td><td>Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.</td></tr>
-<tr><td><CopyableCode code="event_subscriptions" /></td><td><code>array</code></td><td>The list of events you would like to subscribe and get notification for.</td></tr>
-<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td>Indicates if compliance drifts (deviations) were detected while running an assessment for your application.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>apps_list_only</code> resource, see <a href="/providers/aws/resiliencehub/apps/#permissions"><code>apps</code></a>
-
 

@@ -53,6 +53,8 @@ Creates, updates, deletes or gets a <code>studio</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html"><code>AWS::EMR::Studio</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -332,4 +334,3 @@ sso:DeleteManagedApplicationInstance
 ```json
 elasticmapreduce:ListStudios
 ```
-

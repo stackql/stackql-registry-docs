@@ -31,12 +31,6 @@ Lists <code>organizations</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique identifier (ID) of an organization.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an organization.</td></tr>
-<tr><td><CopyableCode code="feature_set" /></td><td><code>string</code></td><td>Specifies the feature set supported by the new organization. Each feature set supports different levels of functionality.</td></tr>
-<tr><td><CopyableCode code="management_account_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.</td></tr>
-<tr><td><CopyableCode code="management_account_id" /></td><td><code>string</code></td><td>The unique identifier (ID) of the management account of an organization.</td></tr>
-<tr><td><CopyableCode code="management_account_email" /></td><td><code>string</code></td><td>The email address that is associated with the AWS account that is designated as the management account for the organization.</td></tr>
-<tr><td><CopyableCode code="root_id" /></td><td><code>string</code></td><td>The unique identifier (ID) for the root.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>organizations_list_only</code> resource, see <a href="/providers/aws/organizations/organizations/#permissions"><code>organizations</code></a>
-
 

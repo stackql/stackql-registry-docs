@@ -31,13 +31,6 @@ Lists <code>replicators</code> in a region or regions, for all properties use <a
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replicator_arn" /></td><td><code>string</code></td><td>Amazon Resource Name for the created replicator.</td></tr>
-<tr><td><CopyableCode code="replicator_name" /></td><td><code>string</code></td><td>The name of the replicator.</td></tr>
-<tr><td><CopyableCode code="current_version" /></td><td><code>string</code></td><td>The current version of the MSK replicator.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A summary description of the replicator.</td></tr>
-<tr><td><CopyableCode code="kafka_clusters" /></td><td><code>array</code></td><td>Specifies a list of Kafka clusters which are targets of the replicator.</td></tr>
-<tr><td><CopyableCode code="replication_info_list" /></td><td><code>array</code></td><td>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</td></tr>
-<tr><td><CopyableCode code="service_execution_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access external resources.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>replicators_list_only</code> resource, see <a href="/providers/aws/msk/replicators/#permissions"><code>replicators</code></a>
-
 

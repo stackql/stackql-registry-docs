@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>suite_definition</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html"><code>AWS::IoTCoreDeviceAdvisor::SuiteDefinition</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -192,7 +194,6 @@ iot:GetPolicy,
 iot:ListAttachedPolicies,
 iot:ListCertificates,
 iot:ListPrincipalPolicies,
-iot:ListTagsForResource,
 iot:ListThingPrincipals,
 iot:ListThings,
 iotdeviceadvisor:CreateSuiteDefinition,
@@ -203,7 +204,7 @@ iam:PassRole
 ### Read
 ```json
 iotdeviceadvisor:GetSuiteDefinition,
-iotdeviceadvisor:TagResource
+iot:ListTagsForResource
 ```
 
 ### Update
@@ -214,7 +215,6 @@ iot:GetPolicy,
 iot:ListAttachedPolicies,
 iot:ListCertificates,
 iot:ListPrincipalPolicies,
-iot:ListTagsForResource,
 iot:ListThingPrincipals,
 iot:ListThings,
 iotdeviceadvisor:UpdateSuiteDefinition,
@@ -234,4 +234,3 @@ iotdeviceadvisor:DeleteSuiteDefinition
 ```json
 iotdeviceadvisor:ListSuiteDefinitions
 ```
-

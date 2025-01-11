@@ -35,10 +35,13 @@ Creates, updates, deletes or gets a <code>restore_testing_plan</code> resource o
 <tr><td><CopyableCode code="restore_testing_plan_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule_expression" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule_expression_timezone" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="schedule_status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="start_window_hours" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html"><code>AWS::Backup::RestoreTestingPlan</code></a>.
 
 ## Methods
 
@@ -85,6 +88,7 @@ restore_testing_plan_arn,
 restore_testing_plan_name,
 schedule_expression,
 schedule_expression_timezone,
+schedule_status,
 start_window_hours,
 tags
 FROM aws.backup.restore_testing_plans
@@ -99,6 +103,7 @@ restore_testing_plan_arn,
 restore_testing_plan_name,
 schedule_expression,
 schedule_expression_timezone,
+schedule_status,
 start_window_hours,
 tags
 FROM aws.backup.restore_testing_plans
@@ -143,6 +148,7 @@ INSERT INTO aws.backup.restore_testing_plans (
  RestoreTestingPlanName,
  ScheduleExpression,
  ScheduleExpressionTimezone,
+ ScheduleStatus,
  StartWindowHours,
  Tags,
  region
@@ -152,6 +158,7 @@ SELECT
  '{{ RestoreTestingPlanName }}',
  '{{ ScheduleExpression }}',
  '{{ ScheduleExpressionTimezone }}',
+ '{{ ScheduleStatus }}',
  '{{ StartWindowHours }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -187,6 +194,8 @@ resources:
         value: '{{ ScheduleExpression }}'
       - name: ScheduleExpressionTimezone
         value: '{{ ScheduleExpressionTimezone }}'
+      - name: ScheduleStatus
+        value: '{{ ScheduleStatus }}'
       - name: StartWindowHours
         value: '{{ StartWindowHours }}'
       - name: Tags
@@ -214,6 +223,7 @@ To operate on the <code>restore_testing_plans</code> resource, the following per
 ### Create
 ```json
 backup:CreateRestoreTestingPlan,
+backup:UpdateRestoreTestingPlanScheduleStatus,
 backup:TagResource,
 backup:GetRestoreTestingPlan,
 backup:ListTags
@@ -228,6 +238,7 @@ backup:ListTags
 ### Update
 ```json
 backup:UpdateRestoreTestingPlan,
+backup:UpdateRestoreTestingPlanScheduleStatus,
 backup:TagResource,
 backup:UntagResource,
 backup:GetRestoreTestingPlan,
@@ -244,4 +255,3 @@ backup:GetRestoreTestingPlan
 ```json
 backup:ListRestoreTestingPlans
 ```
-

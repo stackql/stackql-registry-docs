@@ -37,10 +37,16 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="overflow_behavior" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_service_role" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_vpc_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_proxy_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="scaling_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html"><code>AWS::CodeBuild::Fleet</code></a>.
 
 ## Methods
 
@@ -89,8 +95,12 @@ compute_type,
 overflow_behavior,
 fleet_service_role,
 fleet_vpc_config,
+fleet_proxy_configuration,
 tags,
-arn
+arn,
+image_id,
+scaling_configuration,
+compute_configuration
 FROM aws.codebuild.fleets
 WHERE region = 'us-east-1';
 ```
@@ -105,8 +115,12 @@ compute_type,
 overflow_behavior,
 fleet_service_role,
 fleet_vpc_config,
+fleet_proxy_configuration,
 tags,
-arn
+arn,
+image_id,
+scaling_configuration,
+compute_configuration
 FROM aws.codebuild.fleets
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -135,7 +149,11 @@ INSERT INTO aws.codebuild.fleets (
  OverflowBehavior,
  FleetServiceRole,
  FleetVpcConfig,
+ FleetProxyConfiguration,
  Tags,
+ ImageId,
+ ScalingConfiguration,
+ ComputeConfiguration,
  region
 )
 SELECT 
@@ -146,7 +164,11 @@ SELECT
  '{{ OverflowBehavior }}',
  '{{ FleetServiceRole }}',
  '{{ FleetVpcConfig }}',
+ '{{ FleetProxyConfiguration }}',
  '{{ Tags }}',
+ '{{ ImageId }}',
+ '{{ ScalingConfiguration }}',
+ '{{ ComputeConfiguration }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -162,7 +184,11 @@ INSERT INTO aws.codebuild.fleets (
  OverflowBehavior,
  FleetServiceRole,
  FleetVpcConfig,
+ FleetProxyConfiguration,
  Tags,
+ ImageId,
+ ScalingConfiguration,
+ ComputeConfiguration,
  region
 )
 SELECT 
@@ -173,7 +199,11 @@ SELECT
  '{{ OverflowBehavior }}',
  '{{ FleetServiceRole }}',
  '{{ FleetVpcConfig }}',
+ '{{ FleetProxyConfiguration }}',
  '{{ Tags }}',
+ '{{ ImageId }}',
+ '{{ ScalingConfiguration }}',
+ '{{ ComputeConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -210,10 +240,33 @@ resources:
             - '{{ Subnets[0] }}'
           SecurityGroupIds:
             - '{{ SecurityGroupIds[0] }}'
+      - name: FleetProxyConfiguration
+        value:
+          DefaultBehavior: '{{ DefaultBehavior }}'
+          OrderedProxyRules:
+            - Type: '{{ Type }}'
+              Effect: '{{ Effect }}'
+              Entities:
+                - '{{ Entities[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: ImageId
+        value: '{{ ImageId }}'
+      - name: ScalingConfiguration
+        value:
+          MaxCapacity: '{{ MaxCapacity }}'
+          ScalingType: '{{ ScalingType }}'
+          TargetTrackingScalingConfigs:
+            - MetricType: '{{ MetricType }}'
+              TargetValue: null
+      - name: ComputeConfiguration
+        value:
+          vCpu: '{{ vCpu }}'
+          memory: '{{ memory }}'
+          disk: '{{ disk }}'
+          machineType: '{{ machineType }}'
 
 ```
 </TabItem>
@@ -261,4 +314,3 @@ codebuild:BatchGetFleets,
 codebuild:UpdateFleet,
 iam:PassRole
 ```
-

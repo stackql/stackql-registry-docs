@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>view_tags</code> resource, see <a href="/providers/aws/resourceexplorer2/views/#permissions"><code>views</code></a>
 
-

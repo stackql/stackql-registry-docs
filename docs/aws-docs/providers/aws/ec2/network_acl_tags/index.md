@@ -25,13 +25,13 @@ Expands all tag keys and values for <code>network_acls</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>network_acl_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Specifies a network ACL for your VPC.</td></tr>
+<tr><td><b>Description</b></td><td>Specifies a network ACL for your VPC.<br />To add a network ACL entry, see &#91;AWS::EC2::NetworkAclEntry&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.ec2.network_acl_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC for the network ACL.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC for the network ACL.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -57,8 +57,8 @@ Expands tags for all <code>network_acls</code> in a region.
 ```sql
 SELECT
 region,
-id,
 vpc_id,
+id,
 tag_key,
 tag_value
 FROM aws.ec2.network_acl_tags
@@ -69,5 +69,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>network_acl_tags</code> resource, see <a href="/providers/aws/ec2/network_acls/#permissions"><code>network_acls</code></a>
-
 

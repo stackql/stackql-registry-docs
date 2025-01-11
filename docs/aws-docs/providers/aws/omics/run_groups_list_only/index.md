@@ -30,15 +30,7 @@ Lists <code>run_groups</code> in a region or regions, for all properties use <a 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="max_cpus" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="max_gpus" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="max_duration" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="max_runs" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of resource tags</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>run_groups_list_only</code> resource, see <a href="/providers/aws/omics/run_groups/#permissions"><code>run_groups</code></a>
-
 

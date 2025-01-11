@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>schema</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html"><code>AWS::EventSchemas::Schema</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -245,4 +247,3 @@ schemas:DeleteSchemaVersion
 schemas:ListSchemas,
 schemas:ListSchemaVersions
 ```
-

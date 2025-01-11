@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>configuration_set_event_destination</c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html"><code>AWS::SES::ConfigurationSetEventDestination</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -153,6 +155,8 @@ resources:
             DeliveryStreamARN: '{{ DeliveryStreamARN }}'
           SnsDestination:
             TopicARN: '{{ TopicARN }}'
+          EventBridgeDestination:
+            EventBusArn: '{{ EventBusArn }}'
 
 ```
 </TabItem>
@@ -194,4 +198,3 @@ ses:DeleteConfigurationSetEventDestination
 ses:GetConfigurationSetEventDestinations,
 ses:DescribeConfigurationSet
 ```
-

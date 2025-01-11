@@ -50,6 +50,8 @@ Creates, updates, deletes or gets a <code>monitor</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-internetmonitor-monitor.html"><code>AWS::InternetMonitor::Monitor</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -318,6 +320,6 @@ logs:DeleteLogDelivery
 ```json
 internetmonitor:ListMonitors,
 internetmonitor:GetMonitor,
+internetmonitor:ListTagsForResource,
 logs:GetLogDelivery
 ```
-

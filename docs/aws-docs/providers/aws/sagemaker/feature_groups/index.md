@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>feature_group</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html"><code>AWS::SageMaker::FeatureGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -297,4 +299,3 @@ sagemaker:DescribeFeatureGroup
 ```json
 sagemaker:ListFeatureGroups
 ```
-

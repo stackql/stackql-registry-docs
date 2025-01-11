@@ -31,12 +31,6 @@ Lists <code>resolver_query_logging_config_associations</code> in a region or reg
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Id</td></tr>
-<tr><td><CopyableCode code="resolver_query_log_config_id" /></td><td><code>string</code></td><td>ResolverQueryLogConfigId</td></tr>
-<tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationStatus</td></tr>
-<tr><td><CopyableCode code="error" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationError</td></tr>
-<tr><td><CopyableCode code="error_message" /></td><td><code>string</code></td><td>ResolverQueryLogConfigAssociationErrorMessage</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>resolver_query_logging_config_associations_list_only</code> resource, see <a href="/providers/aws/route53resolver/resolver_query_logging_config_associations/#permissions"><code>resolver_query_logging_config_associations</code></a>
-
 

@@ -96,4 +96,3 @@ FROM aws.wafv2.web_acl_tags
 
 For permissions required to operate on the <code>web_acl_tags</code> resource, see <a href="/providers/aws/wafv2/web_acls/#permissions"><code>web_acls</code></a>
 
-

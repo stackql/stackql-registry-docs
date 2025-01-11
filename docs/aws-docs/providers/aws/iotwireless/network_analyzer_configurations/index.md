@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>network_analyzer_configuration</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html"><code>AWS::IoTWireless::NetworkAnalyzerConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -206,8 +208,7 @@ To operate on the <code>network_analyzer_configurations</code> resource, the fol
 ### Create
 ```json
 iotwireless:CreateNetworkAnalyzerConfiguration,
-iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Read
@@ -219,8 +220,9 @@ iotwireless:ListTagsForResource
 ### Update
 ```json
 iotwireless:UpdateNetworkAnalyzerConfiguration,
-iotwireless:UntagResource,
-iotwireless:ListTagsForResource
+iotwireless:GetNetworkAnalyzerConfiguration,
+iotwireless:TagResource,
+iotwireless:UntagResource
 ```
 
 ### Delete
@@ -233,4 +235,3 @@ iotwireless:DeleteNetworkAnalyzerConfiguration
 iotwireless:ListNetworkAnalyzerConfigurations,
 iotwireless:ListTagsForResource
 ```
-

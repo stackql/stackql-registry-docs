@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_connect</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html"><code>AWS::EC2::TransitGatewayConnect</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -220,4 +222,3 @@ ec2:DeleteTags
 ```json
 ec2:DescribeTransitGatewayConnects
 ```
-

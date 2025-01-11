@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>user_pool_risk_configuration_attachme
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html"><code>AWS::Cognito::UserPoolRiskConfigurationAttachment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,4 +223,3 @@ iam:PassRole
 cognito-idp:SetRiskConfiguration,
 cognito-idp:DescribeRiskConfiguration
 ```
-

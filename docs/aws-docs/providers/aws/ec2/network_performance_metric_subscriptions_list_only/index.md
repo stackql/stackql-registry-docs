@@ -70,4 +70,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>network_performance_metric_subscriptions_list_only</code> resource, see <a href="/providers/aws/ec2/network_performance_metric_subscriptions/#permissions"><code>network_performance_metric_subscriptions</code></a>
 
-

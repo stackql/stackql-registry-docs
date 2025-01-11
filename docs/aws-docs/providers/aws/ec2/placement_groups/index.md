@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>placement_group</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html"><code>AWS::EC2::PlacementGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -208,4 +210,3 @@ ec2:DescribePlacementGroups
 ```json
 ec2:DescribePlacementGroups
 ```
-

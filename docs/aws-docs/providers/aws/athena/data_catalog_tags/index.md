@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_catalog_tags</code> resource, see <a href="/providers/aws/athena/data_catalogs/#permissions"><code>data_catalogs</code></a>
 
-

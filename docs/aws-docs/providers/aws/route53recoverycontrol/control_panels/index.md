@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>control_panel</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html"><code>AWS::Route53RecoveryControl::ControlPanel</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,4 +223,3 @@ route53-recovery-control-config:DescribeControlPanel
 ```json
 route53-recovery-control-config:ListControlPanels
 ```
-

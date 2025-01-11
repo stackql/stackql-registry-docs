@@ -37,6 +37,7 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="signals_to_collect" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="signals_to_fetch" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_destination_configs" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
@@ -50,9 +51,12 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 <tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="collection_scheme" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_partitions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html"><code>AWS::IoTFleetWise::Campaign</code></a>.
 
 ## Methods
 
@@ -65,7 +69,7 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Name, Action, CollectionScheme, SignalCatalogArn, TargetArn, region" /></td>
+    <td><CopyableCode code="Name, CollectionScheme, SignalCatalogArn, TargetArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -101,6 +105,7 @@ compression,
 description,
 priority,
 signals_to_collect,
+signals_to_fetch,
 data_destination_configs,
 start_time,
 name,
@@ -114,6 +119,7 @@ diagnostics_mode,
 target_arn,
 arn,
 collection_scheme,
+data_partitions,
 tags
 FROM aws.iotfleetwise.campaigns
 WHERE region = 'us-east-1';
@@ -129,6 +135,7 @@ compression,
 description,
 priority,
 signals_to_collect,
+signals_to_fetch,
 data_destination_configs,
 start_time,
 name,
@@ -142,6 +149,7 @@ diagnostics_mode,
 target_arn,
 arn,
 collection_scheme,
+data_partitions,
 tags
 FROM aws.iotfleetwise.campaigns
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
@@ -164,7 +172,6 @@ Use the following StackQL query and manifest file to create a new <code>campaign
 ```sql
 /*+ create */
 INSERT INTO aws.iotfleetwise.campaigns (
- Action,
  Name,
  SignalCatalogArn,
  TargetArn,
@@ -172,8 +179,7 @@ INSERT INTO aws.iotfleetwise.campaigns (
  region
 )
 SELECT 
-'{{ Action }}',
- '{{ Name }}',
+'{{ Name }}',
  '{{ SignalCatalogArn }}',
  '{{ TargetArn }}',
  '{{ CollectionScheme }}',
@@ -190,6 +196,7 @@ INSERT INTO aws.iotfleetwise.campaigns (
  Description,
  Priority,
  SignalsToCollect,
+ SignalsToFetch,
  DataDestinationConfigs,
  StartTime,
  Name,
@@ -201,6 +208,7 @@ INSERT INTO aws.iotfleetwise.campaigns (
  DiagnosticsMode,
  TargetArn,
  CollectionScheme,
+ DataPartitions,
  Tags,
  region
 )
@@ -210,6 +218,7 @@ SELECT
  '{{ Description }}',
  '{{ Priority }}',
  '{{ SignalsToCollect }}',
+ '{{ SignalsToFetch }}',
  '{{ DataDestinationConfigs }}',
  '{{ StartTime }}',
  '{{ Name }}',
@@ -221,6 +230,7 @@ SELECT
  '{{ DiagnosticsMode }}',
  '{{ TargetArn }}',
  '{{ CollectionScheme }}',
+ '{{ DataPartitions }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -252,6 +262,14 @@ resources:
           - MaxSampleCount: null
             Name: '{{ Name }}'
             MinimumSamplingIntervalMs: null
+            DataPartitionId: '{{ DataPartitionId }}'
+      - name: SignalsToFetch
+        value:
+          - FullyQualifiedName: '{{ FullyQualifiedName }}'
+            SignalFetchConfig: null
+            ConditionLanguageVersion: null
+            Actions:
+              - '{{ Actions[0] }}'
       - name: DataDestinationConfigs
         value:
           - null
@@ -276,6 +294,20 @@ resources:
         value: '{{ TargetArn }}'
       - name: CollectionScheme
         value: null
+      - name: DataPartitions
+        value:
+          - Id: null
+            StorageOptions:
+              MaximumSize:
+                Unit: '{{ Unit }}'
+                Value: '{{ Value }}'
+              MinimumTimeToLive:
+                Unit: '{{ Unit }}'
+                Value: '{{ Value }}'
+              StorageLocation: '{{ StorageLocation }}'
+            UploadOptions:
+              Expression: '{{ Expression }}'
+              ConditionLanguageVersion: '{{ ConditionLanguageVersion }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -335,4 +367,3 @@ iotfleetwise:GetCampaign
 iotfleetwise:DeleteCampaign,
 iotfleetwise:GetCampaign
 ```
-

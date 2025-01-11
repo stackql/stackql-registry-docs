@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>environment_blueprint_configuration</
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html"><code>AWS::DataZone::EnvironmentBlueprintConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -244,4 +246,3 @@ datazone:ListEnvironmentBlueprintConfigurations
 datazone:GetEnvironmentBlueprintConfiguration,
 datazone:DeleteEnvironmentBlueprintConfiguration
 ```
-

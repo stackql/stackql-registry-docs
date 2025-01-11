@@ -30,13 +30,7 @@ Lists <code>projects</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="portal_id" /></td><td><code>string</code></td><td>The ID of the portal in which to create the project.</td></tr>
-<tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the project.</td></tr>
-<tr><td><CopyableCode code="project_name" /></td><td><code>string</code></td><td>A friendly name for the project.</td></tr>
-<tr><td><CopyableCode code="project_description" /></td><td><code>string</code></td><td>A description for the project.</td></tr>
-<tr><td><CopyableCode code="project_arn" /></td><td><code>string</code></td><td>The ARN of the project.</td></tr>
-<tr><td><CopyableCode code="asset_ids" /></td><td><code>array</code></td><td>The IDs of the assets to be associated to the project.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the project.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the project.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>projects_list_only</code> resource, see <a href="/providers/aws/iotsitewise/projects/#permissions"><code>projects</code></a>
-
 

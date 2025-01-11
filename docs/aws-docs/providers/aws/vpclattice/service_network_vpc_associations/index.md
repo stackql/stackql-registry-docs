@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>service_network_vpc_association</code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html"><code>AWS::VpcLattice::ServiceNetworkVpcAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -243,11 +245,11 @@ vpc-lattice:ListTagsForResource
 ### Delete
 ```json
 vpc-lattice:DeleteServiceNetworkVpcAssociation,
-vpc-lattice:GetServiceNetworkVpcAssociation
+vpc-lattice:GetServiceNetworkVpcAssociation,
+vpc-lattice:UntagResource
 ```
 
 ### List
 ```json
 vpc-lattice:ListServiceNetworkVpcAssociations
 ```
-

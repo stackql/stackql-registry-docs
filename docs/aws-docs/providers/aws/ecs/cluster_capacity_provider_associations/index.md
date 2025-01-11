@@ -30,11 +30,13 @@ Creates, updates, deletes or gets a <code>cluster_capacity_provider_association<
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capacity_providers" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_capacity_provider_strategy" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
+<tr><td><CopyableCode code="capacity_providers" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
 <tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The name of the cluster</td></tr>
-<tr><td><CopyableCode code="default_capacity_provider_strategy" /></td><td><code>array</code></td><td>List of capacity providers to associate with the cluster</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociation.html"><code>AWS::ECS::ClusterCapacityProviderAssociations</code></a>.
 
 ## Methods
 
@@ -76,9 +78,9 @@ Gets all <code>cluster_capacity_provider_associations</code> in a region.
 ```sql
 SELECT
 region,
+default_capacity_provider_strategy,
 capacity_providers,
-cluster,
-default_capacity_provider_strategy
+cluster
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1';
 ```
@@ -86,9 +88,9 @@ Gets all properties from an individual <code>cluster_capacity_provider_associati
 ```sql
 SELECT
 region,
+default_capacity_provider_strategy,
 capacity_providers,
-cluster,
-default_capacity_provider_strategy
+cluster
 FROM aws.ecs.cluster_capacity_provider_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>';
 ```
@@ -110,15 +112,15 @@ Use the following StackQL query and manifest file to create a new <code>cluster_
 ```sql
 /*+ create */
 INSERT INTO aws.ecs.cluster_capacity_provider_associations (
+ DefaultCapacityProviderStrategy,
  CapacityProviders,
  Cluster,
- DefaultCapacityProviderStrategy,
  region
 )
 SELECT 
-'{{ CapacityProviders }}',
+'{{ DefaultCapacityProviderStrategy }}',
+ '{{ CapacityProviders }}',
  '{{ Cluster }}',
- '{{ DefaultCapacityProviderStrategy }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -127,15 +129,15 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ecs.cluster_capacity_provider_associations (
+ DefaultCapacityProviderStrategy,
  CapacityProviders,
  Cluster,
- DefaultCapacityProviderStrategy,
  region
 )
 SELECT 
+ '{{ DefaultCapacityProviderStrategy }}',
  '{{ CapacityProviders }}',
  '{{ Cluster }}',
- '{{ DefaultCapacityProviderStrategy }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -153,16 +155,16 @@ globals:
 resources:
   - name: cluster_capacity_provider_association
     props:
-      - name: CapacityProviders
-        value:
-          - '{{ CapacityProviders[0] }}'
-      - name: Cluster
-        value: '{{ Cluster }}'
       - name: DefaultCapacityProviderStrategy
         value:
-          - Base: '{{ Base }}'
+          - CapacityProvider: '{{ CapacityProvider }}'
+            Base: '{{ Base }}'
             Weight: '{{ Weight }}'
-            CapacityProvider: null
+      - name: CapacityProviders
+        value:
+          - null
+      - name: Cluster
+        value: '{{ Cluster }}'
 
 ```
 </TabItem>
@@ -181,15 +183,16 @@ AND region = 'us-east-1';
 
 To operate on the <code>cluster_capacity_provider_associations</code> resource, the following permissions are required:
 
-### Create
-```json
-ecs:DescribeClusters,
-ecs:PutClusterCapacityProviders
-```
-
 ### Read
 ```json
 ecs:DescribeClusters
+```
+
+### Create
+```json
+ecs:DescribeClusters,
+ecs:PutClusterCapacityProviders,
+ecs:DescribeCapacityProviders
 ```
 
 ### Update
@@ -198,15 +201,14 @@ ecs:DescribeClusters,
 ecs:PutClusterCapacityProviders
 ```
 
-### Delete
-```json
-ecs:PutClusterCapacityProviders,
-ecs:DescribeClusters
-```
-
 ### List
 ```json
 ecs:DescribeClusters,
 ecs:ListClusters
 ```
 
+### Delete
+```json
+ecs:PutClusterCapacityProviders,
+ecs:DescribeClusters
+```

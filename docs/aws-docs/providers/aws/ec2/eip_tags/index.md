@@ -37,6 +37,8 @@ Expands all tag keys and values for <code>eips</code> in a region
 <tr><td><CopyableCode code="transfer_address" /></td><td><code>string</code></td><td>The Elastic IP address you are accepting for transfer. You can only accept one transferred address. For more information on Elastic IP address transfers, see &#91;Transfer Elastic IP addresses&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide*.</td></tr>
 <tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance.<br />Updates to the <code>InstanceId</code> property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.</td></tr>
 <tr><td><CopyableCode code="public_ipv4_pool" /></td><td><code>string</code></td><td>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.<br />Updates to the <code>PublicIpv4Pool</code> property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.</td></tr>
+<tr><td><CopyableCode code="ipam_pool_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="address" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -69,6 +71,8 @@ network_border_group,
 transfer_address,
 instance_id,
 public_ipv4_pool,
+ipam_pool_id,
+address,
 tag_key,
 tag_value
 FROM aws.ec2.eip_tags
@@ -79,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>eip_tags</code> resource, see <a href="/providers/aws/ec2/eips/#permissions"><code>eips</code></a>
-
 

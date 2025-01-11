@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>network_analyzer_configuration_tags</code> resource, see <a href="/providers/aws/iotwireless/network_analyzer_configurations/#permissions"><code>network_analyzer_configurations</code></a>
 
-

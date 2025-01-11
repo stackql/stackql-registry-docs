@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>default_view_association</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html"><code>AWS::ResourceExplorer2::DefaultViewAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -171,4 +173,3 @@ resource-explorer-2:GetDefaultView
 resource-explorer-2:GetDefaultView,
 resource-explorer-2:DisassociateDefaultView
 ```
-

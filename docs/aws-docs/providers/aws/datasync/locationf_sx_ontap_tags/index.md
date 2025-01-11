@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>locationf_sx_ontap_tags</code> resource, see <a href="/providers/aws/datasync/locationf_sx_ontaps/#permissions"><code>locationf_sx_ontaps</code></a>
 
-

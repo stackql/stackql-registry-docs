@@ -55,8 +55,12 @@ Creates, updates, deletes or gets a <code>domain</code> resource or lists <code>
 <tr><td><CopyableCode code="service_software_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="off_peak_window_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="software_update_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="skip_shard_migration_wait" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_center_options" /></td><td><code>object</code></td><td>Options for configuring Identity Center</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html"><code>AWS::OpenSearchService::Domain</code></a>.
 
 ## Methods
 
@@ -118,7 +122,9 @@ encryption_at_rest_options,
 tags,
 service_software_options,
 off_peak_window_options,
-software_update_options
+software_update_options,
+skip_shard_migration_wait,
+identity_center_options
 FROM aws.opensearchservice.domains
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>';
 ```
@@ -158,6 +164,8 @@ INSERT INTO aws.opensearchservice.domains (
  Tags,
  OffPeakWindowOptions,
  SoftwareUpdateOptions,
+ SkipShardMigrationWait,
+ IdentityCenterOptions,
  region
 )
 SELECT 
@@ -179,6 +187,8 @@ SELECT
  '{{ Tags }}',
  '{{ OffPeakWindowOptions }}',
  '{{ SoftwareUpdateOptions }}',
+ '{{ SkipShardMigrationWait }}',
+ '{{ IdentityCenterOptions }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -205,6 +215,8 @@ INSERT INTO aws.opensearchservice.domains (
  Tags,
  OffPeakWindowOptions,
  SoftwareUpdateOptions,
+ SkipShardMigrationWait,
+ IdentityCenterOptions,
  region
 )
 SELECT 
@@ -226,6 +238,8 @@ SELECT
  '{{ Tags }}',
  '{{ OffPeakWindowOptions }}',
  '{{ SoftwareUpdateOptions }}',
+ '{{ SkipShardMigrationWait }}',
+ '{{ IdentityCenterOptions }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -259,6 +273,12 @@ resources:
           MultiAZWithStandbyEnabled: '{{ MultiAZWithStandbyEnabled }}'
           ColdStorageOptions:
             Enabled: '{{ Enabled }}'
+          NodeOptions:
+            - NodeType: '{{ NodeType }}'
+              NodeConfig:
+                Enabled: '{{ Enabled }}'
+                Type: '{{ Type }}'
+                Count: '{{ Count }}'
       - name: DomainName
         value: '{{ DomainName }}'
       - name: AccessPolicies
@@ -315,6 +335,11 @@ resources:
             SubjectKey: '{{ SubjectKey }}'
             RolesKey: '{{ RolesKey }}'
             SessionTimeoutMinutes: '{{ SessionTimeoutMinutes }}'
+          JWTOptions:
+            Enabled: '{{ Enabled }}'
+            PublicKey: '{{ PublicKey }}'
+            SubjectKey: '{{ SubjectKey }}'
+            RolesKey: '{{ RolesKey }}'
           AnonymousAuthDisableDate: '{{ AnonymousAuthDisableDate }}'
       - name: EBSOptions
         value:
@@ -341,6 +366,16 @@ resources:
       - name: SoftwareUpdateOptions
         value:
           AutoSoftwareUpdateEnabled: '{{ AutoSoftwareUpdateEnabled }}'
+      - name: SkipShardMigrationWait
+        value: '{{ SkipShardMigrationWait }}'
+      - name: IdentityCenterOptions
+        value:
+          EnabledAPIAccess: '{{ EnabledAPIAccess }}'
+          IdentityCenterInstanceARN: '{{ IdentityCenterInstanceARN }}'
+          SubjectKey: '{{ SubjectKey }}'
+          RolesKey: '{{ RolesKey }}'
+          IdentityCenterApplicationARN: '{{ IdentityCenterApplicationARN }}'
+          IdentityStoreId: '{{ IdentityStoreId }}'
 
 ```
 </TabItem>
@@ -389,4 +424,3 @@ es:DescribeDomainChangeProgress
 es:DeleteDomain,
 es:DescribeDomain
 ```
-

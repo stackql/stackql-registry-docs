@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>pipeline_tags</code> resource, see <a href="/providers/aws/sagemaker/pipelines/#permissions"><code>pipelines</code></a>
 
-

@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>storage_profile</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html"><code>AWS::Deadline::StorageProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -49,7 +51,7 @@ Creates, updates, deletes or gets a <code>storage_profile</code> resource or lis
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="DisplayName, OsFamily, region" /></td>
+    <td><CopyableCode code="DisplayName, FarmId, OsFamily, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -117,11 +119,13 @@ Use the following StackQL query and manifest file to create a new <code>storage_
 /*+ create */
 INSERT INTO aws.deadline.storage_profiles (
  DisplayName,
+ FarmId,
  OsFamily,
  region
 )
 SELECT 
 '{{ DisplayName }}',
+ '{{ FarmId }}',
  '{{ OsFamily }}',
 '{{ region }}';
 ```
@@ -220,4 +224,3 @@ identitystore:ListGroupMembershipsForMember
 deadline:ListStorageProfiles,
 identitystore:ListGroupMembershipsForMember
 ```
-

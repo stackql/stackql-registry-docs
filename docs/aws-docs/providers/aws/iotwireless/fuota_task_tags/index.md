@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>fuota_task_tags</code> resource, see <a href="/providers/aws/iotwireless/fuota_tasks/#permissions"><code>fuota_tasks</code></a>
 
-

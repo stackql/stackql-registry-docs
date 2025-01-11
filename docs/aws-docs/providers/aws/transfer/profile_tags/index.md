@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>profile_tags</code> resource, see <a href="/providers/aws/transfer/profiles/#permissions"><code>profiles</code></a>
 
-

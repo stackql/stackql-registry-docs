@@ -30,25 +30,7 @@ Lists <code>apps</code> in a region or regions, for all properties use <a href="
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_token" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="app_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_headers" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_rules" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_domain" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_branch_auto_deletion" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="environment_variables" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="iam_service_role" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="oauth_token" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="platform" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="repository" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -81,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>apps_list_only</code> resource, see <a href="/providers/aws/amplify/apps/#permissions"><code>apps</code></a>
-
 

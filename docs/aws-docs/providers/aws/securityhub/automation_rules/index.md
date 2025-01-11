@@ -32,18 +32,20 @@ Creates, updates, deletes or gets an <code>automation_rule</code> resource or li
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="rule_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="rule_status" /></td><td><code>string</code></td><td>Whether the rule is active after it is created. If this parameter is equal to <code>ENABLED</code>, ASH applies the rule to findings and finding updates after the rule is created.</td></tr>
-<tr><td><CopyableCode code="rule_order" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rule_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rule_order" /></td><td><code>integer</code></td><td>An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the rule.</td></tr>
+<tr><td><CopyableCode code="rule_name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format.</td></tr>
 <tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="is_terminal" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="is_terminal" /></td><td><code>boolean</code></td><td>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.</td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td>One or more actions to update finding fields if a finding matches the conditions specified in <code>Criteria</code>.</td></tr>
 <tr><td><CopyableCode code="criteria" /></td><td><code>object</code></td><td>A set of &#91;Security Finding Format (ASFF)&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>User-defined tags associated with an automation rule.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-automationrule.html"><code>AWS::SecurityHub::AutomationRule</code></a>.
 
 ## Methods
 
@@ -56,7 +58,7 @@ Creates, updates, deletes or gets an <code>automation_rule</code> resource or li
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="region" /></td>
+    <td><CopyableCode code="RuleOrder, RuleName, Description, Criteria, Actions, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -137,25 +139,19 @@ Use the following StackQL query and manifest file to create a new <code>automati
 ```sql
 /*+ create */
 INSERT INTO aws.securityhub.automation_rules (
- RuleStatus,
  RuleOrder,
  Description,
  RuleName,
- IsTerminal,
  Actions,
  Criteria,
- Tags,
  region
 )
 SELECT 
-'{{ RuleStatus }}',
- '{{ RuleOrder }}',
+'{{ RuleOrder }}',
  '{{ Description }}',
  '{{ RuleName }}',
- '{{ IsTerminal }}',
  '{{ Actions }}',
  '{{ Criteria }}',
- '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -366,4 +362,3 @@ securityhub:BatchGetAutomationRules
 securityhub:ListAutomationRules,
 securityhub:ListTagsForResource
 ```
-

@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>thing_group</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html"><code>AWS::IoT::ThingGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -243,4 +245,3 @@ iot:UpdateDynamicThingGroup,
 iot:TagResource,
 iot:UntagResource
 ```
-

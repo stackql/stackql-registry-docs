@@ -30,7 +30,7 @@ Creates, updates, deletes or gets a <code>nat_gateway</code> resource or lists <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="secondary_allocation_ids" /></td><td><code>array</code></td><td>Secondary EIP allocation IDs. For more information, see &#91;Create a NAT gateway&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="secondary_allocation_ids" /></td><td><code>array</code></td><td>Secondary EIP allocation IDs. For more information, see &#91;Create a NAT gateway&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.</td></tr>
 <tr><td><CopyableCode code="private_ip_address" /></td><td><code>string</code></td><td>The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.</td></tr>
 <tr><td><CopyableCode code="connectivity_type" /></td><td><code>string</code></td><td>Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.</td></tr>
 <tr><td><CopyableCode code="secondary_private_ip_addresses" /></td><td><code>array</code></td><td>Secondary private IPv4 addresses. For more information about secondary addresses, see &#91;Create a NAT gateway&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.<br /><code>SecondaryPrivateIpAddressCount</code> and <code>SecondaryPrivateIpAddresses</code> cannot be set at the same time.</td></tr>
@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>nat_gateway</code> resource or lists <
 <tr><td><CopyableCode code="max_drain_duration_seconds" /></td><td><code>integer</code></td><td>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html"><code>AWS::EC2::NatGateway</code></a>.
 
 ## Methods
 
@@ -255,4 +257,3 @@ ec2:DescribeNatGateways
 ec2:DeleteNatGateway,
 ec2:DescribeNatGateways
 ```
-

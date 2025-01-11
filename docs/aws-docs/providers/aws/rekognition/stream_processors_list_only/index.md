@@ -30,22 +30,7 @@ Lists <code>stream_processors</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the stream processor</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>ARN of the IAM role that allows access to the stream processor, and provides Rekognition read permissions for KVS stream and write permissions to S3 bucket and SNS topic.</td></tr>
-<tr><td><CopyableCode code="kinesis_video_stream" /></td><td><code>object</code></td><td>The Kinesis Video Stream that streams the source video.</td></tr>
-<tr><td><CopyableCode code="face_search_settings" /></td><td><code>object</code></td><td>Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both</td></tr>
-<tr><td><CopyableCode code="connected_home_settings" /></td><td><code>object</code></td><td>Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both</td></tr>
-<tr><td><CopyableCode code="kinesis_data_stream" /></td><td><code>object</code></td><td>The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.</td></tr>
-<tr><td><CopyableCode code="s3_destination" /></td><td><code>object</code></td><td>The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.</td></tr>
-<tr><td><CopyableCode code="notification_channel" /></td><td><code>object</code></td><td>The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.</td></tr>
-<tr><td><CopyableCode code="data_sharing_preference" /></td><td><code>object</code></td><td>Indicates whether Rekognition is allowed to store the video stream data for model-training.</td></tr>
-<tr><td><CopyableCode code="polygon_regions_of_interest" /></td><td><code>array</code></td><td>The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point</td></tr>
-<tr><td><CopyableCode code="bounding_box_regions_of_interest" /></td><td><code>array</code></td><td>The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Current status of the stream processor.</td></tr>
-<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td>Detailed status message about the stream processor.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -78,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>stream_processors_list_only</code> resource, see <a href="/providers/aws/rekognition/stream_processors/#permissions"><code>stream_processors</code></a>
-
 

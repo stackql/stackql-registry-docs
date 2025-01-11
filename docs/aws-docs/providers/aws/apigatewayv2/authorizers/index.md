@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>authorizer</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html"><code>AWS::ApiGatewayV2::Authorizer</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -269,4 +271,3 @@ apigateway:DELETE
 ```json
 apigateway:GET
 ```
-

@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>model_bias_job_definition_tags</code> resource, see <a href="/providers/aws/sagemaker/model_bias_job_definitions/#permissions"><code>model_bias_job_definitions</code></a>
 
-

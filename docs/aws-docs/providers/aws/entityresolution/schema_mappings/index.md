@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>schema_mapping</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-schemamapping.html"><code>AWS::EntityResolution::SchemaMapping</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -179,6 +181,7 @@ resources:
             SubType: '{{ SubType }}'
             GroupName: null
             MatchKey: null
+            Hashed: '{{ Hashed }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -233,4 +236,3 @@ entityresolution:UntagResource
 ```json
 entityresolution:ListSchemaMappings
 ```
-

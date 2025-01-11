@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>cluster_policy</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html"><code>AWS::MSK::ClusterPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -198,4 +200,3 @@ kafka:GetClusterPolicy
 kafka:DeleteClusterPolicy,
 kafka:GetClusterPolicy
 ```
-

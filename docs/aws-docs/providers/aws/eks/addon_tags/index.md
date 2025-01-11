@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>addon_tags</code> resource, see <a href="/providers/aws/eks/addons/#permissions"><code>addons</code></a>
 
-

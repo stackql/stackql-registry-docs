@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>flow</code> resource or lists <code>fl
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html"><code>AWS::AppFlow::Flow</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -460,4 +462,3 @@ appflow:DeleteFlow
 ```json
 appflow:ListFlows
 ```
-

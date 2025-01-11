@@ -30,11 +30,13 @@ Creates, updates, deletes or gets a <code>primary_task_set</code> resource or li
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
-<tr><td><CopyableCode code="task_set_id" /></td><td><code>string</code></td><td>The ID or full Amazon Resource Name (ARN) of the task set.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="task_set_id" /></td><td><code>string</code></td><td>The ID or full Amazon Resource Name (ARN) of the task set.</td></tr>
+<tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
 <tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html"><code>AWS::ECS::PrimaryTaskSet</code></a>.
 
 ## Methods
 
@@ -67,8 +69,8 @@ Gets all properties from an individual <code>primary_task_set</code>.
 ```sql
 SELECT
 region,
-cluster,
 task_set_id,
+cluster,
 service
 FROM aws.ecs.primary_task_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>|<Service>';
@@ -91,14 +93,14 @@ Use the following StackQL query and manifest file to create a new <code>primary_
 ```sql
 /*+ create */
 INSERT INTO aws.ecs.primary_task_sets (
- Cluster,
  TaskSetId,
+ Cluster,
  Service,
  region
 )
 SELECT 
-'{{ Cluster }}',
- '{{ TaskSetId }}',
+'{{ TaskSetId }}',
+ '{{ Cluster }}',
  '{{ Service }}',
 '{{ region }}';
 ```
@@ -108,14 +110,14 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ecs.primary_task_sets (
- Cluster,
  TaskSetId,
+ Cluster,
  Service,
  region
 )
 SELECT 
- '{{ Cluster }}',
  '{{ TaskSetId }}',
+ '{{ Cluster }}',
  '{{ Service }}',
  '{{ region }}';
 ```
@@ -134,10 +136,10 @@ globals:
 resources:
   - name: primary_task_set
     props:
-      - name: Cluster
-        value: '{{ Cluster }}'
       - name: TaskSetId
         value: '{{ TaskSetId }}'
+      - name: Cluster
+        value: '{{ Cluster }}'
       - name: Service
         value: '{{ Service }}'
 
@@ -160,4 +162,3 @@ ecs:UpdateServicePrimaryTaskSet
 ecs:DescribeTaskSets,
 ecs:UpdateServicePrimaryTaskSet
 ```
-

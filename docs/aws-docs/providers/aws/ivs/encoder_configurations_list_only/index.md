@@ -31,9 +31,6 @@ Lists <code>encoder_configurations</code> in a region or regions, for all proper
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Encoder configuration identifier.</td></tr>
-<tr><td><CopyableCode code="video" /></td><td><code>object</code></td><td>Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Encoder configuration name.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>encoder_configurations_list_only</code> resource, see <a href="/providers/aws/ivs/encoder_configurations/#permissions"><code>encoder_configurations</code></a>
-
 

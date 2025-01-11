@@ -36,6 +36,7 @@ Expands all tag keys and values for <code>hours_of_operations</code> in a region
 <tr><td><CopyableCode code="time_zone" /></td><td><code>string</code></td><td>The time zone of the hours of operation.</td></tr>
 <tr><td><CopyableCode code="config" /></td><td><code>array</code></td><td>Configuration information for the hours of operation: day, start time, and end time.</td></tr>
 <tr><td><CopyableCode code="hours_of_operation_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the hours of operation.</td></tr>
+<tr><td><CopyableCode code="hours_of_operation_overrides" /></td><td><code>array</code></td><td>One or more hours of operation overrides assigned to an hour of operation.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -67,6 +68,7 @@ description,
 time_zone,
 config,
 hours_of_operation_arn,
+hours_of_operation_overrides,
 tag_key,
 tag_value
 FROM aws.connect.hours_of_operation_tags
@@ -77,5 +79,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>hours_of_operation_tags</code> resource, see <a href="/providers/aws/connect/hours_of_operations/#permissions"><code>hours_of_operations</code></a>
-
 

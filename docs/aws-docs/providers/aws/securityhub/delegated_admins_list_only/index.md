@@ -25,14 +25,12 @@ Lists <code>delegated_admins</code> in a region or regions, for all properties u
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>delegated_admins_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::SecurityHub::DelegatedAdmin resource represents the AWS Security Hub delegated admin account in your organization. One delegated admin resource is allowed to create for the organization in each region in which you configure the AdminAccountId.</td></tr>
+<tr><td><b>Description</b></td><td>The <code>AWS::SecurityHub::DelegatedAdmin</code> resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see &#91;Designating the delegated administrator&#93;(https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.<br />To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.<br />To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using &#91;mappings&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).<br />Tags aren't supported for this resource.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.securityhub.delegated_admins_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="delegated_admin_identifier" /></td><td><code>string</code></td><td>The identifier of the DelegatedAdmin being created and assigned as the unique identifier</td></tr>
-<tr><td><CopyableCode code="admin_account_id" /></td><td><code>string</code></td><td>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator account</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The current status of the Security Hub administrator account. Indicates whether the account is currently enabled as a Security Hub administrator</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="delegated_admin_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>delegated_admins_list_only</code> resource, see <a href="/providers/aws/securityhub/delegated_admins/#permissions"><code>delegated_admins</code></a>
-
 

@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>subnet_group_tags</code> resource, see <a href="/providers/aws/memorydb/subnet_groups/#permissions"><code>subnet_groups</code></a>
 
-

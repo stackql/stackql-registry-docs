@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>execution_plan_tags</code> resource, see <a href="/providers/aws/kendraranking/execution_plans/#permissions"><code>execution_plans</code></a>
 
-

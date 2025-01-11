@@ -34,11 +34,13 @@ Expands all tag keys and values for <code>collaborations</code> in a region
 <tr><td><CopyableCode code="collaboration_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_member_abilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="creator_ml_member_abilities" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_encryption_metadata" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="members" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="query_log_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="analytics_engine" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_payment_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -69,11 +71,13 @@ arn,
 collaboration_identifier,
 creator_display_name,
 creator_member_abilities,
+creator_ml_member_abilities,
 data_encryption_metadata,
 description,
 members,
 name,
 query_log_status,
+analytics_engine,
 creator_payment_configuration,
 tag_key,
 tag_value
@@ -85,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>collaboration_tags</code> resource, see <a href="/providers/aws/cleanrooms/collaborations/#permissions"><code>collaborations</code></a>
-
 

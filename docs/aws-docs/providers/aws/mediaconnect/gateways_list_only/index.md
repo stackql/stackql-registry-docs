@@ -30,11 +30,7 @@ Lists <code>gateways</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the gateway. This name can not be modified after the gateway is created.</td></tr>
-<tr><td><CopyableCode code="gateway_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the gateway.</td></tr>
-<tr><td><CopyableCode code="gateway_state" /></td><td><code>string</code></td><td>The current status of the gateway.</td></tr>
-<tr><td><CopyableCode code="egress_cidr_blocks" /></td><td><code>array</code></td><td>The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</td></tr>
-<tr><td><CopyableCode code="networks" /></td><td><code>array</code></td><td>The list of networks in the gateway.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="gateway_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the gateway.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>gateways_list_only</code> resource, see <a href="/providers/aws/mediaconnect/gateways/#permissions"><code>gateways</code></a>
-
 

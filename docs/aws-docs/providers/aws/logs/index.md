@@ -20,7 +20,7 @@ The logs service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total resources:&nbsp;<b>29</b></span><br />
 </div>
 </div>
 
@@ -41,7 +41,9 @@ The logs service documentation.
 <a href="/providers/aws/logs/delivery_sources_list_only/">delivery_sources_list_only</a><br />
 <a href="/providers/aws/logs/delivery_tags/">delivery_tags</a><br />
 <a href="/providers/aws/logs/destinations/">destinations</a><br />
-<a href="/providers/aws/logs/destinations_list_only/">destinations_list_only</a>
+<a href="/providers/aws/logs/destinations_list_only/">destinations_list_only</a><br />
+<a href="/providers/aws/logs/integrations/">integrations</a><br />
+<a href="/providers/aws/logs/integrations_list_only/">integrations_list_only</a>
 </div>
 <div class="providerDocColumn">
 <a href="/providers/aws/logs/log_anomaly_detectors/">log_anomaly_detectors</a><br />
@@ -55,6 +57,8 @@ The logs service documentation.
 <a href="/providers/aws/logs/resource_policies/">resource_policies</a><br />
 <a href="/providers/aws/logs/resource_policies_list_only/">resource_policies_list_only</a><br />
 <a href="/providers/aws/logs/subscription_filters/">subscription_filters</a><br />
-<a href="/providers/aws/logs/subscription_filters_list_only/">subscription_filters_list_only</a>
+<a href="/providers/aws/logs/subscription_filters_list_only/">subscription_filters_list_only</a><br />
+<a href="/providers/aws/logs/transformers/">transformers</a><br />
+<a href="/providers/aws/logs/transformers_list_only/">transformers_list_only</a>
 </div>
 </div>

@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ip_set_tags</code> resource, see <a href="/providers/aws/guardduty/ip_sets/#permissions"><code>ip_sets</code></a>
 
-

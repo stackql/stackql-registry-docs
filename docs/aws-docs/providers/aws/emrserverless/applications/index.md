@@ -42,12 +42,16 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="image_configuration" /></td><td><code>object</code></td><td>The image configuration.</td></tr>
 <tr><td><CopyableCode code="monitoring_configuration" /></td><td><code>object</code></td><td>Monitoring configuration for batch and interactive JobRun.</td></tr>
 <tr><td><CopyableCode code="runtime_configuration" /></td><td><code>array</code></td><td>Runtime configuration for batch and interactive JobRun.</td></tr>
+<tr><td><CopyableCode code="interactive_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>Network Configuration for customer VPC connectivity.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the EMR Serverless Application.</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The ID of the EMR Serverless Application.</td></tr>
 <tr><td><CopyableCode code="worker_type_specifications" /></td><td><code>object</code></td><td>The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.</td></tr>
+<tr><td><CopyableCode code="scheduler_configuration" /></td><td><code>object</code></td><td>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html"><code>AWS::EMRServerless::Application</code></a>.
 
 ## Methods
 
@@ -101,10 +105,12 @@ auto_stop_configuration,
 image_configuration,
 monitoring_configuration,
 runtime_configuration,
+interactive_configuration,
 network_configuration,
 arn,
 application_id,
-worker_type_specifications
+worker_type_specifications,
+scheduler_configuration
 FROM aws.emrserverless.applications
 WHERE region = 'us-east-1';
 ```
@@ -124,10 +130,12 @@ auto_stop_configuration,
 image_configuration,
 monitoring_configuration,
 runtime_configuration,
+interactive_configuration,
 network_configuration,
 arn,
 application_id,
-worker_type_specifications
+worker_type_specifications,
+scheduler_configuration
 FROM aws.emrserverless.applications
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>';
 ```
@@ -176,8 +184,10 @@ INSERT INTO aws.emrserverless.applications (
  ImageConfiguration,
  MonitoringConfiguration,
  RuntimeConfiguration,
+ InteractiveConfiguration,
  NetworkConfiguration,
  WorkerTypeSpecifications,
+ SchedulerConfiguration,
  region
 )
 SELECT 
@@ -193,8 +203,10 @@ SELECT
  '{{ ImageConfiguration }}',
  '{{ MonitoringConfiguration }}',
  '{{ RuntimeConfiguration }}',
+ '{{ InteractiveConfiguration }}',
  '{{ NetworkConfiguration }}',
  '{{ WorkerTypeSpecifications }}',
+ '{{ SchedulerConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -229,6 +241,7 @@ resources:
                 Cpu: '{{ Cpu }}'
                 Memory: '{{ Memory }}'
                 Disk: '{{ Disk }}'
+                DiskType: '{{ DiskType }}'
       - name: MaximumCapacity
         value:
           Cpu: null
@@ -259,6 +272,10 @@ resources:
             Properties: {}
             Configurations:
               - null
+      - name: InteractiveConfiguration
+        value:
+          LivyEndpointEnabled: '{{ LivyEndpointEnabled }}'
+          StudioEnabled: '{{ StudioEnabled }}'
       - name: NetworkConfiguration
         value:
           SubnetIds:
@@ -267,6 +284,10 @@ resources:
             - '{{ SecurityGroupIds[0] }}'
       - name: WorkerTypeSpecifications
         value: {}
+      - name: SchedulerConfiguration
+        value:
+          QueueTimeoutMinutes: '{{ QueueTimeoutMinutes }}'
+          MaxConcurrentRuns: '{{ MaxConcurrentRuns }}'
 
 ```
 </TabItem>
@@ -287,16 +308,24 @@ To operate on the <code>applications</code> resource, the following permissions 
 
 ### Create
 ```json
-kms:Create*,
-kms:Describe*,
-kms:Enable*,
-kms:List*,
-kms:Put*,
-kms:Update*,
-kms:Revoke*,
-kms:Disable*,
-kms:Get*,
-kms:Delete*,
+kms:CreateKey,
+kms:CreateAlias,
+kms:DescribeKey,
+kms:EnableKey,
+kms:ListGrants,
+kms:ListAliases,
+kms:ListKeyPolicies,
+kms:ListKeys,
+kms:PutKeyPolicy,
+kms:UpdateKeyDescription,
+kms:UpdateAlias,
+kms:UpdatePrimaryRegion,
+kms:RevokeGrant,
+kms:DisableKey,
+kms:DisableKeyRotation,
+kms:GetKeyPolicy,
+kms:GetKeyRotationStatus,
+kms:DeleteAlias,
 kms:ScheduleKeyDeletion,
 kms:CancelKeyDeletion,
 kms:GenerateDataKey,
@@ -328,16 +357,24 @@ ec2:CreateNetworkInterface,
 ecr:BatchGetImage,
 ecr:DescribeImages,
 ecr:GetDownloadUrlForLayer,
-kms:Create*,
-kms:Describe*,
-kms:Enable*,
-kms:List*,
-kms:Put*,
-kms:Update*,
-kms:Revoke*,
-kms:Disable*,
-kms:Get*,
-kms:Delete*,
+kms:CreateKey,
+kms:CreateAlias,
+kms:DescribeKey,
+kms:EnableKey,
+kms:ListGrants,
+kms:ListAliases,
+kms:ListKeyPolicies,
+kms:ListKeys,
+kms:PutKeyPolicy,
+kms:UpdateKeyDescription,
+kms:UpdateAlias,
+kms:UpdatePrimaryRegion,
+kms:RevokeGrant,
+kms:DisableKey,
+kms:DisableKeyRotation,
+kms:GetKeyPolicy,
+kms:GetKeyRotationStatus,
+kms:DeleteAlias,
 kms:ScheduleKeyDeletion,
 kms:CancelKeyDeletion,
 kms:GenerateDataKey,
@@ -356,4 +393,3 @@ emr-serverless:GetApplication
 ```json
 emr-serverless:ListApplications
 ```
-

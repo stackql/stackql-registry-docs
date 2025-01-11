@@ -31,6 +31,7 @@ Creates, updates, deletes or gets a <code>partnership</code> resource or lists <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="capability_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
@@ -44,6 +45,8 @@ Creates, updates, deletes or gets a <code>partnership</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html"><code>AWS::B2BI::Partnership</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -55,7 +58,7 @@ Creates, updates, deletes or gets a <code>partnership</code> resource or lists <
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Email, Name, ProfileId, region" /></td>
+    <td><CopyableCode code="Capabilities, Email, Name, ProfileId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -85,6 +88,7 @@ Gets all <code>partnerships</code> in a region.
 SELECT
 region,
 capabilities,
+capability_options,
 created_at,
 email,
 modified_at,
@@ -103,6 +107,7 @@ Gets all properties from an individual <code>partnership</code>.
 SELECT
 region,
 capabilities,
+capability_options,
 created_at,
 email,
 modified_at,
@@ -134,13 +139,15 @@ Use the following StackQL query and manifest file to create a new <code>partners
 ```sql
 /*+ create */
 INSERT INTO aws.b2bi.partnerships (
+ Capabilities,
  Email,
  Name,
  ProfileId,
  region
 )
 SELECT 
-'{{ Email }}',
+'{{ Capabilities }}',
+ '{{ Email }}',
  '{{ Name }}',
  '{{ ProfileId }}',
 '{{ region }}';
@@ -152,6 +159,7 @@ SELECT
 /*+ create */
 INSERT INTO aws.b2bi.partnerships (
  Capabilities,
+ CapabilityOptions,
  Email,
  Name,
  Phone,
@@ -161,6 +169,7 @@ INSERT INTO aws.b2bi.partnerships (
 )
 SELECT 
  '{{ Capabilities }}',
+ '{{ CapabilityOptions }}',
  '{{ Email }}',
  '{{ Name }}',
  '{{ Phone }}',
@@ -186,6 +195,9 @@ resources:
       - name: Capabilities
         value:
           - '{{ Capabilities[0] }}'
+      - name: CapabilityOptions
+        value:
+          OutboundEdi: null
       - name: Email
         value: '{{ Email }}'
       - name: Name
@@ -245,4 +257,3 @@ b2bi:DeletePartnership
 ```json
 b2bi:ListPartnerships
 ```
-

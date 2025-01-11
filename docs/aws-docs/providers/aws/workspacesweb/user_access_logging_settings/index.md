@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>user_access_logging_setting</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-useraccessloggingsetting.html"><code>AWS::WorkSpacesWeb::UserAccessLoggingSettings</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -209,4 +211,3 @@ workspaces-web:DeleteUserAccessLoggingSettings
 ```json
 workspaces-web:ListUserAccessLoggingSettings
 ```
-

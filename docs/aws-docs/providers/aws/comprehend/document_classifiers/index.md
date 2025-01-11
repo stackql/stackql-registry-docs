@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>document_classifier</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-comprehend-documentclassifier.html"><code>AWS::Comprehend::DocumentClassifier</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -310,4 +312,3 @@ comprehend:DeleteDocumentClassifier
 ```json
 comprehend:ListDocumentClassifiers
 ```
-

@@ -31,7 +31,6 @@ Lists <code>internet_gateways</code> in a region or regions, for all properties 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="internet_gateway_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags to assign to the internet gateway.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>internet_gateways_list_only</code> resource, see <a href="/providers/aws/ec2/internet_gateways/#permissions"><code>internet_gateways</code></a>
-
 

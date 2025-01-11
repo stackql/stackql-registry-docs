@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>principal_permission</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermission.html"><code>AWS::LakeFormation::PrincipalPermissions</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ lakeformation:ListPermissions,
 glue:GetTable,
 glue:GetDatabase
 ```
-

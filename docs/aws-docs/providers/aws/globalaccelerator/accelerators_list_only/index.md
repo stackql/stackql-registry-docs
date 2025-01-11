@@ -30,16 +30,7 @@ Lists <code>accelerators</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of accelerator.</td></tr>
-<tr><td><CopyableCode code="ip_address_type" /></td><td><code>string</code></td><td>IP Address type.</td></tr>
-<tr><td><CopyableCode code="ip_addresses" /></td><td><code>array</code></td><td>The IP addresses from BYOIP Prefix pool.</td></tr>
-<tr><td><CopyableCode code="enabled" /></td><td><code>boolean</code></td><td>Indicates whether an accelerator is enabled. The value is true or false.</td></tr>
-<tr><td><CopyableCode code="dns_name" /></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 addresses.</td></tr>
-<tr><td><CopyableCode code="ipv4_addresses" /></td><td><code>array</code></td><td>The IPv4 addresses assigned to the accelerator.</td></tr>
-<tr><td><CopyableCode code="ipv6_addresses" /></td><td><code>array</code></td><td>The IPv6 addresses assigned if the accelerator is dualstack</td></tr>
-<tr><td><CopyableCode code="dual_stack_dns_name" /></td><td><code>string</code></td><td>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IPv4 and IPv6 addresses.</td></tr>
-<tr><td><CopyableCode code="accelerator_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the accelerator.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="accelerator_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the accelerator.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ FROM aws.globalaccelerator.accelerators_list_only
 ## Permissions
 
 For permissions required to operate on the <code>accelerators_list_only</code> resource, see <a href="/providers/aws/globalaccelerator/accelerators/#permissions"><code>accelerators</code></a>
-
 

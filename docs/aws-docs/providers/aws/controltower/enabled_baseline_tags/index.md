@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>enabled_baseline_tags</code> resource, see <a href="/providers/aws/controltower/enabled_baselines/#permissions"><code>enabled_baselines</code></a>
 
-

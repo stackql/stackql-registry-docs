@@ -31,8 +31,6 @@ Lists <code>proactive_engagements</code> in a region or regions, for all propert
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="proactive_engagement_status" /></td><td><code>string</code></td><td>If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.<br />If `DISABLED`, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support.</td></tr>
-<tr><td><CopyableCode code="emergency_contact_list" /></td><td><code>array</code></td><td>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support.<br />To enable proactive engagement, the contact list must include at least one phone number.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.shield.proactive_engagements_list_only
 ## Permissions
 
 For permissions required to operate on the <code>proactive_engagements_list_only</code> resource, see <a href="/providers/aws/shield/proactive_engagements/#permissions"><code>proactive_engagements</code></a>
-
 

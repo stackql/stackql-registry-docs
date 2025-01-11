@@ -30,10 +30,7 @@ Lists <code>recipes</code> in a region or regions, for all properties use <a hre
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the recipe</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Recipe name</td></tr>
-<tr><td><CopyableCode code="steps" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Recipe name</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>recipes_list_only</code> resource, see <a href="/providers/aws/databrew/recipes/#permissions"><code>recipes</code></a>
-
 

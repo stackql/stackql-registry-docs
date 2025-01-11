@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>flow_vpc_interface</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html"><code>AWS::MediaConnect::FlowVpcInterface</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -228,4 +230,3 @@ mediaconnect:RemoveFlowVpcInterface
 ```json
 mediaconnect:DescribeFlow
 ```
-

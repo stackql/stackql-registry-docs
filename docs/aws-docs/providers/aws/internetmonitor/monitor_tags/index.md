@@ -98,4 +98,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>monitor_tags</code> resource, see <a href="/providers/aws/internetmonitor/monitors/#permissions"><code>monitors</code></a>
 
-

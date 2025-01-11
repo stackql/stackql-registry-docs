@@ -30,11 +30,7 @@ Lists <code>virtualmfa_devices</code> in a region or regions, for all properties
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="virtual_mfa_device_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="path" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="serial_number" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="users" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="serial_number" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ FROM aws.iam.virtualmfa_devices_list_only
 ## Permissions
 
 For permissions required to operate on the <code>virtualmfa_devices_list_only</code> resource, see <a href="/providers/aws/iam/virtualmfa_devices/#permissions"><code>virtualmfa_devices</code></a>
-
 

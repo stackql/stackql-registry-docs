@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>access_grants_instance_tags</code> resource, see <a href="/providers/aws/s3/access_grants_instances/#permissions"><code>access_grants_instances</code></a>
 
-

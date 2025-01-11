@@ -30,20 +30,22 @@ Creates, updates, deletes or gets a <code>domain_name</code> resource or lists <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="distribution_domain_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ownership_verification_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="regional_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="regional_domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="distribution_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="endpoint_configuration" /></td><td><code>object</code></td><td>The <code>EndpointConfiguration</code> property type specifies the endpoint types of a REST API.<br /><code>EndpointConfiguration</code> is a property of the &#91;AWS::ApiGateway::RestApi&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.</td></tr>
-<tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="regional_domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="regional_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="distribution_domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="regional_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ownership_verification_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html"><code>AWS::ApiGateway::DomainName</code></a>.
 
 ## Methods
 
@@ -85,18 +87,18 @@ Gets all <code>domain_names</code> in a region.
 ```sql
 SELECT
 region,
+mutual_tls_authentication,
+ownership_verification_certificate_arn,
+regional_hosted_zone_id,
+regional_domain_name,
 domain_name,
-distribution_domain_name,
+security_policy,
 distribution_hosted_zone_id,
 endpoint_configuration,
-mutual_tls_authentication,
-regional_domain_name,
-regional_hosted_zone_id,
-certificate_arn,
+distribution_domain_name,
 regional_certificate_arn,
-ownership_verification_certificate_arn,
-security_policy,
-tags
+tags,
+certificate_arn
 FROM aws.apigateway.domain_names
 WHERE region = 'us-east-1';
 ```
@@ -104,18 +106,18 @@ Gets all properties from an individual <code>domain_name</code>.
 ```sql
 SELECT
 region,
+mutual_tls_authentication,
+ownership_verification_certificate_arn,
+regional_hosted_zone_id,
+regional_domain_name,
 domain_name,
-distribution_domain_name,
+security_policy,
 distribution_hosted_zone_id,
 endpoint_configuration,
-mutual_tls_authentication,
-regional_domain_name,
-regional_hosted_zone_id,
-certificate_arn,
+distribution_domain_name,
 regional_certificate_arn,
-ownership_verification_certificate_arn,
-security_policy,
-tags
+tags,
+certificate_arn
 FROM aws.apigateway.domain_names
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>';
 ```
@@ -137,25 +139,25 @@ Use the following StackQL query and manifest file to create a new <code>domain_n
 ```sql
 /*+ create */
 INSERT INTO aws.apigateway.domain_names (
- DomainName,
- EndpointConfiguration,
  MutualTlsAuthentication,
- CertificateArn,
- RegionalCertificateArn,
  OwnershipVerificationCertificateArn,
+ DomainName,
  SecurityPolicy,
+ EndpointConfiguration,
+ RegionalCertificateArn,
  Tags,
+ CertificateArn,
  region
 )
 SELECT 
-'{{ DomainName }}',
- '{{ EndpointConfiguration }}',
- '{{ MutualTlsAuthentication }}',
- '{{ CertificateArn }}',
- '{{ RegionalCertificateArn }}',
+'{{ MutualTlsAuthentication }}',
  '{{ OwnershipVerificationCertificateArn }}',
+ '{{ DomainName }}',
  '{{ SecurityPolicy }}',
+ '{{ EndpointConfiguration }}',
+ '{{ RegionalCertificateArn }}',
  '{{ Tags }}',
+ '{{ CertificateArn }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -164,25 +166,25 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.apigateway.domain_names (
- DomainName,
- EndpointConfiguration,
  MutualTlsAuthentication,
- CertificateArn,
- RegionalCertificateArn,
  OwnershipVerificationCertificateArn,
+ DomainName,
  SecurityPolicy,
+ EndpointConfiguration,
+ RegionalCertificateArn,
  Tags,
+ CertificateArn,
  region
 )
 SELECT 
- '{{ DomainName }}',
- '{{ EndpointConfiguration }}',
  '{{ MutualTlsAuthentication }}',
- '{{ CertificateArn }}',
- '{{ RegionalCertificateArn }}',
  '{{ OwnershipVerificationCertificateArn }}',
+ '{{ DomainName }}',
  '{{ SecurityPolicy }}',
+ '{{ EndpointConfiguration }}',
+ '{{ RegionalCertificateArn }}',
  '{{ Tags }}',
+ '{{ CertificateArn }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -200,30 +202,30 @@ globals:
 resources:
   - name: domain_name
     props:
+      - name: MutualTlsAuthentication
+        value:
+          TruststoreVersion: '{{ TruststoreVersion }}'
+          TruststoreUri: '{{ TruststoreUri }}'
+      - name: OwnershipVerificationCertificateArn
+        value: '{{ OwnershipVerificationCertificateArn }}'
       - name: DomainName
         value: '{{ DomainName }}'
+      - name: SecurityPolicy
+        value: '{{ SecurityPolicy }}'
       - name: EndpointConfiguration
         value:
           Types:
             - '{{ Types[0] }}'
           VpcEndpointIds:
             - '{{ VpcEndpointIds[0] }}'
-      - name: MutualTlsAuthentication
-        value:
-          TruststoreUri: '{{ TruststoreUri }}'
-          TruststoreVersion: '{{ TruststoreVersion }}'
-      - name: CertificateArn
-        value: '{{ CertificateArn }}'
       - name: RegionalCertificateArn
         value: '{{ RegionalCertificateArn }}'
-      - name: OwnershipVerificationCertificateArn
-        value: '{{ OwnershipVerificationCertificateArn }}'
-      - name: SecurityPolicy
-        value: '{{ SecurityPolicy }}'
       - name: Tags
         value:
           - Value: '{{ Value }}'
             Key: '{{ Key }}'
+      - name: CertificateArn
+        value: '{{ CertificateArn }}'
 
 ```
 </TabItem>
@@ -242,12 +244,12 @@ AND region = 'us-east-1';
 
 To operate on the <code>domain_names</code> resource, the following permissions are required:
 
-### Create
+### Read
 ```json
 apigateway:*
 ```
 
-### Read
+### Create
 ```json
 apigateway:*
 ```
@@ -257,13 +259,12 @@ apigateway:*
 apigateway:*
 ```
 
-### Delete
-```json
-apigateway:*
-```
-
 ### List
 ```json
 apigateway:*
 ```
 
+### Delete
+```json
+apigateway:*
+```

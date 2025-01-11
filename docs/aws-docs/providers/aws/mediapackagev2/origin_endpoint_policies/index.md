@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>origin_endpoint_policy</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html"><code>AWS::MediaPackageV2::OriginEndpointPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -193,4 +195,3 @@ mediapackagev2:PutOriginEndpointPolicy
 mediapackagev2:GetOriginEndpointPolicy,
 mediapackagev2:DeleteOriginEndpointPolicy
 ```
-

@@ -42,6 +42,8 @@ Creates, updates, deletes or gets an <code>extension_association</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extensionassociation.html"><code>AWS::AppConfig::ExtensionAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -237,4 +239,3 @@ appconfig:UntagResource
 ```json
 appconfig:ListExtensionAssociations
 ```
-

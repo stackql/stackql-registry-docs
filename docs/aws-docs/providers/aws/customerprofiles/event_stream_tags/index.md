@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_stream_tags</code> resource, see <a href="/providers/aws/customerprofiles/event_streams/#permissions"><code>event_streams</code></a>
 
-

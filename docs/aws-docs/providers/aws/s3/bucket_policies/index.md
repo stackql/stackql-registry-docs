@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>bucket_policy</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucketpolicy.html"><code>AWS::S3::BucketPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -168,15 +170,15 @@ AND region = 'us-east-1';
 
 To operate on the <code>bucket_policies</code> resource, the following permissions are required:
 
-### Read
-```json
-s3:GetBucketPolicy
-```
-
 ### Create
 ```json
 s3:GetBucketPolicy,
 s3:PutBucketPolicy
+```
+
+### Read
+```json
+s3:GetBucketPolicy
 ```
 
 ### Update
@@ -185,15 +187,14 @@ s3:GetBucketPolicy,
 s3:PutBucketPolicy
 ```
 
-### List
-```json
-s3:GetBucketPolicy,
-s3:ListAllMyBuckets
-```
-
 ### Delete
 ```json
 s3:GetBucketPolicy,
 s3:DeleteBucketPolicy
 ```
 
+### List
+```json
+s3:GetBucketPolicy,
+s3:ListAllMyBuckets
+```

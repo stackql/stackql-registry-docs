@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>rule_groups_namespace</code> resource 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-rulegroupsnamespace.html"><code>AWS::APS::RuleGroupsNamespace</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -222,4 +224,3 @@ aps:DescribeRuleGroupsNamespace
 aps:ListRuleGroupsNamespaces,
 aps:ListTagsForResource
 ```
-

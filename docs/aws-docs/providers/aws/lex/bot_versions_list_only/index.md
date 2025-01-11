@@ -32,8 +32,6 @@ Lists <code>bot_versions</code> in a region or regions, for all properties use <
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
 <tr><td><CopyableCode code="bot_version" /></td><td><code>object</code></td><td>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the version. Use the description to help identify the version in lists.</td></tr>
-<tr><td><CopyableCode code="bot_version_locale_specification" /></td><td><code>array</code></td><td>Specifies the locales that Amazon Lex adds to this version. You can choose the Draft version or any other previously published version for each locale.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>bot_versions_list_only</code> resource, see <a href="/providers/aws/lex/bot_versions/#permissions"><code>bot_versions</code></a>
-
 

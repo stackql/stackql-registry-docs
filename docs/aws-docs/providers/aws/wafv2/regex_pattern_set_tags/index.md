@@ -78,4 +78,3 @@ FROM aws.wafv2.regex_pattern_set_tags
 
 For permissions required to operate on the <code>regex_pattern_set_tags</code> resource, see <a href="/providers/aws/wafv2/regex_pattern_sets/#permissions"><code>regex_pattern_sets</code></a>
 
-

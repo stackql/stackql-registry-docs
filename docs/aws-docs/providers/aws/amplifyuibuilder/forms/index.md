@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>form</code> resource or lists <code>fo
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html"><code>AWS::AmplifyUIBuilder::Form</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -278,15 +280,13 @@ To operate on the <code>forms</code> resource, the following permissions are req
 amplify:GetApp,
 amplifyuibuilder:CreateForm,
 amplifyuibuilder:GetForm,
-amplifyuibuilder:TagResource,
-amplifyuibuilder:UntagResource
+amplifyuibuilder:TagResource
 ```
 
 ### Read
 ```json
 amplify:GetApp,
-amplifyuibuilder:GetForm,
-amplifyuibuilder:TagResource
+amplifyuibuilder:GetForm
 ```
 
 ### Update
@@ -302,7 +302,6 @@ amplifyuibuilder:UpdateForm
 ```json
 amplify:GetApp,
 amplifyuibuilder:DeleteForm,
-amplifyuibuilder:TagResource,
 amplifyuibuilder:UntagResource
 ```
 
@@ -311,4 +310,3 @@ amplifyuibuilder:UntagResource
 amplify:GetApp,
 amplifyuibuilder:ListForms
 ```
-

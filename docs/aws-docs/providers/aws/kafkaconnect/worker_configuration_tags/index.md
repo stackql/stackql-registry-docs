@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>worker_configuration_tags</code> resource, see <a href="/providers/aws/kafkaconnect/worker_configurations/#permissions"><code>worker_configurations</code></a>
 
-

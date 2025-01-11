@@ -40,6 +40,7 @@ Expands all tag keys and values for <code>compute_environments</code> in a regio
 <tr><td><CopyableCode code="update_policy" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="unmanagedv_cpus" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="eks_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -75,6 +76,7 @@ type,
 update_policy,
 unmanagedv_cpus,
 eks_configuration,
+context,
 tag_key,
 tag_value
 FROM aws.batch.compute_environment_tags
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>compute_environment_tags</code> resource, see <a href="/providers/aws/batch/compute_environments/#permissions"><code>compute_environments</code></a>
-
 

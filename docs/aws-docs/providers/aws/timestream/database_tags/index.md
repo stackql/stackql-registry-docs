@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>database_tags</code> resource, see <a href="/providers/aws/timestream/databases/#permissions"><code>databases</code></a>
 
-

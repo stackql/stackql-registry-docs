@@ -31,10 +31,6 @@ Lists <code>subnet_groups</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="subnet_group_name" /></td><td><code>string</code></td><td>The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of the subnet group.</td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>A list of VPC subnet IDs for the subnet group.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this subnet group.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the subnet group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>subnet_groups_list_only</code> resource, see <a href="/providers/aws/memorydb/subnet_groups/#permissions"><code>subnet_groups</code></a>
-
 

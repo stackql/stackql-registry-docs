@@ -43,8 +43,11 @@ Creates, updates, deletes or gets an <code>user_setting</code> resource or lists
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="upload_allowed" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deep_link_allowed" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersetting.html"><code>AWS::WorkSpacesWeb::UserSettings</code></a>.
 
 ## Methods
 
@@ -98,7 +101,8 @@ paste_allowed,
 print_allowed,
 tags,
 upload_allowed,
-user_settings_arn
+user_settings_arn,
+deep_link_allowed
 FROM aws.workspacesweb.user_settings
 WHERE region = 'us-east-1';
 ```
@@ -118,7 +122,8 @@ paste_allowed,
 print_allowed,
 tags,
 upload_allowed,
-user_settings_arn
+user_settings_arn,
+deep_link_allowed
 FROM aws.workspacesweb.user_settings
 WHERE region = 'us-east-1' AND data__Identifier = '<UserSettingsArn>';
 ```
@@ -172,6 +177,7 @@ INSERT INTO aws.workspacesweb.user_settings (
  PrintAllowed,
  Tags,
  UploadAllowed,
+ DeepLinkAllowed,
  region
 )
 SELECT 
@@ -186,6 +192,7 @@ SELECT
  '{{ PrintAllowed }}',
  '{{ Tags }}',
  '{{ UploadAllowed }}',
+ '{{ DeepLinkAllowed }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -233,6 +240,8 @@ resources:
             Value: '{{ Value }}'
       - name: UploadAllowed
         value: null
+      - name: DeepLinkAllowed
+        value: null
 
 ```
 </TabItem>
@@ -257,10 +266,12 @@ workspaces-web:CreateUserSettings,
 workspaces-web:GetUserSettings,
 workspaces-web:ListTagsForResource,
 workspaces-web:TagResource,
-kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt
+kms:Decrypt,
+kms:GenerateDataKeyWithoutPlaintext,
+kms:ReEncryptTo,
+kms:ReEncryptFrom
 ```
 
 ### Read
@@ -304,4 +315,3 @@ kms:DescribeKey,
 kms:GenerateDataKey,
 kms:Decrypt
 ```
-

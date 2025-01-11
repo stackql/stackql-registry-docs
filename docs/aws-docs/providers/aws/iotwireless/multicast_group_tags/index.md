@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>multicast_group_tags</code> resource, see <a href="/providers/aws/iotwireless/multicast_groups/#permissions"><code>multicast_groups</code></a>
 
-

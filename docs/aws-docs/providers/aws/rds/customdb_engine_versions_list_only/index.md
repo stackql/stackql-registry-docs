@@ -25,24 +25,13 @@ Lists <code>customdb_engine_versions</code> in a region or regions, for all prop
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>customdb_engine_versions_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.</td></tr>
+<tr><td><b>Description</b></td><td>Creates a custom DB engine version (CEV).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.customdb_engine_versions_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="database_installation_files_s3_bucket_name" /></td><td><code>string</code></td><td>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.</td></tr>
-<tr><td><CopyableCode code="database_installation_files_s3_prefix" /></td><td><code>string</code></td><td>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of your CEV.</td></tr>
-<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.</td></tr>
-<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.</td></tr>
-<tr><td><CopyableCode code="manifest" /></td><td><code>string</code></td><td>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.</td></tr>
-<tr><td><CopyableCode code="db_engine_version_arn" /></td><td><code>string</code></td><td>The ARN of the custom engine version.</td></tr>
-<tr><td><CopyableCode code="source_custom_db_engine_version_identifier" /></td><td><code>string</code></td><td>The identifier of the source custom engine version.</td></tr>
-<tr><td><CopyableCode code="use_aws_provided_latest_image" /></td><td><code>boolean</code></td><td>A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.</td></tr>
-<tr><td><CopyableCode code="image_id" /></td><td><code>string</code></td><td>The identifier of Amazon Machine Image (AMI) used for CEV.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The availability status to be assigned to the CEV.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The database engine to use for your custom engine version (CEV).<br />Valid values:<br />+ <code>custom-oracle-ee</code> <br />+ <code>custom-oracle-ee-cdb</code></td></tr>
+<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The name of your CEV. The name format is <code>major version.customized_string</code>. For example, a valid CEV name is <code>19.my_cev1</code>. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Region.<br />*Constraints:* Minimum length is 1. Maximum length is 60.<br />*Pattern:* <code>^&#91;a-z0-9_.-&#93;&#123;1,60$</code>&#125;</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -76,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>customdb_engine_versions_list_only</code> resource, see <a href="/providers/aws/rds/customdb_engine_versions/#permissions"><code>customdb_engine_versions</code></a>
-
 

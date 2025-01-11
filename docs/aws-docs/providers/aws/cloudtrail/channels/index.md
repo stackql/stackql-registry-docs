@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>channel</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html"><code>AWS::CloudTrail::Channel</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -167,8 +169,8 @@ resources:
             Location: '{{ Location }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -216,4 +218,3 @@ CloudTrail:DeleteChannel
 ```json
 CloudTrail:ListChannels
 ```
-

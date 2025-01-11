@@ -20,7 +20,7 @@ The iot service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>72</b></span><br />
+<span>total resources:&nbsp;<b>75</b></span><br />
 </div>
 </div>
 
@@ -45,6 +45,9 @@ The iot service documentation.
 <a href="/providers/aws/iot/certificate_providers_list_only/">certificate_providers_list_only</a><br />
 <a href="/providers/aws/iot/certificates/">certificates</a><br />
 <a href="/providers/aws/iot/certificates_list_only/">certificates_list_only</a><br />
+<a href="/providers/aws/iot/command_tags/">command_tags</a><br />
+<a href="/providers/aws/iot/commands/">commands</a><br />
+<a href="/providers/aws/iot/commands_list_only/">commands_list_only</a><br />
 <a href="/providers/aws/iot/custom_metric_tags/">custom_metric_tags</a><br />
 <a href="/providers/aws/iot/custom_metrics/">custom_metrics</a><br />
 <a href="/providers/aws/iot/custom_metrics_list_only/">custom_metrics_list_only</a><br />
@@ -63,10 +66,10 @@ The iot service documentation.
 <a href="/providers/aws/iot/loggings/">loggings</a><br />
 <a href="/providers/aws/iot/loggings_list_only/">loggings_list_only</a><br />
 <a href="/providers/aws/iot/mitigation_action_tags/">mitigation_action_tags</a><br />
-<a href="/providers/aws/iot/mitigation_actions/">mitigation_actions</a><br />
-<a href="/providers/aws/iot/mitigation_actions_list_only/">mitigation_actions_list_only</a>
+<a href="/providers/aws/iot/mitigation_actions/">mitigation_actions</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/iot/mitigation_actions_list_only/">mitigation_actions_list_only</a><br />
 <a href="/providers/aws/iot/policies/">policies</a><br />
 <a href="/providers/aws/iot/policies_list_only/">policies_list_only</a><br />
 <a href="/providers/aws/iot/policy_tags/">policy_tags</a><br />

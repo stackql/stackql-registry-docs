@@ -30,12 +30,7 @@ Lists <code>outcomes</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the outcome.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with this outcome.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The outcome description.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The outcome ARN.</td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td>The timestamp when the outcome was created.</td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The timestamp when the outcome was last updated.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The outcome ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>outcomes_list_only</code> resource, see <a href="/providers/aws/frauddetector/outcomes/#permissions"><code>outcomes</code></a>
-
 

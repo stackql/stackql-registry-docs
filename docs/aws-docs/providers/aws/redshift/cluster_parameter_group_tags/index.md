@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>cluster_parameter_group_tags</code> resource, see <a href="/providers/aws/redshift/cluster_parameter_groups/#permissions"><code>cluster_parameter_groups</code></a>
 
-

@@ -47,6 +47,8 @@ Creates, updates, deletes or gets an <code>image_builder</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html"><code>AWS::AppStream::ImageBuilder</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -308,4 +310,3 @@ iam:CreateServiceLinkedRole,
 iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus
 ```
-

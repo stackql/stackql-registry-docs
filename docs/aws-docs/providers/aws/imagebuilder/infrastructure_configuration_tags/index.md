@@ -43,6 +43,7 @@ Expands all tag keys and values for <code>infrastructure_configurations</code> i
 <tr><td><CopyableCode code="instance_metadata_options" /></td><td><code>object</code></td><td>The instance metadata option settings for the infrastructure configuration.</td></tr>
 <tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
 <tr><td><CopyableCode code="resource_tags" /></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
+<tr><td><CopyableCode code="placement" /></td><td><code>object</code></td><td>The placement option settings for the infrastructure configuration.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -81,6 +82,7 @@ instance_profile_name,
 instance_metadata_options,
 sns_topic_arn,
 resource_tags,
+placement,
 tag_key,
 tag_value
 FROM aws.imagebuilder.infrastructure_configuration_tags
@@ -91,5 +93,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>infrastructure_configuration_tags</code> resource, see <a href="/providers/aws/imagebuilder/infrastructure_configurations/#permissions"><code>infrastructure_configurations</code></a>
-
 

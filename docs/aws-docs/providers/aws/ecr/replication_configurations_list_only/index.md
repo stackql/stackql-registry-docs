@@ -30,8 +30,7 @@ Lists <code>replication_configurations</code> in a region or regions, for all pr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replication_configuration" /></td><td><code>object</code></td><td>The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html</td></tr>
-<tr><td><CopyableCode code="registry_id" /></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="registry_id" /></td><td><code>string</code></td><td>The RegistryId associated with the aws account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>replication_configurations_list_only</code> resource, see <a href="/providers/aws/ecr/replication_configurations/#permissions"><code>replication_configurations</code></a>
-
 

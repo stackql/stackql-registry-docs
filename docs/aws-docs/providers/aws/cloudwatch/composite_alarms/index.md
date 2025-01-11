@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>composite_alarm</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html"><code>AWS::CloudWatch::CompositeAlarm</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -268,4 +270,3 @@ cloudwatch:DeleteAlarms
 ```json
 cloudwatch:DescribeAlarms
 ```
-

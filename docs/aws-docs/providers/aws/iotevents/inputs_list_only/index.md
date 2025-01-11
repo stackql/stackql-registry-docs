@@ -25,15 +25,12 @@ Lists <code>inputs</code> in a region or regions, for all properties use <a href
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inputs_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see &#91;How to Use AWS IoT Events&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see &#91;How to Use&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.iotevents.inputs_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="input_definition" /></td><td><code>object</code></td><td>The definition of the input.</td></tr>
-<tr><td><CopyableCode code="input_description" /></td><td><code>string</code></td><td>A brief description of the input.</td></tr>
-<tr><td><CopyableCode code="input_name" /></td><td><code>string</code></td><td>The name of the input.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.<br />For more information, see &#91;Tag&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="input_name" /></td><td><code>string</code></td><td>The name of the input.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>inputs_list_only</code> resource, see <a href="/providers/aws/iotevents/inputs/#permissions"><code>inputs</code></a>
-
 

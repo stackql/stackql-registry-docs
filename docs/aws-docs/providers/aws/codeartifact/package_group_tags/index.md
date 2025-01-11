@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>package_group_tags</code> resource, see <a href="/providers/aws/codeartifact/package_groups/#permissions"><code>package_groups</code></a>
 
-

@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>allow_list_tags</code> resource, see <a href="/providers/aws/macie/allow_lists/#permissions"><code>allow_lists</code></a>
 
-

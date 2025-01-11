@@ -37,7 +37,8 @@ Expands all tag keys and values for <code>knowledge_bases</code> in a region
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="rendering_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vector_ingestion_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -71,6 +72,7 @@ name,
 rendering_configuration,
 server_side_encryption_configuration,
 source_configuration,
+vector_ingestion_configuration,
 tag_key,
 tag_value
 FROM aws.wisdom.knowledge_base_tags
@@ -81,5 +83,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>knowledge_base_tags</code> resource, see <a href="/providers/aws/wisdom/knowledge_bases/#permissions"><code>knowledge_bases</code></a>
-
 

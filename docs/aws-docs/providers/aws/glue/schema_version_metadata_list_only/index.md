@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>schema_version_metadata_list_only</code> resource, see <a href="/providers/aws/glue/schema_version_metadata/#permissions"><code>schema_version_metadata</code></a>
 
-

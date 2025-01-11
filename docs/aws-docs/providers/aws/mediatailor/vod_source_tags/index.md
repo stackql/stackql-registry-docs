@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>vod_source_tags</code> resource, see <a href="/providers/aws/mediatailor/vod_sources/#permissions"><code>vod_sources</code></a>
 
-

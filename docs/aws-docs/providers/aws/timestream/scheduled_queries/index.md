@@ -52,6 +52,8 @@ Creates, updates, deletes or gets a <code>scheduled_query</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html"><code>AWS::Timestream::ScheduledQuery</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -318,4 +320,3 @@ timestream:DescribeEndpoints
 timestream:ListScheduledQueries,
 timestream:DescribeEndpoints
 ```
-

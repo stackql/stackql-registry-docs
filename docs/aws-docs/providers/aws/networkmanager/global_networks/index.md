@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>global_network</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html"><code>AWS::NetworkManager::GlobalNetwork</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -226,4 +228,3 @@ networkmanager:DescribeGlobalNetworks
 ```json
 networkmanager:DescribeGlobalNetworks
 ```
-

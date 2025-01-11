@@ -20,7 +20,7 @@ The rds service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>37</b></span><br />
+<span>total resources:&nbsp;<b>41</b></span><br />
 </div>
 </div>
 
@@ -47,19 +47,23 @@ The rds service documentation.
 <a href="/providers/aws/rds/db_proxies/">db_proxies</a><br />
 <a href="/providers/aws/rds/db_proxies_list_only/">db_proxies_list_only</a><br />
 <a href="/providers/aws/rds/db_proxy_endpoint_tags/">db_proxy_endpoint_tags</a><br />
-<a href="/providers/aws/rds/db_proxy_endpoints/">db_proxy_endpoints</a>
+<a href="/providers/aws/rds/db_proxy_endpoints/">db_proxy_endpoints</a><br />
+<a href="/providers/aws/rds/db_proxy_endpoints_list_only/">db_proxy_endpoints_list_only</a><br />
+<a href="/providers/aws/rds/db_proxy_tags/">db_proxy_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/rds/db_proxy_endpoints_list_only/">db_proxy_endpoints_list_only</a><br />
-<a href="/providers/aws/rds/db_proxy_tags/">db_proxy_tags</a><br />
 <a href="/providers/aws/rds/db_proxy_target_groups/">db_proxy_target_groups</a><br />
 <a href="/providers/aws/rds/db_proxy_target_groups_list_only/">db_proxy_target_groups_list_only</a><br />
+<a href="/providers/aws/rds/db_shard_group_tags/">db_shard_group_tags</a><br />
+<a href="/providers/aws/rds/db_shard_groups/">db_shard_groups</a><br />
+<a href="/providers/aws/rds/db_shard_groups_list_only/">db_shard_groups_list_only</a><br />
 <a href="/providers/aws/rds/db_subnet_group_tags/">db_subnet_group_tags</a><br />
 <a href="/providers/aws/rds/db_subnet_groups/">db_subnet_groups</a><br />
 <a href="/providers/aws/rds/db_subnet_groups_list_only/">db_subnet_groups_list_only</a><br />
 <a href="/providers/aws/rds/event_subscription_tags/">event_subscription_tags</a><br />
 <a href="/providers/aws/rds/event_subscriptions/">event_subscriptions</a><br />
 <a href="/providers/aws/rds/event_subscriptions_list_only/">event_subscriptions_list_only</a><br />
+<a href="/providers/aws/rds/global_cluster_tags/">global_cluster_tags</a><br />
 <a href="/providers/aws/rds/global_clusters/">global_clusters</a><br />
 <a href="/providers/aws/rds/global_clusters_list_only/">global_clusters_list_only</a><br />
 <a href="/providers/aws/rds/integration_tags/">integration_tags</a><br />

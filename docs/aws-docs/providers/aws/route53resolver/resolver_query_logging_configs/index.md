@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>resolver_query_logging_config</code> r
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html"><code>AWS::Route53Resolver::ResolverQueryLoggingConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -223,4 +225,3 @@ route53resolver:ListResolverQueryLogConfigs
 resolverquerylogging:ListConfig,
 route53resolver:ListResolverQueryLogConfigs
 ```
-

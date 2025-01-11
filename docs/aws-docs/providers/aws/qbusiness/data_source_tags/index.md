@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>data_sources</code> in a region
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="document_enrichment_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="media_extraction_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="index_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
@@ -78,6 +79,7 @@ data_source_id,
 description,
 display_name,
 document_enrichment_configuration,
+media_extraction_configuration,
 index_id,
 role_arn,
 status,
@@ -95,5 +97,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>data_source_tags</code> resource, see <a href="/providers/aws/qbusiness/data_sources/#permissions"><code>data_sources</code></a>
-
 

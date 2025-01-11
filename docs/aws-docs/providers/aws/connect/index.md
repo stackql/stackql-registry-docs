@@ -20,7 +20,7 @@ The connect service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>58</b></span><br />
+<span>total resources:&nbsp;<b>65</b></span><br />
 </div>
 </div>
 
@@ -29,6 +29,9 @@ The connect service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/connect/agent_status_tags/">agent_status_tags</a><br />
+<a href="/providers/aws/connect/agent_statuses/">agent_statuses</a><br />
+<a href="/providers/aws/connect/agent_statuses_list_only/">agent_statuses_list_only</a><br />
 <a href="/providers/aws/connect/approved_origins/">approved_origins</a><br />
 <a href="/providers/aws/connect/approved_origins_list_only/">approved_origins_list_only</a><br />
 <a href="/providers/aws/connect/contact_flow_module_tags/">contact_flow_module_tags</a><br />
@@ -37,6 +40,9 @@ The connect service documentation.
 <a href="/providers/aws/connect/contact_flow_tags/">contact_flow_tags</a><br />
 <a href="/providers/aws/connect/contact_flows/">contact_flows</a><br />
 <a href="/providers/aws/connect/contact_flows_list_only/">contact_flows_list_only</a><br />
+<a href="/providers/aws/connect/email_address_tags/">email_address_tags</a><br />
+<a href="/providers/aws/connect/email_addresses/">email_addresses</a><br />
+<a href="/providers/aws/connect/email_addresses_list_only/">email_addresses_list_only</a><br />
 <a href="/providers/aws/connect/evaluation_form_tags/">evaluation_form_tags</a><br />
 <a href="/providers/aws/connect/evaluation_forms/">evaluation_forms</a><br />
 <a href="/providers/aws/connect/evaluation_forms_list_only/">evaluation_forms_list_only</a><br />
@@ -55,11 +61,11 @@ The connect service documentation.
 <a href="/providers/aws/connect/prompt_tags/">prompt_tags</a><br />
 <a href="/providers/aws/connect/prompts/">prompts</a><br />
 <a href="/providers/aws/connect/prompts_list_only/">prompts_list_only</a><br />
-<a href="/providers/aws/connect/queue_tags/">queue_tags</a><br />
-<a href="/providers/aws/connect/queues/">queues</a><br />
-<a href="/providers/aws/connect/queues_list_only/">queues_list_only</a>
+<a href="/providers/aws/connect/queue_tags/">queue_tags</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/connect/queues/">queues</a><br />
+<a href="/providers/aws/connect/queues_list_only/">queues_list_only</a><br />
 <a href="/providers/aws/connect/quick_connect_tags/">quick_connect_tags</a><br />
 <a href="/providers/aws/connect/quick_connects/">quick_connects</a><br />
 <a href="/providers/aws/connect/quick_connects_list_only/">quick_connects_list_only</a><br />
@@ -81,6 +87,7 @@ The connect service documentation.
 <a href="/providers/aws/connect/user_hierarchy_group_tags/">user_hierarchy_group_tags</a><br />
 <a href="/providers/aws/connect/user_hierarchy_groups/">user_hierarchy_groups</a><br />
 <a href="/providers/aws/connect/user_hierarchy_groups_list_only/">user_hierarchy_groups_list_only</a><br />
+<a href="/providers/aws/connect/user_hierarchy_structures/">user_hierarchy_structures</a><br />
 <a href="/providers/aws/connect/user_tags/">user_tags</a><br />
 <a href="/providers/aws/connect/users/">users</a><br />
 <a href="/providers/aws/connect/users_list_only/">users_list_only</a><br />

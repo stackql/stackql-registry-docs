@@ -36,8 +36,11 @@ Creates, updates, deletes or gets a <code>connection</code> resource or lists <c
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the connection.</td></tr>
 <tr><td><CopyableCode code="authorization_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="auth_parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="invocation_connectivity_parameters" /></td><td><code>object</code></td><td>The private resource the HTTP request will be sent to.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html"><code>AWS::Events::Connection</code></a>.
 
 ## Methods
 
@@ -84,7 +87,8 @@ arn,
 secret_arn,
 description,
 authorization_type,
-auth_parameters
+auth_parameters,
+invocation_connectivity_parameters
 FROM aws.events.connections
 WHERE region = 'us-east-1';
 ```
@@ -97,7 +101,8 @@ arn,
 secret_arn,
 description,
 authorization_type,
-auth_parameters
+auth_parameters,
+invocation_connectivity_parameters
 FROM aws.events.connections
 WHERE region = 'us-east-1' AND data__Identifier = '<Name>';
 ```
@@ -123,6 +128,7 @@ INSERT INTO aws.events.connections (
  Description,
  AuthorizationType,
  AuthParameters,
+ InvocationConnectivityParameters,
  region
 )
 SELECT 
@@ -130,6 +136,7 @@ SELECT
  '{{ Description }}',
  '{{ AuthorizationType }}',
  '{{ AuthParameters }}',
+ '{{ InvocationConnectivityParameters }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -142,6 +149,7 @@ INSERT INTO aws.events.connections (
  Description,
  AuthorizationType,
  AuthParameters,
+ InvocationConnectivityParameters,
  region
 )
 SELECT 
@@ -149,6 +157,7 @@ SELECT
  '{{ Description }}',
  '{{ AuthorizationType }}',
  '{{ AuthParameters }}',
+ '{{ InvocationConnectivityParameters }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -196,6 +205,13 @@ resources:
               BodyParameters:
                 - null
           InvocationHttpParameters: null
+          ConnectivityParameters:
+            ResourceParameters:
+              ResourceConfigurationArn: '{{ ResourceConfigurationArn }}'
+              ResourceAssociationArn: '{{ ResourceAssociationArn }}'
+      - name: InvocationConnectivityParameters
+        value:
+          ResourceParameters: null
 
 ```
 </TabItem>
@@ -249,4 +265,3 @@ events:DescribeConnection
 ```json
 events:ListConnections
 ```
-

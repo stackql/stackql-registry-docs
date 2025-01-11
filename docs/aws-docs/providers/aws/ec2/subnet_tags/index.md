@@ -39,11 +39,11 @@ Expands all tag keys and values for <code>subnets</code> in a region
 <tr><td><CopyableCode code="availability_zone_id" /></td><td><code>string</code></td><td>The AZ ID of the subnet.</td></tr>
 <tr><td><CopyableCode code="cidr_block" /></td><td><code>string</code></td><td>The IPv4 CIDR block assigned to the subnet.<br />If you update this property, we create a new subnet, and then delete the existing one.</td></tr>
 <tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ipv6_cidr_blocks" /></td><td><code>array</code></td><td>The IPv6 network ranges for the subnet, in CIDR notation.</td></tr>
+<tr><td><CopyableCode code="ipv6_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="ipv6_cidr_block" /></td><td><code>string</code></td><td>The IPv6 CIDR block.<br />If you specify <code>AssignIpv6AddressOnCreation</code>, you must also specify an IPv6 CIDR block.</td></tr>
 <tr><td><CopyableCode code="outpost_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Outpost.</td></tr>
 <tr><td><CopyableCode code="ipv6_native" /></td><td><code>boolean</code></td><td>Indicates whether this is an IPv6 only subnet. For more information, see &#91;Subnet basics&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#subnet-basics) in the *User Guide*.</td></tr>
-<tr><td><CopyableCode code="enable_dns64" /></td><td><code>boolean</code></td><td>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see &#91;DNS64 and NAT64&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.</td></tr>
+<tr><td><CopyableCode code="enable_dns64" /></td><td><code>boolean</code></td><td>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.<br />You must first configure a NAT gateway in a public subnet (separate from the subnet containing the IPv6-only workloads). For example, the subnet containing the NAT gateway should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more information, see &#91;Configure DNS64 and NAT64&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough) in the *User Guide*.</td></tr>
 <tr><td><CopyableCode code="private_dns_name_options_on_launch" /></td><td><code>object</code></td><td>The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries to the instances should be handled. For more information, see &#91;Amazon EC2 instance hostname types&#93;(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.<br />Available options:<br />+ EnableResourceNameDnsAAAARecord (true | false)<br />+ EnableResourceNameDnsARecord (true | false)<br />+ HostnameType (ip-name | resource-name)</td></tr>
 <tr><td><CopyableCode code="ipv4_ipam_pool_id" /></td><td><code>string</code></td><td>An IPv4 IPAM pool ID for the subnet.</td></tr>
 <tr><td><CopyableCode code="ipv4_netmask_length" /></td><td><code>integer</code></td><td>An IPv4 netmask length for the subnet.</td></tr>
@@ -103,5 +103,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>subnet_tags</code> resource, see <a href="/providers/aws/ec2/subnets/#permissions"><code>subnets</code></a>
-
 

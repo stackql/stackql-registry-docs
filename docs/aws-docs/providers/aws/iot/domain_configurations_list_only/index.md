@@ -31,18 +31,6 @@ Lists <code>domain_configurations</code> in a region or regions, for all propert
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_configuration_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="authorizer_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_certificate_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="validation_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_configuration_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_certificate_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_certificates" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tls_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>domain_configurations_list_only</code> resource, see <a href="/providers/aws/iot/domain_configurations/#permissions"><code>domain_configurations</code></a>
-
 

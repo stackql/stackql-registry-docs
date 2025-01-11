@@ -20,7 +20,7 @@ The sagemaker service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>58</b></span><br />
+<span>total resources:&nbsp;<b>70</b></span><br />
 </div>
 </div>
 
@@ -35,11 +35,17 @@ The sagemaker service documentation.
 <a href="/providers/aws/sagemaker/app_tags/">app_tags</a><br />
 <a href="/providers/aws/sagemaker/apps/">apps</a><br />
 <a href="/providers/aws/sagemaker/apps_list_only/">apps_list_only</a><br />
+<a href="/providers/aws/sagemaker/cluster_tags/">cluster_tags</a><br />
+<a href="/providers/aws/sagemaker/clusters/">clusters</a><br />
+<a href="/providers/aws/sagemaker/clusters_list_only/">clusters_list_only</a><br />
 <a href="/providers/aws/sagemaker/data_quality_job_definition_tags/">data_quality_job_definition_tags</a><br />
 <a href="/providers/aws/sagemaker/data_quality_job_definitions/">data_quality_job_definitions</a><br />
 <a href="/providers/aws/sagemaker/data_quality_job_definitions_list_only/">data_quality_job_definitions_list_only</a><br />
 <a href="/providers/aws/sagemaker/device_fleets/">device_fleets</a><br />
 <a href="/providers/aws/sagemaker/devices/">devices</a><br />
+<a href="/providers/aws/sagemaker/endpoint_tags/">endpoint_tags</a><br />
+<a href="/providers/aws/sagemaker/endpoints/">endpoints</a><br />
+<a href="/providers/aws/sagemaker/endpoints_list_only/">endpoints_list_only</a><br />
 <a href="/providers/aws/sagemaker/feature_group_tags/">feature_group_tags</a><br />
 <a href="/providers/aws/sagemaker/feature_groups/">feature_groups</a><br />
 <a href="/providers/aws/sagemaker/feature_groups_list_only/">feature_groups_list_only</a><br />
@@ -54,14 +60,14 @@ The sagemaker service documentation.
 <a href="/providers/aws/sagemaker/inference_experiment_tags/">inference_experiment_tags</a><br />
 <a href="/providers/aws/sagemaker/inference_experiments/">inference_experiments</a><br />
 <a href="/providers/aws/sagemaker/inference_experiments_list_only/">inference_experiments_list_only</a><br />
-<a href="/providers/aws/sagemaker/model_bias_job_definition_tags/">model_bias_job_definition_tags</a><br />
-<a href="/providers/aws/sagemaker/model_bias_job_definitions/">model_bias_job_definitions</a><br />
-<a href="/providers/aws/sagemaker/model_bias_job_definitions_list_only/">model_bias_job_definitions_list_only</a><br />
-<a href="/providers/aws/sagemaker/model_card_tags/">model_card_tags</a>
+<a href="/providers/aws/sagemaker/mlflow_tracking_server_tags/">mlflow_tracking_server_tags</a><br />
+<a href="/providers/aws/sagemaker/mlflow_tracking_servers/">mlflow_tracking_servers</a><br />
+<a href="/providers/aws/sagemaker/mlflow_tracking_servers_list_only/">mlflow_tracking_servers_list_only</a><br />
+<a href="/providers/aws/sagemaker/model_bias_job_definition_tags/">model_bias_job_definition_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/sagemaker/model_cards/">model_cards</a><br />
-<a href="/providers/aws/sagemaker/model_cards_list_only/">model_cards_list_only</a><br />
+<a href="/providers/aws/sagemaker/model_bias_job_definitions/">model_bias_job_definitions</a><br />
+<a href="/providers/aws/sagemaker/model_bias_job_definitions_list_only/">model_bias_job_definitions_list_only</a><br />
 <a href="/providers/aws/sagemaker/model_explainability_job_definition_tags/">model_explainability_job_definition_tags</a><br />
 <a href="/providers/aws/sagemaker/model_explainability_job_definitions/">model_explainability_job_definitions</a><br />
 <a href="/providers/aws/sagemaker/model_explainability_job_definitions_list_only/">model_explainability_job_definitions_list_only</a><br />
@@ -77,6 +83,9 @@ The sagemaker service documentation.
 <a href="/providers/aws/sagemaker/monitoring_schedule_tags/">monitoring_schedule_tags</a><br />
 <a href="/providers/aws/sagemaker/monitoring_schedules/">monitoring_schedules</a><br />
 <a href="/providers/aws/sagemaker/monitoring_schedules_list_only/">monitoring_schedules_list_only</a><br />
+<a href="/providers/aws/sagemaker/partner_app_tags/">partner_app_tags</a><br />
+<a href="/providers/aws/sagemaker/partner_apps/">partner_apps</a><br />
+<a href="/providers/aws/sagemaker/partner_apps_list_only/">partner_apps_list_only</a><br />
 <a href="/providers/aws/sagemaker/pipeline_tags/">pipeline_tags</a><br />
 <a href="/providers/aws/sagemaker/pipelines/">pipelines</a><br />
 <a href="/providers/aws/sagemaker/pipelines_list_only/">pipelines_list_only</a><br />
@@ -86,6 +95,9 @@ The sagemaker service documentation.
 <a href="/providers/aws/sagemaker/space_tags/">space_tags</a><br />
 <a href="/providers/aws/sagemaker/spaces/">spaces</a><br />
 <a href="/providers/aws/sagemaker/spaces_list_only/">spaces_list_only</a><br />
+<a href="/providers/aws/sagemaker/studio_lifecycle_config_tags/">studio_lifecycle_config_tags</a><br />
+<a href="/providers/aws/sagemaker/studio_lifecycle_configs/">studio_lifecycle_configs</a><br />
+<a href="/providers/aws/sagemaker/studio_lifecycle_configs_list_only/">studio_lifecycle_configs_list_only</a><br />
 <a href="/providers/aws/sagemaker/user_profile_tags/">user_profile_tags</a><br />
 <a href="/providers/aws/sagemaker/user_profiles/">user_profiles</a><br />
 <a href="/providers/aws/sagemaker/user_profiles_list_only/">user_profiles_list_only</a>

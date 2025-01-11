@@ -30,21 +30,8 @@ Lists <code>vpc_connections</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the VPC connection.</p></td></tr>
-<tr><td><CopyableCode code="availability_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="created_time" /></td><td><code>string</code></td><td><p>The time that the VPC connection was created.</p></td></tr>
-<tr><td><CopyableCode code="dns_resolvers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The time that the VPC connection was last updated.</p></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_interfaces" /></td><td><code>array</code></td><td><p>A list of network interfaces.</p></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_connection_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td><p>The Amazon EC2 VPC ID associated with the VPC connection.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -78,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>vpc_connections_list_only</code> resource, see <a href="/providers/aws/quicksight/vpc_connections/#permissions"><code>vpc_connections</code></a>
-
 

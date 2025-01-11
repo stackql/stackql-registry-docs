@@ -46,6 +46,8 @@ Creates, updates, deletes or gets an <code>app_block_builder</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblockbuilder.html"><code>AWS::AppStream::AppBlockBuilder</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -293,4 +295,3 @@ appstream:DescribeAppBlockBuilderAppBlockAssociations
 ```json
 appstream:DescribeAppBlockBuilders
 ```
-

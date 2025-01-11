@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>robot_application_tags</code> resource, see <a href="/providers/aws/robomaker/robot_applications/#permissions"><code>robot_applications</code></a>
 
-

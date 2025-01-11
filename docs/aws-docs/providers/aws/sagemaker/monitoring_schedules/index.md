@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>monitoring_schedule</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html"><code>AWS::SageMaker::MonitoringSchedule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -314,4 +316,3 @@ sagemaker:DescribeMonitoringSchedule
 sagemaker:UpdateMonitoringSchedule,
 sagemaker:DescribeMonitoringSchedule
 ```
-

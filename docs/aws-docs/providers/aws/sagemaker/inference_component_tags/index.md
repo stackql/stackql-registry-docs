@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>inference_component_tags</code> resource, see <a href="/providers/aws/sagemaker/inference_components/#permissions"><code>inference_components</code></a>
 
-

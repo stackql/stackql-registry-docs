@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>locationf_sx_lustre_tags</code> resource, see <a href="/providers/aws/datasync/locationf_sx_lustres/#permissions"><code>locationf_sx_lustres</code></a>
 
-

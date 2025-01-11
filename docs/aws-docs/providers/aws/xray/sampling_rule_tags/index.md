@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>sampling_rule_tags</code> resource, see <a href="/providers/aws/xray/sampling_rules/#permissions"><code>sampling_rules</code></a>
 
-

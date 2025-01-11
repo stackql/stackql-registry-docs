@@ -30,19 +30,20 @@ Expands all tag keys and values for <code>transit_gateways</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transit_gateway_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_route_table_association" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpn_ecmp_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="dns_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_group_referencing_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="multicast_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="amazon_side_asn" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -68,19 +69,20 @@ Expands tags for all <code>transit_gateways</code> in a region.
 ```sql
 SELECT
 region,
-description,
-association_default_route_table_id,
-auto_accept_shared_attachments,
-transit_gateway_arn,
 default_route_table_propagation,
-transit_gateway_cidr_blocks,
-propagation_default_route_table_id,
+transit_gateway_arn,
+description,
+auto_accept_shared_attachments,
 default_route_table_association,
 id,
 vpn_ecmp_support,
 dns_support,
+security_group_referencing_support,
 multicast_support,
 amazon_side_asn,
+transit_gateway_cidr_blocks,
+association_default_route_table_id,
+propagation_default_route_table_id,
 tag_key,
 tag_value
 FROM aws.ec2.transit_gateway_tags
@@ -91,5 +93,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>transit_gateway_tags</code> resource, see <a href="/providers/aws/ec2/transit_gateways/#permissions"><code>transit_gateways</code></a>
-
 

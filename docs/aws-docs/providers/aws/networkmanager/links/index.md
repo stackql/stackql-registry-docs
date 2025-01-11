@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>link</code> resource or lists <code>li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html"><code>AWS::NetworkManager::Link</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -252,4 +254,3 @@ networkmanager:DeleteLink
 ```json
 networkmanager:GetLinks
 ```
-

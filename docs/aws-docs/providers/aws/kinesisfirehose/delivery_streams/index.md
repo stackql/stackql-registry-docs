@@ -38,6 +38,7 @@ Creates, updates, deletes or gets a <code>delivery_stream</code> resource or lis
 <tr><td><CopyableCode code="amazonopensearchservice_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="amazon_open_search_serverless_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="extended_s3_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="database_source_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="kinesis_stream_source_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="msk_source_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="redshift_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
@@ -45,9 +46,12 @@ Creates, updates, deletes or gets a <code>delivery_stream</code> resource or lis
 <tr><td><CopyableCode code="splunk_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="http_endpoint_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="snowflake_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="iceberg_destination_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html"><code>AWS::KinesisFirehose::DeliveryStream</code></a>.
 
 ## Methods
 
@@ -97,6 +101,7 @@ elasticsearch_destination_configuration,
 amazonopensearchservice_destination_configuration,
 amazon_open_search_serverless_destination_configuration,
 extended_s3_destination_configuration,
+database_source_configuration,
 kinesis_stream_source_configuration,
 msk_source_configuration,
 redshift_destination_configuration,
@@ -104,6 +109,7 @@ s3_destination_configuration,
 splunk_destination_configuration,
 http_endpoint_destination_configuration,
 snowflake_destination_configuration,
+iceberg_destination_configuration,
 tags
 FROM aws.kinesisfirehose.delivery_streams
 WHERE region = 'us-east-1';
@@ -120,6 +126,7 @@ elasticsearch_destination_configuration,
 amazonopensearchservice_destination_configuration,
 amazon_open_search_serverless_destination_configuration,
 extended_s3_destination_configuration,
+database_source_configuration,
 kinesis_stream_source_configuration,
 msk_source_configuration,
 redshift_destination_configuration,
@@ -127,6 +134,7 @@ s3_destination_configuration,
 splunk_destination_configuration,
 http_endpoint_destination_configuration,
 snowflake_destination_configuration,
+iceberg_destination_configuration,
 tags
 FROM aws.kinesisfirehose.delivery_streams
 WHERE region = 'us-east-1' AND data__Identifier = '<DeliveryStreamName>';
@@ -156,6 +164,7 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  AmazonopensearchserviceDestinationConfiguration,
  AmazonOpenSearchServerlessDestinationConfiguration,
  ExtendedS3DestinationConfiguration,
+ DatabaseSourceConfiguration,
  KinesisStreamSourceConfiguration,
  MSKSourceConfiguration,
  RedshiftDestinationConfiguration,
@@ -163,6 +172,7 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  SplunkDestinationConfiguration,
  HttpEndpointDestinationConfiguration,
  SnowflakeDestinationConfiguration,
+ IcebergDestinationConfiguration,
  Tags,
  region
 )
@@ -174,6 +184,7 @@ SELECT
  '{{ AmazonopensearchserviceDestinationConfiguration }}',
  '{{ AmazonOpenSearchServerlessDestinationConfiguration }}',
  '{{ ExtendedS3DestinationConfiguration }}',
+ '{{ DatabaseSourceConfiguration }}',
  '{{ KinesisStreamSourceConfiguration }}',
  '{{ MSKSourceConfiguration }}',
  '{{ RedshiftDestinationConfiguration }}',
@@ -181,6 +192,7 @@ SELECT
  '{{ SplunkDestinationConfiguration }}',
  '{{ HttpEndpointDestinationConfiguration }}',
  '{{ SnowflakeDestinationConfiguration }}',
+ '{{ IcebergDestinationConfiguration }}',
  '{{ Tags }}',
 '{{ region }}';
 ```
@@ -197,6 +209,7 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  AmazonopensearchserviceDestinationConfiguration,
  AmazonOpenSearchServerlessDestinationConfiguration,
  ExtendedS3DestinationConfiguration,
+ DatabaseSourceConfiguration,
  KinesisStreamSourceConfiguration,
  MSKSourceConfiguration,
  RedshiftDestinationConfiguration,
@@ -204,6 +217,7 @@ INSERT INTO aws.kinesisfirehose.delivery_streams (
  SplunkDestinationConfiguration,
  HttpEndpointDestinationConfiguration,
  SnowflakeDestinationConfiguration,
+ IcebergDestinationConfiguration,
  Tags,
  region
 )
@@ -215,6 +229,7 @@ SELECT
  '{{ AmazonopensearchserviceDestinationConfiguration }}',
  '{{ AmazonOpenSearchServerlessDestinationConfiguration }}',
  '{{ ExtendedS3DestinationConfiguration }}',
+ '{{ DatabaseSourceConfiguration }}',
  '{{ KinesisStreamSourceConfiguration }}',
  '{{ MSKSourceConfiguration }}',
  '{{ RedshiftDestinationConfiguration }}',
@@ -222,6 +237,7 @@ SELECT
  '{{ SplunkDestinationConfiguration }}',
  '{{ HttpEndpointDestinationConfiguration }}',
  '{{ SnowflakeDestinationConfiguration }}',
+ '{{ IcebergDestinationConfiguration }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -387,6 +403,39 @@ resources:
           RoleARN: '{{ RoleARN }}'
           S3BackupConfiguration: null
           S3BackupMode: '{{ S3BackupMode }}'
+      - name: DatabaseSourceConfiguration
+        value:
+          Type: '{{ Type }}'
+          Endpoint: '{{ Endpoint }}'
+          Port: '{{ Port }}'
+          SSLMode: '{{ SSLMode }}'
+          Databases:
+            Include:
+              - '{{ Include[0] }}'
+            Exclude:
+              - null
+          Tables:
+            Include:
+              - '{{ Include[0] }}'
+            Exclude:
+              - null
+          Columns:
+            Include:
+              - '{{ Include[0] }}'
+            Exclude:
+              - null
+          SurrogateKeys:
+            - '{{ SurrogateKeys[0] }}'
+          SnapshotWatermarkTable: null
+          DatabaseSourceAuthenticationConfiguration:
+            SecretsManagerConfiguration:
+              Enabled: '{{ Enabled }}'
+              RoleARN: '{{ RoleARN }}'
+              SecretARN: '{{ SecretARN }}'
+          DatabaseSourceVPCConfiguration:
+            VpcEndpointServiceName: '{{ VpcEndpointServiceName }}'
+          Digest: '{{ Digest }}'
+          PublicCertificate: '{{ PublicCertificate }}'
       - name: KinesisStreamSourceConfiguration
         value:
           KinesisStreamARN: '{{ KinesisStreamARN }}'
@@ -395,6 +444,7 @@ resources:
         value:
           MSKClusterARN: '{{ MSKClusterARN }}'
           TopicName: '{{ TopicName }}'
+          ReadFromTimestamp: '{{ ReadFromTimestamp }}'
           AuthenticationConfiguration:
             RoleARN: '{{ RoleARN }}'
             Connectivity: '{{ Connectivity }}'
@@ -414,6 +464,7 @@ resources:
           S3BackupConfiguration: null
           S3BackupMode: '{{ S3BackupMode }}'
           S3Configuration: null
+          SecretsManagerConfiguration: null
           Username: '{{ Username }}'
       - name: S3DestinationConfiguration
         value: null
@@ -429,6 +480,7 @@ resources:
             DurationInSeconds: '{{ DurationInSeconds }}'
           S3BackupMode: '{{ S3BackupMode }}'
           S3Configuration: null
+          SecretsManagerConfiguration: null
           BufferingHints:
             IntervalInSeconds: '{{ IntervalInSeconds }}'
             SizeInMBs: '{{ SizeInMBs }}'
@@ -450,6 +502,7 @@ resources:
           RetryOptions: null
           S3BackupMode: '{{ S3BackupMode }}'
           S3Configuration: null
+          SecretsManagerConfiguration: null
       - name: SnowflakeDestinationConfiguration
         value:
           AccountUrl: '{{ AccountUrl }}'
@@ -473,6 +526,27 @@ resources:
           RetryOptions:
             DurationInSeconds: '{{ DurationInSeconds }}'
           S3BackupMode: '{{ S3BackupMode }}'
+          S3Configuration: null
+          SecretsManagerConfiguration: null
+          BufferingHints:
+            IntervalInSeconds: '{{ IntervalInSeconds }}'
+            SizeInMBs: '{{ SizeInMBs }}'
+      - name: IcebergDestinationConfiguration
+        value:
+          DestinationTableConfigurationList:
+            - DestinationTableName: '{{ DestinationTableName }}'
+              DestinationDatabaseName: '{{ DestinationDatabaseName }}'
+              S3ErrorOutputPrefix: '{{ S3ErrorOutputPrefix }}'
+              UniqueKeys:
+                - '{{ UniqueKeys[0] }}'
+          ProcessingConfiguration: null
+          CloudWatchLoggingOptions: null
+          CatalogConfiguration:
+            CatalogArn: '{{ CatalogArn }}'
+          RoleARN: '{{ RoleARN }}'
+          RetryOptions: null
+          s3BackupMode: '{{ s3BackupMode }}'
+          BufferingHints: null
           S3Configuration: null
       - name: Tags
         value:
@@ -538,4 +612,3 @@ kms:DescribeKey
 ```json
 firehose:ListDeliveryStreams
 ```
-

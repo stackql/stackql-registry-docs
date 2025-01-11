@@ -35,8 +35,12 @@ Creates, updates, deletes or gets a <code>subnet_cidr_block</code> resource or l
 <tr><td><CopyableCode code="ipv6_ipam_pool_id" /></td><td><code>string</code></td><td>The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR</td></tr>
 <tr><td><CopyableCode code="ipv6_netmask_length" /></td><td><code>integer</code></td><td>The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool</td></tr>
 <tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet</td></tr>
+<tr><td><CopyableCode code="ipv6_address_attribute" /></td><td><code>string</code></td><td>The value denoting whether an IPv6 Subnet CIDR Block is public or private.</td></tr>
+<tr><td><CopyableCode code="ip_source" /></td><td><code>string</code></td><td>The IP Source of an IPv6 Subnet CIDR Block.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html"><code>AWS::EC2::SubnetCidrBlock</code></a>.
 
 ## Methods
 
@@ -77,7 +81,9 @@ id,
 ipv6_cidr_block,
 ipv6_ipam_pool_id,
 ipv6_netmask_length,
-subnet_id
+subnet_id,
+ipv6_address_attribute,
+ip_source
 FROM aws.ec2.subnet_cidr_blocks
 WHERE region = 'us-east-1';
 ```
@@ -89,7 +95,9 @@ id,
 ipv6_cidr_block,
 ipv6_ipam_pool_id,
 ipv6_netmask_length,
-subnet_id
+subnet_id,
+ipv6_address_attribute,
+ip_source
 FROM aws.ec2.subnet_cidr_blocks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -199,4 +207,3 @@ ec2:DescribeSubnets
 ```json
 ec2:DescribeSubnets
 ```
-

@@ -31,10 +31,6 @@ Lists <code>topic_rule_destinations</code> in a region or regions, for all prope
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN).</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the TopicRuleDestination.</td></tr>
-<tr><td><CopyableCode code="http_url_properties" /></td><td><code>object</code></td><td>HTTP URL destination properties.</td></tr>
-<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td>The reasoning for the current status of the TopicRuleDestination.</td></tr>
-<tr><td><CopyableCode code="vpc_properties" /></td><td><code>object</code></td><td>VPC destination properties.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>topic_rule_destinations_list_only</code> resource, see <a href="/providers/aws/iot/topic_rule_destinations/#permissions"><code>topic_rule_destinations</code></a>
-
 

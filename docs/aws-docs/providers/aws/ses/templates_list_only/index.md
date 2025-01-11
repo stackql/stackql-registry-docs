@@ -31,7 +31,6 @@ Lists <code>templates</code> in a region or regions, for all properties use <a h
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="template" /></td><td><code>object</code></td><td>Resource Type definition for AWS::SES::Template</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>templates_list_only</code> resource, see <a href="/providers/aws/ses/templates/#permissions"><code>templates</code></a>
-
 

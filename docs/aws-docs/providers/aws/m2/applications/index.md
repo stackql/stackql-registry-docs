@@ -42,6 +42,8 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html"><code>AWS::M2::Application</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -53,7 +55,7 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Definition, EngineType, Name, region" /></td>
+    <td><CopyableCode code="EngineType, Name, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -128,14 +130,12 @@ Use the following StackQL query and manifest file to create a new <code>applicat
 ```sql
 /*+ create */
 INSERT INTO aws.m2.applications (
- Definition,
  EngineType,
  Name,
  region
 )
 SELECT 
-'{{ Definition }}',
- '{{ EngineType }}',
+'{{ EngineType }}',
  '{{ Name }}',
 '{{ region }}';
 ```
@@ -254,4 +254,3 @@ m2:DeleteApplication
 ```json
 m2:ListApplications
 ```
-

@@ -31,8 +31,6 @@ Lists <code>client_certificates</code> in a region or regions, for all propertie
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="client_certificate_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the client certificate.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The collection of tags. Each tag element is associated with a given resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>client_certificates_list_only</code> resource, see <a href="/providers/aws/apigateway/client_certificates/#permissions"><code>client_certificates</code></a>
-
 

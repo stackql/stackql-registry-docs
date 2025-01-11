@@ -30,11 +30,7 @@ Lists <code>service_profiles</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of service profile</td></tr>
-<tr><td><CopyableCode code="lo_ra_wan" /></td><td><code>object</code></td><td>LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the service profile.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Service profile Arn. Returned after successful create.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Service profile Id. Returned after successful create.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Service profile Id. Returned after successful create.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>service_profiles_list_only</code> resource, see <a href="/providers/aws/iotwireless/service_profiles/#permissions"><code>service_profiles</code></a>
-
 

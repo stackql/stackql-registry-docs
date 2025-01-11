@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>oidc_provider</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html"><code>AWS::IAM::OIDCProvider</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -49,7 +51,7 @@ Creates, updates, deletes or gets an <code>oidc_provider</code> resource or list
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="ThumbprintList, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -116,11 +118,17 @@ Use the following StackQL query and manifest file to create a new <code>oidc_pro
 ```sql
 /*+ create */
 INSERT INTO aws.iam.oidc_providers (
+ ClientIdList,
+ Url,
  ThumbprintList,
+ Tags,
  region
 )
 SELECT 
-'{{ ThumbprintList }}',
+'{{ ClientIdList }}',
+ '{{ Url }}',
+ '{{ ThumbprintList }}',
+ '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -220,4 +228,3 @@ iam:DeleteOpenIDConnectProvider
 iam:ListOpenIDConnectProvider,
 iam:GetOpenIDConnectProvider
 ```
-

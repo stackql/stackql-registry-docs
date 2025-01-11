@@ -33,6 +33,7 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="blocked_input_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
 <tr><td><CopyableCode code="blocked_outputs_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
 <tr><td><CopyableCode code="content_policy_config" /></td><td><code>object</code></td><td>Content policy config for a guardrail.</td></tr>
+<tr><td><CopyableCode code="contextual_grounding_policy_config" /></td><td><code>object</code></td><td>Contextual grounding policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the guardrail or its version</td></tr>
 <tr><td><CopyableCode code="failure_recommendations" /></td><td><code>array</code></td><td>List of failure recommendations</td></tr>
@@ -50,6 +51,8 @@ Creates, updates, deletes or gets a <code>guardrail</code> resource or lists <co
 <tr><td><CopyableCode code="word_policy_config" /></td><td><code>object</code></td><td>Word policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html"><code>AWS::Bedrock::Guardrail</code></a>.
 
 ## Methods
 
@@ -94,6 +97,7 @@ region,
 blocked_input_messaging,
 blocked_outputs_messaging,
 content_policy_config,
+contextual_grounding_policy_config,
 created_at,
 description,
 failure_recommendations,
@@ -119,6 +123,7 @@ region,
 blocked_input_messaging,
 blocked_outputs_messaging,
 content_policy_config,
+contextual_grounding_policy_config,
 created_at,
 description,
 failure_recommendations,
@@ -175,6 +180,7 @@ INSERT INTO aws.bedrock.guardrails (
  BlockedInputMessaging,
  BlockedOutputsMessaging,
  ContentPolicyConfig,
+ ContextualGroundingPolicyConfig,
  Description,
  KmsKeyArn,
  Name,
@@ -188,6 +194,7 @@ SELECT
  '{{ BlockedInputMessaging }}',
  '{{ BlockedOutputsMessaging }}',
  '{{ ContentPolicyConfig }}',
+ '{{ ContextualGroundingPolicyConfig }}',
  '{{ Description }}',
  '{{ KmsKeyArn }}',
  '{{ Name }}',
@@ -222,6 +229,11 @@ resources:
             - Type: '{{ Type }}'
               InputStrength: '{{ InputStrength }}'
               OutputStrength: null
+      - name: ContextualGroundingPolicyConfig
+        value:
+          FiltersConfig:
+            - Type: '{{ Type }}'
+              Threshold: null
       - name: Description
         value: '{{ Description }}'
       - name: KmsKeyArn
@@ -318,4 +330,3 @@ kms:RetireGrant
 ```json
 bedrock:ListGuardrails
 ```
-

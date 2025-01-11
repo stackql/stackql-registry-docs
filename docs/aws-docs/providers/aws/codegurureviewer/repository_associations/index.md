@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>repository_association</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html"><code>AWS::CodeGuruReviewer::RepositoryAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -237,4 +239,3 @@ codestar-connections:ListTagsForResource
 ```json
 codeguru-reviewer:ListRepositoryAssociations
 ```
-

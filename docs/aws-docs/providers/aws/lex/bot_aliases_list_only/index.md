@@ -32,15 +32,6 @@ Lists <code>bot_aliases</code> in a region or regions, for all properties use <a
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bot_alias_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
 <tr><td><CopyableCode code="bot_id" /></td><td><code>string</code></td><td>Unique ID of resource</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_alias_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="bot_alias_locale_settings" /></td><td><code>array</code></td><td>A list of bot alias locale settings to add to the bot alias.</td></tr>
-<tr><td><CopyableCode code="bot_alias_name" /></td><td><code>string</code></td><td>A unique identifier for a resource.</td></tr>
-<tr><td><CopyableCode code="bot_version" /></td><td><code>object</code></td><td>A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.</td></tr>
-<tr><td><CopyableCode code="conversation_log_settings" /></td><td><code>object</code></td><td>Contains information about code hooks that Amazon Lex calls during a conversation.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the version. Use the description to help identify the version in lists.</td></tr>
-<tr><td><CopyableCode code="sentiment_analysis_settings" /></td><td><code>object</code></td><td>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.</td></tr>
-<tr><td><CopyableCode code="bot_alias_tags" /></td><td><code>array</code></td><td>A list of tags to add to the bot alias.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>bot_aliases_list_only</code> resource, see <a href="/providers/aws/lex/bot_aliases/#permissions"><code>bot_aliases</code></a>
-
 

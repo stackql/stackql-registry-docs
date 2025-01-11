@@ -20,7 +20,7 @@ The opensearchservice service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,11 @@ The opensearchservice service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/opensearchservice/domains/">domains</a>
+<a href="/providers/aws/opensearchservice/application_tags/">application_tags</a><br />
+<a href="/providers/aws/opensearchservice/applications/">applications</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/opensearchservice/applications_list_only/">applications_list_only</a><br />
+<a href="/providers/aws/opensearchservice/domains/">domains</a>
 </div>
 </div>

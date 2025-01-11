@@ -36,9 +36,12 @@ Creates, updates, deletes or gets an <code>access_log_subscription</code> resour
 <tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_network_log_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-accesslogsubscription.html"><code>AWS::VpcLattice::AccessLogSubscription</code></a>.
 
 ## Methods
 
@@ -86,6 +89,7 @@ id,
 resource_arn,
 resource_id,
 resource_identifier,
+service_network_log_type,
 tags
 FROM aws.vpclattice.access_log_subscriptions
 WHERE region = 'us-east-1';
@@ -100,6 +104,7 @@ id,
 resource_arn,
 resource_id,
 resource_identifier,
+service_network_log_type,
 tags
 FROM aws.vpclattice.access_log_subscriptions
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
@@ -137,12 +142,14 @@ SELECT
 INSERT INTO aws.vpclattice.access_log_subscriptions (
  DestinationArn,
  ResourceIdentifier,
+ ServiceNetworkLogType,
  Tags,
  region
 )
 SELECT 
  '{{ DestinationArn }}',
  '{{ ResourceIdentifier }}',
+ '{{ ServiceNetworkLogType }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -165,6 +172,8 @@ resources:
         value: '{{ DestinationArn }}'
       - name: ResourceIdentifier
         value: '{{ ResourceIdentifier }}'
+      - name: ServiceNetworkLogType
+        value: '{{ ServiceNetworkLogType }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -222,6 +231,7 @@ logs:GetLogDelivery
 ```json
 vpc-lattice:GetAccessLogSubscription,
 vpc-lattice:UpdateAccessLogSubscription,
+vpc-lattice:ListTagsForResource,
 vpc-lattice:TagResource,
 vpc-lattice:UntagResource,
 logs:UpdateLogDelivery,
@@ -262,4 +272,3 @@ firehose:UntagDeliveryStream
 ```json
 vpc-lattice:ListAccessLogSubscriptions
 ```
-

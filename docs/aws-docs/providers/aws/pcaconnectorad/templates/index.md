@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>template</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-template.html"><code>AWS::PCAConnectorAD::Template</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,7 +198,8 @@ To operate on the <code>templates</code> resource, the following permissions are
 
 ### Create
 ```json
-pca-connector-ad:CreateTemplate
+pca-connector-ad:CreateTemplate,
+pca-connector-ad:TagResource
 ```
 
 ### Read
@@ -216,11 +219,11 @@ pca-connector-ad:UpdateTemplate
 ### Delete
 ```json
 pca-connector-ad:GetTemplate,
-pca-connector-ad:DeleteTemplate
+pca-connector-ad:DeleteTemplate,
+pca-connector-ad:UntagResource
 ```
 
 ### List
 ```json
 pca-connector-ad:ListTemplates
 ```
-

@@ -34,6 +34,7 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>App description.</td></tr>
 <tr><td><CopyableCode code="app_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the App.</td></tr>
 <tr><td><CopyableCode code="resiliency_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Resiliency Policy.</td></tr>
+<tr><td><CopyableCode code="regulatory_policy_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the Regulatory Policy.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="app_template_body" /></td><td><code>string</code></td><td>A string containing full ResilienceHub app template body.</td></tr>
 <tr><td><CopyableCode code="resource_mappings" /></td><td><code>array</code></td><td>An array of ResourceMapping objects.</td></tr>
@@ -43,6 +44,8 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td>Indicates if compliance drifts (deviations) were detected while running an assessment for your application.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html"><code>AWS::ResilienceHub::App</code></a>.
 
 ## Methods
 
@@ -88,6 +91,7 @@ name,
 description,
 app_arn,
 resiliency_policy_arn,
+regulatory_policy_arn,
 tags,
 app_template_body,
 resource_mappings,
@@ -106,6 +110,7 @@ name,
 description,
 app_arn,
 resiliency_policy_arn,
+regulatory_policy_arn,
 tags,
 app_template_body,
 resource_mappings,
@@ -154,6 +159,7 @@ INSERT INTO aws.resiliencehub.apps (
  Name,
  Description,
  ResiliencyPolicyArn,
+ RegulatoryPolicyArn,
  Tags,
  AppTemplateBody,
  ResourceMappings,
@@ -166,6 +172,7 @@ SELECT
  '{{ Name }}',
  '{{ Description }}',
  '{{ ResiliencyPolicyArn }}',
+ '{{ RegulatoryPolicyArn }}',
  '{{ Tags }}',
  '{{ AppTemplateBody }}',
  '{{ ResourceMappings }}',
@@ -195,6 +202,8 @@ resources:
         value: '{{ Description }}'
       - name: ResiliencyPolicyArn
         value: '{{ ResiliencyPolicyArn }}'
+      - name: RegulatoryPolicyArn
+        value: '{{ RegulatoryPolicyArn }}'
       - name: Tags
         value: {}
       - name: AppTemplateBody
@@ -263,7 +272,17 @@ sqs:GetQueueAttributes,
 sns:GetTopicAttributes,
 route53:List*,
 iam:PassRole,
-resiliencehub:*
+resiliencehub:CreateApp,
+resiliencehub:DescribeApp,
+resiliencehub:DescribeAppVersionTemplate,
+resiliencehub:PutDraftAppVersionTemplate,
+resiliencehub:AddDraftAppVersionResourceMappings,
+resiliencehub:ListAppVersionResourceMappings,
+resiliencehub:ListAppVersions,
+resiliencehub:PublishAppVersion,
+resiliencehub:ListTagsForResource,
+resiliencehub:TagResource,
+resiliencehub:UntagResource
 ```
 
 ### Read
@@ -271,7 +290,8 @@ resiliencehub:*
 resiliencehub:DescribeApp,
 resiliencehub:DescribeAppVersionTemplate,
 resiliencehub:ListAppVersionResourceMappings,
-resiliencehub:ListTagsForResource
+resiliencehub:ListTagsForResource,
+resiliencehub:ListAppVersions
 ```
 
 ### Update
@@ -295,7 +315,18 @@ sqs:GetQueueAttributes,
 sns:GetTopicAttributes,
 route53:List*,
 iam:PassRole,
-resiliencehub:*
+resiliencehub:UpdateApp,
+resiliencehub:DescribeApp,
+resiliencehub:DescribeAppVersionTemplate,
+resiliencehub:PutDraftAppVersionTemplate,
+resiliencehub:AddDraftAppVersionResourceMappings,
+resiliencehub:RemoveDraftAppVersionResourceMappings,
+resiliencehub:ListAppVersionResourceMappings,
+resiliencehub:ListAppVersions,
+resiliencehub:PublishAppVersion,
+resiliencehub:ListTagsForResource,
+resiliencehub:TagResource,
+resiliencehub:UntagResource
 ```
 
 ### Delete
@@ -309,4 +340,3 @@ resiliencehub:ListApps
 ```json
 resiliencehub:ListApps
 ```
-

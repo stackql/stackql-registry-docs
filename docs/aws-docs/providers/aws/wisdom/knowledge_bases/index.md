@@ -37,10 +37,13 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="rendering_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="server_side_encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="source_configuration" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="vector_ingestion_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html"><code>AWS::Wisdom::KnowledgeBase</code></a>.
 
 ## Methods
 
@@ -90,6 +93,7 @@ name,
 rendering_configuration,
 server_side_encryption_configuration,
 source_configuration,
+vector_ingestion_configuration,
 tags
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1';
@@ -106,6 +110,7 @@ name,
 rendering_configuration,
 server_side_encryption_configuration,
 source_configuration,
+vector_ingestion_configuration,
 tags
 FROM aws.wisdom.knowledge_bases
 WHERE region = 'us-east-1' AND data__Identifier = '<KnowledgeBaseId>';
@@ -149,6 +154,7 @@ INSERT INTO aws.wisdom.knowledge_bases (
  RenderingConfiguration,
  ServerSideEncryptionConfiguration,
  SourceConfiguration,
+ VectorIngestionConfiguration,
  Tags,
  region
 )
@@ -159,6 +165,7 @@ SELECT
  '{{ RenderingConfiguration }}',
  '{{ ServerSideEncryptionConfiguration }}',
  '{{ SourceConfiguration }}',
+ '{{ VectorIngestionConfiguration }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -190,11 +197,28 @@ resources:
         value:
           KmsKeyId: '{{ KmsKeyId }}'
       - name: SourceConfiguration
+        value: null
+      - name: VectorIngestionConfiguration
         value:
-          AppIntegrations:
-            ObjectFields:
-              - '{{ ObjectFields[0] }}'
-            AppIntegrationArn: '{{ AppIntegrationArn }}'
+          ChunkingConfiguration:
+            ChunkingStrategy: '{{ ChunkingStrategy }}'
+            FixedSizeChunkingConfiguration:
+              MaxTokens: null
+              OverlapPercentage: null
+            HierarchicalChunkingConfiguration:
+              LevelConfigurations:
+                - MaxTokens: null
+              OverlapTokens: null
+            SemanticChunkingConfiguration:
+              MaxTokens: null
+              BufferSize: null
+              BreakpointPercentileThreshold: null
+          ParsingConfiguration:
+            ParsingStrategy: '{{ ParsingStrategy }}'
+            BedrockFoundationModelConfiguration:
+              ModelArn: '{{ ModelArn }}'
+              ParsingPrompt:
+                ParsingPromptText: '{{ ParsingPromptText }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -255,4 +279,3 @@ wisdom:ListKnowledgeBases
 ```json
 wisdom:GetKnowledgeBase
 ```
-

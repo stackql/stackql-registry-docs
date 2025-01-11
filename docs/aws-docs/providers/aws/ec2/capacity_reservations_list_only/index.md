@@ -30,22 +30,7 @@ Lists <code>capacity_reservations</code> in a region or regions, for all propert
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="tenancy" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="end_date_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="total_instance_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="end_date" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ebs_optimized" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="out_post_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="placement_group_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="available_instance_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_platform" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ephemeral_storage" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_match_criteria" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -78,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>capacity_reservations_list_only</code> resource, see <a href="/providers/aws/ec2/capacity_reservations/#permissions"><code>capacity_reservations</code></a>
-
 

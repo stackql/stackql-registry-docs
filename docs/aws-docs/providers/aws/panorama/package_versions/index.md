@@ -25,25 +25,27 @@ Creates, updates, deletes or gets a <code>package_version</code> resource or lis
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>package_versions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Schema for PackageVersion Resource Type</td></tr>
+<tr><td><b>Description</b></td><td>Registers a package version.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.panorama.package_versions" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="owner_account" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="package_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="owner_account" /></td><td><code>string</code></td><td>An owner account.</td></tr>
+<tr><td><CopyableCode code="package_id" /></td><td><code>string</code></td><td>A package ID.</td></tr>
 <tr><td><CopyableCode code="package_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="package_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="patch_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="mark_latest" /></td><td><code>boolean</code></td><td></td></tr>
+<tr><td><CopyableCode code="package_version" /></td><td><code>string</code></td><td>A package version.</td></tr>
+<tr><td><CopyableCode code="patch_version" /></td><td><code>string</code></td><td>A patch version.</td></tr>
+<tr><td><CopyableCode code="mark_latest" /></td><td><code>boolean</code></td><td>Whether to mark the new version as the latest version.</td></tr>
 <tr><td><CopyableCode code="is_latest_patch" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="registered_time" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_latest_patch_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="updated_latest_patch_version" /></td><td><code>string</code></td><td>If the version was marked latest, the new version to maker as latest.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html"><code>AWS::Panorama::PackageVersion</code></a>.
 
 ## Methods
 
@@ -232,4 +234,3 @@ s3:ListBucket,
 s3:GetObject,
 s3:GetObjectVersion
 ```
-

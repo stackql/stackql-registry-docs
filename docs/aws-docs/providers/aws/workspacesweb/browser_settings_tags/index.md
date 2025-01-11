@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>browser_settings_tags</code> resource, see <a href="/providers/aws/workspacesweb/browser_settings/#permissions"><code>browser_settings</code></a>
 
-

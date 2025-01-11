@@ -31,12 +31,7 @@ Lists <code>ip_sets</code> in a region or regions, for all properties use <a hre
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="activate" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="detector_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="location" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>ip_sets_list_only</code> resource, see <a href="/providers/aws/guardduty/ip_sets/#permissions"><code>ip_sets</code></a>
-
 

@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>route_calculator</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html"><code>AWS::Location::RouteCalculator</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -235,4 +237,3 @@ geo:DescribeRouteCalculator
 ```json
 geo:ListRouteCalculators
 ```
-

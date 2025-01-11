@@ -31,20 +31,6 @@ Lists <code>pricing_rules</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Pricing rule ARN</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Pricing rule name</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Pricing rule description</td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>string</code></td><td>A term used to categorize the granularity of a Pricing Rule.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.</td></tr>
-<tr><td><CopyableCode code="modifier_percentage" /></td><td><code>number</code></td><td>Pricing rule modifier percentage</td></tr>
-<tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The service which a pricing rule is applied on</td></tr>
-<tr><td><CopyableCode code="billing_entity" /></td><td><code>string</code></td><td>The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.</td></tr>
-<tr><td><CopyableCode code="tiering" /></td><td><code>object</code></td><td>The set of tiering configurations for the pricing rule.</td></tr>
-<tr><td><CopyableCode code="usage_type" /></td><td><code>string</code></td><td>The UsageType which a SKU pricing rule is modifying</td></tr>
-<tr><td><CopyableCode code="operation" /></td><td><code>string</code></td><td>The Operation which a SKU pricing rule is modifying</td></tr>
-<tr><td><CopyableCode code="associated_pricing_plan_count" /></td><td><code>integer</code></td><td>The number of pricing plans associated with pricing rule</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>integer</code></td><td>Creation timestamp in UNIX epoch time format</td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>integer</code></td><td>Latest modified timestamp in UNIX epoch time format</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pricing_rules_list_only</code> resource, see <a href="/providers/aws/billingconductor/pricing_rules/#permissions"><code>pricing_rules</code></a>
-
 

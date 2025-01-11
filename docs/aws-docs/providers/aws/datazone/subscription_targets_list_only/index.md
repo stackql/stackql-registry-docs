@@ -30,23 +30,9 @@ Lists <code>subscription_targets</code> in a region or regions, for all properti
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="applicable_asset_types" /></td><td><code>array</code></td><td>The asset types that can be included in the subscription target.</td></tr>
-<tr><td><CopyableCode code="authorized_principals" /></td><td><code>array</code></td><td>The authorized principals of the subscription target.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the subscription target was created.</td></tr>
-<tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who created the subscription target.</td></tr>
-<tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target is created.</td></tr>
-<tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target would be created.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone domain in which subscription target is created.</td></tr>
 <tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The ID of the environment in which subscription target is created.</td></tr>
-<tr><td><CopyableCode code="environment_identifier" /></td><td><code>string</code></td><td>The ID of the environment in which subscription target would be created.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the subscription target.</td></tr>
-<tr><td><CopyableCode code="manage_access_role" /></td><td><code>string</code></td><td>The manage access role that is used to create the subscription target.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the subscription target.</td></tr>
-<tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The identifier of the project specified in the subscription target.</td></tr>
-<tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the subscription target.</td></tr>
-<tr><td><CopyableCode code="subscription_target_config" /></td><td><code>array</code></td><td>The configuration of the subscription target.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the subscription target.</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The timestamp of when the subscription target was updated.</td></tr>
-<tr><td><CopyableCode code="updated_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who updated the subscription target.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -81,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>subscription_targets_list_only</code> resource, see <a href="/providers/aws/datazone/subscription_targets/#permissions"><code>subscription_targets</code></a>
-
 

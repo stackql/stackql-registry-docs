@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>hypervisor_tags</code> resource, see <a href="/providers/aws/backupgateway/hypervisors/#permissions"><code>hypervisors</code></a>
 
-

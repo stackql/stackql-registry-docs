@@ -30,18 +30,7 @@ Lists <code>verified_access_trust_providers</code> in a region or regions, for a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="trust_provider_type" /></td><td><code>string</code></td><td>Type of trust provider. Possible values: user|device</td></tr>
-<tr><td><CopyableCode code="device_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: jamf|crowdstrike</td></tr>
-<tr><td><CopyableCode code="user_trust_provider_type" /></td><td><code>string</code></td><td>The type of device-based trust provider. Possible values: oidc|iam-identity-center</td></tr>
-<tr><td><CopyableCode code="oidc_options" /></td><td><code>object</code></td><td>The OpenID Connect details for an oidc -type, user-identity based trust provider.</td></tr>
-<tr><td><CopyableCode code="device_options" /></td><td><code>object</code></td><td>The options for device identity based trust providers.</td></tr>
-<tr><td><CopyableCode code="policy_reference_name" /></td><td><code>string</code></td><td>The identifier to be used when working with policy rules.</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The creation time.</td></tr>
-<tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td>The last updated time.</td></tr>
-<tr><td><CopyableCode code="verified_access_trust_provider_id" /></td><td><code>string</code></td><td>The ID of the Amazon Web Services Verified Access trust provider.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the Amazon Web Services Verified Access trust provider.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="sse_specification" /></td><td><code>object</code></td><td>The configuration options for customer provided KMS encryption.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="verified_access_trust_provider_id" /></td><td><code>string</code></td><td>The ID of the Amazon Web Services Verified Access trust provider.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>verified_access_trust_providers_list_only</code> resource, see <a href="/providers/aws/ec2/verified_access_trust_providers/#permissions"><code>verified_access_trust_providers</code></a>
-
 

@@ -44,8 +44,11 @@ Creates, updates, deletes or gets an <code>infrastructure_configuration</code> r
 <tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.</td></tr>
 <tr><td><CopyableCode code="resource_tags" /></td><td><code>object</code></td><td>The tags attached to the resource created by Image Builder.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>The tags associated with the component.</td></tr>
+<tr><td><CopyableCode code="placement" /></td><td><code>object</code></td><td>The placement option settings for the infrastructure configuration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html"><code>AWS::ImageBuilder::InfrastructureConfiguration</code></a>.
 
 ## Methods
 
@@ -100,7 +103,8 @@ instance_profile_name,
 instance_metadata_options,
 sns_topic_arn,
 resource_tags,
-tags
+tags,
+placement
 FROM aws.imagebuilder.infrastructure_configurations
 WHERE region = 'us-east-1';
 ```
@@ -121,7 +125,8 @@ instance_profile_name,
 instance_metadata_options,
 sns_topic_arn,
 resource_tags,
-tags
+tags,
+placement
 FROM aws.imagebuilder.infrastructure_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -171,6 +176,7 @@ INSERT INTO aws.imagebuilder.infrastructure_configurations (
  SnsTopicArn,
  ResourceTags,
  Tags,
+ Placement,
  region
 )
 SELECT 
@@ -187,6 +193,7 @@ SELECT
  '{{ SnsTopicArn }}',
  '{{ ResourceTags }}',
  '{{ Tags }}',
+ '{{ Placement }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -237,6 +244,12 @@ resources:
         value: {}
       - name: Tags
         value: {}
+      - name: Placement
+        value:
+          AvailabilityZone: '{{ AvailabilityZone }}'
+          Tenancy: '{{ Tenancy }}'
+          HostId: '{{ HostId }}'
+          HostResourceGroupArn: '{{ HostResourceGroupArn }}'
 
 ```
 </TabItem>
@@ -291,4 +304,3 @@ imagebuilder:DeleteInfrastructureConfiguration
 ```json
 imagebuilder:ListInfrastructureConfigurations
 ```
-

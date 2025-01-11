@@ -31,9 +31,6 @@ Lists <code>account_audit_configurations</code> in a region or regions, for all 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).</td></tr>
-<tr><td><CopyableCode code="audit_check_configurations" /></td><td><code>object</code></td><td>Specifies which audit checks are enabled and disabled for this account.</td></tr>
-<tr><td><CopyableCode code="audit_notification_target_configurations" /></td><td><code>object</code></td><td>Information about the targets to which audit notifications are sent.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>account_audit_configurations_list_only</code> resource, see <a href="/providers/aws/iot/account_audit_configurations/#permissions"><code>account_audit_configurations</code></a>
-
 
