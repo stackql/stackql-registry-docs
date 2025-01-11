@@ -30,9 +30,8 @@ Lists <code>documentation_versions</code> in a region or regions, for all proper
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description about the new documentation snapshot.</td></tr>
-<tr><td><CopyableCode code="documentation_version" /></td><td><code>string</code></td><td>The version identifier of the to-be-updated documentation version.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="documentation_version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>documentation_versions_list_only</code> resource, see <a href="/providers/aws/apigateway/documentation_versions/#permissions"><code>documentation_versions</code></a>
-
 

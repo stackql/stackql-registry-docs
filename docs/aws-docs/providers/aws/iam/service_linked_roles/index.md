@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>service_linked_role</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html"><code>AWS::IAM::ServiceLinkedRole</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -184,4 +186,3 @@ iam:DeleteServiceLinkedRole,
 iam:GetServiceLinkedRoleDeletionStatus,
 iam:GetRole
 ```
-

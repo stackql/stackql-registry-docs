@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>profile_tags</code> resource, see <a href="/providers/aws/route53profiles/profiles/#permissions"><code>profiles</code></a>
 
-

@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>connect_peer_tags</code> resource, see <a href="/providers/aws/networkmanager/connect_peers/#permissions"><code>connect_peers</code></a>
 
-

@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>firewall_domain_list</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html"><code>AWS::Route53Resolver::FirewallDomainList</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,8 +198,8 @@ resources:
         value: '{{ DomainFileUrl }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -218,51 +220,40 @@ To operate on the <code>firewall_domain_lists</code> resource, the following per
 
 ### Create
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:CreateFirewallDomainList,
+route53resolver:GetFirewallDomainList,
+route53resolver:ImportFirewallDomains,
+route53resolver:UpdateFirewallDomains,
+route53resolver:TagResource,
+route53resolver:ListTagsForResource
 ```
 
 ### List
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:ListFirewallDomainLists,
+route53resolver:ListTagsForResource
 ```
 
 ### Read
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallDomainList,
+route53resolver:ListTagsForResource
 ```
 
 ### Delete
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallDomainList,
+route53resolver:DeleteFirewallDomainList,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
 
 ### Update
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallDomainList,
+route53resolver:ImportFirewallDomains,
+route53resolver:UpdateFirewallDomains,
+route53resolver:TagResource,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
-

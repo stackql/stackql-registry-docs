@@ -36,8 +36,14 @@ Creates, updates, deletes or gets a <code>delivery</code> resource or lists <cod
 <tr><td><CopyableCode code="delivery_destination_arn" /></td><td><code>string</code></td><td>The ARN of the delivery destination that is associated with this delivery.</td></tr>
 <tr><td><CopyableCode code="delivery_destination_type" /></td><td><code>string</code></td><td>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags that have been assigned to this delivery.</td></tr>
+<tr><td><CopyableCode code="record_fields" /></td><td><code>array</code></td><td>The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.</td></tr>
+<tr><td><CopyableCode code="field_delimiter" /></td><td><code>string</code></td><td>The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.</td></tr>
+<tr><td><CopyableCode code="s3_suffix_path" /></td><td><code>string</code></td><td>This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.</td></tr>
+<tr><td><CopyableCode code="s3_enable_hive_compatible_path" /></td><td><code>boolean</code></td><td>This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html"><code>AWS::Logs::Delivery</code></a>.
 
 ## Methods
 
@@ -84,7 +90,11 @@ arn,
 delivery_source_name,
 delivery_destination_arn,
 delivery_destination_type,
-tags
+tags,
+record_fields,
+field_delimiter,
+s3_suffix_path,
+s3_enable_hive_compatible_path
 FROM aws.logs.deliveries
 WHERE region = 'us-east-1';
 ```
@@ -97,7 +107,11 @@ arn,
 delivery_source_name,
 delivery_destination_arn,
 delivery_destination_type,
-tags
+tags,
+record_fields,
+field_delimiter,
+s3_suffix_path,
+s3_enable_hive_compatible_path
 FROM aws.logs.deliveries
 WHERE region = 'us-east-1' AND data__Identifier = '<DeliveryId>';
 ```
@@ -137,12 +151,20 @@ INSERT INTO aws.logs.deliveries (
  DeliverySourceName,
  DeliveryDestinationArn,
  Tags,
+ RecordFields,
+ FieldDelimiter,
+ S3SuffixPath,
+ S3EnableHiveCompatiblePath,
  region
 )
 SELECT 
  '{{ DeliverySourceName }}',
  '{{ DeliveryDestinationArn }}',
  '{{ Tags }}',
+ '{{ RecordFields }}',
+ '{{ FieldDelimiter }}',
+ '{{ S3SuffixPath }}',
+ '{{ S3EnableHiveCompatiblePath }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -168,6 +190,15 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: RecordFields
+        value:
+          - '{{ RecordFields[0] }}'
+      - name: FieldDelimiter
+        value: '{{ FieldDelimiter }}'
+      - name: S3SuffixPath
+        value: '{{ S3SuffixPath }}'
+      - name: S3EnableHiveCompatiblePath
+        value: '{{ S3EnableHiveCompatiblePath }}'
 
 ```
 </TabItem>
@@ -223,4 +254,3 @@ logs:UntagResource
 logs:DescribeDeliveries,
 logs:ListTagsForResource
 ```
-

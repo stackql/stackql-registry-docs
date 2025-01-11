@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>detector_tags</code> resource, see <a href="/providers/aws/frauddetector/detectors/#permissions"><code>detectors</code></a>
 
-

@@ -31,13 +31,6 @@ Lists <code>landing_zones</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="latest_available_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>landing_zones_list_only</code> resource, see <a href="/providers/aws/controltower/landing_zones/#permissions"><code>landing_zones</code></a>
-
 

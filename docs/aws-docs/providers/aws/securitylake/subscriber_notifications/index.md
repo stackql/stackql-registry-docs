@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>subscriber_notification</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html"><code>AWS::SecurityLake::SubscriberNotification</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -270,4 +272,3 @@ sqs:DeleteQueue
 ```json
 securitylake:ListSubscribers
 ```
-

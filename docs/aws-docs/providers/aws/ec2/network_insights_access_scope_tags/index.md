@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>network_insights_access_scope_tags</code> resource, see <a href="/providers/aws/ec2/network_insights_access_scopes/#permissions"><code>network_insights_access_scopes</code></a>
 
-

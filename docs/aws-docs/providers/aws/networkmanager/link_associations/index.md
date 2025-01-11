@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>link_association</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html"><code>AWS::NetworkManager::LinkAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -192,4 +194,3 @@ networkmanager:GetLinkAssociations
 ```json
 networkmanager:DisassociateLink
 ```
-

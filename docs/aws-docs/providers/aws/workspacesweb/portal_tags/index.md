@@ -36,6 +36,7 @@ Expands all tag keys and values for <code>portals</code> in a region
 <tr><td><CopyableCode code="browser_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_protection_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_access_settings_arn" /></td><td><code>string</code></td><td></td></tr>
@@ -81,6 +82,7 @@ browser_settings_arn,
 browser_type,
 creation_date,
 customer_managed_key,
+data_protection_settings_arn,
 display_name,
 instance_type,
 ip_access_settings_arn,
@@ -105,5 +107,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>portal_tags</code> resource, see <a href="/providers/aws/workspacesweb/portals/#permissions"><code>portals</code></a>
-
 

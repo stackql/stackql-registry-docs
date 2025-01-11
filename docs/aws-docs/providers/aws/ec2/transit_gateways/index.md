@@ -30,22 +30,25 @@ Creates, updates, deletes or gets a <code>transit_gateway</code> resource or lis
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="transit_gateway_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_route_table_propagation" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_accept_shared_attachments" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_route_table_association" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpn_ecmp_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="dns_support" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_group_referencing_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="multicast_support" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="amazon_side_asn" /></td><td><code>integer</code></td><td></td></tr>
+<tr><td><CopyableCode code="transit_gateway_cidr_blocks" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="association_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="propagation_default_route_table_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html"><code>AWS::EC2::TransitGateway</code></a>.
 
 ## Methods
 
@@ -87,20 +90,21 @@ Gets all <code>transit_gateways</code> in a region.
 ```sql
 SELECT
 region,
-description,
-association_default_route_table_id,
-auto_accept_shared_attachments,
-transit_gateway_arn,
 default_route_table_propagation,
-transit_gateway_cidr_blocks,
-propagation_default_route_table_id,
+transit_gateway_arn,
+description,
+auto_accept_shared_attachments,
 default_route_table_association,
 id,
 vpn_ecmp_support,
 dns_support,
+security_group_referencing_support,
 multicast_support,
 amazon_side_asn,
-tags
+transit_gateway_cidr_blocks,
+tags,
+association_default_route_table_id,
+propagation_default_route_table_id
 FROM aws.ec2.transit_gateways
 WHERE region = 'us-east-1';
 ```
@@ -108,20 +112,21 @@ Gets all properties from an individual <code>transit_gateway</code>.
 ```sql
 SELECT
 region,
-description,
-association_default_route_table_id,
-auto_accept_shared_attachments,
-transit_gateway_arn,
 default_route_table_propagation,
-transit_gateway_cidr_blocks,
-propagation_default_route_table_id,
+transit_gateway_arn,
+description,
+auto_accept_shared_attachments,
 default_route_table_association,
 id,
 vpn_ecmp_support,
 dns_support,
+security_group_referencing_support,
 multicast_support,
 amazon_side_asn,
-tags
+transit_gateway_cidr_blocks,
+tags,
+association_default_route_table_id,
+propagation_default_route_table_id
 FROM aws.ec2.transit_gateways
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -143,33 +148,35 @@ Use the following StackQL query and manifest file to create a new <code>transit_
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.transit_gateways (
- Description,
- AssociationDefaultRouteTableId,
- AutoAcceptSharedAttachments,
  DefaultRouteTablePropagation,
- TransitGatewayCidrBlocks,
- PropagationDefaultRouteTableId,
+ Description,
+ AutoAcceptSharedAttachments,
  DefaultRouteTableAssociation,
  VpnEcmpSupport,
  DnsSupport,
+ SecurityGroupReferencingSupport,
  MulticastSupport,
  AmazonSideAsn,
+ TransitGatewayCidrBlocks,
  Tags,
+ AssociationDefaultRouteTableId,
+ PropagationDefaultRouteTableId,
  region
 )
 SELECT 
-'{{ Description }}',
- '{{ AssociationDefaultRouteTableId }}',
+'{{ DefaultRouteTablePropagation }}',
+ '{{ Description }}',
  '{{ AutoAcceptSharedAttachments }}',
- '{{ DefaultRouteTablePropagation }}',
- '{{ TransitGatewayCidrBlocks }}',
- '{{ PropagationDefaultRouteTableId }}',
  '{{ DefaultRouteTableAssociation }}',
  '{{ VpnEcmpSupport }}',
  '{{ DnsSupport }}',
+ '{{ SecurityGroupReferencingSupport }}',
  '{{ MulticastSupport }}',
  '{{ AmazonSideAsn }}',
+ '{{ TransitGatewayCidrBlocks }}',
  '{{ Tags }}',
+ '{{ AssociationDefaultRouteTableId }}',
+ '{{ PropagationDefaultRouteTableId }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -178,33 +185,35 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.transit_gateways (
- Description,
- AssociationDefaultRouteTableId,
- AutoAcceptSharedAttachments,
  DefaultRouteTablePropagation,
- TransitGatewayCidrBlocks,
- PropagationDefaultRouteTableId,
+ Description,
+ AutoAcceptSharedAttachments,
  DefaultRouteTableAssociation,
  VpnEcmpSupport,
  DnsSupport,
+ SecurityGroupReferencingSupport,
  MulticastSupport,
  AmazonSideAsn,
+ TransitGatewayCidrBlocks,
  Tags,
+ AssociationDefaultRouteTableId,
+ PropagationDefaultRouteTableId,
  region
 )
 SELECT 
- '{{ Description }}',
- '{{ AssociationDefaultRouteTableId }}',
- '{{ AutoAcceptSharedAttachments }}',
  '{{ DefaultRouteTablePropagation }}',
- '{{ TransitGatewayCidrBlocks }}',
- '{{ PropagationDefaultRouteTableId }}',
+ '{{ Description }}',
+ '{{ AutoAcceptSharedAttachments }}',
  '{{ DefaultRouteTableAssociation }}',
  '{{ VpnEcmpSupport }}',
  '{{ DnsSupport }}',
+ '{{ SecurityGroupReferencingSupport }}',
  '{{ MulticastSupport }}',
  '{{ AmazonSideAsn }}',
+ '{{ TransitGatewayCidrBlocks }}',
  '{{ Tags }}',
+ '{{ AssociationDefaultRouteTableId }}',
+ '{{ PropagationDefaultRouteTableId }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -222,33 +231,35 @@ globals:
 resources:
   - name: transit_gateway
     props:
-      - name: Description
-        value: '{{ Description }}'
-      - name: AssociationDefaultRouteTableId
-        value: '{{ AssociationDefaultRouteTableId }}'
-      - name: AutoAcceptSharedAttachments
-        value: '{{ AutoAcceptSharedAttachments }}'
       - name: DefaultRouteTablePropagation
         value: '{{ DefaultRouteTablePropagation }}'
-      - name: TransitGatewayCidrBlocks
-        value:
-          - '{{ TransitGatewayCidrBlocks[0] }}'
-      - name: PropagationDefaultRouteTableId
-        value: '{{ PropagationDefaultRouteTableId }}'
+      - name: Description
+        value: '{{ Description }}'
+      - name: AutoAcceptSharedAttachments
+        value: '{{ AutoAcceptSharedAttachments }}'
       - name: DefaultRouteTableAssociation
         value: '{{ DefaultRouteTableAssociation }}'
       - name: VpnEcmpSupport
         value: '{{ VpnEcmpSupport }}'
       - name: DnsSupport
         value: '{{ DnsSupport }}'
+      - name: SecurityGroupReferencingSupport
+        value: '{{ SecurityGroupReferencingSupport }}'
       - name: MulticastSupport
         value: '{{ MulticastSupport }}'
       - name: AmazonSideAsn
         value: '{{ AmazonSideAsn }}'
+      - name: TransitGatewayCidrBlocks
+        value:
+          - '{{ TransitGatewayCidrBlocks[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: AssociationDefaultRouteTableId
+        value: '{{ AssociationDefaultRouteTableId }}'
+      - name: PropagationDefaultRouteTableId
+        value: '{{ PropagationDefaultRouteTableId }}'
 
 ```
 </TabItem>
@@ -267,6 +278,18 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateways</code> resource, the following permissions are required:
 
+### Create
+```json
+ec2:CreateTransitGateway,
+ec2:CreateTags,
+ec2:DescribeTransitGateways,
+ec2:DescribeTags,
+ec2:DeleteTransitGateway,
+ec2:DeleteTags,
+ec2:ModifyTransitGateway,
+ec2:ModifyTransitGatewayOptions
+```
+
 ### Read
 ```json
 ec2:CreateTransitGateway,
@@ -279,7 +302,7 @@ ec2:ModifyTransitGateway,
 ec2:ModifyTransitGatewayOptions
 ```
 
-### Create
+### Delete
 ```json
 ec2:CreateTransitGateway,
 ec2:CreateTags,
@@ -314,16 +337,3 @@ ec2:DeleteTags,
 ec2:ModifyTransitGateway,
 ec2:ModifyTransitGatewayOptions
 ```
-
-### Delete
-```json
-ec2:CreateTransitGateway,
-ec2:CreateTags,
-ec2:DescribeTransitGateways,
-ec2:DescribeTags,
-ec2:DeleteTransitGateway,
-ec2:DeleteTags,
-ec2:ModifyTransitGateway,
-ec2:ModifyTransitGatewayOptions
-```
-

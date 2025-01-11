@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>vpc_link_tags</code> resource, see <a href="/providers/aws/apigatewayv2/vpc_links/#permissions"><code>vpc_links</code></a>
 
-

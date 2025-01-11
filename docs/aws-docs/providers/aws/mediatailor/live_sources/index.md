@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>live_source</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-livesource.html"><code>AWS::MediaTailor::LiveSource</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -222,4 +224,3 @@ mediatailor:DescribeLiveSource
 ```json
 mediatailor:ListLiveSources
 ```
-

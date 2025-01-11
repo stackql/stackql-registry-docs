@@ -35,6 +35,8 @@ Creates, updates, deletes or gets an <code>egress_only_internet_gateway</code> r
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html"><code>AWS::EC2::EgressOnlyInternetGateway</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -179,4 +181,3 @@ ec2:DescribeVpcs
 ```json
 ec2:DescribeEgressOnlyInternetGateways
 ```
-

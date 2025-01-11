@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>composite_alarm_tags</code> resource, see <a href="/providers/aws/cloudwatch/composite_alarms/#permissions"><code>composite_alarms</code></a>
 
-

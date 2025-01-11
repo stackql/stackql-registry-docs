@@ -31,10 +31,6 @@ Lists <code>state_machine_aliases</code> in a region or regions, for all propert
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the alias.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The alias name.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>An optional description of the alias.</td></tr>
-<tr><td><CopyableCode code="routing_configuration" /></td><td><code>array</code></td><td>The routing configuration of the alias. One or two versions can be mapped to an alias to split StartExecution requests of the same state machine.</td></tr>
-<tr><td><CopyableCode code="deployment_preference" /></td><td><code>object</code></td><td>The settings to enable gradual state machine deployments.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>state_machine_aliases_list_only</code> resource, see <a href="/providers/aws/stepfunctions/state_machine_aliases/#permissions"><code>state_machine_aliases</code></a>
-
 

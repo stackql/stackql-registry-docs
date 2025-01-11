@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>quick_connect_tags</code> resource, see <a href="/providers/aws/connect/quick_connects/#permissions"><code>quick_connects</code></a>
 
-

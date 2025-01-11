@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>sequence_store_tags</code> resource, see <a href="/providers/aws/omics/sequence_stores/#permissions"><code>sequence_stores</code></a>
 
-

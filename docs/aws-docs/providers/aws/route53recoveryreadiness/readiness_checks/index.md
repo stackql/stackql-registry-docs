@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>readiness_check</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html"><code>AWS::Route53RecoveryReadiness::ReadinessCheck</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -218,4 +220,3 @@ route53-recovery-readiness:GetReadinessCheck
 route53-recovery-readiness:ListReadinessChecks,
 route53-recovery-readiness:GetReadinessChecks
 ```
-

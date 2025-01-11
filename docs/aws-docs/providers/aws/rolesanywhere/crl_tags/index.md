@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>crl_tags</code> resource, see <a href="/providers/aws/rolesanywhere/crls/#permissions"><code>crls</code></a>
 
-

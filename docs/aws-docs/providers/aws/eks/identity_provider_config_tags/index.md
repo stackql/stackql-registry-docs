@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>identity_provider_config_tags</code> resource, see <a href="/providers/aws/eks/identity_provider_configs/#permissions"><code>identity_provider_configs</code></a>
 
-

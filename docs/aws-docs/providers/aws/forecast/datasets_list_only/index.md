@@ -31,13 +31,6 @@ Lists <code>datasets</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="dataset_name" /></td><td><code>string</code></td><td>A name for the dataset</td></tr>
-<tr><td><CopyableCode code="dataset_type" /></td><td><code>string</code></td><td>The dataset type</td></tr>
-<tr><td><CopyableCode code="data_frequency" /></td><td><code>string</code></td><td>Frequency of data collection. This parameter is required for RELATED_TIME_SERIES</td></tr>
-<tr><td><CopyableCode code="domain" /></td><td><code>string</code></td><td>The domain associated with the dataset</td></tr>
-<tr><td><CopyableCode code="encryption_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>datasets_list_only</code> resource, see <a href="/providers/aws/forecast/datasets/#permissions"><code>datasets</code></a>
-
 

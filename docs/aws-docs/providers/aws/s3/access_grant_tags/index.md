@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>access_grant_tags</code> resource, see <a href="/providers/aws/s3/access_grants/#permissions"><code>access_grants</code></a>
 
-

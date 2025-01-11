@@ -31,12 +31,6 @@ Lists <code>configuration_sets</code> in a region or regions, for all properties
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the configuration set.</td></tr>
-<tr><td><CopyableCode code="tracking_options" /></td><td><code>object</code></td><td>An object that defines the open and click tracking options for emails that you send using the configuration set.</td></tr>
-<tr><td><CopyableCode code="delivery_options" /></td><td><code>object</code></td><td>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</td></tr>
-<tr><td><CopyableCode code="reputation_options" /></td><td><code>object</code></td><td>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</td></tr>
-<tr><td><CopyableCode code="sending_options" /></td><td><code>object</code></td><td>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</td></tr>
-<tr><td><CopyableCode code="suppression_options" /></td><td><code>object</code></td><td>An object that contains information about the suppression list preferences for your account.</td></tr>
-<tr><td><CopyableCode code="vdm_options" /></td><td><code>object</code></td><td>An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>configuration_sets_list_only</code> resource, see <a href="/providers/aws/ses/configuration_sets/#permissions"><code>configuration_sets</code></a>
-
 

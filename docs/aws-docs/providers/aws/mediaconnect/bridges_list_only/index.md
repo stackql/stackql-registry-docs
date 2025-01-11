@@ -30,15 +30,7 @@ Lists <code>bridges</code> in a region or regions, for all properties use <a hre
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the bridge.</td></tr>
-<tr><td><CopyableCode code="bridge_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the bridge.</td></tr>
-<tr><td><CopyableCode code="placement_arn" /></td><td><code>string</code></td><td>The placement Amazon Resource Number (ARN) of the bridge.</td></tr>
-<tr><td><CopyableCode code="bridge_state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_failover_config" /></td><td><code>object</code></td><td>The settings for source failover</td></tr>
-<tr><td><CopyableCode code="outputs" /></td><td><code>array</code></td><td>The outputs on this bridge.</td></tr>
-<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>The sources on this bridge.</td></tr>
-<tr><td><CopyableCode code="ingress_gateway_bridge" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="egress_gateway_bridge" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="bridge_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the bridge.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>bridges_list_only</code> resource, see <a href="/providers/aws/mediaconnect/bridges/#permissions"><code>bridges</code></a>
-
 

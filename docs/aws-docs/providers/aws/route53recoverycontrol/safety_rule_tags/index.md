@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>safety_rule_tags</code> resource, see <a href="/providers/aws/route53recoverycontrol/safety_rules/#permissions"><code>safety_rules</code></a>
 
-

@@ -32,6 +32,7 @@ Expands all tag keys and values for <code>stages</code> in a region
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Stage ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Stage name</td></tr>
+<tr><td><CopyableCode code="auto_participant_recording_configuration" /></td><td><code>object</code></td><td>Configuration object for individual participant recording, to attach to the new stage.</td></tr>
 <tr><td><CopyableCode code="active_session_id" /></td><td><code>string</code></td><td>ID of the active session within the stage.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -60,6 +61,7 @@ SELECT
 region,
 arn,
 name,
+auto_participant_recording_configuration,
 active_session_id,
 tag_key,
 tag_value
@@ -71,5 +73,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>stage_tags</code> resource, see <a href="/providers/aws/ivs/stages/#permissions"><code>stages</code></a>
-
 

@@ -30,8 +30,7 @@ Lists <code>notification_channels</code> in a region or regions, for all propert
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="sns_role_name" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
-<tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="sns_topic_arn" /></td><td><code>string</code></td><td>A resource ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>notification_channels_list_only</code> resource, see <a href="/providers/aws/fms/notification_channels/#permissions"><code>notification_channels</code></a>
-
 

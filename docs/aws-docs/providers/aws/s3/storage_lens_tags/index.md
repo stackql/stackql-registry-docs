@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>storage_lens_tags</code> resource, see <a href="/providers/aws/s3/storage_lens/#permissions"><code>storage_lens</code></a>
 
-

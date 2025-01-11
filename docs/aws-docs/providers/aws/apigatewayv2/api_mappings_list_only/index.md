@@ -32,9 +32,6 @@ Lists <code>api_mappings</code> in a region or regions, for all properties use <
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="api_mapping_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The domain name.</td></tr>
-<tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td>The API stage.</td></tr>
-<tr><td><CopyableCode code="api_mapping_key" /></td><td><code>string</code></td><td>The API mapping key.</td></tr>
-<tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td>The identifier of the API.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>api_mappings_list_only</code> resource, see <a href="/providers/aws/apigatewayv2/api_mappings/#permissions"><code>api_mappings</code></a>
-
 

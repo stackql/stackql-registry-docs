@@ -30,11 +30,8 @@ Lists <code>live_sources</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The ARN of the live source.</p></td></tr>
-<tr><td><CopyableCode code="http_package_configurations" /></td><td><code>array</code></td><td><p>A list of HTTP package configuration parameters for this live source.</p></td></tr>
-<tr><td><CopyableCode code="live_source_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="live_source_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="source_location_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to assign to the live source.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>live_sources_list_only</code> resource, see <a href="/providers/aws/mediatailor/live_sources/#permissions"><code>live_sources</code></a>
-
 

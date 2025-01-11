@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>resource_association</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html"><code>AWS::ServiceCatalogAppRegistry::ResourceAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -198,4 +200,3 @@ servicecatalog:DisassociateResource
 ```json
 servicecatalog:ListAssociatedResources
 ```
-

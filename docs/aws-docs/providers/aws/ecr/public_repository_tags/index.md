@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>public_repository_tags</code> resource, see <a href="/providers/aws/ecr/public_repositories/#permissions"><code>public_repositories</code></a>
 
-

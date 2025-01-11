@@ -33,8 +33,11 @@ Creates, updates, deletes or gets a <code>keyspace</code> resource or lists <cod
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="keyspace_name" /></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="replication_specification" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_side_timestamps_enabled" /></td><td><code>boolean</code></td><td>Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html"><code>AWS::Cassandra::Keyspace</code></a>.
 
 ## Methods
 
@@ -78,7 +81,8 @@ SELECT
 region,
 keyspace_name,
 tags,
-replication_specification
+replication_specification,
+client_side_timestamps_enabled
 FROM aws.cassandra.keyspaces
 WHERE region = 'us-east-1';
 ```
@@ -88,7 +92,8 @@ SELECT
 region,
 keyspace_name,
 tags,
-replication_specification
+replication_specification,
+client_side_timestamps_enabled
 FROM aws.cassandra.keyspaces
 WHERE region = 'us-east-1' AND data__Identifier = '<KeyspaceName>';
 ```
@@ -126,12 +131,14 @@ INSERT INTO aws.cassandra.keyspaces (
  KeyspaceName,
  Tags,
  ReplicationSpecification,
+ ClientSideTimestampsEnabled,
  region
 )
 SELECT 
  '{{ KeyspaceName }}',
  '{{ Tags }}',
  '{{ ReplicationSpecification }}',
+ '{{ ClientSideTimestampsEnabled }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -160,6 +167,8 @@ resources:
           ReplicationStrategy: '{{ ReplicationStrategy }}'
           RegionList:
             - '{{ RegionList[0] }}'
+      - name: ClientSideTimestampsEnabled
+        value: '{{ ClientSideTimestampsEnabled }}'
 
 ```
 </TabItem>
@@ -199,12 +208,23 @@ cassandra:SelectMultiRegionResource
 ```json
 cassandra:Alter,
 cassandra:AlterMultiRegionResource,
+cassandra:Modify,
+cassandra:ModifyMultiRegionResource,
 cassandra:Select,
 cassandra:SelectMultiRegionResource,
 cassandra:TagResource,
 cassandra:TagMultiRegionResource,
 cassandra:UntagResource,
-cassandra:UntagMultiRegionResource
+cassandra:UntagMultiRegionResource,
+application-autoscaling:RegisterScalableTarget,
+application-autoscaling:DeregisterScalableTarget,
+application-autoscaling:DescribeScalableTargets,
+application-autoscaling:DescribeScalingPolicies,
+application-autoscaling:PutScalingPolicy,
+cloudwatch:DeleteAlarms,
+cloudwatch:DescribeAlarms,
+cloudwatch:PutMetricAlarm,
+iam:CreateServiceLinkedRole
 ```
 
 ### Delete
@@ -220,4 +240,3 @@ cassandra:SelectMultiRegionResource
 cassandra:Select,
 cassandra:SelectMultiRegionResource
 ```
-

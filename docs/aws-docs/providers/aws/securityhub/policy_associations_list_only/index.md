@@ -30,14 +30,7 @@ Lists <code>policy_associations</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration_policy_id" /></td><td><code>string</code></td><td>The universally unique identifier (UUID) of the configuration policy or a value of SELF_MANAGED_SECURITY_HUB for a self-managed configuration</td></tr>
-<tr><td><CopyableCode code="association_status" /></td><td><code>string</code></td><td>The current status of the association between the specified target and the configuration</td></tr>
-<tr><td><CopyableCode code="association_type" /></td><td><code>string</code></td><td>Indicates whether the association between the specified target and the configuration was directly applied by the Security Hub delegated administrator or inherited from a parent</td></tr>
-<tr><td><CopyableCode code="association_status_message" /></td><td><code>string</code></td><td>An explanation for a FAILED value for AssociationStatus</td></tr>
-<tr><td><CopyableCode code="target_id" /></td><td><code>string</code></td><td>The identifier of the target account, organizational unit, or the root</td></tr>
-<tr><td><CopyableCode code="target_type" /></td><td><code>string</code></td><td>Indicates whether the target is an AWS account, organizational unit, or the organization root</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated</td></tr>
-<tr><td><CopyableCode code="association_identifier" /></td><td><code>string</code></td><td>A unique identifier to indicates if the target has an association</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="association_identifier" /></td><td><code>string</code></td><td>A unique identifier to indicates if the target has an association</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>policy_associations_list_only</code> resource, see <a href="/providers/aws/securityhub/policy_associations/#permissions"><code>policy_associations</code></a>
-
 

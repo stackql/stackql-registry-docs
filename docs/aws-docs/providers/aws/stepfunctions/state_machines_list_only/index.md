@@ -30,19 +30,7 @@ Lists <code>state_machines</code> in a region or regions, for all properties use
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="definition_substitutions" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition_string" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>state_machines_list_only</code> resource, see <a href="/providers/aws/stepfunctions/state_machines/#permissions"><code>state_machines</code></a>
-
 

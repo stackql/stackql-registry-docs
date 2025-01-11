@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>security_group_ingress</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html"><code>AWS::EC2::SecurityGroupIngress</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -266,4 +268,3 @@ ec2:DescribeSecurityGroupRules
 ```json
 ec2:DescribeSecurityGroupRules
 ```
-

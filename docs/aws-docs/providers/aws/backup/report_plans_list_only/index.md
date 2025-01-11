@@ -30,12 +30,7 @@ Lists <code>report_plans</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="report_plan_name" /></td><td><code>string</code></td><td>The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</td></tr>
-<tr><td><CopyableCode code="report_plan_arn" /></td><td><code>string</code></td><td>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</td></tr>
-<tr><td><CopyableCode code="report_plan_description" /></td><td><code>string</code></td><td>An optional description of the report plan with a maximum of 1,024 characters.</td></tr>
-<tr><td><CopyableCode code="report_plan_tags" /></td><td><code>array</code></td><td>Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.</td></tr>
-<tr><td><CopyableCode code="report_delivery_channel" /></td><td><code>object</code></td><td>A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</td></tr>
-<tr><td><CopyableCode code="report_setting" /></td><td><code>object</code></td><td>Identifies the report template for the report. Reports are built using a report template.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="report_plan_arn" /></td><td><code>string</code></td><td>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>report_plans_list_only</code> resource, see <a href="/providers/aws/backup/report_plans/#permissions"><code>report_plans</code></a>
-
 

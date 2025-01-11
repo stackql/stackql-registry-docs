@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>db_proxy_endpoint_tags</code> resource, see <a href="/providers/aws/rds/db_proxy_endpoints/#permissions"><code>db_proxy_endpoints</code></a>
 
-

@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>analysis_template_tags</code> resource, see <a href="/providers/aws/cleanrooms/analysis_templates/#permissions"><code>analysis_templates</code></a>
 
-

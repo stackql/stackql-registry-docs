@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>training_dataset_tags</code> resource, see <a href="/providers/aws/cleanroomsml/training_datasets/#permissions"><code>training_datasets</code></a>
 
-

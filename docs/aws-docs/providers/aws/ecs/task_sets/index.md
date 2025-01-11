@@ -30,20 +30,23 @@ Creates, updates, deletes or gets a <code>task_set</code> resource or lists <cod
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="platform_version" /></td><td><code>string</code></td><td>The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.</td></tr>
 <tr><td><CopyableCode code="external_id" /></td><td><code>string</code></td><td>An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the task set.</td></tr>
-<tr><td><CopyableCode code="launch_type" /></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.</td></tr>
+<tr><td><CopyableCode code="cluster" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.</td></tr>
 <tr><td><CopyableCode code="load_balancers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>An object representing the network configuration for a task or service.</td></tr>
-<tr><td><CopyableCode code="platform_version" /></td><td><code>string</code></td><td>The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.</td></tr>
-<tr><td><CopyableCode code="scale" /></td><td><code>object</code></td><td>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</td></tr>
 <tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</td></tr>
+<tr><td><CopyableCode code="scale" /></td><td><code>object</code></td><td>A floating-point percentage of the desired number of tasks to place and keep running in the task set.</td></tr>
 <tr><td><CopyableCode code="service_registries" /></td><td><code>array</code></td><td>The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="capacity_provider_strategy" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="launch_type" /></td><td><code>string</code></td><td>The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.</td></tr>
 <tr><td><CopyableCode code="task_definition" /></td><td><code>string</code></td><td>The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.</td></tr>
+<tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>An object representing the network configuration for a task or service.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the task set.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html"><code>AWS::ECS::TaskSet</code></a>.
 
 ## Methods
 
@@ -81,18 +84,19 @@ Gets all properties from an individual <code>task_set</code>.
 ```sql
 SELECT
 region,
-cluster,
-external_id,
-id,
-launch_type,
-load_balancers,
-network_configuration,
 platform_version,
-scale,
+external_id,
+cluster,
+load_balancers,
 service,
+scale,
 service_registries,
-tags,
-task_definition
+capacity_provider_strategy,
+launch_type,
+task_definition,
+network_configuration,
+id,
+tags
 FROM aws.ecs.task_sets
 WHERE region = 'us-east-1' AND data__Identifier = '<Cluster>|<Service>|<Id>';
 ```
@@ -131,31 +135,33 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ecs.task_sets (
- Cluster,
- ExternalId,
- LaunchType,
- LoadBalancers,
- NetworkConfiguration,
  PlatformVersion,
- Scale,
+ ExternalId,
+ Cluster,
+ LoadBalancers,
  Service,
+ Scale,
  ServiceRegistries,
- Tags,
+ CapacityProviderStrategy,
+ LaunchType,
  TaskDefinition,
+ NetworkConfiguration,
+ Tags,
  region
 )
 SELECT 
- '{{ Cluster }}',
- '{{ ExternalId }}',
- '{{ LaunchType }}',
- '{{ LoadBalancers }}',
- '{{ NetworkConfiguration }}',
  '{{ PlatformVersion }}',
- '{{ Scale }}',
+ '{{ ExternalId }}',
+ '{{ Cluster }}',
+ '{{ LoadBalancers }}',
  '{{ Service }}',
+ '{{ Scale }}',
  '{{ ServiceRegistries }}',
- '{{ Tags }}',
+ '{{ CapacityProviderStrategy }}',
+ '{{ LaunchType }}',
  '{{ TaskDefinition }}',
+ '{{ NetworkConfiguration }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -173,45 +179,50 @@ globals:
 resources:
   - name: task_set
     props:
-      - name: Cluster
-        value: '{{ Cluster }}'
+      - name: PlatformVersion
+        value: '{{ PlatformVersion }}'
       - name: ExternalId
         value: '{{ ExternalId }}'
-      - name: LaunchType
-        value: '{{ LaunchType }}'
+      - name: Cluster
+        value: '{{ Cluster }}'
       - name: LoadBalancers
         value:
-          - ContainerName: '{{ ContainerName }}'
+          - TargetGroupArn: '{{ TargetGroupArn }}'
+            ContainerName: '{{ ContainerName }}'
             ContainerPort: '{{ ContainerPort }}'
-            TargetGroupArn: '{{ TargetGroupArn }}'
+      - name: Service
+        value: '{{ Service }}'
+      - name: Scale
+        value:
+          Value: null
+          Unit: '{{ Unit }}'
+      - name: ServiceRegistries
+        value:
+          - ContainerName: '{{ ContainerName }}'
+            Port: '{{ Port }}'
+            ContainerPort: '{{ ContainerPort }}'
+            RegistryArn: '{{ RegistryArn }}'
+      - name: CapacityProviderStrategy
+        value:
+          - CapacityProvider: '{{ CapacityProvider }}'
+            Base: '{{ Base }}'
+            Weight: '{{ Weight }}'
+      - name: LaunchType
+        value: '{{ LaunchType }}'
+      - name: TaskDefinition
+        value: '{{ TaskDefinition }}'
       - name: NetworkConfiguration
         value:
           AwsVpcConfiguration:
-            AssignPublicIp: '{{ AssignPublicIp }}'
             SecurityGroups:
               - '{{ SecurityGroups[0] }}'
             Subnets:
               - '{{ Subnets[0] }}'
-      - name: PlatformVersion
-        value: '{{ PlatformVersion }}'
-      - name: Scale
-        value:
-          Unit: '{{ Unit }}'
-          Value: null
-      - name: Service
-        value: '{{ Service }}'
-      - name: ServiceRegistries
-        value:
-          - ContainerName: '{{ ContainerName }}'
-            ContainerPort: '{{ ContainerPort }}'
-            Port: '{{ Port }}'
-            RegistryArn: '{{ RegistryArn }}'
+            AssignPublicIp: '{{ AssignPublicIp }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
-      - name: TaskDefinition
-        value: '{{ TaskDefinition }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -230,16 +241,16 @@ AND region = 'us-east-1';
 
 To operate on the <code>task_sets</code> resource, the following permissions are required:
 
+### Read
+```json
+ecs:DescribeTaskSets
+```
+
 ### Create
 ```json
 ecs:CreateTaskSet,
 ecs:DescribeTaskSets,
 ecs:TagResource
-```
-
-### Read
-```json
-ecs:DescribeTaskSets
 ```
 
 ### Update
@@ -255,4 +266,3 @@ ecs:UpdateTaskSet
 ecs:DeleteTaskSet,
 ecs:DescribeTaskSets
 ```
-

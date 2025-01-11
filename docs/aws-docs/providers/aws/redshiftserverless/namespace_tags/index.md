@@ -98,4 +98,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>namespace_tags</code> resource, see <a href="/providers/aws/redshiftserverless/namespaces/#permissions"><code>namespaces</code></a>
 
-

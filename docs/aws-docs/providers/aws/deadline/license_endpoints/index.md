@@ -38,8 +38,11 @@ Creates, updates, deletes or gets a <code>license_endpoint</code> resource or li
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html"><code>AWS::Deadline::LicenseEndpoint</code></a>.
 
 ## Methods
 
@@ -58,6 +61,11 @@ Creates, updates, deletes or gets a <code>license_endpoint</code> resource or li
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -83,7 +91,8 @@ status,
 status_message,
 subnet_ids,
 vpc_id,
-arn
+arn,
+tags
 FROM aws.deadline.license_endpoints
 WHERE region = 'us-east-1';
 ```
@@ -98,7 +107,8 @@ status,
 status_message,
 subnet_ids,
 vpc_id,
-arn
+arn,
+tags
 FROM aws.deadline.license_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -140,12 +150,14 @@ INSERT INTO aws.deadline.license_endpoints (
  SecurityGroupIds,
  SubnetIds,
  VpcId,
+ Tags,
  region
 )
 SELECT 
  '{{ SecurityGroupIds }}',
  '{{ SubnetIds }}',
  '{{ VpcId }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -171,6 +183,10 @@ resources:
           - '{{ SubnetIds[0] }}'
       - name: VpcId
         value: '{{ VpcId }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -195,11 +211,22 @@ deadline:CreateLicenseEndpoint,
 deadline:GetLicenseEndpoint,
 ec2:CreateTags,
 ec2:CreateVpcEndpoint,
-ec2:DescribeVpcEndpoints
+ec2:DescribeVpcEndpoints,
+deadline:TagResource,
+deadline:ListTagsForResource
 ```
 
 ### Read
 ```json
+deadline:GetLicenseEndpoint,
+deadline:ListTagsForResource
+```
+
+### Update
+```json
+deadline:TagResource,
+deadline:UntagResource,
+deadline:ListTagsForResource,
 deadline:GetLicenseEndpoint
 ```
 
@@ -215,4 +242,3 @@ ec2:DescribeVpcEndpoints
 ```json
 deadline:ListLicenseEndpoints
 ```
-

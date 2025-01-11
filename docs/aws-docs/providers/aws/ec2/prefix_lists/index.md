@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>prefix_list</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html"><code>AWS::EC2::PrefixList</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -238,4 +240,3 @@ EC2:DescribeManagedPrefixLists
 EC2:DescribeManagedPrefixLists,
 EC2:GetManagedPrefixListEntries
 ```
-

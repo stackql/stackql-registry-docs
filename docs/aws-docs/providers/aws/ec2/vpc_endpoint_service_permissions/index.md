@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service_permission</code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermission.html"><code>AWS::EC2::VPCEndpointServicePermissions</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -167,6 +169,14 @@ AND region = 'us-east-1';
 
 To operate on the <code>vpc_endpoint_service_permissions</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:CreateVpcEndpointServicePermissions,
+ec2:ModifyVpcEndpointServicePermissions,
+ec2:DeleteVpcEndpointServicePermissions,
+ec2:DescribeVpcEndpointServicePermissions
+```
+
 ### Create
 ```json
 ec2:CreateVpcEndpointServicePermissions,
@@ -183,7 +193,7 @@ ec2:DeleteVpcEndpointServicePermissions,
 ec2:DescribeVpcEndpointServicePermissions
 ```
 
-### Read
+### List
 ```json
 ec2:CreateVpcEndpointServicePermissions,
 ec2:ModifyVpcEndpointServicePermissions,
@@ -198,12 +208,3 @@ ec2:ModifyVpcEndpointServicePermissions,
 ec2:DeleteVpcEndpointServicePermissions,
 ec2:DescribeVpcEndpointServicePermissions
 ```
-
-### List
-```json
-ec2:CreateVpcEndpointServicePermissions,
-ec2:ModifyVpcEndpointServicePermissions,
-ec2:DeleteVpcEndpointServicePermissions,
-ec2:DescribeVpcEndpointServicePermissions
-```
-

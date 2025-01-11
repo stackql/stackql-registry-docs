@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>multiplexprogram</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html"><code>AWS::MediaLive::Multiplexprogram</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -122,7 +124,6 @@ Use the following StackQL query and manifest file to create a new <code>multiple
 ```sql
 /*+ create */
 INSERT INTO aws.medialive.multiplexprograms (
- ChannelId,
  MultiplexId,
  MultiplexProgramSettings,
  PreferredChannelPipeline,
@@ -132,8 +133,7 @@ INSERT INTO aws.medialive.multiplexprograms (
  region
 )
 SELECT 
-'{{ ChannelId }}',
- '{{ MultiplexId }}',
+'{{ MultiplexId }}',
  '{{ MultiplexProgramSettings }}',
  '{{ PreferredChannelPipeline }}',
  '{{ PacketIdentifiersMap }}',
@@ -147,7 +147,6 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.medialive.multiplexprograms (
- ChannelId,
  MultiplexId,
  MultiplexProgramSettings,
  PreferredChannelPipeline,
@@ -157,7 +156,6 @@ INSERT INTO aws.medialive.multiplexprograms (
  region
 )
 SELECT 
- '{{ ChannelId }}',
  '{{ MultiplexId }}',
  '{{ MultiplexProgramSettings }}',
  '{{ PreferredChannelPipeline }}',
@@ -181,8 +179,6 @@ globals:
 resources:
   - name: multiplexprogram
     props:
-      - name: ChannelId
-        value: '{{ ChannelId }}'
       - name: MultiplexId
         value: '{{ MultiplexId }}'
       - name: MultiplexProgramSettings
@@ -265,4 +261,3 @@ medialive:DescribeMultiplexProgram
 ```json
 medialive:ListMultiplexPrograms
 ```
-

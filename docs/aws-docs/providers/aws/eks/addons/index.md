@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>addon</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html"><code>AWS::EKS::Addon</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -268,4 +270,3 @@ eks:UntagResource,
 eks:CreatePodIdentityAssociation,
 eks:DeletePodIdentityAssociation
 ```
-

@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>ip_set</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html"><code>AWS::WAFv2::IPSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -230,11 +232,12 @@ wafv2:ListTagsForResource
 ```json
 wafv2:UpdateIPSet,
 wafv2:GetIPSet,
-wafv2:ListTagsForResource
+wafv2:ListTagsForResource,
+wafv2:TagResource,
+wafv2:UntagResource
 ```
 
 ### List
 ```json
 wafv2:listIPSets
 ```
-

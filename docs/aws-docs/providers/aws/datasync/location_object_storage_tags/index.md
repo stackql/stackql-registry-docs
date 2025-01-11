@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_object_storage_tags</code> resource, see <a href="/providers/aws/datasync/location_object_storages/#permissions"><code>location_object_storages</code></a>
 
-

@@ -39,8 +39,11 @@ Creates, updates, deletes or gets an <code>experiment_template</code> resource o
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="experiment_options" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="experiment_report_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html"><code>AWS::FIS::ExperimentTemplate</code></a>.
 
 ## Methods
 
@@ -90,7 +93,8 @@ stop_conditions,
 log_configuration,
 role_arn,
 tags,
-experiment_options
+experiment_options,
+experiment_report_configuration
 FROM aws.fis.experiment_templates
 WHERE region = 'us-east-1';
 ```
@@ -106,7 +110,8 @@ stop_conditions,
 log_configuration,
 role_arn,
 tags,
-experiment_options
+experiment_options,
+experiment_report_configuration
 FROM aws.fis.experiment_templates
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -157,6 +162,7 @@ INSERT INTO aws.fis.experiment_templates (
  RoleArn,
  Tags,
  ExperimentOptions,
+ ExperimentReportConfiguration,
  region
 )
 SELECT 
@@ -168,6 +174,7 @@ SELECT
  '{{ RoleArn }}',
  '{{ Tags }}',
  '{{ ExperimentOptions }}',
+ '{{ ExperimentReportConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -211,6 +218,17 @@ resources:
         value:
           AccountTargeting: '{{ AccountTargeting }}'
           EmptyTargetResolutionMode: '{{ EmptyTargetResolutionMode }}'
+      - name: ExperimentReportConfiguration
+        value:
+          Outputs:
+            ExperimentReportS3Configuration:
+              BucketName: '{{ BucketName }}'
+              Prefix: '{{ Prefix }}'
+          DataSources:
+            CloudWatchDashboards:
+              - DashboardIdentifier: '{{ DashboardIdentifier }}'
+          PreExperimentDuration: '{{ PreExperimentDuration }}'
+          PostExperimentDuration: '{{ PostExperimentDuration }}'
 
 ```
 </TabItem>
@@ -260,4 +278,3 @@ fis:DeleteExperimentTemplate
 fis:ListExperimentTemplates,
 fis:ListTagsForResource
 ```
-

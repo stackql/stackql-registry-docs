@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>sink</code> resource or lists <code>si
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html"><code>AWS::Oam::Sink</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -181,7 +183,9 @@ To operate on the <code>sinks</code> resource, the following permissions are req
 oam:CreateSink,
 oam:PutSinkPolicy,
 oam:GetSinkPolicy,
-oam:GetSink
+oam:GetSink,
+oam:TagResource,
+oam:ListTagsForResource
 ```
 
 ### Delete
@@ -199,7 +203,8 @@ oam:ListSinks
 ### Read
 ```json
 oam:GetSinkPolicy,
-oam:GetSink
+oam:GetSink,
+oam:ListTagsForResource
 ```
 
 ### Update
@@ -208,6 +213,6 @@ oam:PutSinkPolicy,
 oam:GetSinkPolicy,
 oam:GetSink,
 oam:TagResource,
-oam:UntagResource
+oam:UntagResource,
+oam:ListTagsForResource
 ```
-

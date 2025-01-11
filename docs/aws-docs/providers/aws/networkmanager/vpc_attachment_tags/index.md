@@ -42,6 +42,8 @@ Expands all tag keys and values for <code>vpc_attachments</code> in a region
 <tr><td><CopyableCode code="attachment_policy_rule_number" /></td><td><code>integer</code></td><td>The policy rule number associated with the attachment.</td></tr>
 <tr><td><CopyableCode code="segment_name" /></td><td><code>string</code></td><td>The name of the segment attachment..</td></tr>
 <tr><td><CopyableCode code="proposed_segment_change" /></td><td><code>object</code></td><td>The attachment to move from one segment to another.</td></tr>
+<tr><td><CopyableCode code="network_function_group_name" /></td><td><code>string</code></td><td>The name of the network function group attachment.</td></tr>
+<tr><td><CopyableCode code="proposed_network_function_group_change" /></td><td><code>object</code></td><td>The attachment to move from one network function group to another.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Creation time of the attachment.</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Last update time of the attachment.</td></tr>
 <tr><td><CopyableCode code="subnet_arns" /></td><td><code>array</code></td><td>Subnet Arn list</td></tr>
@@ -83,6 +85,8 @@ resource_arn,
 attachment_policy_rule_number,
 segment_name,
 proposed_segment_change,
+network_function_group_name,
+proposed_network_function_group_change,
 created_at,
 updated_at,
 subnet_arns,
@@ -97,5 +101,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>vpc_attachment_tags</code> resource, see <a href="/providers/aws/networkmanager/vpc_attachments/#permissions"><code>vpc_attachments</code></a>
-
 

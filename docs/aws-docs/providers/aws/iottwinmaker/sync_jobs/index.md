@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>sync_job</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html"><code>AWS::IoTTwinMaker::SyncJob</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,4 +223,3 @@ iottwinmaker:GetWorkspace,
 iottwinmaker:ListSyncJobs,
 iottwinmaker:ListTagsForResource
 ```
-

@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>channel_group_tags</code> resource, see <a href="/providers/aws/mediapackagev2/channel_groups/#permissions"><code>channel_groups</code></a>
 
-

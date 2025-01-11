@@ -41,8 +41,11 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
 <tr><td><CopyableCode code="required_file_system_location_names" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html"><code>AWS::Deadline::Queue</code></a>.
 
 ## Methods
 
@@ -55,7 +58,7 @@ Creates, updates, deletes or gets a <code>queue</code> resource or lists <code>q
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="DisplayName, region" /></td>
+    <td><CopyableCode code="DisplayName, FarmId, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -94,7 +97,8 @@ job_run_as_user,
 queue_id,
 required_file_system_location_names,
 role_arn,
-arn
+arn,
+tags
 FROM aws.deadline.queues
 WHERE region = 'us-east-1';
 ```
@@ -112,7 +116,8 @@ job_run_as_user,
 queue_id,
 required_file_system_location_names,
 role_arn,
-arn
+arn,
+tags
 FROM aws.deadline.queues
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -135,10 +140,12 @@ Use the following StackQL query and manifest file to create a new <code>queue</c
 /*+ create */
 INSERT INTO aws.deadline.queues (
  DisplayName,
+ FarmId,
  region
 )
 SELECT 
 '{{ DisplayName }}',
+ '{{ FarmId }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -156,6 +163,7 @@ INSERT INTO aws.deadline.queues (
  JobRunAsUser,
  RequiredFileSystemLocationNames,
  RoleArn,
+ Tags,
  region
 )
 SELECT 
@@ -168,6 +176,7 @@ SELECT
  '{{ JobRunAsUser }}',
  '{{ RequiredFileSystemLocationNames }}',
  '{{ RoleArn }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -214,6 +223,10 @@ resources:
           - '{{ RequiredFileSystemLocationNames[0] }}'
       - name: RoleArn
         value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -239,13 +252,16 @@ deadline:GetQueue,
 iam:PassRole,
 identitystore:ListGroupMembershipsForMember,
 logs:CreateLogGroup,
-s3:ListBucket
+s3:ListBucket,
+deadline:TagResource,
+deadline:ListTagsForResource
 ```
 
 ### Read
 ```json
 deadline:GetQueue,
-identitystore:ListGroupMembershipsForMember
+identitystore:ListGroupMembershipsForMember,
+deadline:ListTagsForResource
 ```
 
 ### Update
@@ -255,7 +271,10 @@ deadline:GetQueue,
 iam:PassRole,
 identitystore:ListGroupMembershipsForMember,
 logs:CreateLogGroup,
-s3:ListBucket
+s3:ListBucket,
+deadline:TagResource,
+deadline:UntagResource,
+deadline:ListTagsForResource
 ```
 
 ### Delete
@@ -272,4 +291,3 @@ identitystore:DescribeGroup,
 identitystore:DescribeUser,
 identitystore:ListGroupMembershipsForMember
 ```
-

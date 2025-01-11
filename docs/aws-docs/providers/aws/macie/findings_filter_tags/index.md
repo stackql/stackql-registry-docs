@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>findings_filter_tags</code> resource, see <a href="/providers/aws/macie/findings_filters/#permissions"><code>findings_filters</code></a>
 
-

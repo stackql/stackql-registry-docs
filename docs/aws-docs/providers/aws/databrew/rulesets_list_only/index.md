@@ -31,10 +31,6 @@ Lists <code>rulesets</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the Ruleset</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Ruleset</td></tr>
-<tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td>Arn of the target resource (dataset) to apply the ruleset to</td></tr>
-<tr><td><CopyableCode code="rules" /></td><td><code>array</code></td><td>List of the data quality rules in the ruleset</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>rulesets_list_only</code> resource, see <a href="/providers/aws/databrew/rulesets/#permissions"><code>rulesets</code></a>
-
 

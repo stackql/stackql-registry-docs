@@ -30,12 +30,7 @@ Lists <code>datasets</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the dataset</td></tr>
-<tr><td><CopyableCode code="dataset_arn" /></td><td><code>string</code></td><td>The ARN of the dataset</td></tr>
-<tr><td><CopyableCode code="dataset_type" /></td><td><code>string</code></td><td>The type of dataset</td></tr>
-<tr><td><CopyableCode code="dataset_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the dataset group to add the dataset to</td></tr>
-<tr><td><CopyableCode code="schema_arn" /></td><td><code>string</code></td><td>The ARN of the schema to associate with the dataset. The schema defines the dataset fields.</td></tr>
-<tr><td><CopyableCode code="dataset_import_job" /></td><td><code>object</code></td><td>Initial DatasetImportJob for the created dataset</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="dataset_arn" /></td><td><code>string</code></td><td>The ARN of the dataset</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>datasets_list_only</code> resource, see <a href="/providers/aws/personalize/datasets/#permissions"><code>datasets</code></a>
-
 

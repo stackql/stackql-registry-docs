@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>campaign</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html"><code>AWS::ConnectCampaigns::Campaign</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -246,4 +248,3 @@ connect-campaigns:TagResource,
 connect-campaigns:UntagResource,
 connect-campaigns:DescribeCampaign
 ```
-

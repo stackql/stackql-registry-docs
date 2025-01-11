@@ -31,18 +31,6 @@ Lists <code>firewall_rule_groups</code> in a region or regions, for all properti
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>ResourceId</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Arn</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>FirewallRuleGroupName</td></tr>
-<tr><td><CopyableCode code="rule_count" /></td><td><code>integer</code></td><td>Count</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.</td></tr>
-<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td>FirewallRuleGroupStatus</td></tr>
-<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>AccountId</td></tr>
-<tr><td><CopyableCode code="share_status" /></td><td><code>string</code></td><td>ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.</td></tr>
-<tr><td><CopyableCode code="creator_request_id" /></td><td><code>string</code></td><td>The id of the creator request.</td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><CopyableCode code="modification_time" /></td><td><code>string</code></td><td>Rfc3339TimeString</td></tr>
-<tr><td><CopyableCode code="firewall_rules" /></td><td><code>array</code></td><td>FirewallRules</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>firewall_rule_groups_list_only</code> resource, see <a href="/providers/aws/route53resolver/firewall_rule_groups/#permissions"><code>firewall_rule_groups</code></a>
-
 

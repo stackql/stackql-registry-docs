@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>software_package</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html"><code>AWS::IoT::SoftwarePackage</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -223,4 +225,3 @@ iot:ListPackageVersions
 ```json
 iot:ListPackages
 ```
-

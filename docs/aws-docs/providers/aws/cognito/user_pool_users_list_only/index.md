@@ -30,14 +30,8 @@ Lists <code>user_pool_users</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="desired_delivery_mediums" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="force_alias_creation" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_attributes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="message_action" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="validation_data" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="client_metadata" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>user_pool_users_list_only</code> resource, see <a href="/providers/aws/cognito/user_pool_users/#permissions"><code>user_pool_users</code></a>
-
 

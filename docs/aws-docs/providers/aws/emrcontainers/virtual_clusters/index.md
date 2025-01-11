@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>virtual_cluster</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html"><code>AWS::EMRContainers::VirtualCluster</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,7 +204,8 @@ emr-containers:DescribeVirtualCluster
 
 ### Delete
 ```json
-emr-containers:DeleteVirtualCluster
+emr-containers:DeleteVirtualCluster,
+emr-containers:DescribeVirtualCluster
 ```
 
 ### List
@@ -217,4 +220,3 @@ emr-containers:ListTagsForResource,
 emr-containers:TagResource,
 emr-containers:UntagResource
 ```
-

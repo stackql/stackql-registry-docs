@@ -30,13 +30,7 @@ Lists <code>organization_configurations</code> in a region or regions, for all p
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auto_enable" /></td><td><code>boolean</code></td><td>Whether to automatically enable Security Hub in new member accounts when they join the organization.</td></tr>
-<tr><td><CopyableCode code="auto_enable_standards" /></td><td><code>string</code></td><td>Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.</td></tr>
-<tr><td><CopyableCode code="configuration_type" /></td><td><code>string</code></td><td>Indicates whether the organization uses local or central configuration.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Describes whether central configuration could be enabled as the ConfigurationType for the organization.</td></tr>
-<tr><td><CopyableCode code="status_message" /></td><td><code>string</code></td><td>Provides an explanation if the value of Status is equal to FAILED when ConfigurationType is equal to CENTRAL.</td></tr>
-<tr><td><CopyableCode code="member_account_limit_reached" /></td><td><code>boolean</code></td><td>Whether the maximum number of allowed member accounts are already associated with the Security Hub administrator account.</td></tr>
-<tr><td><CopyableCode code="organization_configuration_identifier" /></td><td><code>string</code></td><td>The identifier of the OrganizationConfiguration being created and assigned as the unique identifier.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="organization_configuration_identifier" /></td><td><code>string</code></td><td>The identifier of the OrganizationConfiguration being created and assigned as the unique identifier.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>organization_configurations_list_only</code> resource, see <a href="/providers/aws/securityhub/organization_configurations/#permissions"><code>organization_configurations</code></a>
-
 

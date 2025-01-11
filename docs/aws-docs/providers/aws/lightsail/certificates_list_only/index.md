@@ -25,17 +25,12 @@ Lists <code>certificates</code> in a region or regions, for all properties use <
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificates_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Lightsail::Certificate.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lightsail.certificates_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_name" /></td><td><code>string</code></td><td>The name for the certificate.</td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The domain name (e.g., example.com ) for the certificate.</td></tr>
-<tr><td><CopyableCode code="subject_alternative_names" /></td><td><code>array</code></td><td>An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.</td></tr>
-<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The validation status of the certificate.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>certificates_list_only</code> resource, see <a href="/providers/aws/lightsail/certificates/#permissions"><code>certificates</code></a>
-
 

@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>parameter_group</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html"><code>AWS::ElastiCache::ParameterGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -192,7 +194,9 @@ To operate on the <code>parameter_groups</code> resource, the following permissi
 ElastiCache:CreateCacheParameterGroup,
 ElastiCache:DescribeCacheParameterGroups,
 ElastiCache:AddTagsToResource,
-ElastiCache:ModifyCacheParameterGroup
+ElastiCache:ModifyCacheParameterGroup,
+iam:CreateServiceLinkedRole,
+iam:PutRolePolicy
 ```
 
 ### Read
@@ -222,4 +226,3 @@ ElastiCache:DeleteCacheParameterGroup
 ```json
 ElastiCache:DescribeCacheParameterGroups
 ```
-

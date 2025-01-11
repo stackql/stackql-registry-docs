@@ -46,8 +46,11 @@ Creates, updates, deletes or gets a <code>flow_output</code> resource or lists <
 <tr><td><CopyableCode code="stream_id" /></td><td><code>string</code></td><td>The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.</td></tr>
 <tr><td><CopyableCode code="vpc_interface_attachment" /></td><td><code>object</code></td><td>The name of the VPC interface attachment to use for this output.</td></tr>
 <tr><td><CopyableCode code="media_stream_output_configurations" /></td><td><code>array</code></td><td>The definition for each media stream that is associated with the output.</td></tr>
+<tr><td><CopyableCode code="output_status" /></td><td><code>string</code></td><td>An indication of whether the output should transmit data or not.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html"><code>AWS::MediaConnect::FlowOutput</code></a>.
 
 ## Methods
 
@@ -104,7 +107,8 @@ remote_id,
 smoothing_latency,
 stream_id,
 vpc_interface_attachment,
-media_stream_output_configurations
+media_stream_output_configurations,
+output_status
 FROM aws.mediaconnect.flow_outputs
 WHERE region = 'us-east-1';
 ```
@@ -127,7 +131,8 @@ remote_id,
 smoothing_latency,
 stream_id,
 vpc_interface_attachment,
-media_stream_output_configurations
+media_stream_output_configurations,
+output_status
 FROM aws.mediaconnect.flow_outputs
 WHERE region = 'us-east-1' AND data__Identifier = '<OutputArn>';
 ```
@@ -179,6 +184,7 @@ INSERT INTO aws.mediaconnect.flow_outputs (
  StreamId,
  VpcInterfaceAttachment,
  MediaStreamOutputConfigurations,
+ OutputStatus,
  region
 )
 SELECT 
@@ -197,6 +203,7 @@ SELECT
  '{{ StreamId }}',
  '{{ VpcInterfaceAttachment }}',
  '{{ MediaStreamOutputConfigurations }}',
+ '{{ OutputStatus }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -265,6 +272,8 @@ resources:
             EncodingParameters:
               CompressionFactor: null
               EncoderProfile: '{{ EncoderProfile }}'
+      - name: OutputStatus
+        value: '{{ OutputStatus }}'
 
 ```
 </TabItem>
@@ -310,4 +319,3 @@ mediaconnect:RemoveFlowOutput
 ```json
 mediaconnect:DescribeFlow
 ```
-

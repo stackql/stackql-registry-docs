@@ -30,9 +30,7 @@ Lists <code>subscriber_notifications</code> in a region or regions, for all prop
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="notification_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="subscriber_arn" /></td><td><code>string</code></td><td>The ARN for the subscriber</td></tr>
-<tr><td><CopyableCode code="subscriber_endpoint" /></td><td><code>string</code></td><td>The endpoint the subscriber should listen to for notifications</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="subscriber_arn" /></td><td><code>string</code></td><td>The ARN for the subscriber</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>subscriber_notifications_list_only</code> resource, see <a href="/providers/aws/securitylake/subscriber_notifications/#permissions"><code>subscriber_notifications</code></a>
-
 

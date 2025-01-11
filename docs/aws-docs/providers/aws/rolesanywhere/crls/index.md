@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>crl</code> resource or lists <code>crl
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html"><code>AWS::RolesAnywhere::CRL</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -227,4 +229,3 @@ rolesanywhere:DeleteCrl
 rolesanywhere:ListCrls,
 rolesanywhere:ListTagsForResource
 ```
-

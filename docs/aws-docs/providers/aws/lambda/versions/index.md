@@ -35,11 +35,12 @@ Creates, updates, deletes or gets a <code>version</code> resource or lists <code
 <tr><td><CopyableCode code="code_sha256" /></td><td><code>string</code></td><td>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the version to override the description in the function configuration. Updates are not supported for this property.</td></tr>
 <tr><td><CopyableCode code="function_name" /></td><td><code>string</code></td><td>The name of the Lambda function.</td></tr>
-<tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>The resource policy of your function</td></tr>
 <tr><td><CopyableCode code="provisioned_concurrency_config" /></td><td><code>object</code></td><td>Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.</td></tr>
 <tr><td><CopyableCode code="runtime_policy" /></td><td><code>object</code></td><td>Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html"><code>AWS::Lambda::Version</code></a>.
 
 ## Methods
 
@@ -81,7 +82,6 @@ version,
 code_sha256,
 description,
 function_name,
-policy,
 provisioned_concurrency_config,
 runtime_policy
 FROM aws.lambda.versions
@@ -96,7 +96,6 @@ version,
 code_sha256,
 description,
 function_name,
-policy,
 provisioned_concurrency_config,
 runtime_policy
 FROM aws.lambda.versions
@@ -136,7 +135,6 @@ INSERT INTO aws.lambda.versions (
  CodeSha256,
  Description,
  FunctionName,
- Policy,
  ProvisionedConcurrencyConfig,
  RuntimePolicy,
  region
@@ -145,7 +143,6 @@ SELECT
  '{{ CodeSha256 }}',
  '{{ Description }}',
  '{{ FunctionName }}',
- '{{ Policy }}',
  '{{ ProvisionedConcurrencyConfig }}',
  '{{ RuntimePolicy }}',
  '{{ region }}';
@@ -171,8 +168,6 @@ resources:
         value: '{{ Description }}'
       - name: FunctionName
         value: '{{ FunctionName }}'
-      - name: Policy
-        value: {}
       - name: ProvisionedConcurrencyConfig
         value:
           ProvisionedConcurrentExecutions: '{{ ProvisionedConcurrentExecutions }}'
@@ -225,4 +220,3 @@ lambda:DeleteFunction
 ```json
 lambda:ListVersionsByFunction
 ```
-

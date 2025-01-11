@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>internet_gateway_tags</code> resource, see <a href="/providers/aws/ec2/internet_gateways/#permissions"><code>internet_gateways</code></a>
 
-

@@ -36,8 +36,11 @@ Creates, updates, deletes or gets a <code>vpc_endpoint_service</code> resource o
 <tr><td><CopyableCode code="service_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="acceptance_required" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="gateway_load_balancer_arns" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to add to the VPC endpoint service.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html"><code>AWS::EC2::VPCEndpointService</code></a>.
 
 ## Methods
 
@@ -84,7 +87,8 @@ contributor_insights_enabled,
 payer_responsibility,
 service_id,
 acceptance_required,
-gateway_load_balancer_arns
+gateway_load_balancer_arns,
+tags
 FROM aws.ec2.vpc_endpoint_services
 WHERE region = 'us-east-1';
 ```
@@ -97,7 +101,8 @@ contributor_insights_enabled,
 payer_responsibility,
 service_id,
 acceptance_required,
-gateway_load_balancer_arns
+gateway_load_balancer_arns,
+tags
 FROM aws.ec2.vpc_endpoint_services
 WHERE region = 'us-east-1' AND data__Identifier = '<ServiceId>';
 ```
@@ -124,6 +129,7 @@ INSERT INTO aws.ec2.vpc_endpoint_services (
  PayerResponsibility,
  AcceptanceRequired,
  GatewayLoadBalancerArns,
+ Tags,
  region
 )
 SELECT 
@@ -132,6 +138,7 @@ SELECT
  '{{ PayerResponsibility }}',
  '{{ AcceptanceRequired }}',
  '{{ GatewayLoadBalancerArns }}',
+ '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -145,6 +152,7 @@ INSERT INTO aws.ec2.vpc_endpoint_services (
  PayerResponsibility,
  AcceptanceRequired,
  GatewayLoadBalancerArns,
+ Tags,
  region
 )
 SELECT 
@@ -153,6 +161,7 @@ SELECT
  '{{ PayerResponsibility }}',
  '{{ AcceptanceRequired }}',
  '{{ GatewayLoadBalancerArns }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -182,6 +191,10 @@ resources:
       - name: GatewayLoadBalancerArns
         value:
           - '{{ GatewayLoadBalancerArns[0] }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -203,23 +216,24 @@ To operate on the <code>vpc_endpoint_services</code> resource, the following per
 ### Create
 ```json
 ec2:CreateVpcEndpointServiceConfiguration,
-ec2:ModifyVpcEndpointServiceConfiguration,
 ec2:ModifyVpcEndpointServicePayerResponsibility,
 cloudwatch:ListManagedInsightRules,
 cloudwatch:DeleteInsightRules,
 cloudwatch:PutManagedInsightRules,
-ec2:DescribeVpcEndpointServiceConfigurations
+ec2:DescribeVpcEndpointServiceConfigurations,
+ec2:CreateTags
 ```
 
 ### Update
 ```json
 ec2:ModifyVpcEndpointServiceConfiguration,
-ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,
 ec2:ModifyVpcEndpointServicePayerResponsibility,
 cloudwatch:ListManagedInsightRules,
 cloudwatch:DeleteInsightRules,
-cloudwatch:PutManagedInsightRules
+cloudwatch:PutManagedInsightRules,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### Read
@@ -233,7 +247,8 @@ cloudwatch:ListManagedInsightRules
 ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DescribeVpcEndpointServiceConfigurations,
 cloudwatch:ListManagedInsightRules,
-cloudwatch:DeleteInsightRules
+cloudwatch:DeleteInsightRules,
+ec2:DeleteTags
 ```
 
 ### List
@@ -241,4 +256,3 @@ cloudwatch:DeleteInsightRules
 ec2:DescribeVpcEndpointServiceConfigurations,
 cloudwatch:ListManagedInsightRules
 ```
-

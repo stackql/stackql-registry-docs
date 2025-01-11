@@ -31,9 +31,6 @@ Lists <code>storage_lens_groups</code> in a region or regions, for all propertie
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name that identifies the Amazon S3 Storage Lens Group.</td></tr>
-<tr><td><CopyableCode code="filter" /></td><td><code>object</code></td><td>Sets the Storage Lens Group filter.</td></tr>
-<tr><td><CopyableCode code="storage_lens_group_arn" /></td><td><code>string</code></td><td>The ARN for the Amazon S3 Storage Lens Group.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A set of tags (key-value pairs) for this Amazon S3 Storage Lens Group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>storage_lens_groups_list_only</code> resource, see <a href="/providers/aws/s3/storage_lens_groups/#permissions"><code>storage_lens_groups</code></a>
-
 

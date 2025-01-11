@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>template_group_access_control_entry</c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html"><code>AWS::PCAConnectorAD::TemplateGroupAccessControlEntry</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -209,4 +211,3 @@ pca-connector-ad:GetTemplateGroupAccessControlEntry
 ```json
 pca-connector-ad:ListTemplateGroupAccessControlEntries
 ```
-

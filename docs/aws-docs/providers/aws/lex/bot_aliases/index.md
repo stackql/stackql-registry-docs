@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>bot_alias</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html"><code>AWS::Lex::BotAlias</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -277,4 +279,3 @@ lex:DeleteBotAlias
 ```json
 lex:ListBotAliases
 ```
-

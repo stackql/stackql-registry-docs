@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>schema_tags</code> resource, see <a href="/providers/aws/eventschemas/schemata/#permissions"><code>schemata</code></a>
 
-

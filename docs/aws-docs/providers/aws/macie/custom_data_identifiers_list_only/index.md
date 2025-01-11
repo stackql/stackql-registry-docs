@@ -30,15 +30,7 @@ Lists <code>custom_data_identifiers</code> in a region or regions, for all prope
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of custom data identifier.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of custom data identifier.</td></tr>
-<tr><td><CopyableCode code="regex" /></td><td><code>string</code></td><td>Regular expression for custom data identifier.</td></tr>
-<tr><td><CopyableCode code="maximum_match_distance" /></td><td><code>integer</code></td><td>Maximum match distance.</td></tr>
-<tr><td><CopyableCode code="keywords" /></td><td><code>array</code></td><td>Keywords to be matched against.</td></tr>
-<tr><td><CopyableCode code="ignore_words" /></td><td><code>array</code></td><td>Words to be ignored.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Custom data identifier ID.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Custom data identifier ARN.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Custom data identifier ID.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>custom_data_identifiers_list_only</code> resource, see <a href="/providers/aws/macie/custom_data_identifiers/#permissions"><code>custom_data_identifiers</code></a>
-
 

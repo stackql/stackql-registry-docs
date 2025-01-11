@@ -30,11 +30,7 @@ Lists <code>profiles</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the profile.</td></tr>
-<tr><td><CopyableCode code="client_token" /></td><td><code>string</code></td><td>The id of the creator request</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resolver profile.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the profile.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the profile.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>profiles_list_only</code> resource, see <a href="/providers/aws/route53profiles/profiles/#permissions"><code>profiles</code></a>
-
 

@@ -31,17 +31,6 @@ Lists <code>inference_components</code> in a region or regions, for all properti
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="inference_component_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the inference component</td></tr>
-<tr><td><CopyableCode code="inference_component_name" /></td><td><code>string</code></td><td>The name of the inference component</td></tr>
-<tr><td><CopyableCode code="endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint the inference component is associated with</td></tr>
-<tr><td><CopyableCode code="endpoint_name" /></td><td><code>string</code></td><td>The name of the endpoint used to run the monitoring job.</td></tr>
-<tr><td><CopyableCode code="variant_name" /></td><td><code>string</code></td><td>The name of the endpoint variant the inference component is associated with</td></tr>
-<tr><td><CopyableCode code="failure_reason" /></td><td><code>string</code></td><td>The failure reason if the inference component is in a failed state</td></tr>
-<tr><td><CopyableCode code="specification" /></td><td><code>object</code></td><td>The specification for the inference component</td></tr>
-<tr><td><CopyableCode code="runtime_config" /></td><td><code>object</code></td><td>The runtime config for the inference component</td></tr>
-<tr><td><CopyableCode code="inference_component_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of tags to apply to the resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>inference_components_list_only</code> resource, see <a href="/providers/aws/sagemaker/inference_components/#permissions"><code>inference_components</code></a>
-
 

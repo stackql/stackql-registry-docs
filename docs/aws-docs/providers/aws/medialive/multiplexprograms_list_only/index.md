@@ -30,12 +30,7 @@ Lists <code>multiplexprograms</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="channel_id" /></td><td><code>string</code></td><td>The MediaLive channel associated with the program.</td></tr>
-<tr><td><CopyableCode code="multiplex_id" /></td><td><code>string</code></td><td>The ID of the multiplex that the program belongs to.</td></tr>
-<tr><td><CopyableCode code="multiplex_program_settings" /></td><td><code>object</code></td><td>The settings for this multiplex program.</td></tr>
-<tr><td><CopyableCode code="preferred_channel_pipeline" /></td><td><code>string</code></td><td>The settings for this multiplex program.</td></tr>
-<tr><td><CopyableCode code="packet_identifiers_map" /></td><td><code>object</code></td><td>The packet identifier map for this multiplex program.</td></tr>
-<tr><td><CopyableCode code="pipeline_details" /></td><td><code>array</code></td><td>Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="multiplex_id" /></td><td><code>string</code></td><td>The ID of the multiplex that the program belongs to.</td></tr>
 <tr><td><CopyableCode code="program_name" /></td><td><code>string</code></td><td>The name of the multiplex program.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -70,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>multiplexprograms_list_only</code> resource, see <a href="/providers/aws/medialive/multiplexprograms/#permissions"><code>multiplexprograms</code></a>
-
 

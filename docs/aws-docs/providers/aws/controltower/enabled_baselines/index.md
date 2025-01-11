@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>enabled_baseline</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledbaseline.html"><code>AWS::ControlTower::EnabledBaseline</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -178,8 +180,8 @@ resources:
             Value: null
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -299,4 +301,3 @@ servicecatalog:DeleteProvisioningArtifact
 ```json
 controltower:ListEnabledBaselines
 ```
-

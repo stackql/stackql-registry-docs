@@ -30,12 +30,7 @@ Lists <code>alerts</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="alert_name" /></td><td><code>string</code></td><td>The name of the alert. If not provided, a name is generated automatically.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN assigned to the alert.</td></tr>
-<tr><td><CopyableCode code="alert_description" /></td><td><code>string</code></td><td>A description for the alert.</td></tr>
-<tr><td><CopyableCode code="anomaly_detector_arn" /></td><td><code>string</code></td><td>The Amazon resource name (ARN) of the Anomaly Detector to alert.</td></tr>
-<tr><td><CopyableCode code="alert_sensitivity_threshold" /></td><td><code>integer</code></td><td>A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.</td></tr>
-<tr><td><CopyableCode code="action" /></td><td><code>object</code></td><td>The action to be taken by the alert when an anomaly is detected.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN assigned to the alert.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>alerts_list_only</code> resource, see <a href="/providers/aws/lookoutmetrics/alerts/#permissions"><code>alerts</code></a>
-
 

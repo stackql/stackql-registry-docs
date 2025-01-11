@@ -35,6 +35,8 @@ Creates, updates, deletes or gets an <code>application_fleet_association</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-applicationfleetassociation.html"><code>AWS::AppStream::ApplicationFleetAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -166,4 +168,3 @@ appstream:DescribeApplicationFleetAssociations
 appstream:DisassociateApplicationFleet,
 appstream:DescribeApplicationFleetAssociations
 ```
-

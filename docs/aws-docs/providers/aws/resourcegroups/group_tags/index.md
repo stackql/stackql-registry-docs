@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>group_tags</code> resource, see <a href="/providers/aws/resourcegroups/groups/#permissions"><code>groups</code></a>
 
-

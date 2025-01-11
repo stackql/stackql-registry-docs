@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>key_tags</code> resource, see <a href="/providers/aws/paymentcryptography/keys/#permissions"><code>keys</code></a>
 
-

@@ -31,11 +31,7 @@ Lists <code>group_profiles</code> in a region or regions, for all properties use
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the group profile is created.</td></tr>
-<tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the group profile would be created.</td></tr>
-<tr><td><CopyableCode code="group_identifier" /></td><td><code>string</code></td><td>The ID of the group.</td></tr>
-<tr><td><CopyableCode code="group_name" /></td><td><code>string</code></td><td>The group-name of the Group Profile.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone group profile.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the group profile.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>group_profiles_list_only</code> resource, see <a href="/providers/aws/datazone/group_profiles/#permissions"><code>group_profiles</code></a>
-
 

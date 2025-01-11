@@ -70,4 +70,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>route_table_tags</code> resource, see <a href="/providers/aws/ec2/route_tables/#permissions"><code>route_tables</code></a>
 
-

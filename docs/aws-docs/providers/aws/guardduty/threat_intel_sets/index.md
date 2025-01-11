@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>threat_intel_set</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html"><code>AWS::GuardDuty::ThreatIntelSet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -228,11 +230,12 @@ iam:DeleteRolePolicy
 guardduty:UpdateThreatIntelSet,
 guardduty:GetThreatIntelSet,
 guardduty:ListThreatIntelSets,
-iam:PutRolePolicy
+iam:PutRolePolicy,
+guardduty:TagResource,
+guardduty:UntagResource
 ```
 
 ### List
 ```json
 guardduty:ListThreatIntelSets
 ```
-

@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>entitlement</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-entitlement.html"><code>AWS::AppStream::Entitlement</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,4 +204,3 @@ appstream:UpdateEntitlement
 ```json
 appstream:DeleteEntitlement
 ```
-

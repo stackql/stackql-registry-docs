@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>service_principal_name</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-serviceprincipalname.html"><code>AWS::PCAConnectorAD::ServicePrincipalName</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -186,4 +188,3 @@ pca-connector-ad:DeleteServicePrincipalName
 ```json
 pca-connector-ad:ListServicePrincipalNames
 ```
-

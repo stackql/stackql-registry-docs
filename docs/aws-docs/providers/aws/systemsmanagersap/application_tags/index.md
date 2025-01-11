@@ -32,11 +32,12 @@ Expands all tag keys and values for <code>applications</code> in a region
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Helix application</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the SSM-SAP application</td></tr>
 <tr><td><CopyableCode code="credentials" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="instances" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sap_instance_number" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sid" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="database_arn" /></td><td><code>string</code></td><td>The ARN of the SAP HANA database</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -69,6 +70,7 @@ credentials,
 instances,
 sap_instance_number,
 sid,
+database_arn,
 tag_key,
 tag_value
 FROM aws.systemsmanagersap.application_tags
@@ -79,5 +81,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>application_tags</code> resource, see <a href="/providers/aws/systemsmanagersap/applications/#permissions"><code>applications</code></a>
-
 

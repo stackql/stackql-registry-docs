@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>thing_type</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html"><code>AWS::IoT::ThingType</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -175,6 +177,11 @@ resources:
           SearchableAttributes:
             - '{{ SearchableAttributes[0] }}'
           ThingTypeDescription: '{{ ThingTypeDescription }}'
+          Mqtt5Configuration:
+            PropagatingAttributes:
+              - UserPropertyKey: '{{ UserPropertyKey }}'
+                ThingAttribute: '{{ ThingAttribute }}'
+                ConnectionAttribute: '{{ ConnectionAttribute }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -234,4 +241,3 @@ iot:TagResource,
 iot:UntagResource,
 iot:DeprecateThingType
 ```
-

@@ -34,9 +34,6 @@ Lists <code>data_cells_filters</code> in a region or regions, for all properties
 <tr><td><CopyableCode code="database_name" /></td><td><code>string</code></td><td>The name of the Database that the Table resides in.</td></tr>
 <tr><td><CopyableCode code="table_name" /></td><td><code>string</code></td><td>The name of the Table to create a Data Cells Filter for.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The desired name of the Data Cells Filter.</td></tr>
-<tr><td><CopyableCode code="row_filter" /></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required</td></tr>
-<tr><td><CopyableCode code="column_names" /></td><td><code>array</code></td><td>A list of columns to be included in this Data Cells Filter.</td></tr>
-<tr><td><CopyableCode code="column_wildcard" /></td><td><code>object</code></td><td>An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +69,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>data_cells_filters_list_only</code> resource, see <a href="/providers/aws/lakeformation/data_cells_filters/#permissions"><code>data_cells_filters</code></a>
-
 

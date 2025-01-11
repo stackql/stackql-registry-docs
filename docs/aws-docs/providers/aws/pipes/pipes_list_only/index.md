@@ -30,23 +30,7 @@ Lists <code>pipes</code> in a region or regions, for all properties use <a href=
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="current_state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="desired_state" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enrichment" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enrichment_parameters" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_parameters" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_reason" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="target" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="target_parameters" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -79,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pipes_list_only</code> resource, see <a href="/providers/aws/pipes/pipes/#permissions"><code>pipes</code></a>
-
 

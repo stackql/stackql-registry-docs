@@ -44,6 +44,7 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the Resource.</td></tr>
 <tr><td><CopyableCode code="failure_reasons" /></td><td><code>array</code></td><td>Failure Reasons for Error.</td></tr>
 <tr><td><CopyableCode code="foundation_model" /></td><td><code>string</code></td><td>ARN or name of a Bedrock model.</td></tr>
+<tr><td><CopyableCode code="guardrail_configuration" /></td><td><code>object</code></td><td>Configuration for a guardrail</td></tr>
 <tr><td><CopyableCode code="idle_session_ttl_in_seconds" /></td><td><code>number</code></td><td>Max Session Time.</td></tr>
 <tr><td><CopyableCode code="instruction" /></td><td><code>string</code></td><td>Instruction for the agent.</td></tr>
 <tr><td><CopyableCode code="knowledge_bases" /></td><td><code>array</code></td><td>List of Agent Knowledge Bases</td></tr>
@@ -55,6 +56,8 @@ Creates, updates, deletes or gets an <code>agent</code> resource or lists <code>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>Time Stamp.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html"><code>AWS::Bedrock::Agent</code></a>.
 
 ## Methods
 
@@ -110,6 +113,7 @@ skip_resource_in_use_check_on_delete,
 description,
 failure_reasons,
 foundation_model,
+guardrail_configuration,
 idle_session_ttl_in_seconds,
 instruction,
 knowledge_bases,
@@ -140,6 +144,7 @@ skip_resource_in_use_check_on_delete,
 description,
 failure_reasons,
 foundation_model,
+guardrail_configuration,
 idle_session_ttl_in_seconds,
 instruction,
 knowledge_bases,
@@ -191,6 +196,7 @@ INSERT INTO aws.bedrock.agents (
  SkipResourceInUseCheckOnDelete,
  Description,
  FoundationModel,
+ GuardrailConfiguration,
  IdleSessionTTLInSeconds,
  Instruction,
  KnowledgeBases,
@@ -208,6 +214,7 @@ SELECT
  '{{ SkipResourceInUseCheckOnDelete }}',
  '{{ Description }}',
  '{{ FoundationModel }}',
+ '{{ GuardrailConfiguration }}',
  '{{ IdleSessionTTLInSeconds }}',
  '{{ Instruction }}',
  '{{ KnowledgeBases }}',
@@ -244,6 +251,7 @@ resources:
                 - Name: '{{ Name }}'
                   Description: '{{ Description }}'
                   Parameters: {}
+                  RequireConfirmation: '{{ RequireConfirmation }}'
             SkipResourceInUseCheckOnDelete: '{{ SkipResourceInUseCheckOnDelete }}'
       - name: AgentName
         value: '{{ AgentName }}'
@@ -259,6 +267,10 @@ resources:
         value: '{{ Description }}'
       - name: FoundationModel
         value: '{{ FoundationModel }}'
+      - name: GuardrailConfiguration
+        value:
+          GuardrailIdentifier: '{{ GuardrailIdentifier }}'
+          GuardrailVersion: '{{ GuardrailVersion }}'
       - name: IdleSessionTTLInSeconds
         value: null
       - name: Instruction
@@ -319,6 +331,9 @@ bedrock:GetAgentActionGroup,
 bedrock:ListAgentActionGroups,
 bedrock:TagResource,
 bedrock:ListTagsForResource,
+bedrock:CreateGuardrail,
+bedrock:CreateGuardrailVersion,
+bedrock:GetGuardrail,
 iam:PassRole
 ```
 
@@ -329,7 +344,9 @@ bedrock:GetAgentActionGroup,
 bedrock:ListAgentActionGroups,
 bedrock:GetAgentKnowledgeBase,
 bedrock:ListAgentKnowledgeBases,
-bedrock:ListTagsForResource
+bedrock:ListTagsForResource,
+bedrock:GetGuardrail,
+kms:Decrypt
 ```
 
 ### Update
@@ -350,17 +367,22 @@ bedrock:ListAgentActionGroups,
 bedrock:TagResource,
 bedrock:UntagResource,
 bedrock:ListTagsForResource,
+bedrock:UpdateGuardrail,
+bedrock:GetGuardrail,
+kms:Decrypt,
 iam:PassRole
 ```
 
 ### Delete
 ```json
 bedrock:GetAgent,
-bedrock:DeleteAgent
+bedrock:DeleteAgent,
+bedrock:DeleteGuardrail,
+bedrock:GetGuardrail
 ```
 
 ### List
 ```json
-bedrock:ListAgents
+bedrock:ListAgents,
+bedrock:ListGuardrails
 ```
-

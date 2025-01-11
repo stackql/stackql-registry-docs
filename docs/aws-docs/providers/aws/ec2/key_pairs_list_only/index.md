@@ -31,12 +31,6 @@ Lists <code>key_pairs</code> in a region or regions, for all properties use <a h
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key_name" /></td><td><code>string</code></td><td>A unique name for the key pair.<br />Constraints: Up to 255 ASCII characters</td></tr>
-<tr><td><CopyableCode code="key_type" /></td><td><code>string</code></td><td>The type of key pair. Note that ED25519 keys are not supported for Windows instances.<br />If the <code>PublicKeyMaterial</code> property is specified, the <code>KeyType</code> property is ignored, and the key type is inferred from the <code>PublicKeyMaterial</code> value.<br />Default: <code>rsa</code></td></tr>
-<tr><td><CopyableCode code="key_format" /></td><td><code>string</code></td><td>The format of the key pair.<br />Default: <code>pem</code></td></tr>
-<tr><td><CopyableCode code="public_key_material" /></td><td><code>string</code></td><td>The public key material. The <code>PublicKeyMaterial</code> property is used to import a key pair. If this property is not specified, then a new key pair will be created.</td></tr>
-<tr><td><CopyableCode code="key_fingerprint" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_pair_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to apply to the key pair.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>key_pairs_list_only</code> resource, see <a href="/providers/aws/ec2/key_pairs/#permissions"><code>key_pairs</code></a>
-
 

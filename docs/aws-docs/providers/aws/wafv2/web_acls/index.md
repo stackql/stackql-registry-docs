@@ -49,6 +49,8 @@ Creates, updates, deletes or gets a <code>web_acl</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html"><code>AWS::WAFv2::WebACL</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -509,11 +511,12 @@ wafv2:ListTagsForResource
 ```json
 wafv2:UpdateWebACL,
 wafv2:GetWebACL,
-wafv2:ListTagsForResource
+wafv2:ListTagsForResource,
+wafv2:TagResource,
+wafv2:UntagResource
 ```
 
 ### List
 ```json
 wafv2:listWebACLs
 ```
-

@@ -54,6 +54,8 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html"><code>AWS::Lightsail::Instance</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -355,4 +357,3 @@ lightsail:GetDisk,
 lightsail:TagResource,
 lightsail:UntagResource
 ```
-

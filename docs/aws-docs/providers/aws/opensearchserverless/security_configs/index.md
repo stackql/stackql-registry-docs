@@ -34,9 +34,12 @@ Creates, updates, deletes or gets a <code>security_config</code> resource or lis
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The identifier of the security config</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The friendly name of the security config</td></tr>
 <tr><td><CopyableCode code="saml_options" /></td><td><code>object</code></td><td>Describes saml options in form of key value map</td></tr>
+<tr><td><CopyableCode code="iam_identity_center_options" /></td><td><code>object</code></td><td>Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>Config type for security config</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html"><code>AWS::OpenSearchServerless::SecurityConfig</code></a>.
 
 ## Methods
 
@@ -82,6 +85,7 @@ description,
 id,
 name,
 saml_options,
+iam_identity_center_options,
 type
 FROM aws.opensearchserverless.security_configs
 WHERE region = 'us-east-1';
@@ -94,6 +98,7 @@ description,
 id,
 name,
 saml_options,
+iam_identity_center_options,
 type
 FROM aws.opensearchserverless.security_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
@@ -119,6 +124,7 @@ INSERT INTO aws.opensearchserverless.security_configs (
  Description,
  Name,
  SamlOptions,
+ IamIdentityCenterOptions,
  Type,
  region
 )
@@ -126,6 +132,7 @@ SELECT
 '{{ Description }}',
  '{{ Name }}',
  '{{ SamlOptions }}',
+ '{{ IamIdentityCenterOptions }}',
  '{{ Type }}',
 '{{ region }}';
 ```
@@ -138,6 +145,7 @@ INSERT INTO aws.opensearchserverless.security_configs (
  Description,
  Name,
  SamlOptions,
+ IamIdentityCenterOptions,
  Type,
  region
 )
@@ -145,6 +153,7 @@ SELECT
  '{{ Description }}',
  '{{ Name }}',
  '{{ SamlOptions }}',
+ '{{ IamIdentityCenterOptions }}',
  '{{ Type }}',
  '{{ region }}';
 ```
@@ -173,6 +182,14 @@ resources:
           UserAttribute: '{{ UserAttribute }}'
           GroupAttribute: '{{ GroupAttribute }}'
           SessionTimeout: '{{ SessionTimeout }}'
+      - name: IamIdentityCenterOptions
+        value:
+          InstanceArn: '{{ InstanceArn }}'
+          ApplicationArn: '{{ ApplicationArn }}'
+          ApplicationName: '{{ ApplicationName }}'
+          ApplicationDescription: '{{ ApplicationDescription }}'
+          UserAttribute: '{{ UserAttribute }}'
+          GroupAttribute: '{{ GroupAttribute }}'
       - name: Type
         value: '{{ Type }}'
 
@@ -195,7 +212,13 @@ To operate on the <code>security_configs</code> resource, the following permissi
 
 ### Create
 ```json
-aoss:CreateSecurityConfig
+aoss:CreateSecurityConfig,
+sso:CreateApplication,
+sso:ListApplications,
+sso:DeleteApplication,
+sso:PutApplicationAssignmentConfiguration,
+sso:PutApplicationAuthenticationMethod,
+sso:PutApplicationGrant
 ```
 
 ### Read
@@ -211,11 +234,13 @@ aoss:UpdateSecurityConfig
 
 ### Delete
 ```json
-aoss:DeleteSecurityConfig
+aoss:DeleteSecurityConfig,
+sso:ListApplicationAssignments,
+sso:DeleteApplicationAssignment,
+sso:DeleteApplication
 ```
 
 ### List
 ```json
 aoss:ListSecurityConfigs
 ```
-

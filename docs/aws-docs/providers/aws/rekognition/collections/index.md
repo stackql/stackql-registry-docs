@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>collection</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html"><code>AWS::Rekognition::Collection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,4 +204,3 @@ rekognition:DeleteCollection
 ```json
 rekognition:ListCollections
 ```
-

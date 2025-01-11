@@ -30,10 +30,8 @@ Lists <code>policy_templates</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="policy_store_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy_store_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_template_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="statement" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>policy_templates_list_only</code> resource, see <a href="/providers/aws/verifiedpermissions/policy_templates/#permissions"><code>policy_templates</code></a>
-
 

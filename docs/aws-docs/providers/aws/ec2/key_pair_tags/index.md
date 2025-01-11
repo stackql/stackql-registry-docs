@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>key_pair_tags</code> resource, see <a href="/providers/aws/ec2/key_pairs/#permissions"><code>key_pairs</code></a>
 
-

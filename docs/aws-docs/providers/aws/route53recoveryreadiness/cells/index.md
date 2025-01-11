@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>cell</code> resource or lists <code>ce
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html"><code>AWS::Route53RecoveryReadiness::Cell</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ route53-recovery-readiness:GetCell
 ```json
 route53-recovery-readiness:ListCells
 ```
-

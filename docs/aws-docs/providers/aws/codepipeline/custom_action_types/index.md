@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>custom_action_type</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html"><code>AWS::CodePipeline::CustomActionType</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -264,4 +266,3 @@ codepipeline:ListActionTypes
 ```json
 codepipeline:ListActionTypes
 ```
-

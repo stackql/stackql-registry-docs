@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>account_policy</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html"><code>AWS::Logs::AccountPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -197,6 +199,7 @@ To operate on the <code>account_policies</code> resource, the following permissi
 ### Create
 ```json
 logs:PutAccountPolicy,
+logs:PutIndexPolicy,
 logs:PutDataProtectionPolicy,
 logs:DescribeAccountPolicies,
 logs:CreateLogDelivery,
@@ -204,24 +207,30 @@ s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
 logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
+logs:PutTransformer,
 iam:PassRole
 ```
 
 ### Read
 ```json
-logs:DescribeAccountPolicies
+logs:DescribeAccountPolicies,
+logs:GetTransformer
 ```
 
 ### Update
 ```json
 logs:PutAccountPolicy,
+logs:PutIndexPolicy,
 logs:PutDataProtectionPolicy,
 logs:DescribeAccountPolicies,
 logs:DeleteAccountPolicy,
+logs:DeleteIndexPolicy,
 logs:DeleteDataProtectionPolicy,
 logs:CreateLogDelivery,
 logs:PutSubscriptionFilter,
 logs:DeleteSubscriptionFilter,
+logs:PutTransformer,
+logs:DeleteTransformer,
 s3:REST.PUT.OBJECT,
 firehose:TagDeliveryStream,
 iam:PassRole
@@ -230,14 +239,16 @@ iam:PassRole
 ### Delete
 ```json
 logs:DeleteAccountPolicy,
+logs:DeleteIndexPolicy,
 logs:DeleteDataProtectionPolicy,
 logs:DescribeAccountPolicies,
 logs:DeleteSubscriptionFilter,
+logs:DeleteTransformer,
 iam:PassRole
 ```
 
 ### List
 ```json
-logs:DescribeAccountPolicies
+logs:DescribeAccountPolicies,
+logs:GetTransformer
 ```
-

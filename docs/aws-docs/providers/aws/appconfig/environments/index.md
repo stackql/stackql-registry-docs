@@ -33,11 +33,14 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The environment ID.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the environment.</td></tr>
 <tr><td><CopyableCode code="monitors" /></td><td><code>array</code></td><td>Amazon CloudWatch alarms to monitor during the deployment process.</td></tr>
+<tr><td><CopyableCode code="deletion_protection_check" /></td><td><code>string</code></td><td>On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The application ID.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html"><code>AWS::AppConfig::Environment</code></a>.
 
 ## Methods
 
@@ -82,6 +85,7 @@ region,
 environment_id,
 description,
 monitors,
+deletion_protection_check,
 application_id,
 tags,
 name
@@ -95,6 +99,7 @@ region,
 environment_id,
 description,
 monitors,
+deletion_protection_check,
 application_id,
 tags,
 name
@@ -136,6 +141,7 @@ SELECT
 INSERT INTO aws.appconfig.environments (
  Description,
  Monitors,
+ DeletionProtectionCheck,
  ApplicationId,
  Tags,
  Name,
@@ -144,6 +150,7 @@ INSERT INTO aws.appconfig.environments (
 SELECT 
  '{{ Description }}',
  '{{ Monitors }}',
+ '{{ DeletionProtectionCheck }}',
  '{{ ApplicationId }}',
  '{{ Tags }}',
  '{{ Name }}',
@@ -170,6 +177,8 @@ resources:
         value:
           - AlarmArn: '{{ AlarmArn }}'
             AlarmRoleArn: '{{ AlarmRoleArn }}'
+      - name: DeletionProtectionCheck
+        value: '{{ DeletionProtectionCheck }}'
       - name: ApplicationId
         value: '{{ ApplicationId }}'
       - name: Tags
@@ -229,4 +238,3 @@ appconfig:ListEnvironments
 appconfig:GetEnvironment,
 appconfig:DeleteEnvironment
 ```
-

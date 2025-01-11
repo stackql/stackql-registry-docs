@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>verified_access_instance</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html"><code>AWS::EC2::VerifiedAccessInstance</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -257,6 +259,8 @@ ec2:AttachVerifiedAccessTrustProvider,
 ec2:ModifyVerifiedAccessInstanceLoggingConfiguration,
 ec2:DescribeVerifiedAccessInstances,
 ec2:DescribeVerifiedAccessInstanceLoggingConfigurations,
+ec2:DetachVerifiedAccessTrustProvider,
+ec2:DeleteVerifiedAccessInstance,
 ec2:CreateTags,
 ec2:DescribeTags,
 logs:CreateLogDelivery,
@@ -340,4 +344,3 @@ ec2:DescribeTags,
 logs:ListLogDeliveries,
 logs:GetLogDelivery
 ```
-

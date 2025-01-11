@@ -30,17 +30,17 @@ Expands all tag keys and values for <code>domain_names</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="distribution_domain_name" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="ownership_verification_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="regional_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="regional_domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="security_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="distribution_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="endpoint_configuration" /></td><td><code>object</code></td><td>The <code>EndpointConfiguration</code> property type specifies the endpoint types of a REST API.<br /><code>EndpointConfiguration</code> is a property of the &#91;AWS::ApiGateway::RestApi&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.</td></tr>
-<tr><td><CopyableCode code="mutual_tls_authentication" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="regional_domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="regional_hosted_zone_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="distribution_domain_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="regional_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="ownership_verification_certificate_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_policy" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="certificate_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -66,17 +66,17 @@ Expands tags for all <code>domain_names</code> in a region.
 ```sql
 SELECT
 region,
+mutual_tls_authentication,
+ownership_verification_certificate_arn,
+regional_hosted_zone_id,
+regional_domain_name,
 domain_name,
-distribution_domain_name,
+security_policy,
 distribution_hosted_zone_id,
 endpoint_configuration,
-mutual_tls_authentication,
-regional_domain_name,
-regional_hosted_zone_id,
-certificate_arn,
+distribution_domain_name,
 regional_certificate_arn,
-ownership_verification_certificate_arn,
-security_policy,
+certificate_arn,
 tag_key,
 tag_value
 FROM aws.apigateway.domain_name_tags
@@ -87,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>domain_name_tags</code> resource, see <a href="/providers/aws/apigateway/domain_names/#permissions"><code>domain_names</code></a>
-
 

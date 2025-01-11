@@ -20,7 +20,7 @@ The gamelift service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>27</b></span><br />
+<span>total resources:&nbsp;<b>30</b></span><br />
 </div>
 </div>
 
@@ -33,6 +33,9 @@ The gamelift service documentation.
 <a href="/providers/aws/gamelift/aliases_list_only/">aliases_list_only</a><br />
 <a href="/providers/aws/gamelift/builds/">builds</a><br />
 <a href="/providers/aws/gamelift/builds_list_only/">builds_list_only</a><br />
+<a href="/providers/aws/gamelift/container_fleet_tags/">container_fleet_tags</a><br />
+<a href="/providers/aws/gamelift/container_fleets/">container_fleets</a><br />
+<a href="/providers/aws/gamelift/container_fleets_list_only/">container_fleets_list_only</a><br />
 <a href="/providers/aws/gamelift/container_group_definition_tags/">container_group_definition_tags</a><br />
 <a href="/providers/aws/gamelift/container_group_definitions/">container_group_definitions</a><br />
 <a href="/providers/aws/gamelift/container_group_definitions_list_only/">container_group_definitions_list_only</a><br />
@@ -40,11 +43,11 @@ The gamelift service documentation.
 <a href="/providers/aws/gamelift/fleets_list_only/">fleets_list_only</a><br />
 <a href="/providers/aws/gamelift/game_server_group_tags/">game_server_group_tags</a><br />
 <a href="/providers/aws/gamelift/game_server_groups/">game_server_groups</a><br />
-<a href="/providers/aws/gamelift/game_server_groups_list_only/">game_server_groups_list_only</a><br />
-<a href="/providers/aws/gamelift/game_session_queue_tags/">game_session_queue_tags</a><br />
-<a href="/providers/aws/gamelift/game_session_queues/">game_session_queues</a>
+<a href="/providers/aws/gamelift/game_server_groups_list_only/">game_server_groups_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/gamelift/game_session_queue_tags/">game_session_queue_tags</a><br />
+<a href="/providers/aws/gamelift/game_session_queues/">game_session_queues</a><br />
 <a href="/providers/aws/gamelift/game_session_queues_list_only/">game_session_queues_list_only</a><br />
 <a href="/providers/aws/gamelift/location_tags/">location_tags</a><br />
 <a href="/providers/aws/gamelift/locations/">locations</a><br />

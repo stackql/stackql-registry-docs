@@ -30,14 +30,7 @@ Lists <code>transit_gateway_vpc_attachments</code> in a region or regions, for a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="options" /></td><td><code>object</code></td><td>The options for the transit gateway vpc attachment.</td></tr>
-<tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="remove_subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="add_subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>transit_gateway_vpc_attachments_list_only</code> resource, see <a href="/providers/aws/ec2/transit_gateway_vpc_attachments/#permissions"><code>transit_gateway_vpc_attachments</code></a>
-
 

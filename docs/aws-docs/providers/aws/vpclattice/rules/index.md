@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-rule.html"><code>AWS::VpcLattice::Rule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -252,16 +254,17 @@ vpc-lattice:ListTagsForResource
 vpc-lattice:UpdateRule,
 vpc-lattice:GetRule,
 vpc-lattice:TagResource,
-vpc-lattice:UntagResource
+vpc-lattice:UntagResource,
+vpc-lattice:ListTagsForResource
 ```
 
 ### Delete
 ```json
-vpc-lattice:DeleteRule
+vpc-lattice:DeleteRule,
+vpc-lattice:UntagResource
 ```
 
 ### List
 ```json
 vpc-lattice:ListRules
 ```
-

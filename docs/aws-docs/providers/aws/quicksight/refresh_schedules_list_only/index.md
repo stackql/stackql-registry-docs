@@ -30,8 +30,7 @@ Lists <code>refresh_schedules</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the data source.</p></td></tr>
-<tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_set_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="schedule" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -68,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>refresh_schedules_list_only</code> resource, see <a href="/providers/aws/quicksight/refresh_schedules/#permissions"><code>refresh_schedules</code></a>
-
 

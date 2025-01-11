@@ -64,4 +64,3 @@ FROM aws.route53.dnssecs_list_only
 
 For permissions required to operate on the <code>dnssecs_list_only</code> resource, see <a href="/providers/aws/route53/dnssecs/#permissions"><code>dnssecs</code></a>
 
-

@@ -30,18 +30,19 @@ Expands all tag keys and values for <code>state_machines</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="definition_substitutions" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="definition_string" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="state_machine_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_substitutions" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -67,18 +68,19 @@ Expands tags for all <code>state_machines</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+name,
+definition_string,
+role_arn,
+state_machine_name,
+state_machine_type,
+state_machine_revision_id,
+logging_configuration,
+tracing_configuration,
+encryption_configuration,
+definition_s3_location,
 definition_substitutions,
 definition,
-role_arn,
-name,
-state_machine_type,
-tracing_configuration,
-definition_string,
-logging_configuration,
-state_machine_revision_id,
-definition_s3_location,
-arn,
-state_machine_name,
 tag_key,
 tag_value
 FROM aws.stepfunctions.state_machine_tags
@@ -89,5 +91,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>state_machine_tags</code> resource, see <a href="/providers/aws/stepfunctions/state_machines/#permissions"><code>state_machines</code></a>
-
 

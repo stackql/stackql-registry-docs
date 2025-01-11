@@ -30,11 +30,7 @@ Lists <code>connectors</code> in a region or regions, for all properties use <a 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="certificate_authority_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="connector_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="directory_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_information" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connector_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>connectors_list_only</code> resource, see <a href="/providers/aws/pcaconnectorad/connectors/#permissions"><code>connectors</code></a>
-
 

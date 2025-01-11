@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_route_table_associatio
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html"><code>AWS::EC2::TransitGatewayRouteTableAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -163,13 +165,18 @@ AND region = 'us-east-1';
 
 To operate on the <code>transit_gateway_route_table_associations</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:GetTransitGatewayRouteTableAssociations
+```
+
 ### Create
 ```json
 ec2:AssociateTransitGatewayRouteTable,
 ec2:GetTransitGatewayRouteTableAssociations
 ```
 
-### Read
+### List
 ```json
 ec2:GetTransitGatewayRouteTableAssociations
 ```
@@ -179,9 +186,3 @@ ec2:GetTransitGatewayRouteTableAssociations
 ec2:GetTransitGatewayRouteTableAssociations,
 ec2:DisassociateTransitGatewayRouteTable
 ```
-
-### List
-```json
-ec2:GetTransitGatewayRouteTableAssociations
-```
-

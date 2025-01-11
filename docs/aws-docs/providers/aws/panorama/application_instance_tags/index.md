@@ -25,25 +25,25 @@ Expands all tag keys and values for <code>application_instances</code> in a regi
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>application_instance_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Schema for ApplicationInstance CloudFormation Resource</td></tr>
+<tr><td><b>Description</b></td><td>Creates an application instance and deploys it to a device.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.panorama.application_instance_tags" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="default_runtime_context_device_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="default_runtime_context_device" /></td><td><code>string</code></td><td>The device's ID.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the application instance.</td></tr>
+<tr><td><CopyableCode code="application_instance_id_to_replace" /></td><td><code>string</code></td><td>The ID of an application instance to replace with the new instance.</td></tr>
 <tr><td><CopyableCode code="created_time" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="health_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_overrides_payload" /></td><td><code>object</code></td><td>Setting overrides for the application manifest.</td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="runtime_role_arn" /></td><td><code>string</code></td><td>The ARN of a runtime role for the application instance.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name for the application instance.</td></tr>
 <tr><td><CopyableCode code="application_instance_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status_description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest_payload" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest_payload" /></td><td><code>object</code></td><td>The application's manifest document.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -95,5 +95,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>application_instance_tags</code> resource, see <a href="/providers/aws/panorama/application_instances/#permissions"><code>application_instances</code></a>
-
 

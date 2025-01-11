@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>auto_scaling_configuration_tags</code> resource, see <a href="/providers/aws/apprunner/auto_scaling_configurations/#permissions"><code>auto_scaling_configurations</code></a>
 
-

@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>allow_list</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-allowlist.html"><code>AWS::Macie::AllowList</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -222,4 +224,3 @@ macie2:DeleteAllowList
 ```json
 macie2:ListAllowLists
 ```
-

@@ -31,11 +31,13 @@ Creates, updates, deletes or gets an <code>usage_plan_key</code> resource or lis
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key_id" /></td><td><code>string</code></td><td>The Id of the UsagePlanKey resource.</td></tr>
-<tr><td><CopyableCode code="key_type" /></td><td><code>string</code></td><td>The type of a UsagePlanKey resource for a plan customer.</td></tr>
+<tr><td><CopyableCode code="key_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="usage_plan_id" /></td><td><code>string</code></td><td>The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html"><code>AWS::ApiGateway::UsagePlanKey</code></a>.
 
 ## Methods
 
@@ -196,4 +198,3 @@ apigateway:GET
 ```json
 apigateway:GET
 ```
-

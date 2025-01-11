@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>source_api_association</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html"><code>AWS::AppSync::SourceApiAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -245,4 +247,3 @@ appsync:ListSourceApiAssociations
 ```json
 appsync:ListSourceApiAssociations
 ```
-

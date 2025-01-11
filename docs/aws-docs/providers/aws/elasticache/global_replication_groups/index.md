@@ -34,6 +34,7 @@ Creates, updates, deletes or gets a <code>global_replication_group</code> resour
 <tr><td><CopyableCode code="automatic_failover_enabled" /></td><td><code>boolean</code></td><td>AutomaticFailoverEnabled</td></tr>
 <tr><td><CopyableCode code="cache_node_type" /></td><td><code>string</code></td><td>The cache node type of the Global Datastore</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The engine version of the Global Datastore.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The engine of the Global Datastore.</td></tr>
 <tr><td><CopyableCode code="cache_parameter_group_name" /></td><td><code>string</code></td><td>Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.</td></tr>
 <tr><td><CopyableCode code="global_node_group_count" /></td><td><code>integer</code></td><td>Indicates the number of node groups in the Global Datastore.</td></tr>
 <tr><td><CopyableCode code="global_replication_group_description" /></td><td><code>string</code></td><td>The optional description of the Global Datastore</td></tr>
@@ -43,6 +44,8 @@ Creates, updates, deletes or gets a <code>global_replication_group</code> resour
 <tr><td><CopyableCode code="regional_configurations" /></td><td><code>array</code></td><td>Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html"><code>AWS::ElastiCache::GlobalReplicationGroup</code></a>.
 
 ## Methods
 
@@ -88,6 +91,7 @@ global_replication_group_id_suffix,
 automatic_failover_enabled,
 cache_node_type,
 engine_version,
+engine,
 cache_parameter_group_name,
 global_node_group_count,
 global_replication_group_description,
@@ -106,6 +110,7 @@ global_replication_group_id_suffix,
 automatic_failover_enabled,
 cache_node_type,
 engine_version,
+engine,
 cache_parameter_group_name,
 global_node_group_count,
 global_replication_group_description,
@@ -151,6 +156,7 @@ INSERT INTO aws.elasticache.global_replication_groups (
  AutomaticFailoverEnabled,
  CacheNodeType,
  EngineVersion,
+ Engine,
  CacheParameterGroupName,
  GlobalNodeGroupCount,
  GlobalReplicationGroupDescription,
@@ -163,6 +169,7 @@ SELECT
  '{{ AutomaticFailoverEnabled }}',
  '{{ CacheNodeType }}',
  '{{ EngineVersion }}',
+ '{{ Engine }}',
  '{{ CacheParameterGroupName }}',
  '{{ GlobalNodeGroupCount }}',
  '{{ GlobalReplicationGroupDescription }}',
@@ -193,6 +200,8 @@ resources:
         value: '{{ CacheNodeType }}'
       - name: EngineVersion
         value: '{{ EngineVersion }}'
+      - name: Engine
+        value: '{{ Engine }}'
       - name: CacheParameterGroupName
         value: '{{ CacheParameterGroupName }}'
       - name: GlobalNodeGroupCount
@@ -263,4 +272,3 @@ elasticache:DescribeGlobalReplicationGroups
 ```json
 elasticache:DescribeGlobalReplicationGroups
 ```
-

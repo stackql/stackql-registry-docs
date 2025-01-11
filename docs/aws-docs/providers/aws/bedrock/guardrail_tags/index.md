@@ -33,6 +33,7 @@ Expands all tag keys and values for <code>guardrails</code> in a region
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="blocked_input_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
 <tr><td><CopyableCode code="blocked_outputs_messaging" /></td><td><code>string</code></td><td>Messaging for when violations are detected in text</td></tr>
 <tr><td><CopyableCode code="content_policy_config" /></td><td><code>object</code></td><td>Content policy config for a guardrail.</td></tr>
+<tr><td><CopyableCode code="contextual_grounding_policy_config" /></td><td><code>object</code></td><td>Contextual grounding policy config for a guardrail.</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>Time Stamp</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the guardrail or its version</td></tr>
 <tr><td><CopyableCode code="failure_recommendations" /></td><td><code>array</code></td><td>List of failure recommendations</td></tr>
@@ -75,6 +76,7 @@ region,
 blocked_input_messaging,
 blocked_outputs_messaging,
 content_policy_config,
+contextual_grounding_policy_config,
 created_at,
 description,
 failure_recommendations,
@@ -99,5 +101,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>guardrail_tags</code> resource, see <a href="/providers/aws/bedrock/guardrails/#permissions"><code>guardrails</code></a>
-
 

@@ -30,13 +30,7 @@ Lists <code>thing_groups</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="thing_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="parent_group_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="query_string" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="thing_group_properties" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="thing_group_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>thing_groups_list_only</code> resource, see <a href="/providers/aws/iot/thing_groups/#permissions"><code>thing_groups</code></a>
-
 

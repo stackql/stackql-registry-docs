@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_efs_tags</code> resource, see <a href="/providers/aws/datasync/location_efs/#permissions"><code>location_efs</code></a>
 
-

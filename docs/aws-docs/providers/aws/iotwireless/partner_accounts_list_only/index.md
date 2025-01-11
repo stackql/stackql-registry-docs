@@ -30,15 +30,7 @@ Lists <code>partner_accounts</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="sidewalk" /></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><CopyableCode code="partner_account_id" /></td><td><code>string</code></td><td>The partner account ID to disassociate from the AWS account</td></tr>
-<tr><td><CopyableCode code="partner_type" /></td><td><code>string</code></td><td>The partner type</td></tr>
-<tr><td><CopyableCode code="sidewalk_response" /></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><CopyableCode code="account_linked" /></td><td><code>boolean</code></td><td>Whether the partner account is linked to the AWS account.</td></tr>
-<tr><td><CopyableCode code="sidewalk_update" /></td><td><code>object</code></td><td>The Sidewalk account credentials.</td></tr>
-<tr><td><CopyableCode code="fingerprint" /></td><td><code>string</code></td><td>The fingerprint of the Sidewalk application server private key.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>PartnerAccount arn. Returned after successful create.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the destination.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="partner_account_id" /></td><td><code>string</code></td><td>The partner account ID to disassociate from the AWS account</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>partner_accounts_list_only</code> resource, see <a href="/providers/aws/iotwireless/partner_accounts/#permissions"><code>partner_accounts</code></a>
-
 

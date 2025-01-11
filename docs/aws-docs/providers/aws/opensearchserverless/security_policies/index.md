@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>security_policy</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securitypolicy.html"><code>AWS::OpenSearchServerless::SecurityPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -216,4 +218,3 @@ aoss:ListSecurityPolicies
 aoss:GetSecurityPolicy,
 kms:DescribeKey
 ```
-

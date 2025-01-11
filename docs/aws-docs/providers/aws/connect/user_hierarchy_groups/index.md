@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>user_hierarchy_group</code> resource 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html"><code>AWS::Connect::UserHierarchyGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ connect:UntagResource
 ```json
 connect:ListUserHierarchyGroups
 ```
-

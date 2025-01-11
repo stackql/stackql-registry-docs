@@ -31,13 +31,6 @@ Lists <code>permissions</code> in a region or regions, for all properties use <a
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the permission.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>Version of the permission.</td></tr>
-<tr><td><CopyableCode code="is_resource_type_default" /></td><td><code>boolean</code></td><td>Set to true to use this as the default permission.</td></tr>
-<tr><td><CopyableCode code="permission_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="resource_type" /></td><td><code>string</code></td><td>The resource type this permission can be used with.</td></tr>
-<tr><td><CopyableCode code="policy_template" /></td><td><code>object</code></td><td>Policy template for the permission.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>permissions_list_only</code> resource, see <a href="/providers/aws/ram/permissions/#permissions"><code>permissions</code></a>
-
 

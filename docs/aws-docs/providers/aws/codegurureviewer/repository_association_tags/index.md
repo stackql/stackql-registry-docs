@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>repository_association_tags</code> resource, see <a href="/providers/aws/codegurureviewer/repository_associations/#permissions"><code>repository_associations</code></a>
 
-

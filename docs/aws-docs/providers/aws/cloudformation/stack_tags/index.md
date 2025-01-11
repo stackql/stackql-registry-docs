@@ -110,4 +110,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>stack_tags</code> resource, see <a href="/providers/aws/cloudformation/stacks/#permissions"><code>stacks</code></a>
 
-

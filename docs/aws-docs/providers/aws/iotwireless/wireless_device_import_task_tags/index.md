@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>wireless_device_import_task_tags</code> resource, see <a href="/providers/aws/iotwireless/wireless_device_import_tasks/#permissions"><code>wireless_device_import_tasks</code></a>
 
-

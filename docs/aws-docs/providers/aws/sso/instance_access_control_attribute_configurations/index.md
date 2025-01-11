@@ -36,6 +36,8 @@ Creates, updates, deletes or gets an <code>instance_access_control_attribute_con
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html"><code>AWS::SSO::InstanceAccessControlAttributeConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -206,4 +208,3 @@ sso:DescribeInstanceAccessControlAttributeConfiguration
 ```json
 sso:DescribeInstanceAccessControlAttributeConfiguration
 ```
-

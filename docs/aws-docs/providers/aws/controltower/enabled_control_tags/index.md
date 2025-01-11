@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>enabled_control_tags</code> resource, see <a href="/providers/aws/controltower/enabled_controls/#permissions"><code>enabled_controls</code></a>
 
-

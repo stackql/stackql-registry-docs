@@ -30,12 +30,7 @@ Lists <code>network_settings</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="network_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>network_settings_list_only</code> resource, see <a href="/providers/aws/workspacesweb/network_settings/#permissions"><code>network_settings</code></a>
-
 

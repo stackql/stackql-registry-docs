@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>app</code> resource or lists <code>ap
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html"><code>AWS::SageMaker::App</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -179,6 +181,7 @@ resources:
           InstanceType: '{{ InstanceType }}'
           SageMakerImageArn: '{{ SageMakerImageArn }}'
           SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+          LifecycleConfigArn: '{{ LifecycleConfigArn }}'
       - name: Tags
         value:
           - Value: '{{ Value }}'
@@ -225,4 +228,3 @@ sagemaker:DescribeApp
 ```json
 sagemaker:ListApps
 ```
-

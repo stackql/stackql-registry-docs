@@ -30,10 +30,8 @@ Lists <code>trust_store_revocations</code> in a region or regions, for all prope
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="revocation_contents" /></td><td><code>array</code></td><td>The attributes required to create a trust store revocation.</td></tr>
-<tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the trust store.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="trust_store_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the trust store.</td></tr>
 <tr><td><CopyableCode code="revocation_id" /></td><td><code>integer</code></td><td>The ID associated with the revocation.</td></tr>
-<tr><td><CopyableCode code="trust_store_revocations" /></td><td><code>array</code></td><td>The data associated with a trust store revocation</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>trust_store_revocations_list_only</code> resource, see <a href="/providers/aws/elasticloadbalancingv2/trust_store_revocations/#permissions"><code>trust_store_revocations</code></a>
-
 

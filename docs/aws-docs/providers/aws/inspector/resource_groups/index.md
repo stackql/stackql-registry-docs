@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>resource_group</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html"><code>AWS::Inspector::ResourceGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -160,4 +162,3 @@ inspector:CreateResourceGroup
 ```json
 inspector:CreateResourceGroup
 ```
-

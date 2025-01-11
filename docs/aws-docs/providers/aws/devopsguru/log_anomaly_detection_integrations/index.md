@@ -34,6 +34,8 @@ Creates, updates, deletes or gets a <code>log_anomaly_detection_integration</cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html"><code>AWS::DevOpsGuru::LogAnomalyDetectionIntegration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -189,4 +191,3 @@ logs:UntagLogGroup
 ```json
 devops-guru:DescribeServiceIntegration
 ```
-

@@ -31,15 +31,6 @@ Lists <code>anomaly_monitors</code> in a region or regions, for all properties u
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="monitor_arn" /></td><td><code>string</code></td><td>Subscription ARN</td></tr>
-<tr><td><CopyableCode code="monitor_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="monitor_name" /></td><td><code>string</code></td><td>The name of the monitor.</td></tr>
-<tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td>The date when the monitor was created.</td></tr>
-<tr><td><CopyableCode code="last_evaluated_date" /></td><td><code>string</code></td><td>The date when the monitor last evaluated for anomalies.</td></tr>
-<tr><td><CopyableCode code="last_updated_date" /></td><td><code>string</code></td><td>The date when the monitor was last updated.</td></tr>
-<tr><td><CopyableCode code="monitor_dimension" /></td><td><code>string</code></td><td>The dimensions to evaluate</td></tr>
-<tr><td><CopyableCode code="monitor_specification" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="dimensional_value_count" /></td><td><code>integer</code></td><td>The value for evaluated dimensions.</td></tr>
-<tr><td><CopyableCode code="resource_tags" /></td><td><code>array</code></td><td>Tags to assign to monitor.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>anomaly_monitors_list_only</code> resource, see <a href="/providers/aws/ce/anomaly_monitors/#permissions"><code>anomaly_monitors</code></a>
-
 

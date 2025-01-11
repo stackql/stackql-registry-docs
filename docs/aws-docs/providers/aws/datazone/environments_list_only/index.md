@@ -30,25 +30,8 @@ Lists <code>environments</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="aws_account_id" /></td><td><code>string</code></td><td>The AWS account in which the Amazon DataZone environment is created.</td></tr>
-<tr><td><CopyableCode code="aws_account_region" /></td><td><code>string</code></td><td>The AWS region in which the Amazon DataZone environment is created.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the environment was created.</td></tr>
-<tr><td><CopyableCode code="created_by" /></td><td><code>string</code></td><td>The Amazon DataZone user who created the environment.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the Amazon DataZone environment.</td></tr>
-<tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the environment is created.</td></tr>
-<tr><td><CopyableCode code="domain_identifier" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the environment would be created.</td></tr>
-<tr><td><CopyableCode code="environment_blueprint_id" /></td><td><code>string</code></td><td>The ID of the blueprint with which the Amazon DataZone environment was created.</td></tr>
-<tr><td><CopyableCode code="environment_profile_id" /></td><td><code>string</code></td><td>The ID of the environment profile with which the Amazon DataZone environment was created.</td></tr>
-<tr><td><CopyableCode code="environment_profile_identifier" /></td><td><code>string</code></td><td>The ID of the environment profile with which the Amazon DataZone environment would be created.</td></tr>
-<tr><td><CopyableCode code="glossary_terms" /></td><td><code>array</code></td><td>The glossary terms that can be used in the Amazon DataZone environment.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The identifier of the Amazon DataZone domain in which the environment is created.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone environment.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
-<tr><td><CopyableCode code="project_id" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone project in which the environment is created.</td></tr>
-<tr><td><CopyableCode code="project_identifier" /></td><td><code>string</code></td><td>The ID of the Amazon DataZone project in which the environment would be created.</td></tr>
-<tr><td><CopyableCode code="provider" /></td><td><code>string</code></td><td>The provider of the Amazon DataZone environment.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the Amazon DataZone environment.</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The timestamp of when the environment was updated.</td></tr>
-<tr><td><CopyableCode code="user_parameters" /></td><td><code>array</code></td><td>The user parameters of the Amazon DataZone environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -82,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>environments_list_only</code> resource, see <a href="/providers/aws/datazone/environments/#permissions"><code>environments</code></a>
-
 

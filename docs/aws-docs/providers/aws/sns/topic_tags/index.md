@@ -41,7 +41,7 @@ Expands all tag keys and values for <code>topics</code> in a region
 <tr><td><CopyableCode code="topic_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="signature_version" /></td><td><code>string</code></td><td>The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, <code>SignatureVersion</code> is set to <code>1</code>.</td></tr>
 <tr><td><CopyableCode code="tracing_config" /></td><td><code>string</code></td><td>Tracing mode of an SNS topic. By default <code>TracingConfig</code> is set to <code>PassThrough</code>, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to <code>Active</code>, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.</td></tr>
-<tr><td><CopyableCode code="delivery_status_logging" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="delivery_status_logging" /></td><td><code>array</code></td><td>The <code>DeliveryStatusLogging</code> configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:<br />+ HTTP <br />+ Amazon Kinesis Data Firehose<br />+ AWS Lambda<br />+ Platform application endpoint<br />+ Amazon Simple Queue Service<br /><br />Once configured, log entries are sent to Amazon CloudWatch Logs.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -89,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>topic_tags</code> resource, see <a href="/providers/aws/sns/topics/#permissions"><code>topics</code></a>
-
 

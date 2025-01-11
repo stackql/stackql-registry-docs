@@ -36,10 +36,14 @@ Creates, updates, deletes or gets a <code>channel</code> resource or lists <code
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the channel was created.</p></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the channel.</p></td></tr>
 <tr><td><CopyableCode code="ingest_endpoints" /></td><td><code>array</code></td><td><p>The list of ingest endpoints.</p></td></tr>
+<tr><td><CopyableCode code="input_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the channel was modified.</p></td></tr>
+<tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html"><code>AWS::MediaPackageV2::Channel</code></a>.
 
 ## Methods
 
@@ -87,7 +91,9 @@ channel_name,
 created_at,
 description,
 ingest_endpoints,
+input_type,
 modified_at,
+ingest_endpoint_urls,
 tags
 FROM aws.mediapackagev2.channels
 WHERE region = 'us-east-1';
@@ -102,7 +108,9 @@ channel_name,
 created_at,
 description,
 ingest_endpoints,
+input_type,
 modified_at,
+ingest_endpoint_urls,
 tags
 FROM aws.mediapackagev2.channels
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
@@ -143,6 +151,7 @@ INSERT INTO aws.mediapackagev2.channels (
  ChannelGroupName,
  ChannelName,
  Description,
+ InputType,
  Tags,
  region
 )
@@ -150,6 +159,7 @@ SELECT
  '{{ ChannelGroupName }}',
  '{{ ChannelName }}',
  '{{ Description }}',
+ '{{ InputType }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -174,6 +184,8 @@ resources:
         value: '{{ ChannelName }}'
       - name: Description
         value: '{{ Description }}'
+      - name: InputType
+        value: '{{ InputType }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -225,4 +237,3 @@ mediapackagev2:DeleteChannel
 ```json
 mediapackagev2:ListChannels
 ```
-

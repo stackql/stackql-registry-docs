@@ -30,28 +30,7 @@ Lists <code>influxdb_instances</code> in a region or regions, for all properties
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="username" /></td><td><code>string</code></td><td>The username for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="password" /></td><td><code>string</code></td><td>The password for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="organization" /></td><td><code>string</code></td><td>The organization for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="bucket" /></td><td><code>string</code></td><td>The bucket for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="db_instance_type" /></td><td><code>string</code></td><td>The compute instance of the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="vpc_subnet_ids" /></td><td><code>array</code></td><td>A list of EC2 subnet IDs for this InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>A list of Amazon EC2 VPC security groups to associate with this InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Attach a public IP to the customer ENI.</td></tr>
-<tr><td><CopyableCode code="db_storage_type" /></td><td><code>string</code></td><td>The storage type of the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="allocated_storage" /></td><td><code>integer</code></td><td>The allocated storage for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="db_parameter_group_identifier" /></td><td><code>string</code></td><td>The name of an existing InfluxDB parameter group.</td></tr>
-<tr><td><CopyableCode code="log_delivery_configuration" /></td><td><code>object</code></td><td>Configuration for sending logs to customer account from the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Status of the InfluxDB Instance.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that is associated with the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The unique name that is associated with the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="availability_zone" /></td><td><code>string</code></td><td>The Availability Zone (AZ) where the InfluxDB instance is created.</td></tr>
-<tr><td><CopyableCode code="secondary_availability_zone" /></td><td><code>string</code></td><td>The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.</td></tr>
-<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The connection endpoint for the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="influx_auth_parameters_secret_arn" /></td><td><code>string</code></td><td>The Auth parameters secret Amazon Resource name (ARN) that is associated with the InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The service generated unique identifier for InfluxDB instance.</td></tr>
-<tr><td><CopyableCode code="deployment_type" /></td><td><code>string</code></td><td>Deployment type of the InfluxDB Instance.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this DB instance.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The service generated unique identifier for InfluxDB instance.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -84,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>influxdb_instances_list_only</code> resource, see <a href="/providers/aws/timestream/influxdb_instances/#permissions"><code>influxdb_instances</code></a>
-
 

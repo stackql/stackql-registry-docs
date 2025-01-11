@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>tls_inspection_configuration_tags</code> resource, see <a href="/providers/aws/networkfirewall/tls_inspection_configurations/#permissions"><code>tls_inspection_configurations</code></a>
 
-

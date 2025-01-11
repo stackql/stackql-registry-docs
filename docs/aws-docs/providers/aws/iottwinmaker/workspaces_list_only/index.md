@@ -31,13 +31,6 @@ Lists <code>workspaces</code> in a region or regions, for all properties use <a 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workspace_id" /></td><td><code>string</code></td><td>The ID of the workspace.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the workspace.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the workspace.</td></tr>
-<tr><td><CopyableCode code="role" /></td><td><code>string</code></td><td>The ARN of the execution role associated with the workspace.</td></tr>
-<tr><td><CopyableCode code="s3_location" /></td><td><code>string</code></td><td>The ARN of the S3 bucket where resources associated with the workspace are stored.</td></tr>
-<tr><td><CopyableCode code="creation_date_time" /></td><td><code>string</code></td><td>The date and time when the workspace was created.</td></tr>
-<tr><td><CopyableCode code="update_date_time" /></td><td><code>string</code></td><td>The date and time of the current update.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A map of key-value pairs to associate with a resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>workspaces_list_only</code> resource, see <a href="/providers/aws/iottwinmaker/workspaces/#permissions"><code>workspaces</code></a>
-
 

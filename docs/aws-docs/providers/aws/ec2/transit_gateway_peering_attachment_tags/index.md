@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>transit_gateway_peering_attachment_tags</code> resource, see <a href="/providers/aws/ec2/transit_gateway_peering_attachments/#permissions"><code>transit_gateway_peering_attachments</code></a>
 
-

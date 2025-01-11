@@ -35,8 +35,11 @@ Creates, updates, deletes or gets a <code>code_signing_config</code> resource or
 <tr><td><CopyableCode code="code_signing_policies" /></td><td><code>object</code></td><td>Policies to control how to act if a signature is invalid</td></tr>
 <tr><td><CopyableCode code="code_signing_config_id" /></td><td><code>string</code></td><td>A unique identifier for CodeSigningConfig resource</td></tr>
 <tr><td><CopyableCode code="code_signing_config_arn" /></td><td><code>string</code></td><td>A unique Arn for CodeSigningConfig resource</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags to apply to CodeSigningConfig resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html"><code>AWS::Lambda::CodeSigningConfig</code></a>.
 
 ## Methods
 
@@ -82,7 +85,8 @@ description,
 allowed_publishers,
 code_signing_policies,
 code_signing_config_id,
-code_signing_config_arn
+code_signing_config_arn,
+tags
 FROM aws.lambda.code_signing_configs
 WHERE region = 'us-east-1';
 ```
@@ -94,7 +98,8 @@ description,
 allowed_publishers,
 code_signing_policies,
 code_signing_config_id,
-code_signing_config_arn
+code_signing_config_arn,
+tags
 FROM aws.lambda.code_signing_configs
 WHERE region = 'us-east-1' AND data__Identifier = '<CodeSigningConfigArn>';
 ```
@@ -132,12 +137,14 @@ INSERT INTO aws.lambda.code_signing_configs (
  Description,
  AllowedPublishers,
  CodeSigningPolicies,
+ Tags,
  region
 )
 SELECT 
  '{{ Description }}',
  '{{ AllowedPublishers }}',
  '{{ CodeSigningPolicies }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -164,6 +171,10 @@ resources:
       - name: CodeSigningPolicies
         value:
           UntrustedArtifactOnDeployment: '{{ UntrustedArtifactOnDeployment }}'
+      - name: Tags
+        value:
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -184,17 +195,22 @@ To operate on the <code>code_signing_configs</code> resource, the following perm
 
 ### Create
 ```json
-lambda:CreateCodeSigningConfig
+lambda:CreateCodeSigningConfig,
+lambda:TagResource
 ```
 
 ### Read
 ```json
-lambda:GetCodeSigningConfig
+lambda:GetCodeSigningConfig,
+lambda:ListTags
 ```
 
 ### Update
 ```json
-lambda:UpdateCodeSigningConfig
+lambda:UpdateCodeSigningConfig,
+lambda:ListTags,
+lambda:TagResource,
+lambda:UntagResource
 ```
 
 ### Delete
@@ -206,4 +222,3 @@ lambda:DeleteCodeSigningConfig
 ```json
 lambda:ListCodeSigningConfigs
 ```
-

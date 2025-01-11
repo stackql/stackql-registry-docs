@@ -31,7 +31,6 @@ Lists <code>registry_policies</code> in a region or regions, for all properties 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="registry_id" /></td><td><code>string</code></td><td>The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.</td></tr>
-<tr><td><CopyableCode code="policy_text" /></td><td><code>object</code></td><td>The JSON policy text for your registry.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>registry_policies_list_only</code> resource, see <a href="/providers/aws/ecr/registry_policies/#permissions"><code>registry_policies</code></a>
-
 

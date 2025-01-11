@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>environment_account_connection_tags</code> resource, see <a href="/providers/aws/proton/environment_account_connections/#permissions"><code>environment_account_connections</code></a>
 
-

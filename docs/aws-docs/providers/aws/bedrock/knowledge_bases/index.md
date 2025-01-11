@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html"><code>AWS::Bedrock::KnowledgeBase</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -56,7 +58,7 @@ Creates, updates, deletes or gets a <code>knowledge_base</code> resource or list
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="KnowledgeBaseConfiguration, Name, RoleArn, StorageConfiguration, region" /></td>
+    <td><CopyableCode code="KnowledgeBaseConfiguration, Name, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -140,14 +142,12 @@ INSERT INTO aws.bedrock.knowledge_bases (
  KnowledgeBaseConfiguration,
  Name,
  RoleArn,
- StorageConfiguration,
  region
 )
 SELECT 
 '{{ KnowledgeBaseConfiguration }}',
  '{{ Name }}',
  '{{ RoleArn }}',
- '{{ StorageConfiguration }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -195,6 +195,16 @@ resources:
           Type: '{{ Type }}'
           VectorKnowledgeBaseConfiguration:
             EmbeddingModelArn: '{{ EmbeddingModelArn }}'
+            EmbeddingModelConfiguration:
+              BedrockEmbeddingModelConfiguration:
+                Dimensions: '{{ Dimensions }}'
+            SupplementalDataStorageConfiguration:
+              SupplementalDataStorageLocations:
+                - SupplementalDataStorageLocationType: '{{ SupplementalDataStorageLocationType }}'
+                  S3Location:
+                    URI: '{{ URI }}'
+          KendraKnowledgeBaseConfiguration:
+            KendraIndexArn: '{{ KendraIndexArn }}'
       - name: Name
         value: '{{ Name }}'
       - name: RoleArn
@@ -223,6 +233,17 @@ resources:
             TableName: '{{ TableName }}'
             FieldMapping:
               PrimaryKeyField: '{{ PrimaryKeyField }}'
+              VectorField: '{{ VectorField }}'
+              TextField: '{{ TextField }}'
+              MetadataField: '{{ MetadataField }}'
+          MongoDbAtlasConfiguration:
+            Endpoint: '{{ Endpoint }}'
+            CredentialsSecretArn: '{{ CredentialsSecretArn }}'
+            DatabaseName: '{{ DatabaseName }}'
+            CollectionName: '{{ CollectionName }}'
+            VectorIndexName: '{{ VectorIndexName }}'
+            EndpointServiceName: '{{ EndpointServiceName }}'
+            FieldMapping:
               VectorField: '{{ VectorField }}'
               TextField: '{{ TextField }}'
               MetadataField: '{{ MetadataField }}'
@@ -284,4 +305,3 @@ bedrock:ListDataSources
 ```json
 bedrock:ListKnowledgeBases
 ```
-

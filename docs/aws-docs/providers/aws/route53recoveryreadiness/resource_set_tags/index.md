@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>resource_set_tags</code> resource, see <a href="/providers/aws/route53recoveryreadiness/resource_sets/#permissions"><code>resource_sets</code></a>
 
-

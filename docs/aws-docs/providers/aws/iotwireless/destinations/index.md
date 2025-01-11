@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>destination</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html"><code>AWS::IoTWireless::Destination</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -207,8 +209,7 @@ To operate on the <code>destinations</code> resource, the following permissions 
 ```json
 iam:PassRole,
 iotwireless:CreateDestination,
-iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Read
@@ -220,9 +221,10 @@ iotwireless:ListTagsForResource
 ### Update
 ```json
 iam:PassRole,
+iotwireless:GetDestination,
 iotwireless:UpdateDestination,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Delete
@@ -235,4 +237,3 @@ iotwireless:DeleteDestination
 iotwireless:ListDestinations,
 iotwireless:ListTagsForResource
 ```
-

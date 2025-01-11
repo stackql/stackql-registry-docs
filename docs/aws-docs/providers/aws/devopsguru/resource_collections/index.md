@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>resource_collection</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html"><code>AWS::DevOpsGuru::ResourceCollection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,4 +198,3 @@ devops-guru:GetResourceCollection
 devops-guru:UpdateResourceCollection,
 devops-guru:GetResourceCollection
 ```
-

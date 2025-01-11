@@ -30,15 +30,8 @@ Lists <code>spaces</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="space_arn" /></td><td><code>string</code></td><td>The space Amazon Resource Name (ARN).</td></tr>
-<tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_id" /></td><td><code>string</code></td><td>The ID of the associated Domain.</td></tr>
 <tr><td><CopyableCode code="space_name" /></td><td><code>string</code></td><td>A name for the Space.</td></tr>
-<tr><td><CopyableCode code="space_settings" /></td><td><code>object</code></td><td>A collection of settings.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags to apply to the space.</td></tr>
-<tr><td><CopyableCode code="ownership_settings" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="space_sharing_settings" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="space_display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="url" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>spaces_list_only</code> resource, see <a href="/providers/aws/sagemaker/spaces/#permissions"><code>spaces</code></a>
-
 

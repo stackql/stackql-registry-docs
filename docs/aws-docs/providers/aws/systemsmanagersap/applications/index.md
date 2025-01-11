@@ -32,14 +32,17 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the Helix application</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the SSM-SAP application</td></tr>
 <tr><td><CopyableCode code="credentials" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="instances" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="sap_instance_number" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sid" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags of a SystemsManagerSAP application.</td></tr>
+<tr><td><CopyableCode code="database_arn" /></td><td><code>string</code></td><td>The ARN of the SAP HANA database</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html"><code>AWS::SystemsManagerSAP::Application</code></a>.
 
 ## Methods
 
@@ -88,7 +91,8 @@ credentials,
 instances,
 sap_instance_number,
 sid,
-tags
+tags,
+database_arn
 FROM aws.systemsmanagersap.applications
 WHERE region = 'us-east-1';
 ```
@@ -103,7 +107,8 @@ credentials,
 instances,
 sap_instance_number,
 sid,
-tags
+tags,
+database_arn
 FROM aws.systemsmanagersap.applications
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -147,6 +152,7 @@ INSERT INTO aws.systemsmanagersap.applications (
  SapInstanceNumber,
  Sid,
  Tags,
+ DatabaseArn,
  region
 )
 SELECT 
@@ -157,6 +163,7 @@ SELECT
  '{{ SapInstanceNumber }}',
  '{{ Sid }}',
  '{{ Tags }}',
+ '{{ DatabaseArn }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -194,6 +201,8 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: DatabaseArn
+        value: '{{ DatabaseArn }}'
 
 ```
 </TabItem>
@@ -217,7 +226,8 @@ To operate on the <code>applications</code> resource, the following permissions 
 ssm-sap:RegisterApplication,
 ssm-sap:GetApplication,
 ssm-sap:TagResource,
-ssm-sap:ListTagsForResource
+ssm-sap:ListTagsForResource,
+iam:CreateServiceLinkedRole
 ```
 
 ### Read
@@ -244,4 +254,3 @@ ssm-sap:GetApplication
 ```json
 ssm-sap:ListApplications
 ```
-

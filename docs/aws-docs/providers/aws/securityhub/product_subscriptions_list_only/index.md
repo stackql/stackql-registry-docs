@@ -30,8 +30,7 @@ Lists <code>product_subscriptions</code> in a region or regions, for all propert
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="product_arn" /></td><td><code>string</code></td><td>The generic ARN of the product being subscribed to</td></tr>
-<tr><td><CopyableCode code="product_subscription_arn" /></td><td><code>string</code></td><td>The ARN of the product subscription for the account</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="product_subscription_arn" /></td><td><code>string</code></td><td>The ARN of the product subscription for the account</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>product_subscriptions_list_only</code> resource, see <a href="/providers/aws/securityhub/product_subscriptions/#permissions"><code>product_subscriptions</code></a>
-
 

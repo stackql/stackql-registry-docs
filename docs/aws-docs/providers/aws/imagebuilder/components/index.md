@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>component</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html"><code>AWS::ImageBuilder::Component</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -235,7 +237,10 @@ To operate on the <code>components</code> resource, the following permissions ar
 ```json
 iam:CreateServiceLinkedRole,
 iam:GetRole,
-kms:GenerateDataKey*,
+kms:GenerateDataKey,
+kms:GenerateDataKeyPair,
+kms:GenerateDataKeyPairWithoutPlaintext,
+kms:GenerateDataKeyWithoutPlaintext,
 kms:Encrypt,
 kms:Decrypt,
 s3:GetObject,
@@ -248,7 +253,8 @@ imagebuilder:CreateComponent
 
 ### Read
 ```json
-imagebuilder:GetComponent
+imagebuilder:GetComponent,
+kms:Decrypt
 ```
 
 ### Delete
@@ -260,6 +266,6 @@ imagebuilder:DeleteComponent
 
 ### List
 ```json
-imagebuilder:ListComponents
+imagebuilder:ListComponents,
+imagebuilder:ListComponentBuildVersions
 ```
-

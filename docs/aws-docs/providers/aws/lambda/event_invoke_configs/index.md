@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>event_invoke_config</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventinvokeconfig.html"><code>AWS::Lambda::EventInvokeConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ lambda:DeleteFunctionEventInvokeConfig
 ```json
 lambda:ListFunctionEventInvokeConfigs
 ```
-

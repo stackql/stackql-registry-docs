@@ -30,11 +30,7 @@ Lists <code>rule_groups_namespaces</code> in a region or regions, for all proper
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="workspace" /></td><td><code>string</code></td><td>Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The RuleGroupsNamespace name.</td></tr>
-<tr><td><CopyableCode code="data" /></td><td><code>string</code></td><td>The RuleGroupsNamespace data.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The RuleGroupsNamespace ARN.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The RuleGroupsNamespace ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>rule_groups_namespaces_list_only</code> resource, see <a href="/providers/aws/aps/rule_groups_namespaces/#permissions"><code>rule_groups_namespaces</code></a>
-
 

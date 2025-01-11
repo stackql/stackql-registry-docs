@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>link</code> resource or lists <code>li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html"><code>AWS::Oam::Link</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -203,6 +205,8 @@ To operate on the <code>links</code> resource, the following permissions are req
 ```json
 oam:CreateLink,
 oam:GetLink,
+oam:TagResource,
+oam:ListTagsForResource,
 cloudwatch:Link,
 logs:Link,
 xray:Link,
@@ -212,7 +216,8 @@ internetmonitor:Link
 
 ### Read
 ```json
-oam:GetLink
+oam:GetLink,
+oam:ListTagsForResource
 ```
 
 ### Update
@@ -225,7 +230,8 @@ xray:Link,
 applicationinsights:Link,
 internetmonitor:Link,
 oam:TagResource,
-oam:UntagResource
+oam:UntagResource,
+oam:ListTagsForResource
 ```
 
 ### Delete
@@ -238,4 +244,3 @@ oam:GetLink
 ```json
 oam:ListLinks
 ```
-

@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>job_queue_tags</code> resource, see <a href="/providers/aws/batch/job_queues/#permissions"><code>job_queues</code></a>
 
-

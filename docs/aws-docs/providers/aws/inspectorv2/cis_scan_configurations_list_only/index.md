@@ -30,12 +30,7 @@ Lists <code>cis_scan_configurations</code> in a region or regions, for all prope
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scan_name" /></td><td><code>string</code></td><td>Name of the scan</td></tr>
-<tr><td><CopyableCode code="security_level" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="schedule" /></td><td><code>undefined</code></td><td>Choose a Schedule cadence</td></tr>
-<tr><td><CopyableCode code="targets" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>CIS Scan configuration unique identifier</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>CIS Scan configuration unique identifier</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>cis_scan_configurations_list_only</code> resource, see <a href="/providers/aws/inspectorv2/cis_scan_configurations/#permissions"><code>cis_scan_configurations</code></a>
-
 

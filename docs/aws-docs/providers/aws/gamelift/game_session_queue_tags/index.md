@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>game_session_queue_tags</code> resource, see <a href="/providers/aws/gamelift/game_session_queues/#permissions"><code>game_session_queues</code></a>
 
-

@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>security_group</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html"><code>AWS::EC2::SecurityGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -253,7 +255,7 @@ ec2:DescribeSecurityGroups
 
 ### Delete
 ```json
+ec2:DescribeSecurityGroups,
 ec2:DeleteSecurityGroup,
 ec2:DescribeInstances
 ```
-

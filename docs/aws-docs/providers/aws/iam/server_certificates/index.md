@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>server_certificate</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html"><code>AWS::IAM::ServerCertificate</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -239,4 +241,3 @@ iam:DeleteServerCertificate
 iam:ListServerCertificates,
 iam:GetServerCertificate
 ```
-

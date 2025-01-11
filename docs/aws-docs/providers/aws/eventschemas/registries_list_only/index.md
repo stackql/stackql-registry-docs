@@ -30,10 +30,7 @@ Lists <code>registries</code> in a region or regions, for all properties use <a 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="registry_name" /></td><td><code>string</code></td><td>The name of the schema registry.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the registry to be created.</td></tr>
-<tr><td><CopyableCode code="registry_arn" /></td><td><code>string</code></td><td>The ARN of the registry.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags associated with the resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="registry_arn" /></td><td><code>string</code></td><td>The ARN of the registry.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>registries_list_only</code> resource, see <a href="/providers/aws/eventschemas/registries/#permissions"><code>registries</code></a>
-
 

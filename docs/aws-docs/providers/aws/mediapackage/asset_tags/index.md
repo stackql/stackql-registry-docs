@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>asset_tags</code> resource, see <a href="/providers/aws/mediapackage/assets/#permissions"><code>assets</code></a>
 
-

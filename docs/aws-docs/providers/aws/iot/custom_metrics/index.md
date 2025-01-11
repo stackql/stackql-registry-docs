@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>custom_metric</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html"><code>AWS::IoT::CustomMetric</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ iot:DeleteCustomMetric
 ```json
 iot:ListCustomMetrics
 ```
-

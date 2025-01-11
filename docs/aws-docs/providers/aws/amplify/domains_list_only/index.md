@@ -30,19 +30,7 @@ Lists <code>domains</code> in a region or regions, for all properties use <a hre
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_sub_domain_creation_patterns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="auto_sub_domain_iam_role" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_record" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_settings" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="update_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_auto_sub_domain" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="status_reason" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sub_domain_settings" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>domains_list_only</code> resource, see <a href="/providers/aws/amplify/domains/#permissions"><code>domains</code></a>
-
 

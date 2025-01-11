@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>repository_link_tags</code> resource, see <a href="/providers/aws/codestarconnections/repository_links/#permissions"><code>repository_links</code></a>
 
-

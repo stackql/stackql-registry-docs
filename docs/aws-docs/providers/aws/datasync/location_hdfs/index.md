@@ -48,6 +48,8 @@ Creates, updates, deletes or gets a <code>location_hdf</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationhdf.html"><code>AWS::DataSync::LocationHDFS</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -292,4 +294,3 @@ datasync:DeleteLocation
 ```json
 datasync:ListLocations
 ```
-

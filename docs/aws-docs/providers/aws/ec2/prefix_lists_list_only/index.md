@@ -30,15 +30,7 @@ Lists <code>prefix_lists</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="prefix_list_name" /></td><td><code>string</code></td><td>Name of Prefix List.</td></tr>
-<tr><td><CopyableCode code="prefix_list_id" /></td><td><code>string</code></td><td>Id of Prefix List.</td></tr>
-<tr><td><CopyableCode code="owner_id" /></td><td><code>string</code></td><td>Owner Id of Prefix List.</td></tr>
-<tr><td><CopyableCode code="address_family" /></td><td><code>string</code></td><td>Ip Version of Prefix List.</td></tr>
-<tr><td><CopyableCode code="max_entries" /></td><td><code>integer</code></td><td>Max Entries of Prefix List.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>integer</code></td><td>Version of Prefix List.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Tags for Prefix List</td></tr>
-<tr><td><CopyableCode code="entries" /></td><td><code>array</code></td><td>Entries of Prefix List.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Prefix List.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="prefix_list_id" /></td><td><code>string</code></td><td>Id of Prefix List.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>prefix_lists_list_only</code> resource, see <a href="/providers/aws/ec2/prefix_lists/#permissions"><code>prefix_lists</code></a>
-
 

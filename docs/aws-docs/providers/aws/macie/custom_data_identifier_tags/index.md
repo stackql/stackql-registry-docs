@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>custom_data_identifier_tags</code> resource, see <a href="/providers/aws/macie/custom_data_identifiers/#permissions"><code>custom_data_identifiers</code></a>
 
-

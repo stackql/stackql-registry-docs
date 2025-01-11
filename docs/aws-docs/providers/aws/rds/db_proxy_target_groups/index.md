@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>db_proxy_target_group</code> resource 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html"><code>AWS::RDS::DBProxyTargetGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -231,4 +233,3 @@ rds:DeregisterDBProxyTargets
 ```json
 rds:DescribeDBProxyTargetGroups
 ```
-

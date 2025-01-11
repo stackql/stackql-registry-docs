@@ -20,7 +20,7 @@ The vpclattice service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>35</b></span><br />
 </div>
 </div>
 
@@ -36,14 +36,23 @@ The vpclattice service documentation.
 <a href="/providers/aws/vpclattice/listener_tags/">listener_tags</a><br />
 <a href="/providers/aws/vpclattice/listeners/">listeners</a><br />
 <a href="/providers/aws/vpclattice/listeners_list_only/">listeners_list_only</a><br />
+<a href="/providers/aws/vpclattice/resource_configuration_tags/">resource_configuration_tags</a><br />
+<a href="/providers/aws/vpclattice/resource_configurations/">resource_configurations</a><br />
+<a href="/providers/aws/vpclattice/resource_configurations_list_only/">resource_configurations_list_only</a><br />
+<a href="/providers/aws/vpclattice/resource_gateway_tags/">resource_gateway_tags</a><br />
+<a href="/providers/aws/vpclattice/resource_gateways/">resource_gateways</a><br />
+<a href="/providers/aws/vpclattice/resource_gateways_list_only/">resource_gateways_list_only</a><br />
 <a href="/providers/aws/vpclattice/resource_policies/">resource_policies</a><br />
 <a href="/providers/aws/vpclattice/rule_tags/">rule_tags</a><br />
 <a href="/providers/aws/vpclattice/rules/">rules</a><br />
 <a href="/providers/aws/vpclattice/rules_list_only/">rules_list_only</a><br />
-<a href="/providers/aws/vpclattice/service_network_service_association_tags/">service_network_service_association_tags</a><br />
-<a href="/providers/aws/vpclattice/service_network_service_associations/">service_network_service_associations</a>
+<a href="/providers/aws/vpclattice/service_network_resource_association_tags/">service_network_resource_association_tags</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/vpclattice/service_network_resource_associations/">service_network_resource_associations</a><br />
+<a href="/providers/aws/vpclattice/service_network_resource_associations_list_only/">service_network_resource_associations_list_only</a><br />
+<a href="/providers/aws/vpclattice/service_network_service_association_tags/">service_network_service_association_tags</a><br />
+<a href="/providers/aws/vpclattice/service_network_service_associations/">service_network_service_associations</a><br />
 <a href="/providers/aws/vpclattice/service_network_service_associations_list_only/">service_network_service_associations_list_only</a><br />
 <a href="/providers/aws/vpclattice/service_network_tags/">service_network_tags</a><br />
 <a href="/providers/aws/vpclattice/service_network_vpc_association_tags/">service_network_vpc_association_tags</a><br />

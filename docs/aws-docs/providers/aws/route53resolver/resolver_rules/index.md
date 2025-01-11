@@ -32,14 +32,16 @@ Creates, updates, deletes or gets a <code>resolver_rule</code> resource or lists
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resolver_endpoint_id" /></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the Resolver rule</td></tr>
 <tr><td><CopyableCode code="rule_type" /></td><td><code>string</code></td><td>When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.</td></tr>
+<tr><td><CopyableCode code="resolver_rule_id" /></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resolver rule.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="target_ips" /></td><td><code>array</code></td><td>An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the resolver rule.</td></tr>
-<tr><td><CopyableCode code="resolver_rule_id" /></td><td><code>string</code></td><td>The ID of the endpoint that the rule is associated with.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the Resolver rule</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html"><code>AWS::Route53Resolver::ResolverRule</code></a>.
 
 ## Methods
 
@@ -52,7 +54,7 @@ Creates, updates, deletes or gets a <code>resolver_rule</code> resource or lists
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="DomainName, RuleType, region" /></td>
+    <td><CopyableCode code="RuleType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -83,12 +85,12 @@ SELECT
 region,
 resolver_endpoint_id,
 domain_name,
-name,
 rule_type,
+resolver_rule_id,
+arn,
 tags,
 target_ips,
-arn,
-resolver_rule_id
+name
 FROM aws.route53resolver.resolver_rules
 WHERE region = 'us-east-1';
 ```
@@ -98,12 +100,12 @@ SELECT
 region,
 resolver_endpoint_id,
 domain_name,
-name,
 rule_type,
+resolver_rule_id,
+arn,
 tags,
 target_ips,
-arn,
-resolver_rule_id
+name
 FROM aws.route53resolver.resolver_rules
 WHERE region = 'us-east-1' AND data__Identifier = '<ResolverRuleId>';
 ```
@@ -125,13 +127,11 @@ Use the following StackQL query and manifest file to create a new <code>resolver
 ```sql
 /*+ create */
 INSERT INTO aws.route53resolver.resolver_rules (
- DomainName,
  RuleType,
  region
 )
 SELECT 
-'{{ DomainName }}',
- '{{ RuleType }}',
+'{{ RuleType }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -142,19 +142,19 @@ SELECT
 INSERT INTO aws.route53resolver.resolver_rules (
  ResolverEndpointId,
  DomainName,
- Name,
  RuleType,
  Tags,
  TargetIps,
+ Name,
  region
 )
 SELECT 
  '{{ ResolverEndpointId }}',
  '{{ DomainName }}',
- '{{ Name }}',
  '{{ RuleType }}',
  '{{ Tags }}',
  '{{ TargetIps }}',
+ '{{ Name }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -176,20 +176,21 @@ resources:
         value: '{{ ResolverEndpointId }}'
       - name: DomainName
         value: '{{ DomainName }}'
-      - name: Name
-        value: '{{ Name }}'
       - name: RuleType
         value: '{{ RuleType }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
       - name: TargetIps
         value:
-          - Ip: '{{ Ip }}'
-            Ipv6: '{{ Ipv6 }}'
+          - Ipv6: '{{ Ipv6 }}'
+            Ip: '{{ Ip }}'
             Port: '{{ Port }}'
             Protocol: '{{ Protocol }}'
+            ServerNameIndication: '{{ ServerNameIndication }}'
+      - name: Name
+        value: '{{ Name }}'
 
 ```
 </TabItem>
@@ -208,18 +209,18 @@ AND region = 'us-east-1';
 
 To operate on the <code>resolver_rules</code> resource, the following permissions are required:
 
+### Read
+```json
+route53resolver:GetResolverRule,
+route53resolver:ListTagsForResource
+```
+
 ### Create
 ```json
 route53resolver:CreateResolverRule,
 route53resolver:GetResolverRule,
 route53resolver:ListTagsForResource,
 route53resolver:TagResource
-```
-
-### Read
-```json
-route53resolver:GetResolverRule,
-route53resolver:ListTagsForResource
 ```
 
 ### Update
@@ -231,14 +232,13 @@ route53resolver:TagResource,
 route53resolver:UntagResource
 ```
 
-### Delete
-```json
-route53resolver:DeleteResolverRule,
-route53resolver:GetResolverRule
-```
-
 ### List
 ```json
 route53resolver:ListResolverRules
 ```
 
+### Delete
+```json
+route53resolver:DeleteResolverRule,
+route53resolver:GetResolverRule
+```

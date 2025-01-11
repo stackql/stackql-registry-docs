@@ -38,11 +38,14 @@ Creates, updates, deletes or gets a <code>core_network</code> resource or lists 
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The creation time of core network</td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of core network</td></tr>
 <tr><td><CopyableCode code="segments" /></td><td><code>array</code></td><td>The segments within a core network.</td></tr>
+<tr><td><CopyableCode code="network_function_groups" /></td><td><code>array</code></td><td>The network function groups within a core network.</td></tr>
 <tr><td><CopyableCode code="edges" /></td><td><code>array</code></td><td>The edges within a core network.</td></tr>
 <tr><td><CopyableCode code="owner_account" /></td><td><code>string</code></td><td>Owner of the core network</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags for the global network.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html"><code>AWS::NetworkManager::CoreNetwork</code></a>.
 
 ## Methods
 
@@ -92,6 +95,7 @@ description,
 created_at,
 state,
 segments,
+network_function_groups,
 edges,
 owner_account,
 tags
@@ -110,6 +114,7 @@ description,
 created_at,
 state,
 segments,
+network_function_groups,
 edges,
 owner_account,
 tags
@@ -244,4 +249,3 @@ ec2:DescribeRegions
 ```json
 networkmanager:ListCoreNetworks
 ```
-

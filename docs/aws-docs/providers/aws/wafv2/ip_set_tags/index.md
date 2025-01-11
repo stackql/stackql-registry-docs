@@ -80,4 +80,3 @@ FROM aws.wafv2.ip_set_tags
 
 For permissions required to operate on the <code>ip_set_tags</code> resource, see <a href="/providers/aws/wafv2/ip_sets/#permissions"><code>ip_sets</code></a>
 
-

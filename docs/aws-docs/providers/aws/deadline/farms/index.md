@@ -35,8 +35,11 @@ Creates, updates, deletes or gets a <code>farm</code> resource or lists <code>fa
 <tr><td><CopyableCode code="farm_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-farm.html"><code>AWS::Deadline::Farm</code></a>.
 
 ## Methods
 
@@ -82,7 +85,8 @@ description,
 display_name,
 farm_id,
 kms_key_arn,
-arn
+arn,
+tags
 FROM aws.deadline.farms
 WHERE region = 'us-east-1';
 ```
@@ -94,7 +98,8 @@ description,
 display_name,
 farm_id,
 kms_key_arn,
-arn
+arn,
+tags
 FROM aws.deadline.farms
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -132,12 +137,14 @@ INSERT INTO aws.deadline.farms (
  Description,
  DisplayName,
  KmsKeyArn,
+ Tags,
  region
 )
 SELECT 
  '{{ Description }}',
  '{{ DisplayName }}',
  '{{ KmsKeyArn }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -161,6 +168,10 @@ resources:
         value: '{{ DisplayName }}'
       - name: KmsKeyArn
         value: '{{ KmsKeyArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -183,6 +194,9 @@ To operate on the <code>farms</code> resource, the following permissions are req
 ```json
 deadline:CreateFarm,
 deadline:GetFarm,
+deadline:TagResource,
+deadline:ListTagsForResource,
+identitystore:ListGroupMembershipsForMember,
 kms:Encrypt,
 kms:Decrypt,
 kms:CreateGrant,
@@ -192,6 +206,7 @@ kms:GenerateDataKey
 ### Read
 ```json
 deadline:GetFarm,
+deadline:ListTagsForResource,
 identitystore:ListGroupMembershipsForMember,
 kms:Encrypt,
 kms:Decrypt,
@@ -203,6 +218,9 @@ kms:GenerateDataKey
 ```json
 deadline:UpdateFarm,
 deadline:GetFarm,
+deadline:TagResource,
+deadline:UntagResource,
+deadline:ListTagsForResource,
 identitystore:ListGroupMembershipsForMember,
 kms:Encrypt,
 kms:Decrypt,
@@ -226,4 +244,3 @@ kms:GenerateDataKey
 deadline:ListFarms,
 identitystore:ListGroupMembershipsForMember
 ```
-

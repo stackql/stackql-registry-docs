@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>flow_entitlement</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html"><code>AWS::MediaConnect::FlowEntitlement</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -247,4 +249,3 @@ mediaconnect:RevokeFlowEntitlement
 ```json
 mediaconnect:DescribeFlow
 ```
-

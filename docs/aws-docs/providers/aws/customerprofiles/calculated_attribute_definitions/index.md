@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>calculated_attribute_definition</code>
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
 <tr><td><CopyableCode code="calculated_attribute_name" /></td><td><code>string</code></td><td>The unique name of the calculated attribute.</td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>The display name of the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the calculated attribute.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the event trigger.</td></tr>
 <tr><td><CopyableCode code="attribute_details" /></td><td><code>object</code></td><td>Mathematical expression and a list of attribute items specified in that expression.</td></tr>
 <tr><td><CopyableCode code="conditions" /></td><td><code>object</code></td><td>The conditions including range, object count, and threshold for the calculated attribute.</td></tr>
 <tr><td><CopyableCode code="statistic" /></td><td><code>string</code></td><td>The aggregation operation to perform for the calculated attribute.</td></tr>
@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>calculated_attribute_definition</code>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html"><code>AWS::CustomerProfiles::CalculatedAttributeDefinition</code></a>.
 
 ## Methods
 
@@ -260,4 +262,3 @@ profile:DeleteCalculatedAttributeDefinition
 ```json
 profile:ListCalculatedAttributeDefinitions
 ```
-

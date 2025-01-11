@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>access_grants_location</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantslocation.html"><code>AWS::S3::AccessGrantsLocation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -190,7 +192,8 @@ s3:TagResource
 
 ### Read
 ```json
-s3:GetAccessGrantsLocation
+s3:GetAccessGrantsLocation,
+s3:ListTagsForResource
 ```
 
 ### Delete
@@ -207,6 +210,6 @@ s3:ListAccessGrantsLocations
 ```json
 s3:UpdateAccessGrantsLocation,
 s3:TagResource,
+s3:UntagResource,
 iam:PassRole
 ```
-

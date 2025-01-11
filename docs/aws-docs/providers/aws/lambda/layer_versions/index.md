@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>layer_version</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html"><code>AWS::Lambda::LayerVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ lambda:DeleteLayerVersion
 ```json
 lambda:ListLayerVersions
 ```
-

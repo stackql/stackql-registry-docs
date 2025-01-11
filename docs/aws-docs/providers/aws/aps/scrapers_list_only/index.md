@@ -30,14 +30,7 @@ Lists <code>scrapers</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scraper_id" /></td><td><code>string</code></td><td>Required to identify a specific scraper.</td></tr>
-<tr><td><CopyableCode code="alias" /></td><td><code>string</code></td><td>Scraper alias.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Scraper ARN.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>IAM role ARN for the scraper.</td></tr>
-<tr><td><CopyableCode code="scrape_configuration" /></td><td><code>object</code></td><td>Scraper configuration</td></tr>
-<tr><td><CopyableCode code="source" /></td><td><code>object</code></td><td>Scraper metrics source</td></tr>
-<tr><td><CopyableCode code="destination" /></td><td><code>object</code></td><td>Scraper metrics destination</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Scraper ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>scrapers_list_only</code> resource, see <a href="/providers/aws/aps/scrapers/#permissions"><code>scrapers</code></a>
-
 

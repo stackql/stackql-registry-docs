@@ -40,6 +40,7 @@ Expands all tag keys and values for <code>microsoft_teams_channel_configurations
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) of the configuration</td></tr>
 <tr><td><CopyableCode code="guardrail_policies" /></td><td><code>array</code></td><td>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.</td></tr>
 <tr><td><CopyableCode code="user_role_required" /></td><td><code>boolean</code></td><td>Enables use of a user role requirement in your chat configuration</td></tr>
+<tr><td><CopyableCode code="customization_resource_arns" /></td><td><code>array</code></td><td>ARNs of Custom Actions to associate with notifications in the provided chat channel.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -75,6 +76,7 @@ logging_level,
 arn,
 guardrail_policies,
 user_role_required,
+customization_resource_arns,
 tag_key,
 tag_value
 FROM aws.chatbot.microsoft_teams_channel_configuration_tags
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>microsoft_teams_channel_configuration_tags</code> resource, see <a href="/providers/aws/chatbot/microsoft_teams_channel_configurations/#permissions"><code>microsoft_teams_channel_configurations</code></a>
-
 

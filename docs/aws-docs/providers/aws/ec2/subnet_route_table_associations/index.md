@@ -30,11 +30,13 @@ Creates, updates, deletes or gets a <code>subnet_route_table_association</code> 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.<br />The physical ID changes when the route table ID is changed.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table.<br />The physical ID changes when the route table ID is changed.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="subnet_id" /></td><td><code>string</code></td><td>The ID of the subnet.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html"><code>AWS::EC2::SubnetRouteTableAssociation</code></a>.
 
 ## Methods
 
@@ -71,8 +73,8 @@ Gets all <code>subnet_route_table_associations</code> in a region.
 ```sql
 SELECT
 region,
-id,
 route_table_id,
+id,
 subnet_id
 FROM aws.ec2.subnet_route_table_associations
 WHERE region = 'us-east-1';
@@ -81,8 +83,8 @@ Gets all properties from an individual <code>subnet_route_table_association</cod
 ```sql
 SELECT
 region,
-id,
 route_table_id,
+id,
 subnet_id
 FROM aws.ec2.subnet_route_table_associations
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
@@ -166,6 +168,11 @@ AND region = 'us-east-1';
 
 To operate on the <code>subnet_route_table_associations</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeRouteTables
+```
+
 ### Create
 ```json
 ec2:AssociateRouteTable,
@@ -174,7 +181,7 @@ ec2:DescribeSubnets,
 ec2:DescribeRouteTables
 ```
 
-### Read
+### List
 ```json
 ec2:DescribeRouteTables
 ```
@@ -185,9 +192,3 @@ ec2:DisassociateRouteTable,
 ec2:DescribeSubnets,
 ec2:DescribeRouteTables
 ```
-
-### List
-```json
-ec2:DescribeRouteTables
-```
-

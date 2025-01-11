@@ -102,4 +102,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>scheduled_query_tags</code> resource, see <a href="/providers/aws/timestream/scheduled_queries/#permissions"><code>scheduled_queries</code></a>
 
-

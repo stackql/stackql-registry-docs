@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>instance_profile</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-instanceprofile.html"><code>AWS::DMS::InstanceProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -270,7 +272,7 @@ dms:ListTagsForResource
 dms:UpdateInstanceProfile,
 dms:ModifyInstanceProfile,
 dms:AddTagsToResource,
-dms:RemoveTagsToResource,
+dms:RemoveTagsFromResource,
 dms:ListTagsForResource
 ```
 
@@ -285,4 +287,3 @@ dms:ListInstanceProfiles,
 dms:DescribeInstanceProfiles,
 dms:ListTagsForResource
 ```
-

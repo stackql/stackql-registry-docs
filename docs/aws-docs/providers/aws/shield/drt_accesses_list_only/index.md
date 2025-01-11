@@ -31,8 +31,6 @@ Lists <code>drt_accesses</code> in a region or regions, for all properties use <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="log_bucket_list" /></td><td><code>array</code></td><td>Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the SRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.shield.drt_accesses_list_only
 ## Permissions
 
 For permissions required to operate on the <code>drt_accesses_list_only</code> resource, see <a href="/providers/aws/shield/drt_accesses/#permissions"><code>drt_accesses</code></a>
-
 

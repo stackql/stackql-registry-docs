@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>network_settings_tags</code> resource, see <a href="/providers/aws/workspacesweb/network_settings/#permissions"><code>network_settings</code></a>
 
-

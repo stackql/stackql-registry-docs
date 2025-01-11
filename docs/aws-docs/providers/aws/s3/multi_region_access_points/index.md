@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>multi_region_access_point</code> resou
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html"><code>AWS::S3::MultiRegionAccessPoint</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -203,4 +205,3 @@ s3:GetMultiRegionAccessPoint
 ```json
 s3:ListMultiRegionAccessPoints
 ```
-

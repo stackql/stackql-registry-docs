@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>core_networks</code> in a region
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The creation time of core network</td></tr>
 <tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of core network</td></tr>
 <tr><td><CopyableCode code="segments" /></td><td><code>array</code></td><td>The segments within a core network.</td></tr>
+<tr><td><CopyableCode code="network_function_groups" /></td><td><code>array</code></td><td>The network function groups within a core network.</td></tr>
 <tr><td><CopyableCode code="edges" /></td><td><code>array</code></td><td>The edges within a core network.</td></tr>
 <tr><td><CopyableCode code="owner_account" /></td><td><code>string</code></td><td>Owner of the core network</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
@@ -73,6 +74,7 @@ description,
 created_at,
 state,
 segments,
+network_function_groups,
 edges,
 owner_account,
 tag_key,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>core_network_tags</code> resource, see <a href="/providers/aws/networkmanager/core_networks/#permissions"><code>core_networks</code></a>
-
 

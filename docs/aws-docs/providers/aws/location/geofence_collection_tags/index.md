@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>geofence_collection_tags</code> resource, see <a href="/providers/aws/location/geofence_collections/#permissions"><code>geofence_collections</code></a>
 
-

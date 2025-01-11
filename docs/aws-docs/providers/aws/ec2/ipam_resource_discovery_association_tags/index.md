@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ipam_resource_discovery_association_tags</code> resource, see <a href="/providers/aws/ec2/ipam_resource_discovery_associations/#permissions"><code>ipam_resource_discovery_associations</code></a>
 
-

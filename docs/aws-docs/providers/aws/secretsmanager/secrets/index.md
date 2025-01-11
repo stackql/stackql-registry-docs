@@ -25,7 +25,7 @@ Creates, updates, deletes or gets a <code>secret</code> resource or lists <code>
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>secrets</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.<br />For RDS master user credentials, see &#91;AWS::RDS::DBCluster MasterUserSecret&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html).<br />To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see &#91;Retrieve a secret in an resource&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).<br />A common scenario is to first create a secret with <code>GenerateSecretString</code>, which generates a password, and then use a dynamic reference to retrieve the username and password from the secret to use as credentials for a new database. See the example *Creating a Redshift cluster and a secret for the admin credentials*.<br />For information about creating a secret in the console, see &#91;Create a secret&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see &#91;CreateSecret&#93;(https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).<br />For information about retrieving a secret in code, see &#91;Retrieve secrets from Secrets Manager&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).</td></tr>
+<tr><td><b>Description</b></td><td>Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.<br />For RDS master user credentials, see &#91;AWS::RDS::DBCluster MasterUserSecret&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html).<br />For RS admin user credentials, see &#91;AWS::Redshift::Cluster&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html).<br />To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see &#91;Retrieve a secret in an resource&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).<br />For information about creating a secret in the console, see &#91;Create a secret&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see &#91;CreateSecret&#93;(https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).<br />For information about retrieving a secret in code, see &#91;Retrieve secrets from Secrets Manager&#93;(https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.secretsmanager.secrets" /></td></tr>
 </tbody></table>
 
@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>secret</code> resource or lists <code>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the new secret.<br />The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-<br />Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html"><code>AWS::SecretsManager::Secret</code></a>.
 
 ## Methods
 
@@ -235,7 +237,8 @@ To operate on the <code>secrets</code> resource, the following permissions are r
 secretsmanager:DescribeSecret,
 secretsmanager:GetRandomPassword,
 secretsmanager:CreateSecret,
-secretsmanager:TagResource
+secretsmanager:TagResource,
+secretsmanager:ReplicateSecretToRegions
 ```
 
 ### Delete
@@ -266,4 +269,3 @@ secretsmanager:GetSecretValue,
 secretsmanager:ReplicateSecretToRegions,
 secretsmanager:RemoveRegionsFromReplication
 ```
-

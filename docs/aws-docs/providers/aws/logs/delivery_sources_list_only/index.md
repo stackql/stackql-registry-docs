@@ -31,12 +31,6 @@ Lists <code>delivery_sources</code> in a region or regions, for all properties u
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The unique name of the Log source.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) that uniquely identifies this delivery source.</td></tr>
-<tr><td><CopyableCode code="resource_arns" /></td><td><code>array</code></td><td>This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.</td></tr>
-<tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td>The ARN of the resource that will be sending the logs.</td></tr>
-<tr><td><CopyableCode code="service" /></td><td><code>string</code></td><td>The AWS service that is sending logs.</td></tr>
-<tr><td><CopyableCode code="log_type" /></td><td><code>string</code></td><td>The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags that have been assigned to this delivery source.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>delivery_sources_list_only</code> resource, see <a href="/providers/aws/logs/delivery_sources/#permissions"><code>delivery_sources</code></a>
-
 

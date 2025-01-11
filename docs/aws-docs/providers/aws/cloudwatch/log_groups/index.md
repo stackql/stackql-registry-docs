@@ -72,4 +72,3 @@ Represents a log group.
 
 
 
-

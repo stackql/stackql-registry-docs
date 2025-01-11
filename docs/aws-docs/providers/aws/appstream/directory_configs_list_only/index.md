@@ -30,10 +30,7 @@ Lists <code>directory_configs</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="organizational_unit_distinguished_names" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_account_credentials" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="directory_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="certificate_based_auth_properties" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="directory_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>directory_configs_list_only</code> resource, see <a href="/providers/aws/appstream/directory_configs/#permissions"><code>directory_configs</code></a>
-
 

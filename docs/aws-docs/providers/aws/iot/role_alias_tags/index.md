@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>role_alias_tags</code> resource, see <a href="/providers/aws/iot/role_aliases/#permissions"><code>role_aliases</code></a>
 
-

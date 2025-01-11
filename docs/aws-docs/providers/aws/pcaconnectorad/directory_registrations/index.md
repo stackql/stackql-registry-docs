@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>directory_registration</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-directoryregistration.html"><code>AWS::PCAConnectorAD::DirectoryRegistration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -171,25 +173,27 @@ To operate on the <code>directory_registrations</code> resource, the following p
 
 ### Create
 ```json
+ds:AuthorizeApplication,
+ds:DescribeDirectories,
 pca-connector-ad:GetDirectoryRegistration,
 pca-connector-ad:CreateDirectoryRegistration,
-ds:AuthorizeApplication,
-ds:DescribeDirectories
+pca-connector-ad:TagResource
 ```
 
 ### Read
 ```json
-pca-connector-ad:ListTagsForResource,
-pca-connector-ad:GetDirectoryRegistration
+pca-connector-ad:GetDirectoryRegistration,
+pca-connector-ad:ListTagsForResource
 ```
 
 ### Delete
 ```json
-pca-connector-ad:GetDirectoryRegistration,
-pca-connector-ad:DeleteDirectoryRegistration,
 ds:DescribeDirectories,
 ds:UnauthorizeApplication,
-ds:UpdateAuthorizedApplication
+ds:UpdateAuthorizedApplication,
+pca-connector-ad:GetDirectoryRegistration,
+pca-connector-ad:DeleteDirectoryRegistration,
+pca-connector-ad:UntagResource
 ```
 
 ### List
@@ -203,4 +207,3 @@ pca-connector-ad:ListTagsForResource,
 pca-connector-ad:TagResource,
 pca-connector-ad:UntagResource
 ```
-

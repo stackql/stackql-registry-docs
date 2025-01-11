@@ -37,6 +37,7 @@ Expands all tag keys and values for <code>configured_table_associations</code> i
 <tr><td><CopyableCode code="membership_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="configured_table_association_analysis_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -69,6 +70,7 @@ description,
 membership_identifier,
 name,
 role_arn,
+configured_table_association_analysis_rules,
 tag_key,
 tag_value
 FROM aws.cleanrooms.configured_table_association_tags
@@ -79,5 +81,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>configured_table_association_tags</code> resource, see <a href="/providers/aws/cleanrooms/configured_table_associations/#permissions"><code>configured_table_associations</code></a>
-
 

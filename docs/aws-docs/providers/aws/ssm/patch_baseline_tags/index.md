@@ -94,4 +94,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>patch_baseline_tags</code> resource, see <a href="/providers/aws/ssm/patch_baselines/#permissions"><code>patch_baselines</code></a>
 
-

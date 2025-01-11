@@ -30,17 +30,7 @@ Lists <code>replication_configs</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replication_config_identifier" /></td><td><code>string</code></td><td>A unique identifier of replication configuration</td></tr>
-<tr><td><CopyableCode code="replication_config_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Replication Config</td></tr>
-<tr><td><CopyableCode code="source_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration</td></tr>
-<tr><td><CopyableCode code="target_endpoint_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration</td></tr>
-<tr><td><CopyableCode code="replication_type" /></td><td><code>string</code></td><td>The type of AWS DMS Serverless replication to provision using this replication configuration</td></tr>
-<tr><td><CopyableCode code="compute_config" /></td><td><code>object</code></td><td>Configuration parameters for provisioning a AWS DMS Serverless replication</td></tr>
-<tr><td><CopyableCode code="replication_settings" /></td><td><code>object</code></td><td>JSON settings for Servereless replications that are provisioned using this replication configuration</td></tr>
-<tr><td><CopyableCode code="supplemental_settings" /></td><td><code>object</code></td><td>JSON settings for specifying supplemental data</td></tr>
-<tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td>A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource</td></tr>
-<tr><td><CopyableCode code="table_mappings" /></td><td><code>object</code></td><td>JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="replication_config_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Replication Config</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>replication_configs_list_only</code> resource, see <a href="/providers/aws/dms/replication_configs/#permissions"><code>replication_configs</code></a>
-
 

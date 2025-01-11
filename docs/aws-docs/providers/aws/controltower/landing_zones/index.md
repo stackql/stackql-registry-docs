@@ -30,16 +30,18 @@ Creates, updates, deletes or gets a <code>landing_zone</code> resource or lists 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="latest_available_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
+<tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-landingzone.html"><code>AWS::ControlTower::LandingZone</code></a>.
 
 ## Methods
 
@@ -81,13 +83,13 @@ Gets all <code>landing_zones</code> in a region.
 ```sql
 SELECT
 region,
-landing_zone_identifier,
-arn,
 status,
 latest_available_version,
-drift_status,
-manifest,
 version,
+drift_status,
+arn,
+manifest,
+landing_zone_identifier,
 tags
 FROM aws.controltower.landing_zones
 WHERE region = 'us-east-1';
@@ -96,13 +98,13 @@ Gets all properties from an individual <code>landing_zone</code>.
 ```sql
 SELECT
 region,
-landing_zone_identifier,
-arn,
 status,
 latest_available_version,
-drift_status,
-manifest,
 version,
+drift_status,
+arn,
+manifest,
+landing_zone_identifier,
 tags
 FROM aws.controltower.landing_zones
 WHERE region = 'us-east-1' AND data__Identifier = '<LandingZoneIdentifier>';
@@ -125,13 +127,13 @@ Use the following StackQL query and manifest file to create a new <code>landing_
 ```sql
 /*+ create */
 INSERT INTO aws.controltower.landing_zones (
- Manifest,
  Version,
+ Manifest,
  region
 )
 SELECT 
-'{{ Manifest }}',
- '{{ Version }}',
+'{{ Version }}',
+ '{{ Manifest }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -140,14 +142,14 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.controltower.landing_zones (
- Manifest,
  Version,
+ Manifest,
  Tags,
  region
 )
 SELECT 
- '{{ Manifest }}',
  '{{ Version }}',
+ '{{ Manifest }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -166,14 +168,14 @@ globals:
 resources:
   - name: landing_zone
     props:
-      - name: Manifest
-        value: null
       - name: Version
         value: '{{ Version }}'
+      - name: Manifest
+        value: null
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -191,6 +193,12 @@ AND region = 'us-east-1';
 ## Permissions
 
 To operate on the <code>landing_zones</code> resource, the following permissions are required:
+
+### Read
+```json
+controltower:GetLandingZone,
+controltower:ListTagsForResource
+```
 
 ### Create
 ```json
@@ -225,12 +233,6 @@ sso:GetPeregrineStatus,
 sso:ListDirectoryAssociations,
 sso:StartPeregrine,
 sso:RegisterRegion
-```
-
-### Read
-```json
-controltower:GetLandingZone,
-controltower:ListTagsForResource
 ```
 
 ### Update
@@ -269,6 +271,11 @@ sso:StartPeregrine,
 sso:RegisterRegion
 ```
 
+### List
+```json
+controltower:ListLandingZones
+```
+
 ### Delete
 ```json
 controltower:DeleteLandingZone,
@@ -294,9 +301,3 @@ iam:DeleteRolePolicy,
 iam:DetachRolePolicy,
 iam:DeleteRole
 ```
-
-### List
-```json
-controltower:ListLandingZones
-```
-

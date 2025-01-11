@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>trust_anchor_tags</code> resource, see <a href="/providers/aws/rolesanywhere/trust_anchors/#permissions"><code>trust_anchors</code></a>
 
-

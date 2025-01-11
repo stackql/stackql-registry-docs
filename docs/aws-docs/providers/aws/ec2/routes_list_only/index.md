@@ -30,22 +30,8 @@ Lists <code>routes</code> in a region or regions, for all properties use <a href
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="carrier_gateway_id" /></td><td><code>string</code></td><td>The ID of the carrier gateway.<br />You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</td></tr>
-<tr><td><CopyableCode code="cidr_block" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="core_network_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the core network.</td></tr>
-<tr><td><CopyableCode code="destination_cidr_block" /></td><td><code>string</code></td><td>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</td></tr>
-<tr><td><CopyableCode code="destination_ipv6_cidr_block" /></td><td><code>string</code></td><td>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</td></tr>
-<tr><td><CopyableCode code="destination_prefix_list_id" /></td><td><code>string</code></td><td>The ID of a prefix list used for the destination match.</td></tr>
-<tr><td><CopyableCode code="egress_only_internet_gateway_id" /></td><td><code>string</code></td><td>&#91;IPv6 traffic only&#93; The ID of an egress-only internet gateway.</td></tr>
-<tr><td><CopyableCode code="gateway_id" /></td><td><code>string</code></td><td>The ID of an internet gateway or virtual private gateway attached to your VPC.</td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</td></tr>
-<tr><td><CopyableCode code="local_gateway_id" /></td><td><code>string</code></td><td>The ID of the local gateway.</td></tr>
-<tr><td><CopyableCode code="nat_gateway_id" /></td><td><code>string</code></td><td>&#91;IPv4 traffic only&#93; The ID of a NAT gateway.</td></tr>
-<tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of a network interface.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cidr_block" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td>The ID of the route table for the route.</td></tr>
-<tr><td><CopyableCode code="transit_gateway_id" /></td><td><code>string</code></td><td>The ID of a transit gateway.</td></tr>
-<tr><td><CopyableCode code="vpc_endpoint_id" /></td><td><code>string</code></td><td>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</td></tr>
-<tr><td><CopyableCode code="vpc_peering_connection_id" /></td><td><code>string</code></td><td>The ID of a VPC peering connection.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -79,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>routes_list_only</code> resource, see <a href="/providers/aws/ec2/routes/#permissions"><code>routes</code></a>
-
 

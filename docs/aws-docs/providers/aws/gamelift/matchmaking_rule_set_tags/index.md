@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>matchmaking_rule_set_tags</code> resource, see <a href="/providers/aws/gamelift/matchmaking_rule_sets/#permissions"><code>matchmaking_rule_sets</code></a>
 
-

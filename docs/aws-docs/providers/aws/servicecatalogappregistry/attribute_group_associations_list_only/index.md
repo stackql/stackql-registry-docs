@@ -68,4 +68,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>attribute_group_associations_list_only</code> resource, see <a href="/providers/aws/servicecatalogappregistry/attribute_group_associations/#permissions"><code>attribute_group_associations</code></a>
 
-

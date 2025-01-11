@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>wireless_device</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html"><code>AWS::IoTWireless::WirelessDevice</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -258,8 +260,7 @@ To operate on the <code>wireless_devices</code> resource, the following permissi
 ### Create
 ```json
 iotwireless:CreateWirelessDevice,
-iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Read
@@ -271,9 +272,10 @@ iotwireless:ListTagsForResource
 ### Update
 ```json
 iotwireless:UpdateWirelessDevice,
-iotwireless:UntagResource,
-iotwireless:ListTagsForResource,
-iotwireless:AssociateWirelessDeviceWithThing
+iotwireless:GetWirelessDevice,
+iotwireless:AssociateWirelessDeviceWithThing,
+iotwireless:TagResource,
+iotwireless:UntagResource
 ```
 
 ### Delete
@@ -287,4 +289,3 @@ iotwireless:DisassociateWirelessDeviceFromThing
 iotwireless:ListWirelessDevices,
 iotwireless:ListTagsForResource
 ```
-

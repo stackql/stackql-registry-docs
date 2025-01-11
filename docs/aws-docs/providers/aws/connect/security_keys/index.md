@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>security_key</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html"><code>AWS::Connect::SecurityKey</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -185,4 +187,3 @@ connect:DisassociateSecurityKey
 ```json
 connect:ListSecurityKeys
 ```
-

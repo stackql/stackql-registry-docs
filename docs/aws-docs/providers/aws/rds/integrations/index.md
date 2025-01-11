@@ -25,23 +25,25 @@ Creates, updates, deletes or gets an <code>integration</code> resource or lists 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>integrations</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Creates a zero-ETL integration with Amazon Redshift.</td></tr>
+<tr><td><b>Description</b></td><td>A zero-ETL integration with Amazon Redshift.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.rds.integrations" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="integration_name" /></td><td><code>string</code></td><td>The name of the integration.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the integration.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="data_filter" /></td><td><code>string</code></td><td>The data filter for the integration.</td></tr>
-<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the Aurora DB cluster to use as the source for replication.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the integration.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of tags. For more information, see &#91;Tagging Amazon RDS Resources&#93;(https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*.</td></tr>
+<tr><td><CopyableCode code="data_filter" /></td><td><code>string</code></td><td>Data filters for the integration. These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.</td></tr>
+<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the database to use as the source for replication.</td></tr>
 <tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td>The ARN of the Redshift data warehouse to use as the target for replication.</td></tr>
-<tr><td><CopyableCode code="integration_arn" /></td><td><code>string</code></td><td>The ARN of the integration.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>An optional AWS Key Management System (AWS KMS) key ARN for the key used to to encrypt the integration. The resource accepts the key ID and the key ARN forms. The key ID form can be used if the KMS key is owned by te same account. If the KMS key belongs to a different account than the calling account, the full key ARN must be specified. Do not use the key alias or the key alias ARN as this will cause a false drift of the resource.</td></tr>
-<tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td>An optional set of non-secret key–value pairs that contains additional contextual information about the data.</td></tr>
+<tr><td><CopyableCode code="integration_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The AWS Key Management System (AWS KMS) key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key.</td></tr>
+<tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td>An optional set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see &#91;Encryption context&#93;(https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *Key Management Service Developer Guide*.<br />You can only include this parameter if you specify the <code>KMSKeyId</code> parameter.</td></tr>
 <tr><td><CopyableCode code="create_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html"><code>AWS::RDS::Integration</code></a>.
 
 ## Methods
 
@@ -251,4 +253,3 @@ rds:DescribeIntegrations
 ```json
 rds:DescribeIntegrations
 ```
-

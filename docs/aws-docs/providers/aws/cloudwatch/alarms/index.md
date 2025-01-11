@@ -52,9 +52,11 @@ Creates, updates, deletes or gets an <code>alarm</code> resource or lists <code>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="datapoints_to_alarm" /></td><td><code>integer</code></td><td>The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for <code>EvaluationPeriods</code> is the N value. For more information, see &#91;Evaluating an Alarm&#93;(https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.<br />If you omit this parameter, CW uses the same value here that you set for <code>EvaluationPeriods</code>, and the alarm goes to alarm state if that many consecutive periods are breaching.</td></tr>
 <tr><td><CopyableCode code="threshold" /></td><td><code>number</code></td><td>The value to compare with the specified statistic.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the <code>cloudwatch:TagResource</code> permission.<br />Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html"><code>AWS::CloudWatch::Alarm</code></a>.
 
 ## Methods
 
@@ -364,4 +366,3 @@ cloudwatch:DescribeAlarms
 cloudwatch:DescribeAlarms,
 cloudwatch:ListTagsForResource
 ```
-

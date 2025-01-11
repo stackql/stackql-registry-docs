@@ -64,4 +64,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>log_anomaly_detection_integrations_list_only</code> resource, see <a href="/providers/aws/devopsguru/log_anomaly_detection_integrations/#permissions"><code>log_anomaly_detection_integrations</code></a>
 
-

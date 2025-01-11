@@ -37,6 +37,7 @@ Creates, updates, deletes or gets a <code>pipe</code> resource or lists <code>pi
 <tr><td><CopyableCode code="desired_state" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enrichment" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enrichment_parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
@@ -49,6 +50,8 @@ Creates, updates, deletes or gets a <code>pipe</code> resource or lists <code>pi
 <tr><td><CopyableCode code="target_parameters" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html"><code>AWS::Pipes::Pipe</code></a>.
 
 ## Methods
 
@@ -97,6 +100,7 @@ description,
 desired_state,
 enrichment,
 enrichment_parameters,
+kms_key_identifier,
 last_modified_time,
 log_configuration,
 name,
@@ -121,6 +125,7 @@ description,
 desired_state,
 enrichment,
 enrichment_parameters,
+kms_key_identifier,
 last_modified_time,
 log_configuration,
 name,
@@ -173,6 +178,7 @@ INSERT INTO aws.pipes.pipes (
  DesiredState,
  Enrichment,
  EnrichmentParameters,
+ KmsKeyIdentifier,
  LogConfiguration,
  Name,
  RoleArn,
@@ -188,6 +194,7 @@ SELECT
  '{{ DesiredState }}',
  '{{ Enrichment }}',
  '{{ EnrichmentParameters }}',
+ '{{ KmsKeyIdentifier }}',
  '{{ LogConfiguration }}',
  '{{ Name }}',
  '{{ RoleArn }}',
@@ -227,6 +234,8 @@ resources:
               - '{{ PathParameterValues[0] }}'
             HeaderParameters: {}
             QueryStringParameters: {}
+      - name: KmsKeyIdentifier
+        value: '{{ KmsKeyIdentifier }}'
       - name: LogConfiguration
         value:
           S3LogDestination:
@@ -481,12 +490,16 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
-firehose:TagDeliveryStream
+firehose:TagDeliveryStream,
+kms:DescribeKey,
+kms:Decrypt,
+kms:GenerateDataKey
 ```
 
 ### Read
 ```json
-pipes:DescribePipe
+pipes:DescribePipe,
+kms:Decrypt
 ```
 
 ### Update
@@ -507,22 +520,28 @@ logs:GetLogDelivery,
 logs:ListLogDeliveries,
 s3:PutBucketPolicy,
 s3:GetBucketPolicy,
-firehose:TagDeliveryStream
+firehose:TagDeliveryStream,
+kms:DescribeKey,
+kms:Decrypt,
+kms:GenerateDataKey
 ```
 
 ### Delete
 ```json
 pipes:DeletePipe,
 pipes:DescribePipe,
+pipes:UntagResource,
 logs:CreateLogDelivery,
 logs:UpdateLogDelivery,
 logs:DeleteLogDelivery,
 logs:GetLogDelivery,
-logs:ListLogDeliveries
+logs:ListLogDeliveries,
+kms:DescribeKey,
+kms:Decrypt,
+kms:GenerateDataKey
 ```
 
 ### List
 ```json
 pipes:ListPipes
 ```
-

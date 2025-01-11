@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>wireless_device_import_task</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html"><code>AWS::IoTWireless::WirelessDeviceImportTask</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -214,7 +216,6 @@ To operate on the <code>wireless_device_import_tasks</code> resource, the follow
 iotwireless:StartWirelessDeviceImportTask,
 iotwireless:StartSingleWirelessDeviceImportTask,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource,
 iam:PassRole
 ```
 
@@ -226,9 +227,10 @@ iotwireless:ListTagsForResource
 
 ### Update
 ```json
+iotwireless:GetWirelessDeviceImportTask,
 iotwireless:UpdateWirelessDeviceImportTask,
+iotwireless:TagResource,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource,
 iam:PassRole
 ```
 
@@ -242,4 +244,3 @@ iotwireless:DeleteWirelessDeviceImportTask
 iotwireless:ListWirelessDeviceImportTasks,
 iotwireless:ListTagsForResource
 ```
-

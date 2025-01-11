@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>resolver_config</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html"><code>AWS::Route53Resolver::ResolverConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -197,4 +199,3 @@ ec2:DescribeVpcs
 route53resolver:ListResolverConfigs,
 ec2:DescribeVpcs
 ```
-

@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>repository</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html"><code>AWS::CodeArtifact::Repository</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -221,9 +223,11 @@ To operate on the <code>repositories</code> resource, the following permissions 
 codeartifact:CreateRepository,
 codeartifact:DescribeRepository,
 codeartifact:PutRepositoryPermissionsPolicy,
+codeartifact:GetRepositoryPermissionsPolicy,
 codeartifact:AssociateExternalConnection,
 codeartifact:AssociateWithDownstreamRepository,
-codeartifact:TagResource
+codeartifact:TagResource,
+codeartifact:ListTagsForResource
 ```
 
 ### Read
@@ -236,6 +240,7 @@ codeartifact:ListTagsForResource
 ### Update
 ```json
 codeartifact:PutRepositoryPermissionsPolicy,
+codeartifact:GetRepositoryPermissionsPolicy,
 codeartifact:DeleteRepositoryPermissionsPolicy,
 codeartifact:AssociateExternalConnection,
 codeartifact:DisassociateExternalConnection,
@@ -243,7 +248,8 @@ codeartifact:UpdateRepository,
 codeartifact:DescribeRepository,
 codeartifact:AssociateWithDownstreamRepository,
 codeartifact:TagResource,
-codeartifact:UntagResource
+codeartifact:UntagResource,
+codeartifact:ListTagsForResource
 ```
 
 ### Delete
@@ -256,4 +262,3 @@ codeartifact:DescribeRepository
 ```json
 codeartifact:ListRepositories
 ```
-

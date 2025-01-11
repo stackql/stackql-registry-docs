@@ -31,11 +31,7 @@ Lists <code>models</code> in a region or regions, for all properties use <a href
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="model_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the model.</td></tr>
-<tr><td><CopyableCode code="content_type" /></td><td><code>string</code></td><td>The content-type for the model, for example, "application/json".</td></tr>
-<tr><td><CopyableCode code="schema" /></td><td><code>object</code></td><td>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</td></tr>
 <tr><td><CopyableCode code="api_id" /></td><td><code>string</code></td><td>The API identifier.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the model.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>models_list_only</code> resource, see <a href="/providers/aws/apigatewayv2/models/#permissions"><code>models</code></a>
-
 

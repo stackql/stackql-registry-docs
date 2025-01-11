@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>access_policy</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-accesspolicy.html"><code>AWS::OpenSearchServerless::AccessPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -211,4 +213,3 @@ aoss:GetAccessPolicy
 ```json
 aoss:ListAccessPolicies
 ```
-

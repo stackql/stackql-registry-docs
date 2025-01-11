@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>browser_setting</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersetting.html"><code>AWS::WorkSpacesWeb::BrowserSettings</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -200,10 +202,12 @@ workspaces-web:CreateBrowserSettings,
 workspaces-web:GetBrowserSettings,
 workspaces-web:ListTagsForResource,
 workspaces-web:TagResource,
-kms:CreateGrant,
 kms:DescribeKey,
 kms:GenerateDataKey,
-kms:Decrypt
+kms:Decrypt,
+kms:GenerateDataKeyWithoutPlaintext,
+kms:ReEncryptTo,
+kms:ReEncryptFrom
 ```
 
 ### Read
@@ -245,4 +249,3 @@ kms:Decrypt
 ```json
 workspaces-web:ListBrowserSettings
 ```
-

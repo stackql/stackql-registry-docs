@@ -35,6 +35,7 @@ Creates, updates, deletes or gets a <code>task_template</code> resource or lists
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the task template.</td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the task template.</td></tr>
 <tr><td><CopyableCode code="contact_flow_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
+<tr><td><CopyableCode code="self_assign_contact_flow_arn" /></td><td><code>string</code></td><td>The identifier of the contact flow.</td></tr>
 <tr><td><CopyableCode code="constraints" /></td><td><code>object</code></td><td>The constraints for the task template</td></tr>
 <tr><td><CopyableCode code="defaults" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="fields" /></td><td><code>array</code></td><td>The list of task template's fields</td></tr>
@@ -43,6 +44,8 @@ Creates, updates, deletes or gets a <code>task_template</code> resource or lists
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html"><code>AWS::Connect::TaskTemplate</code></a>.
 
 ## Methods
 
@@ -89,6 +92,7 @@ instance_arn,
 name,
 description,
 contact_flow_arn,
+self_assign_contact_flow_arn,
 constraints,
 defaults,
 fields,
@@ -107,6 +111,7 @@ instance_arn,
 name,
 description,
 contact_flow_arn,
+self_assign_contact_flow_arn,
 constraints,
 defaults,
 fields,
@@ -151,6 +156,7 @@ INSERT INTO aws.connect.task_templates (
  Name,
  Description,
  ContactFlowArn,
+ SelfAssignContactFlowArn,
  Constraints,
  Defaults,
  Fields,
@@ -164,6 +170,7 @@ SELECT
  '{{ Name }}',
  '{{ Description }}',
  '{{ ContactFlowArn }}',
+ '{{ SelfAssignContactFlowArn }}',
  '{{ Constraints }}',
  '{{ Defaults }}',
  '{{ Fields }}',
@@ -195,6 +202,8 @@ resources:
         value: '{{ Description }}'
       - name: ContactFlowArn
         value: '{{ ContactFlowArn }}'
+      - name: SelfAssignContactFlowArn
+        value: '{{ SelfAssignContactFlowArn }}'
       - name: Constraints
         value:
           InvisibleFields:
@@ -270,4 +279,3 @@ connect:DeleteTaskTemplate,
 connect:UntagResource,
 connect:GetTaskTemplate
 ```
-

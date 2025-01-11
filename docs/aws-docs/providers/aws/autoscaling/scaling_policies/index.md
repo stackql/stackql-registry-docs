@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>scaling_policy</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html"><code>AWS::AutoScaling::ScalingPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -256,9 +258,21 @@ resources:
             MetricName: '{{ MetricName }}'
             Dimensions:
               - null
+            Metrics:
+              - Label: '{{ Label }}'
+                MetricStat:
+                  Metric: null
+                  Stat: '{{ Stat }}'
+                  Unit: '{{ Unit }}'
+                  Period: '{{ Period }}'
+                Id: '{{ Id }}'
+                ReturnData: '{{ ReturnData }}'
+                Expression: '{{ Expression }}'
+                Period: '{{ Period }}'
             Statistic: '{{ Statistic }}'
             Unit: '{{ Unit }}'
             Namespace: '{{ Namespace }}'
+            Period: '{{ Period }}'
           TargetValue: null
           DisableScaleIn: '{{ DisableScaleIn }}'
           PredefinedMetricSpecification:
@@ -315,4 +329,3 @@ autoscaling:DescribePolicies
 ```json
 autoscaling:DescribePolicies
 ```
-

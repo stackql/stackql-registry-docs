@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>container</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html"><code>AWS::Lightsail::Container</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -284,4 +286,3 @@ lightsail:TagResource,
 lightsail:UntagResource,
 lightsail:UpdateContainerService
 ```
-

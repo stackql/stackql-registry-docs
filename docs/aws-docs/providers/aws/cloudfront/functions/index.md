@@ -25,20 +25,22 @@ Creates, updates, deletes or gets a <code>function</code> resource or lists <cod
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>functions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::Function</td></tr>
+<tr><td><b>Description</b></td><td>Creates a CF function.<br />To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN) that uniquely identifies the function, and the function’s stage.<br />By default, when you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage, you can &#91;test the function&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/test-function.html) in the CF console (or with <code>TestFunction</code> in the CF API).<br />When you’re ready to use your function with a CF distribution, publish the function to the <code>LIVE</code> stage. You can do this in the CF console, with <code>PublishFunction</code> in the CF API, or by updating the <code>AWS::CloudFront::Function</code> resource with the <code>AutoPublish</code> property set to <code>true</code>. When the function is published to the <code>LIVE</code> stage, you can attach it to a distribution’s cache behavior, using the function’s ARN.<br />To automatically publish the function to the <code>LIVE</code> stage when it’s created, set the <code>AutoPublish</code> property to <code>true</code>.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.functions" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auto_publish" /></td><td><code>boolean</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="auto_publish" /></td><td><code>boolean</code></td><td>A flag that determines whether to automatically publish the function to the <code>LIVE</code> stage when it’s created. To automatically publish to the <code>LIVE</code> stage, set this property to <code>true</code>.</td></tr>
 <tr><td><CopyableCode code="function_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="function_code" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="function_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="function_metadata" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="function_code" /></td><td><code>string</code></td><td>The function code. For more information about writing a CloudFront function, see &#91;Writing function code for CloudFront Functions&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide*.</td></tr>
+<tr><td><CopyableCode code="function_config" /></td><td><code>object</code></td><td>Contains configuration information about a CloudFront function.</td></tr>
+<tr><td><CopyableCode code="function_metadata" /></td><td><code>object</code></td><td>Contains metadata about a CloudFront function.</td></tr>
+<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>A name to identify the function.</td></tr>
 <tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html"><code>AWS::CloudFront::Function</code></a>.
 
 ## Methods
 
@@ -232,4 +234,3 @@ cloudfront:UpdateFunction,
 cloudfront:PublishFunction,
 cloudfront:DescribeFunction
 ```
-

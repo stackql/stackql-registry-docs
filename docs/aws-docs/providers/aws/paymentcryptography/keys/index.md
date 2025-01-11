@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>key</code> resource or lists <code>key
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html"><code>AWS::PaymentCryptography::Key</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -246,4 +248,3 @@ payment-cryptography:DeleteKey
 ```json
 payment-cryptography:ListKeys
 ```
-

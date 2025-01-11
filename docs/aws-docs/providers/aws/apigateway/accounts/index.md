@@ -31,9 +31,11 @@ Creates, updates, deletes or gets an <code>account</code> resource or lists <cod
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="cloud_watch_role_arn" /></td><td><code>string</code></td><td>The ARN of an Amazon CloudWatch role for the current Account.</td></tr>
+<tr><td><CopyableCode code="cloud_watch_role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html"><code>AWS::ApiGateway::Account</code></a>.
 
 ## Methods
 
@@ -172,4 +174,3 @@ iam:PassRole
 ```json
 apigateway:PATCH
 ```
-

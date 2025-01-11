@@ -31,6 +31,7 @@ Expands all tag keys and values for <code>partnerships</code> in a region
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="capabilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="capability_options" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="email" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td></td></tr>
@@ -66,6 +67,7 @@ Expands tags for all <code>partnerships</code> in a region.
 SELECT
 region,
 capabilities,
+capability_options,
 created_at,
 email,
 modified_at,
@@ -85,5 +87,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>partnership_tags</code> resource, see <a href="/providers/aws/b2bi/partnerships/#permissions"><code>partnerships</code></a>
-
 

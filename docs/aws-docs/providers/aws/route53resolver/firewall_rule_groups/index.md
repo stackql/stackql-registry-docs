@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>firewall_rule_group</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html"><code>AWS::Route53Resolver::FirewallRuleGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -188,6 +190,7 @@ resources:
       - name: FirewallRules
         value:
           - FirewallDomainListId: '{{ FirewallDomainListId }}'
+            FirewallThreatProtectionId: '{{ FirewallThreatProtectionId }}'
             Priority: '{{ Priority }}'
             Action: '{{ Action }}'
             BlockResponse: '{{ BlockResponse }}'
@@ -195,11 +198,13 @@ resources:
             BlockOverrideDnsType: '{{ BlockOverrideDnsType }}'
             BlockOverrideTtl: '{{ BlockOverrideTtl }}'
             Qtype: '{{ Qtype }}'
+            ConfidenceThreshold: '{{ ConfidenceThreshold }}'
+            DnsThreatProtection: '{{ DnsThreatProtection }}'
             FirewallDomainRedirectionAction: '{{ FirewallDomainRedirectionAction }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -220,51 +225,46 @@ To operate on the <code>firewall_rule_groups</code> resource, the following perm
 
 ### Create
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:CreateFirewallRuleGroup,
+route53resolver:GetFirewallRuleGroup,
+route53resolver:ListFirewallRules,
+route53resolver:CreateFirewallRule,
+route53resolver:DeleteFirewallRule,
+route53resolver:TagResource,
+route53resolver:ListTagsForResource
 ```
 
 ### Read
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallRuleGroup,
+route53resolver:ListFirewallRules,
+route53resolver:ListTagsForResource
 ```
 
 ### List
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:ListFirewallRuleGroups,
+route53resolver:ListTagsForResource
 ```
 
 ### Delete
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallRuleGroup,
+route53resolver:DeleteFirewallRuleGroup,
+route53resolver:ListFirewallRules,
+route53resolver:DeleteFirewallRule,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
 
 ### Update
 ```json
-route53resolver:*,
-ec2:*,
-logs:*,
-iam:*,
-lambda:*,
-s3:*
+route53resolver:GetFirewallRuleGroup,
+route53resolver:ListFirewallRules,
+route53resolver:CreateFirewallRule,
+route53resolver:UpdateFirewallRule,
+route53resolver:DeleteFirewallRule,
+route53resolver:TagResource,
+route53resolver:UntagResource,
+route53resolver:ListTagsForResource
 ```
-

@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>profiling_group</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html"><code>AWS::CodeGuruProfiler::ProfilingGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -208,12 +210,15 @@ codeguru-profiler:TagResource
 ### Read
 ```json
 codeguru-profiler:DescribeProfilingGroup,
-codeguru-profiler:ListTagsForResource
+codeguru-profiler:ListTagsForResource,
+codeguru-profiler:GetNotificationConfiguration,
+codeguru-profiler:GetPolicy
 ```
 
 ### Update
 ```json
 sns:Publish,
+codeguru-profiler:DescribeProfilingGroup,
 codeguru-profiler:AddNotificationChannels,
 codeguru-profiler:GetNotificationConfiguration,
 codeguru-profiler:RemoveNotificationChannel,
@@ -233,6 +238,7 @@ codeguru-profiler:DeleteProfilingGroup
 ### List
 ```json
 codeguru-profiler:ListProfilingGroups,
-codeguru-profiler:ListTagsForResource
+codeguru-profiler:ListTagsForResource,
+codeguru-profiler:GetNotificationConfiguration,
+codeguru-profiler:GetPolicy
 ```
-

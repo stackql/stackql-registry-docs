@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>layer_version_permission</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html"><code>AWS::Lambda::LayerVersionPermission</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,4 +204,3 @@ lambda:RemoveLayerVersionPermission
 ```json
 lambda:GetLayerVersionPolicy
 ```
-

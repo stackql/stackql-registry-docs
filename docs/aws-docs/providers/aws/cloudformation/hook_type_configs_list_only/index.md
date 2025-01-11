@@ -30,11 +30,8 @@ Lists <code>hook_type_configs</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="type_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the type without version number.</td></tr>
-<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br />We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
-<tr><td><CopyableCode code="configuration_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the configuration data, in this account and region.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the configuration data, in this account and region.</td></tr>
 <tr><td><CopyableCode code="configuration" /></td><td><code>string</code></td><td>The configuration data for the extension, in this account and region.</td></tr>
-<tr><td><CopyableCode code="configuration_alias" /></td><td><code>string</code></td><td>An alias by which to refer to this extension configuration data.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>hook_type_configs_list_only</code> resource, see <a href="/providers/aws/cloudformation/hook_type_configs/#permissions"><code>hook_type_configs</code></a>
-
 

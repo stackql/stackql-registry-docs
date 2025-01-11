@@ -39,6 +39,7 @@ Expands all tag keys and values for <code>matching_workflows</code> in a region
 <tr><td><CopyableCode code="workflow_arn" /></td><td><code>string</code></td><td>The default MatchingWorkflow arn</td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got created</td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The time of this SchemaMapping got last updated at</td></tr>
+<tr><td><CopyableCode code="incremental_run_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -73,6 +74,7 @@ role_arn,
 workflow_arn,
 created_at,
 updated_at,
+incremental_run_config,
 tag_key,
 tag_value
 FROM aws.entityresolution.matching_workflow_tags
@@ -83,5 +85,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>matching_workflow_tags</code> resource, see <a href="/providers/aws/entityresolution/matching_workflows/#permissions"><code>matching_workflows</code></a>
-
 

@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>playback_key_pair_tags</code> resource, see <a href="/providers/aws/ivs/playback_key_pairs/#permissions"><code>playback_key_pairs</code></a>
 
-

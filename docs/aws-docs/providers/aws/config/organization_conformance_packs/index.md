@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>organization_conformance_pack</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html"><code>AWS::Config::OrganizationConformancePack</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -248,4 +250,3 @@ organizations:EnableAWSServiceAccess
 ```json
 config:DescribeOrganizationConformancePacks
 ```
-

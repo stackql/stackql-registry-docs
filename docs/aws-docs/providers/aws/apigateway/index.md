@@ -20,7 +20,7 @@ The apigateway service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>43</b></span><br />
+<span>total resources:&nbsp;<b>51</b></span><br />
 </div>
 </div>
 
@@ -35,6 +35,8 @@ The apigateway service documentation.
 <a href="/providers/aws/apigateway/api_keys_list_only/">api_keys_list_only</a><br />
 <a href="/providers/aws/apigateway/authorizers/">authorizers</a><br />
 <a href="/providers/aws/apigateway/authorizers_list_only/">authorizers_list_only</a><br />
+<a href="/providers/aws/apigateway/base_path_mapping_v2s/">base_path_mapping_v2s</a><br />
+<a href="/providers/aws/apigateway/base_path_mapping_v2s_list_only/">base_path_mapping_v2s_list_only</a><br />
 <a href="/providers/aws/apigateway/base_path_mappings/">base_path_mappings</a><br />
 <a href="/providers/aws/apigateway/base_path_mappings_list_only/">base_path_mappings_list_only</a><br />
 <a href="/providers/aws/apigateway/client_certificate_tags/">client_certificate_tags</a><br />
@@ -46,13 +48,19 @@ The apigateway service documentation.
 <a href="/providers/aws/apigateway/documentation_parts_list_only/">documentation_parts_list_only</a><br />
 <a href="/providers/aws/apigateway/documentation_versions/">documentation_versions</a><br />
 <a href="/providers/aws/apigateway/documentation_versions_list_only/">documentation_versions_list_only</a><br />
+<a href="/providers/aws/apigateway/domain_name_access_association_tags/">domain_name_access_association_tags</a><br />
+<a href="/providers/aws/apigateway/domain_name_access_associations/">domain_name_access_associations</a><br />
+<a href="/providers/aws/apigateway/domain_name_access_associations_list_only/">domain_name_access_associations_list_only</a><br />
 <a href="/providers/aws/apigateway/domain_name_tags/">domain_name_tags</a><br />
+<a href="/providers/aws/apigateway/domain_name_v2_tags/">domain_name_v2_tags</a><br />
+<a href="/providers/aws/apigateway/domain_name_v2s/">domain_name_v2s</a><br />
+<a href="/providers/aws/apigateway/domain_name_v2s_list_only/">domain_name_v2s_list_only</a>
+</div>
+<div class="providerDocColumn">
 <a href="/providers/aws/apigateway/domain_names/">domain_names</a><br />
 <a href="/providers/aws/apigateway/domain_names_list_only/">domain_names_list_only</a><br />
 <a href="/providers/aws/apigateway/gateway_responses/">gateway_responses</a><br />
-<a href="/providers/aws/apigateway/gateway_responses_list_only/">gateway_responses_list_only</a>
-</div>
-<div class="providerDocColumn">
+<a href="/providers/aws/apigateway/gateway_responses_list_only/">gateway_responses_list_only</a><br />
 <a href="/providers/aws/apigateway/methods/">methods</a><br />
 <a href="/providers/aws/apigateway/models/">models</a><br />
 <a href="/providers/aws/apigateway/models_list_only/">models_list_only</a><br />

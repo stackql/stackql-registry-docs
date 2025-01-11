@@ -30,14 +30,7 @@ Lists <code>datastores</code> in a region or regions, for all properties use <a 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="datastore_arn" /></td><td><code>string</code></td><td>The Datastore's ARN.</td></tr>
-<tr><td><CopyableCode code="datastore_name" /></td><td><code>string</code></td><td>User friendly name for Datastore.</td></tr>
-<tr><td><CopyableCode code="datastore_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="datastore_status" /></td><td><code>string</code></td><td>A string to denote the Datastore's state.</td></tr>
-<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>ARN referencing a KMS key or KMS key alias.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp when the data store was created.</td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td>The timestamp when the data store was created.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A Map of key value pairs for Tags.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="datastore_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>datastores_list_only</code> resource, see <a href="/providers/aws/healthimaging/datastores/#permissions"><code>datastores</code></a>
-
 

@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>organization</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html"><code>AWS::Organizations::Organization</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -57,6 +59,11 @@ Creates, updates, deletes or gets an <code>organization</code> resource or lists
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -197,3 +204,7 @@ organizations:DescribeOrganization
 organizations:DescribeOrganization
 ```
 
+### Update
+```json
+organizations:DescribeOrganization
+```

@@ -30,22 +30,7 @@ Lists <code>clusters</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="cluster_endpoint" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="admin_user_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="admin_user_password" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="shard_capacity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="shard_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="preferred_backup_window" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="backup_retention_period" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="shard_instance_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="auth_type" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -78,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>clusters_list_only</code> resource, see <a href="/providers/aws/docdbelastic/clusters/#permissions"><code>clusters</code></a>
-
 

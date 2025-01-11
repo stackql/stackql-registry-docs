@@ -40,10 +40,13 @@ Creates, updates, deletes or gets a <code>pipeline</code> resource or lists <cod
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td>Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.</td></tr>
 <tr><td><CopyableCode code="vpc_endpoints" /></td><td><code>array</code></td><td>The VPC interface endpoints that have access to the pipeline.</td></tr>
+<tr><td><CopyableCode code="vpc_endpoint_service" /></td><td><code>string</code></td><td>The VPC endpoint service name for the pipeline.</td></tr>
 <tr><td><CopyableCode code="pipeline_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the pipeline.</td></tr>
 <tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td>A list of endpoints that can be used for ingesting data into a pipeline</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html"><code>AWS::OSIS::Pipeline</code></a>.
 
 ## Methods
 
@@ -95,6 +98,7 @@ pipeline_name,
 tags,
 vpc_options,
 vpc_endpoints,
+vpc_endpoint_service,
 pipeline_arn,
 ingest_endpoint_urls
 FROM aws.osis.pipelines
@@ -114,6 +118,7 @@ pipeline_name,
 tags,
 vpc_options,
 vpc_endpoints,
+vpc_endpoint_service,
 pipeline_arn,
 ingest_endpoint_urls
 FROM aws.osis.pipelines
@@ -223,6 +228,10 @@ resources:
             - '{{ SecurityGroupIds[0] }}'
           SubnetIds:
             - '{{ SubnetIds[0] }}'
+          VpcEndpointManagement: '{{ VpcEndpointManagement }}'
+          VpcAttachmentOptions:
+            AttachToVpc: '{{ AttachToVpc }}'
+            CidrBlock: '{{ CidrBlock }}'
 
 ```
 </TabItem>
@@ -286,4 +295,3 @@ logs:ListLogDeliveries
 ```json
 osis:ListPipelines
 ```
-

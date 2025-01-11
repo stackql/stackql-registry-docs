@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>hosted_zone</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html"><code>AWS::Route53::HostedZone</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -227,7 +229,9 @@ route53:ListQueryLoggingConfigs
 ### Update
 ```json
 route53:GetChange,
+route53:GetHostedZone,
 route53:ListTagsForResource,
+route53:ListQueryLoggingConfigs,
 route53:UpdateHostedZoneComment,
 route53:ChangeTagsForResource,
 route53:AssociateVPCWithHostedZone,
@@ -249,8 +253,6 @@ route53:GetChange
 ```json
 route53:GetHostedZone,
 route53:ListHostedZones,
-route53:ListHostedZonesByName,
 route53:ListQueryLoggingConfigs,
 route53:ListTagsForResource
 ```
-

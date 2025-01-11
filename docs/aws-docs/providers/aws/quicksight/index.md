@@ -20,7 +20,7 @@ The quicksight service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>25</b></span><br />
+<span>total resources:&nbsp;<b>31</b></span><br />
 </div>
 </div>
 
@@ -32,6 +32,9 @@ The quicksight service documentation.
 <a href="/providers/aws/quicksight/analyses/">analyses</a><br />
 <a href="/providers/aws/quicksight/analyses_list_only/">analyses_list_only</a><br />
 <a href="/providers/aws/quicksight/analysis_tags/">analysis_tags</a><br />
+<a href="/providers/aws/quicksight/custom_permissions/">custom_permissions</a><br />
+<a href="/providers/aws/quicksight/custom_permissions_list_only/">custom_permissions_list_only</a><br />
+<a href="/providers/aws/quicksight/custom_permissions_tags/">custom_permissions_tags</a><br />
 <a href="/providers/aws/quicksight/dashboard_tags/">dashboard_tags</a><br />
 <a href="/providers/aws/quicksight/dashboards/">dashboards</a><br />
 <a href="/providers/aws/quicksight/dashboards_list_only/">dashboards_list_only</a><br />
@@ -41,9 +44,12 @@ The quicksight service documentation.
 <a href="/providers/aws/quicksight/data_source_tags/">data_source_tags</a><br />
 <a href="/providers/aws/quicksight/data_sources/">data_sources</a><br />
 <a href="/providers/aws/quicksight/data_sources_list_only/">data_sources_list_only</a><br />
-<a href="/providers/aws/quicksight/refresh_schedules/">refresh_schedules</a>
+<a href="/providers/aws/quicksight/folder_tags/">folder_tags</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/quicksight/folders/">folders</a><br />
+<a href="/providers/aws/quicksight/folders_list_only/">folders_list_only</a><br />
+<a href="/providers/aws/quicksight/refresh_schedules/">refresh_schedules</a><br />
 <a href="/providers/aws/quicksight/refresh_schedules_list_only/">refresh_schedules_list_only</a><br />
 <a href="/providers/aws/quicksight/template_tags/">template_tags</a><br />
 <a href="/providers/aws/quicksight/templates/">templates</a><br />

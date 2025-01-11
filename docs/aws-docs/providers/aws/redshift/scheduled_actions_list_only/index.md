@@ -30,16 +30,8 @@ Lists <code>scheduled_actions</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scheduled_action_description" /></td><td><code>string</code></td><td>The description of the scheduled action.</td></tr>
-<tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>The name of the scheduled action. The name must be unique within an account.</td></tr>
-<tr><td><CopyableCode code="end_time" /></td><td><code>string</code></td><td>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.</td></tr>
-<tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of the scheduled action.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="scheduled_action_name" /></td><td><code>string</code></td><td>The name of the scheduled action. The name must be unique within an account.</td></tr>
 <tr><td><CopyableCode code="schedule" /></td><td><code>string</code></td><td>The schedule in `at( )` or `cron( )` format.</td></tr>
-<tr><td><CopyableCode code="iam_role" /></td><td><code>string</code></td><td>The IAM role to assume to run the target action.</td></tr>
-<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td>The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.</td></tr>
-<tr><td><CopyableCode code="enable" /></td><td><code>boolean</code></td><td>If true, the schedule is enabled. If false, the scheduled action does not trigger.</td></tr>
-<tr><td><CopyableCode code="target_action" /></td><td><code>object</code></td><td>A JSON format string of the Amazon Redshift API operation with input parameters.</td></tr>
-<tr><td><CopyableCode code="next_invocations" /></td><td><code>array</code></td><td>List of times when the scheduled action will run.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>scheduled_actions_list_only</code> resource, see <a href="/providers/aws/redshift/scheduled_actions/#permissions"><code>scheduled_actions</code></a>
-
 

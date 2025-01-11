@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>device_profile</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html"><code>AWS::IoTWireless::DeviceProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -55,6 +57,11 @@ Creates, updates, deletes or gets a <code>device_profile</code> resource or list
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -199,8 +206,14 @@ To operate on the <code>device_profiles</code> resource, the following permissio
 ### Create
 ```json
 iotwireless:CreateDeviceProfile,
+iotwireless:TagResource
+```
+
+### Update
+```json
+iotwireless:GetDeviceProfile,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:UntagResource
 ```
 
 ### Read
@@ -219,4 +232,3 @@ iotwireless:DeleteDeviceProfile
 iotwireless:ListDeviceProfiles,
 iotwireless:ListTagsForResource
 ```
-

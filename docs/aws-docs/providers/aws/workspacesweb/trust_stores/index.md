@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>trust_store</code> resource or lists <
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-truststore.html"><code>AWS::WorkSpacesWeb::TrustStore</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -216,4 +218,3 @@ workspaces-web:DeleteTrustStore
 workspaces-web:ListTrustStores,
 workspaces-web:ListTrustStoreCertificates
 ```
-

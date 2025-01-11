@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>app_image_config</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html"><code>AWS::SageMaker::AppImageConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -235,4 +237,3 @@ sagemaker:DescribeAppImageConfig
 ```json
 sagemaker:ListAppImageConfigs
 ```
-

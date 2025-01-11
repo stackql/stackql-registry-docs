@@ -32,8 +32,6 @@ Lists <code>transit_gateway_routes</code> in a region or regions, for all proper
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="transit_gateway_route_table_id" /></td><td><code>string</code></td><td>The ID of transit gateway route table.</td></tr>
 <tr><td><CopyableCode code="destination_cidr_block" /></td><td><code>string</code></td><td>The CIDR range used for destination matches. Routing decisions are based on the most specific match.</td></tr>
-<tr><td><CopyableCode code="blackhole" /></td><td><code>boolean</code></td><td>Indicates whether to drop traffic that matches this route.</td></tr>
-<tr><td><CopyableCode code="transit_gateway_attachment_id" /></td><td><code>string</code></td><td>The ID of transit gateway attachment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>transit_gateway_routes_list_only</code> resource, see <a href="/providers/aws/ec2/transit_gateway_routes/#permissions"><code>transit_gateway_routes</code></a>
-
 

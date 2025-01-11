@@ -32,10 +32,13 @@ Creates, updates, deletes or gets a <code>stage</code> resource or lists <code>s
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Stage ARN is automatically generated on creation and assigned as the unique identifier.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Stage name</td></tr>
+<tr><td><CopyableCode code="auto_participant_recording_configuration" /></td><td><code>object</code></td><td>Configuration object for individual participant recording, to attach to the new stage.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="active_session_id" /></td><td><code>string</code></td><td>ID of the active session within the stage.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html"><code>AWS::IVS::Stage</code></a>.
 
 ## Methods
 
@@ -79,6 +82,7 @@ SELECT
 region,
 arn,
 name,
+auto_participant_recording_configuration,
 tags,
 active_session_id
 FROM aws.ivs.stages
@@ -90,6 +94,7 @@ SELECT
 region,
 arn,
 name,
+auto_participant_recording_configuration,
 tags,
 active_session_id
 FROM aws.ivs.stages
@@ -114,11 +119,13 @@ Use the following StackQL query and manifest file to create a new <code>stage</c
 /*+ create */
 INSERT INTO aws.ivs.stages (
  Name,
+ AutoParticipantRecordingConfiguration,
  Tags,
  region
 )
 SELECT 
 '{{ Name }}',
+ '{{ AutoParticipantRecordingConfiguration }}',
  '{{ Tags }}',
 '{{ region }}';
 ```
@@ -129,11 +136,13 @@ SELECT
 /*+ create */
 INSERT INTO aws.ivs.stages (
  Name,
+ AutoParticipantRecordingConfiguration,
  Tags,
  region
 )
 SELECT 
  '{{ Name }}',
+ '{{ AutoParticipantRecordingConfiguration }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -154,6 +163,11 @@ resources:
     props:
       - name: Name
         value: '{{ Name }}'
+      - name: AutoParticipantRecordingConfiguration
+        value:
+          StorageConfigurationArn: '{{ StorageConfigurationArn }}'
+          MediaTypes:
+            - '{{ MediaTypes[0] }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -195,14 +209,14 @@ ivs:ListTagsForResource
 ivs:GetStage,
 ivs:UpdateStage,
 ivs:TagResource,
-ivs:UnTagResource,
+ivs:UntagResource,
 ivs:ListTagsForResource
 ```
 
 ### Delete
 ```json
 ivs:DeleteStage,
-ivs:UnTagResource
+ivs:UntagResource
 ```
 
 ### List
@@ -210,4 +224,3 @@ ivs:UnTagResource
 ivs:ListStages,
 ivs:ListTagsForResource
 ```
-

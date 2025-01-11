@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>simulation_application_version</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html"><code>AWS::RoboMaker::SimulationApplicationVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -173,4 +175,3 @@ robomaker:DescribeSimulationApplication
 ```json
 robomaker:DescribeSimulationApplication
 ```
-

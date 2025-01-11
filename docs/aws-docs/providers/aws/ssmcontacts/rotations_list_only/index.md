@@ -30,13 +30,7 @@ Lists <code>rotations</code> in a region or regions, for all properties use <a h
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of the Rotation</td></tr>
-<tr><td><CopyableCode code="contact_ids" /></td><td><code>array</code></td><td>Members of the rotation</td></tr>
-<tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td>Start time of the first shift of Oncall Schedule</td></tr>
-<tr><td><CopyableCode code="time_zone_id" /></td><td><code>string</code></td><td>TimeZone Identifier for the Oncall Schedule</td></tr>
-<tr><td><CopyableCode code="recurrence" /></td><td><code>object</code></td><td>Information about when an on-call rotation is in effect and how long the rotation period lasts.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rotation.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rotation.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>rotations_list_only</code> resource, see <a href="/providers/aws/ssmcontacts/rotations/#permissions"><code>rotations</code></a>
-
 

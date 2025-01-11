@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>datastore</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html"><code>AWS::HealthImaging::Datastore</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ kms:Decrypt
 ```json
 medical-imaging:ListDatastores
 ```
-

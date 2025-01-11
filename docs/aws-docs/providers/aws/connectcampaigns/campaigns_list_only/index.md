@@ -30,12 +30,7 @@ Lists <code>campaigns</code> in a region or regions, for all properties use <a h
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="connect_instance_arn" /></td><td><code>string</code></td><td>Amazon Connect Instance Arn</td></tr>
-<tr><td><CopyableCode code="dialer_config" /></td><td><code>object</code></td><td>The possible types of dialer config parameters</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Connect Campaign Arn</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Amazon Connect Campaign Name</td></tr>
-<tr><td><CopyableCode code="outbound_call_config" /></td><td><code>object</code></td><td>The configuration used for outbound calls.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Amazon Connect Campaign Arn</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>campaigns_list_only</code> resource, see <a href="/providers/aws/connectcampaigns/campaigns/#permissions"><code>campaigns</code></a>
-
 

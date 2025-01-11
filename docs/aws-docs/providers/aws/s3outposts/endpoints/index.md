@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>endpoint</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html"><code>AWS::S3Outposts::Endpoint</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -232,4 +234,3 @@ s3-outposts:DeleteEndpoint
 ```json
 s3-outposts:ListEndpoints
 ```
-

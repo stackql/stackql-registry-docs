@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>domain_name_api_association</code> res
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html"><code>AWS::AppSync::DomainNameApiAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -179,4 +181,3 @@ appsync:GetApiAssociation
 ```json
 appsync:GetApiAssociation
 ```
-

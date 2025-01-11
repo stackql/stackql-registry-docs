@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>simple_ad</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html"><code>AWS::DirectoryService::SimpleAD</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -270,4 +272,3 @@ ec2:DeleteTags
 ```json
 ds:DescribeDirectories
 ```
-

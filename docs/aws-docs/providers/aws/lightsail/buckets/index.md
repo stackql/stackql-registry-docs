@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>bucket</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html"><code>AWS::Lightsail::Bucket</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -256,4 +258,3 @@ lightsail:SetResourceAccessForBucket,
 lightsail:TagResource,
 lightsail:UntagResource
 ```
-

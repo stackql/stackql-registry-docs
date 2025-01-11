@@ -31,11 +31,6 @@ Lists <code>archives</code> in a region or regions, for all properties use <a hr
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="archive_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="event_pattern" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="retention_days" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>archives_list_only</code> resource, see <a href="/providers/aws/events/archives/#permissions"><code>archives</code></a>
-
 

@@ -32,8 +32,6 @@ Lists <code>access_policies</code> in a region or regions, for all properties us
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the policy</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The possible types for the access policy</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the policy</td></tr>
-<tr><td><CopyableCode code="policy" /></td><td><code>string</code></td><td>The JSON policy document that is the content for the policy</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>access_policies_list_only</code> resource, see <a href="/providers/aws/opensearchserverless/access_policies/#permissions"><code>access_policies</code></a>
-
 

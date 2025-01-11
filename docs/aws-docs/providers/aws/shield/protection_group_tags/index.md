@@ -78,4 +78,3 @@ FROM aws.shield.protection_group_tags
 
 For permissions required to operate on the <code>protection_group_tags</code> resource, see <a href="/providers/aws/shield/protection_groups/#permissions"><code>protection_groups</code></a>
 
-

@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>aggregation_authorization_tags</code> resource, see <a href="/providers/aws/config/aggregation_authorizations/#permissions"><code>aggregation_authorizations</code></a>
 
-

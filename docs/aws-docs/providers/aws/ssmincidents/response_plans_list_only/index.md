@@ -31,14 +31,6 @@ Lists <code>response_plans</code> in a region or regions, for all properties use
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the response plan.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the response plan.</td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>The display name of the response plan.</td></tr>
-<tr><td><CopyableCode code="chat_channel" /></td><td><code>object</code></td><td>The chat channel configuration.</td></tr>
-<tr><td><CopyableCode code="engagements" /></td><td><code>array</code></td><td>The list of engagements to use.</td></tr>
-<tr><td><CopyableCode code="actions" /></td><td><code>array</code></td><td>The list of actions.</td></tr>
-<tr><td><CopyableCode code="integrations" /></td><td><code>array</code></td><td>The list of integrations.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to apply to the response plan.</td></tr>
-<tr><td><CopyableCode code="incident_template" /></td><td><code>object</code></td><td>The incident template configuration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>response_plans_list_only</code> resource, see <a href="/providers/aws/ssmincidents/response_plans/#permissions"><code>response_plans</code></a>
-
 

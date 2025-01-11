@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>channel_tags</code> resource, see <a href="/providers/aws/cloudtrail/channels/#permissions"><code>channels</code></a>
 
-

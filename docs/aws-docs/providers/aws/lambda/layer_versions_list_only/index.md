@@ -30,13 +30,7 @@ Lists <code>layer_versions</code> in a region or regions, for all properties use
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="compatible_runtimes" /></td><td><code>array</code></td><td>A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.</td></tr>
-<tr><td><CopyableCode code="license_info" /></td><td><code>string</code></td><td>The layer's software license.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the version.</td></tr>
-<tr><td><CopyableCode code="layer_name" /></td><td><code>string</code></td><td>The name or Amazon Resource Name (ARN) of the layer.</td></tr>
-<tr><td><CopyableCode code="content" /></td><td><code>object</code></td><td>The function layer archive.</td></tr>
-<tr><td><CopyableCode code="layer_version_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compatible_architectures" /></td><td><code>array</code></td><td>A list of compatible instruction set architectures.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="layer_version_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>layer_versions_list_only</code> resource, see <a href="/providers/aws/lambda/layer_versions/#permissions"><code>layer_versions</code></a>
-
 

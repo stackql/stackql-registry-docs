@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>hosted_configuration_version</code> re
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-hostedconfigurationversion.html"><code>AWS::AppConfig::HostedConfigurationVersion</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ appconfig:ListHostedConfigurationVersions
 ```json
 appconfig:DeleteHostedConfigurationVersion
 ```
-

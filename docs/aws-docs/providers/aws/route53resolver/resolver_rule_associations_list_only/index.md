@@ -30,10 +30,7 @@ Lists <code>resolver_rule_associations</code> in a region or regions, for all pr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC that you associated the Resolver rule with.</td></tr>
-<tr><td><CopyableCode code="resolver_rule_id" /></td><td><code>string</code></td><td>The ID of the Resolver rule that you associated with the VPC that is specified by <code>VPCId</code>.</td></tr>
-<tr><td><CopyableCode code="resolver_rule_association_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of an association between a Resolver rule and a VPC.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="resolver_rule_association_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>resolver_rule_associations_list_only</code> resource, see <a href="/providers/aws/route53resolver/resolver_rule_associations/#permissions"><code>resolver_rule_associations</code></a>
-
 

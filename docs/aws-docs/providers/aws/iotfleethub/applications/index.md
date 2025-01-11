@@ -45,6 +45,8 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html"><code>AWS::IoTFleetHub::Application</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -241,4 +243,3 @@ sso:DeleteManagedApplicationInstance
 ```json
 iotfleethub:ListApplications
 ```
-

@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>workspace_tags</code> resource, see <a href="/providers/aws/aps/workspaces/#permissions"><code>workspaces</code></a>
 
-

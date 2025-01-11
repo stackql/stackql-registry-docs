@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>sequence_store</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html"><code>AWS::Omics::SequenceStore</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -196,7 +198,8 @@ To operate on the <code>sequence_stores</code> resource, the following permissio
 ### Create
 ```json
 omics:CreateSequenceStore,
-omics:TagResource
+omics:TagResource,
+kms:DescribeKey
 ```
 
 ### Read
@@ -214,4 +217,3 @@ omics:DeleteSequenceStore
 ```json
 omics:ListSequenceStores
 ```
-

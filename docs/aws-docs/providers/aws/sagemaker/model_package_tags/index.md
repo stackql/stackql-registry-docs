@@ -56,6 +56,9 @@ Expands all tag keys and values for <code>model_packages</code> in a region
 <tr><td><CopyableCode code="model_package_version" /></td><td><code>integer</code></td><td>The version of the model package.</td></tr>
 <tr><td><CopyableCode code="additional_inference_specifications_to_add" /></td><td><code>array</code></td><td>An array of additional Inference Specification objects.</td></tr>
 <tr><td><CopyableCode code="model_package_status_details" /></td><td><code>object</code></td><td>Details about the current status of the model package.</td></tr>
+<tr><td><CopyableCode code="source_uri" /></td><td><code>string</code></td><td>The URI of the source for the model package.</td></tr>
+<tr><td><CopyableCode code="model_card" /></td><td><code>object</code></td><td>The model card associated with the model package.</td></tr>
+<tr><td><CopyableCode code="security_config" /></td><td><code>object</code></td><td>An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -107,6 +110,9 @@ model_package_status,
 model_package_version,
 additional_inference_specifications_to_add,
 model_package_status_details,
+source_uri,
+model_card,
+security_config,
 tag_key,
 tag_value
 FROM aws.sagemaker.model_package_tags
@@ -117,5 +123,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>model_package_tags</code> resource, see <a href="/providers/aws/sagemaker/model_packages/#permissions"><code>model_packages</code></a>
-
 

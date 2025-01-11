@@ -30,8 +30,7 @@ Lists <code>snapshot_block_public_accesses</code> in a region or regions, for al
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="state" /></td><td><code>string</code></td><td>The state of EBS Snapshot Block Public Access.</td></tr>
-<tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The identifier for the specified AWS account.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The identifier for the specified AWS account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>snapshot_block_public_accesses_list_only</code> resource, see <a href="/providers/aws/ec2/snapshot_block_public_accesses/#permissions"><code>snapshot_block_public_accesses</code></a>
-
 

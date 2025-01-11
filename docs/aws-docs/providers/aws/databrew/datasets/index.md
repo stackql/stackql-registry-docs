@@ -34,10 +34,13 @@ Creates, updates, deletes or gets a <code>dataset</code> resource or lists <code
 <tr><td><CopyableCode code="format" /></td><td><code>string</code></td><td>Dataset format</td></tr>
 <tr><td><CopyableCode code="format_options" /></td><td><code>object</code></td><td>Format options for dataset</td></tr>
 <tr><td><CopyableCode code="input" /></td><td><code>object</code></td><td>Input</td></tr>
+<tr><td><CopyableCode code="source" /></td><td><code>string</code></td><td>Source type of the dataset</td></tr>
 <tr><td><CopyableCode code="path_options" /></td><td><code>object</code></td><td>PathOptions</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html"><code>AWS::DataBrew::Dataset</code></a>.
 
 ## Methods
 
@@ -83,6 +86,7 @@ name,
 format,
 format_options,
 input,
+source,
 path_options,
 tags
 FROM aws.databrew.datasets
@@ -96,6 +100,7 @@ name,
 format,
 format_options,
 input,
+source,
 path_options,
 tags
 FROM aws.databrew.datasets
@@ -138,6 +143,7 @@ INSERT INTO aws.databrew.datasets (
  Format,
  FormatOptions,
  Input,
+ Source,
  PathOptions,
  Tags,
  region
@@ -147,6 +153,7 @@ SELECT
  '{{ Format }}',
  '{{ FormatOptions }}',
  '{{ Input }}',
+ '{{ Source }}',
  '{{ PathOptions }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -200,6 +207,8 @@ resources:
             QueryString: '{{ QueryString }}'
           Metadata:
             SourceArn: '{{ SourceArn }}'
+      - name: Source
+        value: '{{ Source }}'
       - name: PathOptions
         value:
           FilesLimit:
@@ -279,4 +288,3 @@ databrew:ListDatasets,
 databrew:ListTagsForResource,
 iam:ListRoles
 ```
-

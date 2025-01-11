@@ -31,10 +31,12 @@ Creates, updates, deletes or gets a <code>route_table</code> resource or lists <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="route_table_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the route table.</td></tr>
 <tr><td><CopyableCode code="vpc_id" /></td><td><code>string</code></td><td>The ID of the VPC.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the route table.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html"><code>AWS::EC2::RouteTable</code></a>.
 
 ## Methods
 
@@ -77,8 +79,8 @@ Gets all <code>route_tables</code> in a region.
 SELECT
 region,
 route_table_id,
-tags,
-vpc_id
+vpc_id,
+tags
 FROM aws.ec2.route_tables
 WHERE region = 'us-east-1';
 ```
@@ -87,8 +89,8 @@ Gets all properties from an individual <code>route_table</code>.
 SELECT
 region,
 route_table_id,
-tags,
-vpc_id
+vpc_id,
+tags
 FROM aws.ec2.route_tables
 WHERE region = 'us-east-1' AND data__Identifier = '<RouteTableId>';
 ```
@@ -123,13 +125,13 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.route_tables (
- Tags,
  VpcId,
+ Tags,
  region
 )
 SELECT 
- '{{ Tags }}',
  '{{ VpcId }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -147,12 +149,12 @@ globals:
 resources:
   - name: route_table
     props:
+      - name: VpcId
+        value: '{{ VpcId }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
-      - name: VpcId
-        value: '{{ VpcId }}'
 
 ```
 </TabItem>
@@ -171,15 +173,15 @@ AND region = 'us-east-1';
 
 To operate on the <code>route_tables</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeRouteTables
+```
+
 ### Create
 ```json
 ec2:CreateRouteTable,
 ec2:CreateTags,
-ec2:DescribeRouteTables
-```
-
-### Read
-```json
 ec2:DescribeRouteTables
 ```
 
@@ -190,14 +192,13 @@ ec2:DeleteTags,
 ec2:DescribeRouteTables
 ```
 
-### Delete
-```json
-ec2:DescribeRouteTables,
-ec2:DeleteRouteTable
-```
-
 ### List
 ```json
 ec2:DescribeRouteTables
 ```
 
+### Delete
+```json
+ec2:DescribeRouteTables,
+ec2:DeleteRouteTable
+```

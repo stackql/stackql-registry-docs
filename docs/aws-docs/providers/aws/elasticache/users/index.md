@@ -33,7 +33,7 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>Indicates the user status. Can be "active", "modifying" or "deleting".</td></tr>
 <tr><td><CopyableCode code="user_id" /></td><td><code>string</code></td><td>The ID of the user.</td></tr>
 <tr><td><CopyableCode code="user_name" /></td><td><code>string</code></td><td>The username of the user.</td></tr>
-<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>Must be redis.</td></tr>
+<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The target cache engine for the user.</td></tr>
 <tr><td><CopyableCode code="access_string" /></td><td><code>string</code></td><td>Access permissions string used for this user account.</td></tr>
 <tr><td><CopyableCode code="no_password_required" /></td><td><code>boolean</code></td><td>Indicates a password is not required for this user account.</td></tr>
 <tr><td><CopyableCode code="passwords" /></td><td><code>array</code></td><td>Passwords used for this user account. You can create up to two passwords for each user.</td></tr>
@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>user</code> resource or lists <code>us
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this user.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html"><code>AWS::ElastiCache::User</code></a>.
 
 ## Methods
 
@@ -258,4 +260,3 @@ elasticache:DescribeUsers
 elasticache:DescribeUsers,
 elasticache:ListTagsForResource
 ```
-

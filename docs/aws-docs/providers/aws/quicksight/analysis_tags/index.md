@@ -39,6 +39,7 @@ Expands all tag keys and values for <code>analyses</code> in a region
 <tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The time that the analysis was last updated.</p></td></tr>
 <tr><td><CopyableCode code="validation_strategy" /></td><td><code>object</code></td><td><p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p></td></tr>
+<tr><td><CopyableCode code="folder_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td><p>The descriptive name of the analysis.</p></td></tr>
 <tr><td><CopyableCode code="errors" /></td><td><code>array</code></td><td><p>Errors associated with the analysis.</p></td></tr>
 <tr><td><CopyableCode code="analysis_id" /></td><td><code>string</code></td><td></td></tr>
@@ -80,6 +81,7 @@ theme_arn,
 definition,
 last_updated_time,
 validation_strategy,
+folder_arns,
 name,
 errors,
 analysis_id,
@@ -97,5 +99,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>analysis_tags</code> resource, see <a href="/providers/aws/quicksight/analyses/#permissions"><code>analyses</code></a>
-
 

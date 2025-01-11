@@ -41,10 +41,12 @@ Expands all tag keys and values for <code>applications</code> in a region
 <tr><td><CopyableCode code="image_configuration" /></td><td><code>object</code></td><td>The image configuration.</td></tr>
 <tr><td><CopyableCode code="monitoring_configuration" /></td><td><code>object</code></td><td>Monitoring configuration for batch and interactive JobRun.</td></tr>
 <tr><td><CopyableCode code="runtime_configuration" /></td><td><code>array</code></td><td>Runtime configuration for batch and interactive JobRun.</td></tr>
+<tr><td><CopyableCode code="interactive_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="network_configuration" /></td><td><code>object</code></td><td>Network Configuration for customer VPC connectivity.</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the EMR Serverless Application.</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The ID of the EMR Serverless Application.</td></tr>
 <tr><td><CopyableCode code="worker_type_specifications" /></td><td><code>object</code></td><td>The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.</td></tr>
+<tr><td><CopyableCode code="scheduler_configuration" /></td><td><code>object</code></td><td>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -81,10 +83,12 @@ auto_stop_configuration,
 image_configuration,
 monitoring_configuration,
 runtime_configuration,
+interactive_configuration,
 network_configuration,
 arn,
 application_id,
 worker_type_specifications,
+scheduler_configuration,
 tag_key,
 tag_value
 FROM aws.emrserverless.application_tags
@@ -95,5 +99,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>application_tags</code> resource, see <a href="/providers/aws/emrserverless/applications/#permissions"><code>applications</code></a>
-
 

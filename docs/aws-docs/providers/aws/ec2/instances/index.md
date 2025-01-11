@@ -80,6 +80,8 @@ Creates, updates, deletes or gets an <code>instance</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html"><code>AWS::EC2::Instance</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -508,27 +510,27 @@ resources:
               - Primary: '{{ Primary }}'
                 PrivateIpAddress: '{{ PrivateIpAddress }}'
             SecondaryPrivateIpAddressCount: '{{ SecondaryPrivateIpAddressCount }}'
+            Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
             Ipv4Prefixes:
               - Ipv4Prefix: '{{ Ipv4Prefix }}'
             Ipv4PrefixCount: '{{ Ipv4PrefixCount }}'
+            EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
             GroupSet:
               - '{{ GroupSet[0] }}'
             Ipv6Addresses:
               - null
             Ipv6Prefixes:
               - Ipv6Prefix: '{{ Ipv6Prefix }}'
-            Ipv6PrefixCount: '{{ Ipv6PrefixCount }}'
             SubnetId: '{{ SubnetId }}'
             SourceDestCheck: '{{ SourceDestCheck }}'
             InterfaceType: '{{ InterfaceType }}'
             Ipv6AddressCount: '{{ Ipv6AddressCount }}'
-            EnablePrimaryIpv6: '{{ EnablePrimaryIpv6 }}'
-            ConnectionTrackingSpecification:
-              TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
-              UdpStreamTimeout: '{{ UdpStreamTimeout }}'
-              UdpTimeout: '{{ UdpTimeout }}'
             Tags:
               - null
+            ConnectionTrackingSpecification:
+              UdpTimeout: '{{ UdpTimeout }}'
+              TcpEstablishedTimeout: '{{ TcpEstablishedTimeout }}'
+              UdpStreamTimeout: '{{ UdpStreamTimeout }}'
       - name: ImageId
         value: '{{ ImageId }}'
       - name: InstanceType
@@ -711,4 +713,3 @@ elastic-inference:DescribeAccelerators,
 ssm:DescribeAssociation,
 ssm:ListAssociations
 ```
-

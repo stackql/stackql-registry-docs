@@ -31,13 +31,18 @@ Creates, updates, deletes or gets a <code>global_cluster</code> resource or list
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td>The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).<br />If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="engine_lifecycle_support" /></td><td><code>string</code></td><td>The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
 <tr><td><CopyableCode code="deletion_protection" /></td><td><code>boolean</code></td><td>The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.</td></tr>
 <tr><td><CopyableCode code="global_cluster_identifier" /></td><td><code>string</code></td><td>The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.</td></tr>
 <tr><td><CopyableCode code="source_db_cluster_identifier" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.</td></tr>
 <tr><td><CopyableCode code="storage_encrypted" /></td><td><code>boolean</code></td><td>The storage encryption setting for the new global database cluster.<br />If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.</td></tr>
+<tr><td><CopyableCode code="global_endpoint" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html"><code>AWS::RDS::GlobalCluster</code></a>.
 
 ## Methods
 
@@ -80,11 +85,14 @@ Gets all <code>global_clusters</code> in a region.
 SELECT
 region,
 engine,
+tags,
+engine_lifecycle_support,
 engine_version,
 deletion_protection,
 global_cluster_identifier,
 source_db_cluster_identifier,
-storage_encrypted
+storage_encrypted,
+global_endpoint
 FROM aws.rds.global_clusters
 WHERE region = 'us-east-1';
 ```
@@ -93,11 +101,14 @@ Gets all properties from an individual <code>global_cluster</code>.
 SELECT
 region,
 engine,
+tags,
+engine_lifecycle_support,
 engine_version,
 deletion_protection,
 global_cluster_identifier,
 source_db_cluster_identifier,
-storage_encrypted
+storage_encrypted,
+global_endpoint
 FROM aws.rds.global_clusters
 WHERE region = 'us-east-1' AND data__Identifier = '<GlobalClusterIdentifier>';
 ```
@@ -120,20 +131,26 @@ Use the following StackQL query and manifest file to create a new <code>global_c
 /*+ create */
 INSERT INTO aws.rds.global_clusters (
  Engine,
+ Tags,
+ EngineLifecycleSupport,
  EngineVersion,
  DeletionProtection,
  GlobalClusterIdentifier,
  SourceDBClusterIdentifier,
  StorageEncrypted,
+ GlobalEndpoint,
  region
 )
 SELECT 
 '{{ Engine }}',
+ '{{ Tags }}',
+ '{{ EngineLifecycleSupport }}',
  '{{ EngineVersion }}',
  '{{ DeletionProtection }}',
  '{{ GlobalClusterIdentifier }}',
  '{{ SourceDBClusterIdentifier }}',
  '{{ StorageEncrypted }}',
+ '{{ GlobalEndpoint }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -143,20 +160,26 @@ SELECT
 /*+ create */
 INSERT INTO aws.rds.global_clusters (
  Engine,
+ Tags,
+ EngineLifecycleSupport,
  EngineVersion,
  DeletionProtection,
  GlobalClusterIdentifier,
  SourceDBClusterIdentifier,
  StorageEncrypted,
+ GlobalEndpoint,
  region
 )
 SELECT 
  '{{ Engine }}',
+ '{{ Tags }}',
+ '{{ EngineLifecycleSupport }}',
  '{{ EngineVersion }}',
  '{{ DeletionProtection }}',
  '{{ GlobalClusterIdentifier }}',
  '{{ SourceDBClusterIdentifier }}',
  '{{ StorageEncrypted }}',
+ '{{ GlobalEndpoint }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -176,6 +199,12 @@ resources:
     props:
       - name: Engine
         value: '{{ Engine }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
+      - name: EngineLifecycleSupport
+        value: '{{ EngineLifecycleSupport }}'
       - name: EngineVersion
         value: '{{ EngineVersion }}'
       - name: DeletionProtection
@@ -186,6 +215,9 @@ resources:
         value: '{{ SourceDBClusterIdentifier }}'
       - name: StorageEncrypted
         value: '{{ StorageEncrypted }}'
+      - name: GlobalEndpoint
+        value:
+          Address: '{{ Address }}'
 
 ```
 </TabItem>
@@ -219,7 +251,9 @@ rds:DescribeGlobalClusters
 ### Update
 ```json
 rds:ModifyGlobalCluster,
-rds:DescribeGlobalClusters
+rds:DescribeGlobalClusters,
+rds:AddTagsToResource,
+rds:RemoveTagsFromResource
 ```
 
 ### Delete
@@ -234,4 +268,3 @@ rds:DescribeDBClusters
 ```json
 rds:DescribeGlobalClusters
 ```
-

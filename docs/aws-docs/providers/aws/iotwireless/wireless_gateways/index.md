@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>wireless_gateway</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html"><code>AWS::IoTWireless::WirelessGateway</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -214,8 +216,7 @@ To operate on the <code>wireless_gateways</code> resource, the following permiss
 ### Create
 ```json
 iotwireless:CreateWirelessGateway,
-iotwireless:TagResource,
-iotwireless:ListTagsForResource
+iotwireless:TagResource
 ```
 
 ### Read
@@ -226,10 +227,11 @@ iotwireless:ListTagsForResource
 
 ### Update
 ```json
+iotwireless:GetWirelessGateway,
 iotwireless:UpdateWirelessGateway,
-iotwireless:UntagResource,
-iotwireless:ListTagsForResource,
-iotwireless:AssociateWirelessGatewayWithThing
+iotwireless:AssociateWirelessGatewayWithThing,
+iotwireless:TagResource,
+iotwireless:UntagResource
 ```
 
 ### Delete
@@ -243,4 +245,3 @@ iotwireless:DisassociateWirelessGatewayFromThing
 iotwireless:ListWirelessGateways,
 iotwireless:ListTagsForResource
 ```
-

@@ -20,7 +20,7 @@ The cloudfront service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>26</b></span><br />
+<span>total resources:&nbsp;<b>29</b></span><br />
 </div>
 </div>
 
@@ -29,6 +29,9 @@ The cloudfront service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudfront/anycast_ip_list_tags/">anycast_ip_list_tags</a><br />
+<a href="/providers/aws/cloudfront/anycast_ip_lists/">anycast_ip_lists</a><br />
+<a href="/providers/aws/cloudfront/anycast_ip_lists_list_only/">anycast_ip_lists_list_only</a><br />
 <a href="/providers/aws/cloudfront/cache_policies/">cache_policies</a><br />
 <a href="/providers/aws/cloudfront/cache_policies_list_only/">cache_policies_list_only</a><br />
 <a href="/providers/aws/cloudfront/cloud_front_origin_access_identities/">cloud_front_origin_access_identities</a><br />
@@ -40,10 +43,10 @@ The cloudfront service documentation.
 <a href="/providers/aws/cloudfront/distributions_list_only/">distributions_list_only</a><br />
 <a href="/providers/aws/cloudfront/functions/">functions</a><br />
 <a href="/providers/aws/cloudfront/functions_list_only/">functions_list_only</a><br />
-<a href="/providers/aws/cloudfront/key_groups/">key_groups</a><br />
-<a href="/providers/aws/cloudfront/key_groups_list_only/">key_groups_list_only</a>
+<a href="/providers/aws/cloudfront/key_groups/">key_groups</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudfront/key_groups_list_only/">key_groups_list_only</a><br />
 <a href="/providers/aws/cloudfront/key_value_stores/">key_value_stores</a><br />
 <a href="/providers/aws/cloudfront/key_value_stores_list_only/">key_value_stores_list_only</a><br />
 <a href="/providers/aws/cloudfront/monitoring_subscriptions/">monitoring_subscriptions</a><br />

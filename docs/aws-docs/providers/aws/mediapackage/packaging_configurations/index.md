@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>packaging_configuration</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html"><code>AWS::MediaPackage::PackagingConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -278,4 +280,3 @@ mediapackage-vod:DeletePackagingConfiguration
 mediapackage-vod:ListPackagingConfigurations,
 mediapackage-vod:DescribePackagingGroup
 ```
-

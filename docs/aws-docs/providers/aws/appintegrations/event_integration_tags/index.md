@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_integration_tags</code> resource, see <a href="/providers/aws/appintegrations/event_integrations/#permissions"><code>event_integrations</code></a>
 
-

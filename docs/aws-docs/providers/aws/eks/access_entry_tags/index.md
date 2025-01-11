@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>access_entry_tags</code> resource, see <a href="/providers/aws/eks/access_entries/#permissions"><code>access_entries</code></a>
 
-

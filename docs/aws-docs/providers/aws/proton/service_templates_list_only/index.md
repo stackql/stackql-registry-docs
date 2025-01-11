@@ -31,12 +31,6 @@ Lists <code>service_templates</code> in a region or regions, for all properties 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td><p>The Amazon Resource Name (ARN) of the service template.</p></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>A description of the service template.</p></td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td><p>The name of the service template as displayed in the developer interface.</p></td></tr>
-<tr><td><CopyableCode code="encryption_key" /></td><td><code>string</code></td><td><p>A customer provided encryption key that's used to encrypt data.</p></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="pipeline_provisioning" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td><p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p><br /><p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the<br /><i>Proton User Guide</i>.</p></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>service_templates_list_only</code> resource, see <a href="/providers/aws/proton/service_templates/#permissions"><code>service_templates</code></a>
-
 

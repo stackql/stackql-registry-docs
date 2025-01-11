@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>outpost_resolver_tags</code> resource, see <a href="/providers/aws/route53resolver/outpost_resolvers/#permissions"><code>outpost_resolvers</code></a>
 
-

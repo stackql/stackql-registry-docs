@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>group_profile</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html"><code>AWS::DataZone::GroupProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -225,4 +227,3 @@ sso:DisassociateProfile
 ```json
 datazone:SearchGroupProfiles
 ```
-

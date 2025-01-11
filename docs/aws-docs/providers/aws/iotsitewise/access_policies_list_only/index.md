@@ -31,10 +31,6 @@ Lists <code>access_policies</code> in a region or regions, for all properties us
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="access_policy_id" /></td><td><code>string</code></td><td>The ID of the access policy.</td></tr>
-<tr><td><CopyableCode code="access_policy_arn" /></td><td><code>string</code></td><td>The ARN of the access policy.</td></tr>
-<tr><td><CopyableCode code="access_policy_identity" /></td><td><code>object</code></td><td>The identity for this access policy. Choose either a user or a group but not both.</td></tr>
-<tr><td><CopyableCode code="access_policy_permission" /></td><td><code>string</code></td><td>The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.</td></tr>
-<tr><td><CopyableCode code="access_policy_resource" /></td><td><code>object</code></td><td>The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>access_policies_list_only</code> resource, see <a href="/providers/aws/iotsitewise/access_policies/#permissions"><code>access_policies</code></a>
-
 

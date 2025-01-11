@@ -37,15 +37,21 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td><p>The date and time the origin endpoint was created.</p></td></tr>
 <tr><td><CopyableCode code="dash_manifests" /></td><td><code>array</code></td><td><p>A DASH manifest configuration.</p></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td><p>Enter any descriptive text that helps you to identify the origin endpoint.</p></td></tr>
+<tr><td><CopyableCode code="force_endpoint_error_configuration" /></td><td><code>object</code></td><td><p>The failover settings for the endpoint.</p></td></tr>
 <tr><td><CopyableCode code="hls_manifests" /></td><td><code>array</code></td><td><p>An HTTP live streaming (HLS) manifest configuration.</p></td></tr>
 <tr><td><CopyableCode code="low_latency_hls_manifests" /></td><td><code>array</code></td><td><p>A low-latency HLS manifest configuration.</p></td></tr>
 <tr><td><CopyableCode code="modified_at" /></td><td><code>string</code></td><td><p>The date and time the origin endpoint was modified.</p></td></tr>
 <tr><td><CopyableCode code="origin_endpoint_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="segment" /></td><td><code>object</code></td><td><p>The segment configuration, including the segment name, duration, and other configuration values.</p></td></tr>
 <tr><td><CopyableCode code="startover_window_seconds" /></td><td><code>integer</code></td><td><p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p></td></tr>
+<tr><td><CopyableCode code="dash_manifest_urls" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="hls_manifest_urls" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="low_latency_hls_manifest_urls" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html"><code>AWS::MediaPackageV2::OriginEndpoint</code></a>.
 
 ## Methods
 
@@ -58,7 +64,7 @@ Creates, updates, deletes or gets an <code>origin_endpoint</code> resource or li
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="ChannelGroupName, ChannelName, OriginEndpointName, region" /></td>
+    <td><CopyableCode code="ChannelGroupName, ChannelName, OriginEndpointName, ContainerType, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -94,12 +100,16 @@ container_type,
 created_at,
 dash_manifests,
 description,
+force_endpoint_error_configuration,
 hls_manifests,
 low_latency_hls_manifests,
 modified_at,
 origin_endpoint_name,
 segment,
 startover_window_seconds,
+dash_manifest_urls,
+hls_manifest_urls,
+low_latency_hls_manifest_urls,
 tags
 FROM aws.mediapackagev2.origin_endpoints
 WHERE region = 'us-east-1';
@@ -115,12 +125,16 @@ container_type,
 created_at,
 dash_manifests,
 description,
+force_endpoint_error_configuration,
 hls_manifests,
 low_latency_hls_manifests,
 modified_at,
 origin_endpoint_name,
 segment,
 startover_window_seconds,
+dash_manifest_urls,
+hls_manifest_urls,
+low_latency_hls_manifest_urls,
 tags
 FROM aws.mediapackagev2.origin_endpoints
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
@@ -145,12 +159,14 @@ Use the following StackQL query and manifest file to create a new <code>origin_e
 INSERT INTO aws.mediapackagev2.origin_endpoints (
  ChannelGroupName,
  ChannelName,
+ ContainerType,
  OriginEndpointName,
  region
 )
 SELECT 
 '{{ ChannelGroupName }}',
  '{{ ChannelName }}',
+ '{{ ContainerType }}',
  '{{ OriginEndpointName }}',
 '{{ region }}';
 ```
@@ -165,6 +181,7 @@ INSERT INTO aws.mediapackagev2.origin_endpoints (
  ContainerType,
  DashManifests,
  Description,
+ ForceEndpointErrorConfiguration,
  HlsManifests,
  LowLatencyHlsManifests,
  OriginEndpointName,
@@ -179,6 +196,7 @@ SELECT
  '{{ ContainerType }}',
  '{{ DashManifests }}',
  '{{ Description }}',
+ '{{ ForceEndpointErrorConfiguration }}',
  '{{ HlsManifests }}',
  '{{ LowLatencyHlsManifests }}',
  '{{ OriginEndpointName }}',
@@ -217,6 +235,7 @@ resources:
               Start: '{{ Start }}'
               End: '{{ End }}'
               TimeDelaySeconds: '{{ TimeDelaySeconds }}'
+              ClipStartTime: '{{ ClipStartTime }}'
             MinUpdatePeriodSeconds: '{{ MinUpdatePeriodSeconds }}'
             MinBufferTimeSeconds: '{{ MinBufferTimeSeconds }}'
             SuggestedPresentationDelaySeconds: '{{ SuggestedPresentationDelaySeconds }}'
@@ -231,6 +250,10 @@ resources:
               TimingSource: '{{ TimingSource }}'
       - name: Description
         value: '{{ Description }}'
+      - name: ForceEndpointErrorConfiguration
+        value:
+          EndpointErrorConditions:
+            - '{{ EndpointErrorConditions[0] }}'
       - name: HlsManifests
         value:
           - ManifestName: '{{ ManifestName }}'
@@ -241,6 +264,9 @@ resources:
             ScteHls:
               AdMarkerHls: '{{ AdMarkerHls }}'
             FilterConfiguration: null
+            StartTag:
+              TimeOffset: null
+              Precise: '{{ Precise }}'
       - name: LowLatencyHlsManifests
         value:
           - ManifestName: '{{ ManifestName }}'
@@ -250,6 +276,7 @@ resources:
             ProgramDateTimeIntervalSeconds: '{{ ProgramDateTimeIntervalSeconds }}'
             ScteHls: null
             FilterConfiguration: null
+            StartTag: null
       - name: OriginEndpointName
         value: '{{ OriginEndpointName }}'
       - name: Segment
@@ -332,4 +359,3 @@ mediapackagev2:DeleteOriginEndpoint
 ```json
 mediapackagev2:ListOriginEndpoints
 ```
-

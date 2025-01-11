@@ -36,6 +36,7 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 <tr><td><CopyableCode code="browser_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creation_date" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_protection_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="ip_access_settings_arn" /></td><td><code>string</code></td><td></td></tr>
@@ -53,6 +54,8 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 <tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html"><code>AWS::WorkSpacesWeb::Portal</code></a>.
 
 ## Methods
 
@@ -100,6 +103,7 @@ browser_settings_arn,
 browser_type,
 creation_date,
 customer_managed_key,
+data_protection_settings_arn,
 display_name,
 instance_type,
 ip_access_settings_arn,
@@ -128,6 +132,7 @@ browser_settings_arn,
 browser_type,
 creation_date,
 customer_managed_key,
+data_protection_settings_arn,
 display_name,
 instance_type,
 ip_access_settings_arn,
@@ -168,6 +173,7 @@ INSERT INTO aws.workspacesweb.portals (
  AuthenticationType,
  BrowserSettingsArn,
  CustomerManagedKey,
+ DataProtectionSettingsArn,
  DisplayName,
  InstanceType,
  IpAccessSettingsArn,
@@ -184,6 +190,7 @@ SELECT
  '{{ AuthenticationType }}',
  '{{ BrowserSettingsArn }}',
  '{{ CustomerManagedKey }}',
+ '{{ DataProtectionSettingsArn }}',
  '{{ DisplayName }}',
  '{{ InstanceType }}',
  '{{ IpAccessSettingsArn }}',
@@ -205,6 +212,7 @@ INSERT INTO aws.workspacesweb.portals (
  AuthenticationType,
  BrowserSettingsArn,
  CustomerManagedKey,
+ DataProtectionSettingsArn,
  DisplayName,
  InstanceType,
  IpAccessSettingsArn,
@@ -221,6 +229,7 @@ SELECT
  '{{ AuthenticationType }}',
  '{{ BrowserSettingsArn }}',
  '{{ CustomerManagedKey }}',
+ '{{ DataProtectionSettingsArn }}',
  '{{ DisplayName }}',
  '{{ InstanceType }}',
  '{{ IpAccessSettingsArn }}',
@@ -255,6 +264,8 @@ resources:
         value: '{{ BrowserSettingsArn }}'
       - name: CustomerManagedKey
         value: '{{ CustomerManagedKey }}'
+      - name: DataProtectionSettingsArn
+        value: '{{ DataProtectionSettingsArn }}'
       - name: DisplayName
         value: '{{ DisplayName }}'
       - name: InstanceType
@@ -296,19 +307,22 @@ To operate on the <code>portals</code> resource, the following permissions are r
 ### Create
 ```json
 workspaces-web:CreatePortal,
-workspaces-web:GetPortal,
-workspaces-web:GetPortalServiceProviderMetadata,
+workspaces-web:GetPortal*,
 workspaces-web:AssociateBrowserSettings,
 workspaces-web:AssociateIpAccessSettings,
 workspaces-web:AssociateNetworkSettings,
 workspaces-web:AssociateTrustStore,
 workspaces-web:AssociateUserAccessLoggingSettings,
 workspaces-web:AssociateUserSettings,
-workspaces-web:ListTagsForResource,
+workspaces-web:AssociateDataProtectionSettings,
+workspaces-web:List*,
 workspaces-web:TagResource,
-kms:CreateGrant,
+kms:DescribeKey,
 kms:GenerateDataKey,
 kms:Decrypt,
+kms:GenerateDataKeyWithoutPlaintext,
+kms:ReEncryptTo,
+kms:ReEncryptFrom,
 ec2:CreateNetworkInterface,
 ec2:CreateNetworkInterfacePermission,
 ec2:DeleteNetworkInterface,
@@ -316,23 +330,22 @@ ec2:DeleteNetworkInterfacePermission,
 ec2:ModifyNetworkInterfaceAttribute,
 kinesis:PutRecord,
 kinesis:PutRecords,
-kinesis:DescribeStreamSummary,
+kinesis:Describe*,
 sso:CreateManagedApplicationInstance,
-sso:DescribeRegisteredRegions
+sso:Describe*
 ```
 
 ### Read
 ```json
-workspaces-web:GetPortal,
-workspaces-web:GetPortalServiceProviderMetadata,
-workspaces-web:ListTagsForResource,
-kms:Decrypt
+workspaces-web:GetPortal*,
+workspaces-web:List*,
+kms:Decrypt,
+kms:DescribeKey
 ```
 
 ### Update
 ```json
-workspaces-web:GetPortal,
-workspaces-web:GetPortalServiceProviderMetadata,
+workspaces-web:GetPortal*,
 workspaces-web:UpdatePortal,
 workspaces-web:AssociateBrowserSettings,
 workspaces-web:AssociateIpAccessSettings,
@@ -340,19 +353,22 @@ workspaces-web:AssociateNetworkSettings,
 workspaces-web:AssociateTrustStore,
 workspaces-web:AssociateUserAccessLoggingSettings,
 workspaces-web:AssociateUserSettings,
+workspaces-web:AssociateDataProtectionSettings,
 workspaces-web:DisassociateBrowserSettings,
 workspaces-web:DisassociateIpAccessSettings,
 workspaces-web:DisassociateNetworkSettings,
 workspaces-web:DisassociateTrustStore,
 workspaces-web:DisassociateUserAccessLoggingSettings,
 workspaces-web:DisassociateUserSettings,
-workspaces-web:ListTagsForResource,
+workspaces-web:DisassociateDataProtectionSettings,
+workspaces-web:List*,
 workspaces-web:TagResource,
 workspaces-web:UntagResource,
 kms:CreateGrant,
 kms:Encrypt,
 kms:GenerateDataKey,
 kms:Decrypt,
+kms:DescribeKey,
 ec2:CreateNetworkInterface,
 ec2:CreateNetworkInterfacePermission,
 ec2:DeleteNetworkInterface,
@@ -360,17 +376,17 @@ ec2:DeleteNetworkInterfacePermission,
 ec2:ModifyNetworkInterfaceAttribute,
 kinesis:PutRecord,
 kinesis:PutRecords,
-kinesis:DescribeStreamSummary,
+kinesis:Describe*,
 sso:CreateManagedApplicationInstance,
 sso:DeleteManagedApplicationInstance,
-sso:DescribeRegisteredRegions,
+sso:Describe*,
 sso:GetApplicationInstance,
-sso:ListApplicationInstances
+sso:List*
 ```
 
 ### Delete
 ```json
-workspaces-web:GetPortal,
+workspaces-web:GetPortal*,
 workspaces-web:DeletePortal,
 workspaces-web:DisassociateBrowserSettings,
 workspaces-web:DisassociateIpAccessSettings,
@@ -378,13 +394,15 @@ workspaces-web:DisassociateNetworkSettings,
 workspaces-web:DisassociateTrustStore,
 workspaces-web:DisassociateUserAccessLoggingSettings,
 workspaces-web:DisassociateUserSettings,
+workspaces-web:DisassociateDataProtectionSettings,
 kms:Decrypt,
+kms:DescribeKey,
 sso:DeleteManagedApplicationInstance
 ```
 
 ### List
 ```json
-workspaces-web:ListPortals,
-kms:Decrypt
+workspaces-web:List*,
+kms:Decrypt,
+kms:DescribeKey
 ```
-

@@ -25,7 +25,7 @@ Creates, updates, deletes or gets an <code>input</code> resource or lists <code>
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>inputs</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see &#91;How to Use AWS IoT Events&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see &#91;How to Use&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.iotevents.inputs" /></td></tr>
 </tbody></table>
 
@@ -36,6 +36,8 @@ Creates, updates, deletes or gets an <code>input</code> resource or lists <code>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.<br />For more information, see &#91;Tag&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html"><code>AWS::IoTEvents::Input</code></a>.
 
 ## Methods
 
@@ -217,4 +219,3 @@ iotevents:DescribeInput
 ```json
 iotevents:ListInputs
 ```
-

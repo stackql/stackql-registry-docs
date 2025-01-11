@@ -94,4 +94,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>pricing_rule_tags</code> resource, see <a href="/providers/aws/billingconductor/pricing_rules/#permissions"><code>pricing_rules</code></a>
 
-

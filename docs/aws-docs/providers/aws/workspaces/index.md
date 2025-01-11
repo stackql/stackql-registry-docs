@@ -20,7 +20,7 @@ The workspaces service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
+<span>total resources:&nbsp;<b>4</b></span><br />
 </div>
 </div>
 
@@ -29,9 +29,11 @@ The workspaces service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/workspaces/connection_aliases/">connection_aliases</a>
+<a href="/providers/aws/workspaces/connection_aliases/">connection_aliases</a><br />
+<a href="/providers/aws/workspaces/workspaces_pool_tags/">workspaces_pool_tags</a>
 </div>
 <div class="providerDocColumn">
-
+<a href="/providers/aws/workspaces/workspaces_pools/">workspaces_pools</a><br />
+<a href="/providers/aws/workspaces/workspaces_pools_list_only/">workspaces_pools_list_only</a>
 </div>
 </div>

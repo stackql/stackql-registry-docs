@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>metric_stream</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html"><code>AWS::CloudWatch::MetricStream</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -57,7 +59,7 @@ Creates, updates, deletes or gets a <code>metric_stream</code> resource or lists
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="FirehoseArn, RoleArn, OutputFormat, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -140,15 +142,27 @@ Use the following StackQL query and manifest file to create a new <code>metric_s
 ```sql
 /*+ create */
 INSERT INTO aws.cloudwatch.metric_streams (
+ ExcludeFilters,
  FirehoseArn,
+ IncludeFilters,
+ Name,
  RoleArn,
  OutputFormat,
+ StatisticsConfigurations,
+ Tags,
+ IncludeLinkedAccountsMetrics,
  region
 )
 SELECT 
-'{{ FirehoseArn }}',
+'{{ ExcludeFilters }}',
+ '{{ FirehoseArn }}',
+ '{{ IncludeFilters }}',
+ '{{ Name }}',
  '{{ RoleArn }}',
  '{{ OutputFormat }}',
+ '{{ StatisticsConfigurations }}',
+ '{{ Tags }}',
+ '{{ IncludeLinkedAccountsMetrics }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -274,4 +288,3 @@ cloudwatch:ListMetricStreams
 ```json
 cloudwatch:GetMetricStream
 ```
-

@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>component_version_tags</code> resource, see <a href="/providers/aws/greengrassv2/component_versions/#permissions"><code>component_versions</code></a>
 
-

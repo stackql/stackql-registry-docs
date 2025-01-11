@@ -33,18 +33,27 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="attachments_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="auto_subscription_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_ids_for_oid_c" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="iam_identity_provider_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_center_application_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_center_instance_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="personalization_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="q_apps_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="quick_sight_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html"><code>AWS::QBusiness::Application</code></a>.
 
 ## Methods
 
@@ -89,12 +98,19 @@ region,
 application_arn,
 application_id,
 attachments_configuration,
+auto_subscription_configuration,
+client_ids_for_oid_c,
 created_at,
 description,
 display_name,
 encryption_configuration,
+iam_identity_provider_arn,
 identity_center_application_arn,
 identity_center_instance_arn,
+identity_type,
+personalization_configuration,
+q_apps_configuration,
+quick_sight_configuration,
 role_arn,
 status,
 tags,
@@ -109,12 +125,19 @@ region,
 application_arn,
 application_id,
 attachments_configuration,
+auto_subscription_configuration,
+client_ids_for_oid_c,
 created_at,
 description,
 display_name,
 encryption_configuration,
+iam_identity_provider_arn,
 identity_center_application_arn,
 identity_center_instance_arn,
+identity_type,
+personalization_configuration,
+q_apps_configuration,
+quick_sight_configuration,
 role_arn,
 status,
 tags,
@@ -154,20 +177,34 @@ SELECT
 /*+ create */
 INSERT INTO aws.qbusiness.applications (
  AttachmentsConfiguration,
+ AutoSubscriptionConfiguration,
+ ClientIdsForOIDC,
  Description,
  DisplayName,
  EncryptionConfiguration,
+ IamIdentityProviderArn,
  IdentityCenterInstanceArn,
+ IdentityType,
+ PersonalizationConfiguration,
+ QAppsConfiguration,
+ QuickSightConfiguration,
  RoleArn,
  Tags,
  region
 )
 SELECT 
  '{{ AttachmentsConfiguration }}',
+ '{{ AutoSubscriptionConfiguration }}',
+ '{{ ClientIdsForOIDC }}',
  '{{ Description }}',
  '{{ DisplayName }}',
  '{{ EncryptionConfiguration }}',
+ '{{ IamIdentityProviderArn }}',
  '{{ IdentityCenterInstanceArn }}',
+ '{{ IdentityType }}',
+ '{{ PersonalizationConfiguration }}',
+ '{{ QAppsConfiguration }}',
+ '{{ QuickSightConfiguration }}',
  '{{ RoleArn }}',
  '{{ Tags }}',
  '{{ region }}';
@@ -190,6 +227,13 @@ resources:
       - name: AttachmentsConfiguration
         value:
           AttachmentsControlMode: '{{ AttachmentsControlMode }}'
+      - name: AutoSubscriptionConfiguration
+        value:
+          AutoSubscribe: '{{ AutoSubscribe }}'
+          DefaultSubscriptionType: '{{ DefaultSubscriptionType }}'
+      - name: ClientIdsForOIDC
+        value:
+          - '{{ ClientIdsForOIDC[0] }}'
       - name: Description
         value: '{{ Description }}'
       - name: DisplayName
@@ -197,8 +241,21 @@ resources:
       - name: EncryptionConfiguration
         value:
           KmsKeyId: '{{ KmsKeyId }}'
+      - name: IamIdentityProviderArn
+        value: '{{ IamIdentityProviderArn }}'
       - name: IdentityCenterInstanceArn
         value: '{{ IdentityCenterInstanceArn }}'
+      - name: IdentityType
+        value: '{{ IdentityType }}'
+      - name: PersonalizationConfiguration
+        value:
+          PersonalizationControlMode: '{{ PersonalizationControlMode }}'
+      - name: QAppsConfiguration
+        value:
+          QAppsControlMode: '{{ QAppsControlMode }}'
+      - name: QuickSightConfiguration
+        value:
+          ClientNamespace: '{{ ClientNamespace }}'
       - name: RoleArn
         value: '{{ RoleArn }}'
       - name: Tags
@@ -225,6 +282,7 @@ To operate on the <code>applications</code> resource, the following permissions 
 
 ### Create
 ```json
+iam:GetSAMLProvider,
 iam:PassRole,
 kms:CreateGrant,
 kms:DescribeKey,
@@ -232,8 +290,12 @@ qbusiness:CreateApplication,
 qbusiness:GetApplication,
 qbusiness:ListTagsForResource,
 qbusiness:TagResource,
+qbusiness:UpdateApplication,
+quicksight:DescribeAccountSubscription,
+quicksight:ListNamespaces,
 sso:CreateApplication,
 sso:DeleteApplication,
+sso:DescribeInstance,
 sso:PutApplicationAccessScope,
 sso:PutApplicationAuthenticationMethod,
 sso:PutApplicationGrant
@@ -255,6 +317,7 @@ qbusiness:UntagResource,
 qbusiness:UpdateApplication,
 sso:CreateApplication,
 sso:DeleteApplication,
+sso:DescribeInstance,
 sso:PutApplicationAccessScope,
 sso:PutApplicationAuthenticationMethod,
 sso:PutApplicationGrant
@@ -272,4 +335,3 @@ sso:DeleteApplication
 ```json
 qbusiness:ListApplications
 ```
-

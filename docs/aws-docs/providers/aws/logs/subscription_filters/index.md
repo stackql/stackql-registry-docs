@@ -36,8 +36,11 @@ Creates, updates, deletes or gets a <code>subscription_filter</code> resource or
 <tr><td><CopyableCode code="log_group_name" /></td><td><code>string</code></td><td>The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of an IAM role that grants CWL permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.</td></tr>
 <tr><td><CopyableCode code="distribution" /></td><td><code>string</code></td><td>The method used to distribute log data to the destination, which can be either random or grouped by log stream.</td></tr>
+<tr><td><CopyableCode code="apply_on_transformed_logs" /></td><td><code>boolean</code></td><td>This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see &#91;PutTransformer&#93;(https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).<br />If this value is <code>true</code>, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html"><code>AWS::Logs::SubscriptionFilter</code></a>.
 
 ## Methods
 
@@ -84,7 +87,8 @@ destination_arn,
 filter_pattern,
 log_group_name,
 role_arn,
-distribution
+distribution,
+apply_on_transformed_logs
 FROM aws.logs.subscription_filters
 WHERE region = 'us-east-1';
 ```
@@ -97,7 +101,8 @@ destination_arn,
 filter_pattern,
 log_group_name,
 role_arn,
-distribution
+distribution,
+apply_on_transformed_logs
 FROM aws.logs.subscription_filters
 WHERE region = 'us-east-1' AND data__Identifier = '<FilterName>|<LogGroupName>';
 ```
@@ -142,6 +147,7 @@ INSERT INTO aws.logs.subscription_filters (
  LogGroupName,
  RoleArn,
  Distribution,
+ ApplyOnTransformedLogs,
  region
 )
 SELECT 
@@ -151,6 +157,7 @@ SELECT
  '{{ LogGroupName }}',
  '{{ RoleArn }}',
  '{{ Distribution }}',
+ '{{ ApplyOnTransformedLogs }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -180,6 +187,8 @@ resources:
         value: '{{ RoleArn }}'
       - name: Distribution
         value: '{{ Distribution }}'
+      - name: ApplyOnTransformedLogs
+        value: '{{ ApplyOnTransformedLogs }}'
 
 ```
 </TabItem>
@@ -226,4 +235,3 @@ logs:DeleteSubscriptionFilter
 ```json
 logs:DescribeSubscriptionFilters
 ```
-

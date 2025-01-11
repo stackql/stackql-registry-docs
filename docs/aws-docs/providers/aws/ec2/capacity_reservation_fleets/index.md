@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>capacity_reservation_fleet</code> reso
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html"><code>AWS::EC2::CapacityReservationFleet</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -298,4 +300,3 @@ ec2:CancelCapacityReservation,
 ec2:DescribeInstances,
 ec2:DeleteTags
 ```
-

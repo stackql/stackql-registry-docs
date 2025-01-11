@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>id_namespace</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-entityresolution-idnamespace.html"><code>AWS::EntityResolution::IdNamespace</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -191,6 +193,16 @@ resources:
       - name: IdMappingWorkflowProperties
         value:
           - IdMappingType: '{{ IdMappingType }}'
+            RuleBasedProperties:
+              Rules:
+                - RuleName: '{{ RuleName }}'
+                  MatchingKeys:
+                    - '{{ MatchingKeys[0] }}'
+              RuleDefinitionTypes:
+                - '{{ RuleDefinitionTypes[0] }}'
+              AttributeMatchingModel: '{{ AttributeMatchingModel }}'
+              RecordMatchingModels:
+                - '{{ RecordMatchingModels[0] }}'
             ProviderProperties:
               ProviderServiceArn: '{{ ProviderServiceArn }}'
               ProviderConfiguration: {}
@@ -253,4 +265,3 @@ entityresolution:UntagResource
 ```json
 entityresolution:ListIdNamespaces
 ```
-

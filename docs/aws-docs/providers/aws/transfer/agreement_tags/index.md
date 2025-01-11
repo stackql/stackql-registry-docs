@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>agreement_tags</code> resource, see <a href="/providers/aws/transfer/agreements/#permissions"><code>agreements</code></a>
 
-

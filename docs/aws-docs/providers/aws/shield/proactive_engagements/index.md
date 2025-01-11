@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>proactive_engagement</code> resource o
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-proactiveengagement.html"><code>AWS::Shield::ProactiveEngagement</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -211,4 +213,3 @@ shield:DisableProactiveEngagement
 shield:DescribeSubscription,
 shield:DescribeEmergencyContactSettings
 ```
-

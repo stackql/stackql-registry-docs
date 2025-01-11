@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>target_group</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-targetgroup.html"><code>AWS::VpcLattice::TargetGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -283,4 +285,3 @@ lambda:RemovePermission
 ```json
 vpc-lattice:ListTargetGroups
 ```
-

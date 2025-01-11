@@ -30,10 +30,7 @@ Lists <code>view_versions</code> in a region or regions, for all properties use 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="view_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the view for which a version is being created.</td></tr>
-<tr><td><CopyableCode code="view_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the created view version.</td></tr>
-<tr><td><CopyableCode code="version_description" /></td><td><code>string</code></td><td>The description for the view version.</td></tr>
-<tr><td><CopyableCode code="view_content_sha256" /></td><td><code>string</code></td><td>The view content hash to be checked.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="view_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the created view version.</td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>integer</code></td><td>The version of the view.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -67,5 +64,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>view_versions_list_only</code> resource, see <a href="/providers/aws/connect/view_versions/#permissions"><code>view_versions</code></a>
-
 

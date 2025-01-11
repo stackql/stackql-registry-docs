@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>replica_key_tags</code> resource, see <a href="/providers/aws/kms/replica_keys/#permissions"><code>replica_keys</code></a>
 
-

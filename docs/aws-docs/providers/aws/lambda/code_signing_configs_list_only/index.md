@@ -30,11 +30,7 @@ Lists <code>code_signing_configs</code> in a region or regions, for all properti
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the CodeSigningConfig</td></tr>
-<tr><td><CopyableCode code="allowed_publishers" /></td><td><code>object</code></td><td>When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list</td></tr>
-<tr><td><CopyableCode code="code_signing_policies" /></td><td><code>object</code></td><td>Policies to control how to act if a signature is invalid</td></tr>
-<tr><td><CopyableCode code="code_signing_config_id" /></td><td><code>string</code></td><td>A unique identifier for CodeSigningConfig resource</td></tr>
-<tr><td><CopyableCode code="code_signing_config_arn" /></td><td><code>string</code></td><td>A unique Arn for CodeSigningConfig resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="code_signing_config_arn" /></td><td><code>string</code></td><td>A unique Arn for CodeSigningConfig resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>code_signing_configs_list_only</code> resource, see <a href="/providers/aws/lambda/code_signing_configs/#permissions"><code>code_signing_configs</code></a>
-
 

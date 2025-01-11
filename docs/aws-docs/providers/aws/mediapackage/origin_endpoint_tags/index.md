@@ -96,4 +96,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>origin_endpoint_tags</code> resource, see <a href="/providers/aws/mediapackage/origin_endpoints/#permissions"><code>origin_endpoints</code></a>
 
-

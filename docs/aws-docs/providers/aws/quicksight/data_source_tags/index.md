@@ -38,6 +38,7 @@ Expands all tag keys and values for <code>data_sources</code> in a region
 <tr><td><CopyableCode code="data_source_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_source_parameters" /></td><td><code>object</code></td><td><p>The parameters that Amazon QuickSight uses to connect to your underlying data source.<br />This is a variant type structure. For this structure to be valid, only one of the<br />attributes can be non-null.</p></td></tr>
 <tr><td><CopyableCode code="error_info" /></td><td><code>object</code></td><td><p>Error information for the data source creation or update.</p></td></tr>
+<tr><td><CopyableCode code="folder_arns" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_updated_time" /></td><td><code>string</code></td><td><p>The last time that this data source was updated.</p></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="permissions" /></td><td><code>array</code></td><td></td></tr>
@@ -78,6 +79,7 @@ credentials,
 data_source_id,
 data_source_parameters,
 error_info,
+folder_arns,
 last_updated_time,
 name,
 permissions,
@@ -95,5 +97,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>data_source_tags</code> resource, see <a href="/providers/aws/quicksight/data_sources/#permissions"><code>data_sources</code></a>
-
 

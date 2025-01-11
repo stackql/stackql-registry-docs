@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>virtual_cluster_tags</code> resource, see <a href="/providers/aws/emrcontainers/virtual_clusters/#permissions"><code>virtual_clusters</code></a>
 
-

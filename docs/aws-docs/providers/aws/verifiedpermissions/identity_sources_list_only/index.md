@@ -30,11 +30,8 @@ Lists <code>identity_sources</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration" /></td><td><code>undefined</code></td><td></td></tr>
-<tr><td><CopyableCode code="details" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="identity_source_id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="identity_source_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="policy_store_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="principal_entity_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>identity_sources_list_only</code> resource, see <a href="/providers/aws/verifiedpermissions/identity_sources/#permissions"><code>identity_sources</code></a>
-
 

@@ -30,21 +30,24 @@ Creates, updates, deletes or gets a <code>state_machine</code> resource or lists
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="definition_substitutions" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="definition_string" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="state_machine_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="state_machine_revision_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="logging_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="tracing_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="encryption_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_s3_location" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition_substitutions" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="definition" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html"><code>AWS::StepFunctions::StateMachine</code></a>.
 
 ## Methods
 
@@ -86,18 +89,19 @@ Gets all <code>state_machines</code> in a region.
 ```sql
 SELECT
 region,
+arn,
+name,
+definition_string,
+role_arn,
+state_machine_name,
+state_machine_type,
+state_machine_revision_id,
+logging_configuration,
+tracing_configuration,
+encryption_configuration,
+definition_s3_location,
 definition_substitutions,
 definition,
-role_arn,
-name,
-state_machine_type,
-tracing_configuration,
-definition_string,
-logging_configuration,
-state_machine_revision_id,
-definition_s3_location,
-arn,
-state_machine_name,
 tags
 FROM aws.stepfunctions.state_machines
 WHERE region = 'us-east-1';
@@ -106,18 +110,19 @@ Gets all properties from an individual <code>state_machine</code>.
 ```sql
 SELECT
 region,
+arn,
+name,
+definition_string,
+role_arn,
+state_machine_name,
+state_machine_type,
+state_machine_revision_id,
+logging_configuration,
+tracing_configuration,
+encryption_configuration,
+definition_s3_location,
 definition_substitutions,
 definition,
-role_arn,
-name,
-state_machine_type,
-tracing_configuration,
-definition_string,
-logging_configuration,
-state_machine_revision_id,
-definition_s3_location,
-arn,
-state_machine_name,
 tags
 FROM aws.stepfunctions.state_machines
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
@@ -153,28 +158,30 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.stepfunctions.state_machines (
+ DefinitionString,
+ RoleArn,
+ StateMachineName,
+ StateMachineType,
+ LoggingConfiguration,
+ TracingConfiguration,
+ EncryptionConfiguration,
+ DefinitionS3Location,
  DefinitionSubstitutions,
  Definition,
- RoleArn,
- StateMachineType,
- TracingConfiguration,
- DefinitionString,
- LoggingConfiguration,
- DefinitionS3Location,
- StateMachineName,
  Tags,
  region
 )
 SELECT 
+ '{{ DefinitionString }}',
+ '{{ RoleArn }}',
+ '{{ StateMachineName }}',
+ '{{ StateMachineType }}',
+ '{{ LoggingConfiguration }}',
+ '{{ TracingConfiguration }}',
+ '{{ EncryptionConfiguration }}',
+ '{{ DefinitionS3Location }}',
  '{{ DefinitionSubstitutions }}',
  '{{ Definition }}',
- '{{ RoleArn }}',
- '{{ StateMachineType }}',
- '{{ TracingConfiguration }}',
- '{{ DefinitionString }}',
- '{{ LoggingConfiguration }}',
- '{{ DefinitionS3Location }}',
- '{{ StateMachineName }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -193,37 +200,42 @@ globals:
 resources:
   - name: state_machine
     props:
-      - name: DefinitionSubstitutions
-        value: {}
-      - name: Definition
-        value: {}
-      - name: RoleArn
-        value: '{{ RoleArn }}'
-      - name: StateMachineType
-        value: '{{ StateMachineType }}'
-      - name: TracingConfiguration
-        value:
-          Enabled: '{{ Enabled }}'
       - name: DefinitionString
         value: '{{ DefinitionString }}'
+      - name: RoleArn
+        value: '{{ RoleArn }}'
+      - name: StateMachineName
+        value: '{{ StateMachineName }}'
+      - name: StateMachineType
+        value: '{{ StateMachineType }}'
       - name: LoggingConfiguration
         value:
+          Level: '{{ Level }}'
           IncludeExecutionData: '{{ IncludeExecutionData }}'
           Destinations:
             - CloudWatchLogsLogGroup:
                 LogGroupArn: '{{ LogGroupArn }}'
-          Level: '{{ Level }}'
+      - name: TracingConfiguration
+        value:
+          Enabled: '{{ Enabled }}'
+      - name: EncryptionConfiguration
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
+          KmsDataKeyReusePeriodSeconds: '{{ KmsDataKeyReusePeriodSeconds }}'
+          Type: '{{ Type }}'
       - name: DefinitionS3Location
         value:
           Bucket: '{{ Bucket }}'
-          Version: '{{ Version }}'
           Key: '{{ Key }}'
-      - name: StateMachineName
-        value: '{{ StateMachineName }}'
+          Version: '{{ Version }}'
+      - name: DefinitionSubstitutions
+        value: {}
+      - name: Definition
+        value: {}
       - name: Tags
         value:
-          - Value: '{{ Value }}'
-            Key: '{{ Key }}'
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -242,19 +254,22 @@ AND region = 'us-east-1';
 
 To operate on the <code>state_machines</code> resource, the following permissions are required:
 
-### Read
-```json
-states:DescribeStateMachine,
-states:ListTagsForResource
-```
-
 ### Create
 ```json
 states:CreateStateMachine,
 states:DescribeStateMachine,
 states:TagResource,
 iam:PassRole,
-s3:GetObject
+s3:GetObject,
+kms:DescribeKey,
+kms:GenerateDataKey
+```
+
+### Read
+```json
+states:DescribeStateMachine,
+states:ListTagsForResource,
+kms:Decrypt
 ```
 
 ### Update
@@ -263,12 +278,9 @@ states:UpdateStateMachine,
 states:TagResource,
 states:UntagResource,
 states:ListTagsForResource,
-iam:PassRole
-```
-
-### List
-```json
-states:ListStateMachines
+iam:PassRole,
+kms:DescribeKey,
+kms:GenerateDataKey
 ```
 
 ### Delete
@@ -277,3 +289,7 @@ states:DeleteStateMachine,
 states:DescribeStateMachine
 ```
 
+### List
+```json
+states:ListStateMachines
+```

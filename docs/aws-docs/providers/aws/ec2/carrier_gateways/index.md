@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>carrier_gateway</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html"><code>AWS::EC2::CarrierGateway</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -186,14 +188,16 @@ ec2:CreateTags
 
 ### Read
 ```json
-ec2:DescribeCarrierGateways
+ec2:DescribeCarrierGateways,
+ec2:DescribeTags
 ```
 
 ### Update
 ```json
 ec2:DescribeCarrierGateways,
 ec2:CreateTags,
-ec2:DeleteTags
+ec2:DeleteTags,
+ec2:DescribeTags
 ```
 
 ### Delete
@@ -206,4 +210,3 @@ ec2:DescribeCarrierGateways
 ```json
 ec2:DescribeCarrierGateways
 ```
-

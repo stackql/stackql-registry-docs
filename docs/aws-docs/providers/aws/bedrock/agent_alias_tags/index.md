@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>agent_alias_tags</code> resource, see <a href="/providers/aws/bedrock/agent_aliases/#permissions"><code>agent_aliases</code></a>
 
-

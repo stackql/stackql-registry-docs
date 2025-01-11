@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>user_pool_group</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html"><code>AWS::Cognito::UserPoolGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -218,4 +220,3 @@ iam:PutRolePolicy
 ```json
 cognito-idp:ListGroups
 ```
-

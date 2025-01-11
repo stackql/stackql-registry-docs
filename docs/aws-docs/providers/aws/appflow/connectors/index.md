@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>connector</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html"><code>AWS::AppFlow::Connector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -213,4 +215,3 @@ appflow:ListConnectors
 appflow:UpdateConnectorRegistration,
 lambda:InvokeFunction
 ```
-

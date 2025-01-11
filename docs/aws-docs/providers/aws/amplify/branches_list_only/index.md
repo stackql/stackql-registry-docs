@@ -30,21 +30,7 @@ Lists <code>branches</code> in a region or regions, for all properties use <a hr
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="app_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="basic_auth_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="backend" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="branch_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_auto_build" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_performance_mode" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_pull_request_preview" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="environment_variables" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="framework" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="pull_request_environment_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="stage" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>branches_list_only</code> resource, see <a href="/providers/aws/amplify/branches/#permissions"><code>branches</code></a>
-
 

@@ -39,10 +39,11 @@ Creates, updates, deletes or gets a <code>transit_gateway_multicast_group_source
 <tr><td><CopyableCode code="network_interface_id" /></td><td><code>string</code></td><td>The ID of the transit gateway attachment.</td></tr>
 <tr><td><CopyableCode code="group_member" /></td><td><code>boolean</code></td><td>Indicates that the resource is a transit gateway multicast group member.</td></tr>
 <tr><td><CopyableCode code="group_source" /></td><td><code>boolean</code></td><td>Indicates that the resource is a transit gateway multicast group member.</td></tr>
-<tr><td><CopyableCode code="member_type" /></td><td><code>string</code></td><td>The member type (for example, static).</td></tr>
 <tr><td><CopyableCode code="source_type" /></td><td><code>string</code></td><td>The source type.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html"><code>AWS::EC2::TransitGatewayMulticastGroupSource</code></a>.
 
 ## Methods
 
@@ -88,7 +89,6 @@ resource_type,
 network_interface_id,
 group_member,
 group_source,
-member_type,
 source_type
 FROM aws.ec2.transit_gateway_multicast_group_sources
 WHERE region = 'us-east-1';
@@ -106,7 +106,6 @@ resource_type,
 network_interface_id,
 group_member,
 group_source,
-member_type,
 source_type
 FROM aws.ec2.transit_gateway_multicast_group_sources
 WHERE region = 'us-east-1' AND data__Identifier = '<TransitGatewayMulticastDomainId>|<GroupIpAddress>|<NetworkInterfaceId>';
@@ -217,4 +216,3 @@ ec2:SearchTransitGatewayMulticastGroups
 ```json
 ec2:SearchTransitGatewayMulticastGroups
 ```
-

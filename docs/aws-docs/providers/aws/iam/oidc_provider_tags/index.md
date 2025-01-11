@@ -74,4 +74,3 @@ FROM aws.iam.oidc_provider_tags
 
 For permissions required to operate on the <code>oidc_provider_tags</code> resource, see <a href="/providers/aws/iam/oidc_providers/#permissions"><code>oidc_providers</code></a>
 
-

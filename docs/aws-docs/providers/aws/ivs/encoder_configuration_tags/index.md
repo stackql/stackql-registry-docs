@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>encoder_configuration_tags</code> resource, see <a href="/providers/aws/ivs/encoder_configurations/#permissions"><code>encoder_configurations</code></a>
 
-

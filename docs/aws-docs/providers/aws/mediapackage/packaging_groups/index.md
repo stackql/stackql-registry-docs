@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>packaging_group</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html"><code>AWS::MediaPackage::PackagingGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -226,4 +228,3 @@ mediapackage-vod:ListPackagingGroups
 mediapackage-vod:DescribePackagingGroup,
 mediapackage-vod:DeletePackagingGroup
 ```
-

@@ -30,19 +30,7 @@ Lists <code>user_settings</code> in a region or regions, for all properties use 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="additional_encryption_context" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="associated_portal_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="cookie_synchronization_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="copy_allowed" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="customer_managed_key" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="disconnect_timeout_in_minutes" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="download_allowed" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="idle_disconnect_timeout_in_minutes" /></td><td><code>number</code></td><td></td></tr>
-<tr><td><CopyableCode code="paste_allowed" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="print_allowed" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="upload_allowed" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>user_settings_list_only</code> resource, see <a href="/providers/aws/workspacesweb/user_settings/#permissions"><code>user_settings</code></a>
-
 

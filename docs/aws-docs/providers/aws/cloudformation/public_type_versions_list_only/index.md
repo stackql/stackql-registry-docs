@@ -31,12 +31,7 @@ Lists <code>public_type_versions</code> in a region or regions, for all properti
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the extension.</td></tr>
-<tr><td><CopyableCode code="type_version_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) of the extension with the versionId.</td></tr>
-<tr><td><CopyableCode code="public_version_number" /></td><td><code>string</code></td><td>The version number of a public third-party extension</td></tr>
-<tr><td><CopyableCode code="publisher_id" /></td><td><code>string</code></td><td>The publisher id assigned by CloudFormation for publishing in this region.</td></tr>
 <tr><td><CopyableCode code="public_type_arn" /></td><td><code>string</code></td><td>The Amazon Resource Number (ARN) assigned to the public extension upon publication</td></tr>
-<tr><td><CopyableCode code="type_name" /></td><td><code>string</code></td><td>The name of the type being registered.<br />We recommend that type names adhere to the following pattern: company_or_organization::service::type.</td></tr>
-<tr><td><CopyableCode code="log_delivery_bucket" /></td><td><code>string</code></td><td>A url to the S3 bucket where logs for the testType run will be available</td></tr>
 <tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The kind of extension</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -70,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>public_type_versions_list_only</code> resource, see <a href="/providers/aws/cloudformation/public_type_versions/#permissions"><code>public_type_versions</code></a>
-
 

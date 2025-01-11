@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>service</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-service.html"><code>AWS::VpcLattice::Service</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -252,11 +254,11 @@ vpc-lattice:ListTagsForResource
 ### Delete
 ```json
 vpc-lattice:DeleteService,
-vpc-lattice:GetService
+vpc-lattice:GetService,
+vpc-lattice:UntagResource
 ```
 
 ### List
 ```json
 vpc-lattice:ListServices
 ```
-

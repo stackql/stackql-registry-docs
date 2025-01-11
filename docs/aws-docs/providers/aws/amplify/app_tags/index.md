@@ -37,6 +37,7 @@ Expands all tag keys and values for <code>apps</code> in a region
 <tr><td><CopyableCode code="auto_branch_creation_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="basic_auth_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="build_spec" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="cache_config" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_headers" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="custom_rules" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_domain" /></td><td><code>string</code></td><td></td></tr>
@@ -80,6 +81,7 @@ arn,
 auto_branch_creation_config,
 basic_auth_config,
 build_spec,
+cache_config,
 custom_headers,
 custom_rules,
 default_domain,
@@ -101,5 +103,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>app_tags</code> resource, see <a href="/providers/aws/amplify/apps/#permissions"><code>apps</code></a>
-
 

@@ -31,11 +31,13 @@ Creates, updates, deletes or gets a <code>documentation_part</code> resource or 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="documentation_part_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>The location of the targeted API entity of the to-be-created documentation part.</td></tr>
-<tr><td><CopyableCode code="properties" /></td><td><code>string</code></td><td>The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>The <code>Location</code> property specifies the location of the Amazon API Gateway API entity that the documentation applies to. <code>Location</code> is a property of the &#91;AWS::ApiGateway::DocumentationPart&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.<br />For more information about each property, including constraints and valid values, see &#91;DocumentationPart&#93;(https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.</td></tr>
+<tr><td><CopyableCode code="properties" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html"><code>AWS::ApiGateway::DocumentationPart</code></a>.
 
 ## Methods
 
@@ -211,4 +213,3 @@ apigateway:DELETE
 ```json
 apigateway:GET
 ```
-

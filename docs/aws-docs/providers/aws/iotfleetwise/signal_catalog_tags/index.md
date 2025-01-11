@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>signal_catalog_tags</code> resource, see <a href="/providers/aws/iotfleetwise/signal_catalogs/#permissions"><code>signal_catalogs</code></a>
 
-

@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>transit_gateway_peering_attachment</co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html"><code>AWS::EC2::TransitGatewayPeeringAttachment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,12 +217,15 @@ ec2:DescribeTransitGatewayPeeringAttachments
 ### Create
 ```json
 ec2:CreateTransitGatewayPeeringAttachment,
-ec2:DescribeTransitGatewayPeeringAttachments
+ec2:DescribeTransitGatewayPeeringAttachments,
+ec2:CreateTags
 ```
 
 ### Update
 ```json
-ec2:DescribeTransitGatewayPeeringAttachments
+ec2:DescribeTransitGatewayPeeringAttachments,
+ec2:CreateTags,
+ec2:DeleteTags
 ```
 
 ### List
@@ -231,6 +236,6 @@ ec2:DescribeTransitGatewayPeeringAttachments
 ### Delete
 ```json
 ec2:DeleteTransitGatewayPeeringAttachment,
-ec2:DescribeTransitGatewayPeeringAttachments
+ec2:DescribeTransitGatewayPeeringAttachments,
+ec2:DeleteTags
 ```
-

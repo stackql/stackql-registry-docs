@@ -30,30 +30,7 @@ Lists <code>user_pool_clients</code> in a region or regions, for all properties 
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="client_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="explicit_auth_flows" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="generate_secret" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="read_attributes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="auth_session_validity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="refresh_token_validity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="access_token_validity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="id_token_validity" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="token_validity_units" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="write_attributes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="allowed_oauth_flows" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="allowed_oauth_flows_user_pool_client" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="allowed_oauth_scopes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="callback_urls" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="default_redirect_uri" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="logout_urls" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="supported_identity_providers" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="analytics_configuration" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="prevent_user_existence_errors" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_token_revocation" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="enable_propagate_additional_user_context_data" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="client_secret" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="user_pool_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="client_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -88,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>user_pool_clients_list_only</code> resource, see <a href="/providers/aws/cognito/user_pool_clients/#permissions"><code>user_pool_clients</code></a>
-
 

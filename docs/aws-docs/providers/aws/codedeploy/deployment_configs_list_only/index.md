@@ -30,11 +30,7 @@ Lists <code>deployment_configs</code> in a region or regions, for all properties
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="compute_platform" /></td><td><code>string</code></td><td>The destination platform type for the deployment (Lambda, Server, or ECS).</td></tr>
-<tr><td><CopyableCode code="deployment_config_name" /></td><td><code>string</code></td><td>A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.</td></tr>
-<tr><td><CopyableCode code="minimum_healthy_hosts" /></td><td><code>object</code></td><td>The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.</td></tr>
-<tr><td><CopyableCode code="zonal_config" /></td><td><code>object</code></td><td>The zonal deployment config that specifies how the zonal deployment behaves</td></tr>
-<tr><td><CopyableCode code="traffic_routing_config" /></td><td><code>object</code></td><td>The configuration that specifies how the deployment traffic is routed.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="deployment_config_name" /></td><td><code>string</code></td><td>A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>deployment_configs_list_only</code> resource, see <a href="/providers/aws/codedeploy/deployment_configs/#permissions"><code>deployment_configs</code></a>
-
 

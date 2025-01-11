@@ -30,17 +30,7 @@ Lists <code>endpoint_groups</code> in a region or regions, for all properties us
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="listener_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the listener</td></tr>
-<tr><td><CopyableCode code="endpoint_group_region" /></td><td><code>string</code></td><td>The name of the AWS Region where the endpoint group is located</td></tr>
-<tr><td><CopyableCode code="endpoint_configurations" /></td><td><code>array</code></td><td>The list of endpoint objects.</td></tr>
-<tr><td><CopyableCode code="traffic_dial_percentage" /></td><td><code>number</code></td><td>The percentage of traffic to sent to an AWS Region</td></tr>
-<tr><td><CopyableCode code="health_check_port" /></td><td><code>integer</code></td><td>The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.</td></tr>
-<tr><td><CopyableCode code="health_check_protocol" /></td><td><code>string</code></td><td>The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.</td></tr>
-<tr><td><CopyableCode code="health_check_path" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="health_check_interval_seconds" /></td><td><code>integer</code></td><td>The time in seconds between each health check for an endpoint. Must be a value of 10 or 30</td></tr>
-<tr><td><CopyableCode code="threshold_count" /></td><td><code>integer</code></td><td>The number of consecutive health checks required to set the state of the endpoint to unhealthy.</td></tr>
-<tr><td><CopyableCode code="endpoint_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint group</td></tr>
-<tr><td><CopyableCode code="port_overrides" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="endpoint_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the endpoint group</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ FROM aws.globalaccelerator.endpoint_groups_list_only
 ## Permissions
 
 For permissions required to operate on the <code>endpoint_groups_list_only</code> resource, see <a href="/providers/aws/globalaccelerator/endpoint_groups/#permissions"><code>endpoint_groups</code></a>
-
 

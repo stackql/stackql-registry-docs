@@ -30,14 +30,7 @@ Lists <code>findings_filters</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Findings filter name</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Findings filter description</td></tr>
-<tr><td><CopyableCode code="finding_criteria" /></td><td><code>object</code></td><td>Findings filter criteria.</td></tr>
-<tr><td><CopyableCode code="action" /></td><td><code>string</code></td><td>Findings filter action.</td></tr>
-<tr><td><CopyableCode code="position" /></td><td><code>integer</code></td><td>Findings filter position.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Findings filter ID.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>Findings filter ARN.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>Findings filter ID.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -70,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>findings_filters_list_only</code> resource, see <a href="/providers/aws/macie/findings_filters/#permissions"><code>findings_filters</code></a>
-
 

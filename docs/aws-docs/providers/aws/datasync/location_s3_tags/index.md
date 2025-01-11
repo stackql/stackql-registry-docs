@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_s3_tags</code> resource, see <a href="/providers/aws/datasync/location_s3s/#permissions"><code>location_s3s</code></a>
 
-

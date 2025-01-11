@@ -45,6 +45,8 @@ Creates, updates, deletes or gets a <code>mission_profile</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html"><code>AWS::GroundStation::MissionProfile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -276,4 +278,3 @@ groundstation:GetMissionProfile
 ```json
 groundstation:ListMissionProfiles
 ```
-

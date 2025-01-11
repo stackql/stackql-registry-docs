@@ -20,7 +20,7 @@ The iam service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>29</b></span><br />
+<span>total resources:&nbsp;<b>28</b></span><br />
 </div>
 </div>
 
@@ -39,7 +39,6 @@ The iam service documentation.
 <a href="/providers/aws/iam/oidc_provider_tags/">oidc_provider_tags</a><br />
 <a href="/providers/aws/iam/oidc_providers/">oidc_providers</a><br />
 <a href="/providers/aws/iam/oidc_providers_list_only/">oidc_providers_list_only</a><br />
-<a href="/providers/aws/iam/policies/">policies</a><br />
 <a href="/providers/aws/iam/role_policies/">role_policies</a><br />
 <a href="/providers/aws/iam/role_tags/">role_tags</a><br />
 <a href="/providers/aws/iam/roles/">roles</a><br />

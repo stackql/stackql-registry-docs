@@ -20,7 +20,7 @@ The deadline service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total resources:&nbsp;<b>22</b></span><br />
 </div>
 </div>
 
@@ -29,20 +29,26 @@ The deadline service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/deadline/farm_tags/">farm_tags</a><br />
 <a href="/providers/aws/deadline/farms/">farms</a><br />
 <a href="/providers/aws/deadline/farms_list_only/">farms_list_only</a><br />
+<a href="/providers/aws/deadline/fleet_tags/">fleet_tags</a><br />
 <a href="/providers/aws/deadline/fleets/">fleets</a><br />
 <a href="/providers/aws/deadline/fleets_list_only/">fleets_list_only</a><br />
+<a href="/providers/aws/deadline/license_endpoint_tags/">license_endpoint_tags</a><br />
 <a href="/providers/aws/deadline/license_endpoints/">license_endpoints</a><br />
 <a href="/providers/aws/deadline/license_endpoints_list_only/">license_endpoints_list_only</a><br />
 <a href="/providers/aws/deadline/metered_products/">metered_products</a><br />
 <a href="/providers/aws/deadline/metered_products_list_only/">metered_products_list_only</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/deadline/monitors/">monitors</a><br />
+<a href="/providers/aws/deadline/monitors_list_only/">monitors_list_only</a><br />
 <a href="/providers/aws/deadline/queue_environments/">queue_environments</a><br />
 <a href="/providers/aws/deadline/queue_environments_list_only/">queue_environments_list_only</a><br />
 <a href="/providers/aws/deadline/queue_fleet_associations/">queue_fleet_associations</a><br />
 <a href="/providers/aws/deadline/queue_fleet_associations_list_only/">queue_fleet_associations_list_only</a><br />
+<a href="/providers/aws/deadline/queue_tags/">queue_tags</a><br />
 <a href="/providers/aws/deadline/queues/">queues</a><br />
 <a href="/providers/aws/deadline/queues_list_only/">queues_list_only</a><br />
 <a href="/providers/aws/deadline/storage_profiles/">storage_profiles</a><br />

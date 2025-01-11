@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>serverless_cluster_tags</code> resource, see <a href="/providers/aws/msk/serverless_clusters/#permissions"><code>serverless_clusters</code></a>
 
-

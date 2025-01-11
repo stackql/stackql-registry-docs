@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>rule_tags</code> resource, see <a href="/providers/aws/vpclattice/rules/#permissions"><code>rules</code></a>
 
-

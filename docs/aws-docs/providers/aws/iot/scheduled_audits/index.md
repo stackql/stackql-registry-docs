@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>scheduled_audit</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html"><code>AWS::IoT::ScheduledAudit</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -233,4 +235,3 @@ iot:DeleteScheduledAudit
 ```json
 iot:ListScheduledAudits
 ```
-

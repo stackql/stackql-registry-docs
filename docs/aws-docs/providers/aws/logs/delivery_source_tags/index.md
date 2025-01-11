@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>delivery_source_tags</code> resource, see <a href="/providers/aws/logs/delivery_sources/#permissions"><code>delivery_sources</code></a>
 
-

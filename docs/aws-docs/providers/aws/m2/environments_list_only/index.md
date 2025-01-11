@@ -30,21 +30,7 @@ Lists <code>environments</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the environment.</td></tr>
-<tr><td><CopyableCode code="engine_type" /></td><td><code>string</code></td><td>The target platform for the environment.</td></tr>
-<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>The version of the runtime engine for the environment.</td></tr>
-<tr><td><CopyableCode code="environment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
-<tr><td><CopyableCode code="environment_id" /></td><td><code>string</code></td><td>The unique identifier of the environment.</td></tr>
-<tr><td><CopyableCode code="high_availability_config" /></td><td><code>object</code></td><td>Defines the details of a high availability configuration.</td></tr>
-<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td>The type of instance underlying the environment.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the environment.</td></tr>
-<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td>Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.</td></tr>
-<tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>Specifies whether the environment is publicly accessible.</td></tr>
-<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td>The list of security groups for the VPC associated with this environment.</td></tr>
-<tr><td><CopyableCode code="storage_configurations" /></td><td><code>array</code></td><td>The storage configurations defined for the runtime environment.</td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The unique identifiers of the subnets assigned to this runtime environment.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>Tags associated to this environment.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="environment_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the runtime environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>environments_list_only</code> resource, see <a href="/providers/aws/m2/environments/#permissions"><code>environments</code></a>
-
 

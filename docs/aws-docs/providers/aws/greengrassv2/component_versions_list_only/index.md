@@ -31,11 +31,6 @@ Lists <code>component_versions</code> in a region or regions, for all properties
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="component_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="component_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="inline_recipe" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="lambda_function" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>component_versions_list_only</code> resource, see <a href="/providers/aws/greengrassv2/component_versions/#permissions"><code>component_versions</code></a>
-
 

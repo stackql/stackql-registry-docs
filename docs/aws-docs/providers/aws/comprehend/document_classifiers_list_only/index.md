@@ -30,19 +30,7 @@ Lists <code>document_classifiers</code> in a region or regions, for all properti
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="data_access_role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="input_data_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="output_data_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="language_code" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="model_kms_key_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="model_policy" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="document_classifier_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="mode" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="version_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="volume_kms_key_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>document_classifiers_list_only</code> resource, see <a href="/providers/aws/comprehend/document_classifiers/#permissions"><code>document_classifiers</code></a>
-
 

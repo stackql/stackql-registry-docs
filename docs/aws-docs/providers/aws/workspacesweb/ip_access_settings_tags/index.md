@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ip_access_settings_tags</code> resource, see <a href="/providers/aws/workspacesweb/ip_access_settings/#permissions"><code>ip_access_settings</code></a>
 
-

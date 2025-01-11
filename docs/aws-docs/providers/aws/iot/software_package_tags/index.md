@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>software_package_tags</code> resource, see <a href="/providers/aws/iot/software_packages/#permissions"><code>software_packages</code></a>
 
-

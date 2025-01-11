@@ -34,8 +34,11 @@ Creates, updates, deletes or gets a <code>query_definition</code> resource or li
 <tr><td><CopyableCode code="query_string" /></td><td><code>string</code></td><td>The query string to use for this definition</td></tr>
 <tr><td><CopyableCode code="log_group_names" /></td><td><code>array</code></td><td>Optionally define specific log groups as part of your query definition</td></tr>
 <tr><td><CopyableCode code="query_definition_id" /></td><td><code>string</code></td><td>Unique identifier of a query definition</td></tr>
+<tr><td><CopyableCode code="query_language" /></td><td><code>string</code></td><td>Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html"><code>AWS::Logs::QueryDefinition</code></a>.
 
 ## Methods
 
@@ -80,7 +83,8 @@ region,
 name,
 query_string,
 log_group_names,
-query_definition_id
+query_definition_id,
+query_language
 FROM aws.logs.query_definitions
 WHERE region = 'us-east-1';
 ```
@@ -91,7 +95,8 @@ region,
 name,
 query_string,
 log_group_names,
-query_definition_id
+query_definition_id,
+query_language
 FROM aws.logs.query_definitions
 WHERE region = 'us-east-1' AND data__Identifier = '<QueryDefinitionId>';
 ```
@@ -131,12 +136,14 @@ INSERT INTO aws.logs.query_definitions (
  Name,
  QueryString,
  LogGroupNames,
+ QueryLanguage,
  region
 )
 SELECT 
  '{{ Name }}',
  '{{ QueryString }}',
  '{{ LogGroupNames }}',
+ '{{ QueryLanguage }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -161,6 +168,8 @@ resources:
       - name: LogGroupNames
         value:
           - '{{ LogGroupNames[0] }}'
+      - name: QueryLanguage
+        value: '{{ QueryLanguage }}'
 
 ```
 </TabItem>
@@ -203,4 +212,3 @@ logs:DeleteQueryDefinition
 ```json
 logs:DescribeQueryDefinitions
 ```
-

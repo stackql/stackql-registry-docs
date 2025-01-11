@@ -31,7 +31,6 @@ Lists <code>batch_scram_secrets</code> in a region or regions, for all propertie
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="secret_arn_list" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -64,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>batch_scram_secrets_list_only</code> resource, see <a href="/providers/aws/msk/batch_scram_secrets/#permissions"><code>batch_scram_secrets</code></a>
-
 

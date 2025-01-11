@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>image_recipe</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html"><code>AWS::ImageBuilder::ImageRecipe</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -267,4 +269,3 @@ imagebuilder:DeleteImageRecipe
 ```json
 imagebuilder:ListImageRecipes
 ```
-

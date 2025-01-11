@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>transit_gateway_multicast_domain_tags</code> resource, see <a href="/providers/aws/ec2/transit_gateway_multicast_domains/#permissions"><code>transit_gateway_multicast_domains</code></a>
 
-

@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_lake_tags</code> resource, see <a href="/providers/aws/securitylake/data_lakes/#permissions"><code>data_lakes</code></a>
 
-

@@ -30,22 +30,28 @@ Expands all tag keys and values for <code>clusters</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="logging" /></td><td><code>object</code></td><td>Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.</td></tr>
-<tr><td><CopyableCode code="encryption_config_key_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) or alias of the customer master key (CMK).</td></tr>
-<tr><td><CopyableCode code="access_config" /></td><td><code>object</code></td><td>An object representing the Access Config to use for the cluster.</td></tr>
-<tr><td><CopyableCode code="certificate_authority_data" /></td><td><code>string</code></td><td>The certificate-authority-data for your cluster.</td></tr>
-<tr><td><CopyableCode code="encryption_config" /></td><td><code>array</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="encryption_config" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="kubernetes_network_config" /></td><td><code>object</code></td><td>The Kubernetes network configuration for the cluster.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.</td></tr>
+<tr><td><CopyableCode code="logging" /></td><td><code>object</code></td><td>Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.</td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The unique name to give to your cluster.</td></tr>
-<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.</td></tr>
-<tr><td><CopyableCode code="cluster_security_group_id" /></td><td><code>string</code></td><td>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.</td></tr>
 <tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The unique ID given to your cluster.</td></tr>
-<tr><td><CopyableCode code="outpost_config" /></td><td><code>object</code></td><td>An object representing the Outpost configuration to use for AWS EKS outpost cluster.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.</td></tr>
 <tr><td><CopyableCode code="resources_vpc_config" /></td><td><code>object</code></td><td>An object representing the VPC configuration to use for an Amazon EKS cluster.</td></tr>
+<tr><td><CopyableCode code="outpost_config" /></td><td><code>object</code></td><td>An object representing the Outpost configuration to use for AWS EKS outpost cluster.</td></tr>
+<tr><td><CopyableCode code="access_config" /></td><td><code>object</code></td><td>An object representing the Access Config to use for the cluster.</td></tr>
+<tr><td><CopyableCode code="upgrade_policy" /></td><td><code>object</code></td><td>An object representing the Upgrade Policy to use for the cluster.</td></tr>
+<tr><td><CopyableCode code="remote_network_config" /></td><td><code>object</code></td><td>Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.</td></tr>
+<tr><td><CopyableCode code="compute_config" /></td><td><code>object</code></td><td>Todo: add description</td></tr>
+<tr><td><CopyableCode code="storage_config" /></td><td><code>object</code></td><td>Todo: add description</td></tr>
+<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.</td></tr>
+<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.</td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.</td></tr>
+<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td>The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.</td></tr>
+<tr><td><CopyableCode code="certificate_authority_data" /></td><td><code>string</code></td><td>The certificate-authority-data for your cluster.</td></tr>
+<tr><td><CopyableCode code="cluster_security_group_id" /></td><td><code>string</code></td><td>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.</td></tr>
+<tr><td><CopyableCode code="encryption_config_key_arn" /></td><td><code>string</code></td><td>Amazon Resource Name (ARN) or alias of the customer master key (CMK).</td></tr>
 <tr><td><CopyableCode code="open_id_connect_issuer_url" /></td><td><code>string</code></td><td>The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.</td></tr>
+<tr><td><CopyableCode code="bootstrap_self_managed_addons" /></td><td><code>boolean</code></td><td>Set this value to false to avoid creating the default networking add-ons when the cluster is created.</td></tr>
+<tr><td><CopyableCode code="zonal_shift_config" /></td><td><code>object</code></td><td>The current zonal shift configuration to use for the cluster.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -71,22 +77,28 @@ Expands tags for all <code>clusters</code> in a region.
 ```sql
 SELECT
 region,
-logging,
-encryption_config_key_arn,
-access_config,
-certificate_authority_data,
 encryption_config,
 kubernetes_network_config,
-role_arn,
+logging,
 name,
-endpoint,
-version,
-cluster_security_group_id,
 id,
-outpost_config,
-arn,
 resources_vpc_config,
+outpost_config,
+access_config,
+upgrade_policy,
+remote_network_config,
+compute_config,
+storage_config,
+role_arn,
+version,
+arn,
+endpoint,
+certificate_authority_data,
+cluster_security_group_id,
+encryption_config_key_arn,
 open_id_connect_issuer_url,
+bootstrap_self_managed_addons,
+zonal_shift_config,
 tag_key,
 tag_value
 FROM aws.eks.cluster_tags
@@ -97,5 +109,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>cluster_tags</code> resource, see <a href="/providers/aws/eks/clusters/#permissions"><code>clusters</code></a>
-
 

@@ -35,6 +35,8 @@ Creates, updates, deletes or gets a <code>webacl_association</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html"><code>AWS::WAFv2::WebACLAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -238,4 +240,3 @@ ec2:DisassociateVerifiedAccessInstanceWebAcl,
 ec2:DescribeVerifiedAccessInstanceWebAclAssociations,
 ec2:GetVerifiedAccessInstanceWebAcl
 ```
-

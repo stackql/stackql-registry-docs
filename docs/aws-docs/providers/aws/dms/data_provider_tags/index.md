@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_provider_tags</code> resource, see <a href="/providers/aws/dms/data_providers/#permissions"><code>data_providers</code></a>
 
-

@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>assignments_list_only</code> resource, see <a href="/providers/aws/sso/assignments/#permissions"><code>assignments</code></a>
 
-

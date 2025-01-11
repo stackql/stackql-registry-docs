@@ -50,6 +50,8 @@ Creates, updates, deletes or gets a <code>subscription_target</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-subscriptiontarget.html"><code>AWS::DataZone::SubscriptionTarget</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -61,7 +63,7 @@ Creates, updates, deletes or gets a <code>subscription_target</code> resource or
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="ApplicableAssetTypes, AuthorizedPrincipals, DomainIdentifier, EnvironmentIdentifier, ManageAccessRole, Name, SubscriptionTargetConfig, Type, region" /></td>
+    <td><CopyableCode code="ApplicableAssetTypes, AuthorizedPrincipals, DomainIdentifier, EnvironmentIdentifier, Name, SubscriptionTargetConfig, Type, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -156,7 +158,6 @@ INSERT INTO aws.datazone.subscription_targets (
  AuthorizedPrincipals,
  DomainIdentifier,
  EnvironmentIdentifier,
- ManageAccessRole,
  Name,
  SubscriptionTargetConfig,
  Type,
@@ -167,7 +168,6 @@ SELECT
  '{{ AuthorizedPrincipals }}',
  '{{ DomainIdentifier }}',
  '{{ EnvironmentIdentifier }}',
- '{{ ManageAccessRole }}',
  '{{ Name }}',
  '{{ SubscriptionTargetConfig }}',
  '{{ Type }}',
@@ -285,4 +285,3 @@ datazone:DeleteSubscriptionTarget
 ```json
 datazone:ListSubscriptionTargets
 ```
-

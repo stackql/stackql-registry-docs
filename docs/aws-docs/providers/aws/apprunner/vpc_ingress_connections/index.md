@@ -40,6 +40,8 @@ Creates, updates, deletes or gets a <code>vpc_ingress_connection</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcingressconnection.html"><code>AWS::AppRunner::VpcIngressConnection</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ apprunner:DeleteVpcIngressConnection
 ```json
 apprunner:ListVpcIngressConnections
 ```
-

@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>enabled_control</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledcontrol.html"><code>AWS::ControlTower::EnabledControl</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -166,8 +168,8 @@ resources:
             Key: '{{ Key }}'
       - name: Tags
         value:
-          - Key: '{{ Key }}'
-            Value: '{{ Value }}'
+          - Value: '{{ Value }}'
+            Key: '{{ Key }}'
 
 ```
 </TabItem>
@@ -221,6 +223,8 @@ organizations:DescribePolicy
 
 ### Delete
 ```json
+controltower:ListEnabledControls,
+controltower:GetEnabledControl,
 controltower:GetControlOperation,
 controltower:DisableControl,
 organizations:UpdatePolicy,
@@ -244,4 +248,3 @@ controltower:ListTagsForResource
 ```json
 controltower:ListEnabledControls
 ```
-

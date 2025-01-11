@@ -30,21 +30,23 @@ Creates, updates, deletes or gets an <code>ec2fleet</code> resource or lists <co
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>object</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="target_capacity_specification" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="on_demand_options" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="excess_capacity_termination_policy" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_specifications" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="spot_options" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="valid_from" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="replace_unhealthy_instances" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="launch_template_configs" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="terminate_instances_with_expiration" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="valid_until" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="context" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="valid_from" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="replace_unhealthy_instances" /></td><td><code>boolean</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html"><code>AWS::EC2::EC2Fleet</code></a>.
 
 ## Methods
 
@@ -86,19 +88,19 @@ Gets all <code>ec2fleets</code> in a region.
 ```sql
 SELECT
 region,
+context,
 target_capacity_specification,
 on_demand_options,
-type,
 excess_capacity_termination_policy,
 tag_specifications,
 spot_options,
-valid_from,
-replace_unhealthy_instances,
 launch_template_configs,
-fleet_id,
 terminate_instances_with_expiration,
 valid_until,
-context
+type,
+fleet_id,
+valid_from,
+replace_unhealthy_instances
 FROM aws.ec2.ec2fleets
 WHERE region = 'us-east-1';
 ```
@@ -106,19 +108,19 @@ Gets all properties from an individual <code>ec2fleet</code>.
 ```sql
 SELECT
 region,
+context,
 target_capacity_specification,
 on_demand_options,
-type,
 excess_capacity_termination_policy,
 tag_specifications,
 spot_options,
-valid_from,
-replace_unhealthy_instances,
 launch_template_configs,
-fleet_id,
 terminate_instances_with_expiration,
 valid_until,
-context
+type,
+fleet_id,
+valid_from,
+replace_unhealthy_instances
 FROM aws.ec2.ec2fleets
 WHERE region = 'us-east-1' AND data__Identifier = '<FleetId>';
 ```
@@ -155,33 +157,33 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.ec2.ec2fleets (
+ Context,
  TargetCapacitySpecification,
  OnDemandOptions,
- Type,
  ExcessCapacityTerminationPolicy,
  TagSpecifications,
  SpotOptions,
- ValidFrom,
- ReplaceUnhealthyInstances,
  LaunchTemplateConfigs,
  TerminateInstancesWithExpiration,
  ValidUntil,
- Context,
+ Type,
+ ValidFrom,
+ ReplaceUnhealthyInstances,
  region
 )
 SELECT 
+ '{{ Context }}',
  '{{ TargetCapacitySpecification }}',
  '{{ OnDemandOptions }}',
- '{{ Type }}',
  '{{ ExcessCapacityTerminationPolicy }}',
  '{{ TagSpecifications }}',
  '{{ SpotOptions }}',
- '{{ ValidFrom }}',
- '{{ ReplaceUnhealthyInstances }}',
  '{{ LaunchTemplateConfigs }}',
  '{{ TerminateInstancesWithExpiration }}',
  '{{ ValidUntil }}',
- '{{ Context }}',
+ '{{ Type }}',
+ '{{ ValidFrom }}',
+ '{{ ReplaceUnhealthyInstances }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -199,13 +201,15 @@ globals:
 resources:
   - name: ec2fleet
     props:
+      - name: Context
+        value: '{{ Context }}'
       - name: TargetCapacitySpecification
         value:
           DefaultTargetCapacityType: '{{ DefaultTargetCapacityType }}'
-          TargetCapacityUnitType: '{{ TargetCapacityUnitType }}'
           TotalTargetCapacity: '{{ TotalTargetCapacity }}'
           OnDemandTargetCapacity: '{{ OnDemandTargetCapacity }}'
           SpotTargetCapacity: '{{ SpotTargetCapacity }}'
+          TargetCapacityUnitType: '{{ TargetCapacityUnitType }}'
       - name: OnDemandOptions
         value:
           SingleAvailabilityZone: '{{ SingleAvailabilityZone }}'
@@ -215,8 +219,6 @@ resources:
           MaxTotalPrice: '{{ MaxTotalPrice }}'
           CapacityReservationOptions:
             UsageStrategy: '{{ UsageStrategy }}'
-      - name: Type
-        value: '{{ Type }}'
       - name: ExcessCapacityTerminationPolicy
         value: '{{ ExcessCapacityTerminationPolicy }}'
       - name: TagSpecifications
@@ -227,27 +229,23 @@ resources:
                 Value: '{{ Value }}'
       - name: SpotOptions
         value:
-          MaintenanceStrategies:
-            CapacityRebalance:
-              ReplacementStrategy: '{{ ReplacementStrategy }}'
-              TerminationDelay: '{{ TerminationDelay }}'
           SingleAvailabilityZone: '{{ SingleAvailabilityZone }}'
           AllocationStrategy: '{{ AllocationStrategy }}'
           SingleInstanceType: '{{ SingleInstanceType }}'
           MinTargetCapacity: '{{ MinTargetCapacity }}'
           MaxTotalPrice: '{{ MaxTotalPrice }}'
+          MaintenanceStrategies:
+            CapacityRebalance:
+              TerminationDelay: '{{ TerminationDelay }}'
+              ReplacementStrategy: '{{ ReplacementStrategy }}'
           InstanceInterruptionBehavior: '{{ InstanceInterruptionBehavior }}'
           InstancePoolsToUseCount: '{{ InstancePoolsToUseCount }}'
-      - name: ValidFrom
-        value: '{{ ValidFrom }}'
-      - name: ReplaceUnhealthyInstances
-        value: '{{ ReplaceUnhealthyInstances }}'
       - name: LaunchTemplateConfigs
         value:
           - LaunchTemplateSpecification:
               LaunchTemplateName: '{{ LaunchTemplateName }}'
-              LaunchTemplateId: '{{ LaunchTemplateId }}'
               Version: '{{ Version }}'
+              LaunchTemplateId: '{{ LaunchTemplateId }}'
             Overrides:
               - WeightedCapacity: null
                 Placement:
@@ -263,7 +261,6 @@ resources:
                 Priority: null
                 AvailabilityZone: '{{ AvailabilityZone }}'
                 SubnetId: '{{ SubnetId }}'
-                InstanceType: '{{ InstanceType }}'
                 InstanceRequirements:
                   VCpuCount:
                     Min: '{{ Min }}'
@@ -315,13 +312,22 @@ resources:
                   AcceleratorTotalMemoryMiB:
                     Min: '{{ Min }}'
                     Max: '{{ Max }}'
+                  BaselinePerformanceFactors:
+                    Cpu:
+                      References:
+                        - InstanceFamily: '{{ InstanceFamily }}'
+                InstanceType: '{{ InstanceType }}'
                 MaxPrice: '{{ MaxPrice }}'
       - name: TerminateInstancesWithExpiration
         value: '{{ TerminateInstancesWithExpiration }}'
       - name: ValidUntil
         value: '{{ ValidUntil }}'
-      - name: Context
-        value: '{{ Context }}'
+      - name: Type
+        value: '{{ Type }}'
+      - name: ValidFrom
+        value: '{{ ValidFrom }}'
+      - name: ReplaceUnhealthyInstances
+        value: '{{ ReplaceUnhealthyInstances }}'
 
 ```
 </TabItem>
@@ -340,25 +346,14 @@ AND region = 'us-east-1';
 
 To operate on the <code>ec2fleets</code> resource, the following permissions are required:
 
+### Read
+```json
+ec2:DescribeFleets
+```
+
 ### Create
 ```json
 ec2:CreateFleet,
-ec2:DescribeFleets
-```
-
-### Delete
-```json
-ec2:DescribeFleets,
-ec2:DeleteFleets
-```
-
-### List
-```json
-ec2:DescribeFleets
-```
-
-### Read
-```json
 ec2:DescribeFleets
 ```
 
@@ -368,3 +363,13 @@ ec2:ModifyFleet,
 ec2:DescribeFleets
 ```
 
+### List
+```json
+ec2:DescribeFleets
+```
+
+### Delete
+```json
+ec2:DescribeFleets,
+ec2:DeleteFleets
+```

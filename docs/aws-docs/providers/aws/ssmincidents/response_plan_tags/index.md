@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>response_plan_tags</code> resource, see <a href="/providers/aws/ssmincidents/response_plans/#permissions"><code>response_plans</code></a>
 
-

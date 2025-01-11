@@ -37,6 +37,8 @@ Creates, updates, deletes or gets an <code>encoder_configuration</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-encoderconfiguration.html"><code>AWS::IVS::EncoderConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -213,4 +215,3 @@ ivs:UntagResource
 ivs:ListEncoderConfigurations,
 ivs:ListTagsForResource
 ```
-

@@ -36,6 +36,8 @@ Creates, updates, deletes or gets an <code>user_policy</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html"><code>AWS::IAM::UserPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -45,19 +47,14 @@ Creates, updates, deletes or gets an <code>user_policy</code> resource or lists 
     <th>Required Params</th>
   </tr>
   <tr>
-    <td><CopyableCode code="delete_resource" /></td>
-    <td><code>DELETE</code></td>
-    <td><CopyableCode code="data__Identifier, region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
     <td><CopyableCode code="PolicyName, UserName, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="get" /></td>
-    <td><code>SELECT</code></td>
-    <td><CopyableCode code="undefined" /></td>
+    <td><CopyableCode code="delete_resource" /></td>
+    <td><code>DELETE</code></td>
+    <td><CopyableCode code="data__Identifier, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="update_resource" /></td>
@@ -188,4 +185,3 @@ iam:GetUserPolicy
 iam:DeleteUserPolicy,
 iam:GetUserPolicy
 ```
-

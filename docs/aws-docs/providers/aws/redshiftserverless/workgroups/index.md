@@ -40,10 +40,13 @@ Creates, updates, deletes or gets a <code>workgroup</code> resource or lists <co
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>A list of subnet IDs the workgroup is associated with.</td></tr>
 <tr><td><CopyableCode code="publicly_accessible" /></td><td><code>boolean</code></td><td>A value that specifies whether the workgroup can be accessible from a public network.</td></tr>
 <tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</td></tr>
+<tr><td><CopyableCode code="price_performance_target" /></td><td><code>object</code></td><td>A property that represents the price performance target settings for the workgroup.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The map of the key-value pairs used to tag the workgroup.</td></tr>
 <tr><td><CopyableCode code="workgroup" /></td><td><code>object</code></td><td>Definition for workgroup resource</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html"><code>AWS::RedshiftServerless::Workgroup</code></a>.
 
 ## Methods
 
@@ -95,6 +98,7 @@ security_group_ids,
 subnet_ids,
 publicly_accessible,
 port,
+price_performance_target,
 tags,
 workgroup
 FROM aws.redshiftserverless.workgroups
@@ -114,6 +118,7 @@ security_group_ids,
 subnet_ids,
 publicly_accessible,
 port,
+price_performance_target,
 tags,
 workgroup
 FROM aws.redshiftserverless.workgroups
@@ -160,6 +165,7 @@ INSERT INTO aws.redshiftserverless.workgroups (
  SubnetIds,
  PubliclyAccessible,
  Port,
+ PricePerformanceTarget,
  Tags,
  region
 )
@@ -174,6 +180,7 @@ SELECT
  '{{ SubnetIds }}',
  '{{ PubliclyAccessible }}',
  '{{ Port }}',
+ '{{ PricePerformanceTarget }}',
  '{{ Tags }}',
  '{{ region }}';
 ```
@@ -216,6 +223,10 @@ resources:
         value: '{{ PubliclyAccessible }}'
       - name: Port
         value: '{{ Port }}'
+      - name: PricePerformanceTarget
+        value:
+          Status: '{{ Status }}'
+          Level: '{{ Level }}'
       - name: Tags
         value:
           - Key: '{{ Key }}'
@@ -250,7 +261,9 @@ ec2:DescribeAvailabilityZones,
 redshift-serverless:CreateNamespace,
 redshift-serverless:CreateWorkgroup,
 redshift-serverless:GetWorkgroup,
-redshift-serverless:GetNamespace
+redshift-serverless:GetNamespace,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:TagResource
 ```
 
 ### Read
@@ -262,7 +275,8 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
-redshift-serverless:GetWorkgroup
+redshift-serverless:GetWorkgroup,
+redshift-serverless:ListTagsForResource
 ```
 
 ### Update
@@ -278,7 +292,10 @@ redshift-serverless:ListTagsForResource,
 redshift-serverless:TagResource,
 redshift-serverless:UntagResource,
 redshift-serverless:GetWorkgroup,
-redshift-serverless:UpdateWorkgroup
+redshift-serverless:UpdateWorkgroup,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:TagResource,
+redshift-serverless:UntagResource
 ```
 
 ### Delete
@@ -292,7 +309,9 @@ ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
 redshift-serverless:GetWorkgroup,
 redshift-serverless:GetNamespace,
-redshift-serverless:DeleteWorkgroup
+redshift-serverless:DeleteWorkgroup,
+redshift-serverless:ListTagsForResource,
+redshift-serverless:UntagResource
 ```
 
 ### List
@@ -304,6 +323,6 @@ ec2:DescribeInternetGateways,
 ec2:DescribeSubnets,
 ec2:DescribeAccountAttributes,
 ec2:DescribeAvailabilityZones,
-redshift-serverless:ListWorkgroups
+redshift-serverless:ListWorkgroups,
+redshift-serverless:ListTagsForResource
 ```
-

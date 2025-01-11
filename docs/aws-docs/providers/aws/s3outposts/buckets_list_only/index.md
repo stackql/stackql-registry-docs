@@ -31,10 +31,6 @@ Lists <code>buckets</code> in a region or regions, for all properties use <a hre
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified bucket.</td></tr>
-<tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td>A name for the bucket.</td></tr>
-<tr><td><CopyableCode code="outpost_id" /></td><td><code>string</code></td><td>The id of the customer outpost on which the bucket resides.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.</td></tr>
-<tr><td><CopyableCode code="lifecycle_configuration" /></td><td><code>object</code></td><td>Rules that define how Amazon S3Outposts manages objects during their lifetime.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>buckets_list_only</code> resource, see <a href="/providers/aws/s3outposts/buckets/#permissions"><code>buckets</code></a>
-
 

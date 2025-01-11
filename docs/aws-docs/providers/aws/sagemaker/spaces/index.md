@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>space</code> resource or lists <code>s
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html"><code>AWS::SageMaker::Space</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -188,24 +190,35 @@ resources:
               InstanceType: '{{ InstanceType }}'
               SageMakerImageArn: '{{ SageMakerImageArn }}'
               SageMakerImageVersionArn: '{{ SageMakerImageVersionArn }}'
+              LifecycleConfigArn: '{{ LifecycleConfigArn }}'
+            LifecycleConfigArns:
+              - '{{ LifecycleConfigArns[0] }}'
           KernelGatewayAppSettings:
             CustomImages:
               - AppImageConfigName: '{{ AppImageConfigName }}'
                 ImageName: '{{ ImageName }}'
                 ImageVersionNumber: '{{ ImageVersionNumber }}'
             DefaultResourceSpec: null
+            LifecycleConfigArns:
+              - null
           JupyterLabAppSettings:
             DefaultResourceSpec: null
+            AppLifecycleManagement:
+              IdleSettings:
+                IdleTimeoutInMinutes: '{{ IdleTimeoutInMinutes }}'
             CodeRepositories:
               - RepositoryUrl: '{{ RepositoryUrl }}'
           CodeEditorAppSettings:
             DefaultResourceSpec: null
+            AppLifecycleManagement: null
           SpaceStorageSettings:
             EbsStorageSettings:
               EbsVolumeSizeInGb: '{{ EbsVolumeSizeInGb }}'
           AppType: '{{ AppType }}'
           CustomFileSystems:
             - EFSFileSystem:
+                FileSystemId: '{{ FileSystemId }}'
+              FSxLustreFileSystem:
                 FileSystemId: '{{ FileSystemId }}'
       - name: Tags
         value:
@@ -240,28 +253,35 @@ To operate on the <code>spaces</code> resource, the following permissions are re
 ### Create
 ```json
 sagemaker:CreateSpace,
-sagemaker:DescribeSpace
+sagemaker:DescribeSpace,
+sagemaker:ListTags,
+sagemaker:AddTags
 ```
 
 ### Read
 ```json
-sagemaker:DescribeSpace
+sagemaker:DescribeSpace,
+sagemaker:ListTags
 ```
 
 ### Update
 ```json
 sagemaker:UpdateSpace,
-sagemaker:DescribeSpace
+sagemaker:DescribeSpace,
+sagemaker:AddTags,
+sagemaker:DeleteTags,
+sagemaker:ListTags
 ```
 
 ### Delete
 ```json
 sagemaker:DeleteSpace,
-sagemaker:DescribeSpace
+sagemaker:DescribeSpace,
+sagemaker:DeleteTags
 ```
 
 ### List
 ```json
-sagemaker:ListSpaces
+sagemaker:ListSpaces,
+sagemaker:ListTags
 ```
-

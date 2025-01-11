@@ -30,9 +30,7 @@ Lists <code>cluster_policies</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="policy" /></td><td><code>object</code></td><td>A policy document containing permissions to add to the specified cluster.</td></tr>
-<tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td>The arn of the cluster for the resource policy.</td></tr>
-<tr><td><CopyableCode code="current_version" /></td><td><code>string</code></td><td>The current version of the policy attached to the specified cluster</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td>The arn of the cluster for the resource policy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>cluster_policies_list_only</code> resource, see <a href="/providers/aws/msk/cluster_policies/#permissions"><code>cluster_policies</code></a>
-
 

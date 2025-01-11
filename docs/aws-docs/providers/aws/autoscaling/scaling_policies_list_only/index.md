@@ -30,19 +30,7 @@ Lists <code>scaling_policies</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="metric_aggregation_type" /></td><td><code>string</code></td><td>The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.</td></tr>
-<tr><td><CopyableCode code="policy_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="policy_type" /></td><td><code>string</code></td><td>One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling</td></tr>
-<tr><td><CopyableCode code="predictive_scaling_configuration" /></td><td><code>object</code></td><td>A predictive scaling policy. Includes support for predefined metrics only.</td></tr>
-<tr><td><CopyableCode code="scaling_adjustment" /></td><td><code>integer</code></td><td>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)</td></tr>
-<tr><td><CopyableCode code="cooldown" /></td><td><code>string</code></td><td>The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.</td></tr>
-<tr><td><CopyableCode code="step_adjustments" /></td><td><code>array</code></td><td>A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)</td></tr>
-<tr><td><CopyableCode code="auto_scaling_group_name" /></td><td><code>string</code></td><td>The name of the Auto Scaling group.</td></tr>
-<tr><td><CopyableCode code="min_adjustment_magnitude" /></td><td><code>integer</code></td><td>The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</td></tr>
-<tr><td><CopyableCode code="target_tracking_configuration" /></td><td><code>object</code></td><td>A target tracking scaling policy. Includes support for predefined or customized metrics.</td></tr>
-<tr><td><CopyableCode code="estimated_instance_warmup" /></td><td><code>integer</code></td><td>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.</td></tr>
-<tr><td><CopyableCode code="adjustment_type" /></td><td><code>string</code></td><td>Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the AutoScaling scaling policy</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The ARN of the AutoScaling scaling policy</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -75,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>scaling_policies_list_only</code> resource, see <a href="/providers/aws/autoscaling/scaling_policies/#permissions"><code>scaling_policies</code></a>
-
 

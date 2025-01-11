@@ -35,14 +35,18 @@ Creates, updates, deletes or gets a <code>collaboration</code> resource or lists
 <tr><td><CopyableCode code="collaboration_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_display_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_member_abilities" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="creator_ml_member_abilities" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_encryption_metadata" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="members" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="query_log_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="analytics_engine" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="creator_payment_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html"><code>AWS::CleanRooms::Collaboration</code></a>.
 
 ## Methods
 
@@ -89,11 +93,13 @@ tags,
 collaboration_identifier,
 creator_display_name,
 creator_member_abilities,
+creator_ml_member_abilities,
 data_encryption_metadata,
 description,
 members,
 name,
 query_log_status,
+analytics_engine,
 creator_payment_configuration
 FROM aws.cleanrooms.collaborations
 WHERE region = 'us-east-1';
@@ -107,11 +113,13 @@ tags,
 collaboration_identifier,
 creator_display_name,
 creator_member_abilities,
+creator_ml_member_abilities,
 data_encryption_metadata,
 description,
 members,
 name,
 query_log_status,
+analytics_engine,
 creator_payment_configuration
 FROM aws.cleanrooms.collaborations
 WHERE region = 'us-east-1' AND data__Identifier = '<CollaborationIdentifier>';
@@ -160,11 +168,13 @@ INSERT INTO aws.cleanrooms.collaborations (
  Tags,
  CreatorDisplayName,
  CreatorMemberAbilities,
+ CreatorMLMemberAbilities,
  DataEncryptionMetadata,
  Description,
  Members,
  Name,
  QueryLogStatus,
+ AnalyticsEngine,
  CreatorPaymentConfiguration,
  region
 )
@@ -172,11 +182,13 @@ SELECT
  '{{ Tags }}',
  '{{ CreatorDisplayName }}',
  '{{ CreatorMemberAbilities }}',
+ '{{ CreatorMLMemberAbilities }}',
  '{{ DataEncryptionMetadata }}',
  '{{ Description }}',
  '{{ Members }}',
  '{{ Name }}',
  '{{ QueryLogStatus }}',
+ '{{ AnalyticsEngine }}',
  '{{ CreatorPaymentConfiguration }}',
  '{{ region }}';
 ```
@@ -204,6 +216,10 @@ resources:
       - name: CreatorMemberAbilities
         value:
           - '{{ CreatorMemberAbilities[0] }}'
+      - name: CreatorMLMemberAbilities
+        value:
+          CustomMLMemberAbilities:
+            - '{{ CustomMLMemberAbilities[0] }}'
       - name: DataEncryptionMetadata
         value:
           AllowCleartext: '{{ AllowCleartext }}'
@@ -216,14 +232,22 @@ resources:
         value:
           - AccountId: '{{ AccountId }}'
             MemberAbilities: null
+            MLMemberAbilities: null
             DisplayName: null
             PaymentConfiguration:
               QueryCompute:
                 IsResponsible: '{{ IsResponsible }}'
+              MachineLearning:
+                ModelTraining:
+                  IsResponsible: '{{ IsResponsible }}'
+                ModelInference:
+                  IsResponsible: '{{ IsResponsible }}'
       - name: Name
         value: '{{ Name }}'
       - name: QueryLogStatus
         value: '{{ QueryLogStatus }}'
+      - name: AnalyticsEngine
+        value: '{{ AnalyticsEngine }}'
       - name: CreatorPaymentConfiguration
         value: null
 
@@ -286,4 +310,3 @@ cleanrooms:ListCollaborations
 ```json
 cleanrooms:ListCollaborations
 ```
-

@@ -39,6 +39,8 @@ Creates, updates, deletes or gets an <code>instance_connect_endpoint</code> reso
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html"><code>AWS::EC2::InstanceConnectEndpoint</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ ec2:DescribeInstanceConnectEndpoints
 ```json
 ec2:DescribeInstanceConnectEndpoints
 ```
-

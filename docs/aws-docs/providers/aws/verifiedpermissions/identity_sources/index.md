@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>identity_source</code> resource or li
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html"><code>AWS::VerifiedPermissions::IdentitySource</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ verifiedpermissions:GetIdentitySource,
 cognito-idp:DescribeUserPool,
 cognito-idp:ListUserPoolClients
 ```
-

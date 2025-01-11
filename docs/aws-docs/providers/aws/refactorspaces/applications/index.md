@@ -47,6 +47,8 @@ Creates, updates, deletes or gets an <code>application</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html"><code>AWS::RefactorSpaces::Application</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -242,10 +244,6 @@ apigateway:PATCH,
 apigateway:POST,
 apigateway:PUT,
 apigateway:UpdateRestApiPolicy,
-apigateway:Update*,
-apigateway:Delete*,
-apigateway:Get*,
-apigateway:Put*,
 elasticloadbalancing:CreateLoadBalancer,
 elasticloadbalancing:DescribeLoadBalancers,
 elasticloadbalancing:DescribeTags,
@@ -273,10 +271,10 @@ ec2:DeleteVpcEndpointServiceConfigurations,
 ec2:DeleteTags,
 ec2:RevokeSecurityGroupIngress,
 elasticloadbalancing:DeleteLoadBalancer,
-apigateway:Update*,
-apigateway:Delete*,
-apigateway:Get*,
-apigateway:Put*
+apigateway:DELETE,
+apigateway:GET,
+apigateway:PUT,
+apigateway:UpdateRestApiPolicy
 ```
 
 ### List
@@ -284,4 +282,3 @@ apigateway:Put*
 refactor-spaces:ListApplications,
 refactor-spaces:ListTagsForResource
 ```
-

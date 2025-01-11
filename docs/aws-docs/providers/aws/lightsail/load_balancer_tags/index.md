@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>load_balancer_tags</code> resource, see <a href="/providers/aws/lightsail/load_balancers/#permissions"><code>load_balancers</code></a>
 
-

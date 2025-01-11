@@ -30,15 +30,7 @@ Lists <code>resource_data_syncs</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="s3_destination" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sync_source" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="bucket_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="bucket_region" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sync_format" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sync_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sync_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="bucket_prefix" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="sync_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>resource_data_syncs_list_only</code> resource, see <a href="/providers/aws/ssm/resource_data_syncs/#permissions"><code>resource_data_syncs</code></a>
-
 

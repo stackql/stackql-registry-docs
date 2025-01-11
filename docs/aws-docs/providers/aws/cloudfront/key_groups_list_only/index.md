@@ -25,14 +25,12 @@ Lists <code>key_groups</code> in a region or regions, for all properties use <a 
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_groups_list_only</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::KeyGroup</td></tr>
+<tr><td><b>Description</b></td><td>A key group.<br />A key group contains a list of public keys that you can use with &#91;CloudFront signed URLs and signed cookies&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.key_groups_list_only" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_group_config" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.cloudfront.key_groups_list_only
 ## Permissions
 
 For permissions required to operate on the <code>key_groups_list_only</code> resource, see <a href="/providers/aws/cloudfront/key_groups/#permissions"><code>key_groups</code></a>
-
 

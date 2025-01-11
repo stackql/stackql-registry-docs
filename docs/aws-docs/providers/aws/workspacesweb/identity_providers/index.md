@@ -35,8 +35,11 @@ Creates, updates, deletes or gets an <code>identity_provider</code> resource or 
 <tr><td><CopyableCode code="identity_provider_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="identity_provider_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="portal_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html"><code>AWS::WorkSpacesWeb::IdentityProvider</code></a>.
 
 ## Methods
 
@@ -82,7 +85,8 @@ identity_provider_arn,
 identity_provider_details,
 identity_provider_name,
 identity_provider_type,
-portal_arn
+portal_arn,
+tags
 FROM aws.workspacesweb.identity_providers
 WHERE region = 'us-east-1';
 ```
@@ -94,7 +98,8 @@ identity_provider_arn,
 identity_provider_details,
 identity_provider_name,
 identity_provider_type,
-portal_arn
+portal_arn,
+tags
 FROM aws.workspacesweb.identity_providers
 WHERE region = 'us-east-1' AND data__Identifier = '<IdentityProviderArn>';
 ```
@@ -137,6 +142,7 @@ INSERT INTO aws.workspacesweb.identity_providers (
  IdentityProviderName,
  IdentityProviderType,
  PortalArn,
+ Tags,
  region
 )
 SELECT 
@@ -144,6 +150,7 @@ SELECT
  '{{ IdentityProviderName }}',
  '{{ IdentityProviderType }}',
  '{{ PortalArn }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -169,6 +176,10 @@ resources:
         value: '{{ IdentityProviderType }}'
       - name: PortalArn
         value: '{{ PortalArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -222,4 +233,3 @@ workspaces-web:DeleteIdentityProvider
 ```json
 workspaces-web:ListIdentityProviders
 ```
-

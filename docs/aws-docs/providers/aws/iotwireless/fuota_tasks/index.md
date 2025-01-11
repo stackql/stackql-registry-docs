@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>fuota_task</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-fuotatask.html"><code>AWS::IoTWireless::FuotaTask</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -245,7 +247,6 @@ To operate on the <code>fuota_tasks</code> resource, the following permissions a
 ```json
 iotwireless:CreateFuotaTask,
 iotwireless:TagResource,
-iotwireless:ListTagsForResource,
 iam:GetRole,
 iam:PassRole
 ```
@@ -260,8 +261,9 @@ iotwireless:ListTagsForResource
 ```json
 iam:PassRole,
 iotwireless:UpdateFuotaTask,
+iotwireless:GetFuotaTask,
+iotwireless:TagResource,
 iotwireless:UntagResource,
-iotwireless:ListTagsForResource,
 iotwireless:AssociateMulticastGroupWithFuotaTask,
 iotwireless:DisassociateMulticastGroupFromFuotaTask,
 iotwireless:AssociateWirelessDeviceWithFuotaTask,
@@ -278,4 +280,3 @@ iotwireless:DeleteFuotaTask
 iotwireless:ListFuotaTasks,
 iotwireless:ListTagsForResource
 ```
-

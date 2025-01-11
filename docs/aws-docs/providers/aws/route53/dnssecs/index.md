@@ -34,6 +34,8 @@ Creates, updates, deletes or gets a <code>dnssec</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html"><code>AWS::Route53::DNSSEC</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -184,4 +186,3 @@ kms:CreateGrant
 route53:GetDNSSEC,
 route53:ListHostedZones
 ```
-

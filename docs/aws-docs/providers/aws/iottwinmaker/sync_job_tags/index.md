@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>sync_job_tags</code> resource, see <a href="/providers/aws/iottwinmaker/sync_jobs/#permissions"><code>sync_jobs</code></a>
 
-

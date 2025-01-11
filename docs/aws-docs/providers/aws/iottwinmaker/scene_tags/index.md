@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>scene_tags</code> resource, see <a href="/providers/aws/iottwinmaker/scenes/#permissions"><code>scenes</code></a>
 
-

@@ -20,7 +20,7 @@ The glue service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>4</b></span><br />
+<span>total resources:&nbsp;<b>18</b></span><br />
 </div>
 </div>
 
@@ -29,11 +29,25 @@ The glue service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/providers/aws/glue/schema_version_metadata/">schema_version_metadata</a><br />
-<a href="/providers/aws/glue/schema_version_metadata_list_only/">schema_version_metadata_list_only</a>
+<a href="/providers/aws/glue/crawler_tags/">crawler_tags</a><br />
+<a href="/providers/aws/glue/crawlers/">crawlers</a><br />
+<a href="/providers/aws/glue/crawlers_list_only/">crawlers_list_only</a><br />
+<a href="/providers/aws/glue/databases/">databases</a><br />
+<a href="/providers/aws/glue/databases_list_only/">databases_list_only</a><br />
+<a href="/providers/aws/glue/job_tags/">job_tags</a><br />
+<a href="/providers/aws/glue/jobs/">jobs</a><br />
+<a href="/providers/aws/glue/jobs_list_only/">jobs_list_only</a><br />
+<a href="/providers/aws/glue/schema_version_metadata/">schema_version_metadata</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/glue/schema_version_metadata_list_only/">schema_version_metadata_list_only</a><br />
 <a href="/providers/aws/glue/schema_versions/">schema_versions</a><br />
-<a href="/providers/aws/glue/schema_versions_list_only/">schema_versions_list_only</a>
+<a href="/providers/aws/glue/schema_versions_list_only/">schema_versions_list_only</a><br />
+<a href="/providers/aws/glue/trigger_tags/">trigger_tags</a><br />
+<a href="/providers/aws/glue/triggers/">triggers</a><br />
+<a href="/providers/aws/glue/triggers_list_only/">triggers_list_only</a><br />
+<a href="/providers/aws/glue/usage_profile_tags/">usage_profile_tags</a><br />
+<a href="/providers/aws/glue/usage_profiles/">usage_profiles</a><br />
+<a href="/providers/aws/glue/usage_profiles_list_only/">usage_profiles_list_only</a>
 </div>
 </div>

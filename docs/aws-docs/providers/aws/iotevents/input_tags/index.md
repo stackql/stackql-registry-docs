@@ -25,7 +25,7 @@ Expands all tag keys and values for <code>inputs</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>input_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see &#91;How to Use AWS IoT Events&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.</td></tr>
+<tr><td><b>Description</b></td><td>The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see &#91;How to Use&#93;(https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.iotevents.input_tags" /></td></tr>
 </tbody></table>
 
@@ -71,5 +71,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>input_tags</code> resource, see <a href="/providers/aws/iotevents/inputs/#permissions"><code>inputs</code></a>
-
 

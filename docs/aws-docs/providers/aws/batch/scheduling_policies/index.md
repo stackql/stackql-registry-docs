@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>scheduling_policy</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html"><code>AWS::Batch::SchedulingPolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -214,4 +216,3 @@ Batch:DeleteSchedulingPolicy
 Batch:ListSchedulingPolicies,
 Batch:DescribeSchedulingPolicies
 ```
-

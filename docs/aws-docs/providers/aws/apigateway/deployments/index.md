@@ -31,13 +31,15 @@ Creates, updates, deletes or gets a <code>deployment</code> resource or lists <c
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="deployment_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description for the Deployment resource to create.</td></tr>
+<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="stage_description" /></td><td><code>object</code></td><td>The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.</td></tr>
-<tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td>The name of the Stage resource for the Deployment resource to create.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><CopyableCode code="deployment_canary_settings" /></td><td><code>object</code></td><td>The input configuration for a canary deployment.</td></tr>
+<tr><td><CopyableCode code="stage_name" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deployment_canary_settings" /></td><td><code>object</code></td><td>The <code>DeploymentCanarySettings</code> property type specifies settings for the canary deployment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html"><code>AWS::ApiGateway::Deployment</code></a>.
 
 ## Methods
 
@@ -261,4 +263,3 @@ apigateway:GET
 apigateway:GET,
 apigateway:DELETE
 ```
-

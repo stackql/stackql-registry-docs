@@ -72,4 +72,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>resource_policy_tags</code> resource, see <a href="/providers/aws/organizations/resource_policies/#permissions"><code>resource_policies</code></a>
 
-

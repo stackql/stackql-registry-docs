@@ -72,4 +72,3 @@ FROM aws.iam.saml_provider_tags
 
 For permissions required to operate on the <code>saml_provider_tags</code> resource, see <a href="/providers/aws/iam/saml_providers/#permissions"><code>saml_providers</code></a>
 
-

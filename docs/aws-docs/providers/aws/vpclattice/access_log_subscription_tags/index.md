@@ -36,6 +36,7 @@ Expands all tag keys and values for <code>access_log_subscriptions</code> in a r
 <tr><td><CopyableCode code="resource_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="resource_identifier" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="service_network_log_type" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -67,6 +68,7 @@ id,
 resource_arn,
 resource_id,
 resource_identifier,
+service_network_log_type,
 tag_key,
 tag_value
 FROM aws.vpclattice.access_log_subscription_tags
@@ -77,5 +79,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>access_log_subscription_tags</code> resource, see <a href="/providers/aws/vpclattice/access_log_subscriptions/#permissions"><code>access_log_subscriptions</code></a>
-
 

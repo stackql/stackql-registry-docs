@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>flow_log_tags</code> resource, see <a href="/providers/aws/ec2/flow_logs/#permissions"><code>flow_logs</code></a>
 
-

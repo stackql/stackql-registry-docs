@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>policy</code> resource or lists <code>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policy.html"><code>AWS::VerifiedPermissions::Policy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -202,4 +204,3 @@ verifiedpermissions:GetPolicy
 verifiedpermissions:ListPolicies,
 verifiedpermissions:GetPolicy
 ```
-

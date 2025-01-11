@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>service_action</code> resource or list
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html"><code>AWS::ServiceCatalog::ServiceAction</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -224,4 +226,3 @@ servicecatalog:DeleteServiceAction
 ```json
 servicecatalog:ListServiceActions
 ```
-

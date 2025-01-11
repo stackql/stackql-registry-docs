@@ -57,8 +57,13 @@ Creates, updates, deletes or gets a <code>model_package</code> resource or lists
 <tr><td><CopyableCode code="model_package_version" /></td><td><code>integer</code></td><td>The version of the model package.</td></tr>
 <tr><td><CopyableCode code="additional_inference_specifications_to_add" /></td><td><code>array</code></td><td>An array of additional Inference Specification objects.</td></tr>
 <tr><td><CopyableCode code="model_package_status_details" /></td><td><code>object</code></td><td>Details about the current status of the model package.</td></tr>
+<tr><td><CopyableCode code="source_uri" /></td><td><code>string</code></td><td>The URI of the source for the model package.</td></tr>
+<tr><td><CopyableCode code="model_card" /></td><td><code>object</code></td><td>The model card associated with the model package.</td></tr>
+<tr><td><CopyableCode code="security_config" /></td><td><code>object</code></td><td>An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html"><code>AWS::SageMaker::ModelPackage</code></a>.
 
 ## Methods
 
@@ -126,7 +131,10 @@ last_modified_time,
 model_package_status,
 model_package_version,
 additional_inference_specifications_to_add,
-model_package_status_details
+model_package_status_details,
+source_uri,
+model_card,
+security_config
 FROM aws.sagemaker.model_packages
 WHERE region = 'us-east-1';
 ```
@@ -160,7 +168,10 @@ last_modified_time,
 model_package_status,
 model_package_version,
 additional_inference_specifications_to_add,
-model_package_status_details
+model_package_status_details,
+source_uri,
+model_card,
+security_config
 FROM aws.sagemaker.model_packages
 WHERE region = 'us-east-1' AND data__Identifier = '<ModelPackageArn>';
 ```
@@ -206,6 +217,9 @@ INSERT INTO aws.sagemaker.model_packages (
  ModelPackageVersion,
  AdditionalInferenceSpecificationsToAdd,
  ModelPackageStatusDetails,
+ SourceUri,
+ ModelCard,
+ SecurityConfig,
  region
 )
 SELECT 
@@ -233,6 +247,9 @@ SELECT
  '{{ ModelPackageVersion }}',
  '{{ AdditionalInferenceSpecificationsToAdd }}',
  '{{ ModelPackageStatusDetails }}',
+ '{{ SourceUri }}',
+ '{{ ModelCard }}',
+ '{{ SecurityConfig }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -265,6 +282,9 @@ INSERT INTO aws.sagemaker.model_packages (
  ModelPackageVersion,
  AdditionalInferenceSpecificationsToAdd,
  ModelPackageStatusDetails,
+ SourceUri,
+ ModelCard,
+ SecurityConfig,
  region
 )
 SELECT 
@@ -292,6 +312,9 @@ SELECT
  '{{ ModelPackageVersion }}',
  '{{ AdditionalInferenceSpecificationsToAdd }}',
  '{{ ModelPackageStatusDetails }}',
+ '{{ SourceUri }}',
+ '{{ ModelCard }}',
+ '{{ SecurityConfig }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -323,6 +346,13 @@ resources:
                 Image: '{{ Image }}'
                 ImageDigest: '{{ ImageDigest }}'
                 ModelDataUrl: '{{ ModelDataUrl }}'
+                ModelDataSource:
+                  S3DataSource:
+                    S3DataType: '{{ S3DataType }}'
+                    S3Uri: '{{ S3Uri }}'
+                    CompressionType: '{{ CompressionType }}'
+                    ModelAccessConfig:
+                      AcceptEula: '{{ AcceptEula }}'
                 Framework: '{{ Framework }}'
                 FrameworkVersion: '{{ FrameworkVersion }}'
                 NearestModelName: '{{ NearestModelName }}'
@@ -457,6 +487,15 @@ resources:
             - FailureReason: '{{ FailureReason }}'
               Name: '{{ Name }}'
               Status: '{{ Status }}'
+      - name: SourceUri
+        value: '{{ SourceUri }}'
+      - name: ModelCard
+        value:
+          ModelCardContent: '{{ ModelCardContent }}'
+          ModelCardStatus: '{{ ModelCardStatus }}'
+      - name: SecurityConfig
+        value:
+          KmsKeyId: '{{ KmsKeyId }}'
 
 ```
 </TabItem>
@@ -489,33 +528,49 @@ sagemaker:CreateTransformJob,
 sagemaker:DescribeTransformJob,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
+sagemaker:UpdateModelPackage,
 iam:PassRole,
-s3:GetObject
+s3:GetObject,
+s3:ListBucket,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
 ```
 
 ### Read
 ```json
 sagemaker:DescribeModelPackage,
-sagemaker:ListTags
+sagemaker:ListTags,
+kms:DescribeKey,
+kms:Decrypt
 ```
 
 ### Update
 ```json
+ecr:BatchGetImage,
 sagemaker:UpdateModelPackage,
 sagemaker:DescribeModelPackage,
 sagemaker:ListTags,
 sagemaker:AddTags,
-sagemaker:DeleteTags
+sagemaker:DeleteTags,
+s3:GetObject,
+s3:ListBucket,
+kms:CreateGrant,
+kms:DescribeKey,
+kms:GenerateDataKey,
+kms:Decrypt
 ```
 
 ### Delete
 ```json
 sagemaker:DeleteModelPackage,
-sagemaker:DescribeModelPackage
+sagemaker:DescribeModelPackage,
+kms:DescribeKey,
+kms:Decrypt
 ```
 
 ### List
 ```json
 sagemaker:ListModelPackages
 ```
-

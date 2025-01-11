@@ -32,14 +32,6 @@ Lists <code>calculated_attribute_definitions</code> in a region or regions, for 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td>The unique name of the domain.</td></tr>
 <tr><td><CopyableCode code="calculated_attribute_name" /></td><td><code>string</code></td><td>The unique name of the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td>The display name of the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="attribute_details" /></td><td><code>object</code></td><td>Mathematical expression and a list of attribute items specified in that expression.</td></tr>
-<tr><td><CopyableCode code="conditions" /></td><td><code>object</code></td><td>The conditions including range, object count, and threshold for the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="statistic" /></td><td><code>string</code></td><td>The aggregation operation to perform for the calculated attribute.</td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td>The timestamp of when the calculated attribute definition was created.</td></tr>
-<tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The timestamp of when the calculated attribute definition was most recently edited.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>calculated_attribute_definitions_list_only</code> resource, see <a href="/providers/aws/customerprofiles/calculated_attribute_definitions/#permissions"><code>calculated_attribute_definitions</code></a>
-
 

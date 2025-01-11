@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>assistant_tags</code> resource, see <a href="/providers/aws/wisdom/assistants/#permissions"><code>assistants</code></a>
 
-

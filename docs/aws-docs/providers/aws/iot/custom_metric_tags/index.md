@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>custom_metric_tags</code> resource, see <a href="/providers/aws/iot/custom_metrics/#permissions"><code>custom_metrics</code></a>
 
-

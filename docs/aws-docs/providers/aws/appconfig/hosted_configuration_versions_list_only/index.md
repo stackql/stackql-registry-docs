@@ -31,11 +31,6 @@ Lists <code>hosted_configuration_versions</code> in a region or regions, for all
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="configuration_profile_id" /></td><td><code>string</code></td><td>The configuration profile ID.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description of the hosted configuration version.</td></tr>
-<tr><td><CopyableCode code="content_type" /></td><td><code>string</code></td><td>A standard MIME type describing the format of the configuration content.</td></tr>
-<tr><td><CopyableCode code="latest_version_number" /></td><td><code>integer</code></td><td>An optional locking token used to prevent race conditions from overwriting configuration updates when creating a new version. To ensure your data is not overwritten when creating multiple hosted configuration versions in rapid succession, specify the version number of the latest hosted configuration version.</td></tr>
-<tr><td><CopyableCode code="content" /></td><td><code>string</code></td><td>The content of the configuration or the configuration data.</td></tr>
-<tr><td><CopyableCode code="version_label" /></td><td><code>string</code></td><td>A user-defined label for an AWS AppConfig hosted configuration version.</td></tr>
 <tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The application ID.</td></tr>
 <tr><td><CopyableCode code="version_number" /></td><td><code>string</code></td><td>Current version number of hosted configuration version.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -72,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>hosted_configuration_versions_list_only</code> resource, see <a href="/providers/aws/appconfig/hosted_configuration_versions/#permissions"><code>hosted_configuration_versions</code></a>
-
 

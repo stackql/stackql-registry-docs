@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>bridge_source</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html"><code>AWS::MediaConnect::BridgeSource</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -154,6 +156,8 @@ resources:
         value:
           Protocol: '{{ Protocol }}'
           MulticastIp: '{{ MulticastIp }}'
+          MulticastSourceSettings:
+            MulticastSourceIp: '{{ MulticastSourceIp }}'
           Port: '{{ Port }}'
           NetworkName: '{{ NetworkName }}'
 
@@ -195,4 +199,3 @@ mediaconnect:UpdateBridgeSource
 ```json
 mediaconnect:RemoveBridgeSource
 ```
-

@@ -30,17 +30,19 @@ Creates, updates, deletes or gets a <code>permission</code> resource or lists <c
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="function_name" /></td><td><code>string</code></td><td>The name or ARN of the Lambda function, version, or alias.<br />**Name formats**<br />+ *Function name* – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).<br />+ *Function ARN* – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.<br />+ *Partial ARN* – <code>123456789012:function:my-function</code>.<br /><br />You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</td></tr>
 <tr><td><CopyableCode code="action" /></td><td><code>string</code></td><td>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or <code>lambda:GetFunction</code>.</td></tr>
 <tr><td><CopyableCode code="event_source_token" /></td><td><code>string</code></td><td>For Alexa Smart Home functions, a token that the invoker must supply.</td></tr>
-<tr><td><CopyableCode code="function_name" /></td><td><code>string</code></td><td>The name or ARN of the Lambda function, version, or alias.<br />**Name formats**<br />+ *Function name* – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).<br />+ *Function ARN* – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.<br />+ *Partial ARN* – <code>123456789012:function:my-function</code>.<br /><br />You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</td></tr>
 <tr><td><CopyableCode code="function_url_auth_type" /></td><td><code>string</code></td><td>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see &#91;Security and auth model for Lambda function URLs&#93;(https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).</td></tr>
-<tr><td><CopyableCode code="principal" /></td><td><code>string</code></td><td>The AWS-service or AWS-account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</td></tr>
-<tr><td><CopyableCode code="principal_org_id" /></td><td><code>string</code></td><td>The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.</td></tr>
-<tr><td><CopyableCode code="source_account" /></td><td><code>string</code></td><td>For AWS-service, the ID of the AWS-account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</td></tr>
 <tr><td><CopyableCode code="source_arn" /></td><td><code>string</code></td><td>For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.<br />Note that Lambda configures the comparison using the <code>StringLike</code> operator.</td></tr>
+<tr><td><CopyableCode code="source_account" /></td><td><code>string</code></td><td>For AWS-service, the ID of the AWS-account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</td></tr>
+<tr><td><CopyableCode code="principal_org_id" /></td><td><code>string</code></td><td>The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.</td></tr>
+<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="principal" /></td><td><code>string</code></td><td>The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html"><code>AWS::Lambda::Permission</code></a>.
 
 ## Methods
 
@@ -77,15 +79,15 @@ Gets all <code>permissions</code> in a region.
 ```sql
 SELECT
 region,
-id,
+function_name,
 action,
 event_source_token,
-function_name,
 function_url_auth_type,
-principal,
-principal_org_id,
+source_arn,
 source_account,
-source_arn
+principal_org_id,
+id,
+principal
 FROM aws.lambda.permissions
 WHERE region = 'us-east-1';
 ```
@@ -93,15 +95,15 @@ Gets all properties from an individual <code>permission</code>.
 ```sql
 SELECT
 region,
-id,
+function_name,
 action,
 event_source_token,
-function_name,
 function_url_auth_type,
-principal,
-principal_org_id,
+source_arn,
 source_account,
-source_arn
+principal_org_id,
+id,
+principal
 FROM aws.lambda.permissions
 WHERE region = 'us-east-1' AND data__Identifier = '<FunctionName>|<Id>';
 ```
@@ -123,14 +125,14 @@ Use the following StackQL query and manifest file to create a new <code>permissi
 ```sql
 /*+ create */
 INSERT INTO aws.lambda.permissions (
- Action,
  FunctionName,
+ Action,
  Principal,
  region
 )
 SELECT 
-'{{ Action }}',
- '{{ FunctionName }}',
+'{{ FunctionName }}',
+ '{{ Action }}',
  '{{ Principal }}',
 '{{ region }}';
 ```
@@ -140,25 +142,25 @@ SELECT
 ```sql
 /*+ create */
 INSERT INTO aws.lambda.permissions (
+ FunctionName,
  Action,
  EventSourceToken,
- FunctionName,
  FunctionUrlAuthType,
- Principal,
- PrincipalOrgID,
- SourceAccount,
  SourceArn,
+ SourceAccount,
+ PrincipalOrgID,
+ Principal,
  region
 )
 SELECT 
+ '{{ FunctionName }}',
  '{{ Action }}',
  '{{ EventSourceToken }}',
- '{{ FunctionName }}',
  '{{ FunctionUrlAuthType }}',
- '{{ Principal }}',
- '{{ PrincipalOrgID }}',
- '{{ SourceAccount }}',
  '{{ SourceArn }}',
+ '{{ SourceAccount }}',
+ '{{ PrincipalOrgID }}',
+ '{{ Principal }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -176,22 +178,22 @@ globals:
 resources:
   - name: permission
     props:
+      - name: FunctionName
+        value: '{{ FunctionName }}'
       - name: Action
         value: '{{ Action }}'
       - name: EventSourceToken
         value: '{{ EventSourceToken }}'
-      - name: FunctionName
-        value: '{{ FunctionName }}'
       - name: FunctionUrlAuthType
         value: '{{ FunctionUrlAuthType }}'
-      - name: Principal
-        value: '{{ Principal }}'
-      - name: PrincipalOrgID
-        value: '{{ PrincipalOrgID }}'
-      - name: SourceAccount
-        value: '{{ SourceAccount }}'
       - name: SourceArn
         value: '{{ SourceArn }}'
+      - name: SourceAccount
+        value: '{{ SourceAccount }}'
+      - name: PrincipalOrgID
+        value: '{{ PrincipalOrgID }}'
+      - name: Principal
+        value: '{{ Principal }}'
 
 ```
 </TabItem>
@@ -210,12 +212,17 @@ AND region = 'us-east-1';
 
 To operate on the <code>permissions</code> resource, the following permissions are required:
 
+### Read
+```json
+lambda:GetPolicy
+```
+
 ### Create
 ```json
 lambda:AddPermission
 ```
 
-### Read
+### List
 ```json
 lambda:GetPolicy
 ```
@@ -224,9 +231,3 @@ lambda:GetPolicy
 ```json
 lambda:RemovePermission
 ```
-
-### List
-```json
-lambda:GetPolicy
-```
-

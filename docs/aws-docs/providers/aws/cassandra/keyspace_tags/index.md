@@ -32,6 +32,7 @@ Expands all tag keys and values for <code>keyspaces</code> in a region
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="keyspace_name" /></td><td><code>string</code></td><td>Name for Cassandra keyspace</td></tr>
 <tr><td><CopyableCode code="replication_specification" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="client_side_timestamps_enabled" /></td><td><code>boolean</code></td><td>Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -59,6 +60,7 @@ SELECT
 region,
 keyspace_name,
 replication_specification,
+client_side_timestamps_enabled,
 tag_key,
 tag_value
 FROM aws.cassandra.keyspace_tags
@@ -69,5 +71,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>keyspace_tags</code> resource, see <a href="/providers/aws/cassandra/keyspaces/#permissions"><code>keyspaces</code></a>
-
 

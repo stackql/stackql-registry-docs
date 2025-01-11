@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>subnet_network_acl_association</code> 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html"><code>AWS::EC2::SubnetNetworkAclAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -187,4 +189,3 @@ ec2:ReplaceNetworkAclAssociation
 ```json
 ec2:DescribeNetworkAcls
 ```
-

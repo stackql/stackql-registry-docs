@@ -25,21 +25,23 @@ Creates, updates, deletes or gets a <code>rule</code> resource or lists <code>ru
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>rules</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS:Connect::Rule</td></tr>
+<tr><td><b>Description</b></td><td>Creates a rule for the specified CON instance.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.connect.rules" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the rule.</td></tr>
-<tr><td><CopyableCode code="rule_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the rule.</td></tr>
+<tr><td><CopyableCode code="rule_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the instance.</td></tr>
-<tr><td><CopyableCode code="trigger_event_source" /></td><td><code>object</code></td><td>The event source that triggers the rule.</td></tr>
-<tr><td><CopyableCode code="function" /></td><td><code>string</code></td><td>The conditions of a rule.</td></tr>
-<tr><td><CopyableCode code="actions" /></td><td><code>object</code></td><td>The list of actions that will be executed when a rule is triggered.</td></tr>
-<tr><td><CopyableCode code="publish_status" /></td><td><code>string</code></td><td>The publish status of a rule, either draft or published.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><CopyableCode code="trigger_event_source" /></td><td><code>object</code></td><td>The event source to trigger the rule.</td></tr>
+<tr><td><CopyableCode code="function" /></td><td><code>string</code></td><td>The conditions of the rule.</td></tr>
+<tr><td><CopyableCode code="actions" /></td><td><code>object</code></td><td>A list of actions to be run when the rule is triggered.</td></tr>
+<tr><td><CopyableCode code="publish_status" /></td><td><code>string</code></td><td>The publish status of the rule.<br />*Allowed values*: <code>DRAFT</code> | <code>PUBLISHED</code></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags used to organize, track, or control access for this resource. For example, &#123; "tags": &#123;"key1":"value1", "key2":"value2"&#125; &#125;.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html"><code>AWS::Connect::Rule</code></a>.
 
 ## Methods
 
@@ -206,6 +208,8 @@ resources:
             - Fields: null
           EndAssociatedTasksActions:
             - {}
+          SubmitAutoEvaluationActions:
+            - EvaluationFormArn: '{{ EvaluationFormArn }}'
       - name: PublishStatus
         value: '{{ PublishStatus }}'
       - name: Tags
@@ -258,4 +262,3 @@ cases:ListFieldOptions,
 connect:TagResource,
 connect:UntagResource
 ```
-

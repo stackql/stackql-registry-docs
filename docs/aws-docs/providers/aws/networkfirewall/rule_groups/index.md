@@ -41,6 +41,8 @@ Creates, updates, deletes or gets a <code>rule_group</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html"><code>AWS::NetworkFirewall::RuleGroup</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -250,4 +252,3 @@ network-firewall:UntagResource
 ```json
 network-firewall:ListRuleGroups
 ```
-

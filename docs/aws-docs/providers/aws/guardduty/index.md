@@ -20,7 +20,7 @@ The guardduty service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>16</b></span><br />
+<span>total resources:&nbsp;<b>19</b></span><br />
 </div>
 </div>
 
@@ -36,10 +36,13 @@ The guardduty service documentation.
 <a href="/providers/aws/guardduty/filters/">filters</a><br />
 <a href="/providers/aws/guardduty/filters_list_only/">filters_list_only</a><br />
 <a href="/providers/aws/guardduty/ip_set_tags/">ip_set_tags</a><br />
-<a href="/providers/aws/guardduty/ip_sets/">ip_sets</a>
+<a href="/providers/aws/guardduty/ip_sets/">ip_sets</a><br />
+<a href="/providers/aws/guardduty/ip_sets_list_only/">ip_sets_list_only</a><br />
+<a href="/providers/aws/guardduty/malware_protection_plan_tags/">malware_protection_plan_tags</a>
 </div>
 <div class="providerDocColumn">
-<a href="/providers/aws/guardduty/ip_sets_list_only/">ip_sets_list_only</a><br />
+<a href="/providers/aws/guardduty/malware_protection_plans/">malware_protection_plans</a><br />
+<a href="/providers/aws/guardduty/malware_protection_plans_list_only/">malware_protection_plans_list_only</a><br />
 <a href="/providers/aws/guardduty/masters/">masters</a><br />
 <a href="/providers/aws/guardduty/masters_list_only/">masters_list_only</a><br />
 <a href="/providers/aws/guardduty/members/">members</a><br />

@@ -31,7 +31,7 @@ Expands all tag keys and values for <code>db_subnet_groups</code> in a region
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="db_subnet_group_description" /></td><td><code>string</code></td><td>The description for the DB subnet group.</td></tr>
-<tr><td><CopyableCode code="db_subnet_group_name" /></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.<br />Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".<br />Example: <code>mysubnetgroup</code></td></tr>
+<tr><td><CopyableCode code="db_subnet_group_name" /></td><td><code>string</code></td><td>The name for the DB subnet group. This value is stored as a lowercase string.<br />Constraints:<br />+ Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.<br />+ Must not be default.<br />+ First character must be a letter.<br /><br />Example: <code>mydbsubnetgroup</code></td></tr>
 <tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td>The EC2 Subnet IDs for the DB subnet group.</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
@@ -71,5 +71,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>db_subnet_group_tags</code> resource, see <a href="/providers/aws/rds/db_subnet_groups/#permissions"><code>db_subnet_groups</code></a>
-
 

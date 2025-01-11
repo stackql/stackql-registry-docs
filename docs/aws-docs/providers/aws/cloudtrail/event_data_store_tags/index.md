@@ -100,4 +100,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_data_store_tags</code> resource, see <a href="/providers/aws/cloudtrail/event_data_stores/#permissions"><code>event_data_stores</code></a>
 
-

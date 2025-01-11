@@ -38,6 +38,8 @@ Creates, updates, deletes or gets an <code>enclave_certificate_iam_role_associat
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html"><code>AWS::EC2::EnclaveCertificateIamRoleAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -174,7 +176,8 @@ To operate on the <code>enclave_certificate_iam_role_associations</code> resourc
 
 ### Create
 ```json
-ec2:AssociateEnclaveCertificateIamRole
+ec2:AssociateEnclaveCertificateIamRole,
+ec2:GetAssociatedEnclaveCertificateIamRoles
 ```
 
 ### Read
@@ -184,11 +187,11 @@ ec2:GetAssociatedEnclaveCertificateIamRoles
 
 ### Delete
 ```json
-ec2:DisassociateEnclaveCertificateIamRole
+ec2:DisassociateEnclaveCertificateIamRole,
+ec2:GetAssociatedEnclaveCertificateIamRoles
 ```
 
 ### List
 ```json
 ec2:GetAssociatedEnclaveCertificateIamRoles
 ```
-

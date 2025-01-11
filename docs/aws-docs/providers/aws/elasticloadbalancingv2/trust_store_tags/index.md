@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>trust_store_tags</code> resource, see <a href="/providers/aws/elasticloadbalancingv2/trust_stores/#permissions"><code>trust_stores</code></a>
 
-

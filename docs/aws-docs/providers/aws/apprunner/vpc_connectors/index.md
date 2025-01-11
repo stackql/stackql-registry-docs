@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>vpc_connector</code> resource or lists
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html"><code>AWS::AppRunner::VpcConnector</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -209,4 +211,3 @@ apprunner:DeleteVpcConnector
 ```json
 apprunner:ListVpcConnectors
 ```
-

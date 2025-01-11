@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>workflow</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html"><code>AWS::ImageBuilder::Workflow</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -220,7 +222,10 @@ To operate on the <code>workflows</code> resource, the following permissions are
 ### Create
 ```json
 iam:GetRole,
-kms:GenerateDataKey*,
+kms:GenerateDataKey,
+kms:GenerateDataKeyPair,
+kms:GenerateDataKeyPairWithoutPlaintext,
+kms:GenerateDataKeyWithoutPlaintext,
 kms:Encrypt,
 kms:Decrypt,
 s3:GetObject,
@@ -233,7 +238,8 @@ imagebuilder:CreateWorkflow
 
 ### Read
 ```json
-imagebuilder:GetWorkflow
+imagebuilder:GetWorkflow,
+kms:Decrypt
 ```
 
 ### Delete
@@ -245,6 +251,6 @@ imagebuilder:DeleteWorkflow
 
 ### List
 ```json
-imagebuilder:ListWorkflows
+imagebuilder:ListWorkflows,
+imagebuilder:ListWorkflowBuildVersions
 ```
-

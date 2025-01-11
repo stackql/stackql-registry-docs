@@ -42,6 +42,7 @@ Expands all tag keys and values for <code>user_settings</code> in a region
 <tr><td><CopyableCode code="print_allowed" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="upload_allowed" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="user_settings_arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="deep_link_allowed" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -79,6 +80,7 @@ paste_allowed,
 print_allowed,
 upload_allowed,
 user_settings_arn,
+deep_link_allowed,
 tag_key,
 tag_value
 FROM aws.workspacesweb.user_settings_tags
@@ -89,5 +91,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>user_settings_tags</code> resource, see <a href="/providers/aws/workspacesweb/user_settings/#permissions"><code>user_settings</code></a>
-
 

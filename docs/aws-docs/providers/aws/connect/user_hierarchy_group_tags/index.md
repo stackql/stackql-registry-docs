@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>user_hierarchy_group_tags</code> resource, see <a href="/providers/aws/connect/user_hierarchy_groups/#permissions"><code>user_hierarchy_groups</code></a>
 
-

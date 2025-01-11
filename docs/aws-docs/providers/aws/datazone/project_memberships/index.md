@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>project_membership</code> resource or 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html"><code>AWS::DataZone::ProjectMembership</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -215,4 +217,3 @@ datazone:ListProjectMemberships
 ```json
 datazone:DeleteProjectMembership
 ```
-

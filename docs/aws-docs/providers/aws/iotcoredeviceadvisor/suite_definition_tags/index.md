@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>suite_definition_tags</code> resource, see <a href="/providers/aws/iotcoredeviceadvisor/suite_definitions/#permissions"><code>suite_definitions</code></a>
 
-

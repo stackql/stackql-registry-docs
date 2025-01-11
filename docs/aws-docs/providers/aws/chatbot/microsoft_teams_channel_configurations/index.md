@@ -41,8 +41,11 @@ Creates, updates, deletes or gets a <code>microsoft_teams_channel_configuration<
 <tr><td><CopyableCode code="guardrail_policies" /></td><td><code>array</code></td><td>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.</td></tr>
 <tr><td><CopyableCode code="user_role_required" /></td><td><code>boolean</code></td><td>Enables use of a user role requirement in your chat configuration</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags to add to the configuration</td></tr>
+<tr><td><CopyableCode code="customization_resource_arns" /></td><td><code>array</code></td><td>ARNs of Custom Actions to associate with notifications in the provided chat channel.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html"><code>AWS::Chatbot::MicrosoftTeamsChannelConfiguration</code></a>.
 
 ## Methods
 
@@ -94,7 +97,8 @@ logging_level,
 arn,
 guardrail_policies,
 user_role_required,
-tags
+tags,
+customization_resource_arns
 FROM aws.chatbot.microsoft_teams_channel_configurations
 WHERE region = 'us-east-1';
 ```
@@ -112,7 +116,8 @@ logging_level,
 arn,
 guardrail_policies,
 user_role_required,
-tags
+tags,
+customization_resource_arns
 FROM aws.chatbot.microsoft_teams_channel_configurations
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -165,6 +170,7 @@ INSERT INTO aws.chatbot.microsoft_teams_channel_configurations (
  GuardrailPolicies,
  UserRoleRequired,
  Tags,
+ CustomizationResourceArns,
  region
 )
 SELECT 
@@ -178,6 +184,7 @@ SELECT
  '{{ GuardrailPolicies }}',
  '{{ UserRoleRequired }}',
  '{{ Tags }}',
+ '{{ CustomizationResourceArns }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -219,6 +226,9 @@ resources:
         value:
           - Value: '{{ Value }}'
             Key: '{{ Key }}'
+      - name: CustomizationResourceArns
+        value:
+          - '{{ CustomizationResourceArns[0] }}'
 
 ```
 </TabItem>
@@ -241,13 +251,16 @@ To operate on the <code>microsoft_teams_channel_configurations</code> resource, 
 ```json
 chatbot:CreateMicrosoftTeamsChannelConfiguration,
 chatbot:TagResource,
+chatbot:AssociateToConfiguration,
+chatbot:ListAssociations,
 iam:PassRole,
 iam:CreateServiceLinkedRole
 ```
 
 ### Read
 ```json
-chatbot:GetMicrosoftTeamsChannelConfiguration
+chatbot:GetMicrosoftTeamsChannelConfiguration,
+chatbot:ListAssociations
 ```
 
 ### Update
@@ -256,17 +269,22 @@ chatbot:UpdateMicrosoftTeamsChannelConfiguration,
 chatbot:TagResource,
 chatbot:UntagResource,
 chatbot:ListTagsForResource,
+chatbot:AssociateToConfiguration,
+chatbot:DisassociateFromConfiguration,
+chatbot:ListAssociations,
 iam:PassRole
 ```
 
 ### Delete
 ```json
 chatbot:GetMicrosoftTeamsChannelConfiguration,
-chatbot:DeleteMicrosoftTeamsChannelConfiguration
+chatbot:DeleteMicrosoftTeamsChannelConfiguration,
+chatbot:DisassociateFromConfiguration,
+chatbot:ListAssociations
 ```
 
 ### List
 ```json
-chatbot:ListMicrosoftTeamsChannelConfigurations
+chatbot:ListMicrosoftTeamsChannelConfigurations,
+chatbot:ListAssociations
 ```
-

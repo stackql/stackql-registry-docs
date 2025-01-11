@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>pull_through_cache_rule</code> resourc
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html"><code>AWS::ECR::PullThroughCacheRule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ ecr:DeletePullThroughCacheRule
 ```json
 ecr:DescribePullThroughCacheRules
 ```
-

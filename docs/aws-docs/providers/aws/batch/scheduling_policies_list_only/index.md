@@ -30,10 +30,7 @@ Lists <code>scheduling_policies</code> in a region or regions, for all propertie
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of Scheduling Policy.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
-<tr><td><CopyableCode code="fairshare_policy" /></td><td><code>object</code></td><td>Fair Share Policy for the Job Queue.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>A key-value pair to associate with a resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>ARN of the Scheduling Policy.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -66,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>scheduling_policies_list_only</code> resource, see <a href="/providers/aws/batch/scheduling_policies/#permissions"><code>scheduling_policies</code></a>
-
 

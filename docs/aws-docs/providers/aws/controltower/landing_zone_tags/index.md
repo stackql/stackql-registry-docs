@@ -30,13 +30,13 @@ Expands all tag keys and values for <code>landing_zones</code> in a region
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="latest_available_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
 <tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="drift_status" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="manifest" /></td><td><code></code></td><td></td></tr>
+<tr><td><CopyableCode code="landing_zone_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -62,13 +62,13 @@ Expands tags for all <code>landing_zones</code> in a region.
 ```sql
 SELECT
 region,
-landing_zone_identifier,
-arn,
 status,
 latest_available_version,
-drift_status,
-manifest,
 version,
+drift_status,
+arn,
+manifest,
+landing_zone_identifier,
 tag_key,
 tag_value
 FROM aws.controltower.landing_zone_tags
@@ -79,5 +79,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>landing_zone_tags</code> resource, see <a href="/providers/aws/controltower/landing_zones/#permissions"><code>landing_zones</code></a>
-
 

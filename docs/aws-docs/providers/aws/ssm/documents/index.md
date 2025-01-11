@@ -43,6 +43,8 @@ Creates, updates, deletes or gets a <code>document</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html"><code>AWS::SSM::Document</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -268,4 +270,3 @@ ssm:GetDocument
 ```json
 ssm:ListDocuments
 ```
-

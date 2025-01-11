@@ -42,8 +42,11 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="worker_count" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html"><code>AWS::Deadline::Fleet</code></a>.
 
 ## Methods
 
@@ -56,7 +59,7 @@ Creates, updates, deletes or gets a <code>fleet</code> resource or lists <code>f
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Configuration, DisplayName, MaxWorkerCount, RoleArn, region" /></td>
+    <td><CopyableCode code="Configuration, DisplayName, FarmId, MaxWorkerCount, RoleArn, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
@@ -96,7 +99,8 @@ min_worker_count,
 role_arn,
 status,
 worker_count,
-arn
+arn,
+tags
 FROM aws.deadline.fleets
 WHERE region = 'us-east-1';
 ```
@@ -115,7 +119,8 @@ min_worker_count,
 role_arn,
 status,
 worker_count,
-arn
+arn,
+tags
 FROM aws.deadline.fleets
 WHERE region = 'us-east-1' AND data__Identifier = '<Arn>';
 ```
@@ -139,6 +144,7 @@ Use the following StackQL query and manifest file to create a new <code>fleet</c
 INSERT INTO aws.deadline.fleets (
  Configuration,
  DisplayName,
+ FarmId,
  MaxWorkerCount,
  RoleArn,
  region
@@ -146,6 +152,7 @@ INSERT INTO aws.deadline.fleets (
 SELECT 
 '{{ Configuration }}',
  '{{ DisplayName }}',
+ '{{ FarmId }}',
  '{{ MaxWorkerCount }}',
  '{{ RoleArn }}',
 '{{ region }}';
@@ -163,6 +170,7 @@ INSERT INTO aws.deadline.fleets (
  MaxWorkerCount,
  MinWorkerCount,
  RoleArn,
+ Tags,
  region
 )
 SELECT 
@@ -173,6 +181,7 @@ SELECT
  '{{ MaxWorkerCount }}',
  '{{ MinWorkerCount }}',
  '{{ RoleArn }}',
+ '{{ Tags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -204,6 +213,10 @@ resources:
         value: '{{ MinWorkerCount }}'
       - name: RoleArn
         value: '{{ RoleArn }}'
+      - name: Tags
+        value:
+          - Key: '{{ Key }}'
+            Value: '{{ Value }}'
 
 ```
 </TabItem>
@@ -228,13 +241,16 @@ deadline:CreateFleet,
 deadline:GetFleet,
 iam:PassRole,
 identitystore:ListGroupMembershipsForMember,
-logs:CreateLogGroup
+logs:CreateLogGroup,
+deadline:TagResource,
+deadline:ListTagsForResource
 ```
 
 ### Read
 ```json
 deadline:GetFleet,
-identitystore:ListGroupMembershipsForMember
+identitystore:ListGroupMembershipsForMember,
+deadline:ListTagsForResource
 ```
 
 ### Update
@@ -242,7 +258,10 @@ identitystore:ListGroupMembershipsForMember
 deadline:UpdateFleet,
 deadline:GetFleet,
 iam:PassRole,
-identitystore:ListGroupMembershipsForMember
+identitystore:ListGroupMembershipsForMember,
+deadline:TagResource,
+deadline:UntagResource,
+deadline:ListTagsForResource
 ```
 
 ### Delete
@@ -259,4 +278,3 @@ identitystore:DescribeGroup,
 identitystore:DescribeUser,
 identitystore:ListGroupMembershipsForMember
 ```
-

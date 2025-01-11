@@ -30,13 +30,7 @@ Lists <code>software_package_versions</code> in a region or regions, for all pro
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="attributes" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="error_reason" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="package_version_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="package_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="version_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
@@ -71,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>software_package_versions_list_only</code> resource, see <a href="/providers/aws/iot/software_package_versions/#permissions"><code>software_package_versions</code></a>
-
 

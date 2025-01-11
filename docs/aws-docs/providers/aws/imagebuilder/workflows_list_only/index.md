@@ -31,15 +31,6 @@ Lists <code>workflows</code> in a region or regions, for all properties use <a h
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the workflow.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the workflow.</td></tr>
-<tr><td><CopyableCode code="version" /></td><td><code>string</code></td><td>The version of the workflow.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the workflow.</td></tr>
-<tr><td><CopyableCode code="change_description" /></td><td><code>string</code></td><td>The change description of the workflow.</td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td>The type of the workflow denotes whether the workflow is used to build, test, or distribute.</td></tr>
-<tr><td><CopyableCode code="data" /></td><td><code>string</code></td><td>The data of the workflow.</td></tr>
-<tr><td><CopyableCode code="uri" /></td><td><code>string</code></td><td>The uri of the workflow.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The KMS key identifier used to encrypt the workflow.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>object</code></td><td>The tags associated with the workflow.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>workflows_list_only</code> resource, see <a href="/providers/aws/imagebuilder/workflows/#permissions"><code>workflows</code></a>
-
 

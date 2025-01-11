@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>assistant</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistant.html"><code>AWS::Wisdom::Assistant</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -225,4 +227,3 @@ wisdom:ListAssistants
 ```json
 wisdom:DeleteAssistant
 ```
-

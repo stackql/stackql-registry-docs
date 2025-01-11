@@ -33,6 +33,7 @@ Creates, updates, deletes or gets a <code>web_experience</code> resource or list
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_provider_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sample_prompts_control_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
@@ -43,8 +44,12 @@ Creates, updates, deletes or gets a <code>web_experience</code> resource or list
 <tr><td><CopyableCode code="web_experience_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="web_experience_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="welcome_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="origins" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="customization_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html"><code>AWS::QBusiness::WebExperience</code></a>.
 
 ## Methods
 
@@ -89,6 +94,7 @@ region,
 application_id,
 created_at,
 default_endpoint,
+identity_provider_configuration,
 role_arn,
 sample_prompts_control_mode,
 status,
@@ -98,7 +104,9 @@ title,
 updated_at,
 web_experience_arn,
 web_experience_id,
-welcome_message
+welcome_message,
+origins,
+customization_configuration
 FROM aws.qbusiness.web_experiences
 WHERE region = 'us-east-1';
 ```
@@ -109,6 +117,7 @@ region,
 application_id,
 created_at,
 default_endpoint,
+identity_provider_configuration,
 role_arn,
 sample_prompts_control_mode,
 status,
@@ -118,7 +127,9 @@ title,
 updated_at,
 web_experience_arn,
 web_experience_id,
-welcome_message
+welcome_message,
+origins,
+customization_configuration
 FROM aws.qbusiness.web_experiences
 WHERE region = 'us-east-1' AND data__Identifier = '<ApplicationId>|<WebExperienceId>';
 ```
@@ -154,22 +165,28 @@ SELECT
 /*+ create */
 INSERT INTO aws.qbusiness.web_experiences (
  ApplicationId,
+ IdentityProviderConfiguration,
  RoleArn,
  SamplePromptsControlMode,
  Subtitle,
  Tags,
  Title,
  WelcomeMessage,
+ Origins,
+ CustomizationConfiguration,
  region
 )
 SELECT 
  '{{ ApplicationId }}',
+ '{{ IdentityProviderConfiguration }}',
  '{{ RoleArn }}',
  '{{ SamplePromptsControlMode }}',
  '{{ Subtitle }}',
  '{{ Tags }}',
  '{{ Title }}',
  '{{ WelcomeMessage }}',
+ '{{ Origins }}',
+ '{{ CustomizationConfiguration }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -189,6 +206,8 @@ resources:
     props:
       - name: ApplicationId
         value: '{{ ApplicationId }}'
+      - name: IdentityProviderConfiguration
+        value: null
       - name: RoleArn
         value: '{{ RoleArn }}'
       - name: SamplePromptsControlMode
@@ -203,6 +222,15 @@ resources:
         value: '{{ Title }}'
       - name: WelcomeMessage
         value: '{{ WelcomeMessage }}'
+      - name: Origins
+        value:
+          - '{{ Origins[0] }}'
+      - name: CustomizationConfiguration
+        value:
+          CustomCSSUrl: '{{ CustomCSSUrl }}'
+          LogoUrl: '{{ LogoUrl }}'
+          FontUrl: '{{ FontUrl }}'
+          FaviconUrl: '{{ FaviconUrl }}'
 
 ```
 </TabItem>
@@ -260,4 +288,3 @@ qbusiness:GetWebExperience
 ```json
 qbusiness:ListWebExperiences
 ```
-

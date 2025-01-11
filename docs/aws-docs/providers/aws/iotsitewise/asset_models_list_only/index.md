@@ -31,15 +31,6 @@ Lists <code>asset_models</code> in a region or regions, for all properties use <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="asset_model_id" /></td><td><code>string</code></td><td>The ID of the asset model.</td></tr>
-<tr><td><CopyableCode code="asset_model_type" /></td><td><code>string</code></td><td>The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)</td></tr>
-<tr><td><CopyableCode code="asset_model_external_id" /></td><td><code>string</code></td><td>The external ID of the asset model.</td></tr>
-<tr><td><CopyableCode code="asset_model_arn" /></td><td><code>string</code></td><td>The ARN of the asset model, which has the following format.</td></tr>
-<tr><td><CopyableCode code="asset_model_name" /></td><td><code>string</code></td><td>A unique, friendly name for the asset model.</td></tr>
-<tr><td><CopyableCode code="asset_model_description" /></td><td><code>string</code></td><td>A description for the asset model.</td></tr>
-<tr><td><CopyableCode code="asset_model_properties" /></td><td><code>array</code></td><td>The property definitions of the asset model. You can specify up to 200 properties per asset model.</td></tr>
-<tr><td><CopyableCode code="asset_model_composite_models" /></td><td><code>array</code></td><td>The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.</td></tr>
-<tr><td><CopyableCode code="asset_model_hierarchies" /></td><td><code>array</code></td><td>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the asset model.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>asset_models_list_only</code> resource, see <a href="/providers/aws/iotsitewise/asset_models/#permissions"><code>asset_models</code></a>
-
 

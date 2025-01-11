@@ -40,8 +40,13 @@ Creates, updates, deletes or gets a <code>vpc_cidr_block</code> resource or list
 <tr><td><CopyableCode code="ipv6_ipam_pool_id" /></td><td><code>string</code></td><td>The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.</td></tr>
 <tr><td><CopyableCode code="ipv6_netmask_length" /></td><td><code>integer</code></td><td>The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.</td></tr>
 <tr><td><CopyableCode code="amazon_provided_ipv6_cidr_block" /></td><td><code>boolean</code></td><td>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</td></tr>
+<tr><td><CopyableCode code="ipv6_address_attribute" /></td><td><code>string</code></td><td>The value denoting whether an IPv6 VPC CIDR Block is public or private.</td></tr>
+<tr><td><CopyableCode code="ip_source" /></td><td><code>string</code></td><td>The IP Source of an IPv6 VPC CIDR Block.</td></tr>
+<tr><td><CopyableCode code="ipv6_cidr_block_network_border_group" /></td><td><code>string</code></td><td>The name of the location from which we advertise the IPV6 CIDR block.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html"><code>AWS::EC2::VPCCidrBlock</code></a>.
 
 ## Methods
 
@@ -87,7 +92,10 @@ ipv4_ipam_pool_id,
 ipv4_netmask_length,
 ipv6_ipam_pool_id,
 ipv6_netmask_length,
-amazon_provided_ipv6_cidr_block
+amazon_provided_ipv6_cidr_block,
+ipv6_address_attribute,
+ip_source,
+ipv6_cidr_block_network_border_group
 FROM aws.ec2.vpc_cidr_blocks
 WHERE region = 'us-east-1';
 ```
@@ -104,7 +112,10 @@ ipv4_ipam_pool_id,
 ipv4_netmask_length,
 ipv6_ipam_pool_id,
 ipv6_netmask_length,
-amazon_provided_ipv6_cidr_block
+amazon_provided_ipv6_cidr_block,
+ipv6_address_attribute,
+ip_source,
+ipv6_cidr_block_network_border_group
 FROM aws.ec2.vpc_cidr_blocks
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>|<VpcId>';
 ```
@@ -148,6 +159,7 @@ INSERT INTO aws.ec2.vpc_cidr_blocks (
  Ipv6IpamPoolId,
  Ipv6NetmaskLength,
  AmazonProvidedIpv6CidrBlock,
+ Ipv6CidrBlockNetworkBorderGroup,
  region
 )
 SELECT 
@@ -160,6 +172,7 @@ SELECT
  '{{ Ipv6IpamPoolId }}',
  '{{ Ipv6NetmaskLength }}',
  '{{ AmazonProvidedIpv6CidrBlock }}',
+ '{{ Ipv6CidrBlockNetworkBorderGroup }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -195,6 +208,8 @@ resources:
         value: '{{ Ipv6NetmaskLength }}'
       - name: AmazonProvidedIpv6CidrBlock
         value: '{{ AmazonProvidedIpv6CidrBlock }}'
+      - name: Ipv6CidrBlockNetworkBorderGroup
+        value: '{{ Ipv6CidrBlockNetworkBorderGroup }}'
 
 ```
 </TabItem>
@@ -235,4 +250,3 @@ ec2:DisassociateVpcCidrBlock
 ```json
 ec2:DescribeVpcs
 ```
-

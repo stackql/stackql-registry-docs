@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>event_type_tags</code> resource, see <a href="/providers/aws/frauddetector/event_types/#permissions"><code>event_types</code></a>
 
-

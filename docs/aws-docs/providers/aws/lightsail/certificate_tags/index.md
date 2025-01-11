@@ -25,7 +25,7 @@ Expands all tag keys and values for <code>certificates</code> in a region
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>certificate_tags</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>An example resource schema demonstrating some basic constructs and validation rules.</td></tr>
+<tr><td><b>Description</b></td><td>Resource Type definition for AWS::Lightsail::Certificate.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.lightsail.certificate_tags" /></td></tr>
 </tbody></table>
 
@@ -75,5 +75,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>certificate_tags</code> resource, see <a href="/providers/aws/lightsail/certificates/#permissions"><code>certificates</code></a>
-
 

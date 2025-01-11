@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>logging_configuration_tags</code> resource, see <a href="/providers/aws/ivschat/logging_configurations/#permissions"><code>logging_configurations</code></a>
 
-

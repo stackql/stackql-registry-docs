@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>notification_rule</code> resource or l
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html"><code>AWS::CodeStarNotifications::NotificationRule</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -263,4 +265,3 @@ codestar-notifications:updateNotificationRule,
 codestar-notifications:TagResource,
 codestar-notifications:UntagResource
 ```
-

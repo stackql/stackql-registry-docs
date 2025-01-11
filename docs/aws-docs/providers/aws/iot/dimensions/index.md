@@ -38,6 +38,8 @@ Creates, updates, deletes or gets a <code>dimension</code> resource or lists <co
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html"><code>AWS::IoT::Dimension</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -218,4 +220,3 @@ iot:DeleteDimension
 ```json
 iot:ListDimensions
 ```
-

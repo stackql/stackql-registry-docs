@@ -49,8 +49,11 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The environment ARN.</td></tr>
 <tr><td><CopyableCode code="kms_key_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<tr><td><CopyableCode code="device_creation_tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to the newly created devices for this environment.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesthinclient-environment.html"><code>AWS::WorkSpacesThinClient::Environment</code></a>.
 
 ## Methods
 
@@ -110,7 +113,8 @@ created_at,
 updated_at,
 arn,
 kms_key_arn,
-tags
+tags,
+device_creation_tags
 FROM aws.workspacesthinclient.environments
 WHERE region = 'us-east-1';
 ```
@@ -136,7 +140,8 @@ created_at,
 updated_at,
 arn,
 kms_key_arn,
-tags
+tags,
+device_creation_tags
 FROM aws.workspacesthinclient.environments
 WHERE region = 'us-east-1' AND data__Identifier = '<Id>';
 ```
@@ -180,6 +185,7 @@ INSERT INTO aws.workspacesthinclient.environments (
  DesiredSoftwareSetId,
  KmsKeyArn,
  Tags,
+ DeviceCreationTags,
  region
 )
 SELECT 
@@ -192,6 +198,7 @@ SELECT
  '{{ DesiredSoftwareSetId }}',
  '{{ KmsKeyArn }}',
  '{{ Tags }}',
+ '{{ DeviceCreationTags }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -237,6 +244,9 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: DeviceCreationTags
+        value:
+          - null
 
 ```
 </TabItem>
@@ -301,8 +311,7 @@ kms:RetireGrant
 
 ### List
 ```json
-thinclient:ListEnvironment,
+thinclient:ListEnvironments,
 thinclient:ListTagsForResource,
 kms:Decrypt
 ```
-

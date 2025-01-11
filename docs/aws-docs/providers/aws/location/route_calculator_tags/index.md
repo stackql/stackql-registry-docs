@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>route_calculator_tags</code> resource, see <a href="/providers/aws/location/route_calculators/#permissions"><code>route_calculators</code></a>
 
-

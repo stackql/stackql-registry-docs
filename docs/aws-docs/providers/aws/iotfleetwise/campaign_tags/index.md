@@ -37,6 +37,7 @@ Expands all tag keys and values for <code>campaigns</code> in a region
 <tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="priority" /></td><td><code>integer</code></td><td></td></tr>
 <tr><td><CopyableCode code="signals_to_collect" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="signals_to_fetch" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_destination_configs" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="start_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
@@ -50,6 +51,7 @@ Expands all tag keys and values for <code>campaigns</code> in a region
 <tr><td><CopyableCode code="target_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="collection_scheme" /></td><td><code>undefined</code></td><td></td></tr>
+<tr><td><CopyableCode code="data_partitions" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -82,6 +84,7 @@ compression,
 description,
 priority,
 signals_to_collect,
+signals_to_fetch,
 data_destination_configs,
 start_time,
 name,
@@ -95,6 +98,7 @@ diagnostics_mode,
 target_arn,
 arn,
 collection_scheme,
+data_partitions,
 tag_key,
 tag_value
 FROM aws.iotfleetwise.campaign_tags
@@ -105,5 +109,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>campaign_tags</code> resource, see <a href="/providers/aws/iotfleetwise/campaigns/#permissions"><code>campaigns</code></a>
-
 

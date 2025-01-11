@@ -30,12 +30,7 @@ Lists <code>thing_types</code> in a region or regions, for all properties use <a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="thing_type_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="deprecate_thing_type" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="thing_type_properties" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="thing_type_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>thing_types_list_only</code> resource, see <a href="/providers/aws/iot/thing_types/#permissions"><code>thing_types</code></a>
-
 

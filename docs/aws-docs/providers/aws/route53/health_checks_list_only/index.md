@@ -31,8 +31,6 @@ Lists <code>health_checks</code> in a region or regions, for all properties use 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="health_check_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="health_check_config" /></td><td><code>object</code></td><td>A complex type that contains information about the health check.</td></tr>
-<tr><td><CopyableCode code="health_check_tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ FROM aws.route53.health_checks_list_only
 ## Permissions
 
 For permissions required to operate on the <code>health_checks_list_only</code> resource, see <a href="/providers/aws/route53/health_checks/#permissions"><code>health_checks</code></a>
-
 

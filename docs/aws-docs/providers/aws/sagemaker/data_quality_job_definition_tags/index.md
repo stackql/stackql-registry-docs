@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_quality_job_definition_tags</code> resource, see <a href="/providers/aws/sagemaker/data_quality_job_definitions/#permissions"><code>data_quality_job_definitions</code></a>
 
-

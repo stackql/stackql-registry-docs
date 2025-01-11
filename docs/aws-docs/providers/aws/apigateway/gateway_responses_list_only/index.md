@@ -31,11 +31,6 @@ Lists <code>gateway_responses</code> in a region or regions, for all properties 
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
-<tr><td><CopyableCode code="response_type" /></td><td><code>string</code></td><td>The response type of the associated GatewayResponse.</td></tr>
-<tr><td><CopyableCode code="status_code" /></td><td><code>string</code></td><td>The HTTP status code for this GatewayResponse.</td></tr>
-<tr><td><CopyableCode code="response_parameters" /></td><td><code>object</code></td><td>Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.</td></tr>
-<tr><td><CopyableCode code="response_templates" /></td><td><code>object</code></td><td>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>gateway_responses_list_only</code> resource, see <a href="/providers/aws/apigateway/gateway_responses/#permissions"><code>gateway_responses</code></a>
-
 

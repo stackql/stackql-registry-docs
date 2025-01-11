@@ -31,17 +31,6 @@ Lists <code>applications</code> in a region or regions, for all properties use <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td>The ID of the application.</td></tr>
-<tr><td><CopyableCode code="application_arn" /></td><td><code>string</code></td><td>The ARN of the application.</td></tr>
-<tr><td><CopyableCode code="application_name" /></td><td><code>string</code></td><td>Application Name, should be between 1 and 256 characters.</td></tr>
-<tr><td><CopyableCode code="application_description" /></td><td><code>string</code></td><td>Application Description, should be between 1 and 2048 characters.</td></tr>
-<tr><td><CopyableCode code="application_url" /></td><td><code>string</code></td><td>The URL of the application.</td></tr>
-<tr><td><CopyableCode code="application_state" /></td><td><code>string</code></td><td>The current state of the application.</td></tr>
-<tr><td><CopyableCode code="application_creation_date" /></td><td><code>integer</code></td><td>When the Application was created</td></tr>
-<tr><td><CopyableCode code="application_last_update_date" /></td><td><code>integer</code></td><td>When the Application was last updated</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax</td></tr>
-<tr><td><CopyableCode code="sso_client_id" /></td><td><code>string</code></td><td>The AWS SSO application generated client ID (used with AWS SSO APIs).</td></tr>
-<tr><td><CopyableCode code="error_message" /></td><td><code>string</code></td><td>A message indicating why Create or Delete Application failed.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the application.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -74,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>applications_list_only</code> resource, see <a href="/providers/aws/iotfleethub/applications/#permissions"><code>applications</code></a>
-
 

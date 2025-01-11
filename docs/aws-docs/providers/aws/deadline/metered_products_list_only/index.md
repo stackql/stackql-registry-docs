@@ -30,12 +30,7 @@ Lists <code>metered_products</code> in a region or regions, for all properties u
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="license_endpoint_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="product_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="port" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="family" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vendor" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>metered_products_list_only</code> resource, see <a href="/providers/aws/deadline/metered_products/#permissions"><code>metered_products</code></a>
-
 

@@ -33,6 +33,7 @@ Expands all tag keys and values for <code>web_experiences</code> in a region
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="default_endpoint" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="identity_provider_configuration" /></td><td><code>undefined</code></td><td></td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="sample_prompts_control_mode" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
@@ -42,6 +43,8 @@ Expands all tag keys and values for <code>web_experiences</code> in a region
 <tr><td><CopyableCode code="web_experience_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="web_experience_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="welcome_message" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="origins" /></td><td><code>array</code></td><td></td></tr>
+<tr><td><CopyableCode code="customization_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -70,6 +73,7 @@ region,
 application_id,
 created_at,
 default_endpoint,
+identity_provider_configuration,
 role_arn,
 sample_prompts_control_mode,
 status,
@@ -79,6 +83,8 @@ updated_at,
 web_experience_arn,
 web_experience_id,
 welcome_message,
+origins,
+customization_configuration,
 tag_key,
 tag_value
 FROM aws.qbusiness.web_experience_tags
@@ -89,5 +95,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>web_experience_tags</code> resource, see <a href="/providers/aws/qbusiness/web_experiences/#permissions"><code>web_experiences</code></a>
-
 

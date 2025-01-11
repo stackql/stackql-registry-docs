@@ -46,6 +46,8 @@ Creates, updates, deletes or gets a <code>db_proxy</code> resource or lists <cod
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html"><code>AWS::RDS::DBProxy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -278,4 +280,3 @@ rds:DeleteDBProxy
 ```json
 rds:DescribeDBProxies
 ```
-

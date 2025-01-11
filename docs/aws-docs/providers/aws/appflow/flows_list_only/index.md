@@ -30,17 +30,7 @@ Lists <code>flows</code> in a region or regions, for all properties use <a href=
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="flow_arn" /></td><td><code>string</code></td><td>ARN identifier of the flow.</td></tr>
-<tr><td><CopyableCode code="flow_name" /></td><td><code>string</code></td><td>Name of the flow.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of the flow.</td></tr>
-<tr><td><CopyableCode code="kms_arn" /></td><td><code>string</code></td><td>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</td></tr>
-<tr><td><CopyableCode code="trigger_config" /></td><td><code>object</code></td><td>Trigger settings of the flow.</td></tr>
-<tr><td><CopyableCode code="flow_status" /></td><td><code>string</code></td><td>Flow activation status for Scheduled- and Event-triggered flows</td></tr>
-<tr><td><CopyableCode code="source_flow_config" /></td><td><code>object</code></td><td>Configurations of Source connector of the flow.</td></tr>
-<tr><td><CopyableCode code="destination_flow_config_list" /></td><td><code>array</code></td><td>List of Destination connectors of the flow.</td></tr>
-<tr><td><CopyableCode code="tasks" /></td><td><code>array</code></td><td>List of tasks for the flow.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>List of Tags.</td></tr>
-<tr><td><CopyableCode code="metadata_catalog_config" /></td><td><code>object</code></td><td>Configurations of metadata catalog of the flow.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="flow_name" /></td><td><code>string</code></td><td>Name of the flow.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -73,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>flows_list_only</code> resource, see <a href="/providers/aws/appflow/flows/#permissions"><code>flows</code></a>
-
 

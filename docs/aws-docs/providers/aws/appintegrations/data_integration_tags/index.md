@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>data_integration_tags</code> resource, see <a href="/providers/aws/appintegrations/data_integrations/#permissions"><code>data_integrations</code></a>
 
-

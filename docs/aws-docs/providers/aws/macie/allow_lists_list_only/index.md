@@ -30,13 +30,7 @@ Lists <code>allow_lists</code> in a region or regions, for all properties use <a
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>Name of AllowList.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>Description of AllowList.</td></tr>
-<tr><td><CopyableCode code="criteria" /></td><td><code>object</code></td><td>AllowList criteria.</td></tr>
-<tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>AllowList ID.</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>AllowList ARN.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>AllowList status.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A collection of tags associated with a resource</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>AllowList ID.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>allow_lists_list_only</code> resource, see <a href="/providers/aws/macie/allow_lists/#permissions"><code>allow_lists</code></a>
-
 

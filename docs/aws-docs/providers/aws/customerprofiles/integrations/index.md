@@ -38,8 +38,11 @@ Creates, updates, deletes or gets an <code>integration</code> resource or lists 
 <tr><td><CopyableCode code="last_updated_at" /></td><td><code>string</code></td><td>The time of this integration got last updated at</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags (keys and values) associated with the integration</td></tr>
 <tr><td><CopyableCode code="object_type_names" /></td><td><code>array</code></td><td>The mapping between 3rd party event types and ObjectType names</td></tr>
+<tr><td><CopyableCode code="event_trigger_names" /></td><td><code>array</code></td><td>A list of unique names for active event triggers associated with the integration.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html"><code>AWS::CustomerProfiles::Integration</code></a>.
 
 ## Methods
 
@@ -88,7 +91,8 @@ object_type_name,
 created_at,
 last_updated_at,
 tags,
-object_type_names
+object_type_names,
+event_trigger_names
 FROM aws.customerprofiles.integrations
 WHERE region = 'us-east-1';
 ```
@@ -103,7 +107,8 @@ object_type_name,
 created_at,
 last_updated_at,
 tags,
-object_type_names
+object_type_names,
+event_trigger_names
 FROM aws.customerprofiles.integrations
 WHERE region = 'us-east-1' AND data__Identifier = '<DomainName>|<Uri>';
 ```
@@ -144,6 +149,7 @@ INSERT INTO aws.customerprofiles.integrations (
  ObjectTypeName,
  Tags,
  ObjectTypeNames,
+ EventTriggerNames,
  region
 )
 SELECT 
@@ -153,6 +159,7 @@ SELECT
  '{{ ObjectTypeName }}',
  '{{ Tags }}',
  '{{ ObjectTypeNames }}',
+ '{{ EventTriggerNames }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -233,6 +240,9 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: EventTriggerNames
+        value:
+          - '{{ EventTriggerNames[0] }}'
 
 ```
 </TabItem>
@@ -304,4 +314,3 @@ profile:TagResource
 ```json
 profile:ListIntegrations
 ```
-

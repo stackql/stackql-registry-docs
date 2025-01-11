@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>user_pool_user</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html"><code>AWS::Cognito::UserPoolUser</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -228,4 +230,3 @@ cognito-idp:AdminDeleteUser
 ```json
 cognito-idp:ListUsers
 ```
-

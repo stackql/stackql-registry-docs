@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>resource_policy</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html"><code>AWS::Lex::ResourcePolicy</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -201,4 +203,3 @@ lex:DescribeResourcePolicy
 ```json
 lex:DescribeResourcePolicy
 ```
-

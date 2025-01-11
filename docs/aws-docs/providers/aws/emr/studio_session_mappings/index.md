@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>studio_session_mapping</code> resource
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html"><code>AWS::EMR::StudioSessionMapping</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -197,7 +199,24 @@ sso:GetManagedApplicationInstance,
 sso:ListDirectoryAssociations,
 sso:GetProfile,
 sso:ListProfiles,
-sso:AssociateProfile
+sso:AssociateProfile,
+sso:CreateApplication,
+sso:PutApplicationAuthenticationMethod,
+sso:PutApplicationGrant,
+sso:PutApplicationAccessScope,
+sso:PutApplicationAssignmentConfiguration,
+sso:DescribeApplication,
+sso:DeleteApplication,
+sso:DeleteApplicationAuthenticationMethod,
+sso:DeleteApplicationAccessScope,
+sso:DeleteApplicationGrant,
+sso:ListInstances,
+sso-directory:CreateUser,
+sso-directory:CreateGroup,
+sso:CreateApplicationAssignment,
+sso:DescribeInstance,
+sso:DeleteApplicationAssignment,
+sso:ListApplicationAssignments
 ```
 
 ### Read
@@ -243,4 +262,3 @@ sso:DisassociateProfile
 ```json
 elasticmapreduce:ListStudioSessionMappings
 ```
-

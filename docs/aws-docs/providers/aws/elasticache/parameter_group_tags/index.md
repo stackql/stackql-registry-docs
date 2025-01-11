@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>parameter_group_tags</code> resource, see <a href="/providers/aws/elasticache/parameter_groups/#permissions"><code>parameter_groups</code></a>
 
-

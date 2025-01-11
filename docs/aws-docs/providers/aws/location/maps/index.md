@@ -42,6 +42,8 @@ Creates, updates, deletes or gets a <code>map</code> resource or lists <code>map
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html"><code>AWS::Location::Map</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -239,4 +241,3 @@ geo:DescribeMap
 ```json
 geo:ListMaps
 ```
-

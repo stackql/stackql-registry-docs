@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>instance_storage_config</code> resour
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html"><code>AWS::Connect::InstanceStorageConfig</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -271,4 +273,3 @@ connect:DescribeInstance,
 connect:ListInstanceStorageConfigs,
 ds:DescribeDirectories
 ```
-

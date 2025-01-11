@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>service_profile_tags</code> resource, see <a href="/providers/aws/iotwireless/service_profiles/#permissions"><code>service_profiles</code></a>
 
-

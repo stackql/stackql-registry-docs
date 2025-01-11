@@ -39,6 +39,8 @@ Creates, updates, deletes or gets a <code>profile_association</code> resource or
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53profiles-profileassociation.html"><code>AWS::Route53Profiles::ProfileAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -201,7 +203,8 @@ To operate on the <code>profile_associations</code> resource, the following perm
 route53profiles:AssociateProfile,
 route53profiles:GetProfileAssociation,
 ec2:DescribeVpcs,
-route53profiles:TagResource
+route53profiles:TagResource,
+route53profiles:ListTagsForResource
 ```
 
 ### Update
@@ -222,7 +225,8 @@ route53profiles:ListTagsForResource
 ```json
 route53profiles:DisassociateProfile,
 route53profiles:GetProfileAssociation,
-route53profiles:UntagResource
+route53profiles:UntagResource,
+route53profiles:ListTagsForResource
 ```
 
 ### List
@@ -230,4 +234,3 @@ route53profiles:UntagResource
 route53profiles:ListProfileAssociations,
 route53profiles:ListTagsForResource
 ```
-

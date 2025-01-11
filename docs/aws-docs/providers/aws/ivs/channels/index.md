@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>channel</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html"><code>AWS::IVS::Channel</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -236,14 +238,14 @@ ivs:ListTagsForResource
 ivs:GetChannel,
 ivs:UpdateChannel,
 ivs:TagResource,
-ivs:UnTagResource,
+ivs:UntagResource,
 ivs:ListTagsForResource
 ```
 
 ### Delete
 ```json
 ivs:DeleteChannel,
-ivs:UnTagResource
+ivs:UntagResource
 ```
 
 ### List
@@ -251,4 +253,3 @@ ivs:UnTagResource
 ivs:ListChannels,
 ivs:ListTagsForResource
 ```
-

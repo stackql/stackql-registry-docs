@@ -32,12 +32,6 @@ Lists <code>slack_channel_configurations</code> in a region or regions, for all 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="team_id" /></td><td><code>string</code></td><td>The team ID in Slack, which uniquely identifies a workspace.</td></tr>
 <tr><td><CopyableCode code="channel_id" /></td><td><code>string</code></td><td>The channel ID in Slack, which identifies a channel within a workspace.</td></tr>
-<tr><td><CopyableCode code="channel_name" /></td><td><code>string</code></td><td>The channel name in Slack.</td></tr>
-<tr><td><CopyableCode code="notify_on_create_or_reopen_case" /></td><td><code>boolean</code></td><td>Whether to notify when a case is created or reopened.</td></tr>
-<tr><td><CopyableCode code="notify_on_add_correspondence_to_case" /></td><td><code>boolean</code></td><td>Whether to notify when a correspondence is added to a case.</td></tr>
-<tr><td><CopyableCode code="notify_on_resolve_case" /></td><td><code>boolean</code></td><td>Whether to notify when a case is resolved.</td></tr>
-<tr><td><CopyableCode code="notify_on_case_severity" /></td><td><code>string</code></td><td>The severity level of a support case that a customer wants to get notified for.</td></tr>
-<tr><td><CopyableCode code="channel_role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>slack_channel_configurations_list_only</code> resource, see <a href="/providers/aws/supportapp/slack_channel_configurations/#permissions"><code>slack_channel_configurations</code></a>
-
 

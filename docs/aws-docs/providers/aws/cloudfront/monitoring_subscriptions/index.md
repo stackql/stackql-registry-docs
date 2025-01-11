@@ -25,15 +25,17 @@ Creates, updates, deletes or gets a <code>monitoring_subscription</code> resourc
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>monitoring_subscriptions</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::MonitoringSubscription</td></tr>
+<tr><td><b>Description</b></td><td>A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.monitoring_subscriptions" /></td></tr>
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="distribution_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="monitoring_subscription" /></td><td><code>object</code></td><td>Resource Type definition for AWS::CloudFront::MonitoringSubscription</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="distribution_id" /></td><td><code>string</code></td><td>The ID of the distribution that you are enabling metrics for.</td></tr>
+<tr><td><CopyableCode code="monitoring_subscription" /></td><td><code>object</code></td><td>A subscription configuration for additional CloudWatch metrics.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html"><code>AWS::CloudFront::MonitoringSubscription</code></a>.
 
 ## Methods
 
@@ -166,4 +168,3 @@ cloudfront:DeleteMonitoringSubscription
 ```json
 cloudfront:GetMonitoringSubscription
 ```
-

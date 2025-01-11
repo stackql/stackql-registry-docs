@@ -76,4 +76,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>app_image_config_tags</code> resource, see <a href="/providers/aws/sagemaker/app_image_configs/#permissions"><code>app_image_configs</code></a>
 
-

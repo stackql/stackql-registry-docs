@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>pod_identity_association_tags</code> resource, see <a href="/providers/aws/eks/pod_identity_associations/#permissions"><code>pod_identity_associations</code></a>
 
-

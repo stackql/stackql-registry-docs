@@ -31,11 +31,6 @@ Lists <code>assessment_templates</code> in a region or regions, for all properti
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="assessment_target_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="duration_in_seconds" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="assessment_template_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="rules_package_arns" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="user_attributes_for_findings" /></td><td><code>array</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -68,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>assessment_templates_list_only</code> resource, see <a href="/providers/aws/inspector/assessment_templates/#permissions"><code>assessment_templates</code></a>
-
 

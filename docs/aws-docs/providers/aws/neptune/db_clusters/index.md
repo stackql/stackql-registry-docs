@@ -46,7 +46,7 @@ Creates, updates, deletes or gets a <code>db_cluster</code> resource or lists <c
 <tr><td><CopyableCode code="enable_cloudwatch_logs_exports" /></td><td><code>array</code></td><td>Specifies a list of log types that are enabled for export to CloudWatch Logs.</td></tr>
 <tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td>Indicates the database engine version.</td></tr>
 <tr><td><CopyableCode code="iam_auth_enabled" /></td><td><code>boolean</code></td><td>True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</td></tr>
-<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>If `StorageEncrypted` is true, the Amazon KMS key identifier for the encrypted DB cluster.</td></tr>
+<tr><td><CopyableCode code="kms_key_id" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.</td></tr>
 <tr><td><CopyableCode code="port" /></td><td><code>string</code></td><td>The port number on which the DB cluster accepts connections. For example: `8182`.</td></tr>
 <tr><td><CopyableCode code="preferred_backup_window" /></td><td><code>string</code></td><td>Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.</td></tr>
 <tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td>Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).</td></tr>
@@ -55,12 +55,14 @@ Creates, updates, deletes or gets a <code>db_cluster</code> resource or lists <c
 <tr><td><CopyableCode code="serverless_scaling_configuration" /></td><td><code>object</code></td><td>Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.</td></tr>
 <tr><td><CopyableCode code="snapshot_identifier" /></td><td><code>string</code></td><td>Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.<br />After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.<br />However, if you don't specify the SnapshotIdentifier, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the SnapshotIdentifier, and the original DB cluster is deleted.</td></tr>
 <tr><td><CopyableCode code="source_db_cluster_identifier" /></td><td><code>string</code></td><td>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.<br />If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.<br />If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.</td></tr>
-<tr><td><CopyableCode code="storage_encrypted" /></td><td><code>boolean</code></td><td>Indicates whether the DB cluster is encrypted.<br />If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.<br />If you specify the KmsKeyId, you must enable encryption by setting StorageEncrypted to true.</td></tr>
+<tr><td><CopyableCode code="storage_encrypted" /></td><td><code>boolean</code></td><td>Indicates whether the DB cluster is encrypted.<br />If you specify the KmsKeyId property, then you must enable encryption and set this property to true.<br />If you enable the StorageEncrypted property but don't specify KmsKeyId property, then the default KMS key is used. If you specify KmsKeyId property, then that KMS Key is used to encrypt the database instances in the DB cluster.<br />If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.<br />If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>The tags assigned to this cluster.</td></tr>
 <tr><td><CopyableCode code="use_latest_restorable_time" /></td><td><code>boolean</code></td><td>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.<br />If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.<br />If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.</td></tr>
 <tr><td><CopyableCode code="vpc_security_group_ids" /></td><td><code>array</code></td><td>Provides a list of VPC security groups that the DB cluster belongs to.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html"><code>AWS::Neptune::DBCluster</code></a>.
 
 ## Methods
 
@@ -399,6 +401,7 @@ To operate on the <code>db_clusters</code> resource, the following permissions a
 ### Create
 ```json
 iam:PassRole,
+iam:CreateServiceLinkedRole,
 rds:AddRoleToDBCluster,
 rds:AddTagsToResource,
 rds:CreateDBCluster,
@@ -408,14 +411,16 @@ rds:ListTagsForResource,
 rds:ModifyDBCluster,
 rds:RestoreDBClusterFromSnapshot,
 rds:RestoreDBClusterToPointInTime,
-kms:*
+kms:CreateGrant,
+kms:DescribeKey
 ```
 
 ### Read
 ```json
 rds:DescribeDBClusters,
 rds:ListTagsForResource,
-kms:*
+kms:CreateGrant,
+kms:DescribeKey
 ```
 
 ### Update
@@ -434,7 +439,8 @@ rds:ModifyDBInstance,
 rds:RemoveFromGlobalCluster,
 rds:RemoveRoleFromDBCluster,
 rds:RemoveTagsFromResource,
-kms:*
+kms:CreateGrant,
+kms:DescribeKey
 ```
 
 ### Delete
@@ -446,13 +452,14 @@ rds:DescribeGlobalClusters,
 rds:ListTagsForResource,
 rds:RemoveFromGlobalCluster,
 rds:CreateDBClusterSnapshot,
-kms:*
+kms:CreateGrant,
+kms:DescribeKey
 ```
 
 ### List
 ```json
 rds:DescribeDBClusters,
 rds:ListTagsForResource,
-kms:*
+kms:CreateGrant,
+kms:DescribeKey
 ```
-

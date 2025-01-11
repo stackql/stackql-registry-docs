@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>bucket_tags</code> resource, see <a href="/providers/aws/lightsail/buckets/#permissions"><code>buckets</code></a>
 
-

@@ -41,6 +41,8 @@ Creates, updates, deletes or gets an <code>event_bus</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html"><code>AWS::Events::EventBus</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -252,4 +254,3 @@ events:DeleteEventBus
 events:ListEventBuses,
 events:ListTagsForResource
 ```
-

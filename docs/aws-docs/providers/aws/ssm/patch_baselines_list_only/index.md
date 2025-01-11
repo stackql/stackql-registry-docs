@@ -31,20 +31,6 @@ Lists <code>patch_baselines</code> in a region or regions, for all properties us
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td>The ID of the patch baseline.</td></tr>
-<tr><td><CopyableCode code="default_baseline" /></td><td><code>boolean</code></td><td>Set the baseline as default baseline. Only registering to default patch baseline is allowed.</td></tr>
-<tr><td><CopyableCode code="operating_system" /></td><td><code>string</code></td><td>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the patch baseline.</td></tr>
-<tr><td><CopyableCode code="approval_rules" /></td><td><code>object</code></td><td>A set of rules defining the approval rules for a patch baseline.</td></tr>
-<tr><td><CopyableCode code="sources" /></td><td><code>array</code></td><td>Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the patch baseline.</td></tr>
-<tr><td><CopyableCode code="rejected_patches" /></td><td><code>array</code></td><td>A list of explicitly rejected patches for the baseline.</td></tr>
-<tr><td><CopyableCode code="approved_patches" /></td><td><code>array</code></td><td>A list of explicitly approved patches for the baseline.</td></tr>
-<tr><td><CopyableCode code="rejected_patches_action" /></td><td><code>string</code></td><td>The action for Patch Manager to take on patches included in the RejectedPackages list.</td></tr>
-<tr><td><CopyableCode code="patch_groups" /></td><td><code>array</code></td><td>PatchGroups is used to associate instances with a specific patch baseline</td></tr>
-<tr><td><CopyableCode code="approved_patches_compliance_level" /></td><td><code>string</code></td><td>Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.</td></tr>
-<tr><td><CopyableCode code="approved_patches_enable_non_security" /></td><td><code>boolean</code></td><td>Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.</td></tr>
-<tr><td><CopyableCode code="global_filters" /></td><td><code>object</code></td><td>A set of global filters used to include patches in the baseline.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -77,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>patch_baselines_list_only</code> resource, see <a href="/providers/aws/ssm/patch_baselines/#permissions"><code>patch_baselines</code></a>
-
 

@@ -31,10 +31,6 @@ Lists <code>routing_controls</code> in a region or regions, for all properties u
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="routing_control_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the routing control.</td></tr>
-<tr><td><CopyableCode code="control_panel_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the control panel.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name of the routing control. You can use any non-white space character in the name.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</td></tr>
-<tr><td><CopyableCode code="cluster_arn" /></td><td><code>string</code></td><td>Arn associated with Control Panel</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>routing_controls_list_only</code> resource, see <a href="/providers/aws/route53recoverycontrol/routing_controls/#permissions"><code>routing_controls</code></a>
-
 

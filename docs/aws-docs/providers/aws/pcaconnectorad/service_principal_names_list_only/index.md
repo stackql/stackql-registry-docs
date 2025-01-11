@@ -66,4 +66,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>service_principal_names_list_only</code> resource, see <a href="/providers/aws/pcaconnectorad/service_principal_names/#permissions"><code>service_principal_names</code></a>
 
-

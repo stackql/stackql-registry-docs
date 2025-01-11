@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html"><code>AWS::NetworkFirewall::LoggingConfiguration</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -60,11 +62,6 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
     <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
-    <td><CopyableCode code="list_resources" /></td>
-    <td><code>SELECT</code></td>
-    <td><CopyableCode code="region" /></td>
-  </tr>
-  <tr>
     <td><CopyableCode code="get_resource" /></td>
     <td><code>SELECT</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
@@ -72,16 +69,7 @@ Creates, updates, deletes or gets a <code>logging_configuration</code> resource 
 </tbody></table>
 
 ## `SELECT` examples
-Gets all <code>logging_configurations</code> in a region.
-```sql
-SELECT
-region,
-firewall_name,
-firewall_arn,
-logging_configuration
-FROM aws.networkfirewall.logging_configurations
-WHERE region = 'us-east-1';
-```
+
 Gets all properties from an individual <code>logging_configuration</code>.
 ```sql
 SELECT
@@ -227,11 +215,3 @@ logs:GetLogDelivery,
 network-firewall:UpdateLoggingConfiguration,
 network-firewall:DescribeLoggingConfiguration
 ```
-
-### List
-```json
-logs:GetLogDelivery,
-logs:ListLogDeliveries,
-network-firewall:DescribeLoggingConfiguration
-```
-

@@ -25,16 +25,18 @@ Creates, updates, deletes or gets a <code>key_group</code> resource or lists <co
 <table><tbody>
 <tr><td><b>Name</b></td><td><code>key_groups</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Description</b></td><td>Resource Type definition for AWS::CloudFront::KeyGroup</td></tr>
+<tr><td><b>Description</b></td><td>A key group.<br />A key group contains a list of public keys that you can use with &#91;CloudFront signed URLs and signed cookies&#93;(https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).</td></tr>
 <tr><td><b>Id</b></td><td><CopyableCode code="aws.cloudfront.key_groups" /></td></tr>
 </tbody></table>
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="key_group_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="key_group_config" /></td><td><code>object</code></td><td>The key group configuration.</td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html"><code>AWS::CloudFront::KeyGroup</code></a>.
 
 ## Methods
 
@@ -195,4 +197,3 @@ cloudfront:GetKeyGroup
 cloudfront:UpdateKeyGroup,
 cloudfront:GetKeyGroup
 ```
-

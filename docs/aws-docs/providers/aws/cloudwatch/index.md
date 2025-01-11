@@ -20,7 +20,7 @@ The cloudwatch service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>14</b></span><br />
 </div>
 </div>
 
@@ -34,9 +34,11 @@ The cloudwatch service documentation.
 <a href="/providers/aws/cloudwatch/alarms_list_only/">alarms_list_only</a><br />
 <a href="/providers/aws/cloudwatch/composite_alarm_tags/">composite_alarm_tags</a><br />
 <a href="/providers/aws/cloudwatch/composite_alarms/">composite_alarms</a><br />
-<a href="/providers/aws/cloudwatch/composite_alarms_list_only/">composite_alarms_list_only</a>
+<a href="/providers/aws/cloudwatch/composite_alarms_list_only/">composite_alarms_list_only</a><br />
+<a href="/providers/aws/cloudwatch/dashboards/">dashboards</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/cloudwatch/dashboards_list_only/">dashboards_list_only</a><br />
 <a href="/providers/aws/cloudwatch/log_events/">log_events</a><br />
 <a href="/providers/aws/cloudwatch/log_groups/">log_groups</a><br />
 <a href="/providers/aws/cloudwatch/log_streams/">log_streams</a><br />

@@ -30,16 +30,7 @@ Lists <code>config_rules</code> in a region or regions, for all properties use <
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="config_rule_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description that you provide for the CC rule.</td></tr>
-<tr><td><CopyableCode code="scope" /></td><td><code>object</code></td><td>Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.<br />The scope can be empty.</td></tr>
-<tr><td><CopyableCode code="config_rule_name" /></td><td><code>string</code></td><td>A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see &#91;Name Type&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).</td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="compliance" /></td><td><code>object</code></td><td>Indicates whether an AWS resource or CC rule is compliant and provides the number of contributors that affect the compliance.</td></tr>
-<tr><td><CopyableCode code="maximum_execution_frequency" /></td><td><code>string</code></td><td>The maximum frequency with which CC runs evaluations for a rule. You can specify a value for <code>MaximumExecutionFrequency</code> when:<br />+ You are using an AWS managed rule that is triggered at a periodic frequency.<br />+ Your custom rule is triggered when CC delivers the configuration snapshot. For more information, see &#91;ConfigSnapshotDeliveryProperties&#93;(https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html).<br /><br />By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code> parameter.</td></tr>
-<tr><td><CopyableCode code="source" /></td><td><code>object</code></td><td>Provides the rule owner (<code></code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.</td></tr>
-<tr><td><CopyableCode code="input_parameters" /></td><td><code>object</code></td><td>A string, in JSON format, that is passed to the CC rule Lambda function.</td></tr>
-<tr><td><CopyableCode code="evaluation_modes" /></td><td><code>array</code></td><td>The modes the CC rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="config_rule_name" /></td><td><code>string</code></td><td>A name for the CC rule. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the rule name. For more information, see &#91;Name Type&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -72,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>config_rules_list_only</code> resource, see <a href="/providers/aws/config/config_rules/#permissions"><code>config_rules</code></a>
-
 

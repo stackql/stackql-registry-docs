@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>tag_association</code> resource or lis
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html"><code>AWS::LakeFormation::TagAssociation</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -193,4 +195,3 @@ lakeformation:RemoveLFTagsFromResource,
 glue:GetDatabase,
 glue:GetTable
 ```
-

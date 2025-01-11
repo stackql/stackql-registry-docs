@@ -38,12 +38,16 @@ Creates, updates, deletes or gets a <code>portal</code> resource or lists <code>
 <tr><td><CopyableCode code="portal_id" /></td><td><code>string</code></td><td>The ID of the portal.</td></tr>
 <tr><td><CopyableCode code="portal_name" /></td><td><code>string</code></td><td>A friendly name for the portal.</td></tr>
 <tr><td><CopyableCode code="portal_start_url" /></td><td><code>string</code></td><td>The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.</td></tr>
+<tr><td><CopyableCode code="portal_type" /></td><td><code>string</code></td><td>The type of portal</td></tr>
+<tr><td><CopyableCode code="portal_type_configuration" /></td><td><code>object</code></td><td>Map to associate detail of configuration related with a PortalType.</td></tr>
 <tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.</td></tr>
 <tr><td><CopyableCode code="notification_sender_email" /></td><td><code>string</code></td><td>The email address that sends alarm notifications.</td></tr>
 <tr><td><CopyableCode code="alarms" /></td><td><code>object</code></td><td>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>A list of key-value pairs that contain metadata for the portal.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html"><code>AWS::IoTSiteWise::Portal</code></a>.
 
 ## Methods
 
@@ -93,6 +97,8 @@ portal_description,
 portal_id,
 portal_name,
 portal_start_url,
+portal_type,
+portal_type_configuration,
 role_arn,
 notification_sender_email,
 alarms,
@@ -112,6 +118,8 @@ portal_description,
 portal_id,
 portal_name,
 portal_start_url,
+portal_type,
+portal_type_configuration,
 role_arn,
 notification_sender_email,
 alarms,
@@ -158,6 +166,8 @@ INSERT INTO aws.iotsitewise.portals (
  PortalContactEmail,
  PortalDescription,
  PortalName,
+ PortalType,
+ PortalTypeConfiguration,
  RoleArn,
  NotificationSenderEmail,
  Alarms,
@@ -169,6 +179,8 @@ SELECT
  '{{ PortalContactEmail }}',
  '{{ PortalDescription }}',
  '{{ PortalName }}',
+ '{{ PortalType }}',
+ '{{ PortalTypeConfiguration }}',
  '{{ RoleArn }}',
  '{{ NotificationSenderEmail }}',
  '{{ Alarms }}',
@@ -198,6 +210,10 @@ resources:
         value: '{{ PortalDescription }}'
       - name: PortalName
         value: '{{ PortalName }}'
+      - name: PortalType
+        value: '{{ PortalType }}'
+      - name: PortalTypeConfiguration
+        value: {}
       - name: RoleArn
         value: '{{ RoleArn }}'
       - name: NotificationSenderEmail
@@ -266,6 +282,6 @@ sso:DeleteManagedApplicationInstance
 
 ### List
 ```json
-iotsitewise:ListPortals
+iotsitewise:ListPortals,
+iotsitewise:ListTagsForResource
 ```
-

@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>location_nfs_tags</code> resource, see <a href="/providers/aws/datasync/location_nfs/#permissions"><code>location_nfs</code></a>
 
-

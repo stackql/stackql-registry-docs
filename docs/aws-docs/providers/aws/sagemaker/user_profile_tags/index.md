@@ -78,4 +78,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>user_profile_tags</code> resource, see <a href="/providers/aws/sagemaker/user_profiles/#permissions"><code>user_profiles</code></a>
 
-

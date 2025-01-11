@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>ca_certificate_tags</code> resource, see <a href="/providers/aws/iot/ca_certificates/#permissions"><code>ca_certificates</code></a>
 
-

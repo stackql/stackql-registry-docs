@@ -49,6 +49,8 @@ Creates, updates, deletes or gets a <code>cloud_formation_provisioned_product</c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html"><code>AWS::ServiceCatalog::CloudFormationProvisionedProduct</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -276,4 +278,3 @@ To operate on the <code>cloud_formation_provisioned_products</code> resource, th
 ```json
 *
 ```
-

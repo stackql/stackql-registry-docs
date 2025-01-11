@@ -88,4 +88,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>knowledge_base_tags</code> resource, see <a href="/providers/aws/bedrock/knowledge_bases/#permissions"><code>knowledge_bases</code></a>
 
-

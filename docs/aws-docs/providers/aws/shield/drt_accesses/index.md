@@ -36,6 +36,8 @@ Creates, updates, deletes or gets a <code>drt_access</code> resource or lists <c
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-shield-drtaccess.html"><code>AWS::Shield::DRTAccess</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -219,4 +221,3 @@ s3:DeleteBucketPolicy
 ```json
 shield:DescribeDRTAccess
 ```
-

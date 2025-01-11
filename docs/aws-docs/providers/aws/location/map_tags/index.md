@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>map_tags</code> resource, see <a href="/providers/aws/location/maps/#permissions"><code>maps</code></a>
 
-

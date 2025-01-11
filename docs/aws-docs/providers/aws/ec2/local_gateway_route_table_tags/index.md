@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>local_gateway_route_table_tags</code> resource, see <a href="/providers/aws/ec2/local_gateway_route_tables/#permissions"><code>local_gateway_route_tables</code></a>
 
-

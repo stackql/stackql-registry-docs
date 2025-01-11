@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>application_tags</code> resource, see <a href="/providers/aws/m2/applications/#permissions"><code>applications</code></a>
 
-

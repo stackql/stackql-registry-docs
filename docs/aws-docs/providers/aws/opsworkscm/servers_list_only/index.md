@@ -30,29 +30,7 @@ Lists <code>servers</code> in a region or regions, for all properties use <a hre
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="key_pair" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="engine_version" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="service_role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="disable_automated_backup" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="backup_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="engine_model" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="preferred_maintenance_window" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="associate_public_ip_address" /></td><td><code>boolean</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_profile_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_certificate" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="preferred_backup_window" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="security_group_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="subnet_ids" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_domain" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="endpoint" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="custom_private_key" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="server_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="engine_attributes" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="backup_retention_count" /></td><td><code>integer</code></td><td></td></tr>
-<tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="instance_type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="engine" /></td><td><code>string</code></td><td></td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="server_name" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -85,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>servers_list_only</code> resource, see <a href="/providers/aws/opsworkscm/servers/#permissions"><code>servers</code></a>
-
 

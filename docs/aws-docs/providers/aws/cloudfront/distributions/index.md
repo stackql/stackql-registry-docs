@@ -37,6 +37,8 @@ Creates, updates, deletes or gets a <code>distribution</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html"><code>AWS::CloudFront::Distribution</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -154,6 +156,7 @@ resources:
         value:
           Aliases:
             - '{{ Aliases[0] }}'
+          AnycastIpListId: '{{ AnycastIpListId }}'
           CNAMEs:
             - '{{ CNAMEs[0] }}'
           CacheBehaviors:
@@ -178,6 +181,8 @@ resources:
               FunctionAssociations:
                 - EventType: '{{ EventType }}'
                   FunctionARN: '{{ FunctionARN }}'
+              GrpcConfig:
+                Enabled: '{{ Enabled }}'
               LambdaFunctionAssociations:
                 - EventType: '{{ EventType }}'
                   IncludeBody: '{{ IncludeBody }}'
@@ -221,6 +226,7 @@ resources:
             ForwardedValues: null
             FunctionAssociations:
               - null
+            GrpcConfig: null
             LambdaFunctionAssociations:
               - null
             MaxTTL: null
@@ -255,6 +261,7 @@ resources:
                   Items:
                     - OriginId: '{{ OriginId }}'
                   Quantity: '{{ Quantity }}'
+                SelectionCriteria: '{{ SelectionCriteria }}'
             Quantity: '{{ Quantity }}'
           Origins:
             - ConnectionAttempts: '{{ ConnectionAttempts }}'
@@ -355,4 +362,3 @@ cloudfront:ListTagsForResource,
 cloudfront:TagResource,
 cloudfront:UntagResource
 ```
-

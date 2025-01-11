@@ -90,4 +90,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>table_tags</code> resource, see <a href="/providers/aws/cassandra/tables/#permissions"><code>tables</code></a>
 
-

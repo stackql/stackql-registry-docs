@@ -40,6 +40,8 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-environment.html"><code>AWS::RefactorSpaces::Environment</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -51,12 +53,17 @@ Creates, updates, deletes or gets an <code>environment</code> resource or lists 
   <tr>
     <td><CopyableCode code="create_resource" /></td>
     <td><code>INSERT</code></td>
-    <td><CopyableCode code="Name, NetworkFabricType, region" /></td>
+    <td><CopyableCode code="region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="delete_resource" /></td>
     <td><code>DELETE</code></td>
     <td><CopyableCode code="data__Identifier, region" /></td>
+  </tr>
+  <tr>
+    <td><CopyableCode code="update_resource" /></td>
+    <td><code>UPDATE</code></td>
+    <td><CopyableCode code="data__Identifier, data__PatchDocument, region" /></td>
   </tr>
   <tr>
     <td><CopyableCode code="list_resources" /></td>
@@ -117,13 +124,17 @@ Use the following StackQL query and manifest file to create a new <code>environm
 ```sql
 /*+ create */
 INSERT INTO aws.refactorspaces.environments (
+ Description,
  Name,
  NetworkFabricType,
+ Tags,
  region
 )
 SELECT 
-'{{ Name }}',
+'{{ Description }}',
+ '{{ Name }}',
  '{{ NetworkFabricType }}',
+ '{{ Tags }}',
 '{{ region }}';
 ```
 </TabItem>
@@ -225,6 +236,13 @@ refactor-spaces:GetEnvironment,
 refactor-spaces:ListTagsForResource
 ```
 
+### Update
+```json
+refactor-spaces:GetEnvironment,
+refactor-spaces:TagResource,
+refactor-spaces:UntagResource
+```
+
 ### Delete
 ```json
 refactor-spaces:GetEnvironment,
@@ -244,4 +262,3 @@ ram:DeleteResourceShare
 refactor-spaces:ListEnvironments,
 refactor-spaces:ListTagsForResource
 ```
-

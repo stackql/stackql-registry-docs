@@ -30,13 +30,7 @@ Lists <code>model_package_groups</code> in a region or regions, for all properti
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>An array of key-value pairs to apply to this resource.</td></tr>
-<tr><td><CopyableCode code="model_package_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the model package group.</td></tr>
-<tr><td><CopyableCode code="model_package_group_name" /></td><td><code>string</code></td><td>The name of the model package group.</td></tr>
-<tr><td><CopyableCode code="model_package_group_description" /></td><td><code>string</code></td><td>The description of the model package group.</td></tr>
-<tr><td><CopyableCode code="model_package_group_policy" /></td><td><code>object</code></td><td></td></tr>
-<tr><td><CopyableCode code="creation_time" /></td><td><code>string</code></td><td>The time at which the model package group was created.</td></tr>
-<tr><td><CopyableCode code="model_package_group_status" /></td><td><code>string</code></td><td>The status of a modelpackage group job.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="model_package_group_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the model package group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>model_package_groups_list_only</code> resource, see <a href="/providers/aws/sagemaker/model_package_groups/#permissions"><code>model_package_groups</code></a>
-
 

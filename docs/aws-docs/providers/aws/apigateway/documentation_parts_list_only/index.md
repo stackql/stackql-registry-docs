@@ -31,9 +31,7 @@ Lists <code>documentation_parts</code> in a region or regions, for all propertie
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="documentation_part_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="location" /></td><td><code>object</code></td><td>The location of the targeted API entity of the to-be-created documentation part.</td></tr>
-<tr><td><CopyableCode code="properties" /></td><td><code>string</code></td><td>The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.</td></tr>
-<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td>The string identifier of the associated RestApi.</td></tr>
+<tr><td><CopyableCode code="rest_api_id" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>documentation_parts_list_only</code> resource, see <a href="/providers/aws/apigateway/documentation_parts/#permissions"><code>documentation_parts</code></a>
-
 

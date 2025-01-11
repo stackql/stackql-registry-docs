@@ -32,12 +32,6 @@ Lists <code>eips</code> in a region or regions, for all properties use <a href="
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="public_ip" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="allocation_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="domain" /></td><td><code>string</code></td><td>The network (<code>vpc</code>).<br />If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the &#91;DependsOn Attribute&#93;(https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.</td></tr>
-<tr><td><CopyableCode code="network_border_group" /></td><td><code>string</code></td><td>A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.<br />Use &#91;DescribeAvailabilityZones&#93;(https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.</td></tr>
-<tr><td><CopyableCode code="transfer_address" /></td><td><code>string</code></td><td>The Elastic IP address you are accepting for transfer. You can only accept one transferred address. For more information on Elastic IP address transfers, see &#91;Transfer Elastic IP addresses&#93;(https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide*.</td></tr>
-<tr><td><CopyableCode code="instance_id" /></td><td><code>string</code></td><td>The ID of the instance.<br />Updates to the <code>InstanceId</code> property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.</td></tr>
-<tr><td><CopyableCode code="public_ipv4_pool" /></td><td><code>string</code></td><td>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.<br />Updates to the <code>PublicIpv4Pool</code> property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>Any tags assigned to the Elastic IP address.<br />Updates to the <code>Tags</code> property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -71,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>eips_list_only</code> resource, see <a href="/providers/aws/ec2/eips/#permissions"><code>eips</code></a>
-
 

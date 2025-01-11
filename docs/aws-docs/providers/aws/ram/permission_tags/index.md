@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>permission_tags</code> resource, see <a href="/providers/aws/ram/permissions/#permissions"><code>permissions</code></a>
 
-

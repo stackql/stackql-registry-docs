@@ -44,6 +44,8 @@ Creates, updates, deletes or gets a <code>profile</code> resource or lists <code
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-profile.html"><code>AWS::B2BI::Profile</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -256,4 +258,3 @@ logs:ListLogDeliveries
 ```json
 b2bi:ListProfiles
 ```
-

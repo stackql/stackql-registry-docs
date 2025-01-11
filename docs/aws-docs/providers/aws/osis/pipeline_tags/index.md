@@ -39,6 +39,7 @@ Expands all tag keys and values for <code>pipelines</code> in a region
 <tr><td><CopyableCode code="pipeline_name" /></td><td><code>string</code></td><td>Name of the OpenSearch Ingestion Service pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.</td></tr>
 <tr><td><CopyableCode code="vpc_options" /></td><td><code>object</code></td><td>Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.</td></tr>
 <tr><td><CopyableCode code="vpc_endpoints" /></td><td><code>array</code></td><td>The VPC interface endpoints that have access to the pipeline.</td></tr>
+<tr><td><CopyableCode code="vpc_endpoint_service" /></td><td><code>string</code></td><td>The VPC endpoint service name for the pipeline.</td></tr>
 <tr><td><CopyableCode code="pipeline_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the pipeline.</td></tr>
 <tr><td><CopyableCode code="ingest_endpoint_urls" /></td><td><code>array</code></td><td>A list of endpoints that can be used for ingesting data into a pipeline</td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
@@ -75,6 +76,7 @@ pipeline_configuration_body,
 pipeline_name,
 vpc_options,
 vpc_endpoints,
+vpc_endpoint_service,
 pipeline_arn,
 ingest_endpoint_urls,
 tag_key,
@@ -87,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pipeline_tags</code> resource, see <a href="/providers/aws/osis/pipelines/#permissions"><code>pipelines</code></a>
-
 

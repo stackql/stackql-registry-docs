@@ -30,13 +30,7 @@ Lists <code>traffic_distribution_groups</code> in a region or regions, for all p
 </tbody></table>
 
 ## Fields
-<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="instance_arn" /></td><td><code>string</code></td><td>The identifier of the Amazon Connect instance that has been replicated.</td></tr>
-<tr><td><CopyableCode code="traffic_distribution_group_arn" /></td><td><code>string</code></td><td>The identifier of the traffic distribution group.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>A description for the traffic distribution group.</td></tr>
-<tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td>The name for the traffic distribution group.</td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td>The status of the traffic distribution group.</td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
-<tr><td><CopyableCode code="is_default" /></td><td><code>boolean</code></td><td>If this is the default traffic distribution group.</td></tr>
+<table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="traffic_distribution_group_arn" /></td><td><code>string</code></td><td>The identifier of the traffic distribution group.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -69,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>traffic_distribution_groups_list_only</code> resource, see <a href="/providers/aws/connect/traffic_distribution_groups/#permissions"><code>traffic_distribution_groups</code></a>
-
 

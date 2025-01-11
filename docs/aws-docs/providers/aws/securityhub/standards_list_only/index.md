@@ -31,8 +31,6 @@ Lists <code>standards</code> in a region or regions, for all properties use <a h
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="standards_subscription_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="standards_arn" /></td><td><code>string</code></td><td>The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the &#91;DescribeStandards&#93;(https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.</td></tr>
-<tr><td><CopyableCode code="disabled_standards_controls" /></td><td><code>array</code></td><td>Specifies which controls are to be disabled in a standard. <br />*Maximum*: <code>100</code></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -65,5 +63,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>standards_list_only</code> resource, see <a href="/providers/aws/securityhub/standards/#permissions"><code>standards</code></a>
-
 

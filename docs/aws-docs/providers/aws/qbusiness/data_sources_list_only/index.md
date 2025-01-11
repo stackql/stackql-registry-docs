@@ -31,21 +31,8 @@ Lists <code>data_sources</code> in a region or regions, for all properties use <
 
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="application_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="configuration" /></td><td><code></code></td><td></td></tr>
-<tr><td><CopyableCode code="created_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="data_source_arn" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="data_source_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="display_name" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="document_enrichment_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="index_id" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="status" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="sync_schedule" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td></td></tr>
-<tr><td><CopyableCode code="type" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="updated_at" /></td><td><code>string</code></td><td></td></tr>
-<tr><td><CopyableCode code="vpc_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -80,5 +67,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>data_sources_list_only</code> resource, see <a href="/providers/aws/qbusiness/data_sources/#permissions"><code>data_sources</code></a>
-
 

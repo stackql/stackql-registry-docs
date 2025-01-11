@@ -32,8 +32,6 @@ Lists <code>target_account_configurations</code> in a region or regions, for all
 ## Fields
 <table><tbody><tr><th>Name</th><th>Datatype</th><th>Description</th></tr><tr><td><CopyableCode code="experiment_template_id" /></td><td><code>string</code></td><td>The ID of the experiment template.</td></tr>
 <tr><td><CopyableCode code="account_id" /></td><td><code>string</code></td><td>The AWS account ID of the target account.</td></tr>
-<tr><td><CopyableCode code="role_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of an IAM role for the target account.</td></tr>
-<tr><td><CopyableCode code="description" /></td><td><code>string</code></td><td>The description of the target account.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
@@ -67,5 +65,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>target_account_configurations_list_only</code> resource, see <a href="/providers/aws/fis/target_account_configurations/#permissions"><code>target_account_configurations</code></a>
-
 

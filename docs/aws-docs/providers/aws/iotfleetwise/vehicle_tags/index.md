@@ -82,4 +82,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>vehicle_tags</code> resource, see <a href="/providers/aws/iotfleetwise/vehicles/#permissions"><code>vehicles</code></a>
 
-

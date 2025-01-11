@@ -92,4 +92,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>device_tags</code> resource, see <a href="/providers/aws/networkmanager/devices/#permissions"><code>devices</code></a>
 
-

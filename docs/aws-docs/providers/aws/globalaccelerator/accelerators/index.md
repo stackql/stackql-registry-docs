@@ -43,6 +43,8 @@ Creates, updates, deletes or gets an <code>accelerator</code> resource or lists 
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
 
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html"><code>AWS::GlobalAccelerator::Accelerator</code></a>.
+
 ## Methods
 
 <table><tbody>
@@ -236,4 +238,3 @@ globalaccelerator:DescribeAccelerator
 ```json
 globalaccelerator:ListAccelerators
 ```
-

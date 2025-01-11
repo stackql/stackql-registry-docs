@@ -74,4 +74,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>device_profile_tags</code> resource, see <a href="/providers/aws/iotwireless/device_profiles/#permissions"><code>device_profiles</code></a>
 
-

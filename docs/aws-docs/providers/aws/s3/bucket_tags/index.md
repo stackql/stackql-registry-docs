@@ -47,7 +47,7 @@ Expands all tag keys and values for <code>buckets</code> in a region
 <tr><td><CopyableCode code="ownership_controls" /></td><td><code>object</code></td><td>Configuration that defines how Amazon S3 handles Object Ownership rules.</td></tr>
 <tr><td><CopyableCode code="public_access_block_configuration" /></td><td><code>object</code></td><td>Configuration that defines how Amazon S3 handles public access.</td></tr>
 <tr><td><CopyableCode code="replication_configuration" /></td><td><code>object</code></td><td>Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the <code>VersioningConfiguration</code> property.<br />Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist.</td></tr>
-<tr><td><CopyableCode code="versioning_configuration" /></td><td><code>object</code></td><td>Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.</td></tr>
+<tr><td><CopyableCode code="versioning_configuration" /></td><td><code>object</code></td><td>Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.<br />When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (<code>PUT</code> or <code>DELETE</code>) on objects in the bucket.</td></tr>
 <tr><td><CopyableCode code="website_configuration" /></td><td><code>object</code></td><td>Information used to configure the bucket as a static website. For more information, see &#91;Hosting Websites on Amazon S3&#93;(https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).</td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) of the specified resource.</td></tr>
 <tr><td><CopyableCode code="domain_name" /></td><td><code>string</code></td><td></td></tr>
@@ -113,5 +113,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>bucket_tags</code> resource, see <a href="/providers/aws/s3/buckets/#permissions"><code>buckets</code></a>
-
 

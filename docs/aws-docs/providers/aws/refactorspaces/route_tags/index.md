@@ -84,4 +84,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>route_tags</code> resource, see <a href="/providers/aws/refactorspaces/routes/#permissions"><code>routes</code></a>
 
-

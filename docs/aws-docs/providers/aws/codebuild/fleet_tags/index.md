@@ -37,7 +37,11 @@ Expands all tag keys and values for <code>fleets</code> in a region
 <tr><td><CopyableCode code="overflow_behavior" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_service_role" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="fleet_vpc_config" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="fleet_proxy_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="arn" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="image_id" /></td><td><code>string</code></td><td></td></tr>
+<tr><td><CopyableCode code="scaling_configuration" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="compute_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="tag_key" /></td><td><code>string</code></td><td>Tag key.</td></tr>
 <tr><td><CopyableCode code="tag_value" /></td><td><code>string</code></td><td>Tag value.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
@@ -70,7 +74,11 @@ compute_type,
 overflow_behavior,
 fleet_service_role,
 fleet_vpc_config,
+fleet_proxy_configuration,
 arn,
+image_id,
+scaling_configuration,
+compute_configuration,
 tag_key,
 tag_value
 FROM aws.codebuild.fleet_tags
@@ -81,5 +89,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>fleet_tags</code> resource, see <a href="/providers/aws/codebuild/fleets/#permissions"><code>fleets</code></a>
-
 

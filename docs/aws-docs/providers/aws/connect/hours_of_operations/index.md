@@ -37,8 +37,11 @@ Creates, updates, deletes or gets a <code>hours_of_operation</code> resource or 
 <tr><td><CopyableCode code="config" /></td><td><code>array</code></td><td>Configuration information for the hours of operation: day, start time, and end time.</td></tr>
 <tr><td><CopyableCode code="hours_of_operation_arn" /></td><td><code>string</code></td><td>The Amazon Resource Name (ARN) for the hours of operation.</td></tr>
 <tr><td><CopyableCode code="tags" /></td><td><code>array</code></td><td>One or more tags.</td></tr>
+<tr><td><CopyableCode code="hours_of_operation_overrides" /></td><td><code>array</code></td><td>One or more hours of operation overrides assigned to an hour of operation.</td></tr>
 <tr><td><CopyableCode code="region" /></td><td><code>string</code></td><td>AWS region.</td></tr>
 </tbody></table>
+
+For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html"><code>AWS::Connect::HoursOfOperation</code></a>.
 
 ## Methods
 
@@ -86,7 +89,8 @@ description,
 time_zone,
 config,
 hours_of_operation_arn,
-tags
+tags,
+hours_of_operation_overrides
 FROM aws.connect.hours_of_operations
 WHERE region = 'us-east-1';
 ```
@@ -100,7 +104,8 @@ description,
 time_zone,
 config,
 hours_of_operation_arn,
-tags
+tags,
+hours_of_operation_overrides
 FROM aws.connect.hours_of_operations
 WHERE region = 'us-east-1' AND data__Identifier = '<HoursOfOperationArn>';
 ```
@@ -147,6 +152,7 @@ INSERT INTO aws.connect.hours_of_operations (
  TimeZone,
  Config,
  Tags,
+ HoursOfOperationOverrides,
  region
 )
 SELECT 
@@ -156,6 +162,7 @@ SELECT
  '{{ TimeZone }}',
  '{{ Config }}',
  '{{ Tags }}',
+ '{{ HoursOfOperationOverrides }}',
  '{{ region }}';
 ```
 </TabItem>
@@ -192,6 +199,19 @@ resources:
         value:
           - Key: '{{ Key }}'
             Value: '{{ Value }}'
+      - name: HoursOfOperationOverrides
+        value:
+          - OverrideName: '{{ OverrideName }}'
+            OverrideDescription: '{{ OverrideDescription }}'
+            EffectiveFrom: '{{ EffectiveFrom }}'
+            EffectiveTill: '{{ EffectiveTill }}'
+            OverrideConfig:
+              - Day: '{{ Day }}'
+                StartTime:
+                  Hours: '{{ Hours }}'
+                  Minutes: '{{ Minutes }}'
+                EndTime: null
+            HoursOfOperationOverrideId: '{{ HoursOfOperationOverrideId }}'
 
 ```
 </TabItem>
@@ -213,12 +233,14 @@ To operate on the <code>hours_of_operations</code> resource, the following permi
 ### Create
 ```json
 connect:CreateHoursOfOperation,
-connect:TagResource
+connect:TagResource,
+connect:CreateHoursOfOperationOverride
 ```
 
 ### Read
 ```json
-connect:DescribeHoursOfOperation
+connect:DescribeHoursOfOperation,
+connect:ListHoursOfOperationOverrides
 ```
 
 ### Delete
@@ -230,6 +252,10 @@ connect:UntagResource
 ### Update
 ```json
 connect:UpdateHoursOfOperation,
+connect:CreateHoursOfOperationOverride,
+connect:UpdateHoursOfOperationOverride,
+connect:DeleteHoursOfOperationOverride,
+connect:ListHoursOfOperationOverrides,
 connect:TagResource,
 connect:UntagResource
 ```
@@ -238,4 +264,3 @@ connect:UntagResource
 ```json
 connect:ListHoursOfOperations
 ```
-

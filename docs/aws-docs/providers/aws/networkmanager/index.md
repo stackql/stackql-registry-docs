@@ -20,7 +20,7 @@ The networkmanager service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>39</b></span><br />
+<span>total resources:&nbsp;<b>42</b></span><br />
 </div>
 </div>
 
@@ -43,14 +43,17 @@ The networkmanager service documentation.
 <a href="/providers/aws/networkmanager/device_tags/">device_tags</a><br />
 <a href="/providers/aws/networkmanager/devices/">devices</a><br />
 <a href="/providers/aws/networkmanager/devices_list_only/">devices_list_only</a><br />
+<a href="/providers/aws/networkmanager/direct_connect_gateway_attachment_tags/">direct_connect_gateway_attachment_tags</a><br />
+<a href="/providers/aws/networkmanager/direct_connect_gateway_attachments/">direct_connect_gateway_attachments</a><br />
+<a href="/providers/aws/networkmanager/direct_connect_gateway_attachments_list_only/">direct_connect_gateway_attachments_list_only</a><br />
 <a href="/providers/aws/networkmanager/global_network_tags/">global_network_tags</a><br />
 <a href="/providers/aws/networkmanager/global_networks/">global_networks</a><br />
 <a href="/providers/aws/networkmanager/global_networks_list_only/">global_networks_list_only</a><br />
-<a href="/providers/aws/networkmanager/link_associations/">link_associations</a><br />
-<a href="/providers/aws/networkmanager/link_associations_list_only/">link_associations_list_only</a><br />
-<a href="/providers/aws/networkmanager/link_tags/">link_tags</a>
+<a href="/providers/aws/networkmanager/link_associations/">link_associations</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/networkmanager/link_associations_list_only/">link_associations_list_only</a><br />
+<a href="/providers/aws/networkmanager/link_tags/">link_tags</a><br />
 <a href="/providers/aws/networkmanager/links/">links</a><br />
 <a href="/providers/aws/networkmanager/links_list_only/">links_list_only</a><br />
 <a href="/providers/aws/networkmanager/site_tags/">site_tags</a><br />

@@ -37,6 +37,7 @@ Expands all tag keys and values for <code>pipes</code> in a region
 <tr><td><CopyableCode code="desired_state" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enrichment" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="enrichment_parameters" /></td><td><code>object</code></td><td></td></tr>
+<tr><td><CopyableCode code="kms_key_identifier" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="last_modified_time" /></td><td><code>string</code></td><td></td></tr>
 <tr><td><CopyableCode code="log_configuration" /></td><td><code>object</code></td><td></td></tr>
 <tr><td><CopyableCode code="name" /></td><td><code>string</code></td><td></td></tr>
@@ -78,6 +79,7 @@ description,
 desired_state,
 enrichment,
 enrichment_parameters,
+kms_key_identifier,
 last_modified_time,
 log_configuration,
 name,
@@ -97,5 +99,4 @@ WHERE region = 'us-east-1';
 ## Permissions
 
 For permissions required to operate on the <code>pipe_tags</code> resource, see <a href="/providers/aws/pipes/pipes/#permissions"><code>pipes</code></a>
-
 

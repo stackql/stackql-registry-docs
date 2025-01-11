@@ -20,7 +20,7 @@ The dms service documentation.
 
 <div class="row">
 <div class="providerDocColumn">
-<span>total resources:&nbsp;<b>12</b></span><br />
+<span>total resources:&nbsp;<b>15</b></span><br />
 </div>
 </div>
 
@@ -29,14 +29,17 @@ The dms service documentation.
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
+<a href="/providers/aws/dms/data_migration_tags/">data_migration_tags</a><br />
+<a href="/providers/aws/dms/data_migrations/">data_migrations</a><br />
+<a href="/providers/aws/dms/data_migrations_list_only/">data_migrations_list_only</a><br />
 <a href="/providers/aws/dms/data_provider_tags/">data_provider_tags</a><br />
 <a href="/providers/aws/dms/data_providers/">data_providers</a><br />
 <a href="/providers/aws/dms/data_providers_list_only/">data_providers_list_only</a><br />
 <a href="/providers/aws/dms/instance_profile_tags/">instance_profile_tags</a><br />
-<a href="/providers/aws/dms/instance_profiles/">instance_profiles</a><br />
-<a href="/providers/aws/dms/instance_profiles_list_only/">instance_profiles_list_only</a>
+<a href="/providers/aws/dms/instance_profiles/">instance_profiles</a>
 </div>
 <div class="providerDocColumn">
+<a href="/providers/aws/dms/instance_profiles_list_only/">instance_profiles_list_only</a><br />
 <a href="/providers/aws/dms/migration_project_tags/">migration_project_tags</a><br />
 <a href="/providers/aws/dms/migration_projects/">migration_projects</a><br />
 <a href="/providers/aws/dms/migration_projects_list_only/">migration_projects_list_only</a><br />

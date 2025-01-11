@@ -80,4 +80,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>site_tags</code> resource, see <a href="/providers/aws/networkmanager/sites/#permissions"><code>sites</code></a>
 
-

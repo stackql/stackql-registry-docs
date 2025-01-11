@@ -86,4 +86,3 @@ WHERE region = 'us-east-1';
 
 For permissions required to operate on the <code>verified_access_group_tags</code> resource, see <a href="/providers/aws/ec2/verified_access_groups/#permissions"><code>verified_access_groups</code></a>
 
-
