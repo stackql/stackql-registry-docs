@@ -129,11 +129,11 @@ SELECT
     value: string
   - name: members
     value:
-    - $ref: string
-      value: string
-      display: string
+    - $ref: string # for example "Users/5728205706991489" (a principal id in this case a user), you can just supply this field or `value`
+      value: string # for example "5728205706991489" (a principal id in this case a user)
+      display: string # users display name
       primary: true
-      type: string
+      type: string # user or group
   - name: roles
     value:
     - $ref: string
@@ -143,7 +143,6 @@ SELECT
       type: string
   - name: externalId
     value: string
-
 ```
 
 </TabItem>

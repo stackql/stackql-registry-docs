@@ -157,33 +157,78 @@ deployment_name = '{{ deployment_name }}';
 Use the following StackQL query and manifest file to create a new <code>clusters</code> resource.
 
 <Tabs
-    defaultValue="create"
+    defaultValue="all"
     values={[
-        { label: 'clusters', value: 'create', },
-        { label: 'Manifest', value: 'manifest', },
+      { label: 'All Properties', value: 'all', },
+      { label: 'Manifest', value: 'manifest', },    
     ]}
 >
-<TabItem value="create">
+<TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO databricks_workspace.compute.clusters (
 deployment_name,
-data__cluster_name,
-data__is_single_node,
 data__kind,
+data__cluster_name,
 data__spark_version,
+data__use_ml_runtime,
+data__is_single_node,
 data__node_type_id,
-data__aws_attributes
+data__autoscale,
+data__num_workers,
+data__data_security_mode,
+data__runtime_engine,
+data__enable_elastic_disk,
+data__aws_attributes,
+data__cluster_log_conf,
+data__init_scripts,
+data__spark_conf,
+data__spark_env_vars,
+data__driver_node_type_id,
+data__ssh_public_keys,
+data__custom_tags,
+data__single_user_name,
+data__autotermination_minutes,
+data__enable_local_disk_encryption,
+data__policy_id,
+data__apply_policy_default_values,
+data__instance_pool_id,
+data__driver_instance_pool_id,
+data__docker_image,
+data__workload_type,
+data__clone_from
 )
 SELECT 
-'{{ deployment_name }}',
-'{{ cluster_name }}',
-'{{ is_single_node }}',
 '{{ kind }}',
+'{{ cluster_name }}',
 '{{ spark_version }}',
+ {{ use_ml_runtime }},
+ {{ is_single_node }},
 '{{ node_type_id }}',
-'{{ aws_attributes }}'
+'{{ autoscale }}',
+ {{ num_workers }},
+'{{ data_security_mode }}',
+'{{ runtime_engine }}',
+ {{ enable_elastic_disk }},
+'{{ aws_attributes }}',
+'{{ cluster_log_conf }}',
+'{{ init_scripts }}',
+'{{ spark_conf }}',
+'{{ spark_env_vars }}',
+'{{ driver_node_type_id }}',
+'{{ ssh_public_keys }}',
+'{{ custom_tags }}',
+'{{ single_user_name }}',
+ {{ autotermination_minutes }},
+ {{ enable_local_disk_encryption }},
+'{{ policy_id }}',
+ {{ apply_policy_default_values }},
+'{{ instance_pool_id }}',
+'{{ driver_instance_pool_id }}',
+'{{ docker_image }}',
+'{{ workload_type }}',
+'{{ clone_from }}'
 ;
 ```
 
@@ -191,26 +236,153 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
-- name: your_resource_model_name
+- name: databricks_cluster_resource
   props:
+  - name: kind 
+    description: The kind of compute described by this compute specification (required)
+    value: "CLASSIC_PREVIEW"
   - name: cluster_name
+    description: Cluster name requested by the user, does not need to be unique. If not specified at creation, the cluster name will be an empty string.
     value: single-node-with-kind-cluster
-  - name: is_single_node
-    value: true
-  - name: kind
-    value: CLASSIC_PREVIEW
   - name: spark_version
+    description: The Spark version of the cluster, e.g. 3.3.x-scala2.11 (required)
     value: 14.3.x-scala2.12
+  - name: use_ml_runtime
+    description: Controls ML runtime usage, dependent on kind field and node_type_id (GPU)  
+    value: false
+  - name: is_single_node
+    description: When true, configures single node related tags, conf, and workers
+    value: true
   - name: node_type_id
+    description: The node type for provisioning cluster resources (e.g. memory/compute optimized)
     value: i3.xlarge
-  - name: aws_attributes
+  - name: autoscale
+    description: Parameters for automatic cluster scaling based on load
     value:
-      first_on_demand: 1
-      availability: SPOT_WITH_FALLBACK
-      zone_id: auto
-      spot_bid_price_percent: 100
-      ebs_volume_count: 0
-
+      min_workers: 2  # Minimum number of workers cluster can scale down to (integer)
+      max_workers: 8  # Maximum number of workers cluster can scale up to (integer)
+  - name: num_workers
+    description: Number of worker nodes in cluster, total nodes is num_workers + 1 (driver)
+    value: 0
+  - name: data_security_mode
+    description: Data security mode determines data governance model for cluster access
+    value: "SINGLE_USER"  # Options listed below:
+    # DATA_SECURITY_MODE_AUTO: Databricks chooses based on compute config
+    # DATA_SECURITY_MODE_STANDARD: Alias for USER_ISOLATION
+    # DATA_SECURITY_MODE_DEDICATED: Alias for SINGLE_USER  
+    # NONE: No security isolation, data governance unavailable
+    # SINGLE_USER: Secure single-user cluster with full features
+    # USER_ISOLATION: Secure multi-user cluster with some feature limits
+    # Legacy modes (deprecated in DBR 15.0+):
+    # LEGACY_TABLE_ACL: For legacy Table ACL migration
+    # LEGACY_PASSTHROUGH: For legacy high concurrency clusters
+    # LEGACY_SINGLE_USER: For legacy standard clusters
+    # LEGACY_SINGLE_USER_STANDARD: No UC/passthrough mode
+  - name: runtime_engine
+    description: Determines cluster's runtime engine - standard or Photon
+    value: "STANDARD"  # Options - STANDARD, PHOTON
+  - name: enable_elastic_disk
+    description: Enables autoscaling of local storage for Spark
+    value: true
+  - name: aws_attributes
+    description: AWS-specific attributes for cluster configuration
+    value:
+      first_on_demand: 1       # Number of on-demand instances before spot (integer)
+      availability: SPOT_WITH_FALLBACK  # Instance availability type - SPOT, ON_DEMAND, SPOT_WITH_FALLBACK  
+      zone_id: auto            # AWS availability zone for cluster (e.g., us-west-2a)
+      spot_bid_price_percent: 100  # Spot instance bid price as % of on-demand price (integer, max 10000)
+      ebs_volume_count: 0      # Number of EBS volumes per instance (integer, 0-10)
+      ebs_volume_size: 100     # Size of each EBS volume in GB (integer) 
+      ebs_volume_type: GENERAL_PURPOSE_SSD  # EBS volume type (string)
+      instance_profile_arn: "" # Optional IAM instance profile ARN for cluster nodes
+      ebs_volume_iops: null    # Optional IOPS for gp3 volumes
+      ebs_volume_throughput: null # Optional throughput for gp3 volumes
+  - name: cluster_log_conf
+    description: Configuration for spark log delivery to storage
+    value:
+      dbfs:  # Only one destination type allowed
+        destination: "dbfs:/cluster-logs"  # DBFS path for logs
+      # Alternative S3 configuration:
+      # s3:
+      #   destination: "s3://my-bucket/logs"
+      #   region: "us-west-2"  # or endpoint URL
+      #   enable_encryption: false
+      #   encryption_type: "sse-s3"  # or sse-kms
+      #   kms_key: ""  # KMS key for sse-kms
+      #   canned_acl: "bucket-owner-full-control"
+  - name: init_scripts
+    description: Scripts to run during cluster startup
+    value:
+      - workspace:  # Workspace file location
+          destination: "/Users/user@example.com/init.sh"
+      # Alternative locations:
+      # - dbfs:
+      #     destination: "dbfs:/path/init.sh"
+      # - s3:
+      #     destination: "s3://bucket/init.sh"
+      #     region: "us-west-2"
+      # - volumes:
+      #     destination: "/Volumes/init.sh"
+  - name: spark_conf
+    description: Spark configuration key-value pairs including JVM options
+    value:
+      "spark.speculation": true
+      "spark.streaming.ui.retainedBatches": 5
+  - name: spark_env_vars
+    description: Environment variables set on all cluster nodes
+    value:
+      "SPARK_WORKER_MEMORY": "28000m"
+      "SPARK_LOCAL_DIRS": "/local_disk0"
+  - name: driver_node_type_id 
+    description: Optional separate node type for Spark driver (defaults to node_type_id)
+    value: i3.xlarge
+  - name: ssh_public_keys
+    description: SSH public keys added to each Spark node (max 10)
+    value: []
+  - name: custom_tags
+    description: Additional tags for cluster resources (max 45 tags)
+    value:
+      Provisioner: stackql
+      StackName: "{{ stack_name }}"
+      StackEnv: "{{ stack_env }}" 
+  - name: single_user_name
+    description: Username if data_security_mode is SINGLE_USER
+    value: "user@example.com"
+  - name: autotermination_minutes
+    description: Minutes of inactivity before cluster termination (10-10000, 0 to disable)
+    value: 120
+  - name: enable_local_disk_encryption
+    description: Enable LUKS encryption on cluster VM local disks
+    value: true
+  - name: policy_id
+    description: ID of cluster policy to apply
+    value: ""
+  - name: apply_policy_default_values
+    description: Use policy defaults (true) or only fixed values (false) for omitted fields
+    value: false
+  - name: instance_pool_id
+    description: ID of instance pool for cluster nodes
+    value: ""
+  - name: driver_instance_pool_id
+    description: Optional separate instance pool ID for driver node
+    value: ""
+  - name: docker_image
+    description: Custom docker image configuration
+    value:
+      url: "repo/image:tag"  # Docker image URL
+      basic_auth:
+        username: ""  # Registry authentication
+        password: ""
+  - name: workload_type
+    description: Defines what type of clients can use the cluster
+    value:
+      clients:
+        notebooks: true  # Allow notebook workloads
+        jobs: true      # Allow job workloads
+  - name: clone_from        
+    description: When specified, this clones libraries from a source cluster during the creation of a new cluster.
+    value:
+      source_cluster_id: "1202-211320-brick1" # The cluster that is being cloned (required).
 ```
 
 </TabItem>
