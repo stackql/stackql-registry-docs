@@ -92,7 +92,7 @@ SELECT
   props:
   - name: permissions
     value:
-    - UNKNOWN
+    - ADMIN # can be ADMIN or USER
 
 ```
 
