@@ -200,6 +200,7 @@ data__workload_type,
 data__clone_from
 )
 SELECT 
+'{{ deployment_name }}',
 '{{ kind }}',
 '{{ cluster_name }}',
 '{{ spark_version }}',
