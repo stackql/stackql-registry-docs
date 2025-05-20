@@ -121,16 +121,16 @@ Use the following StackQL query and manifest file to create a new <code>iceberg_
 ```sql
 /*+ create */
 INSERT INTO snowflake.iceberg_table.iceberg_tables (
-data__name,
 endpoint,
+data__name,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

@@ -123,16 +123,16 @@ Use the following StackQL query and manifest file to create a new <code>tasks</c
 INSERT INTO snowflake.task.tasks (
 data__name,
 endpoint,
-data__definition,
+schema,
 database,
-schema
+data__definition
 )
 SELECT 
-'{ definition }',
 '{ database }',
-'{ name }',
+'{ endpoint }',
 '{ schema }',
-'{ endpoint }'
+'{ definition }',
+'{ name }'
 ;
 ```
 </TabItem>

@@ -77,8 +77,8 @@ Use the following StackQL query and manifest file to create a new <code>network_
 ```sql
 /*+ create */
 INSERT INTO snowflake.network_policy.network_policies (
-data__name,
-endpoint
+endpoint,
+data__name
 )
 SELECT 
 '{ name }',

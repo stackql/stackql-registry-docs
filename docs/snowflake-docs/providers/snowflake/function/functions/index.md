@@ -78,18 +78,18 @@ Use the following StackQL query and manifest file to create a new <code>function
 ```sql
 /*+ create */
 INSERT INTO snowflake.function.functions (
-data__arguments,
 data__name,
 endpoint,
-database,
-schema
+data__arguments,
+schema,
+database
 )
 SELECT 
 '{ database }',
-'{ name }',
-'{ schema }',
 '{ endpoint }',
-'{ arguments }'
+'{ arguments }',
+'{ schema }',
+'{ name }'
 ;
 ```
 </TabItem>

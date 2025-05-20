@@ -72,16 +72,16 @@ Use the following StackQL query and manifest file to create a new <code>grants</
 ```sql
 /*+ create */
 INSERT INTO snowflake.database_role.grants (
-endpoint,
-data__securable_type,
 name,
+data__securable_type,
+endpoint,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ securable_type }'
+'{ name }',
+'{ securable_type }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

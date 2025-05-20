@@ -90,16 +90,16 @@ Use the following StackQL query and manifest file to create a new <code>streams<
 INSERT INTO snowflake.streams.streams (
 data__name,
 endpoint,
-data__stream_source,
+schema,
 database,
-schema
+data__stream_source
 )
 SELECT 
 '{ database }',
-'{ name }',
-'{ stream_source }',
+'{ endpoint }',
 '{ schema }',
-'{ endpoint }'
+'{ stream_source }',
+'{ name }'
 ;
 ```
 </TabItem>

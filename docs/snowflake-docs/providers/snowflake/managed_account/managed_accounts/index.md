@@ -40,7 +40,7 @@ Creates, updates, deletes, gets or lists a <code>managed_accounts</code> resourc
 | <CopyableCode code="created_on" /> | `string` | Date and time the account was created. |
 | <CopyableCode code="locator" /> | `string` | Legacy identifier for the account. |
 | <CopyableCode code="region" /> | `string` | Region in which the managed account is located. For reader accounts, this is always the same as the region for the provider account. |
-| <CopyableCode code="url" /> | `string` | Account URL that is used to connect to the account, in the account name format. The account identifier in this format follows the pattern <orgname>-<account_name>. |
+| <CopyableCode code="url" /> | `string` | Account URL that is used to connect to the account, in the account name format. The account identifier in this format follows the pattern {orgname}-{account_name}. |
 
 ## Methods
 | Name | Accessible by | Required Params | Description |
@@ -80,18 +80,18 @@ Use the following StackQL query and manifest file to create a new <code>managed_
 ```sql
 /*+ create */
 INSERT INTO snowflake.managed_account.managed_accounts (
-data__name,
 data__admin_name,
+data__name,
+data__admin_password,
 endpoint,
-data__account_type,
-data__admin_password
+data__account_type
 )
 SELECT 
-'{ name }',
-'{ account_type }',
-'{ admin_name }',
+'{ admin_password }',
 '{ endpoint }',
-'{ admin_password }'
+'{ admin_name }',
+'{ name }',
+'{ account_type }'
 ;
 ```
 </TabItem>

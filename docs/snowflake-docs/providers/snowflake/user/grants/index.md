@@ -70,14 +70,14 @@ Use the following StackQL query and manifest file to create a new <code>grants</
 ```sql
 /*+ create */
 INSERT INTO snowflake.user.grants (
-endpoint,
+name,
 data__securable_type,
-name
+endpoint
 )
 SELECT 
 '{ name }',
-'{ endpoint }',
-'{ securable_type }'
+'{ securable_type }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

@@ -112,21 +112,21 @@ Use the following StackQL query and manifest file to create a new <code>dynamic_
 /*+ create */
 INSERT INTO snowflake.dynamic_table.dynamic_tables (
 data__warehouse,
-data__name,
-data__target_lag,
-endpoint,
-database,
 data__query,
-schema
+data__name,
+endpoint,
+data__target_lag,
+schema,
+database
 )
 SELECT 
 '{ database }',
-'{ name }',
-'{ schema }',
-'{ target_lag }',
+'{ query }',
 '{ endpoint }',
+'{ target_lag }',
 '{ warehouse }',
-'{ query }'
+'{ schema }',
+'{ name }'
 ;
 ```
 </TabItem>

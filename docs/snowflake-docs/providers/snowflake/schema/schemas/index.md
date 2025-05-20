@@ -112,14 +112,14 @@ Use the following StackQL query and manifest file to create a new <code>schemas<
 ```sql
 /*+ create */
 INSERT INTO snowflake.schema.schemas (
-data__name,
 endpoint,
+data__name,
 database
 )
 SELECT 
-'{ endpoint }',
+'{ database }',
 '{ name }',
-'{ database }'
+'{ endpoint }'
 ;
 ```
 </TabItem>

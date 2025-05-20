@@ -91,17 +91,17 @@ Use the following StackQL query and manifest file to create a new <code>pipes</c
 /*+ create */
 INSERT INTO snowflake.pipe.pipes (
 data__name,
-endpoint,
 data__copy_statement,
-database,
-schema
+endpoint,
+schema,
+database
 )
 SELECT 
 '{ database }',
-'{ name }',
+'{ endpoint }',
 '{ schema }',
-'{ copy_statement }',
-'{ endpoint }'
+'{ name }',
+'{ copy_statement }'
 ;
 ```
 </TabItem>

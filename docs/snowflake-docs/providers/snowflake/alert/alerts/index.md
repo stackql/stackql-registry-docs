@@ -85,22 +85,22 @@ Use the following StackQL query and manifest file to create a new <code>alerts</
 ```sql
 /*+ create */
 INSERT INTO snowflake.alert.alerts (
-data__condition,
 data__name,
 endpoint,
-data__schedule,
-database,
+data__condition,
 schema,
+database,
+data__schedule,
 data__action
 )
 SELECT 
 '{ database }',
-'{ schedule }',
-'{ action }',
 '{ condition }',
-'{ name }',
+'{ endpoint }',
 '{ schema }',
-'{ endpoint }'
+'{ action }',
+'{ name }',
+'{ schedule }'
 ;
 ```
 </TabItem>

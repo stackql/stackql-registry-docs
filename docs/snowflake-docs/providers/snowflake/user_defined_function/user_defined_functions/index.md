@@ -101,21 +101,21 @@ Use the following StackQL query and manifest file to create a new <code>user_def
 /*+ create */
 INSERT INTO snowflake.user_defined_function.user_defined_functions (
 data__name,
-data__arguments,
 data__return_type,
+data__arguments,
 endpoint,
 data__language_config,
-database,
-schema
+schema,
+database
 )
 SELECT 
 '{ database }',
+'{ endpoint }',
+'{ arguments }',
+'{ schema }',
 '{ language_config }',
 '{ name }',
-'{ schema }',
-'{ return_type }',
-'{ endpoint }',
-'{ arguments }'
+'{ return_type }'
 ;
 ```
 </TabItem>
