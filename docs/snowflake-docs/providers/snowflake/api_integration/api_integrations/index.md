@@ -75,16 +75,16 @@ Use the following StackQL query and manifest file to create a new <code>api_inte
 /*+ create */
 INSERT INTO snowflake.api_integration.api_integrations (
 data__name,
-data__api_allowed_prefixes,
 endpoint,
 data__api_hook,
+data__api_allowed_prefixes,
 data__enabled
 )
 SELECT 
+'{ endpoint }',
 '{ enabled }',
 '{ api_allowed_prefixes }',
 '{ name }',
-'{ endpoint }',
 '{ api_hook }'
 ;
 ```

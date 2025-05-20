@@ -75,14 +75,14 @@ Use the following StackQL query and manifest file to create a new <code>database
 ```sql
 /*+ create */
 INSERT INTO snowflake.database_role.database_roles (
-data__name,
 endpoint,
+data__name,
 database
 )
 SELECT 
-'{ endpoint }',
+'{ database }',
 '{ name }',
-'{ database }'
+'{ endpoint }'
 ;
 ```
 </TabItem>

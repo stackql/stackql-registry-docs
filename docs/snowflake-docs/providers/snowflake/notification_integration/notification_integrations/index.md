@@ -70,12 +70,12 @@ Use the following StackQL query and manifest file to create a new <code>notifica
 /*+ create */
 INSERT INTO snowflake.notification_integration.notification_integrations (
 data__notification_hook,
-data__name,
-endpoint
+endpoint,
+data__name
 )
 SELECT 
-'{ notification_hook }',
 '{ name }',
+'{ notification_hook }',
 '{ endpoint }'
 ;
 ```

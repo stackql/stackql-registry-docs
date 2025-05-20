@@ -124,16 +124,16 @@ Use the following StackQL query and manifest file to create a new <code>tables</
 ```sql
 /*+ create */
 INSERT INTO snowflake.table.tables (
-endpoint,
 name,
+endpoint,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

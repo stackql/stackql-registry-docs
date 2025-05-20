@@ -78,8 +78,8 @@ Use the following StackQL query and manifest file to create a new <code>roles</c
 ```sql
 /*+ create */
 INSERT INTO snowflake.role.roles (
-data__name,
-endpoint
+endpoint,
+data__name
 )
 SELECT 
 '{ name }',

@@ -74,13 +74,13 @@ Use the following StackQL query and manifest file to create a new <code>external
 ```sql
 /*+ create */
 INSERT INTO snowflake.external_volume.external_volumes (
-data__name,
 endpoint,
+data__name,
 data__storage_locations
 )
 SELECT 
-'{ endpoint }',
 '{ name }',
+'{ endpoint }',
 '{ storage_locations }'
 ;
 ```

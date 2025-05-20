@@ -98,16 +98,16 @@ Use the following StackQL query and manifest file to create a new <code>event_ta
 ```sql
 /*+ create */
 INSERT INTO snowflake.event_table.event_tables (
-data__name,
 endpoint,
+data__name,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

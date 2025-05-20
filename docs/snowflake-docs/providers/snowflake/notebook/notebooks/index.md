@@ -115,16 +115,16 @@ Use the following StackQL query and manifest file to create a new <code>notebook
 ```sql
 /*+ create */
 INSERT INTO snowflake.notebook.notebooks (
-data__name,
 endpoint,
+data__name,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

@@ -92,24 +92,24 @@ Use the following StackQL query and manifest file to create a new <code>procedur
 ```sql
 /*+ create */
 INSERT INTO snowflake.procedure.procedures (
-data__arguments,
 data__name,
 data__return_type,
+data__arguments,
 endpoint,
 data__language_config,
+data__body,
 schema,
-database,
-data__body
+database
 )
 SELECT 
 '{ database }',
+'{ body }',
+'{ endpoint }',
+'{ arguments }',
+'{ schema }',
 '{ language_config }',
 '{ name }',
-'{ schema }',
-'{ return_type }',
-'{ endpoint }',
-'{ body }',
-'{ arguments }'
+'{ return_type }'
 ;
 ```
 </TabItem>

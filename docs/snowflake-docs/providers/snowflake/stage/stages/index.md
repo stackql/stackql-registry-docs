@@ -91,16 +91,16 @@ Use the following StackQL query and manifest file to create a new <code>stages</
 ```sql
 /*+ create */
 INSERT INTO snowflake.stage.stages (
-data__name,
 endpoint,
+data__name,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

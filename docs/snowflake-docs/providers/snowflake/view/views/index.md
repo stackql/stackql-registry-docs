@@ -83,20 +83,20 @@ Use the following StackQL query and manifest file to create a new <code>views</c
 ```sql
 /*+ create */
 INSERT INTO snowflake.view.views (
+data__query,
 data__name,
 endpoint,
-data__columns,
+schema,
 database,
-data__query,
-schema
+data__columns
 )
 SELECT 
 '{ database }',
-'{ name }',
-'{ schema }',
-'{ columns }',
+'{ query }',
 '{ endpoint }',
-'{ query }'
+'{ schema }',
+'{ name }',
+'{ columns }'
 ;
 ```
 </TabItem>

@@ -49,18 +49,18 @@ Use the following StackQL query and manifest file to create a new <code>privileg
 ```sql
 /*+ create */
 INSERT INTO snowflake.grant.privileges (
+granteeName,
 endpoint,
 granteeType,
-granteeName,
 securableType,
 securableName
 )
 SELECT 
-'{ granteeType }',
-'{ securableName }',
-'{ endpoint }',
 '{ granteeName }',
-'{ securableType }'
+'{ endpoint }',
+'{ securableType }',
+'{ granteeType }',
+'{ securableName }'
 ;
 ```
 </TabItem>

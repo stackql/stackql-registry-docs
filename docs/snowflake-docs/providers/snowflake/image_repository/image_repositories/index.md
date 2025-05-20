@@ -73,16 +73,16 @@ Use the following StackQL query and manifest file to create a new <code>image_re
 ```sql
 /*+ create */
 INSERT INTO snowflake.image_repository.image_repositories (
-data__name,
 endpoint,
+data__name,
 schema,
 database
 )
 SELECT 
-'{ endpoint }',
-'{ name }',
 '{ database }',
-'{ schema }'
+'{ name }',
+'{ schema }',
+'{ endpoint }'
 ;
 ```
 </TabItem>
