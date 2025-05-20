@@ -32,6 +32,7 @@ const allProviders = [
     'pagerduty',
     'datadog',
     'homebrew',
+    'snowflake',
     rootName];
        
 const appendToOutput = (providers) => {

@@ -1,0 +1,179 @@
+---
+title: tables
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - tables
+  - table
+  - snowflake
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage snowflake resources using SQL
+custom_edit_url: null
+image: /img/providers/snowflake/stackql-snowflake-provider-featured-image.png
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Creates, updates, deletes, gets or lists a <code>tables</code> resource.
+
+## Overview
+<table><tbody>
+<tr><td><b>Name</b></td><td><code>tables</code></td></tr>
+<tr><td><b>Type</b></td><td>Resource</td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="snowflake.table.tables" /></td></tr>
+</tbody></table>
+
+## Fields
+| Name | Datatype | Description |
+|:-----|:---------|:------------|
+| <CopyableCode code="name" /> | `string` | Specifies the name for the table, must be unique for the schema in which the table is created |
+| <CopyableCode code="automatic_clustering" /> | `boolean` | If Automatic Clustering is enabled for your account, specifies whether it is explicitly enabled or disabled for the table. |
+| <CopyableCode code="budget" /> | `string` | Name of the budget if the object is monitored by a budget |
+| <CopyableCode code="bytes" /> | `integer` | Number of bytes that will be scanned if the entire table is scanned in a query. Note that this number may be different than the number of actual physical bytes stored on-disk for the table |
+| <CopyableCode code="change_tracking" /> | `boolean` | Change tracking is enabled or disabled |
+| <CopyableCode code="cluster_by" /> | `array` | Specifies one or more columns or column expressions in the table as the clustering key |
+| <CopyableCode code="columns" /> | `array` |  |
+| <CopyableCode code="comment" /> | `string` | Comment for the table |
+| <CopyableCode code="constraints" /> | `array` |  |
+| <CopyableCode code="created_on" /> | `string` | Date and time when the table was created. |
+| <CopyableCode code="data_retention_time_in_days" /> | `integer` | Specifies the retention period for the table so that Time Travel actions SELECT, CLONE, UNDROP can be performed on historical data in the table |
+| <CopyableCode code="database_name" /> | `string` | Database in which the table is stored |
+| <CopyableCode code="default_ddl_collation" /> | `string` | Specifies a default collation specification for the columns in the table, including columns added to the table in the future |
+| <CopyableCode code="dropped_on" /> | `string` | Date and time when the table was dropped |
+| <CopyableCode code="enable_schema_evolution" /> | `boolean` | Table has schema evolution enabled or disabled |
+| <CopyableCode code="kind" /> | `string` | Table type - permanent, transient, or temporary |
+| <CopyableCode code="max_data_extension_time_in_days" /> | `integer` | Specifies the retention period for the table so that Time Travel actions SELECT, CLONE, UNDROP can be performed on historical data in the table |
+| <CopyableCode code="owner" /> | `string` | Role that owns the table |
+| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the object. |
+| <CopyableCode code="rows" /> | `integer` | Number of rows in the table. Returns NULL for external tables. |
+| <CopyableCode code="schema_name" /> | `string` | Schema in which the table is stored |
+| <CopyableCode code="search_optimization" /> | `boolean` | If ON, the table has the search optimization service enabled |
+| <CopyableCode code="search_optimization_bytes" /> | `integer` | Number of additional bytes of storage that the search optimization service consumes for this table |
+| <CopyableCode code="search_optimization_progress" /> | `integer` | Percentage of the table that has been optimized for search. |
+| <CopyableCode code="table_type" /> | `string` | Type of the table |
+
+## Methods
+| Name | Accessible by | Required Params | Description |
+|:-----|:--------------|:----------------|:------------|
+| <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a Table using the describe command output. |
+| <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists the tables under the database and schema. |
+| <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create a table. |
+| <CopyableCode code="create_table_as_select_deprecated" /> | `INSERT` | <CopyableCode code="database, name, query, schema, data__name, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_like" /> | `INSERT` | <CopyableCode code="database, name, schema, endpoint" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="create_table_like_deprecated" /> | `INSERT` | <CopyableCode code="database, name, newTableName, schema, endpoint" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a table with the given name. |
+| <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database, name, schema, data__name, endpoint" /> | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
+| <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Create a new table by cloning from the specified resource |
+| <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database, query, schema, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database, query, schema, endpoint" /> | Create a table using template. |
+| <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database, name, query, schema, endpoint" /> | Create a table using template. |
+| <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of a table |
+| <CopyableCode code="resume_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of a table |
+| <CopyableCode code="suspend_recluster_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of a table |
+| <CopyableCode code="suspend_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of a table |
+| <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database, name, schema, targetName, endpoint" /> | Swap with another table |
+| <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, targetTableName, endpoint" /> | Swap with another table |
+| <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Undrop specified table |
+
+## `SELECT` examples
+
+Lists the tables under the database and schema.
+
+
+```sql
+SELECT
+name,
+automatic_clustering,
+budget,
+bytes,
+change_tracking,
+cluster_by,
+columns,
+comment,
+constraints,
+created_on,
+data_retention_time_in_days,
+database_name,
+default_ddl_collation,
+dropped_on,
+enable_schema_evolution,
+kind,
+max_data_extension_time_in_days,
+owner,
+owner_role_type,
+rows,
+schema_name,
+search_optimization,
+search_optimization_bytes,
+search_optimization_progress,
+table_type
+FROM snowflake.table.tables
+WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+```
+## `INSERT` example
+
+Use the following StackQL query and manifest file to create a new <code>tables</code> resource.
+
+<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.table.tables (
+endpoint,
+name,
+schema,
+database
+)
+SELECT 
+'{ endpoint }',
+'{ name }',
+'{ database }',
+'{ schema }'
+;
+```
+</TabItem>
+<TabItem value="manifest">
+
+```yaml
+- name: tables
+  props:
+  - name: database
+    value: string
+  - name: name
+    value: string
+  - name: schema
+    value: string
+  - name: endpoint
+    value: string
+
+```
+</TabItem>
+</Tabs>
+
+## `REPLACE` example
+
+Replaces all fields in the specified <code>tables</code> resource.
+
+```sql
+/*+ update */
+REPLACE snowflake.table.tables
+SET 
+
+WHERE 
+database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+```
+
+## `DELETE` example
+
+Deletes the specified <code>tables</code> resource.
+
+```sql
+/*+ delete */
+DELETE FROM snowflake.table.tables
+WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+```

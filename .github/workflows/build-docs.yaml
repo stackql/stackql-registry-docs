@@ -104,6 +104,7 @@ jobs:
              pagerduty 
              homebrew 
              datadog 
+             snowflake 
              )
             for i in "${array[@]}"
             do
