@@ -59,6 +59,10 @@ jobs:
         provider: ${{fromJson(needs.find-provider-on-change.outputs.providers)}}
 
     steps:
+      - name: Show current matrix provider
+        run: >
+          echo "⚙️ Deploying docs for matrix provider: ${{ matrix.provider }}"
+
       - name: Checkout
         uses: actions/checkout@v4.1.1
       
