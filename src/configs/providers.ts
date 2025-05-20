@@ -25,7 +25,8 @@ export const providers = [
     {name: 'pagerduty', description: 'Incident management platform for real-time operations and response workflows.', title: 'PagerDuty'},  
     {name: 'datadog', description: 'Monitoring, alerting and reporting platform for cloud platforms and applications.', title: 'Datadog'},  
     {name: 'godaddy', description: 'Domain name registrations and hosting services.', title: 'Godaddy'},
-    {name: 'homebrew', description: 'Open-source package manager for macOS and Linux.', title: 'Homebrew'},    
+    {name: 'homebrew', description: 'Open-source package manager for macOS and Linux.', title: 'Homebrew'},  
+    {name: 'snowflake', description: 'Cloud data platform for data warehousing, analytics, and secure data sharing.', title: 'Snowflake'},
 ]
 
 export const getProviderSiteUrl = (name: string) =>{

@@ -32,6 +32,7 @@ This repository contains documentation for StackQL providers, which is published
 | Netlify Deploy Confluent | [![Netlify Status](https://api.netlify.com/api/v1/badges/63149c2f-6c3d-43f1-be38-80c55c223ac0/deploy-status)](https://app.netlify.com/sites/stackql-confluent-docs/deploys) | [confluent-docs.stackql.io](https://confluent-docs.stackql.io)<br/>[confluent.stackql.io](https://confluent.stackql.io) |
 | Netlify Deploy Databricks Account | [![Netlify Status](https://api.netlify.com/api/v1/badges/9250b360-9e36-49dd-8cc8-b8cbe2f8d983/deploy-status)](https://app.netlify.com/sites/stackql-databricks-account-docs/deploys) | [databricks-account-docs.stackql.io](https://databricks-account-docs.stackql.io)<br/>[databricks-account.stackql.io](https://databricks-account.stackql.io) |
 | Netlify Deploy Databricks Workspace | [![Netlify Status](https://api.netlify.com/api/v1/badges/7456d122-1d4a-445c-b410-7a9aa1bd3f05/deploy-status)](https://app.netlify.com/sites/stackql-databricks-workspace-docs/deploys) | [databricks-workspace-docs.stackql.io](https://databricks-workspace-docs.stackql.io)<br/>[databricks-workspace.stackql.io](https://databricks-workspace.stackql.io) |
+| Netlify Deploy Snowflake | [![Netlify Status](https://api.netlify.com/api/v1/badges/e14bf4c8-1dca-4250-a19b-bffaa62fac9a/deploy-status)](https://app.netlify.com/projects/stackql-snowflake-docs/deploys) | [snowflake-docs.stackql.io](https://snowflake-docs.stackql.io)<br/>[snowflake.stackql.io](https://snowflake.stackql.io) |
 
 ## Adding Docs for a New Provider
 
