@@ -117,7 +117,7 @@ jobs:
           fi
 
       - name: Publish
-        uses: netlify/actions/cli@master
+        uses: stackql/actions/cli@replace-deprecated-set-output
         env:
           NETLIFY_SITE_ID: ${{ secrets[format('NETLIFY_SITE_ID_{0}', matrix.provider)] }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -132,7 +132,7 @@ jobs:
 
       - name: Send Slack message
         id: slack
-        uses: slackapi/slack-github-action@v1.26.0
+        uses: slackapi/slack-github-action@v2.1.0          
         with:
           payload-file-path: slack-message.json
         env:
