@@ -128,6 +128,10 @@ jobs:
         with:
           args: deploy --prod --dir=./build --message="Deploy from Github Action" --no-build
 
+      - name: Preparing and sending Slack message
+        run: >
+          echo "📣 Preparing and sending Slack message for matrix provider: ${{ matrix.provider }}"
+
       - name: Prepare Slack message
         env: 
           PROVIDER: ${{ matrix.provider }}
