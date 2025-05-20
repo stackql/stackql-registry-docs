@@ -136,9 +136,9 @@ jobs:
 
       - name: Send Slack message
         id: slack
-        uses: slackapi/slack-github-action@v2.1.0          
+        uses: slackapi/slack-github-action@v1.26.0
         with:
           payload-file-path: slack-message.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK          
