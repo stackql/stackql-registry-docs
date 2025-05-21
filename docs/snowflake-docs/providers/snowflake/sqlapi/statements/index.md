@@ -64,5 +64,6 @@ statementHandle,
 statementStatusUrl,
 stats
 FROM snowflake.sqlapi.statements
-WHERE User-Agent = '{{ User-Agent }}' AND endpoint = '{{ endpoint }}';
+WHERE User-Agent = '{{ User-Agent }}'
+AND endpoint = '{{ endpoint }}';
 ```

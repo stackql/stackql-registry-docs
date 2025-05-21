@@ -73,56 +73,109 @@ schema_name,
 state,
 warehouse
 FROM snowflake.alert.alerts
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>alerts</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.alert.alerts (
-data__condition,
-endpoint,
-schema_name,
+data__name,
+data__comment,
 data__schedule,
+data__warehouse,
+data__condition,
 data__action,
 database_name,
-data__name
+schema_name,
+endpoint
 )
 SELECT 
-'{ schedule }',
-'{ database_name }',
-'{ name }',
-'{ action }',
-'{ schema_name }',
-'{ condition }',
-'{ endpoint }'
+'{{ name }}',
+'{{ comment }}',
+'{{ schedule }}',
+'{{ warehouse }}',
+'{{ condition }}',
+'{{ action }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.alert.alerts (
+data__name,
+data__schedule,
+data__condition,
+data__action,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ schedule }}',
+'{{ condition }}',
+'{{ action }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: alerts
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__action
-    value: string
-  - name: data__condition
-    value: string
-  - name: data__name
-    value: string
-  - name: data__schedule
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__action
+      value: string
+    - name: data__condition
+      value: string
+    - name: data__name
+      value: string
+    - name: data__schedule
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: comment
+      value: string
+    - name: schedule
+      props:
+        - name: schedule_type
+          value: string
+    - name: warehouse
+      value: string
+    - name: condition
+      value: string
+    - name: action
+      value: string
 
 ```
 </TabItem>
@@ -135,5 +188,8 @@ Deletes the specified <code>alerts</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.alert.alerts
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

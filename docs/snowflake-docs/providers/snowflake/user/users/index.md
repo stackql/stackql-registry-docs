@@ -134,8 +134,74 @@ WHERE endpoint = '{{ endpoint }}';
 
 Use the following StackQL query and manifest file to create a new <code>users</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.user.users (
+data__name,
+data__password,
+data__login_name,
+data__display_name,
+data__first_name,
+data__middle_name,
+data__last_name,
+data__email,
+data__must_change_password,
+data__disabled,
+data__days_to_expiry,
+data__mins_to_unlock,
+data__default_warehouse,
+data__default_namespace,
+data__default_role,
+data__default_secondary_roles,
+data__mins_to_bypass_mfa,
+data__rsa_public_key,
+data__rsa_public_key_2,
+data__comment,
+data__type,
+data__enable_unredacted_query_syntax_error,
+data__network_policy,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ password }}',
+'{{ login_name }}',
+'{{ display_name }}',
+'{{ first_name }}',
+'{{ middle_name }}',
+'{{ last_name }}',
+'{{ email }}',
+'{{ must_change_password }}',
+'{{ disabled }}',
+'{{ days_to_expiry }}',
+'{{ mins_to_unlock }}',
+'{{ default_warehouse }}',
+'{{ default_namespace }}',
+'{{ default_role }}',
+'{{ default_secondary_roles }}',
+'{{ mins_to_bypass_mfa }}',
+'{{ rsa_public_key }}',
+'{{ rsa_public_key_2 }}',
+'{{ comment }}',
+'{{ type }}',
+'{{ enable_unredacted_query_syntax_error }}',
+'{{ network_policy }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -144,20 +210,67 @@ data__name,
 endpoint
 )
 SELECT 
-'{ name }',
-'{ endpoint }'
+'{{ name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: users
   props:
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: password
+      value: string
+    - name: login_name
+      value: string
+    - name: display_name
+      value: string
+    - name: first_name
+      value: string
+    - name: middle_name
+      value: string
+    - name: last_name
+      value: string
+    - name: email
+      value: string
+    - name: must_change_password
+      value: boolean
+    - name: disabled
+      value: boolean
+    - name: days_to_expiry
+      value: integer
+    - name: mins_to_unlock
+      value: integer
+    - name: default_warehouse
+      value: string
+    - name: default_namespace
+      value: string
+    - name: default_role
+      value: string
+    - name: default_secondary_roles
+      value: string
+    - name: mins_to_bypass_mfa
+      value: integer
+    - name: rsa_public_key
+      value: string
+    - name: rsa_public_key_2
+      value: string
+    - name: comment
+      value: string
+    - name: type
+      value: string
+    - name: enable_unredacted_query_syntax_error
+      value: boolean
+    - name: network_policy
+      value: string
 
 ```
 </TabItem>
@@ -171,9 +284,33 @@ Replaces all fields in the specified <code>users</code> resource.
 /*+ update */
 REPLACE snowflake.user.users
 SET 
-
+name = '{{ name }}',
+password = '{{ password }}',
+login_name = '{{ login_name }}',
+display_name = '{{ display_name }}',
+first_name = '{{ first_name }}',
+middle_name = '{{ middle_name }}',
+last_name = '{{ last_name }}',
+email = '{{ email }}',
+must_change_password = true|false,
+disabled = true|false,
+days_to_expiry = '{{ days_to_expiry }}',
+mins_to_unlock = '{{ mins_to_unlock }}',
+default_warehouse = '{{ default_warehouse }}',
+default_namespace = '{{ default_namespace }}',
+default_role = '{{ default_role }}',
+default_secondary_roles = '{{ default_secondary_roles }}',
+mins_to_bypass_mfa = '{{ mins_to_bypass_mfa }}',
+rsa_public_key = '{{ rsa_public_key }}',
+rsa_public_key_2 = '{{ rsa_public_key_2 }}',
+comment = '{{ comment }}',
+type = '{{ type }}',
+enable_unredacted_query_syntax_error = true|false,
+network_policy = '{{ network_policy }}'
 WHERE 
-name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+name = '{{ name }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -183,5 +320,6 @@ Deletes the specified <code>users</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.user.users
-WHERE name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

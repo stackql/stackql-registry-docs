@@ -46,5 +46,9 @@ Generate a presigned url and optionally encryption materials for uploading and d
 SELECT
 presigned_url
 FROM snowflake.stage.presigned_url
-WHERE database_name = '{{ database_name }}' AND filePath = '{{ filePath }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND filePath = '{{ filePath }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

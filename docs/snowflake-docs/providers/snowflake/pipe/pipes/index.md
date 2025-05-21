@@ -78,48 +78,103 @@ owner_role_type,
 pattern,
 schema_name
 FROM snowflake.pipe.pipes
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pipes</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.pipe.pipes (
-endpoint,
-schema_name,
+data__name,
+data__comment,
+data__auto_ingest,
+data__error_integration,
+data__aws_sns_topic,
+data__integration,
 data__copy_statement,
 database_name,
-data__name
+schema_name,
+endpoint
 )
 SELECT 
-'{ database_name }',
-'{ name }',
-'{ endpoint }',
-'{ schema_name }',
-'{ copy_statement }'
+'{{ name }}',
+'{{ comment }}',
+'{{ auto_ingest }}',
+'{{ error_integration }}',
+'{{ aws_sns_topic }}',
+'{{ integration }}',
+'{{ copy_statement }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.pipe.pipes (
+data__name,
+data__copy_statement,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ copy_statement }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: pipes
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__copy_statement
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__copy_statement
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: comment
+      value: string
+    - name: auto_ingest
+      value: boolean
+    - name: error_integration
+      value: string
+    - name: aws_sns_topic
+      value: string
+    - name: integration
+      value: string
+    - name: copy_statement
+      value: string
 
 ```
 </TabItem>
@@ -132,5 +187,8 @@ Deletes the specified <code>pipes</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.pipe.pipes
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

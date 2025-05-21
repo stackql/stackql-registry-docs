@@ -129,42 +129,119 @@ WHERE endpoint = '{{ endpoint }}';
 
 Use the following StackQL query and manifest file to create a new <code>accounts</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.account.accounts (
-endpoint,
-data__admin_name,
+data__name,
+data__region_group,
+data__region,
 data__edition,
+data__comment,
+data__admin_name,
+data__admin_password,
+data__admin_rsa_public_key,
+data__admin_user_type,
+data__first_name,
+data__last_name,
 data__email,
-data__name
+data__must_change_password,
+data__polaris,
+endpoint
 )
 SELECT 
-'{ admin_name }',
-'{ name }',
-'{ edition }',
-'{ endpoint }',
-'{ email }'
+'{{ name }}',
+'{{ region_group }}',
+'{{ region }}',
+'{{ edition }}',
+'{{ comment }}',
+'{{ admin_name }}',
+'{{ admin_password }}',
+'{{ admin_rsa_public_key }}',
+'{{ admin_user_type }}',
+'{{ first_name }}',
+'{{ last_name }}',
+'{{ email }}',
+'{{ must_change_password }}',
+'{{ polaris }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.account.accounts (
+data__name,
+data__admin_name,
+data__email,
+data__edition,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ admin_name }}',
+'{{ email }}',
+'{{ edition }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: accounts
   props:
-  - name: data__admin_name
-    value: string
-  - name: data__edition
-    value: string
-  - name: data__email
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: data__admin_name
+      value: string
+    - name: data__edition
+      value: string
+    - name: data__email
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: region_group
+      value: string
+    - name: region
+      value: string
+    - name: edition
+      value: string
+    - name: comment
+      value: string
+    - name: admin_name
+      value: string
+    - name: admin_password
+      value: string
+    - name: admin_rsa_public_key
+      value: string
+    - name: admin_user_type
+      value: string
+    - name: first_name
+      value: string
+    - name: last_name
+      value: string
+    - name: email
+      value: string
+    - name: must_change_password
+      value: boolean
+    - name: polaris
+      value: boolean
 
 ```
 </TabItem>
@@ -177,5 +254,7 @@ Deletes the specified <code>accounts</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.account.accounts
-WHERE gracePeriodInDays = '{ gracePeriodInDays }' AND name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE gracePeriodInDays = '{{ gracePeriodInDays }}'
+AND name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

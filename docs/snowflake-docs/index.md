@@ -26,7 +26,7 @@ Snowflake for managing data warehousing, analytics, and secure data sharing with
 <div class="row">
 <div class="providerDocColumn">
 <span>total services:&nbsp;<b>32</b></span><br />
-<span>total resources:&nbsp;<b>47</b></span><br />
+<span>total resources:&nbsp;<b>79</b></span><br />
 </div>
 </div>
 
@@ -81,24 +81,24 @@ stackql.exe shell --auth=$Auth
 <div class="providerDocColumn">
 <a href="/providers/snowflake/account/">account</a><br />
 <a href="/providers/snowflake/alert/">alert</a><br />
-<a href="/providers/snowflake/api_integration/">api_integration</a><br />
-<a href="/providers/snowflake/catalog_integration/">catalog_integration</a><br />
-<a href="/providers/snowflake/compute_pool/">compute_pool</a><br />
+<a href="/providers/snowflake/api-integration/">api-integration</a><br />
+<a href="/providers/snowflake/catalog-integration/">catalog-integration</a><br />
+<a href="/providers/snowflake/compute-pool/">compute-pool</a><br />
 <a href="/providers/snowflake/database/">database</a><br />
-<a href="/providers/snowflake/database_role/">database_role</a><br />
-<a href="/providers/snowflake/dynamic_table/">dynamic_table</a><br />
-<a href="/providers/snowflake/event_table/">event_table</a><br />
-<a href="/providers/snowflake/external_volume/">external_volume</a><br />
+<a href="/providers/snowflake/database-role/">database-role</a><br />
+<a href="/providers/snowflake/dynamic-table/">dynamic-table</a><br />
+<a href="/providers/snowflake/event-table/">event-table</a><br />
+<a href="/providers/snowflake/external-volume/">external-volume</a><br />
 <a href="/providers/snowflake/function/">function</a><br />
 <a href="/providers/snowflake/grant/">grant</a><br />
-<a href="/providers/snowflake/iceberg_table/">iceberg_table</a><br />
-<a href="/providers/snowflake/image_repository/">image_repository</a><br />
-<a href="/providers/snowflake/managed_account/">managed_account</a><br />
-<a href="/providers/snowflake/network_policy/">network_policy</a><br />
+<a href="/providers/snowflake/iceberg-table/">iceberg-table</a><br />
+<a href="/providers/snowflake/image-repository/">image-repository</a><br />
+<a href="/providers/snowflake/managed-account/">managed-account</a><br />
+<a href="/providers/snowflake/network-policy/">network-policy</a><br />
 </div>
 <div class="providerDocColumn">
 <a href="/providers/snowflake/notebook/">notebook</a><br />
-<a href="/providers/snowflake/notification_integration/">notification_integration</a><br />
+<a href="/providers/snowflake/notification-integration/">notification-integration</a><br />
 <a href="/providers/snowflake/pipe/">pipe</a><br />
 <a href="/providers/snowflake/procedure/">procedure</a><br />
 <a href="/providers/snowflake/result/">result</a><br />
@@ -110,7 +110,7 @@ stackql.exe shell --auth=$Auth
 <a href="/providers/snowflake/table/">table</a><br />
 <a href="/providers/snowflake/task/">task</a><br />
 <a href="/providers/snowflake/user/">user</a><br />
-<a href="/providers/snowflake/user_defined_function/">user_defined_function</a><br />
+<a href="/providers/snowflake/user-defined-function/">user-defined-function</a><br />
 <a href="/providers/snowflake/view/">view</a><br />
 <a href="/providers/snowflake/warehouse/">warehouse</a><br />
 </div>

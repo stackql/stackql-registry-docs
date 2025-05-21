@@ -137,8 +137,70 @@ WHERE endpoint = '{{ endpoint }}';
 
 Use the following StackQL query and manifest file to create a new <code>warehouses</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.warehouse.warehouses (
+data__name,
+data__warehouse_type,
+data__warehouse_size,
+data__wait_for_completion,
+data__max_cluster_count,
+data__min_cluster_count,
+data__scaling_policy,
+data__auto_suspend,
+data__auto_resume,
+data__initially_suspended,
+data__resource_monitor,
+data__comment,
+data__enable_query_acceleration,
+data__query_acceleration_max_scale_factor,
+data__max_concurrency_level,
+data__statement_queued_timeout_in_seconds,
+data__statement_timeout_in_seconds,
+data__type,
+data__size,
+data__warehouse_credit_limit,
+data__target_statement_size,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ warehouse_type }}',
+'{{ warehouse_size }}',
+'{{ wait_for_completion }}',
+'{{ max_cluster_count }}',
+'{{ min_cluster_count }}',
+'{{ scaling_policy }}',
+'{{ auto_suspend }}',
+'{{ auto_resume }}',
+'{{ initially_suspended }}',
+'{{ resource_monitor }}',
+'{{ comment }}',
+'{{ enable_query_acceleration }}',
+'{{ query_acceleration_max_scale_factor }}',
+'{{ max_concurrency_level }}',
+'{{ statement_queued_timeout_in_seconds }}',
+'{{ statement_timeout_in_seconds }}',
+'{{ type }}',
+'{{ size }}',
+'{{ warehouse_credit_limit }}',
+'{{ target_statement_size }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -147,20 +209,63 @@ data__name,
 endpoint
 )
 SELECT 
-'{ name }',
-'{ endpoint }'
+'{{ name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: warehouses
   props:
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: warehouse_type
+      value: string
+    - name: warehouse_size
+      value: string
+    - name: wait_for_completion
+      value: string
+    - name: max_cluster_count
+      value: integer
+    - name: min_cluster_count
+      value: integer
+    - name: scaling_policy
+      value: string
+    - name: auto_suspend
+      value: integer
+    - name: auto_resume
+      value: string
+    - name: initially_suspended
+      value: string
+    - name: resource_monitor
+      value: string
+    - name: comment
+      value: string
+    - name: enable_query_acceleration
+      value: string
+    - name: query_acceleration_max_scale_factor
+      value: integer
+    - name: max_concurrency_level
+      value: integer
+    - name: statement_queued_timeout_in_seconds
+      value: integer
+    - name: statement_timeout_in_seconds
+      value: integer
+    - name: type
+      value: string
+    - name: size
+      value: string
+    - name: warehouse_credit_limit
+      value: integer
+    - name: target_statement_size
+      value: string
 
 ```
 </TabItem>
@@ -174,9 +279,31 @@ Replaces all fields in the specified <code>warehouses</code> resource.
 /*+ update */
 REPLACE snowflake.warehouse.warehouses
 SET 
-
+name = '{{ name }}',
+warehouse_type = '{{ warehouse_type }}',
+warehouse_size = '{{ warehouse_size }}',
+wait_for_completion = '{{ wait_for_completion }}',
+max_cluster_count = '{{ max_cluster_count }}',
+min_cluster_count = '{{ min_cluster_count }}',
+scaling_policy = '{{ scaling_policy }}',
+auto_suspend = '{{ auto_suspend }}',
+auto_resume = '{{ auto_resume }}',
+initially_suspended = '{{ initially_suspended }}',
+resource_monitor = '{{ resource_monitor }}',
+comment = '{{ comment }}',
+enable_query_acceleration = '{{ enable_query_acceleration }}',
+query_acceleration_max_scale_factor = '{{ query_acceleration_max_scale_factor }}',
+max_concurrency_level = '{{ max_concurrency_level }}',
+statement_queued_timeout_in_seconds = '{{ statement_queued_timeout_in_seconds }}',
+statement_timeout_in_seconds = '{{ statement_timeout_in_seconds }}',
+type = '{{ type }}',
+size = '{{ size }}',
+warehouse_credit_limit = '{{ warehouse_credit_limit }}',
+target_statement_size = '{{ target_statement_size }}'
 WHERE 
-name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+name = '{{ name }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -186,5 +313,6 @@ Deletes the specified <code>warehouses</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.warehouse.warehouses
-WHERE name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

@@ -79,44 +79,122 @@ region,
 storage_integration,
 url
 FROM snowflake.stage.stages
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>stages</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.stage.stages (
-database_name,
 data__name,
+data__kind,
+data__url,
+data__endpoint,
+data__storage_integration,
+data__comment,
+data__credentials,
+data__encryption,
+data__directory_table,
+database_name,
 schema_name,
 endpoint
 )
 SELECT 
-'{ endpoint }',
-'{ database_name }',
-'{ name }',
-'{ schema_name }'
+'{{ name }}',
+'{{ kind }}',
+'{{ url }}',
+'{{ endpoint }}',
+'{{ storage_integration }}',
+'{{ comment }}',
+'{{ credentials }}',
+'{{ encryption }}',
+'{{ directory_table }}',
+'{{ database_name }}',
+'{{ schema_name }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.stage.stages (
+data__name,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: stages
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: kind
+      value: string
+    - name: url
+      value: string
+    - name: endpoint
+      value: string
+    - name: storage_integration
+      value: string
+    - name: comment
+      value: string
+    - name: credentials
+      props:
+        - name: credential_type
+          value: string
+    - name: encryption
+      props:
+        - name: type
+          value: string
+        - name: master_key
+          value: string
+        - name: kms_key_id
+          value: string
+    - name: directory_table
+      props:
+        - name: enable
+          value: boolean
+        - name: refresh_on_create
+          value: boolean
+        - name: auto_refresh
+          value: boolean
+        - name: notification_integration
+          value: string
 
 ```
 </TabItem>
@@ -129,5 +207,8 @@ Deletes the specified <code>stages</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.stage.stages
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

@@ -44,5 +44,10 @@ Deletes the specified <code>grant_options</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.grant.grant_options
-WHERE granteeName = '{ granteeName }' AND granteeType = '{ granteeType }' AND privilege = '{ privilege }' AND securableName = '{ securableName }' AND securableType = '{ securableType }' AND endpoint = '{ endpoint }';
+WHERE granteeName = '{{ granteeName }}'
+AND granteeType = '{{ granteeType }}'
+AND privilege = '{{ privilege }}'
+AND securableName = '{{ securableName }}'
+AND securableType = '{{ securableType }}'
+AND endpoint = '{{ endpoint }}';
 ```

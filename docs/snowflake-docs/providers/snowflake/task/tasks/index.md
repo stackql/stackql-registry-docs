@@ -109,48 +109,155 @@ user_task_managed_initial_warehouse_size,
 user_task_timeout_ms,
 warehouse
 FROM snowflake.task.tasks
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tasks</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.task.tasks (
-endpoint,
-schema_name,
+data__name,
+data__warehouse,
+data__schedule,
+data__comment,
+data__finalize,
+data__task_auto_retry_attempts,
+data__config,
+data__session_parameters,
 data__definition,
+data__predecessors,
+data__user_task_managed_initial_warehouse_size,
+data__target_completion_interval,
+data__serverless_task_min_statement_size,
+data__serverless_task_max_statement_size,
+data__user_task_timeout_ms,
+data__suspend_task_after_num_failures,
+data__condition,
+data__allow_overlapping_execution,
+data__error_integration,
 database_name,
-data__name
+schema_name,
+endpoint
 )
 SELECT 
-'{ database_name }',
-'{ name }',
-'{ endpoint }',
-'{ schema_name }',
-'{ definition }'
+'{{ name }}',
+'{{ warehouse }}',
+'{{ schedule }}',
+'{{ comment }}',
+'{{ finalize }}',
+'{{ task_auto_retry_attempts }}',
+'{{ config }}',
+'{{ session_parameters }}',
+'{{ definition }}',
+'{{ predecessors }}',
+'{{ user_task_managed_initial_warehouse_size }}',
+'{{ target_completion_interval }}',
+'{{ serverless_task_min_statement_size }}',
+'{{ serverless_task_max_statement_size }}',
+'{{ user_task_timeout_ms }}',
+'{{ suspend_task_after_num_failures }}',
+'{{ condition }}',
+'{{ allow_overlapping_execution }}',
+'{{ error_integration }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.task.tasks (
+data__name,
+data__definition,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ definition }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: tasks
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__definition
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__definition
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: warehouse
+      value: string
+    - name: schedule
+      props:
+        - name: schedule_type
+          value: string
+    - name: comment
+      value: string
+    - name: finalize
+      value: string
+    - name: task_auto_retry_attempts
+      value: integer
+    - name: config
+      value: object
+    - name: session_parameters
+      value: object
+    - name: definition
+      value: string
+    - name: predecessors
+      value: array
+    - name: user_task_managed_initial_warehouse_size
+      value: string
+    - name: target_completion_interval
+      props:
+        - name: schedule_type
+          value: string
+    - name: serverless_task_min_statement_size
+      value: string
+    - name: serverless_task_max_statement_size
+      value: string
+    - name: user_task_timeout_ms
+      value: integer
+    - name: suspend_task_after_num_failures
+      value: integer
+    - name: condition
+      value: string
+    - name: allow_overlapping_execution
+      value: boolean
+    - name: error_integration
+      value: string
 
 ```
 </TabItem>
@@ -164,9 +271,32 @@ Replaces all fields in the specified <code>tasks</code> resource.
 /*+ update */
 REPLACE snowflake.task.tasks
 SET 
-
+name = '{{ name }}',
+warehouse = '{{ warehouse }}',
+schedule = '{{ schedule }}',
+comment = '{{ comment }}',
+finalize = '{{ finalize }}',
+task_auto_retry_attempts = '{{ task_auto_retry_attempts }}',
+config = '{{ config }}',
+session_parameters = '{{ session_parameters }}',
+definition = '{{ definition }}',
+predecessors = '{{ predecessors }}',
+user_task_managed_initial_warehouse_size = '{{ user_task_managed_initial_warehouse_size }}',
+target_completion_interval = '{{ target_completion_interval }}',
+serverless_task_min_statement_size = '{{ serverless_task_min_statement_size }}',
+serverless_task_max_statement_size = '{{ serverless_task_max_statement_size }}',
+user_task_timeout_ms = '{{ user_task_timeout_ms }}',
+suspend_task_after_num_failures = '{{ suspend_task_after_num_failures }}',
+condition = '{{ condition }}',
+allow_overlapping_execution = true|false,
+error_integration = '{{ error_integration }}'
 WHERE 
-database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND data__definition = '{ data__definition }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND data__definition = '{{ data__definition }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -176,5 +306,8 @@ Deletes the specified <code>tasks</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.task.tasks
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
