@@ -59,22 +59,22 @@ Creates, updates, deletes, gets or lists a <code>iceberg_tables</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_iceberg_table" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Describe an iceberg table |
-| <CopyableCode code="list_iceberg_tables" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists the Apache Iceberg™ tables for which you have access privileges. |
-| <CopyableCode code="create_snowflake_managed_iceberg_table" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create a snowflake managed iceberg table (clone and undrop are separate subresources) |
-| <CopyableCode code="drop_iceberg_table" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Drop an iceberg table |
-| <CopyableCode code="clone_snowflake_managed_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, data__name, endpoint" /> | Clone a snowflake managed iceberg table |
-| <CopyableCode code="convert_to_managed_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Convert unmanaged iceberg table to managed iceberg table |
-| <CopyableCode code="create_snowflake_managed_iceberg_table_as_select" /> | `EXEC` | <CopyableCode code="database, query, schema, data__base_location, data__name, endpoint" /> | Create a snowflake managed iceberg table as select |
-| <CopyableCode code="create_snowflake_managed_iceberg_table_like" /> | `EXEC` | <CopyableCode code="database, name, schema, data__name, endpoint" /> | Creates a new table with the same column definitions as an existing table, but without copying data from the existing table. |
-| <CopyableCode code="create_unmanaged_iceberg_table_from_aws_glue_catalog" /> | `EXEC` | <CopyableCode code="database, schema, data__catalog_table_name, data__name, endpoint" /> | Create an unmanaged iceberg table from AWS Glue catalog |
-| <CopyableCode code="create_unmanaged_iceberg_table_from_delta" /> | `EXEC` | <CopyableCode code="database, schema, data__base_location, data__name, endpoint" /> | Create an unmanaged iceberg table from Delta |
-| <CopyableCode code="create_unmanaged_iceberg_table_from_iceberg_files" /> | `EXEC` | <CopyableCode code="database, schema, data__metadata_file_path, data__name, endpoint" /> | Create an unmanaged iceberg table from Iceberg files |
-| <CopyableCode code="create_unmanaged_iceberg_table_from_iceberg_rest" /> | `EXEC` | <CopyableCode code="database, schema, data__catalog_table_name, data__name, endpoint" /> | Create an unmanaged iceberg table from Iceberg REST |
-| <CopyableCode code="refresh_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Refreshes the metadata for an Apache Iceberg table that uses an external Iceberg catalog |
-| <CopyableCode code="resume_recluster_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of an iceberg table (iceberg tables managed by an external catalog do not allow clustering) |
-| <CopyableCode code="suspend_recluster_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of an iceberg table (iceberg tables managed by an external catalog do not allow clustering) |
-| <CopyableCode code="undrop_iceberg_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Undrop an iceberg table |
+| <CopyableCode code="fetch_iceberg_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Describe an iceberg table |
+| <CopyableCode code="list_iceberg_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the Apache Iceberg™ tables for which you have access privileges. |
+| <CopyableCode code="create_snowflake_managed_iceberg_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a snowflake managed iceberg table (clone and undrop are separate subresources) |
+| <CopyableCode code="drop_iceberg_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Drop an iceberg table |
+| <CopyableCode code="clone_snowflake_managed_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Clone a snowflake managed iceberg table |
+| <CopyableCode code="convert_to_managed_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Convert unmanaged iceberg table to managed iceberg table |
+| <CopyableCode code="create_snowflake_managed_iceberg_table_as_select" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, data__base_location, data__name, endpoint" /> | Create a snowflake managed iceberg table as select |
+| <CopyableCode code="create_snowflake_managed_iceberg_table_like" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Creates a new table with the same column definitions as an existing table, but without copying data from the existing table. |
+| <CopyableCode code="create_unmanaged_iceberg_table_from_aws_glue_catalog" /> | `EXEC` | <CopyableCode code="database_name, schema_name, data__catalog_table_name, data__name, endpoint" /> | Create an unmanaged iceberg table from AWS Glue catalog |
+| <CopyableCode code="create_unmanaged_iceberg_table_from_delta" /> | `EXEC` | <CopyableCode code="database_name, schema_name, data__base_location, data__name, endpoint" /> | Create an unmanaged iceberg table from Delta |
+| <CopyableCode code="create_unmanaged_iceberg_table_from_iceberg_files" /> | `EXEC` | <CopyableCode code="database_name, schema_name, data__metadata_file_path, data__name, endpoint" /> | Create an unmanaged iceberg table from Iceberg files |
+| <CopyableCode code="create_unmanaged_iceberg_table_from_iceberg_rest" /> | `EXEC` | <CopyableCode code="database_name, schema_name, data__catalog_table_name, data__name, endpoint" /> | Create an unmanaged iceberg table from Iceberg REST |
+| <CopyableCode code="refresh_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Refreshes the metadata for an Apache Iceberg table that uses an external Iceberg catalog |
+| <CopyableCode code="resume_recluster_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of an iceberg table (iceberg tables managed by an external catalog do not allow clustering) |
+| <CopyableCode code="suspend_recluster_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of an iceberg table (iceberg tables managed by an external catalog do not allow clustering) |
+| <CopyableCode code="undrop_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Undrop an iceberg table |
 
 ## `SELECT` examples
 
@@ -109,7 +109,7 @@ replace_invalid_characters,
 schema_name,
 storage_serialization_policy
 FROM snowflake.iceberg_table.iceberg_tables
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -121,16 +121,16 @@ Use the following StackQL query and manifest file to create a new <code>iceberg_
 ```sql
 /*+ create */
 INSERT INTO snowflake.iceberg_table.iceberg_tables (
-endpoint,
+database_name,
 data__name,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -139,9 +139,9 @@ SELECT
 ```yaml
 - name: iceberg_tables
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -159,5 +159,5 @@ Deletes the specified <code>iceberg_tables</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.iceberg_table.iceberg_tables
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

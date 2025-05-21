@@ -140,8 +140,8 @@ Use the following StackQL query and manifest file to create a new <code>users</c
 ```sql
 /*+ create */
 INSERT INTO snowflake.user.users (
-endpoint,
-data__name
+data__name,
+endpoint
 )
 SELECT 
 '{ name }',

@@ -53,11 +53,11 @@ Creates, updates, deletes, gets or lists a <code>event_tables</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_event_table" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch an event table |
-| <CopyableCode code="list_event_tables" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List event tables |
-| <CopyableCode code="create_event_table" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create an event table |
-| <CopyableCode code="delete_event_table" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete an event table |
-| <CopyableCode code="rename_event_table" /> | `EXEC` | <CopyableCode code="database, name, schema, targetName, endpoint" /> | Rename the event table |
+| <CopyableCode code="fetch_event_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch an event table |
+| <CopyableCode code="list_event_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List event tables |
+| <CopyableCode code="create_event_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create an event table |
+| <CopyableCode code="delete_event_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete an event table |
+| <CopyableCode code="rename_event_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Rename the event table |
 
 ## `SELECT` examples
 
@@ -86,7 +86,7 @@ search_optimization,
 search_optimization_bytes,
 search_optimization_progress
 FROM snowflake.event_table.event_tables
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -98,16 +98,16 @@ Use the following StackQL query and manifest file to create a new <code>event_ta
 ```sql
 /*+ create */
 INSERT INTO snowflake.event_table.event_tables (
-endpoint,
+database_name,
 data__name,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -116,9 +116,9 @@ SELECT
 ```yaml
 - name: event_tables
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -136,5 +136,5 @@ Deletes the specified <code>event_tables</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.event_table.event_tables
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

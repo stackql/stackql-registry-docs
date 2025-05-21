@@ -77,8 +77,8 @@ data__securable_type,
 endpoint
 )
 SELECT 
-'{ name }',
 '{ securable_type }',
+'{ name }',
 '{ endpoint }'
 ;
 ```

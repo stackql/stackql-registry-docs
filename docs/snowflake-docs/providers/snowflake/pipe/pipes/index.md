@@ -49,11 +49,11 @@ Creates, updates, deletes, gets or lists a <code>pipes</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_pipe" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a pipe |
-| <CopyableCode code="list_pipes" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List pipes |
-| <CopyableCode code="create_pipe" /> | `INSERT` | <CopyableCode code="database, schema, data__copy_statement, data__name, endpoint" /> | Create a pipe |
-| <CopyableCode code="delete_pipe" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a pipe |
-| <CopyableCode code="refresh_pipe" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Refresh the pipe |
+| <CopyableCode code="fetch_pipe" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a pipe |
+| <CopyableCode code="list_pipes" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List pipes |
+| <CopyableCode code="create_pipe" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__copy_statement, data__name, endpoint" /> | Create a pipe |
+| <CopyableCode code="delete_pipe" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a pipe |
+| <CopyableCode code="refresh_pipe" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Refresh the pipe |
 
 ## `SELECT` examples
 
@@ -78,7 +78,7 @@ owner_role_type,
 pattern,
 schema_name
 FROM snowflake.pipe.pipes
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -90,17 +90,17 @@ Use the following StackQL query and manifest file to create a new <code>pipes</c
 ```sql
 /*+ create */
 INSERT INTO snowflake.pipe.pipes (
-data__name,
-data__copy_statement,
 endpoint,
-schema,
-database
+schema_name,
+data__copy_statement,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
-'{ endpoint }',
-'{ schema }',
+'{ database_name }',
 '{ name }',
+'{ endpoint }',
+'{ schema_name }',
 '{ copy_statement }'
 ;
 ```
@@ -110,9 +110,9 @@ SELECT
 ```yaml
 - name: pipes
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__copy_statement
     value: string
@@ -132,5 +132,5 @@ Deletes the specified <code>pipes</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.pipe.pipes
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

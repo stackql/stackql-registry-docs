@@ -46,10 +46,10 @@ Creates, updates, deletes, gets or lists a <code>views</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_view" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a view |
-| <CopyableCode code="list_views" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List views |
-| <CopyableCode code="create_view" /> | `INSERT` | <CopyableCode code="database, schema, data__columns, data__name, data__query, endpoint" /> | Create a view |
-| <CopyableCode code="delete_view" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a view |
+| <CopyableCode code="fetch_view" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a view |
+| <CopyableCode code="list_views" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List views |
+| <CopyableCode code="create_view" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__columns, data__name, data__query, endpoint" /> | Create a view |
+| <CopyableCode code="delete_view" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a view |
 
 ## `SELECT` examples
 
@@ -71,7 +71,7 @@ recursive,
 schema_name,
 secure
 FROM snowflake.view.views
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -84,19 +84,19 @@ Use the following StackQL query and manifest file to create a new <code>views</c
 /*+ create */
 INSERT INTO snowflake.view.views (
 data__query,
-data__name,
 endpoint,
-schema,
-database,
-data__columns
+schema_name,
+data__columns,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
+'{ columns }',
+'{ database_name }',
 '{ query }',
-'{ endpoint }',
-'{ schema }',
 '{ name }',
-'{ columns }'
+'{ schema_name }',
+'{ endpoint }'
 ;
 ```
 </TabItem>
@@ -105,9 +105,9 @@ SELECT
 ```yaml
 - name: views
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__columns
     value: string
@@ -129,5 +129,5 @@ Deletes the specified <code>views</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.view.views
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

@@ -63,14 +63,14 @@ Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_task" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a task using the describe command output. |
-| <CopyableCode code="list_tasks" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists tasks under the database and schema, with show options as query parameters. |
-| <CopyableCode code="create_task" /> | `INSERT` | <CopyableCode code="database, schema, data__definition, data__name, endpoint" /> | Create a task, with standard create modifiers as query parameters. See the Task component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_task" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a task with the task name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
-| <CopyableCode code="create_or_alter_task" /> | `REPLACE` | <CopyableCode code="database, name, schema, data__definition, data__name, endpoint" /> | Create a (or alter an existing) task. Even if the operation is just an alter, the full property set must be provided. |
-| <CopyableCode code="execute_task" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Execute a task -- this is equivalent to EXECUTE IMMEDIATE. |
-| <CopyableCode code="resume_task" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resumes a suspended task object. This is equivalento an ALTER TASK ... RESUME. |
-| <CopyableCode code="suspend_task" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND. |
+| <CopyableCode code="fetch_task" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a task using the describe command output. |
+| <CopyableCode code="list_tasks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists tasks under the database and schema, with show options as query parameters. |
+| <CopyableCode code="create_task" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__definition, data__name, endpoint" /> | Create a task, with standard create modifiers as query parameters. See the Task component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_task" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a task with the task name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
+| <CopyableCode code="create_or_alter_task" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__definition, data__name, endpoint" /> | Create a (or alter an existing) task. Even if the operation is just an alter, the full property set must be provided. |
+| <CopyableCode code="execute_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Execute a task -- this is equivalent to EXECUTE IMMEDIATE. |
+| <CopyableCode code="resume_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resumes a suspended task object. This is equivalento an ALTER TASK ... RESUME. |
+| <CopyableCode code="suspend_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND. |
 
 ## `SELECT` examples
 
@@ -109,7 +109,7 @@ user_task_managed_initial_warehouse_size,
 user_task_timeout_ms,
 warehouse
 FROM snowflake.task.tasks
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -121,18 +121,18 @@ Use the following StackQL query and manifest file to create a new <code>tasks</c
 ```sql
 /*+ create */
 INSERT INTO snowflake.task.tasks (
-data__name,
 endpoint,
-schema,
-database,
-data__definition
+schema_name,
+data__definition,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
+'{ database_name }',
+'{ name }',
 '{ endpoint }',
-'{ schema }',
-'{ definition }',
-'{ name }'
+'{ schema_name }',
+'{ definition }'
 ;
 ```
 </TabItem>
@@ -141,9 +141,9 @@ SELECT
 ```yaml
 - name: tasks
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__definition
     value: string
@@ -166,7 +166,7 @@ REPLACE snowflake.task.tasks
 SET 
 
 WHERE 
-database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND data__definition = '{ data__definition }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND data__definition = '{ data__definition }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
 ```
 
 ## `DELETE` example
@@ -176,5 +176,5 @@ Deletes the specified <code>tasks</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.task.tasks
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

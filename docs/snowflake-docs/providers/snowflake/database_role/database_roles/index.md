@@ -42,10 +42,10 @@ Creates, updates, deletes, gets or lists a <code>database_roles</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_database_roles" /> | `SELECT` | <CopyableCode code="database, endpoint" /> | List database roles |
-| <CopyableCode code="create_database_role" /> | `INSERT` | <CopyableCode code="database, data__name, endpoint" /> | Create a database role |
-| <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database, name, endpoint" /> | Delete a database role |
-| <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database, name, data__name, endpoint" /> | Create a new database role by cloning from the specified resource |
+| <CopyableCode code="list_database_roles" /> | `SELECT` | <CopyableCode code="database_name, endpoint" /> | List database roles |
+| <CopyableCode code="create_database_role" /> | `INSERT` | <CopyableCode code="database_name, data__name, endpoint" /> | Create a database role |
+| <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | Delete a database role |
+| <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database_name, name, data__name, endpoint" /> | Create a new database role by cloning from the specified resource |
 
 ## `SELECT` examples
 
@@ -63,7 +63,7 @@ granted_to_roles,
 owner,
 owner_role_type
 FROM snowflake.database_role.database_roles
-WHERE database = '{{ database }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -75,12 +75,12 @@ Use the following StackQL query and manifest file to create a new <code>database
 ```sql
 /*+ create */
 INSERT INTO snowflake.database_role.database_roles (
-endpoint,
+database_name,
 data__name,
-database
+endpoint
 )
 SELECT 
-'{ database }',
+'{ database_name }',
 '{ name }',
 '{ endpoint }'
 ;
@@ -91,7 +91,7 @@ SELECT
 ```yaml
 - name: database_roles
   props:
-  - name: database
+  - name: database_name
     value: string
   - name: data__name
     value: string
@@ -109,5 +109,5 @@ Deletes the specified <code>database_roles</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.database_role.database_roles
-WHERE database = '{ database }' AND name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND endpoint = '{ endpoint }';
 ```

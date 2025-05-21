@@ -48,11 +48,11 @@ Creates, updates, deletes, gets or lists a <code>streams</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_stream" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a stream |
-| <CopyableCode code="list_streams" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List streams |
-| <CopyableCode code="create_stream" /> | `INSERT` | <CopyableCode code="database, schema, data__name, data__stream_source, endpoint" /> | Create a stream |
-| <CopyableCode code="delete_stream" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a stream |
-| <CopyableCode code="clone_stream" /> | `EXEC` | <CopyableCode code="database, name, schema, targetDatabase, targetSchema, data__name, endpoint" /> | Clone a stream |
+| <CopyableCode code="fetch_stream" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a stream |
+| <CopyableCode code="list_streams" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List streams |
+| <CopyableCode code="create_stream" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, data__stream_source, endpoint" /> | Create a stream |
+| <CopyableCode code="delete_stream" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a stream |
+| <CopyableCode code="clone_stream" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | Clone a stream |
 
 ## `SELECT` examples
 
@@ -76,7 +76,7 @@ stream_source,
 table_name,
 type
 FROM snowflake.streams.streams
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -88,18 +88,18 @@ Use the following StackQL query and manifest file to create a new <code>streams<
 ```sql
 /*+ create */
 INSERT INTO snowflake.streams.streams (
-data__name,
+data__stream_source,
 endpoint,
-schema,
-database,
-data__stream_source
+schema_name,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
-'{ endpoint }',
-'{ schema }',
 '{ stream_source }',
-'{ name }'
+'{ database_name }',
+'{ name }',
+'{ endpoint }',
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -108,9 +108,9 @@ SELECT
 ```yaml
 - name: streams
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -130,5 +130,5 @@ Deletes the specified <code>streams</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.streams.streams
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

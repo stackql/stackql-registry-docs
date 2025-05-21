@@ -54,11 +54,11 @@ Creates, updates, deletes, gets or lists a <code>user_defined_functions</code> r
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_user_defined_function" /> | `SELECT` | <CopyableCode code="database, nameWithArgs, schema, endpoint" /> | Fetch a UDF |
-| <CopyableCode code="list_user_defined_functions" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List UDFs |
-| <CopyableCode code="create_user_defined_function" /> | `INSERT` | <CopyableCode code="database, schema, data__arguments, data__language_config, data__name, data__return_type, endpoint" /> | Create a UDF |
-| <CopyableCode code="delete_user_defined_function" /> | `DELETE` | <CopyableCode code="database, nameWithArgs, schema, endpoint" /> | Delete a UDF |
-| <CopyableCode code="rename_user_defined_function" /> | `EXEC` | <CopyableCode code="database, nameWithArgs, schema, targetDatabase, targetName, targetSchema, endpoint" /> | Rename a UDF |
+| <CopyableCode code="fetch_user_defined_function" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Fetch a UDF |
+| <CopyableCode code="list_user_defined_functions" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List UDFs |
+| <CopyableCode code="create_user_defined_function" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__language_config, data__name, data__return_type, endpoint" /> | Create a UDF |
+| <CopyableCode code="delete_user_defined_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Delete a UDF |
+| <CopyableCode code="rename_user_defined_function" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, targetDatabase, targetName, targetSchema, endpoint" /> | Rename a UDF |
 
 ## `SELECT` examples
 
@@ -88,7 +88,7 @@ return_type,
 schema_name,
 valid_for_clustering
 FROM snowflake.user_defined_function.user_defined_functions
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -100,21 +100,21 @@ Use the following StackQL query and manifest file to create a new <code>user_def
 ```sql
 /*+ create */
 INSERT INTO snowflake.user_defined_function.user_defined_functions (
-data__name,
 data__return_type,
-data__arguments,
 endpoint,
+schema_name,
+data__arguments,
 data__language_config,
-schema,
-database
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
-'{ endpoint }',
-'{ arguments }',
-'{ schema }',
 '{ language_config }',
+'{ database_name }',
 '{ name }',
+'{ schema_name }',
+'{ arguments }',
+'{ endpoint }',
 '{ return_type }'
 ;
 ```
@@ -124,9 +124,9 @@ SELECT
 ```yaml
 - name: user_defined_functions
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__arguments
     value: string
@@ -150,5 +150,5 @@ Deletes the specified <code>user_defined_functions</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.user_defined_function.user_defined_functions
-WHERE database = '{ database }' AND nameWithArgs = '{ nameWithArgs }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND nameWithArgs = '{ nameWithArgs }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

@@ -50,10 +50,10 @@ Creates, updates, deletes, gets or lists a <code>stages</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_stage" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a stage using the describe command output. |
-| <CopyableCode code="list_stages" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists stages under the database and schema, with show options as query parameters. |
-| <CopyableCode code="create_stage" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create a stage, with standard create modifiers as query parameters. See the Stage component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_stage" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a stage with the stage name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
+| <CopyableCode code="fetch_stage" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a stage using the describe command output. |
+| <CopyableCode code="list_stages" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists stages under the database and schema, with show options as query parameters. |
+| <CopyableCode code="create_stage" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a stage, with standard create modifiers as query parameters. See the Stage component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_stage" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a stage with the stage name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
 
 ## `SELECT` examples
 
@@ -79,7 +79,7 @@ region,
 storage_integration,
 url
 FROM snowflake.stage.stages
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -91,16 +91,16 @@ Use the following StackQL query and manifest file to create a new <code>stages</
 ```sql
 /*+ create */
 INSERT INTO snowflake.stage.stages (
-endpoint,
+database_name,
 data__name,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -109,9 +109,9 @@ SELECT
 ```yaml
 - name: stages
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -129,5 +129,5 @@ Deletes the specified <code>stages</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.stage.stages
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

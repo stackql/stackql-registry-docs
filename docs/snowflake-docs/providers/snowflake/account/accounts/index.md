@@ -135,18 +135,18 @@ Use the following StackQL query and manifest file to create a new <code>accounts
 ```sql
 /*+ create */
 INSERT INTO snowflake.account.accounts (
-data__admin_name,
-data__name,
 endpoint,
+data__admin_name,
+data__edition,
 data__email,
-data__edition
+data__name
 )
 SELECT 
-'{ endpoint }',
-'{ email }',
-'{ edition }',
+'{ admin_name }',
 '{ name }',
-'{ admin_name }'
+'{ edition }',
+'{ endpoint }',
+'{ email }'
 ;
 ```
 </TabItem>

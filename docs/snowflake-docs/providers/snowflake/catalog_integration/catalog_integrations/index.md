@@ -75,18 +75,18 @@ Use the following StackQL query and manifest file to create a new <code>catalog_
 ```sql
 /*+ create */
 INSERT INTO snowflake.catalog_integration.catalog_integrations (
-data__catalog,
+endpoint,
+data__enabled,
 data__table_format,
 data__name,
-endpoint,
-data__enabled
+data__catalog
 )
 SELECT 
-'{ table_format }',
-'{ endpoint }',
 '{ enabled }',
 '{ catalog }',
-'{ name }'
+'{ name }',
+'{ table_format }',
+'{ endpoint }'
 ;
 ```
 </TabItem>

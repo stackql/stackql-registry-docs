@@ -59,25 +59,25 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a Table using the describe command output. |
-| <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists the tables under the database and schema. |
-| <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create a table. |
-| <CopyableCode code="create_table_as_select_deprecated" /> | `INSERT` | <CopyableCode code="database, name, query, schema, data__name, endpoint" /> | Create a table as select. |
-| <CopyableCode code="create_table_like" /> | `INSERT` | <CopyableCode code="database, name, schema, endpoint" /> | Create a new table like the specified resource, but empty |
-| <CopyableCode code="create_table_like_deprecated" /> | `INSERT` | <CopyableCode code="database, name, newTableName, schema, endpoint" /> | Create a new table like the specified resource, but empty |
-| <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a table with the given name. |
-| <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database, name, schema, data__name, endpoint" /> | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
-| <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Create a new table by cloning from the specified resource |
-| <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database, query, schema, endpoint" /> | Create a table as select. |
-| <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database, query, schema, endpoint" /> | Create a table using template. |
-| <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database, name, query, schema, endpoint" /> | Create a table using template. |
-| <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of a table |
-| <CopyableCode code="resume_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of a table |
-| <CopyableCode code="suspend_recluster_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of a table |
-| <CopyableCode code="suspend_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of a table |
-| <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database, name, schema, targetName, endpoint" /> | Swap with another table |
-| <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database, name, schema, targetTableName, endpoint" /> | Swap with another table |
-| <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Undrop specified table |
+| <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a Table using the describe command output. |
+| <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the tables under the database and schema. |
+| <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a table. |
+| <CopyableCode code="create_table_as_select_deprecated" /> | `INSERT` | <CopyableCode code="database_name, name, query, schema_name, data__name, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_like" /> | `INSERT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="create_table_like_deprecated" /> | `INSERT` | <CopyableCode code="database_name, name, newTableName, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a table with the given name. |
+| <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
+| <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table by cloning from the specified resource |
+| <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table using template. |
+| <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, endpoint" /> | Create a table using template. |
+| <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a table |
+| <CopyableCode code="resume_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a table |
+| <CopyableCode code="suspend_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of a table |
+| <CopyableCode code="suspend_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of a table |
+| <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Swap with another table |
+| <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetTableName, endpoint" /> | Swap with another table |
+| <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Undrop specified table |
 
 ## `SELECT` examples
 
@@ -112,7 +112,7 @@ search_optimization_bytes,
 search_optimization_progress,
 table_type
 FROM snowflake.table.tables
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -124,16 +124,16 @@ Use the following StackQL query and manifest file to create a new <code>tables</
 ```sql
 /*+ create */
 INSERT INTO snowflake.table.tables (
+database_name,
 name,
-endpoint,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -142,11 +142,11 @@ SELECT
 ```yaml
 - name: tables
   props:
-  - name: database
+  - name: database_name
     value: string
   - name: name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: endpoint
     value: string
@@ -165,7 +165,7 @@ REPLACE snowflake.table.tables
 SET 
 
 WHERE 
-database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
 ```
 
 ## `DELETE` example
@@ -175,5 +175,5 @@ Deletes the specified <code>tables</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.table.tables
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

@@ -38,7 +38,7 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | List files in the stage -- this is equivalent to LIST @stage. |
+| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | List files in the stage -- this is equivalent to LIST @stage. |
 
 ## `SELECT` examples
 
@@ -52,5 +52,5 @@ last_modified,
 md5,
 size
 FROM snowflake.stage.files
-WHERE database = '{{ database }}' AND name = '{{ name }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```

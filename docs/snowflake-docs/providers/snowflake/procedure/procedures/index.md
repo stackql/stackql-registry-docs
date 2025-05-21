@@ -50,11 +50,11 @@ Creates, updates, deletes, gets or lists a <code>procedures</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_procedure" /> | `SELECT` | <CopyableCode code="database, nameWithArgs, schema, endpoint" /> | Fetch a procedure |
-| <CopyableCode code="list_procedures" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List procedures |
-| <CopyableCode code="create_procedure" /> | `INSERT` | <CopyableCode code="database, schema, data__arguments, data__body, data__language_config, data__name, data__return_type, endpoint" /> | Create a procedure |
-| <CopyableCode code="delete_procedure" /> | `DELETE` | <CopyableCode code="database, nameWithArgs, schema, endpoint" /> | Delete a procedure |
-| <CopyableCode code="call_procedure" /> | `EXEC` | <CopyableCode code="database, nameWithArgs, schema, data__call_arguments, endpoint" /> | Call a procedure |
+| <CopyableCode code="fetch_procedure" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Fetch a procedure |
+| <CopyableCode code="list_procedures" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List procedures |
+| <CopyableCode code="create_procedure" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__body, data__language_config, data__name, data__return_type, endpoint" /> | Create a procedure |
+| <CopyableCode code="delete_procedure" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Delete a procedure |
+| <CopyableCode code="call_procedure" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, data__call_arguments, endpoint" /> | Call a procedure |
 
 ## `SELECT` examples
 
@@ -80,7 +80,7 @@ owner_role_type,
 return_type,
 schema_name
 FROM snowflake.procedure.procedures
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -92,23 +92,23 @@ Use the following StackQL query and manifest file to create a new <code>procedur
 ```sql
 /*+ create */
 INSERT INTO snowflake.procedure.procedures (
-data__name,
 data__return_type,
-data__arguments,
 endpoint,
-data__language_config,
+schema_name,
 data__body,
-schema,
-database
+data__arguments,
+data__language_config,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
-'{ body }',
-'{ endpoint }',
-'{ arguments }',
-'{ schema }',
 '{ language_config }',
+'{ database_name }',
 '{ name }',
+'{ schema_name }',
+'{ arguments }',
+'{ endpoint }',
+'{ body }',
 '{ return_type }'
 ;
 ```
@@ -118,9 +118,9 @@ SELECT
 ```yaml
 - name: procedures
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__arguments
     value: string
@@ -146,5 +146,5 @@ Deletes the specified <code>procedures</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.procedure.procedures
-WHERE database = '{ database }' AND nameWithArgs = '{ nameWithArgs }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND nameWithArgs = '{ nameWithArgs }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```
