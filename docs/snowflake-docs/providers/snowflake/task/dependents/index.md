@@ -102,5 +102,8 @@ user_task_managed_initial_warehouse_size,
 user_task_timeout_ms,
 warehouse
 FROM snowflake.task.dependents
-WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

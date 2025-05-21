@@ -110,8 +110,54 @@ WHERE endpoint = '{{ endpoint }}';
 
 Use the following StackQL query and manifest file to create a new <code>databases</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.database.databases (
+data__name,
+data__kind,
+data__comment,
+data__data_retention_time_in_days,
+data__default_ddl_collation,
+data__log_level,
+data__max_data_extension_time_in_days,
+data__suspend_task_after_num_failures,
+data__trace_level,
+data__user_task_managed_initial_warehouse_size,
+data__serverless_task_min_statement_size,
+data__serverless_task_max_statement_size,
+data__user_task_timeout_ms,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ kind }}',
+'{{ comment }}',
+'{{ data_retention_time_in_days }}',
+'{{ default_ddl_collation }}',
+'{{ log_level }}',
+'{{ max_data_extension_time_in_days }}',
+'{{ suspend_task_after_num_failures }}',
+'{{ trace_level }}',
+'{{ user_task_managed_initial_warehouse_size }}',
+'{{ serverless_task_min_statement_size }}',
+'{{ serverless_task_max_statement_size }}',
+'{{ user_task_timeout_ms }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
+<TabItem value="required">
 
 ```sql
 /*+ create */
@@ -120,20 +166,47 @@ data__name,
 endpoint
 )
 SELECT 
-'{ name }',
-'{ endpoint }'
+'{{ name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: databases
   props:
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: kind
+      value: string
+    - name: comment
+      value: string
+    - name: data_retention_time_in_days
+      value: integer
+    - name: default_ddl_collation
+      value: string
+    - name: log_level
+      value: string
+    - name: max_data_extension_time_in_days
+      value: integer
+    - name: suspend_task_after_num_failures
+      value: integer
+    - name: trace_level
+      value: string
+    - name: user_task_managed_initial_warehouse_size
+      value: string
+    - name: serverless_task_min_statement_size
+      value: string
+    - name: serverless_task_max_statement_size
+      value: string
+    - name: user_task_timeout_ms
+      value: integer
 
 ```
 </TabItem>
@@ -147,9 +220,23 @@ Replaces all fields in the specified <code>databases</code> resource.
 /*+ update */
 REPLACE snowflake.database.databases
 SET 
-
+name = '{{ name }}',
+kind = '{{ kind }}',
+comment = '{{ comment }}',
+data_retention_time_in_days = '{{ data_retention_time_in_days }}',
+default_ddl_collation = '{{ default_ddl_collation }}',
+log_level = '{{ log_level }}',
+max_data_extension_time_in_days = '{{ max_data_extension_time_in_days }}',
+suspend_task_after_num_failures = '{{ suspend_task_after_num_failures }}',
+trace_level = '{{ trace_level }}',
+user_task_managed_initial_warehouse_size = '{{ user_task_managed_initial_warehouse_size }}',
+serverless_task_min_statement_size = '{{ serverless_task_min_statement_size }}',
+serverless_task_max_statement_size = '{{ serverless_task_max_statement_size }}',
+user_task_timeout_ms = '{{ user_task_timeout_ms }}'
 WHERE 
-name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+name = '{{ name }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -159,5 +246,6 @@ Deletes the specified <code>databases</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.database.databases
-WHERE name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

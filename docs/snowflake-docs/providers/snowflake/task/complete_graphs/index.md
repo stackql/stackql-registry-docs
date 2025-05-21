@@ -73,5 +73,8 @@ scheduled_time,
 schema_name,
 state
 FROM snowflake.task.complete_graphs
-WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

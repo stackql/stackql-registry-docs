@@ -54,5 +54,6 @@ granted_to,
 grantee_name,
 role
 FROM snowflake.role.grants_of
-WHERE name = '{{ name }}' AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

@@ -100,40 +100,124 @@ trace_level,
 user_task_managed_initial_warehouse_size,
 user_task_timeout_ms
 FROM snowflake.schema.schemas
-WHERE database_name = '{{ database_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schemas</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.schema.schemas (
-database_name,
 data__name,
+data__kind,
+data__comment,
+data__managed_access,
+data__data_retention_time_in_days,
+data__default_ddl_collation,
+data__log_level,
+data__pipe_execution_paused,
+data__max_data_extension_time_in_days,
+data__suspend_task_after_num_failures,
+data__trace_level,
+data__user_task_managed_initial_warehouse_size,
+data__serverless_task_min_statement_size,
+data__serverless_task_max_statement_size,
+data__user_task_timeout_ms,
+database_name,
 endpoint
 )
 SELECT 
-'{ database_name }',
-'{ name }',
-'{ endpoint }'
+'{{ name }}',
+'{{ kind }}',
+'{{ comment }}',
+'{{ managed_access }}',
+'{{ data_retention_time_in_days }}',
+'{{ default_ddl_collation }}',
+'{{ log_level }}',
+'{{ pipe_execution_paused }}',
+'{{ max_data_extension_time_in_days }}',
+'{{ suspend_task_after_num_failures }}',
+'{{ trace_level }}',
+'{{ user_task_managed_initial_warehouse_size }}',
+'{{ serverless_task_min_statement_size }}',
+'{{ serverless_task_max_statement_size }}',
+'{{ user_task_timeout_ms }}',
+'{{ database_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.schema.schemas (
+data__name,
+database_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ database_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: schemas
   props:
-  - name: database_name
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: kind
+      value: string
+    - name: comment
+      value: string
+    - name: managed_access
+      value: boolean
+    - name: data_retention_time_in_days
+      value: integer
+    - name: default_ddl_collation
+      value: string
+    - name: log_level
+      value: string
+    - name: pipe_execution_paused
+      value: boolean
+    - name: max_data_extension_time_in_days
+      value: integer
+    - name: suspend_task_after_num_failures
+      value: integer
+    - name: trace_level
+      value: string
+    - name: user_task_managed_initial_warehouse_size
+      value: string
+    - name: serverless_task_min_statement_size
+      value: string
+    - name: serverless_task_max_statement_size
+      value: string
+    - name: user_task_timeout_ms
+      value: integer
 
 ```
 </TabItem>
@@ -147,9 +231,26 @@ Replaces all fields in the specified <code>schemas</code> resource.
 /*+ update */
 REPLACE snowflake.schema.schemas
 SET 
-
+name = '{{ name }}',
+kind = '{{ kind }}',
+comment = '{{ comment }}',
+managed_access = true|false,
+data_retention_time_in_days = '{{ data_retention_time_in_days }}',
+default_ddl_collation = '{{ default_ddl_collation }}',
+log_level = '{{ log_level }}',
+pipe_execution_paused = true|false,
+max_data_extension_time_in_days = '{{ max_data_extension_time_in_days }}',
+suspend_task_after_num_failures = '{{ suspend_task_after_num_failures }}',
+trace_level = '{{ trace_level }}',
+user_task_managed_initial_warehouse_size = '{{ user_task_managed_initial_warehouse_size }}',
+serverless_task_min_statement_size = '{{ serverless_task_min_statement_size }}',
+serverless_task_max_statement_size = '{{ serverless_task_max_statement_size }}',
+user_task_timeout_ms = '{{ user_task_timeout_ms }}'
 WHERE 
-database_name = '{ database_name }' AND name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -159,5 +260,7 @@ Deletes the specified <code>schemas</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.schema.schemas
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
 ```

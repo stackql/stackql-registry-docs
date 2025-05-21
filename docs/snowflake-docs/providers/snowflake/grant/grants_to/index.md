@@ -62,5 +62,7 @@ privileges,
 securable_name,
 securable_type
 FROM snowflake.grant.grants_to
-WHERE granteeName = '{{ granteeName }}' AND granteeType = '{{ granteeType }}' AND endpoint = '{{ endpoint }}';
+WHERE granteeName = '{{ granteeName }}'
+AND granteeType = '{{ granteeType }}'
+AND endpoint = '{{ endpoint }}';
 ```

@@ -103,44 +103,107 @@ url_id,
 user_packages,
 version
 FROM snowflake.notebook.notebooks
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>notebooks</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.notebook.notebooks (
-database_name,
 data__name,
+data__version,
+data__fromLocation,
+data__main_file,
+data__comment,
+data__default_version,
+data__query_warehouse,
+data__default_version_details,
+data__last_version_details,
+database_name,
 schema_name,
 endpoint
 )
 SELECT 
-'{ endpoint }',
-'{ database_name }',
-'{ name }',
-'{ schema_name }'
+'{{ name }}',
+'{{ version }}',
+'{{ fromLocation }}',
+'{{ main_file }}',
+'{{ comment }}',
+'{{ default_version }}',
+'{{ query_warehouse }}',
+'{{ default_version_details }}',
+'{{ last_version_details }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.notebook.notebooks (
+data__name,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: notebooks
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: version
+      value: string
+    - name: fromLocation
+      value: string
+    - name: main_file
+      value: string
+    - name: comment
+      value: string
+    - name: default_version
+      value: string
+    - name: query_warehouse
+      value: string
+    - name: default_version_details
+      props: []
+    - name: last_version_details
+      props: []
 
 ```
 </TabItem>
@@ -153,5 +216,8 @@ Deletes the specified <code>notebooks</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.notebook.notebooks
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

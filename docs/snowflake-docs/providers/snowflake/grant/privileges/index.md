@@ -43,42 +43,107 @@ Creates, updates, deletes, gets or lists a <code>privileges</code> resource.
 
 Use the following StackQL query and manifest file to create a new <code>privileges</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.grant.privileges (
-securableName,
-endpoint,
-securableType,
+data__privileges,
+data__grant_option,
+data__created_on,
+data__grantee_type,
+data__grantee_name,
+data__securable_type,
+data__securable_name,
+data__granted_by_role_type,
+data__granted_by_name,
 granteeName,
-granteeType
+granteeType,
+securableName,
+securableType,
+endpoint
 )
 SELECT 
-'{ granteeType }',
-'{ securableName }',
-'{ granteeName }',
-'{ endpoint }',
-'{ securableType }'
+'{{ privileges }}',
+'{{ grant_option }}',
+'{{ created_on }}',
+'{{ grantee_type }}',
+'{{ grantee_name }}',
+'{{ securable_type }}',
+'{{ securable_name }}',
+'{{ granted_by_role_type }}',
+'{{ granted_by_name }}',
+'{{ granteeName }}',
+'{{ granteeType }}',
+'{{ securableName }}',
+'{{ securableType }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.grant.privileges (
+granteeName,
+granteeType,
+securableName,
+securableType,
+endpoint
+)
+SELECT 
+'{{ granteeName }}',
+'{{ granteeType }}',
+'{{ securableName }}',
+'{{ securableType }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: privileges
   props:
-  - name: granteeName
-    value: string
-  - name: granteeType
-    value: string
-  - name: securableName
-    value: string
-  - name: securableType
-    value: string
-  - name: endpoint
-    value: string
+    - name: granteeName
+      value: string
+    - name: granteeType
+      value: string
+    - name: securableName
+      value: string
+    - name: securableType
+      value: string
+    - name: endpoint
+      value: string
+    - name: privileges
+      value: array
+    - name: grant_option
+      value: boolean
+    - name: created_on
+      value: string
+    - name: grantee_type
+      value: string
+    - name: grantee_name
+      value: string
+    - name: securable_type
+      value: string
+    - name: securable_name
+      value: string
+    - name: granted_by_role_type
+      value: string
+    - name: granted_by_name
+      value: string
 
 ```
 </TabItem>
@@ -91,5 +156,10 @@ Deletes the specified <code>privileges</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.grant.privileges
-WHERE granteeName = '{ granteeName }' AND granteeType = '{ granteeType }' AND privilege = '{ privilege }' AND securableName = '{ securableName }' AND securableType = '{ securableType }' AND endpoint = '{ endpoint }';
+WHERE granteeName = '{{ granteeName }}'
+AND granteeType = '{{ granteeType }}'
+AND privilege = '{{ privilege }}'
+AND securableName = '{{ securableName }}'
+AND securableType = '{{ securableType }}'
+AND endpoint = '{{ endpoint }}';
 ```

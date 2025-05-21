@@ -71,52 +71,112 @@ recursive,
 schema_name,
 secure
 FROM snowflake.view.views
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>views</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.view.views (
-data__query,
-endpoint,
-schema_name,
+data__name,
+data__secure,
+data__kind,
+data__recursive,
 data__columns,
+data__comment,
+data__query,
 database_name,
-data__name
+schema_name,
+endpoint
 )
 SELECT 
-'{ columns }',
-'{ database_name }',
-'{ query }',
-'{ name }',
-'{ schema_name }',
-'{ endpoint }'
+'{{ name }}',
+'{{ secure }}',
+'{{ kind }}',
+'{{ recursive }}',
+'{{ columns }}',
+'{{ comment }}',
+'{{ query }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.view.views (
+data__name,
+data__columns,
+data__query,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ columns }}',
+'{{ query }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: views
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__columns
-    value: string
-  - name: data__name
-    value: string
-  - name: data__query
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__columns
+      value: string
+    - name: data__name
+      value: string
+    - name: data__query
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: secure
+      value: boolean
+    - name: kind
+      value: string
+    - name: recursive
+      value: boolean
+    - name: columns
+      value: array
+      props:
+        - name: name
+          value: string
+        - name: comment
+          value: string
+    - name: comment
+      value: string
+    - name: query
+      value: string
 
 ```
 </TabItem>
@@ -129,5 +189,8 @@ Deletes the specified <code>views</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.view.views
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

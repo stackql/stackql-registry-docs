@@ -62,13 +62,13 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 | <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a Table using the describe command output. |
 | <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the tables under the database and schema. |
 | <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a table. |
-| <CopyableCode code="create_table_as_select_deprecated" /> | `INSERT` | <CopyableCode code="database_name, name, query, schema_name, data__name, endpoint" /> | Create a table as select. |
-| <CopyableCode code="create_table_like" /> | `INSERT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
-| <CopyableCode code="create_table_like_deprecated" /> | `INSERT` | <CopyableCode code="database_name, name, newTableName, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
 | <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a table with the given name. |
 | <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
 | <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table by cloning from the specified resource |
 | <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_as_select_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, data__name, endpoint" /> | Create a table as select. |
+| <CopyableCode code="create_table_like" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="create_table_like_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, newTableName, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
 | <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table using template. |
 | <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, endpoint" /> | Create a table using template. |
 | <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a table |
@@ -112,44 +112,150 @@ search_optimization_bytes,
 search_optimization_progress,
 table_type
 FROM snowflake.table.tables
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tables</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.table.tables (
+data__name,
+data__kind,
+data__cluster_by,
+data__enable_schema_evolution,
+data__change_tracking,
+data__data_retention_time_in_days,
+data__max_data_extension_time_in_days,
+data__default_ddl_collation,
+data__columns,
+data__constraints,
+data__comment,
 database_name,
-name,
 schema_name,
 endpoint
 )
 SELECT 
-'{ endpoint }',
-'{ database_name }',
-'{ name }',
-'{ schema_name }'
+'{{ name }}',
+'{{ kind }}',
+'{{ cluster_by }}',
+'{{ enable_schema_evolution }}',
+'{{ change_tracking }}',
+'{{ data_retention_time_in_days }}',
+'{{ max_data_extension_time_in_days }}',
+'{{ default_ddl_collation }}',
+'{{ columns }}',
+'{{ constraints }}',
+'{{ comment }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.table.tables (
+data__name,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: tables
   props:
-  - name: database_name
-    value: string
-  - name: name
-    value: string
-  - name: schema_name
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__name
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: kind
+      value: string
+    - name: cluster_by
+      value: array
+    - name: enable_schema_evolution
+      value: boolean
+    - name: change_tracking
+      value: boolean
+    - name: data_retention_time_in_days
+      value: integer
+    - name: max_data_extension_time_in_days
+      value: integer
+    - name: default_ddl_collation
+      value: string
+    - name: columns
+      value: array
+      props:
+        - name: name
+          value: string
+        - name: datatype
+          value: string
+        - name: nullable
+          value: boolean
+        - name: collate
+          value: string
+        - name: default
+          value: string
+        - name: autoincrement
+          value: boolean
+        - name: autoincrement_start
+          value: integer
+        - name: autoincrement_increment
+          value: integer
+        - name: constraints
+          value: array
+          props:
+            - name: name
+              value: string
+            - name: column_names
+              value: array
+            - name: constraint_type
+              value: string
+        - name: comment
+          value: string
+    - name: constraints
+      value: array
+      props:
+        - name: name
+          value: string
+        - name: column_names
+          value: array
+        - name: constraint_type
+          value: string
+    - name: comment
+      value: string
 
 ```
 </TabItem>
@@ -163,9 +269,23 @@ Replaces all fields in the specified <code>tables</code> resource.
 /*+ update */
 REPLACE snowflake.table.tables
 SET 
-
+name = '{{ name }}',
+kind = '{{ kind }}',
+cluster_by = '{{ cluster_by }}',
+enable_schema_evolution = true|false,
+change_tracking = true|false,
+data_retention_time_in_days = '{{ data_retention_time_in_days }}',
+max_data_extension_time_in_days = '{{ max_data_extension_time_in_days }}',
+default_ddl_collation = '{{ default_ddl_collation }}',
+columns = '{{ columns }}',
+constraints = '{{ constraints }}',
+comment = '{{ comment }}'
 WHERE 
-database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND data__name = '{{ data__name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 
 ## `DELETE` example
@@ -175,5 +295,8 @@ Deletes the specified <code>tables</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.table.tables
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```

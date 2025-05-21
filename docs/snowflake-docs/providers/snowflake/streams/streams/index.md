@@ -76,48 +76,95 @@ stream_source,
 table_name,
 type
 FROM snowflake.streams.streams
-WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>streams</code> resource.
 
-<Tabs     defaultValue="all"    values={[        { label: 'All Properties', value: 'all' }, { label: 'Manifest', value: 'manifest' }    ]}>
+<Tabs
+    defaultValue="all"
+    values={[
+        { label: 'Required Properties', value: 'required' },
+        { label: 'All Properties', value: 'all', },
+        { label: 'Manifest', value: 'manifest', },
+    ]
+}>
 <TabItem value="all">
 
 ```sql
 /*+ create */
 INSERT INTO snowflake.streams.streams (
+data__name,
 data__stream_source,
-endpoint,
-schema_name,
+data__comment,
 database_name,
-data__name
+schema_name,
+endpoint
 )
 SELECT 
-'{ stream_source }',
-'{ database_name }',
-'{ name }',
-'{ endpoint }',
-'{ schema_name }'
+'{{ name }}',
+'{{ stream_source }}',
+'{{ comment }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
 ;
 ```
 </TabItem>
+
+<TabItem value="required">
+
+```sql
+/*+ create */
+INSERT INTO snowflake.streams.streams (
+data__name,
+data__stream_source,
+database_name,
+schema_name,
+endpoint
+)
+SELECT 
+'{{ name }}',
+'{{ stream_source }}',
+'{{ database_name }}',
+'{{ schema_name }}',
+'{{ endpoint }}'
+;
+```
+</TabItem>
+
 <TabItem value="manifest">
 
 ```yaml
 - name: streams
   props:
-  - name: database_name
-    value: string
-  - name: schema_name
-    value: string
-  - name: data__name
-    value: string
-  - name: data__stream_source
-    value: string
-  - name: endpoint
-    value: string
+    - name: database_name
+      value: string
+    - name: schema_name
+      value: string
+    - name: data__name
+      value: string
+    - name: data__stream_source
+      value: string
+    - name: endpoint
+      value: string
+    - name: name
+      value: string
+    - name: stream_source
+      props:
+        - name: src_type
+          value: string
+        - name: name
+          value: string
+        - name: database_name
+          value: string
+        - name: schema_name
+          value: string
+    - name: comment
+      value: string
 
 ```
 </TabItem>
@@ -130,5 +177,8 @@ Deletes the specified <code>streams</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.streams.streams
-WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
 ```
