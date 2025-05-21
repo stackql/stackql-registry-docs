@@ -60,14 +60,14 @@ Creates, updates, deletes, gets or lists a <code>notebooks</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_notebook" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a notebook |
-| <CopyableCode code="list_notebooks" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List notebooks |
-| <CopyableCode code="create_notebook" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Create a notebook |
-| <CopyableCode code="delete_notebook" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a notebook |
-| <CopyableCode code="add_live_version_notebook" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Adds a LIVE version to the notebook |
-| <CopyableCode code="commit_notebook" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | If a Git connection is set up for the notebook, commits the LIVE version of the notebook to the Git repository |
-| <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Execute a Notebook |
-| <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database, name, schema, targetName, endpoint" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
+| <CopyableCode code="fetch_notebook" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a notebook |
+| <CopyableCode code="list_notebooks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List notebooks |
+| <CopyableCode code="create_notebook" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a notebook |
+| <CopyableCode code="delete_notebook" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a notebook |
+| <CopyableCode code="add_live_version_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Adds a LIVE version to the notebook |
+| <CopyableCode code="commit_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | If a Git connection is set up for the notebook, commits the LIVE version of the notebook to the Git repository |
+| <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Execute a Notebook |
+| <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
 
 ## `SELECT` examples
 
@@ -103,7 +103,7 @@ url_id,
 user_packages,
 version
 FROM snowflake.notebook.notebooks
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -115,16 +115,16 @@ Use the following StackQL query and manifest file to create a new <code>notebook
 ```sql
 /*+ create */
 INSERT INTO snowflake.notebook.notebooks (
-endpoint,
+database_name,
 data__name,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -133,9 +133,9 @@ SELECT
 ```yaml
 - name: notebooks
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -153,5 +153,5 @@ Deletes the specified <code>notebooks</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.notebook.notebooks
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

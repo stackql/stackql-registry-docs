@@ -108,17 +108,17 @@ Use the following StackQL query and manifest file to create a new <code>compute_
 ```sql
 /*+ create */
 INSERT INTO snowflake.compute_pool.compute_pools (
-data__max_nodes,
-data__name,
 endpoint,
+data__min_nodes,
 data__instance_family,
-data__min_nodes
+data__name,
+data__max_nodes
 )
 SELECT 
-'{ endpoint }',
-'{ instance_family }',
 '{ name }',
 '{ max_nodes }',
+'{ instance_family }',
+'{ endpoint }',
 '{ min_nodes }'
 ;
 ```

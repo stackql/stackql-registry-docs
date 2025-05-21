@@ -80,17 +80,17 @@ Use the following StackQL query and manifest file to create a new <code>managed_
 ```sql
 /*+ create */
 INSERT INTO snowflake.managed_account.managed_accounts (
-data__admin_name,
-data__name,
-data__admin_password,
 endpoint,
-data__account_type
+data__admin_name,
+data__admin_password,
+data__account_type,
+data__name
 )
 SELECT 
-'{ admin_password }',
-'{ endpoint }',
 '{ admin_name }',
 '{ name }',
+'{ admin_password }',
+'{ endpoint }',
 '{ account_type }'
 ;
 ```

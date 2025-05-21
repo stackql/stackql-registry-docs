@@ -46,12 +46,12 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_alert" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch an alert |
-| <CopyableCode code="list_alerts" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | List alerts |
-| <CopyableCode code="create_alert" /> | `INSERT` | <CopyableCode code="database, schema, data__action, data__condition, data__name, data__schedule, endpoint" /> | Create an alert |
-| <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete an alert |
-| <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database, name, schema, targetDatabase, targetSchema, data__name, endpoint" /> | Create a new alert by cloning from the specified resource |
-| <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Execute an alert |
+| <CopyableCode code="fetch_alert" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch an alert |
+| <CopyableCode code="list_alerts" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List alerts |
+| <CopyableCode code="create_alert" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__action, data__condition, data__name, data__schedule, endpoint" /> | Create an alert |
+| <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete an alert |
+| <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | Create a new alert by cloning from the specified resource |
+| <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Execute an alert |
 
 ## `SELECT` examples
 
@@ -73,7 +73,7 @@ schema_name,
 state,
 warehouse
 FROM snowflake.alert.alerts
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -85,22 +85,22 @@ Use the following StackQL query and manifest file to create a new <code>alerts</
 ```sql
 /*+ create */
 INSERT INTO snowflake.alert.alerts (
-data__name,
-endpoint,
 data__condition,
-schema,
-database,
+endpoint,
+schema_name,
 data__schedule,
-data__action
+data__action,
+database_name,
+data__name
 )
 SELECT 
-'{ database }',
-'{ condition }',
-'{ endpoint }',
-'{ schema }',
-'{ action }',
+'{ schedule }',
+'{ database_name }',
 '{ name }',
-'{ schedule }'
+'{ action }',
+'{ schema_name }',
+'{ condition }',
+'{ endpoint }'
 ;
 ```
 </TabItem>
@@ -109,9 +109,9 @@ SELECT
 ```yaml
 - name: alerts
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__action
     value: string
@@ -135,5 +135,5 @@ Deletes the specified <code>alerts</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.alert.alerts
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

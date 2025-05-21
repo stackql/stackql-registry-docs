@@ -41,9 +41,9 @@ Creates, updates, deletes, gets or lists a <code>grants</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_grants" /> | `SELECT` | <CopyableCode code="database, name, endpoint" /> | List all grants to the role |
-| <CopyableCode code="grant_privileges" /> | `INSERT` | <CopyableCode code="database, name, data__securable_type, endpoint" /> | Grant privileges to the role |
-| <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="database, name, data__securable_type, endpoint" /> | Revoke grants from the role |
+| <CopyableCode code="list_grants" /> | `SELECT` | <CopyableCode code="database_name, name, endpoint" /> | List all grants to the role |
+| <CopyableCode code="grant_privileges" /> | `INSERT` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | Grant privileges to the role |
+| <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | Revoke grants from the role |
 
 ## `SELECT` examples
 
@@ -60,7 +60,7 @@ privileges,
 securable,
 securable_type
 FROM snowflake.database_role.grants
-WHERE database = '{{ database }}' AND name = '{{ name }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -72,15 +72,15 @@ Use the following StackQL query and manifest file to create a new <code>grants</
 ```sql
 /*+ create */
 INSERT INTO snowflake.database_role.grants (
+database_name,
 name,
 data__securable_type,
-endpoint,
-database
+endpoint
 )
 SELECT 
-'{ database }',
-'{ name }',
 '{ securable_type }',
+'{ database_name }',
+'{ name }',
 '{ endpoint }'
 ;
 ```
@@ -90,7 +90,7 @@ SELECT
 ```yaml
 - name: grants
   props:
-  - name: database
+  - name: database_name
     value: string
   - name: name
     value: string
@@ -110,5 +110,5 @@ Deletes the specified <code>grants</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.database_role.grants
-WHERE database = '{ database }' AND name = '{ name }' AND data__securable_type = '{ data__securable_type }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND data__securable_type = '{ data__securable_type }' AND endpoint = '{ endpoint }';
 ```

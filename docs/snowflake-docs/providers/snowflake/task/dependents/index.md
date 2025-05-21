@@ -63,7 +63,7 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
+| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
 
 ## `SELECT` examples
 
@@ -102,5 +102,5 @@ user_task_managed_initial_warehouse_size,
 user_task_timeout_ms,
 warehouse
 FROM snowflake.task.dependents
-WHERE database = '{{ database }}' AND name = '{{ name }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```

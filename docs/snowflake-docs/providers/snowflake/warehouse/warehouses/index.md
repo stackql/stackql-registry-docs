@@ -143,8 +143,8 @@ Use the following StackQL query and manifest file to create a new <code>warehous
 ```sql
 /*+ create */
 INSERT INTO snowflake.warehouse.warehouses (
-endpoint,
-data__name
+data__name,
+endpoint
 )
 SELECT 
 '{ name }',

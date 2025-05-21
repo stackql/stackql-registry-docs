@@ -69,13 +69,13 @@ Use the following StackQL query and manifest file to create a new <code>notifica
 ```sql
 /*+ create */
 INSERT INTO snowflake.notification_integration.notification_integrations (
+data__name,
 data__notification_hook,
-endpoint,
-data__name
+endpoint
 )
 SELECT 
-'{ name }',
 '{ notification_hook }',
+'{ name }',
 '{ endpoint }'
 ;
 ```

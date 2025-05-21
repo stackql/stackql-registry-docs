@@ -56,18 +56,18 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_dynamic_table" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetch a Dynamic Table. |
-| <CopyableCode code="list_dynamic_tables" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists the dynamic tables under the database and schema. |
-| <CopyableCode code="create_dynamic_table" /> | `INSERT` | <CopyableCode code="database, schema, data__name, data__query, data__target_lag, data__warehouse, endpoint" /> | Create a dynamic table, with standard create modifiers as query parameters. See the Dynamic Table component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_dynamic_table" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Delete a dynamic table with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
-| <CopyableCode code="clone_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, data__name, endpoint" /> | Create a new dynamic table by cloning from the specified resource |
-| <CopyableCode code="refresh_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Specifies that the dynamic table should be manually refreshed |
-| <CopyableCode code="resume_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume refreshes on the dynamic table |
-| <CopyableCode code="resume_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Resume recluster of a dynamic table |
-| <CopyableCode code="suspend_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend refreshes on the dynamic table |
-| <CopyableCode code="suspend_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Suspend recluster of a dynamic table |
-| <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, targetName, endpoint" /> | Swap with another dynamic table |
-| <CopyableCode code="undrop_dynamic_table" /> | `EXEC` | <CopyableCode code="database, name, schema, endpoint" /> | Undrop specified dynamic table |
+| <CopyableCode code="fetch_dynamic_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a Dynamic Table. |
+| <CopyableCode code="list_dynamic_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the dynamic tables under the database and schema. |
+| <CopyableCode code="create_dynamic_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, data__query, data__target_lag, data__warehouse, endpoint" /> | Create a dynamic table, with standard create modifiers as query parameters. See the Dynamic Table component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_dynamic_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a dynamic table with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
+| <CopyableCode code="clone_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Create a new dynamic table by cloning from the specified resource |
+| <CopyableCode code="refresh_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Specifies that the dynamic table should be manually refreshed |
+| <CopyableCode code="resume_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume refreshes on the dynamic table |
+| <CopyableCode code="resume_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a dynamic table |
+| <CopyableCode code="suspend_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend refreshes on the dynamic table |
+| <CopyableCode code="suspend_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of a dynamic table |
+| <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Swap with another dynamic table |
+| <CopyableCode code="undrop_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Undrop specified dynamic table |
 
 ## `SELECT` examples
 
@@ -99,7 +99,7 @@ schema_name,
 target_lag,
 warehouse
 FROM snowflake.dynamic_table.dynamic_tables
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -111,22 +111,22 @@ Use the following StackQL query and manifest file to create a new <code>dynamic_
 ```sql
 /*+ create */
 INSERT INTO snowflake.dynamic_table.dynamic_tables (
-data__warehouse,
 data__query,
-data__name,
 endpoint,
-data__target_lag,
-schema,
-database
+schema_name,
+data__warehouse,
+data__name,
+database_name,
+data__target_lag
 )
 SELECT 
-'{ database }',
+'{ database_name }',
 '{ query }',
-'{ endpoint }',
-'{ target_lag }',
+'{ name }',
+'{ schema_name }',
 '{ warehouse }',
-'{ schema }',
-'{ name }'
+'{ endpoint }',
+'{ target_lag }'
 ;
 ```
 </TabItem>
@@ -135,9 +135,9 @@ SELECT
 ```yaml
 - name: dynamic_tables
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -161,5 +161,5 @@ Deletes the specified <code>dynamic_tables</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.dynamic_table.dynamic_tables
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```

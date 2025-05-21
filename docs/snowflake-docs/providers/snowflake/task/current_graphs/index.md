@@ -48,8 +48,8 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
-| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
 
 ## `SELECT` examples
 
@@ -73,5 +73,5 @@ scheduled_time,
 schema_name,
 state
 FROM snowflake.task.current_graphs
-WHERE database = '{{ database }}' AND name = '{{ name }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND name = '{{ name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```

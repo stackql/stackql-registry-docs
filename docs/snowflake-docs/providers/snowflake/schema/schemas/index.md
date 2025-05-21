@@ -59,13 +59,13 @@ Creates, updates, deletes, gets or lists a <code>schemas</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_schema" /> | `SELECT` | <CopyableCode code="database, name, endpoint" /> | Fetches a schema. |
-| <CopyableCode code="list_schemas" /> | `SELECT` | <CopyableCode code="database, endpoint" /> | Lists the accessible schemas. |
-| <CopyableCode code="create_schema" /> | `INSERT` | <CopyableCode code="database, data__name, endpoint" /> | Creates a schema, with modifiers as query parameters. You must provide the full schema definition when creating a schema. |
-| <CopyableCode code="delete_schema" /> | `DELETE` | <CopyableCode code="database, name, endpoint" /> | Deletes the specified schema. If you enable the `ifExists` parameter, the operation succeeds even if the schema does not exist. Otherwise, a 404 failure is returned if the schema does not exist. if the drop is unsuccessful. |
-| <CopyableCode code="create_or_alter_schema" /> | `REPLACE` | <CopyableCode code="database, name, data__name, endpoint" /> | Creates a new, or alters an existing, schema. You must provide the full schema definition even when altering an existing schema. |
-| <CopyableCode code="clone_schema" /> | `EXEC` | <CopyableCode code="database, name, endpoint" /> | Clones an existing schema, with modifiers as query parameters. You must provide the full schema definition when cloning an existing schema. |
-| <CopyableCode code="undrop_schema" /> | `EXEC` | <CopyableCode code="database, name, endpoint" /> | Undrops schema. |
+| <CopyableCode code="fetch_schema" /> | `SELECT` | <CopyableCode code="database_name, name, endpoint" /> | Fetches a schema. |
+| <CopyableCode code="list_schemas" /> | `SELECT` | <CopyableCode code="database_name, endpoint" /> | Lists the accessible schemas. |
+| <CopyableCode code="create_schema" /> | `INSERT` | <CopyableCode code="database_name, data__name, endpoint" /> | Creates a schema, with modifiers as query parameters. You must provide the full schema definition when creating a schema. |
+| <CopyableCode code="delete_schema" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | Deletes the specified schema. If you enable the `ifExists` parameter, the operation succeeds even if the schema does not exist. Otherwise, a 404 failure is returned if the schema does not exist. if the drop is unsuccessful. |
+| <CopyableCode code="create_or_alter_schema" /> | `REPLACE` | <CopyableCode code="database_name, name, data__name, endpoint" /> | Creates a new, or alters an existing, schema. You must provide the full schema definition even when altering an existing schema. |
+| <CopyableCode code="clone_schema" /> | `EXEC` | <CopyableCode code="database_name, name, endpoint" /> | Clones an existing schema, with modifiers as query parameters. You must provide the full schema definition when cloning an existing schema. |
+| <CopyableCode code="undrop_schema" /> | `EXEC` | <CopyableCode code="database_name, name, endpoint" /> | Undrops schema. |
 
 ## `SELECT` examples
 
@@ -100,7 +100,7 @@ trace_level,
 user_task_managed_initial_warehouse_size,
 user_task_timeout_ms
 FROM snowflake.schema.schemas
-WHERE database = '{{ database }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -112,12 +112,12 @@ Use the following StackQL query and manifest file to create a new <code>schemas<
 ```sql
 /*+ create */
 INSERT INTO snowflake.schema.schemas (
-endpoint,
+database_name,
 data__name,
-database
+endpoint
 )
 SELECT 
-'{ database }',
+'{ database_name }',
 '{ name }',
 '{ endpoint }'
 ;
@@ -128,7 +128,7 @@ SELECT
 ```yaml
 - name: schemas
   props:
-  - name: database
+  - name: database_name
     value: string
   - name: data__name
     value: string
@@ -149,7 +149,7 @@ REPLACE snowflake.schema.schemas
 SET 
 
 WHERE 
-database = '{ database }' AND name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
+database_name = '{ database_name }' AND name = '{ name }' AND data__name = '{ data__name }' AND endpoint = '{ endpoint }';
 ```
 
 ## `DELETE` example
@@ -159,5 +159,5 @@ Deletes the specified <code>schemas</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.schema.schemas
-WHERE database = '{ database }' AND name = '{ name }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND endpoint = '{ endpoint }';
 ```

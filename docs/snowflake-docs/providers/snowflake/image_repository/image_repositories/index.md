@@ -41,10 +41,10 @@ Creates, updates, deletes, gets or lists a <code>image_repositories</code> resou
 ## Methods
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_image_repository" /> | `SELECT` | <CopyableCode code="database, name, schema, endpoint" /> | Fetches a named image repository in a specified database and schema. |
-| <CopyableCode code="list_image_repositories" /> | `SELECT` | <CopyableCode code="database, schema, endpoint" /> | Lists the image repositories under a specified database and schema. |
-| <CopyableCode code="create_image_repository" /> | `INSERT` | <CopyableCode code="database, schema, data__name, endpoint" /> | Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_image_repository" /> | `DELETE` | <CopyableCode code="database, name, schema, endpoint" /> | Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist. |
+| <CopyableCode code="fetch_image_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetches a named image repository in a specified database and schema. |
+| <CopyableCode code="list_image_repositories" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the image repositories under a specified database and schema. |
+| <CopyableCode code="create_image_repository" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_image_repository" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist. |
 
 ## `SELECT` examples
 
@@ -61,7 +61,7 @@ owner_role_type,
 repository_url,
 schema_name
 FROM snowflake.image_repository.image_repositories
-WHERE database = '{{ database }}' AND schema = '{{ schema }}' AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' AND schema_name = '{{ schema_name }}' AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
@@ -73,16 +73,16 @@ Use the following StackQL query and manifest file to create a new <code>image_re
 ```sql
 /*+ create */
 INSERT INTO snowflake.image_repository.image_repositories (
-endpoint,
+database_name,
 data__name,
-schema,
-database
+schema_name,
+endpoint
 )
 SELECT 
-'{ database }',
+'{ endpoint }',
+'{ database_name }',
 '{ name }',
-'{ schema }',
-'{ endpoint }'
+'{ schema_name }'
 ;
 ```
 </TabItem>
@@ -91,9 +91,9 @@ SELECT
 ```yaml
 - name: image_repositories
   props:
-  - name: database
+  - name: database_name
     value: string
-  - name: schema
+  - name: schema_name
     value: string
   - name: data__name
     value: string
@@ -111,5 +111,5 @@ Deletes the specified <code>image_repositories</code> resource.
 ```sql
 /*+ delete */
 DELETE FROM snowflake.image_repository.image_repositories
-WHERE database = '{ database }' AND name = '{ name }' AND schema = '{ schema }' AND endpoint = '{ endpoint }';
+WHERE database_name = '{ database_name }' AND name = '{ name }' AND schema_name = '{ schema_name }' AND endpoint = '{ endpoint }';
 ```
