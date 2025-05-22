@@ -48,6 +48,7 @@ Creates, updates, deletes, gets or lists a <code>network_policies</code> resourc
 | <CopyableCode code="create_network_policy" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a network policy |
 | <CopyableCode code="delete_network_policy" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a network policy |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

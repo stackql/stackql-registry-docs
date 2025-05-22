@@ -49,6 +49,7 @@ Creates, updates, deletes, gets or lists a <code>functions</code> resource.
 | <CopyableCode code="delete_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a function with the given name and args. |
 | <CopyableCode code="execute_function" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute a Function. |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

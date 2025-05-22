@@ -51,6 +51,7 @@ Creates, updates, deletes, gets or lists a <code>views</code> resource.
 | <CopyableCode code="create_view" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__columns, data__name, data__query, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a view |
 | <CopyableCode code="delete_view" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a view |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

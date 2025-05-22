@@ -69,6 +69,7 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 | <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Swap with another dynamic table |
 | <CopyableCode code="undrop_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop specified dynamic table |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

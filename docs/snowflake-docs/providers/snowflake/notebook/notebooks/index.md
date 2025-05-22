@@ -69,6 +69,7 @@ Creates, updates, deletes, gets or lists a <code>notebooks</code> resource.
 | <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="asyncExec" /> | Execute a Notebook |
 | <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

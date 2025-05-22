@@ -60,6 +60,7 @@ Creates, updates, deletes, gets or lists a <code>user_defined_functions</code> r
 | <CopyableCode code="delete_user_defined_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a UDF |
 | <CopyableCode code="rename_user_defined_function" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, targetDatabase, targetName, targetSchema, endpoint" /> | <CopyableCode code="ifExists" /> | Rename a UDF |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>
