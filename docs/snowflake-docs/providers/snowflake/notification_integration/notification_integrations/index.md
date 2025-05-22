@@ -44,8 +44,6 @@ Creates, updates, deletes, gets or lists a <code>notification_integrations</code
 | <CopyableCode code="create_notification_integration" /> | `INSERT` | <CopyableCode code="data__name, data__notification_hook, endpoint" /> | <CopyableCode code="createMode" /> | Create a notification integration |
 | <CopyableCode code="delete_notification_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a notification integration |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

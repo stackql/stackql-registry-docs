@@ -45,8 +45,6 @@ Creates, updates, deletes, gets or lists a <code>grants_to</code> resource.
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="list_grants_to" /> | `SELECT` | <CopyableCode code="granteeName, granteeType, endpoint" /> | <CopyableCode code="showLimit" /> | List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

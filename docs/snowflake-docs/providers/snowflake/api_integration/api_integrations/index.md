@@ -47,8 +47,6 @@ Creates, updates, deletes, gets or lists a <code>api_integrations</code> resourc
 | <CopyableCode code="delete_api_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an API integration |
 | <CopyableCode code="create_or_alter_api_integration" /> | `REPLACE` | <CopyableCode code="name, data__api_allowed_prefixes, data__api_hook, data__enabled, data__name, endpoint" /> | - | Create an (or alter an existing) API integration. Note that API_KEY is not currently altered by this operation and is supported for a newly-created object only. Unsetting API_BLOCKED_PREFIXES is also unsupported. |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

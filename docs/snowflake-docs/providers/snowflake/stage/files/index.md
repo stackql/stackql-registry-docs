@@ -40,8 +40,6 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="pattern" /> | List files in the stage -- this is equivalent to LIST @stage. |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

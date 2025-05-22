@@ -76,8 +76,6 @@ Creates, updates, deletes, gets or lists a <code>iceberg_tables</code> resource.
 | <CopyableCode code="suspend_recluster_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend recluster of an iceberg table (iceberg tables managed by an external catalog do not allow clustering) |
 | <CopyableCode code="undrop_iceberg_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop an iceberg table |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>
