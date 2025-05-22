@@ -239,7 +239,7 @@ SELECT
     - name: warehouse
       value: string
     - name: schedule
-      props:
+      value:
         - name: schedule_type
           value: string
     - name: comment
@@ -259,7 +259,7 @@ SELECT
     - name: user_task_managed_initial_warehouse_size
       value: string
     - name: target_completion_interval
-      props:
+      value:
         - name: schedule_type
           value: string
     - name: serverless_task_min_statement_size

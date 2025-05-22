@@ -152,7 +152,7 @@ SELECT
     - name: name
       value: string
     - name: api_hook
-      props:
+      value:
         - name: type
           value: string
     - name: api_allowed_prefixes

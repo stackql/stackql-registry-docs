@@ -224,8 +224,7 @@ SELECT
     - name: kind
       value: string
     - name: columns
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: datatype
@@ -233,7 +232,7 @@ SELECT
         - name: comment
           value: string
     - name: target_lag
-      props:
+      value:
         - name: type
           value: string
     - name: refresh_mode

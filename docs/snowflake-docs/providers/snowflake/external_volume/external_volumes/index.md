@@ -140,8 +140,7 @@ SELECT
     - name: name
       value: string
     - name: storage_locations
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: storage_provider

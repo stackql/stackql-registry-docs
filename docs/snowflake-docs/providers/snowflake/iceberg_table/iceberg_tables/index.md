@@ -253,8 +253,7 @@ SELECT
     - name: cluster_by
       value: array
     - name: columns
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: datatype
@@ -272,8 +271,7 @@ SELECT
     - name: metadata_file_path
       value: string
     - name: constraints
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: column_names

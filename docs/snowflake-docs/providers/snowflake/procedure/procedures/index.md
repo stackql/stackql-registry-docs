@@ -197,8 +197,7 @@ SELECT
     - name: is_secure
       value: boolean
     - name: arguments
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: datatype
@@ -206,11 +205,11 @@ SELECT
         - name: default_value
           value: string
     - name: return_type
-      props:
+      value:
         - name: type
           value: string
     - name: language_config
-      props:
+      value:
         - name: language
           value: string
         - name: called_on_null_input

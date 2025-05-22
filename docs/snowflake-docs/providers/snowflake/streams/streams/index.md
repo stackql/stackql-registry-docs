@@ -170,7 +170,7 @@ SELECT
     - name: name
       value: string
     - name: stream_source
-      props:
+      value:
         - name: src_type
           value: string
         - name: name
