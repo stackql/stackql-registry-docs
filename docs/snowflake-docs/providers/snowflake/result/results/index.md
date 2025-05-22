@@ -36,7 +36,9 @@ Creates, updates, deletes, gets or lists a <code>results</code> resource.
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_result" /> | `EXEC` | <CopyableCode code="result_handler, endpoint" /> | <CopyableCode code="page" /> | Get result status or the result when it is ready. |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>

@@ -56,7 +56,9 @@ Creates, updates, deletes, gets or lists a <code>procedures</code> resource.
 | <CopyableCode code="delete_procedure" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a procedure |
 | <CopyableCode code="call_procedure" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, data__call_arguments, endpoint" /> | - | Call a procedure |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>

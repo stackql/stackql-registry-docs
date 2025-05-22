@@ -45,7 +45,9 @@ Creates, updates, deletes, gets or lists a <code>grants_on</code> resource.
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="list_grants_on" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants on the role |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>

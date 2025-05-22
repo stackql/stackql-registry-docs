@@ -47,7 +47,9 @@ Creates, updates, deletes, gets or lists a <code>external_volumes</code> resourc
 | <CopyableCode code="delete_external_volume" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an external volume |
 | <CopyableCode code="undrop_external_volume" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrop an external volume |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>
