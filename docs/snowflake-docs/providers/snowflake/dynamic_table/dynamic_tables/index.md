@@ -68,8 +68,7 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 | <CopyableCode code="suspend_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend recluster of a dynamic table |
 | <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Swap with another dynamic table |
 | <CopyableCode code="undrop_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop specified dynamic table |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

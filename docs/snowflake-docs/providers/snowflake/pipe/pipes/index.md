@@ -54,8 +54,7 @@ Creates, updates, deletes, gets or lists a <code>pipes</code> resource.
 | <CopyableCode code="create_pipe" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__copy_statement, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a pipe |
 | <CopyableCode code="delete_pipe" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a pipe |
 | <CopyableCode code="refresh_pipe" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="prefix" />, <CopyableCode code="modified_after" /> | Refresh the pipe |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

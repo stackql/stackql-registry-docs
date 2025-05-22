@@ -76,8 +76,7 @@ Creates, updates, deletes, gets or lists a <code>accounts</code> resource.
 | <CopyableCode code="create_account" /> | `INSERT` | <CopyableCode code="data__admin_name, data__edition, data__email, data__name, endpoint" /> | - | Creates a account. You must provide the full account definition when creating a account. |
 | <CopyableCode code="delete_account" /> | `DELETE` | <CopyableCode code="gracePeriodInDays, name, endpoint" /> | <CopyableCode code="ifExists" /> | Deletes the specified account. If you enable the `ifExists` parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful. |
 | <CopyableCode code="undrop_account" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Restores a dropped account that has not yet been permanently deleted (a dropped account that is within its grace period). |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

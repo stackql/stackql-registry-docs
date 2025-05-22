@@ -36,7 +36,7 @@ Creates, updates, deletes, gets or lists a <code>presigned_url</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="get_presigned_url" /> | `SELECT` | <CopyableCode code="database_name, filePath, name, schema_name, endpoint" /> | - | Generate a presigned url and optionally encryption materials for uploading and downloading files. |
-
+<br />
 ## `SELECT` examples
 
 Generate a presigned url and optionally encryption materials for uploading and downloading files.

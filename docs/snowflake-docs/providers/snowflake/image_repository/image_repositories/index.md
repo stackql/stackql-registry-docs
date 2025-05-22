@@ -45,8 +45,7 @@ Creates, updates, deletes, gets or lists a <code>image_repositories</code> resou
 | <CopyableCode code="list_image_repositories" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | Lists the image repositories under a specified database and schema. |
 | <CopyableCode code="create_image_repository" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body. |
 | <CopyableCode code="delete_image_repository" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist. |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

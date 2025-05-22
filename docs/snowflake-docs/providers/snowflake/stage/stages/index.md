@@ -54,8 +54,7 @@ Creates, updates, deletes, gets or lists a <code>stages</code> resource.
 | <CopyableCode code="list_stages" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | Lists stages under the database and schema, with show options as query parameters. |
 | <CopyableCode code="create_stage" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a stage, with standard create modifiers as query parameters. See the Stage component definition for what is required to be provided in the request body. |
 | <CopyableCode code="delete_stage" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a stage with the stage name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

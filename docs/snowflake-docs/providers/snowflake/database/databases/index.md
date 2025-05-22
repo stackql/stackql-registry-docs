@@ -72,8 +72,7 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 | <CopyableCode code="primary_database_failover" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Promotes the specified secondary (replica) database to serve as the primary database. When promoted, the database becomes writeable. At the same time, the previous primary database becomes a read-only secondary database. |
 | <CopyableCode code="refresh_database_replication" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data. If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time. |
 | <CopyableCode code="undrop_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrops database. |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 
