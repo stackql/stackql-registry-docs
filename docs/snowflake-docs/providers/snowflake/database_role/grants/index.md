@@ -45,12 +45,15 @@ Creates, updates, deletes, gets or lists a <code>grants</code> resource.
 | <CopyableCode code="grant_privileges" /> | `INSERT` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | - | Grant privileges to the role |
 | <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | <CopyableCode code="mode" /> | Revoke grants from the role |
 
+
 <details>
 <summary>Optional Parameter Details</summary>
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="mode" /> | Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role. - restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails. - cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege. | `string` | `-` |
+| <CopyableCode code="mode" /> | Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role.
+- restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails.
+- cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege. | `string` | `-` |
 | <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 
 </details>

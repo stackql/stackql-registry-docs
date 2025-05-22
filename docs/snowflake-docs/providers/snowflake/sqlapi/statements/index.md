@@ -47,6 +47,7 @@ Creates, updates, deletes, gets or lists a <code>statements</code> resource.
 | <CopyableCode code="submit_statement" /> | `SELECT` | <CopyableCode code="User-Agent, endpoint" /> | - | Submits one or more statements for execution. You can specify that the statement should be executed asynchronously. |
 | <CopyableCode code="cancel_statement" /> | `EXEC` | <CopyableCode code="User-Agent, statementHandle, endpoint" /> | - | Cancels the execution of the statement with the specified statement handle. |
 
+
 ## `SELECT` examples
 
 Submits one or more statements for execution. You can specify that the statement should be executed asynchronously.
