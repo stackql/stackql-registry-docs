@@ -67,7 +67,9 @@ Creates, updates, deletes, gets or lists a <code>schemas</code> resource.
 | <CopyableCode code="clone_schema" /> | `EXEC` | <CopyableCode code="database_name, name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="kind" />, <CopyableCode code="targetDatabase" /> | Clones an existing schema, with modifiers as query parameters. You must provide the full schema definition when cloning an existing schema. |
 | <CopyableCode code="undrop_schema" /> | `EXEC` | <CopyableCode code="database_name, name, endpoint" /> | - | Undrops schema. |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>

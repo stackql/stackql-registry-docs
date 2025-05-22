@@ -53,7 +53,9 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 | <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a new alert by cloning from the specified resource |
 | <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute an alert |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>

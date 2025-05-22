@@ -73,7 +73,9 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 | <CopyableCode code="refresh_database_replication" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data. If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time. |
 | <CopyableCode code="undrop_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrops database. |
 
-  
+
+Expand this to view optional parameter details for all methods in this resource.
+
 
 <details>
 <summary>Optional Parameter Details</summary>
