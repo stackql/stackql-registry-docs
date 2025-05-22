@@ -85,8 +85,6 @@ Creates, updates, deletes, gets or lists a <code>warehouses</code> resource.
 | <CopyableCode code="suspend_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Remove all compute nodes from a warehouse and put the warehouse into a ‘Suspended’ state if current warehouse is not suspended. |
 | <CopyableCode code="use_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | [Deprecated] Specifies the active/current warehouse for the session. |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

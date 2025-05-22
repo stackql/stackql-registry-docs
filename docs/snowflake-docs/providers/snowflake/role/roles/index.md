@@ -48,8 +48,6 @@ Creates, updates, deletes, gets or lists a <code>roles</code> resource.
 | <CopyableCode code="create_role" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a role |
 | <CopyableCode code="delete_role" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a role |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

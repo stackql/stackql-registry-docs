@@ -51,8 +51,6 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 | <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
 | <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>

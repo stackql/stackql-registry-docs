@@ -66,8 +66,6 @@ Creates, updates, deletes, gets or lists a <code>compute_pools</code> resource.
 | <CopyableCode code="stop_all_services_in_compute_pool_deprecated" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Stops all services in the compute pool. Deprecated - use :stop-all-services instead. |
 | <CopyableCode code="suspend_compute_pool" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Suspend a compute pool, if active. If the specified compute pool is already suspended, no action is taken. |
 <br />
-Expand this to view optional parameter details for all methods in this resource.
-
 
 <details>
 <summary>Optional Parameter Details</summary>
