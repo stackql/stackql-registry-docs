@@ -41,13 +41,24 @@ Creates, updates, deletes, gets or lists a <code>functions</code> resource.
 | <CopyableCode code="signature" /> | `string` | Function's arguments. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_function" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Fetch a Function using the describe command output. |
-| <CopyableCode code="list_functions" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the user functions under the database and schema. |
-| <CopyableCode code="create_function" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__name, endpoint" /> | Create a function. |
-| <CopyableCode code="delete_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | Delete a function with the given name and args. |
-| <CopyableCode code="execute_function" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Execute a Function. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_function" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | - | Fetch a Function using the describe command output. |
+| <CopyableCode code="list_functions" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | Lists the user functions under the database and schema. |
+| <CopyableCode code="create_function" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a function. |
+| <CopyableCode code="delete_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a function with the given name and args. |
+| <CopyableCode code="execute_function" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute a Function. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

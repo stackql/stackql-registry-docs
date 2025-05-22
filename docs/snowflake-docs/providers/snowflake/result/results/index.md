@@ -32,6 +32,15 @@ Creates, updates, deletes, gets or lists a <code>results</code> resource.
 
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_result" /> | `EXEC` | <CopyableCode code="result_handler, endpoint" /> | Get result status or the result when it is ready. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_result" /> | `EXEC` | <CopyableCode code="result_handler, endpoint" /> | <CopyableCode code="page" /> | Get result status or the result when it is ready. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="page" /> | Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. | `integer` | `0` |
+
+</details>

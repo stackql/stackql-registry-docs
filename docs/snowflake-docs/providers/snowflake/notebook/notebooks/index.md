@@ -58,16 +58,36 @@ Creates, updates, deletes, gets or lists a <code>notebooks</code> resource.
 | <CopyableCode code="version" /> | `string` | User specified version alias |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_notebook" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a notebook |
-| <CopyableCode code="list_notebooks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | List notebooks |
-| <CopyableCode code="create_notebook" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a notebook |
-| <CopyableCode code="delete_notebook" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a notebook |
-| <CopyableCode code="add_live_version_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Adds a LIVE version to the notebook |
-| <CopyableCode code="commit_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | If a Git connection is set up for the notebook, commits the LIVE version of the notebook to the Git repository |
-| <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Execute a Notebook |
-| <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_notebook" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a notebook |
+| <CopyableCode code="list_notebooks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List notebooks |
+| <CopyableCode code="create_notebook" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a notebook |
+| <CopyableCode code="delete_notebook" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a notebook |
+| <CopyableCode code="add_live_version_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="fromLast" />, <CopyableCode code="comment" /> | Adds a LIVE version to the notebook |
+| <CopyableCode code="commit_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="version" />, <CopyableCode code="comment" /> | If a Git connection is set up for the notebook, commits the LIVE version of the notebook to the Git repository |
+| <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="asyncExec" /> | Execute a Notebook |
+| <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="asyncExec" /> | Asynchronous execution enable/disable. Default is disable. | `boolean` | `false` |
+| <CopyableCode code="comment" /> | Sets a comment for the notebook or version of the notebook | `string` | `-` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromLast" /> | Sets the LIVE version to the LAST version of the notebook | `boolean` | `-` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="targetDatabase" /> | Database of the target resource. Defaults to the source's database | `string` | `-` |
+| <CopyableCode code="targetSchema" /> | Schema of the target resource. Defaults to the source's schema | `string` | `-` |
+| <CopyableCode code="version" /> | live version of the alias | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

@@ -41,11 +41,11 @@ Creates, updates, deletes, gets or lists a <code>statements</code> resource.
 | <CopyableCode code="stats" /> | `object` | these stats might not be available for each request. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_statement_status" /> | `SELECT` | <CopyableCode code="User-Agent, statementHandle, endpoint" /> | Checks the status of the execution of the statement with the specified statement handle. If the statement was executed successfully, the operation returns the requested partition of the result set. |
-| <CopyableCode code="submit_statement" /> | `SELECT` | <CopyableCode code="User-Agent, endpoint" /> | Submits one or more statements for execution. You can specify that the statement should be executed asynchronously. |
-| <CopyableCode code="cancel_statement" /> | `EXEC` | <CopyableCode code="User-Agent, statementHandle, endpoint" /> | Cancels the execution of the statement with the specified statement handle. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="get_statement_status" /> | `SELECT` | <CopyableCode code="User-Agent, statementHandle, endpoint" /> | - | Checks the status of the execution of the statement with the specified statement handle. If the statement was executed successfully, the operation returns the requested partition of the result set. |
+| <CopyableCode code="submit_statement" /> | `SELECT` | <CopyableCode code="User-Agent, endpoint" /> | - | Submits one or more statements for execution. You can specify that the statement should be executed asynchronously. |
+| <CopyableCode code="cancel_statement" /> | `EXEC` | <CopyableCode code="User-Agent, statementHandle, endpoint" /> | - | Cancels the execution of the statement with the specified statement handle. |
 
 ## `SELECT` examples
 

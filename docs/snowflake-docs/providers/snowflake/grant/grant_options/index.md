@@ -32,10 +32,19 @@ Creates, updates, deletes, gets or lists a <code>grant_options</code> resource.
 
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="revoke_group_privilege_grant_option" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | Endpoint to indicate that the grant option for the privilege listed on the group securable in the given scope should be revoked. |
-| <CopyableCode code="revoke_privilege_grant_option" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | Endpoint to indicate that the grant option for the privilege listed in the path should be revoked. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="revoke_group_privilege_grant_option" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the grant option for the privilege listed on the group securable in the given scope should be revoked. |
+| <CopyableCode code="revoke_privilege_grant_option" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the grant option for the privilege listed in the path should be revoked. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="deleteMode" /> | If "cascade", recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are "restrict" or "cascade". | `string` | `-` |
+
+</details>
 
 ## `DELETE` example
 

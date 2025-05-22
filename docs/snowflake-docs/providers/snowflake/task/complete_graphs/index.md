@@ -46,10 +46,20 @@ Creates, updates, deletes, gets or lists a <code>complete_graphs</code> resource
 | <CopyableCode code="state" /> | `string` | The current state of the task run. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_complete_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are completed. |
-| <CopyableCode code="get_complete_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are completed. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="get_complete_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
+| <CopyableCode code="get_complete_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="errorOnly" /> | Whether to only return results for tasks runs that have failed. Default is false. | `boolean` | `-` |
+| <CopyableCode code="resultLimit" /> | Number of results to return, at most. Default is 1000, valid range is 1 to 10000. | `integer` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

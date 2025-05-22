@@ -32,12 +32,21 @@ Creates, updates, deletes, gets or lists a <code>privileges</code> resource.
 
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="grant_group_privilege" /> | `INSERT` | <CopyableCode code="bulkGrantType, granteeName, granteeType, scopeName, scopeType, securableTypePlural, endpoint" /> | Endpoint to indicate that the privileges listed in the request body should be granted to all securables of this type in the given scope. |
-| <CopyableCode code="grant_privilege" /> | `INSERT` | <CopyableCode code="granteeName, granteeType, securableName, securableType, endpoint" /> | Endpoint to indicate that the privileges listed in the request body should be granted. |
-| <CopyableCode code="revoke_group_privilege" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | Endpoint to indicate that the privilege listed on the group securable in the given scope should be revoked. |
-| <CopyableCode code="revoke_privilege" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | Endpoint to indicate that the privilege listed in the path should be revoked. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="grant_group_privilege" /> | `INSERT` | <CopyableCode code="bulkGrantType, granteeName, granteeType, scopeName, scopeType, securableTypePlural, endpoint" /> | - | Endpoint to indicate that the privileges listed in the request body should be granted to all securables of this type in the given scope. |
+| <CopyableCode code="grant_privilege" /> | `INSERT` | <CopyableCode code="granteeName, granteeType, securableName, securableType, endpoint" /> | - | Endpoint to indicate that the privileges listed in the request body should be granted. |
+| <CopyableCode code="revoke_group_privilege" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the privilege listed on the group securable in the given scope should be revoked. |
+| <CopyableCode code="revoke_privilege" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the privilege listed in the path should be revoked. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="deleteMode" /> | If "cascade", recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are "restrict" or "cascade". | `string` | `-` |
+
+</details>
 
 ## `INSERT` example
 

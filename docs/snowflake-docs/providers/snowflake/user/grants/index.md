@@ -38,11 +38,20 @@ Creates, updates, deletes, gets or lists a <code>grants</code> resource.
 | <CopyableCode code="securable_type" /> | `string` | Type of the securable to be granted. Only ROLE is supported |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_grants" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | List all grants to the user |
-| <CopyableCode code="grant" /> | `INSERT` | <CopyableCode code="name, data__securable_type, endpoint" /> | Grant a role to the user |
-| <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="name, data__securable_type, endpoint" /> | Revoke grants from the user |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_grants" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants to the user |
+| <CopyableCode code="grant" /> | `INSERT` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Grant a role to the user |
+| <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Revoke grants from the user |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+
+</details>
 
 ## `SELECT` examples
 
