@@ -41,12 +41,22 @@ Creates, updates, deletes, gets or lists a <code>network_policies</code> resourc
 | <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the network policy |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_network_policy" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | Fetch a network policy |
-| <CopyableCode code="list_network_policies" /> | `SELECT` | <CopyableCode code="endpoint" /> | List network policies |
-| <CopyableCode code="create_network_policy" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | Create a network policy |
-| <CopyableCode code="delete_network_policy" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | Delete a network policy |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_network_policy" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch a network policy |
+| <CopyableCode code="list_network_policies" /> | `SELECT` | <CopyableCode code="endpoint" /> | - | List network policies |
+| <CopyableCode code="create_network_policy" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a network policy |
+| <CopyableCode code="delete_network_policy" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a network policy |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+
+</details>
 
 ## `SELECT` examples
 

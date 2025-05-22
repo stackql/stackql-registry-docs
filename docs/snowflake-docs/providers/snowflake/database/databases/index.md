@@ -55,23 +55,42 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 | <CopyableCode code="user_task_timeout_ms" /> | `integer` | Time limit, in milliseconds, for a single run of the task before it times out. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_database" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | Fetches a database. |
-| <CopyableCode code="list_databases" /> | `SELECT` | <CopyableCode code="endpoint" /> | Lists the accessible databases. |
-| <CopyableCode code="create_database" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | Creates a database, with modifiers as query parameters. You must provide the full database definition when creating a database. |
-| <CopyableCode code="delete_database" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | Deletes the specified database. If you enable the `ifExists` parameter, the operation succeeds even if the database does not exist. Otherwise, a 404 failure is returned if the database does not exist. if the drop is unsuccessful. |
-| <CopyableCode code="create_or_alter_database" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | Creates a new, or alters an existing, database. You must provide the full database definition even when altering an existing database. |
-| <CopyableCode code="clone_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | Clones an existing database, with modifiers as query parameters. You must provide the full database definition when cloning an existing database. |
-| <CopyableCode code="create_database_from_share" /> | `EXEC` | <CopyableCode code="endpoint" /> | Creates a database from a given share. |
-| <CopyableCode code="create_database_from_share_deprecated" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | Creates a database from a given share. |
-| <CopyableCode code="disable_database_failover" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | Disables failover for this primary database, meaning no replica of this database (i.e. secondary database) can be promoted to serve as the primary database. |
-| <CopyableCode code="disable_database_replication" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | Disables replication for this primary database, meaning no replica of this database (i.e. secondary database) in another account can be refreshed. Any secondary databases remain linked to the primary database, but requests to refresh a secondary database are denied. |
-| <CopyableCode code="enable_database_failover" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | Specifies a comma-separated list of accounts in your organization where a replica of this primary database can be promoted to serve as the primary database. |
-| <CopyableCode code="enable_database_replication" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | Promotes a local database to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database. |
-| <CopyableCode code="primary_database_failover" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | Promotes the specified secondary (replica) database to serve as the primary database. When promoted, the database becomes writeable. At the same time, the previous primary database becomes a read-only secondary database. |
-| <CopyableCode code="refresh_database_replication" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data. If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time. |
-| <CopyableCode code="undrop_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | Undrops database. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_database" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetches a database. |
+| <CopyableCode code="list_databases" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" />, <CopyableCode code="history" /> | Lists the accessible databases. |
+| <CopyableCode code="create_database" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="kind" /> | Creates a database, with modifiers as query parameters. You must provide the full database definition when creating a database. |
+| <CopyableCode code="delete_database" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="restrict" /> | Deletes the specified database. If you enable the `ifExists` parameter, the operation succeeds even if the database does not exist. Otherwise, a 404 failure is returned if the database does not exist. if the drop is unsuccessful. |
+| <CopyableCode code="create_or_alter_database" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | - | Creates a new, or alters an existing, database. You must provide the full database definition even when altering an existing database. |
+| <CopyableCode code="clone_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="kind" /> | Clones an existing database, with modifiers as query parameters. You must provide the full database definition when cloning an existing database. |
+| <CopyableCode code="create_database_from_share" /> | `EXEC` | <CopyableCode code="endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="share" /> | Creates a database from a given share. |
+| <CopyableCode code="create_database_from_share_deprecated" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="share" /> | Creates a database from a given share. |
+| <CopyableCode code="disable_database_failover" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | - | Disables failover for this primary database, meaning no replica of this database (i.e. secondary database) can be promoted to serve as the primary database. |
+| <CopyableCode code="disable_database_replication" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | - | Disables replication for this primary database, meaning no replica of this database (i.e. secondary database) in another account can be refreshed. Any secondary databases remain linked to the primary database, but requests to refresh a secondary database are denied. |
+| <CopyableCode code="enable_database_failover" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | - | Specifies a comma-separated list of accounts in your organization where a replica of this primary database can be promoted to serve as the primary database. |
+| <CopyableCode code="enable_database_replication" /> | `EXEC` | <CopyableCode code="name, data__accounts, endpoint" /> | <CopyableCode code="ignore_edition_check" /> | Promotes a local database to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database. |
+| <CopyableCode code="primary_database_failover" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Promotes the specified secondary (replica) database to serve as the primary database. When promoted, the database becomes writeable. At the same time, the previous primary database becomes a read-only secondary database. |
+| <CopyableCode code="refresh_database_replication" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data. If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time. |
+| <CopyableCode code="undrop_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrops database. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="history" /> | Optionally includes dropped databases that have not yet been purged. | `boolean` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="ignore_edition_check" /> | Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the {a href=https://docs.snowflake.com/en/sql-reference/sql/alter-database} ALTER DATABASE{/a} reference. | `boolean` | `-` |
+| <CopyableCode code="kind" /> | Type of database to create. Currently, Snowflake supports only `transient` and `permanent` (also represented by the empty string). | `string` | `-` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="restrict" /> | Whether to drop the database if foreign keys exist that reference any tables in the database. - `true`: Return a warning about existing foreign key references and don't drop the database. - `false`: Drop the database and all objects in the database, including tables with primary or unique keys that are referenced by foreign keys in other tables. | `boolean` | `false` |
+| <CopyableCode code="share" /> | ID of the share from which to create the database, in the form "{provider_account}.{share_name}". | `string` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

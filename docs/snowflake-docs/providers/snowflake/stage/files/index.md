@@ -36,9 +36,18 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 | <CopyableCode code="size" /> | `string` | Size of the file. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | List files in the stage -- this is equivalent to LIST @stage. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="pattern" /> | List files in the stage -- this is equivalent to LIST @stage. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="pattern" /> | A query parameter that filters the command output by a regular expression pattern. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

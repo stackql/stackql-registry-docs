@@ -33,9 +33,9 @@ Creates, updates, deletes, gets or lists a <code>presigned_url</code> resource.
 | <CopyableCode code="presigned_url" /> | `string` | Presigned url for file transfer, only works for Server Side Encrypted Stages. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_presigned_url" /> | `SELECT` | <CopyableCode code="database_name, filePath, name, schema_name, endpoint" /> | Generate a presigned url and optionally encryption materials for uploading and downloading files. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="get_presigned_url" /> | `SELECT` | <CopyableCode code="database_name, filePath, name, schema_name, endpoint" /> | - | Generate a presigned url and optionally encryption materials for uploading and downloading files. |
 
 ## `SELECT` examples
 

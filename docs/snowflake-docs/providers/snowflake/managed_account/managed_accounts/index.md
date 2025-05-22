@@ -43,11 +43,20 @@ Creates, updates, deletes, gets or lists a <code>managed_accounts</code> resourc
 | <CopyableCode code="url" /> | `string` | Account URL that is used to connect to the account, in the account name format. The account identifier in this format follows the pattern {orgname}-{account_name}. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_managed_accounts" /> | `SELECT` | <CopyableCode code="endpoint" /> | Lists the accessible managed accounts. |
-| <CopyableCode code="create_managed_account" /> | `INSERT` | <CopyableCode code="data__account_type, data__admin_name, data__admin_password, data__name, endpoint" /> | Creates a managed account. You must provide the full managed account definition when creating a managed account. |
-| <CopyableCode code="delete_managed_account" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | Removes a managed account, including all objects created in the account, and immediately restricts access to the account. Currently used by data providers to create reader accounts for their consumers. For more details, see Manage reader accounts. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_managed_accounts" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | Lists the accessible managed accounts. |
+| <CopyableCode code="create_managed_account" /> | `INSERT` | <CopyableCode code="data__account_type, data__admin_name, data__admin_password, data__name, endpoint" /> | - | Creates a managed account. You must provide the full managed account definition when creating a managed account. |
+| <CopyableCode code="delete_managed_account" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | - | Removes a managed account, including all objects created in the account, and immediately restricts access to the account. Currently used by data providers to create reader accounts for their consumers. For more details, see Manage reader accounts. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

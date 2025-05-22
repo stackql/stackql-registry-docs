@@ -40,12 +40,23 @@ Creates, updates, deletes, gets or lists a <code>catalog_integrations</code> res
 | <CopyableCode code="type" /> | `string` | Type of the integration. Always CATALOG. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_catalog_integration" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | Fetch a catalog integration. |
-| <CopyableCode code="list_catalog_integrations" /> | `SELECT` | <CopyableCode code="endpoint" /> | List catalog integrations. |
-| <CopyableCode code="create_catalog_integration" /> | `INSERT` | <CopyableCode code="data__catalog, data__enabled, data__name, data__table_format, endpoint" /> | Create a catalog integration. |
-| <CopyableCode code="delete_catalog_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | Delete a catalog integration. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_catalog_integration" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch a catalog integration. |
+| <CopyableCode code="list_catalog_integrations" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | List catalog integrations. |
+| <CopyableCode code="create_catalog_integration" /> | `INSERT` | <CopyableCode code="data__catalog, data__enabled, data__name, data__table_format, endpoint" /> | <CopyableCode code="createMode" /> | Create a catalog integration. |
+| <CopyableCode code="delete_catalog_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a catalog integration. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

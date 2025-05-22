@@ -39,12 +39,23 @@ Creates, updates, deletes, gets or lists a <code>image_repositories</code> resou
 | <CopyableCode code="schema_name" /> | `string` | A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_image_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetches a named image repository in a specified database and schema. |
-| <CopyableCode code="list_image_repositories" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the image repositories under a specified database and schema. |
-| <CopyableCode code="create_image_repository" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_image_repository" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_image_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetches a named image repository in a specified database and schema. |
+| <CopyableCode code="list_image_repositories" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | Lists the image repositories under a specified database and schema. |
+| <CopyableCode code="create_image_repository" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_image_repository" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

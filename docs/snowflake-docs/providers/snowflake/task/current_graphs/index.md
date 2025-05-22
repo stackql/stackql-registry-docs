@@ -46,10 +46,19 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 | <CopyableCode code="state" /> | `string` | The current state of the task run. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
-| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="resultLimit" /> | - | `integer` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

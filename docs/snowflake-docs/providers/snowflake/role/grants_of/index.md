@@ -37,9 +37,18 @@ Creates, updates, deletes, gets or lists a <code>grants_of</code> resource.
 | <CopyableCode code="role" /> | `string` | The name of the role |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_grants_of" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | List all grants of the role |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_grants_of" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants of the role |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

@@ -37,9 +37,9 @@ Creates, updates, deletes, gets or lists a <code>images</code> resource.
 | <CopyableCode code="tags" /> | `string` | Image tags. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_images_in_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | List images in the given image repository. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_images_in_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | List images in the given image repository. |
 
 ## `SELECT` examples
 

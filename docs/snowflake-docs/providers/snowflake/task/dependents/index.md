@@ -61,9 +61,18 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 | <CopyableCode code="warehouse" /> | `string` | A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive. |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="recursive" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="recursive" /> | Specifies whether to limit the output to include only direct child tasks or to include all recursive child tasks. | `boolean` | `true` |
+
+</details>
 
 ## `SELECT` examples
 

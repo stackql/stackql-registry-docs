@@ -41,9 +41,18 @@ Creates, updates, deletes, gets or lists a <code>grants_to</code> resource.
 | <CopyableCode code="securable_type" /> | `string` | Type of object granted on |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="list_grants_to" /> | `SELECT` | <CopyableCode code="granteeName, granteeType, endpoint" /> | List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="list_grants_to" /> | `SELECT` | <CopyableCode code="granteeName, granteeType, endpoint" /> | <CopyableCode code="showLimit" /> | List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+
+</details>
 
 ## `SELECT` examples
 

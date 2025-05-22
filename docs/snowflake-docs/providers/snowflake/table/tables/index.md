@@ -57,27 +57,46 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 | <CopyableCode code="table_type" /> | `string` | Type of the table |
 
 ## Methods
-| Name | Accessible by | Required Params | Description |
-|:-----|:--------------|:----------------|:------------|
-| <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Fetch a Table using the describe command output. |
-| <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | Lists the tables under the database and schema. |
-| <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | Create a table. |
-| <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Delete a table with the given name. |
-| <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
-| <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table by cloning from the specified resource |
-| <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table as select. |
-| <CopyableCode code="create_table_as_select_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, data__name, endpoint" /> | Create a table as select. |
-| <CopyableCode code="create_table_like" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
-| <CopyableCode code="create_table_like_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, newTableName, schema_name, endpoint" /> | Create a new table like the specified resource, but empty |
-| <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | Create a table using template. |
-| <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, endpoint" /> | Create a table using template. |
-| <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a table |
-| <CopyableCode code="resume_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Resume recluster of a table |
-| <CopyableCode code="suspend_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of a table |
-| <CopyableCode code="suspend_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Suspend recluster of a table |
-| <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | Swap with another table |
-| <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetTableName, endpoint" /> | Swap with another table |
-| <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | Undrop specified table |
+| Name | Accessible by | Required Params | Optional Params | Description |
+|:-----|:--------------|:----------------|:----------------|:------------|
+| <CopyableCode code="fetch_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a Table using the describe command output. |
+| <CopyableCode code="list_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" />, <CopyableCode code="history" />, <CopyableCode code="deep" /> | Lists the tables under the database and schema. |
+| <CopyableCode code="create_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a table. |
+| <CopyableCode code="delete_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a table with the given name. |
+| <CopyableCode code="create_or_alter_table" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | - | Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided. |
+| <CopyableCode code="clone_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Create a new table by cloning from the specified resource |
+| <CopyableCode code="create_table_as_select" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a table as select. |
+| <CopyableCode code="create_table_as_select_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a table as select. |
+| <CopyableCode code="create_table_like" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="create_table_like_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, newTableName, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a new table like the specified resource, but empty |
+| <CopyableCode code="create_table_using_template" /> | `EXEC` | <CopyableCode code="database_name, query, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a table using template. |
+| <CopyableCode code="create_table_using_template_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, query, schema_name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a table using template. |
+| <CopyableCode code="resume_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Resume recluster of a table |
+| <CopyableCode code="resume_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Resume recluster of a table |
+| <CopyableCode code="suspend_recluster_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend recluster of a table |
+| <CopyableCode code="suspend_recluster_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend recluster of a table |
+| <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Swap with another table |
+| <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetTableName, endpoint" /> | <CopyableCode code="ifExists" /> | Swap with another table |
+| <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop specified table |
+
+<details>
+<summary>Optional Parameter Details</summary>
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| <CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="deep" /> | Optionally includes dependency information of the table. | `boolean` | `-` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="history" /> | Optionally includes dropped tables that have not yet been purged. | `boolean` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="targetDatabase" /> | Database of the newly created table. Defaults to the source table's database. | `string` | `-` |
+| <CopyableCode code="targetSchema" /> | Schema of the newly created table. Defaults to the source table's schema. | `string` | `-` |
+
+</details>
 
 ## `SELECT` examples
 
