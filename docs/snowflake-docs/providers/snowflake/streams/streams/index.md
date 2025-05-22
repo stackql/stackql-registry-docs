@@ -54,6 +54,7 @@ Creates, updates, deletes, gets or lists a <code>streams</code> resource.
 | <CopyableCode code="delete_stream" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a stream |
 | <CopyableCode code="clone_stream" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Clone a stream |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

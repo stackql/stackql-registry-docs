@@ -47,6 +47,7 @@ Creates, updates, deletes, gets or lists a <code>database_roles</code> resource.
 | <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a database role |
 | <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database_name, name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="targetDatabase" /> | Create a new database role by cloning from the specified resource |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

@@ -44,6 +44,7 @@ Creates, updates, deletes, gets or lists a <code>grants</code> resource.
 | <CopyableCode code="grant" /> | `INSERT` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Grant a role to the user |
 | <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Revoke grants from the user |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>

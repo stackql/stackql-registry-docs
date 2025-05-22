@@ -47,6 +47,7 @@ Creates, updates, deletes, gets or lists a <code>catalog_integrations</code> res
 | <CopyableCode code="create_catalog_integration" /> | `INSERT` | <CopyableCode code="data__catalog, data__enabled, data__name, data__table_format, endpoint" /> | <CopyableCode code="createMode" /> | Create a catalog integration. |
 | <CopyableCode code="delete_catalog_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a catalog integration. |
 
+  
 
 <details>
 <summary>Optional Parameter Details</summary>
