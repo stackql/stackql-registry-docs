@@ -59,8 +59,7 @@ Creates, updates, deletes, gets or lists a <code>user_defined_functions</code> r
 | <CopyableCode code="create_user_defined_function" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__language_config, data__name, data__return_type, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a UDF |
 | <CopyableCode code="delete_user_defined_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a UDF |
 | <CopyableCode code="rename_user_defined_function" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, targetDatabase, targetName, targetSchema, endpoint" /> | <CopyableCode code="ifExists" /> | Rename a UDF |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

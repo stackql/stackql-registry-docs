@@ -44,8 +44,7 @@ Creates, updates, deletes, gets or lists a <code>future_grants</code> resource.
 | <CopyableCode code="list_future_grants" /> | `SELECT` | <CopyableCode code="database_name, name, endpoint" /> | <CopyableCode code="showLimit" /> | List all future grants to the role |
 | <CopyableCode code="grant_future_privileges" /> | `INSERT` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | - | Grant future privileges to the role |
 | <CopyableCode code="revoke_future_grants" /> | `DELETE` | <CopyableCode code="database_name, name, data__securable_type, endpoint" /> | <CopyableCode code="mode" /> | Revoke future grants from the role |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 

@@ -68,8 +68,7 @@ Creates, updates, deletes, gets or lists a <code>notebooks</code> resource.
 | <CopyableCode code="commit_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="version" />, <CopyableCode code="comment" /> | If a Git connection is set up for the notebook, commits the LIVE version of the notebook to the Git repository |
 | <CopyableCode code="execute_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="asyncExec" /> | Execute a Notebook |
 | <CopyableCode code="rename_notebook" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Changes the name of the notebook to new name. The new identifier must be unique for the schema. |
-
-
+<br />
 Expand this to view optional parameter details for all methods in this resource.
 
 
