@@ -84,9 +84,7 @@ Creates, updates, deletes, gets or lists a <code>accounts</code> resource.
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
 | <CopyableCode code="history" /> | Optionally includes dropped accounts that have not yet been purged. | `boolean` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist:
-- `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource.
-- `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
 | <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
 | <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 
