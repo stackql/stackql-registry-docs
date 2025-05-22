@@ -73,20 +73,29 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 | <CopyableCode code="refresh_database_replication" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data. If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time. |
 | <CopyableCode code="undrop_database" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrops database. |
 
+
 <details>
 <summary>Optional Parameter Details</summary>
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include:
+- `errorIfExists`: Throws an error if you try to create a resource that already exists.
+- `orReplace`: Automatically replaces the existing resource with the current one.
+- `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
 | <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
 | <CopyableCode code="history" /> | Optionally includes dropped databases that have not yet been purged. | `boolean` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="ignore_edition_check" /> | Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the {a href=https://docs.snowflake.com/en/sql-reference/sql/alter-database} ALTER DATABASE{/a} reference. | `boolean` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist:
+- `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource.
+- `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="ignore_edition_check" /> | Whether to allow replicating data to accounts on lower editions. Default: `true`.
+For more information, see the <a href=https://docs.snowflake.com/en/sql-reference/sql/alter-database> ALTER DATABASE</a> reference. | `boolean` | `-` |
 | <CopyableCode code="kind" /> | Type of database to create. Currently, Snowflake supports only `transient` and `permanent` (also represented by the empty string). | `string` | `-` |
 | <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="restrict" /> | Whether to drop the database if foreign keys exist that reference any tables in the database. - `true`: Return a warning about existing foreign key references and don't drop the database. - `false`: Drop the database and all objects in the database, including tables with primary or unique keys that are referenced by foreign keys in other tables. | `boolean` | `false` |
-| <CopyableCode code="share" /> | ID of the share from which to create the database, in the form "{provider_account}.{share_name}". | `string` | `-` |
+| <CopyableCode code="restrict" /> | Whether to drop the database if foreign keys exist that reference any tables in the database.
+- `true`: Return a warning about existing foreign key references and don't drop the database.
+- `false`: Drop the database and all objects in the database, including tables with primary or unique keys that are referenced by foreign keys in other tables. | `boolean` | `false` |
+| <CopyableCode code="share" /> | ID of the share from which to create the database, in the form "<provider_account>.<share_name>". | `string` | `-` |
 | <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 | <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
 
