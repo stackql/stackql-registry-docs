@@ -184,8 +184,7 @@ SELECT
     - name: recursive
       value: boolean
     - name: columns
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: comment

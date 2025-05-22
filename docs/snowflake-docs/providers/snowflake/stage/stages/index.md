@@ -186,11 +186,11 @@ SELECT
     - name: comment
       value: string
     - name: credentials
-      props:
+      value:
         - name: credential_type
           value: string
     - name: encryption
-      props:
+      value:
         - name: type
           value: string
         - name: master_key
@@ -198,7 +198,7 @@ SELECT
         - name: kms_key_id
           value: string
     - name: directory_table
-      props:
+      value:
         - name: enable
           value: boolean
         - name: refresh_on_create

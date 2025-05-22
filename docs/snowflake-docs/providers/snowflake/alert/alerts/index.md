@@ -182,7 +182,7 @@ SELECT
     - name: comment
       value: string
     - name: schedule
-      props:
+      value:
         - name: schedule_type
           value: string
     - name: warehouse

@@ -222,9 +222,9 @@ SELECT
     - name: query_warehouse
       value: string
     - name: default_version_details
-      props: []
+      value: []
     - name: last_version_details
-      props: []
+      value: []
 
 ```
 </TabItem>

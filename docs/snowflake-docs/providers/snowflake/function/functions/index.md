@@ -170,8 +170,7 @@ SELECT
     - name: name
       value: string
     - name: arguments
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: datatype

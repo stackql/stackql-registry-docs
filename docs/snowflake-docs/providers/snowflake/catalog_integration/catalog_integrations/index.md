@@ -151,7 +151,7 @@ SELECT
     - name: name
       value: string
     - name: catalog
-      props:
+      value:
         - name: catalog_source
           value: string
     - name: table_format

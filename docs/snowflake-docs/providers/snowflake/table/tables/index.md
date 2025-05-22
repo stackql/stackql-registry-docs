@@ -236,8 +236,7 @@ SELECT
     - name: default_ddl_collation
       value: string
     - name: columns
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: datatype
@@ -255,8 +254,7 @@ SELECT
         - name: autoincrement_increment
           value: integer
         - name: constraints
-          value: array
-          props:
+          value:
             - name: name
               value: string
             - name: column_names
@@ -266,8 +264,7 @@ SELECT
         - name: comment
           value: string
     - name: constraints
-      value: array
-      props:
+      value:
         - name: name
           value: string
         - name: column_names

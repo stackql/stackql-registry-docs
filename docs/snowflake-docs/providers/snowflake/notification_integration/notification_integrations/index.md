@@ -139,7 +139,7 @@ SELECT
     - name: comment
       value: string
     - name: notification_hook
-      props:
+      value:
         - name: type
           value: string
 

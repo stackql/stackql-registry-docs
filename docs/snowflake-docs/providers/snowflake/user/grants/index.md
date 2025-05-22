@@ -135,7 +135,7 @@ SELECT
     - name: endpoint
       value: string
     - name: securable
-      props:
+      value:
         - name: database
           value: string
         - name: schema
@@ -143,7 +143,7 @@ SELECT
         - name: name
           value: string
     - name: containing_scope
-      props:
+      value:
         - name: database
           value: string
         - name: schema
