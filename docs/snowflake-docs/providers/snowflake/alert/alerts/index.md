@@ -52,7 +52,9 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 | <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an alert |
 | <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a new alert by cloning from the specified resource |
 | <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute an alert |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

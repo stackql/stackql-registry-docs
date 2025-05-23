@@ -38,7 +38,9 @@ Creates, updates, deletes, gets or lists a <code>privileges</code> resource.
 | <CopyableCode code="grant_privilege" /> | `INSERT` | <CopyableCode code="granteeName, granteeType, securableName, securableType, endpoint" /> | - | Endpoint to indicate that the privileges listed in the request body should be granted. |
 | <CopyableCode code="revoke_group_privilege" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the privilege listed on the group securable in the given scope should be revoked. |
 | <CopyableCode code="revoke_privilege" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the privilege listed in the path should be revoked. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

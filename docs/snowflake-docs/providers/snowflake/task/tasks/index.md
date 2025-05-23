@@ -71,7 +71,9 @@ Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 | <CopyableCode code="execute_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="asyncExec" />, <CopyableCode code="retryLast" /> | Execute a task -- this is equivalent to EXECUTE IMMEDIATE. |
 | <CopyableCode code="resume_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Resumes a suspended task object. This is equivalento an ALTER TASK ... RESUME. |
 | <CopyableCode code="suspend_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

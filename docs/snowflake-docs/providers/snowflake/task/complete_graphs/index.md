@@ -50,7 +50,9 @@ Creates, updates, deletes, gets or lists a <code>complete_graphs</code> resource
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="get_complete_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
 | <CopyableCode code="get_complete_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>
