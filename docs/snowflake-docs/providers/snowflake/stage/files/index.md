@@ -48,7 +48,7 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="pattern" id="pattern" /> | A query parameter that filters the command output by a regular expression pattern. | `string` | `-` |
+| <a id="pattern"></a><CopyableCode code="pattern" /> | A query parameter that filters the command output by a regular expression pattern. | `string` | `-` |
 
 </details>
 

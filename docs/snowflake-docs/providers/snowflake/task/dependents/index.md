@@ -73,7 +73,7 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="recursive" id="recursive" /> | Specifies whether to limit the output to include only direct child tasks or to include all recursive child tasks. | `boolean` | `true` |
+| <a id="recursive"></a><CopyableCode code="recursive" /> | Specifies whether to limit the output to include only direct child tasks or to include all recursive child tasks. | `boolean` | `true` |
 
 </details>
 

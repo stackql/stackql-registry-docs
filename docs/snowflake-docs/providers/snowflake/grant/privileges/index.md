@@ -47,7 +47,7 @@ Creates, updates, deletes, gets or lists a <code>privileges</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="deleteMode" id="deleteMode" /> | If "cascade", recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are "restrict" or "cascade". | `string` | `-` |
+| <a id="deleteMode"></a><CopyableCode code="deleteMode" /> | If "cascade", recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are "restrict" or "cascade". | `string` | `-` |
 
 </details>
 

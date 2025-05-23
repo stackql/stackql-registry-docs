@@ -59,8 +59,8 @@ Creates, updates, deletes, gets or lists a <code>complete_graphs</code> resource
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="errorOnly" id="errorOnly" /> | Whether to only return results for tasks runs that have failed. Default is false. | `boolean` | `-` |
-| <CopyableCode code="resultLimit" id="resultLimit" /> | Number of results to return, at most. Default is 1000, valid range is 1 to 10000. | `integer` | `-` |
+| <a id="errorOnly"></a><CopyableCode code="errorOnly" /> | Whether to only return results for tasks runs that have failed. Default is false. | `boolean` | `-` |
+| <a id="resultLimit"></a><CopyableCode code="resultLimit" /> | Number of results to return, at most. Default is 1000, valid range is 1 to 10000. | `integer` | `-` |
 
 </details>
 

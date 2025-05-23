@@ -44,6 +44,6 @@ Creates, updates, deletes, gets or lists a <code>results</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="page" id="page" /> | Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. | `integer` | `0` |
+| <a id="page"></a><CopyableCode code="page" /> | Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. | `integer` | `0` |
 
 </details>
