@@ -269,7 +269,9 @@ SELECT
       value: string
     - name: name
       value: string
-      description: Specifies the name for the dynamic table, must be unique for the schema in which the dynamic table is created
+      description: >-
+        Specifies the name for the dynamic table, must be unique for the schema
+        in which the dynamic table is created
     - name: kind
       value: string
       description: Specifies the dynamic table type, permanent (default) or transient.
@@ -298,19 +300,29 @@ SELECT
       description: Specifies the behavior of the initial refresh of the dynamic table
     - name: warehouse
       value: string
-      description: Specifies the name of the warehouse that provides the compute resources for refreshing the dynamic table
+      description: >-
+        Specifies the name of the warehouse that provides the compute resources
+        for refreshing the dynamic table
     - name: cluster_by
       value: array
-      description: Specifies one or more columns or column expressions in the dynamic table as the clustering key
+      description: >-
+        Specifies one or more columns or column expressions in the dynamic table
+        as the clustering key
     - name: query
       value: string
       description: Specifies the query whose results the dynamic table should contain
     - name: data_retention_time_in_days
       value: integer
-      description: Specifies the retention period for the dynamic table so that Time Travel actions (SELECT, CLONE) can be performed on historical data in the dynamic table
+      description: >-
+        Specifies the retention period for the dynamic table so that Time Travel
+        actions (SELECT, CLONE) can be performed on historical data in the
+        dynamic table
     - name: max_data_extension_time_in_days
       value: integer
-      description: Specifies the retention period for the dynamic table so that Time Travel actions (SELECT, CLONE) can be performed on historical data in the dynamic table
+      description: >-
+        Specifies the retention period for the dynamic table so that Time Travel
+        actions (SELECT, CLONE) can be performed on historical data in the
+        dynamic table
     - name: comment
       value: string
       description: Specifies a comment for the dynamic table.

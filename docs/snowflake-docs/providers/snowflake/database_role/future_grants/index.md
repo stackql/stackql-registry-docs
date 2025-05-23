@@ -175,7 +175,9 @@ SELECT
       description: Type of the securable to be granted.
     - name: grant_option
       value: boolean
-      description: If true, allows the recipient role to grant the privileges to other roles.
+      description: >-
+        If true, allows the recipient role to grant the privileges to other
+        roles.
     - name: privileges
       value: array
       description: List of privileges to be granted.

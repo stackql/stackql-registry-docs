@@ -170,7 +170,9 @@ SELECT
       value: string
     - name: name
       value: string
-      description: String that specifies the identifier (the name) for the external volume; must be unique in your account.
+      description: >-
+        String that specifies the identifier (the name) for the external volume;
+        must be unique in your account.
     - name: storage_locations
       value:
         - name: name
@@ -178,10 +180,15 @@ SELECT
         - name: storage_provider
           value: string
           description: Specifies the cloud storage provider that stores your data files.
-      description: Set of named cloud storage locations in different regions and, optionally, cloud platforms.
+      description: >-
+        Set of named cloud storage locations in different regions and,
+        optionally, cloud platforms.
     - name: allow_writes
       value: boolean
-      description: Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog.
+      description: >-
+        Specifies whether write operations are allowed for the external volume;
+        must be set to TRUE for Iceberg tables that use Snowflake as the
+        catalog.
     - name: comment
       value: string
       description: String (literal) that specifies a comment for the external volume.

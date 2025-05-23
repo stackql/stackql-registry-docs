@@ -224,7 +224,9 @@ SELECT
       description: Kind of the view, permanent (default) or temporary
     - name: recursive
       value: boolean
-      description: Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression)
+      description: >-
+        Whether or not this view can refer to itself using recursive syntax
+        withot requiring a CTE (common table expression)
     - name: columns
       value:
         - name: name

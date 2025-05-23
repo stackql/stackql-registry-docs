@@ -291,10 +291,16 @@ SELECT
       value: string
     - name: name
       value: string
-      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
+      description: >-
+        A Snowflake object identifier. If the identifier contains spaces or
+        special characters, the entire string must be enclosed in double quotes.
+        Identifiers enclosed in double quotes are also case-sensitive.
     - name: warehouse
       value: string
-      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
+      description: >-
+        A Snowflake object identifier. If the identifier contains spaces or
+        special characters, the entire string must be enclosed in double quotes.
+        Identifiers enclosed in double quotes are also case-sensitive.
     - name: schedule
       value:
         - name: schedule_type
@@ -306,10 +312,15 @@ SELECT
       description: Specifies a comment for the task.
     - name: finalize
       value: string
-      description: Specifies the name of the root task that the finalizer task is associated with.
+      description: >-
+        Specifies the name of the root task that the finalizer task is
+        associated with.
     - name: task_auto_retry_attempts
       value: integer
-      description: Root task settable only. Specifies the number of automatic task graph retry attempts. Valid range is 0 to 30. When not specified, no retry would happen.
+      description: >-
+        Root task settable only. Specifies the number of automatic task graph
+        retry attempts. Valid range is 0 to 30. When not specified, no retry
+        would happen.
     - name: config
       value: object
       description: Task Config
@@ -318,13 +329,17 @@ SELECT
       description: Session Parameters for the task at runtime.
     - name: definition
       value: string
-      description: The SQL definition for the task. Any one of single SQL statement, call to stored procedure, or procedural logic using Snowflake scripting.
+      description: >-
+        The SQL definition for the task. Any one of single SQL statement, call
+        to stored procedure, or procedural logic using Snowflake scripting.
     - name: predecessors
       value: array
       description: Specifies one or more predecessor tasks for the current task
     - name: user_task_managed_initial_warehouse_size
       value: string
-      description: Specifies the size of the compute resources to provision for the first run of the task. This parameter only applies to serverless tasks.
+      description: >-
+        Specifies the size of the compute resources to provision for the first
+        run of the task. This parameter only applies to serverless tasks.
     - name: target_completion_interval
       value:
         - name: schedule_type
@@ -333,25 +348,41 @@ SELECT
       description: Specifies the schedule for periodically running the task.
     - name: serverless_task_min_statement_size
       value: string
-      description: Specifies the minimum allowed warehouse size for the serverless task. Minimum XSMALL, Maximum XXLARGE. This parameter only applies to serverless tasks.
+      description: >-
+        Specifies the minimum allowed warehouse size for the serverless task.
+        Minimum XSMALL, Maximum XXLARGE. This parameter only applies to
+        serverless tasks.
     - name: serverless_task_max_statement_size
       value: string
-      description: Specifies the maximum allowed warehouse size for the serverless task. Minimum XSMALL, Maximum XXLARGE. This parameter only applies to serverless tasks.
+      description: >-
+        Specifies the maximum allowed warehouse size for the serverless task.
+        Minimum XSMALL, Maximum XXLARGE. This parameter only applies to
+        serverless tasks.
     - name: user_task_timeout_ms
       value: integer
-      description: Specifies the time limit on a single run of the task before it times out (in milliseconds).
+      description: >-
+        Specifies the time limit on a single run of the task before it times out
+        (in milliseconds).
     - name: suspend_task_after_num_failures
       value: integer
-      description: Specifies the number of consecutive failed task runs after which the current task is suspended automatically.
+      description: >-
+        Specifies the number of consecutive failed task runs after which the
+        current task is suspended automatically.
     - name: condition
       value: string
-      description: Specifies a Boolean SQL expression condition; multiple conditions joined with AND/OR are supported
+      description: >-
+        Specifies a Boolean SQL expression condition; multiple conditions joined
+        with AND/OR are supported
     - name: allow_overlapping_execution
       value: boolean
-      description: Specifies whether to allow multiple instances of the DAG to run concurrently.
+      description: >-
+        Specifies whether to allow multiple instances of the DAG to run
+        concurrently.
     - name: error_integration
       value: string
-      description: Specifies the name of the notification integration used to communicate with Amazon SNS, MS Azure Event Grid, or Google Pub/Sub.
+      description: >-
+        Specifies the name of the notification integration used to communicate
+        with Amazon SNS, MS Azure Event Grid, or Google Pub/Sub.
 
 ```
 </TabItem>

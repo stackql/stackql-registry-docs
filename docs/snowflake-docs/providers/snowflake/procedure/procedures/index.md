@@ -262,7 +262,9 @@ SELECT
       value:
         - name: language
           value: string
-          description: 'Language that the function/procedure is written in. Possible values include: JAVA, JAVASCRIPT, PYTHON, SCALA, SQL'
+          description: >-
+            Language that the function/procedure is written in. Possible values
+            include: JAVA, JAVASCRIPT, PYTHON, SCALA, SQL
         - name: called_on_null_input
           value: boolean
           description: Decide if the function/procedure can receive null input

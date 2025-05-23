@@ -300,16 +300,24 @@ SELECT
       value: string
     - name: name
       value: string
-      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
+      description: >-
+        A Snowflake object identifier. If the identifier contains spaces or
+        special characters, the entire string must be enclosed in double quotes.
+        Identifiers enclosed in double quotes are also case-sensitive.
     - name: warehouse_type
       value: string
       description: 'Type of warehouse, possible types: STANDARD, SNOWPARK-OPTIMIZED'
     - name: warehouse_size
       value: string
-      description: 'Size of warehouse, possible sizes: XSMALL, SMALL, MEDIUM, LARGE, XLARGE, XXLARGE, XXXLARGE, X4LARGE, X5LARGE, X6LARGE'
+      description: >-
+        Size of warehouse, possible sizes: XSMALL, SMALL, MEDIUM, LARGE, XLARGE,
+        XXLARGE, XXXLARGE, X4LARGE, X5LARGE, X6LARGE
     - name: wait_for_completion
       value: string
-      description: When resizing a warehouse, you can use this parameter to block the return of the ALTER WAREHOUSE command until the resize has finished provisioning all its compute resources
+      description: >-
+        When resizing a warehouse, you can use this parameter to block the
+        return of the ALTER WAREHOUSE command until the resize has finished
+        provisioning all its compute resources
     - name: max_cluster_count
       value: integer
       description: Specifies the maximum number of clusters for a multi-cluster warehouse
@@ -318,49 +326,75 @@ SELECT
       description: Specifies the minimum number of clusters for a multi-cluster warehouse
     - name: scaling_policy
       value: string
-      description: 'Scaling policy of warehouse, possible scaling policies: STANDARD, ECONOMY'
+      description: >-
+        Scaling policy of warehouse, possible scaling policies: STANDARD,
+        ECONOMY
     - name: auto_suspend
       value: integer
       description: time in seconds before auto suspend
     - name: auto_resume
       value: string
-      description: Specifies whether to automatically resume a warehouse when a SQL statement is submitted to it
+      description: >-
+        Specifies whether to automatically resume a warehouse when a SQL
+        statement is submitted to it
     - name: initially_suspended
       value: string
-      description: Specifies whether the warehouse is created initially in the Suspended state
+      description: >-
+        Specifies whether the warehouse is created initially in the Suspended
+        state
     - name: resource_monitor
       value: string
-      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
+      description: >-
+        A Snowflake object identifier. If the identifier contains spaces or
+        special characters, the entire string must be enclosed in double quotes.
+        Identifiers enclosed in double quotes are also case-sensitive.
     - name: comment
       value: string
       description: Specifies a comment for the warehouse
     - name: enable_query_acceleration
       value: string
-      description: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources
+      description: >-
+        Specifies whether to enable the query acceleration service for queries
+        that rely on this warehouse for compute resources
     - name: query_acceleration_max_scale_factor
       value: integer
-      description: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size
+      description: >-
+        Specifies the maximum scale factor for leasing compute resources for
+        query acceleration. The scale factor is used as a multiplier based on
+        warehouse size
     - name: max_concurrency_level
       value: integer
-      description: Object parameter that specifies the concurrency level for SQL statements executed by a warehouse cluster
+      description: >-
+        Object parameter that specifies the concurrency level for SQL statements
+        executed by a warehouse cluster
     - name: statement_queued_timeout_in_seconds
       value: integer
-      description: Object parameter that specifies the time, in seconds, a SQL statement can be queued on a warehouse before it is canceled by the system
+      description: >-
+        Object parameter that specifies the time, in seconds, a SQL statement
+        can be queued on a warehouse before it is canceled by the system
     - name: statement_timeout_in_seconds
       value: integer
-      description: Object parameter that specifies the time, in seconds, after which a running SQL statement is canceled by the system
+      description: >-
+        Object parameter that specifies the time, in seconds, after which a
+        running SQL statement is canceled by the system
     - name: type
       value: string
-      description: '[Deprecated] Type of warehouse, possible types: STANDARD, SNOWPARK-OPTIMIZED'
+      description: >-
+        [Deprecated] Type of warehouse, possible types: STANDARD,
+        SNOWPARK-OPTIMIZED
     - name: size
       value: string
-      description: '[Deprecated] names of size: X-Small, Small, Medium, Large, X-Large, 2X-Large, 3X-Large, 4X-Large, 5X-Large, 6X-Large'
+      description: >-
+        [Deprecated] names of size: X-Small, Small, Medium, Large, X-Large,
+        2X-Large, 3X-Large, 4X-Large, 5X-Large, 6X-Large
     - name: warehouse_credit_limit
       value: integer
       description: Credit limit that are can be executed by the warehouse.
     - name: target_statement_size
       value: string
-      description: 'Names of size: X-Small, Small, Medium, Large, X-Large, 2X-Large, 3X-Large, 4X-Large, 5X-Large, 6X-Large'
+      description: >-
+        Names of size: X-Small, Small, Medium, Large, X-Large, 2X-Large,
+        3X-Large, 4X-Large, 5X-Large, 6X-Large
 
 ```
 </TabItem>

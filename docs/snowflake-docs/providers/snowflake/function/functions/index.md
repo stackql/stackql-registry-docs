@@ -204,7 +204,9 @@ SELECT
       value: string
     - name: name
       value: string
-      description: Specifies the name for the function, must be unique for the schema in which the function is created
+      description: >-
+        Specifies the name for the function, must be unique for the schema in
+        which the function is created
     - name: arguments
       value:
         - name: name

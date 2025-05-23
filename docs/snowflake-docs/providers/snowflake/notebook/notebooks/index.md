@@ -279,7 +279,9 @@ SELECT
       description: The default version name of a file based entity.
     - name: query_warehouse
       value: string
-      description: Warehouse against which the queries issued by the Streamlit app are run against
+      description: >-
+        Warehouse against which the queries issued by the Streamlit app are run
+        against
     - name: default_version_details
       value: []
       description: The version details of a file based entity
