@@ -140,22 +140,30 @@ SELECT
       value: string
     - name: privileges
       value: array
+      description: Privilege type
     - name: grant_option
       value: boolean
+      description: Can grantee pass this privilege down?
     - name: created_on
       value: string
     - name: grantee_type
       value: string
+      description: Entity type being granted to
     - name: grantee_name
       value: string
+      description: Specific name of object being granted to
     - name: securable_type
       value: string
+      description: Type of object granted on
     - name: securable_name
       value: string
+      description: Name of specific object granted on (not name of privilege!)
     - name: granted_by_role_type
       value: string
+      description: Type of role that granted this privilege to this grantee
     - name: granted_by_name
       value: string
+      description: The role that granted this privilege to this grantee
 
 ```
 </TabItem>

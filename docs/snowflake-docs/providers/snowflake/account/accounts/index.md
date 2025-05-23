@@ -231,32 +231,46 @@ SELECT
       value: string
     - name: name
       value: string
+      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
     - name: region_group
       value: string
+      description: Region group where the account is located. Note - This column is only displayed for organizations that span multiple region groups.
     - name: region
       value: string
+      description: Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
     - name: edition
       value: string
+      description: Snowflake Edition of the account.
     - name: comment
       value: string
+      description: Optional comment in which to store information related to the account.
     - name: admin_name
       value: string
+      description: Name of the account administrator.
     - name: admin_password
       value: string
+      description: Password for the account administrator.
     - name: admin_rsa_public_key
       value: string
+      description: RSA public key for the account administrator.
     - name: admin_user_type
       value: string
+      description: User type of the account administrator.
     - name: first_name
       value: string
+      description: First name of the account administrator.
     - name: last_name
       value: string
+      description: Last name of the account administrator.
     - name: email
       value: string
+      description: Email address of the account administrator.
     - name: must_change_password
       value: boolean
+      description: Indicates whether the account administrator must change the password at the next login.
     - name: polaris
       value: boolean
+      description: Indicates whether the account is a Polaris account.
 
 ```
 </TabItem>

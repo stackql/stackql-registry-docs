@@ -174,16 +174,22 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the network policy
     - name: allowed_network_rule_list
       value: array
+      description: List of names of allowed network rules in a network policy
     - name: blocked_network_rule_list
       value: array
+      description: List of names of blocked network rules in a network policy
     - name: allowed_ip_list
       value: array
+      description: List of allowed IPs in a network policy
     - name: blocked_ip_list
       value: array
+      description: List of blocked IPs in a network policy
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
 
 ```
 </TabItem>

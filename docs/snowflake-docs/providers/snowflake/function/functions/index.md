@@ -204,26 +204,36 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Specifies the name for the function, must be unique for the schema in which the function is created
     - name: arguments
       value:
         - name: name
           value: string
+          description: Argument's name
         - name: datatype
           value: string
+          description: Argument's type
         - name: value
           value: string
+          description: Argument's value
     - name: returns
       value: string
+      description: Specifies the type for the function return value.
     - name: max_batch_rows
       value: integer
+      description: Specifies the max rows for batch operation.
     - name: created_on
       value: string
+      description: Date and time when the function was created.
     - name: signature
       value: string
+      description: Function's arguments.
     - name: language
       value: string
+      description: Function's language.
     - name: body
       value: string
+      description: Function's body.
 
 ```
 </TabItem>

@@ -217,18 +217,24 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the alert
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
     - name: schedule
       value:
         - name: schedule_type
           value: string
+          description: Type of the schedule, can be either CRON_TYPE or MINUTES_TYPE
     - name: warehouse
       value: string
+      description: The warehouse the alert runs in
     - name: condition
       value: string
+      description: The SQL statement that must be evaluated to determine whether to trigger the alert
     - name: action
       value: string
+      description: The SQL statement to execute when the alert is triggered
 
 ```
 </TabItem>

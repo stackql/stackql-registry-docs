@@ -143,8 +143,10 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the database role
     - name: comment
       value: string
+      description: User comment associated to an object in the dictionary
 
 ```
 </TabItem>

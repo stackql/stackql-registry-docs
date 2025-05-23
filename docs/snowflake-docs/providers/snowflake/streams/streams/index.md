@@ -209,18 +209,24 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the stream
     - name: stream_source
       value:
         - name: src_type
           value: string
+          description: 'Type of the source. Possible values include: stream, table, view'
         - name: name
           value: string
+          description: Name of the source whose changes are tracked by the stream
         - name: database_name
           value: string
+          description: Database name to which stream source type belongs. If not provided, database name provided in the path param will be used.
         - name: schema_name
           value: string
+          description: Schema name to which stream source type belongs. If not provided, schema name provided in the path param will be used.
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
 
 ```
 </TabItem>

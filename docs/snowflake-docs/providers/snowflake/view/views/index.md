@@ -215,22 +215,31 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the view
     - name: secure
       value: boolean
+      description: Whether or not this view is secure
     - name: kind
       value: string
+      description: Kind of the view, permanent (default) or temporary
     - name: recursive
       value: boolean
+      description: Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression)
     - name: columns
       value:
         - name: name
           value: string
+          description: Column name
         - name: comment
           value: string
+          description: Specifies a comment for the column
+      description: The columns of the view
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
     - name: query
       value: string
+      description: Query used to create the view
 
 ```
 </TabItem>

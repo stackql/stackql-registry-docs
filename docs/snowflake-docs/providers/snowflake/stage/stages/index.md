@@ -217,38 +217,55 @@ SELECT
       value: string
     - name: name
       value: string
+      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
     - name: kind
       value: string
+      description: Specifies whether the stage is permanent or temporary.
     - name: url
       value: string
+      description: URL for the external stage; blank for an internal stage.
     - name: endpoint
       value: string
+      description: The S3-compatible API endpoint associated with the stage; always NULL for stages that are not S3-compatible.
     - name: storage_integration
       value: string
+      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
     - name: comment
       value: string
+      description: Specifies a comment for the stage.
     - name: credentials
       value:
         - name: credential_type
           value: string
+          description: Type of the credential, can be either AWS or AZURE.
+      description: Specifies the credentials of the stage.
     - name: encryption
       value:
         - name: type
           value: string
+          description: Specifies the encryption type used.
         - name: master_key
           value: string
+          description: Specifies the client-side master key used to encrypt the files in the bucket. The master key must be a 128-bit or 256-bit key in Base64-encoded form.
         - name: kms_key_id
           value: string
+          description: Optionally specifies the ID for the KMS-managed key used to encrypt files unloaded into the bucket.
+      description: Encryption parameters of the stage.
     - name: directory_table
       value:
         - name: enable
           value: boolean
+          description: Specifies whether to add a directory table to the stage. When the value is TRUE, a directory table is created with the stage.
         - name: refresh_on_create
           value: boolean
+          description: Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.
         - name: auto_refresh
           value: boolean
+          description: Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata when new or updated data files are available in the named external stage specified in the URL value.
         - name: notification_integration
           value: string
+          description: Specifies the name of the notification integration used to automatically refresh the directory table metadata.
+      description: Directory table parameters of the stage.
 
 ```
 </TabItem>
