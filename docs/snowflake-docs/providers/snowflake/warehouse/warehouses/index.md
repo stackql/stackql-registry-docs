@@ -73,16 +73,16 @@ Creates, updates, deletes, gets or lists a <code>warehouses</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_warehouse" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Describes the warehouse, show information of the chosen warehouse. Equivalent to DESCRIBE WAREHOUSE in SQL. |
-| <CopyableCode code="list_warehouses" /> | `SELECT` | <CopyableCode code="endpoint" /> | [`like`](#like) | Show a list of warehouse filtered by pattern. Equivalent to SHOW WAREHOUSE in SQL. |
-| <CopyableCode code="create_warehouse" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | [`createMode`](#createMode) | Create a virtual warehouse. Equivalent to CREATE WAREHOUSE in SQL. |
-| <CopyableCode code="delete_warehouse" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Removes the specified virtual warehouse from the system. Equivalent to DROP WAREHOUSE in SQL. |
+| <CopyableCode code="list_warehouses" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | Show a list of warehouse filtered by pattern. Equivalent to SHOW WAREHOUSE in SQL. |
+| <CopyableCode code="create_warehouse" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a virtual warehouse. Equivalent to CREATE WAREHOUSE in SQL. |
+| <CopyableCode code="delete_warehouse" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Removes the specified virtual warehouse from the system. Equivalent to DROP WAREHOUSE in SQL. |
 | <CopyableCode code="create_or_alter_warehouse" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | - | Create a (or alter an existing) warehouse. Even if the operation is just an alter, the full property set must be provided. |
-| <CopyableCode code="abort_all_queries_on_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Aborts all the queries currently running or queued on the warehouse. |
-| <CopyableCode code="disable_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Disable an adaptive warehouse and put the warehouse into a ‘disabled’ state, if the warehouse is not disabled. |
-| <CopyableCode code="enable_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Enable an adaptive warehouse and put the warehouse into a ‘enabled’ state, if the warehouse is not enabled. |
-| <CopyableCode code="rename_warehouse" /> | `EXEC` | <CopyableCode code="name, data__name, endpoint" /> | [`ifExists`](#ifExists) | Specifies a new identifier for the warehouse; must be unique for current account. |
-| <CopyableCode code="resume_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Bring current warehouse to a usable ‘Running’ state by provisioning compute resources if current warehouse is suspended. |
-| <CopyableCode code="suspend_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Remove all compute nodes from a warehouse and put the warehouse into a ‘Suspended’ state if current warehouse is not suspended. |
+| <CopyableCode code="abort_all_queries_on_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Aborts all the queries currently running or queued on the warehouse. |
+| <CopyableCode code="disable_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Disable an adaptive warehouse and put the warehouse into a ‘disabled’ state, if the warehouse is not disabled. |
+| <CopyableCode code="enable_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Enable an adaptive warehouse and put the warehouse into a ‘enabled’ state, if the warehouse is not enabled. |
+| <CopyableCode code="rename_warehouse" /> | `EXEC` | <CopyableCode code="name, data__name, endpoint" /> | <CopyableCode code="ifExists" /> | Specifies a new identifier for the warehouse; must be unique for current account. |
+| <CopyableCode code="resume_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Bring current warehouse to a usable ‘Running’ state by provisioning compute resources if current warehouse is suspended. |
+| <CopyableCode code="suspend_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Remove all compute nodes from a warehouse and put the warehouse into a ‘Suspended’ state if current warehouse is not suspended. |
 | <CopyableCode code="use_warehouse" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | [Deprecated] Specifies the active/current warehouse for the session. |
 
 <br />
@@ -93,9 +93,9 @@ Creates, updates, deletes, gets or lists a <code>warehouses</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="createMode"></a><CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <a id="ifExists"></a><CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <a id="like"></a><CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
 
 </details>
 

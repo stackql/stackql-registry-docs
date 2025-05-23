@@ -39,7 +39,7 @@ Creates, updates, deletes, gets or lists a <code>grants_of</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_grants_of" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | [`showLimit`](#showLimit) | List all grants of the role |
+| <CopyableCode code="list_grants_of" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants of the role |
 
 <br />
 
@@ -49,7 +49,7 @@ Creates, updates, deletes, gets or lists a <code>grants_of</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="showLimit"></a><CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 
 </details>
 

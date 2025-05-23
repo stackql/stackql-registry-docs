@@ -38,7 +38,7 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`pattern`](#pattern) | List files in the stage -- this is equivalent to LIST @stage. |
+| <CopyableCode code="list_files" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="pattern" /> | List files in the stage -- this is equivalent to LIST @stage. |
 
 <br />
 
@@ -48,7 +48,7 @@ Creates, updates, deletes, gets or lists a <code>files</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="pattern"></a><CopyableCode code="pattern" /> | A query parameter that filters the command output by a regular expression pattern. | `string` | `-` |
+| <CopyableCode code="pattern" /> | A query parameter that filters the command output by a regular expression pattern. | `string` | `-` |
 
 </details>
 

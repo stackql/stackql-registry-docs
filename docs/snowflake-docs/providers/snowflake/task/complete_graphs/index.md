@@ -48,8 +48,8 @@ Creates, updates, deletes, gets or lists a <code>complete_graphs</code> resource
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="get_complete_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`resultLimit`](#resultLimit), [`errorOnly`](#errorOnly) | This function returns details for graph runs that are completed. |
-| <CopyableCode code="get_complete_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`resultLimit`](#resultLimit), [`errorOnly`](#errorOnly) | This function returns details for graph runs that are completed. |
+| <CopyableCode code="get_complete_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
+| <CopyableCode code="get_complete_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" />, <CopyableCode code="errorOnly" /> | This function returns details for graph runs that are completed. |
 
 <br />
 
@@ -59,8 +59,8 @@ Creates, updates, deletes, gets or lists a <code>complete_graphs</code> resource
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="errorOnly"></a><CopyableCode code="errorOnly" /> | Whether to only return results for tasks runs that have failed. Default is false. | `boolean` | `-` |
-| <a id="resultLimit"></a><CopyableCode code="resultLimit" /> | Number of results to return, at most. Default is 1000, valid range is 1 to 10000. | `integer` | `-` |
+| <CopyableCode code="errorOnly" /> | Whether to only return results for tasks runs that have failed. Default is false. | `boolean` | `-` |
+| <CopyableCode code="resultLimit" /> | Number of results to return, at most. Default is 1000, valid range is 1 to 10000. | `integer` | `-` |
 
 </details>
 

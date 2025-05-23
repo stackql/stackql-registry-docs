@@ -47,10 +47,10 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_alert" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch an alert |
-| <CopyableCode code="list_alerts" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | [`like`](#like), [`startsWith`](#startsWith), [`showLimit`](#showLimit), [`fromName`](#fromName) | List alerts |
-| <CopyableCode code="create_alert" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__action, data__condition, data__name, data__schedule, endpoint" /> | [`createMode`](#createMode) | Create an alert |
-| <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Delete an alert |
-| <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | [`createMode`](#createMode) | Create a new alert by cloning from the specified resource |
+| <CopyableCode code="list_alerts" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List alerts |
+| <CopyableCode code="create_alert" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__action, data__condition, data__name, data__schedule, endpoint" /> | <CopyableCode code="createMode" /> | Create an alert |
+| <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an alert |
+| <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a new alert by cloning from the specified resource |
 | <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute an alert |
 
 <br />
@@ -61,12 +61,12 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="createMode"></a><CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <a id="fromName"></a><CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <a id="ifExists"></a><CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <a id="like"></a><CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <a id="showLimit"></a><CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <a id="startsWith"></a><CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
 
 </details>
 

@@ -48,8 +48,8 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`resultLimit`](#resultLimit) | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
-| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`resultLimit`](#resultLimit) | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| <CopyableCode code="get_current_graphs" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
+| <CopyableCode code="get_current_graphs_deprecated" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="resultLimit" /> | This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days. |
 
 <br />
 
@@ -59,7 +59,7 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="resultLimit"></a><CopyableCode code="resultLimit" /> | - | `integer` | `-` |
+| <CopyableCode code="resultLimit" /> | - | `integer` | `-` |
 
 </details>
 
