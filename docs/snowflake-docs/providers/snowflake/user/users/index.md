@@ -298,6 +298,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: users
   props:
     - name: data__name
@@ -381,7 +382,6 @@ SELECT
       description: >-
         Specifies an existing network policy is active for the user. Otherwise,
         use account default.
-
 ```
 </TabItem>
 </Tabs>

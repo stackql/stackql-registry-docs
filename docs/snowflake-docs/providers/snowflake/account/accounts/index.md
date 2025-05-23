@@ -217,6 +217,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: accounts
   props:
     - name: data__admin_name
@@ -282,7 +283,6 @@ SELECT
     - name: polaris
       value: boolean
       description: Indicates whether the account is a Polaris account.
-
 ```
 </TabItem>
 </Tabs>

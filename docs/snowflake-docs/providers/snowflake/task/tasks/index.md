@@ -277,6 +277,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: tasks
   props:
     - name: database_name
@@ -383,7 +384,6 @@ SELECT
       description: >-
         Specifies the name of the notification integration used to communicate
         with Amazon SNS, MS Azure Event Grid, or Google Pub/Sub.
-
 ```
 </TabItem>
 </Tabs>

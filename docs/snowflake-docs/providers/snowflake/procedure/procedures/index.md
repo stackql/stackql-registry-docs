@@ -214,6 +214,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: procedures
   props:
     - name: database_name
@@ -274,7 +275,6 @@ SELECT
     - name: body
       value: string
       description: Function/procedure definition
-
 ```
 </TabItem>
 </Tabs>

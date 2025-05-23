@@ -251,6 +251,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: dynamic_tables
   props:
     - name: database_name
@@ -326,7 +327,6 @@ SELECT
     - name: comment
       value: string
       description: Specifies a comment for the dynamic table.
-
 ```
 </TabItem>
 </Tabs>

@@ -165,6 +165,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: image_repositories
   props:
     - name: database_name
@@ -193,7 +194,6 @@ SELECT
         A Snowflake object identifier. If the identifier contains spaces or
         special characters, the entire string must be enclosed in double quotes.
         Identifiers enclosed in double quotes are also case-sensitive.
-
 ```
 </TabItem>
 </Tabs>

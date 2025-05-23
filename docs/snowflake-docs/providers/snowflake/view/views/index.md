@@ -199,6 +199,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: views
   props:
     - name: database_name
@@ -242,7 +243,6 @@ SELECT
     - name: query
       value: string
       description: Query used to create the view
-
 ```
 </TabItem>
 </Tabs>
