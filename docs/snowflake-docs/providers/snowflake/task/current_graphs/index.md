@@ -59,7 +59,7 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="resultLimit" id="resultLimit" /> | - | `integer` | `-` |
+| <a id="resultLimit"></a><CopyableCode code="resultLimit" /> | - | `integer` | `-` |
 
 </details>
 

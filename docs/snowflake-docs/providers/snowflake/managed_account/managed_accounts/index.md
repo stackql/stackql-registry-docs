@@ -57,7 +57,7 @@ Creates, updates, deletes, gets or lists a <code>managed_accounts</code> resourc
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="like" id="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <a id="like"></a><CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
 
 </details>
 
