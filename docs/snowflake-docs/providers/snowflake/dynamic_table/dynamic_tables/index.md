@@ -57,16 +57,16 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_dynamic_table" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a Dynamic Table. |
-| <CopyableCode code="list_dynamic_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | [`like`](#like), [`startsWith`](#startsWith), [`showLimit`](#showLimit), [`fromName`](#fromName), [`deep`](#deep) | Lists the dynamic tables under the database and schema. |
-| <CopyableCode code="create_dynamic_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, data__query, data__target_lag, data__warehouse, endpoint" /> | [`createMode`](#createMode) | Create a dynamic table, with standard create modifiers as query parameters. See the Dynamic Table component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_dynamic_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Delete a dynamic table with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
-| <CopyableCode code="clone_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | [`createMode`](#createMode), [`copyGrants`](#copyGrants), [`targetDatabase`](#targetDatabase), [`targetSchema`](#targetSchema) | Create a new dynamic table by cloning from the specified resource |
-| <CopyableCode code="refresh_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Specifies that the dynamic table should be manually refreshed |
-| <CopyableCode code="resume_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Resume refreshes on the dynamic table |
-| <CopyableCode code="resume_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Resume recluster of a dynamic table |
-| <CopyableCode code="suspend_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Suspend refreshes on the dynamic table |
-| <CopyableCode code="suspend_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Suspend recluster of a dynamic table |
-| <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | [`ifExists`](#ifExists), [`targetDatabase`](#targetDatabase), [`targetSchema`](#targetSchema) | Swap with another dynamic table |
+| <CopyableCode code="list_dynamic_tables" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" />, <CopyableCode code="deep" /> | Lists the dynamic tables under the database and schema. |
+| <CopyableCode code="create_dynamic_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, data__query, data__target_lag, data__warehouse, endpoint" /> | <CopyableCode code="createMode" /> | Create a dynamic table, with standard create modifiers as query parameters. See the Dynamic Table component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_dynamic_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a dynamic table with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
+| <CopyableCode code="clone_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Create a new dynamic table by cloning from the specified resource |
+| <CopyableCode code="refresh_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Specifies that the dynamic table should be manually refreshed |
+| <CopyableCode code="resume_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Resume refreshes on the dynamic table |
+| <CopyableCode code="resume_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Resume recluster of a dynamic table |
+| <CopyableCode code="suspend_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend refreshes on the dynamic table |
+| <CopyableCode code="suspend_recluster_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Suspend recluster of a dynamic table |
+| <CopyableCode code="swap_with_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Swap with another dynamic table |
 | <CopyableCode code="undrop_dynamic_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop specified dynamic table |
 
 <br />
@@ -77,16 +77,16 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="copyGrants"></a><CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
-| <a id="createMode"></a><CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <a id="deep"></a><CopyableCode code="deep" /> | Optionally includes dependency information of the dynamic table. | `boolean` | `-` |
-| <a id="fromName"></a><CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <a id="ifExists"></a><CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <a id="like"></a><CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <a id="showLimit"></a><CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <a id="startsWith"></a><CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-| <a id="targetDatabase"></a><CopyableCode code="targetDatabase" /> | Database of the newly created dynamic table. Defaults to the source table's database. | `string` | `-` |
-| <a id="targetSchema"></a><CopyableCode code="targetSchema" /> | Schema of the newly created dynamic table. Defaults to the source table's schema. | `string` | `-` |
+| <CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="deep" /> | Optionally includes dependency information of the dynamic table. | `boolean` | `-` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="targetDatabase" /> | Database of the newly created dynamic table. Defaults to the source table's database. | `string` | `-` |
+| <CopyableCode code="targetSchema" /> | Schema of the newly created dynamic table. Defaults to the source table's schema. | `string` | `-` |
 
 </details>
 

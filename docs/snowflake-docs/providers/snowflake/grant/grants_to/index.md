@@ -43,7 +43,7 @@ Creates, updates, deletes, gets or lists a <code>grants_to</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_grants_to" /> | `SELECT` | <CopyableCode code="granteeName, granteeType, endpoint" /> | [`showLimit`](#showLimit) | List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO |
+| <CopyableCode code="list_grants_to" /> | `SELECT` | <CopyableCode code="granteeName, granteeType, endpoint" /> | <CopyableCode code="showLimit" /> | List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO |
 
 <br />
 
@@ -53,7 +53,7 @@ Creates, updates, deletes, gets or lists a <code>grants_to</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="showLimit"></a><CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 
 </details>
 

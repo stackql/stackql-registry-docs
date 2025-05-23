@@ -64,11 +64,11 @@ Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_task" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a task using the describe command output. |
-| <CopyableCode code="list_tasks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | [`rootOnly`](#rootOnly), [`like`](#like), [`startsWith`](#startsWith), [`showLimit`](#showLimit), [`fromName`](#fromName) | Lists tasks under the database and schema, with show options as query parameters. |
-| <CopyableCode code="create_task" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__definition, data__name, endpoint" /> | [`createMode`](#createMode) | Create a task, with standard create modifiers as query parameters. See the Task component definition for what is required to be provided in the request body. |
-| <CopyableCode code="delete_task" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`ifExists`](#ifExists) | Delete a task with the task name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
+| <CopyableCode code="list_tasks" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="rootOnly" />, <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | Lists tasks under the database and schema, with show options as query parameters. |
+| <CopyableCode code="create_task" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__definition, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a task, with standard create modifiers as query parameters. See the Task component definition for what is required to be provided in the request body. |
+| <CopyableCode code="delete_task" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a task with the task name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful. |
 | <CopyableCode code="create_or_alter_task" /> | `REPLACE` | <CopyableCode code="database_name, name, schema_name, data__definition, data__name, endpoint" /> | - | Create a (or alter an existing) task. Even if the operation is just an alter, the full property set must be provided. |
-| <CopyableCode code="execute_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`asyncExec`](#asyncExec), [`retryLast`](#retryLast) | Execute a task -- this is equivalent to EXECUTE IMMEDIATE. |
+| <CopyableCode code="execute_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="asyncExec" />, <CopyableCode code="retryLast" /> | Execute a task -- this is equivalent to EXECUTE IMMEDIATE. |
 | <CopyableCode code="resume_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Resumes a suspended task object. This is equivalento an ALTER TASK ... RESUME. |
 | <CopyableCode code="suspend_task" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Suspends a running task. This is equivalent to an ALTER TASK ... SUSPEND. |
 
@@ -80,15 +80,15 @@ Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <a id="asyncExec"></a><CopyableCode code="asyncExec" /> | Asynchronous execution enable/disable. Default is disable. | `boolean` | `false` |
-| <a id="createMode"></a><CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <a id="fromName"></a><CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <a id="ifExists"></a><CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <a id="like"></a><CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <a id="retryLast"></a><CopyableCode code="retryLast" /> | Retry the last failed run of the DAG. | `boolean` | `false` |
-| <a id="rootOnly"></a><CopyableCode code="rootOnly" /> | Query parameter to filter the command output to return only root resources (resources with no predecessors). | `boolean` | `false` |
-| <a id="showLimit"></a><CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <a id="startsWith"></a><CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="asyncExec" /> | Asynchronous execution enable/disable. Default is disable. | `boolean` | `false` |
+| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="retryLast" /> | Retry the last failed run of the DAG. | `boolean` | `false` |
+| <CopyableCode code="rootOnly" /> | Query parameter to filter the command output to return only root resources (resources with no predecessors). | `boolean` | `false` |
+| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
 
 </details>
 
