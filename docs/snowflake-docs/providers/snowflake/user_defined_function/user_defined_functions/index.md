@@ -77,8 +77,16 @@ Creates, updates, deletes, gets or lists a <code>user_defined_functions</code> r
 
 ## `SELECT` examples
 
-List UDFs
+<Tabs
+    defaultValue="list_user_defined_functions"
+    values={[
+        { label: 'list_user_defined_functions', value: 'list_user_defined_functions' },
+        { label: 'fetch_user_defined_function', value: 'fetch_user_defined_function' }
+    ]
+}>
+<TabItem value="list_user_defined_functions">
 
+List UDFs
 
 ```sql
 SELECT
@@ -107,6 +115,42 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_user_defined_function">
+
+Fetch a UDF
+
+```sql
+SELECT
+name,
+arguments,
+body,
+comment,
+created_on,
+database_name,
+is_aggregate,
+is_builtin,
+is_memoizable,
+is_secure,
+is_table_function,
+is_temporary,
+language_config,
+max_num_arguments,
+min_num_arguments,
+owner,
+owner_role_type,
+return_type,
+schema_name,
+valid_for_clustering
+FROM snowflake.user_defined_function.user_defined_functions
+WHERE database_name = '{{ database_name }}'
+AND nameWithArgs = '{{ nameWithArgs }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>user_defined_functions</code> resource.

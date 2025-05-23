@@ -94,8 +94,16 @@ Creates, updates, deletes, gets or lists a <code>tasks</code> resource.
 
 ## `SELECT` examples
 
-Lists tasks under the database and schema, with show options as query parameters.
+<Tabs
+    defaultValue="list_tasks"
+    values={[
+        { label: 'list_tasks', value: 'list_tasks' },
+        { label: 'fetch_task', value: 'fetch_task' }
+    ]
+}>
+<TabItem value="list_tasks">
 
+Lists tasks under the database and schema, with show options as query parameters.
 
 ```sql
 SELECT
@@ -133,6 +141,51 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_task">
+
+Fetch a task using the describe command output.
+
+```sql
+SELECT
+id,
+name,
+allow_overlapping_execution,
+comment,
+condition,
+config,
+created_on,
+database_name,
+definition,
+error_integration,
+finalize,
+last_committed_on,
+last_suspended_on,
+owner,
+owner_role_type,
+predecessors,
+schedule,
+schema_name,
+serverless_task_max_statement_size,
+serverless_task_min_statement_size,
+session_parameters,
+state,
+suspend_task_after_num_failures,
+target_completion_interval,
+task_auto_retry_attempts,
+task_relations,
+user_task_managed_initial_warehouse_size,
+user_task_timeout_ms,
+warehouse
+FROM snowflake.task.tasks
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tasks</code> resource.

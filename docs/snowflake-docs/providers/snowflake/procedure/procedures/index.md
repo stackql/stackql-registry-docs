@@ -73,8 +73,16 @@ Creates, updates, deletes, gets or lists a <code>procedures</code> resource.
 
 ## `SELECT` examples
 
-List procedures
+<Tabs
+    defaultValue="list_procedures"
+    values={[
+        { label: 'list_procedures', value: 'list_procedures' },
+        { label: 'fetch_procedure', value: 'fetch_procedure' }
+    ]
+}>
+<TabItem value="list_procedures">
 
+List procedures
 
 ```sql
 SELECT
@@ -99,6 +107,38 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_procedure">
+
+Fetch a procedure
+
+```sql
+SELECT
+name,
+arguments,
+body,
+comment,
+created_on,
+database_name,
+execute_as,
+is_builtin,
+is_secure,
+language_config,
+max_num_arguments,
+min_num_arguments,
+owner,
+owner_role_type,
+return_type,
+schema_name
+FROM snowflake.procedure.procedures
+WHERE database_name = '{{ database_name }}'
+AND nameWithArgs = '{{ nameWithArgs }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>procedures</code> resource.

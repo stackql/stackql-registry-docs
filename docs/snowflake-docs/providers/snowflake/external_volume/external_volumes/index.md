@@ -63,8 +63,16 @@ Creates, updates, deletes, gets or lists a <code>external_volumes</code> resourc
 
 ## `SELECT` examples
 
-List external volumes
+<Tabs
+    defaultValue="list_external_volumes"
+    values={[
+        { label: 'list_external_volumes', value: 'list_external_volumes' },
+        { label: 'fetch_external_volume', value: 'fetch_external_volume' }
+    ]
+}>
+<TabItem value="list_external_volumes">
 
+List external volumes
 
 ```sql
 SELECT
@@ -78,6 +86,27 @@ storage_locations
 FROM snowflake.external_volume.external_volumes
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_external_volume">
+
+Fetch an external volume
+
+```sql
+SELECT
+name,
+allow_writes,
+comment,
+created_on,
+owner,
+owner_role_type,
+storage_locations
+FROM snowflake.external_volume.external_volumes
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>external_volumes</code> resource.

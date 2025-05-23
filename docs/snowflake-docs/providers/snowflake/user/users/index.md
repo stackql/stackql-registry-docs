@@ -99,8 +99,16 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 
 ## `SELECT` examples
 
-Lists the users in the system.
+<Tabs
+    defaultValue="list_users"
+    values={[
+        { label: 'list_users', value: 'list_users' },
+        { label: 'fetch_user', value: 'fetch_user' }
+    ]
+}>
+<TabItem value="list_users">
 
+Lists the users in the system.
 
 ```sql
 SELECT
@@ -147,6 +155,60 @@ type
 FROM snowflake.user.users
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_user">
+
+Fetch user information using the result of the DESCRIBE command
+
+```sql
+SELECT
+name,
+comment,
+created_on,
+custom_landing_page_url,
+custom_landing_page_url_flush_next_ui_load,
+days_to_expiry,
+default_namespace,
+default_role,
+default_secondary_roles,
+default_warehouse,
+disabled,
+display_name,
+email,
+enable_unredacted_query_syntax_error,
+expires_at,
+ext_authn_duo,
+ext_authn_uid,
+first_name,
+has_password,
+has_rsa_public_key,
+last_name,
+last_successful_login,
+locked_until,
+login_name,
+middle_name,
+mins_to_bypass_mfa,
+mins_to_bypass_network_policy,
+mins_to_unlock,
+must_change_password,
+network_policy,
+owner,
+password,
+password_last_set,
+rsa_public_key,
+rsa_public_key_2,
+rsa_public_key_2_fp,
+rsa_public_key_fp,
+snowflake_lock,
+snowflake_support,
+type
+FROM snowflake.user.users
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>users</code> resource.

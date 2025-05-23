@@ -65,8 +65,16 @@ Creates, updates, deletes, gets or lists a <code>current_graphs</code> resource.
 
 ## `SELECT` examples
 
-This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days.
+<Tabs
+    defaultValue="get_current_graphs"
+    values={[
+        { label: 'get_current_graphs', value: 'get_current_graphs' },
+        { label: 'get_current_graphs_deprecated', value: 'get_current_graphs_deprecated' }
+    ]
+}>
+<TabItem value="get_current_graphs">
 
+This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days.
 
 ```sql
 SELECT
@@ -90,3 +98,32 @@ AND name = '{{ name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="get_current_graphs_deprecated">
+
+This function returns details for graph runs that are currently executing or are next scheduled to run within the next 8 days.
+
+```sql
+SELECT
+completed_time,
+database_name,
+first_error_code,
+first_error_message,
+first_error_task_name,
+graph_version,
+next_scheduled_time,
+query_start_time,
+root_task_id,
+root_task_name,
+run_id,
+scheduled_time,
+schema_name,
+state
+FROM snowflake.task.current_graphs
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>

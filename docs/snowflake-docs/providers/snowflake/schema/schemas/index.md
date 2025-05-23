@@ -90,8 +90,16 @@ Creates, updates, deletes, gets or lists a <code>schemas</code> resource.
 
 ## `SELECT` examples
 
-Lists the accessible schemas.
+<Tabs
+    defaultValue="list_schemas"
+    values={[
+        { label: 'list_schemas', value: 'list_schemas' },
+        { label: 'fetch_schema', value: 'fetch_schema' }
+    ]
+}>
+<TabItem value="list_schemas">
 
+Lists the accessible schemas.
 
 ```sql
 SELECT
@@ -124,6 +132,46 @@ FROM snowflake.schema.schemas
 WHERE database_name = '{{ database_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_schema">
+
+Fetches a schema.
+
+```sql
+SELECT
+name,
+budget,
+comment,
+created_on,
+data_retention_time_in_days,
+database_name,
+default_ddl_collation,
+dropped_on,
+is_current,
+is_default,
+kind,
+log_level,
+managed_access,
+max_data_extension_time_in_days,
+options,
+owner,
+owner_role_type,
+pipe_execution_paused,
+retention_time,
+serverless_task_max_statement_size,
+serverless_task_min_statement_size,
+suspend_task_after_num_failures,
+trace_level,
+user_task_managed_initial_warehouse_size,
+user_task_timeout_ms
+FROM snowflake.schema.schemas
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>schemas</code> resource.

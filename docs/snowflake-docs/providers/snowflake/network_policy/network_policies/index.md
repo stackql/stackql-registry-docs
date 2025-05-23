@@ -63,8 +63,16 @@ Creates, updates, deletes, gets or lists a <code>network_policies</code> resourc
 
 ## `SELECT` examples
 
-List network policies
+<Tabs
+    defaultValue="list_network_policies"
+    values={[
+        { label: 'list_network_policies', value: 'list_network_policies' },
+        { label: 'fetch_network_policy', value: 'fetch_network_policy' }
+    ]
+}>
+<TabItem value="list_network_policies">
 
+List network policies
 
 ```sql
 SELECT
@@ -80,6 +88,29 @@ owner_role_type
 FROM snowflake.network_policy.network_policies
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_network_policy">
+
+Fetch a network policy
+
+```sql
+SELECT
+name,
+allowed_ip_list,
+allowed_network_rule_list,
+blocked_ip_list,
+blocked_network_rule_list,
+comment,
+created_on,
+owner,
+owner_role_type
+FROM snowflake.network_policy.network_policies
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>network_policies</code> resource.

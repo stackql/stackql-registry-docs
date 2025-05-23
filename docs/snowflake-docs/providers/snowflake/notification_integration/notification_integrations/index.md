@@ -60,8 +60,16 @@ Creates, updates, deletes, gets or lists a <code>notification_integrations</code
 
 ## `SELECT` examples
 
-List notification integrations
+<Tabs
+    defaultValue="list_notification_integrations"
+    values={[
+        { label: 'list_notification_integrations', value: 'list_notification_integrations' },
+        { label: 'fetch_notification_integration', value: 'fetch_notification_integration' }
+    ]
+}>
+<TabItem value="list_notification_integrations">
 
+List notification integrations
 
 ```sql
 SELECT
@@ -73,6 +81,25 @@ notification_hook
 FROM snowflake.notification_integration.notification_integrations
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_notification_integration">
+
+Fetch a notification integration
+
+```sql
+SELECT
+name,
+comment,
+created_on,
+enabled,
+notification_hook
+FROM snowflake.notification_integration.notification_integrations
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>notification_integrations</code> resource.

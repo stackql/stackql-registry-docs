@@ -72,8 +72,16 @@ Creates, updates, deletes, gets or lists a <code>views</code> resource.
 
 ## `SELECT` examples
 
-List views
+<Tabs
+    defaultValue="list_views"
+    values={[
+        { label: 'list_views', value: 'list_views' },
+        { label: 'fetch_view', value: 'fetch_view' }
+    ]
+}>
+<TabItem value="list_views">
 
+List views
 
 ```sql
 SELECT
@@ -94,6 +102,34 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_view">
+
+Fetch a view
+
+```sql
+SELECT
+name,
+columns,
+comment,
+created_on,
+database_name,
+kind,
+owner,
+owner_role_type,
+query,
+recursive,
+schema_name,
+secure
+FROM snowflake.view.views
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>views</code> resource.

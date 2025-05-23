@@ -71,8 +71,16 @@ Creates, updates, deletes, gets or lists a <code>stages</code> resource.
 
 ## `SELECT` examples
 
-Lists stages under the database and schema, with show options as query parameters.
+<Tabs
+    defaultValue="list_stages"
+    values={[
+        { label: 'list_stages', value: 'list_stages' },
+        { label: 'fetch_stage', value: 'fetch_stage' }
+    ]
+}>
+<TabItem value="list_stages">
 
+Lists stages under the database and schema, with show options as query parameters.
 
 ```sql
 SELECT
@@ -97,6 +105,38 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_stage">
+
+Fetch a stage using the describe command output.
+
+```sql
+SELECT
+name,
+cloud,
+comment,
+created_on,
+credentials,
+directory_table,
+encryption,
+endpoint,
+has_credentials,
+has_encryption_key,
+kind,
+owner,
+owner_role_type,
+region,
+storage_integration,
+url
+FROM snowflake.stage.stages
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>stages</code> resource.

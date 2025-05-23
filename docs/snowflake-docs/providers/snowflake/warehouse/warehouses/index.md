@@ -101,8 +101,16 @@ Creates, updates, deletes, gets or lists a <code>warehouses</code> resource.
 
 ## `SELECT` examples
 
-Show a list of warehouse filtered by pattern. Equivalent to SHOW WAREHOUSE in SQL.
+<Tabs
+    defaultValue="list_warehouses"
+    values={[
+        { label: 'list_warehouses', value: 'list_warehouses' },
+        { label: 'fetch_warehouse', value: 'fetch_warehouse' }
+    ]
+}>
+<TabItem value="list_warehouses">
 
+Show a list of warehouse filtered by pattern. Equivalent to SHOW WAREHOUSE in SQL.
 
 ```sql
 SELECT
@@ -147,6 +155,58 @@ warehouse_type
 FROM snowflake.warehouse.warehouses
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_warehouse">
+
+Describes the warehouse, show information of the chosen warehouse. Equivalent to DESCRIBE WAREHOUSE in SQL.
+
+```sql
+SELECT
+name,
+auto_resume,
+auto_suspend,
+available,
+budget,
+comment,
+created_on,
+enable_query_acceleration,
+initially_suspended,
+is_current,
+is_default,
+kind,
+max_cluster_count,
+max_concurrency_level,
+min_cluster_count,
+other,
+owner,
+owner_role_type,
+provisioning,
+query_acceleration_max_scale_factor,
+queued,
+quiescing,
+resource_monitor,
+resumed_on,
+running,
+scaling_policy,
+size,
+started_clusters,
+state,
+statement_queued_timeout_in_seconds,
+statement_timeout_in_seconds,
+target_statement_size,
+type,
+updated_on,
+wait_for_completion,
+warehouse_credit_limit,
+warehouse_size,
+warehouse_type
+FROM snowflake.warehouse.warehouses
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>warehouses</code> resource.

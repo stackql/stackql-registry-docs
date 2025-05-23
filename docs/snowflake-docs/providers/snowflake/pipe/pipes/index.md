@@ -73,8 +73,16 @@ Creates, updates, deletes, gets or lists a <code>pipes</code> resource.
 
 ## `SELECT` examples
 
-List pipes
+<Tabs
+    defaultValue="list_pipes"
+    values={[
+        { label: 'list_pipes', value: 'list_pipes' },
+        { label: 'fetch_pipe', value: 'fetch_pipe' }
+    ]
+}>
+<TabItem value="list_pipes">
 
+List pipes
 
 ```sql
 SELECT
@@ -98,6 +106,37 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_pipe">
+
+Fetch a pipe
+
+```sql
+SELECT
+name,
+auto_ingest,
+aws_sns_topic,
+budget,
+comment,
+copy_statement,
+created_on,
+database_name,
+error_integration,
+integration,
+invalid_reason,
+owner,
+owner_role_type,
+pattern,
+schema_name
+FROM snowflake.pipe.pipes
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>pipes</code> resource.

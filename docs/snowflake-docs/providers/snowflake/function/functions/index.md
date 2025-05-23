@@ -65,8 +65,16 @@ Creates, updates, deletes, gets or lists a <code>functions</code> resource.
 
 ## `SELECT` examples
 
-Lists the user functions under the database and schema.
+<Tabs
+    defaultValue="list_functions"
+    values={[
+        { label: 'list_functions', value: 'list_functions' },
+        { label: 'fetch_function', value: 'fetch_function' }
+    ]
+}>
+<TabItem value="list_functions">
 
+Lists the user functions under the database and schema.
 
 ```sql
 SELECT
@@ -84,6 +92,31 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_function">
+
+Fetch a Function using the describe command output.
+
+```sql
+SELECT
+name,
+arguments,
+body,
+created_on,
+function_type,
+language,
+max_batch_rows,
+returns,
+signature
+FROM snowflake.function.functions
+WHERE database_name = '{{ database_name }}'
+AND nameWithArgs = '{{ nameWithArgs }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>functions</code> resource.

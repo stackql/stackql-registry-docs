@@ -74,8 +74,16 @@ Creates, updates, deletes, gets or lists a <code>streams</code> resource.
 
 ## `SELECT` examples
 
-List streams
+<Tabs
+    defaultValue="list_streams"
+    values={[
+        { label: 'list_streams', value: 'list_streams' },
+        { label: 'fetch_stream', value: 'fetch_stream' }
+    ]
+}>
+<TabItem value="list_streams">
 
+List streams
 
 ```sql
 SELECT
@@ -98,6 +106,36 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_stream">
+
+Fetch a stream
+
+```sql
+SELECT
+name,
+comment,
+created_on,
+database_name,
+invalid_reason,
+mode,
+owner,
+owner_role_type,
+schema_name,
+stale,
+stale_after,
+stream_source,
+table_name,
+type
+FROM snowflake.streams.streams
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>streams</code> resource.

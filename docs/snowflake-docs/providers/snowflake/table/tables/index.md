@@ -103,8 +103,16 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 
 ## `SELECT` examples
 
-Lists the tables under the database and schema.
+<Tabs
+    defaultValue="list_tables"
+    values={[
+        { label: 'list_tables', value: 'list_tables' },
+        { label: 'fetch_table', value: 'fetch_table' }
+    ]
+}>
+<TabItem value="list_tables">
 
+Lists the tables under the database and schema.
 
 ```sql
 SELECT
@@ -138,6 +146,47 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_table">
+
+Fetch a Table using the describe command output.
+
+```sql
+SELECT
+name,
+automatic_clustering,
+budget,
+bytes,
+change_tracking,
+cluster_by,
+columns,
+comment,
+constraints,
+created_on,
+data_retention_time_in_days,
+database_name,
+default_ddl_collation,
+dropped_on,
+enable_schema_evolution,
+kind,
+max_data_extension_time_in_days,
+owner,
+owner_role_type,
+rows,
+schema_name,
+search_optimization,
+search_optimization_bytes,
+search_optimization_progress,
+table_type
+FROM snowflake.table.tables
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>tables</code> resource.

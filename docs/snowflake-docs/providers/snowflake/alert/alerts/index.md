@@ -72,8 +72,16 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 
 ## `SELECT` examples
 
-List alerts
+<Tabs
+    defaultValue="list_alerts"
+    values={[
+        { label: 'list_alerts', value: 'list_alerts' },
+        { label: 'fetch_alert', value: 'fetch_alert' }
+    ]
+}>
+<TabItem value="list_alerts">
 
+List alerts
 
 ```sql
 SELECT
@@ -94,6 +102,34 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_alert">
+
+Fetch an alert
+
+```sql
+SELECT
+name,
+action,
+comment,
+condition,
+created_on,
+database_name,
+owner,
+owner_role_type,
+schedule,
+schema_name,
+state,
+warehouse
+FROM snowflake.alert.alerts
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>alerts</code> resource.
