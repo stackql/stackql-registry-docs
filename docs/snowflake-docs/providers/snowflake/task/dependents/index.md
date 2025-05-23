@@ -63,7 +63,7 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="recursive" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
+| <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | [`recursive`](#recursive) | This operation returns a list of the dependent tasks of the task with identifier {name}. |
 
 <br />
 
@@ -73,7 +73,7 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="recursive" /> | Specifies whether to limit the output to include only direct child tasks or to include all recursive child tasks. | `boolean` | `true` |
+| <CopyableCode code="recursive" id="recursive" /> | Specifies whether to limit the output to include only direct child tasks or to include all recursive child tasks. | `boolean` | `true` |
 
 </details>
 

@@ -42,10 +42,10 @@ Creates, updates, deletes, gets or lists a <code>database_roles</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_database_roles" /> | `SELECT` | <CopyableCode code="database_name, endpoint" /> | <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List database roles |
-| <CopyableCode code="create_database_role" /> | `INSERT` | <CopyableCode code="database_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a database role |
-| <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a database role |
-| <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database_name, name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="targetDatabase" /> | Create a new database role by cloning from the specified resource |
+| <CopyableCode code="list_database_roles" /> | `SELECT` | <CopyableCode code="database_name, endpoint" /> | [`showLimit`](#showLimit), [`fromName`](#fromName) | List database roles |
+| <CopyableCode code="create_database_role" /> | `INSERT` | <CopyableCode code="database_name, data__name, endpoint" /> | [`createMode`](#createMode) | Create a database role |
+| <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | [`ifExists`](#ifExists) | Delete a database role |
+| <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database_name, name, data__name, endpoint" /> | [`createMode`](#createMode), [`targetDatabase`](#targetDatabase) | Create a new database role by cloning from the specified resource |
 
 <br />
 
@@ -55,11 +55,11 @@ Creates, updates, deletes, gets or lists a <code>database_roles</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="targetDatabase" /> | Database of the target resource. Defaults to the source's database | `string` | `-` |
+| <CopyableCode code="createMode" id="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromName" id="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" id="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="showLimit" id="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="targetDatabase" id="targetDatabase" /> | Database of the target resource. Defaults to the source's database | `string` | `-` |
 
 </details>
 

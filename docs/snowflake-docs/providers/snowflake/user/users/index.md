@@ -75,9 +75,9 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_user" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch user information using the result of the DESCRIBE command |
-| <CopyableCode code="list_users" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | Lists the users in the system. |
-| <CopyableCode code="create_user" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a user according to the parameters given |
-| <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a user with the given name. |
+| <CopyableCode code="list_users" /> | `SELECT` | <CopyableCode code="endpoint" /> | [`like`](#like), [`startsWith`](#startsWith), [`showLimit`](#showLimit), [`fromName`](#fromName) | Lists the users in the system. |
+| <CopyableCode code="create_user" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | [`createMode`](#createMode) | Create a user according to the parameters given |
+| <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Delete a user with the given name. |
 | <CopyableCode code="create_or_alter_user" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | - | Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object. |
 
 <br />
@@ -88,12 +88,12 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
+| <CopyableCode code="createMode" id="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="fromName" id="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
+| <CopyableCode code="ifExists" id="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" id="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" id="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="startsWith" id="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
 
 </details>
 
