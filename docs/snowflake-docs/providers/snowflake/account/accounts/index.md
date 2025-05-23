@@ -72,9 +72,9 @@ Creates, updates, deletes, gets or lists a <code>accounts</code> resource.
 ## Methods
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_accounts" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="showLimit" />, <CopyableCode code="history" /> | Lists the accessible accounts. |
+| <CopyableCode code="list_accounts" /> | `SELECT` | <CopyableCode code="endpoint" /> | [`like`](#like), [`showLimit`](#showLimit), [`history`](#history) | Lists the accessible accounts. |
 | <CopyableCode code="create_account" /> | `INSERT` | <CopyableCode code="data__admin_name, data__edition, data__email, data__name, endpoint" /> | - | Creates a account. You must provide the full account definition when creating a account. |
-| <CopyableCode code="delete_account" /> | `DELETE` | <CopyableCode code="gracePeriodInDays, name, endpoint" /> | <CopyableCode code="ifExists" /> | Deletes the specified account. If you enable the `ifExists` parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful. |
+| <CopyableCode code="delete_account" /> | `DELETE` | <CopyableCode code="gracePeriodInDays, name, endpoint" /> | [`ifExists`](#ifExists) | Deletes the specified account. If you enable the `ifExists` parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful. |
 | <CopyableCode code="undrop_account" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Restores a dropped account that has not yet been permanently deleted (a dropped account that is within its grace period). |
 
 <br />
@@ -85,10 +85,10 @@ Creates, updates, deletes, gets or lists a <code>accounts</code> resource.
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="history" /> | Optionally includes dropped accounts that have not yet been purged. | `boolean` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
+| <CopyableCode code="history" id="history" /> | Optionally includes dropped accounts that have not yet been purged. | `boolean` | `-` |
+| <CopyableCode code="ifExists" id="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" id="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="showLimit" id="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
 
 </details>
 

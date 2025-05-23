@@ -40,9 +40,9 @@ Creates, updates, deletes, gets or lists a <code>notification_integrations</code
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_notification_integration" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch a notification integration |
-| <CopyableCode code="list_notification_integrations" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | List notification integrations |
-| <CopyableCode code="create_notification_integration" /> | `INSERT` | <CopyableCode code="data__name, data__notification_hook, endpoint" /> | <CopyableCode code="createMode" /> | Create a notification integration |
-| <CopyableCode code="delete_notification_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a notification integration |
+| <CopyableCode code="list_notification_integrations" /> | `SELECT` | <CopyableCode code="endpoint" /> | [`like`](#like) | List notification integrations |
+| <CopyableCode code="create_notification_integration" /> | `INSERT` | <CopyableCode code="data__name, data__notification_hook, endpoint" /> | [`createMode`](#createMode) | Create a notification integration |
+| <CopyableCode code="delete_notification_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Delete a notification integration |
 
 <br />
 
@@ -52,9 +52,9 @@ Creates, updates, deletes, gets or lists a <code>notification_integrations</code
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="createMode" id="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" id="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" id="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
 
 </details>
 

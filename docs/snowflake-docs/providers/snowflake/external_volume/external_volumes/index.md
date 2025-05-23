@@ -42,9 +42,9 @@ Creates, updates, deletes, gets or lists a <code>external_volumes</code> resourc
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_external_volume" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch an external volume |
-| <CopyableCode code="list_external_volumes" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | List external volumes |
-| <CopyableCode code="create_external_volume" /> | `INSERT` | <CopyableCode code="data__name, data__storage_locations, endpoint" /> | <CopyableCode code="createMode" /> | Create an external volume |
-| <CopyableCode code="delete_external_volume" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an external volume |
+| <CopyableCode code="list_external_volumes" /> | `SELECT` | <CopyableCode code="endpoint" /> | [`like`](#like) | List external volumes |
+| <CopyableCode code="create_external_volume" /> | `INSERT` | <CopyableCode code="data__name, data__storage_locations, endpoint" /> | [`createMode`](#createMode) | Create an external volume |
+| <CopyableCode code="delete_external_volume" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | [`ifExists`](#ifExists) | Delete an external volume |
 | <CopyableCode code="undrop_external_volume" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrop an external volume |
 
 <br />
@@ -55,9 +55,9 @@ Creates, updates, deletes, gets or lists a <code>external_volumes</code> resourc
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
+| <CopyableCode code="createMode" id="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
+| <CopyableCode code="ifExists" id="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
+| <CopyableCode code="like" id="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
 
 </details>
 
