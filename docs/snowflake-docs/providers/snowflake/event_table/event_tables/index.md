@@ -79,8 +79,16 @@ Creates, updates, deletes, gets or lists a <code>event_tables</code> resource.
 
 ## `SELECT` examples
 
-List event tables
+<Tabs
+    defaultValue="list_event_tables"
+    values={[
+        { label: 'list_event_tables', value: 'list_event_tables' },
+        { label: 'fetch_event_table', value: 'fetch_event_table' }
+    ]
+}>
+<TabItem value="list_event_tables">
 
+List event tables
 
 ```sql
 SELECT
@@ -108,6 +116,41 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_event_table">
+
+Fetch an event table
+
+```sql
+SELECT
+name,
+automatic_clustering,
+bytes,
+change_tracking,
+cluster_by,
+columns,
+comment,
+created_on,
+data_retention_time_in_days,
+database_name,
+default_ddl_collation,
+max_data_extension_time_in_days,
+owner,
+owner_role_type,
+rows,
+schema_name,
+search_optimization,
+search_optimization_bytes,
+search_optimization_progress
+FROM snowflake.event_table.event_tables
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>event_tables</code> resource.

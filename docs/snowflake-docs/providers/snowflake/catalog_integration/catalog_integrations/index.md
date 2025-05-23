@@ -63,8 +63,16 @@ Creates, updates, deletes, gets or lists a <code>catalog_integrations</code> res
 
 ## `SELECT` examples
 
-List catalog integrations.
+<Tabs
+    defaultValue="list_catalog_integrations"
+    values={[
+        { label: 'list_catalog_integrations', value: 'list_catalog_integrations' },
+        { label: 'fetch_catalog_integration', value: 'fetch_catalog_integration' }
+    ]
+}>
+<TabItem value="list_catalog_integrations">
 
+List catalog integrations.
 
 ```sql
 SELECT
@@ -79,6 +87,28 @@ type
 FROM snowflake.catalog_integration.catalog_integrations
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_catalog_integration">
+
+Fetch a catalog integration.
+
+```sql
+SELECT
+name,
+catalog,
+category,
+comment,
+created_on,
+enabled,
+table_format,
+type
+FROM snowflake.catalog_integration.catalog_integrations
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>catalog_integrations</code> resource.

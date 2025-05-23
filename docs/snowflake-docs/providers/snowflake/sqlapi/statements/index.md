@@ -51,8 +51,16 @@ Creates, updates, deletes, gets or lists a <code>statements</code> resource.
 
 ## `SELECT` examples
 
-Submits one or more statements for execution. You can specify that the statement should be executed asynchronously.
+<Tabs
+    defaultValue="submit_statement"
+    values={[
+        { label: 'submit_statement', value: 'submit_statement' },
+        { label: 'get_statement_status', value: 'get_statement_status' }
+    ]
+}>
+<TabItem value="submit_statement">
 
+Submits one or more statements for execution. You can specify that the statement should be executed asynchronously.
 
 ```sql
 SELECT
@@ -69,3 +77,26 @@ FROM snowflake.sqlapi.statements
 WHERE User-Agent = '{{ User-Agent }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="get_statement_status">
+
+Checks the status of the execution of the statement with the specified statement handle. If the statement was executed successfully, the operation returns the requested partition of the result set.
+
+```sql
+SELECT
+code,
+createdOn,
+data,
+message,
+resultSetMetaData,
+sqlState,
+statementHandle,
+statementStatusUrl,
+stats
+FROM snowflake.sqlapi.statements
+WHERE User-Agent = '{{ User-Agent }}'
+AND statementHandle = '{{ statementHandle }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>

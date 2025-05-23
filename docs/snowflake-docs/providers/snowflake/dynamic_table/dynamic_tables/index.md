@@ -92,8 +92,16 @@ Creates, updates, deletes, gets or lists a <code>dynamic_tables</code> resource.
 
 ## `SELECT` examples
 
-Lists the dynamic tables under the database and schema.
+<Tabs
+    defaultValue="list_dynamic_tables"
+    values={[
+        { label: 'list_dynamic_tables', value: 'list_dynamic_tables' },
+        { label: 'fetch_dynamic_table', value: 'fetch_dynamic_table' }
+    ]
+}>
+<TabItem value="list_dynamic_tables">
 
+Lists the dynamic tables under the database and schema.
 
 ```sql
 SELECT
@@ -124,6 +132,44 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_dynamic_table">
+
+Fetch a Dynamic Table.
+
+```sql
+SELECT
+name,
+automatic_clustering,
+budget,
+bytes,
+cluster_by,
+columns,
+comment,
+created_on,
+data_retention_time_in_days,
+database_name,
+initialize,
+kind,
+max_data_extension_time_in_days,
+owner,
+owner_role_type,
+query,
+refresh_mode,
+rows,
+scheduling_state,
+schema_name,
+target_lag,
+warehouse
+FROM snowflake.dynamic_table.dynamic_tables
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>dynamic_tables</code> resource.

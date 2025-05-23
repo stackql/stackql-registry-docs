@@ -97,8 +97,16 @@ Creates, updates, deletes, gets or lists a <code>databases</code> resource.
 
 ## `SELECT` examples
 
-Lists the accessible databases.
+<Tabs
+    defaultValue="list_databases"
+    values={[
+        { label: 'list_databases', value: 'list_databases' },
+        { label: 'fetch_database', value: 'fetch_database' }
+    ]
+}>
+<TabItem value="list_databases">
 
+Lists the accessible databases.
 
 ```sql
 SELECT
@@ -128,6 +136,43 @@ user_task_timeout_ms
 FROM snowflake.database.databases
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_database">
+
+Fetches a database.
+
+```sql
+SELECT
+name,
+budget,
+comment,
+created_on,
+data_retention_time_in_days,
+default_ddl_collation,
+dropped_on,
+is_current,
+is_default,
+kind,
+log_level,
+max_data_extension_time_in_days,
+options,
+origin,
+owner,
+owner_role_type,
+retention_time,
+serverless_task_max_statement_size,
+serverless_task_min_statement_size,
+suspend_task_after_num_failures,
+trace_level,
+user_task_managed_initial_warehouse_size,
+user_task_timeout_ms
+FROM snowflake.database.databases
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>databases</code> resource.

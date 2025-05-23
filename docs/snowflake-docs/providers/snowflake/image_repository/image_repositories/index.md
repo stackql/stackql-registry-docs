@@ -62,8 +62,16 @@ Creates, updates, deletes, gets or lists a <code>image_repositories</code> resou
 
 ## `SELECT` examples
 
-Lists the image repositories under a specified database and schema.
+<Tabs
+    defaultValue="list_image_repositories"
+    values={[
+        { label: 'list_image_repositories', value: 'list_image_repositories' },
+        { label: 'fetch_image_repository', value: 'fetch_image_repository' }
+    ]
+}>
+<TabItem value="list_image_repositories">
 
+Lists the image repositories under a specified database and schema.
 
 ```sql
 SELECT
@@ -79,6 +87,29 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_image_repository">
+
+Fetches a named image repository in a specified database and schema.
+
+```sql
+SELECT
+name,
+created_on,
+database_name,
+owner,
+owner_role_type,
+repository_url,
+schema_name
+FROM snowflake.image_repository.image_repositories
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>image_repositories</code> resource.

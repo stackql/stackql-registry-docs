@@ -63,8 +63,16 @@ Creates, updates, deletes, gets or lists a <code>api_integrations</code> resourc
 
 ## `SELECT` examples
 
-List API integrations
+<Tabs
+    defaultValue="list_api_integrations"
+    values={[
+        { label: 'list_api_integrations', value: 'list_api_integrations' },
+        { label: 'fetch_api_integration', value: 'fetch_api_integration' }
+    ]
+}>
+<TabItem value="list_api_integrations">
 
+List API integrations
 
 ```sql
 SELECT
@@ -78,6 +86,27 @@ enabled
 FROM snowflake.api_integration.api_integrations
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_api_integration">
+
+Fetch an API integration
+
+```sql
+SELECT
+name,
+api_allowed_prefixes,
+api_blocked_prefixes,
+api_hook,
+comment,
+created_on,
+enabled
+FROM snowflake.api_integration.api_integrations
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>api_integrations</code> resource.

@@ -94,8 +94,16 @@ Creates, updates, deletes, gets or lists a <code>notebooks</code> resource.
 
 ## `SELECT` examples
 
-List notebooks
+<Tabs
+    defaultValue="list_notebooks"
+    values={[
+        { label: 'list_notebooks', value: 'list_notebooks' },
+        { label: 'fetch_notebook', value: 'fetch_notebook' }
+    ]
+}>
+<TabItem value="list_notebooks">
 
+List notebooks
 
 ```sql
 SELECT
@@ -130,6 +138,48 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_notebook">
+
+Fetch a notebook
+
+```sql
+SELECT
+name,
+budget,
+comment,
+compute_pool,
+created_on,
+database_name,
+default_packages,
+default_version,
+default_version_details,
+external_access_integrations,
+external_access_secrets,
+fromLocation,
+idle_auto_shutdown_time_seconds,
+import_urls,
+last_version_details,
+live_version_location_uri,
+main_file,
+owner,
+owner_role_type,
+query_warehouse,
+runtime_name,
+schema_name,
+title,
+url_id,
+user_packages,
+version
+FROM snowflake.notebook.notebooks
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>notebooks</code> resource.

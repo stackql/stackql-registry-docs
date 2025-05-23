@@ -85,8 +85,16 @@ Creates, updates, deletes, gets or lists a <code>compute_pools</code> resource.
 
 ## `SELECT` examples
 
-Lists the compute pools under the account.
+<Tabs
+    defaultValue="list_compute_pools"
+    values={[
+        { label: 'list_compute_pools', value: 'list_compute_pools' },
+        { label: 'fetch_compute_pool', value: 'fetch_compute_pool' }
+    ]
+}>
+<TabItem value="list_compute_pools">
 
+Lists the compute pools under the account.
 
 ```sql
 SELECT
@@ -115,6 +123,42 @@ updated_on
 FROM snowflake.compute_pool.compute_pools
 WHERE endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_compute_pool">
+
+Fetches a named compute pool. You can get the name of the compute pool from the `/api/v2/compute-pools` GET request.
+
+```sql
+SELECT
+name,
+active_nodes,
+application,
+auto_resume,
+auto_suspend_secs,
+budget,
+comment,
+created_on,
+error_code,
+idle_nodes,
+instance_family,
+is_exclusive,
+max_nodes,
+min_nodes,
+num_jobs,
+num_services,
+owner,
+resumed_on,
+state,
+status_message,
+target_nodes,
+updated_on
+FROM snowflake.compute_pool.compute_pools
+WHERE name = '{{ name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>compute_pools</code> resource.

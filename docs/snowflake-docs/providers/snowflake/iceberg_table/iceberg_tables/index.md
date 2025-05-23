@@ -100,8 +100,16 @@ Creates, updates, deletes, gets or lists a <code>iceberg_tables</code> resource.
 
 ## `SELECT` examples
 
-Lists the Apache Iceberg™ tables for which you have access privileges.
+<Tabs
+    defaultValue="list_iceberg_tables"
+    values={[
+        { label: 'list_iceberg_tables', value: 'list_iceberg_tables' },
+        { label: 'fetch_iceberg_table', value: 'fetch_iceberg_table' }
+    ]
+}>
+<TabItem value="list_iceberg_tables">
 
+Lists the Apache Iceberg™ tables for which you have access privileges.
 
 ```sql
 SELECT
@@ -135,6 +143,47 @@ WHERE database_name = '{{ database_name }}'
 AND schema_name = '{{ schema_name }}'
 AND endpoint = '{{ endpoint }}';
 ```
+</TabItem>
+<TabItem value="fetch_iceberg_table">
+
+Describe an iceberg table
+
+```sql
+SELECT
+name,
+auto_refresh,
+base_location,
+can_write_metadata,
+catalog,
+catalog_namespace,
+catalog_sync,
+catalog_table_name,
+change_tracking,
+cluster_by,
+columns,
+comment,
+constraints,
+created_on,
+data_retention_time_in_days,
+database_name,
+external_volume,
+iceberg_table_type,
+max_data_extension_time_in_days,
+metadata_file_path,
+owner,
+owner_role_type,
+replace_invalid_characters,
+schema_name,
+storage_serialization_policy
+FROM snowflake.iceberg_table.iceberg_tables
+WHERE database_name = '{{ database_name }}'
+AND name = '{{ name }}'
+AND schema_name = '{{ schema_name }}'
+AND endpoint = '{{ endpoint }}';
+```
+</TabItem>
+</Tabs>
+
 ## `INSERT` example
 
 Use the following StackQL query and manifest file to create a new <code>iceberg_tables</code> resource.
