@@ -58,7 +58,9 @@ Creates, updates, deletes, gets or lists a <code>event_tables</code> resource.
 | <CopyableCode code="create_event_table" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create an event table |
 | <CopyableCode code="delete_event_table" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an event table |
 | <CopyableCode code="rename_event_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" /> | Rename the event table |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

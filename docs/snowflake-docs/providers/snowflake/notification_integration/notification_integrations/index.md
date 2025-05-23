@@ -43,7 +43,9 @@ Creates, updates, deletes, gets or lists a <code>notification_integrations</code
 | <CopyableCode code="list_notification_integrations" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" /> | List notification integrations |
 | <CopyableCode code="create_notification_integration" /> | `INSERT` | <CopyableCode code="data__name, data__notification_hook, endpoint" /> | <CopyableCode code="createMode" /> | Create a notification integration |
 | <CopyableCode code="delete_notification_integration" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a notification integration |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

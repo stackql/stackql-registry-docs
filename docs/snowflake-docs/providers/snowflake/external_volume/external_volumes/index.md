@@ -46,7 +46,9 @@ Creates, updates, deletes, gets or lists a <code>external_volumes</code> resourc
 | <CopyableCode code="create_external_volume" /> | `INSERT` | <CopyableCode code="data__name, data__storage_locations, endpoint" /> | <CopyableCode code="createMode" /> | Create an external volume |
 | <CopyableCode code="delete_external_volume" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an external volume |
 | <CopyableCode code="undrop_external_volume" /> | `EXEC` | <CopyableCode code="name, endpoint" /> | - | Undrop an external volume |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

@@ -79,7 +79,9 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 | <CopyableCode code="create_user" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a user according to the parameters given |
 | <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a user with the given name. |
 | <CopyableCode code="create_or_alter_user" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | - | Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

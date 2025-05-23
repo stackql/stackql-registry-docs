@@ -78,7 +78,9 @@ Creates, updates, deletes, gets or lists a <code>tables</code> resource.
 | <CopyableCode code="swap_with_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetName, endpoint" /> | <CopyableCode code="ifExists" />, <CopyableCode code="targetDatabase" />, <CopyableCode code="targetSchema" /> | Swap with another table |
 | <CopyableCode code="swap_with_table_deprecated" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetTableName, endpoint" /> | <CopyableCode code="ifExists" /> | Swap with another table |
 | <CopyableCode code="undrop_table" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Undrop specified table |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

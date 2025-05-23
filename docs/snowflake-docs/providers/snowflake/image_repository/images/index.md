@@ -40,7 +40,9 @@ Creates, updates, deletes, gets or lists a <code>images</code> resource.
 | Name | Accessible by | Required Params | Description |
 |:-----|:--------------|:----------------|:------------|
 | <CopyableCode code="list_images_in_repository" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | List images in the given image repository. |
+
 <br />
+
 ## `SELECT` examples
 
 List images in the given image repository.

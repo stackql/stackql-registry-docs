@@ -64,7 +64,9 @@ Creates, updates, deletes, gets or lists a <code>dependents</code> resource.
 | Name | Accessible by | Required Params | Optional Params | Description |
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="fetch_task_dependents" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="recursive" /> | This operation returns a list of the dependent tasks of the task with identifier {name}. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>

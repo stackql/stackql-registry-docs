@@ -36,7 +36,9 @@ Creates, updates, deletes, gets or lists a <code>grant_options</code> resource.
 |:-----|:--------------|:----------------|:----------------|:------------|
 | <CopyableCode code="revoke_group_privilege_grant_option" /> | `DELETE` | <CopyableCode code="bulkGrantType, granteeName, granteeType, privilege, scopeName, scopeType, securableTypePlural, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the grant option for the privilege listed on the group securable in the given scope should be revoked. |
 | <CopyableCode code="revoke_privilege_grant_option" /> | `DELETE` | <CopyableCode code="granteeName, granteeType, privilege, securableName, securableType, endpoint" /> | <CopyableCode code="deleteMode" /> | Endpoint to indicate that the grant option for the privilege listed in the path should be revoked. |
+
 <br />
+
 
 <details>
 <summary>Optional Parameter Details</summary>
