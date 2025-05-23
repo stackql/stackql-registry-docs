@@ -292,6 +292,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: warehouses
   props:
     - name: data__name
@@ -395,7 +396,6 @@ SELECT
       description: >-
         Names of size: X-Small, Small, Medium, Large, X-Large, 2X-Large,
         3X-Large, 4X-Large, 5X-Large, 6X-Large
-
 ```
 </TabItem>
 </Tabs>

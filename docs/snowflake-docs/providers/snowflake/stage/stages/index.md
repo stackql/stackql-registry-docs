@@ -205,6 +205,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: stages
   props:
     - name: database_name
@@ -289,7 +290,6 @@ SELECT
             Specifies the name of the notification integration used to
             automatically refresh the directory table metadata.
       description: Directory table parameters of the stage.
-
 ```
 </TabItem>
 </Tabs>

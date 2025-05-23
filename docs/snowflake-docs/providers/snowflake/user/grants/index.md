@@ -128,6 +128,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: grants
   props:
     - name: name
@@ -161,7 +162,6 @@ SELECT
     - name: privileges
       value: array
       description: List of privileges to be granted.
-
 ```
 </TabItem>
 </Tabs>

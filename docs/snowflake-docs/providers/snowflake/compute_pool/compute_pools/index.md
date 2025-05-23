@@ -222,6 +222,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: compute_pools
   props:
     - name: data__instance_family
@@ -260,7 +261,6 @@ SELECT
     - name: auto_suspend_secs
       value: integer
       description: Number of seconds until the compute pool automatically suspends.
-
 ```
 </TabItem>
 </Tabs>

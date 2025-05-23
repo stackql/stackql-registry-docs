@@ -260,6 +260,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: tables
   props:
     - name: database_name
@@ -362,7 +363,6 @@ SELECT
     - name: comment
       value: string
       description: Comment for the table
-
 ```
 </TabItem>
 </Tabs>

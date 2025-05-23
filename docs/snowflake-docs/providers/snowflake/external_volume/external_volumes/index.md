@@ -160,6 +160,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: external_volumes
   props:
     - name: data__name
@@ -192,7 +193,6 @@ SELECT
     - name: comment
       value: string
       description: String (literal) that specifies a comment for the external volume.
-
 ```
 </TabItem>
 </Tabs>

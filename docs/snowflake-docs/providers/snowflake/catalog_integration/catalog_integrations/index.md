@@ -168,6 +168,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: catalog_integrations
   props:
     - name: data__catalog
@@ -197,7 +198,6 @@ SELECT
     - name: comment
       value: string
       description: Comment.
-
 ```
 </TabItem>
 </Tabs>

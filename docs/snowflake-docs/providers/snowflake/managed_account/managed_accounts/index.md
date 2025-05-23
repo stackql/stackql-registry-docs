@@ -141,6 +141,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: managed_accounts
   props:
     - name: data__account_type
@@ -171,7 +172,6 @@ SELECT
     - name: account_type
       value: string
       description: Type of the account.
-
 ```
 </TabItem>
 </Tabs>

@@ -168,6 +168,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: api_integrations
   props:
     - name: data__api_allowed_prefixes
@@ -204,7 +205,6 @@ SELECT
     - name: comment
       value: string
       description: Comment for the API integration.
-
 ```
 </TabItem>
 </Tabs>

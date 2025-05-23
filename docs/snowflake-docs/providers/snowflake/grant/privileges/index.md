@@ -126,6 +126,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: privileges
   props:
     - name: granteeName
@@ -164,7 +165,6 @@ SELECT
     - name: granted_by_name
       value: string
       description: The role that granted this privilege to this grantee
-
 ```
 </TabItem>
 </Tabs>

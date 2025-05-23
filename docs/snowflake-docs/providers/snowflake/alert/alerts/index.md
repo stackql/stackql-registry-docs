@@ -199,6 +199,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: alerts
   props:
     - name: database_name
@@ -237,7 +238,6 @@ SELECT
     - name: action
       value: string
       description: The SQL statement to execute when the alert is triggered
-
 ```
 </TabItem>
 </Tabs>

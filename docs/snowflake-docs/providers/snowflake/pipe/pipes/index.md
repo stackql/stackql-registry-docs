@@ -204,6 +204,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: pipes
   props:
     - name: database_name
@@ -248,7 +249,6 @@ SELECT
         COPY INTO statement used to load data from queued files into a Snowflake
         table. This statement serves as the text/definition for the pipe and is
         displayed in the SHOW PIPES output
-
 ```
 </TabItem>
 </Tabs>

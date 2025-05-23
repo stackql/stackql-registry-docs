@@ -153,6 +153,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: notification_integrations
   props:
     - name: data__name
@@ -175,7 +176,6 @@ SELECT
         - name: type
           value: string
           description: Type of NotificationHook, can be QUEUE, EMAIL or WEBHOOK
-
 ```
 </TabItem>
 </Tabs>

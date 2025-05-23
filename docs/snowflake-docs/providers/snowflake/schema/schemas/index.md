@@ -249,6 +249,7 @@ SELECT
 <TabItem value="manifest">
 
 ```yaml
+# Description fields below are for documentation purposes only and are not required in the manifest
 - name: schemas
   props:
     - name: database_name
@@ -332,7 +333,6 @@ SELECT
       description: >-
         Time limit, in milliseconds, for a single run of the task before it
         times out.
-
 ```
 </TabItem>
 </Tabs>
