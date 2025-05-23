@@ -163,14 +163,18 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the notification.
     - name: enabled
       value: boolean
+      description: Whether the notification integration is enabled.
     - name: comment
       value: string
+      description: Comment for the notification integration.
     - name: notification_hook
       value:
         - name: type
           value: string
+          description: Type of NotificationHook, can be QUEUE, EMAIL or WEBHOOK
 
 ```
 </TabItem>

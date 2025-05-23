@@ -261,22 +261,31 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the notebook
     - name: version
       value: string
+      description: User specified version alias
     - name: fromLocation
       value: string
+      description: Location to copy the file from. This must be a Snowflake stage location.
     - name: main_file
       value: string
+      description: Name + path of the file for the Notebook
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
     - name: default_version
       value: string
+      description: The default version name of a file based entity.
     - name: query_warehouse
       value: string
+      description: Warehouse against which the queries issued by the Streamlit app are run against
     - name: default_version_details
       value: []
+      description: The version details of a file based entity
     - name: last_version_details
       value: []
+      description: The version details of a file based entity
 
 ```
 </TabItem>

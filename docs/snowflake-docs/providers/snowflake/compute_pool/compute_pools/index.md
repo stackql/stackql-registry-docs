@@ -236,18 +236,25 @@ SELECT
       value: string
     - name: name
       value: string
+      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
     - name: min_nodes
       value: integer
+      description: Minimum number of nodes for the compute pool.
     - name: max_nodes
       value: integer
+      description: Maximum number of nodes for the compute pool.
     - name: instance_family
       value: string
+      description: Instance family for the compute pool.
     - name: auto_resume
       value: boolean
+      description: Whether Snowflake automatically resumes the compute pool when any statement that requires the compute pool is submitted.
     - name: comment
       value: string
+      description: Comment describing the compute pool.
     - name: auto_suspend_secs
       value: integer
+      description: Number of seconds until the compute pool automatically suspends.
 
 ```
 </TabItem>

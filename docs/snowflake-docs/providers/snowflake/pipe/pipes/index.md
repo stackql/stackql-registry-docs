@@ -218,18 +218,25 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the pipe
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
     - name: auto_ingest
       value: boolean
+      description: TRUE if all files from stage need to be auto-ingested
     - name: error_integration
       value: string
+      description: Link to integration object that point to a user provided Azure storage queue / SQS. When present, errors (e.g. ingest failure for Snowpipe or a user task failure or replication failure) will be sent to this queue to notify customers
     - name: aws_sns_topic
       value: string
+      description: Optional, if provided, auto_ingest pipe will only receive messages from this SNS topic.
     - name: integration
       value: string
+      description: Link to integration object that ties a user provided storage queue to an auto_ingest enabled pipe. Required for auto_ingest to work on azure.
     - name: copy_statement
       value: string
+      description: COPY INTO statement used to load data from queued files into a Snowflake table. This statement serves as the text/definition for the pipe and is displayed in the SHOW PIPES output
 
 ```
 </TabItem>

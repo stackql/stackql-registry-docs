@@ -306,50 +306,73 @@ SELECT
       value: string
     - name: name
       value: string
+      description: User name
     - name: password
       value: string
+      description: Password
     - name: login_name
       value: string
+      description: Login name
     - name: display_name
       value: string
+      description: Display name
     - name: first_name
       value: string
+      description: First name
     - name: middle_name
       value: string
+      description: Middle name
     - name: last_name
       value: string
+      description: Last name
     - name: email
       value: string
+      description: Email address
     - name: must_change_password
       value: boolean
+      description: Does this user need to change their password (e.g., after assigning a temp password)
     - name: disabled
       value: boolean
+      description: Has this user been disabled from the system
     - name: days_to_expiry
       value: integer
+      description: How many days until this user expires
     - name: mins_to_unlock
       value: integer
+      description: How many minutes until the account is unlocked after multiple failed logins
     - name: default_warehouse
       value: string
+      description: The default warehouse to use when this user starts a session
     - name: default_namespace
       value: string
+      description: The default namespace to use when this user starts a session
     - name: default_role
       value: string
+      description: The default role to use when this user starts a session
     - name: default_secondary_roles
       value: string
+      description: The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR.
     - name: mins_to_bypass_mfa
       value: integer
+      description: How many minutes until MFA is required again
     - name: rsa_public_key
       value: string
+      description: RSA public key of the user
     - name: rsa_public_key_2
       value: string
+      description: Second RSA public key of the user
     - name: comment
       value: string
+      description: Comment about the user.
     - name: type
       value: string
+      description: Indicates the type of user (PERSON \| SERVICE \| LEGACY_SERVICE)
     - name: enable_unredacted_query_syntax_error
       value: boolean
+      description: Whether to show unredacted query syntax errors in the query history.
     - name: network_policy
       value: string
+      description: Specifies an existing network policy is active for the user. Otherwise, use account default.
 
 ```
 </TabItem>

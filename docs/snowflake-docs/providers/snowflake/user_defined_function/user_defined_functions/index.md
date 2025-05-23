@@ -246,38 +246,53 @@ SELECT
       value: string
     - name: name
       value: string
+      description: The name of the UDF
     - name: is_temporary
       value: boolean
+      description: Specifies whether the UDF is temporary or not
     - name: is_aggregate
       value: boolean
+      description: Specifies whether the UDF is an aggregate function. Applicable only for Python language type
     - name: is_memoizable
       value: boolean
+      description: Indicates whether the function is memoizable. Applicable only for Python language type.
     - name: is_secure
       value: boolean
+      description: Specifies whether the function/procedure is secure or not
     - name: arguments
       value:
         - name: name
           value: string
+          description: Argument name
         - name: datatype
           value: string
+          description: Argument data type
         - name: default_value
           value: string
+          description: Default value of the argument
+      description: List of arguments for the function/procedure
     - name: return_type
       value:
         - name: type
           value: string
+          description: Type of the return, can be either DATATYPE or TABLE
     - name: language_config
       value:
         - name: language
           value: string
+          description: 'Language that the function/procedure is written in. Possible values include: JAVA, JAVASCRIPT, PYTHON, SCALA, SQL'
         - name: called_on_null_input
           value: boolean
+          description: Decide if the function/procedure can receive null input
         - name: is_volatile
           value: boolean
+          description: Specifies the behavior of the UDF when returning results. This Field is deprecated for Procedure. If true, UDF might return different values for different rows, even for the same input. This field is deprecated for Procedure. If false, UDF assumes that the function, when called with the same inputs, will always return the same result. This guarantee is not checked. Specifying IMMUTABLE for a UDF that returns different values for the same input will result in undefined behavior.
     - name: comment
       value: string
+      description: Specifies a comment for the function/procedure
     - name: body
       value: string
+      description: Function/procedure definition
 
 ```
 </TabItem>

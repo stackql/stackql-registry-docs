@@ -182,16 +182,21 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the catalog integration.
     - name: catalog
       value:
         - name: catalog_source
           value: string
+          description: Type of external catalog
     - name: table_format
       value: string
+      description: Table format of the catalog.
     - name: enabled
       value: boolean
+      description: whether this catalog integration is available to use for Iceberg tables.
     - name: comment
       value: string
+      description: Comment.
 
 ```
 </TabItem>

@@ -182,18 +182,24 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the API integration.
     - name: api_hook
       value:
         - name: type
           value: string
+          description: Type of ApiHook, can be AWS, AZURE, GC or GIT.
     - name: api_allowed_prefixes
       value: array
+      description: A comma-separated list of endpoints and resources that Snowflake can access.
     - name: api_blocked_prefixes
       value: array
+      description: A comma-separated list of endpoints and resources that are not allowed to be called from Snowflake.
     - name: enabled
       value: boolean
+      description: Whether the API integration is enabled.
     - name: comment
       value: string
+      description: Comment for the API integration.
 
 ```
 </TabItem>

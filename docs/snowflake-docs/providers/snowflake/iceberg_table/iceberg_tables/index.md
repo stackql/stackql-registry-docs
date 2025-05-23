@@ -281,54 +281,76 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the iceberg table
     - name: comment
       value: string
+      description: user comment associated to an object in the dictionary
     - name: change_tracking
       value: boolean
+      description: True if change tracking is enabled, allowing streams and CHANGES to be used on the entity.
     - name: max_data_extension_time_in_days
       value: integer
+      description: Maximum number of days to extend data retention beyond the retention period to prevent a stream becoming stale.
     - name: external_volume
       value: string
+      description: Name of an external volume that will be used for persisted Iceberg metadata and data files.
     - name: data_retention_time_in_days
       value: integer
+      description: number of days to retain the old version of deleted/updated data
     - name: catalog_sync
       value: string
+      description: Name of the catalog integration to sync this table
     - name: catalog
       value: string
+      description: Name of the catalog integration to use for iceberg tables
     - name: storage_serialization_policy
       value: string
+      description: Storage serialization policy used for managed Iceberg table. This include encodings and compressions
     - name: catalog_table_name
       value: string
+      description: Name of the table as recognized by the catalog.
     - name: catalog_namespace
       value: string
+      description: Catalog namespace for the table. The namespace defined when the table was created. Otherwise, the default namespace associated with the catalog integration used by the table. If you’re syncing the table to Snowflake Open Catalog, the default is null.
     - name: cluster_by
       value: array
+      description: Specifies one or more columns or column expressions in the table as the clustering key.
     - name: columns
       value:
         - name: name
           value: string
+          description: Column name
         - name: datatype
           value: string
+          description: The data type for the column
         - name: comment
           value: string
+          description: Specifies a comment for the column
         - name: nullable
           value: boolean
+          description: Argument null return acceptance criteria
         - name: default_value
           value: string
+          description: Default value for the column
     - name: base_location
       value: string
+      description: The path to a directory where Snowflake can write data and metadata files for the table.
     - name: replace_invalid_characters
       value: boolean
+      description: Specifies whether to replace invalid characters in the column names
     - name: metadata_file_path
       value: string
+      description: Specifies the relative path of the Iceberg metadata file to use for column definitions.
     - name: constraints
       value:
         - name: name
           value: string
+          description: Name of the Constraint
         - name: column_names
           value: array
         - name: constraint_type
           value: string
+          description: Type of the constraint
 
 ```
 </TabItem>

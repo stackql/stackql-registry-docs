@@ -259,34 +259,49 @@ SELECT
       value: string
     - name: name
       value: string
+      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
     - name: kind
       value: string
+      description: Schema type, permanent (default) or transient.
     - name: comment
       value: string
+      description: Optional comment in which to store information related to the schema.
     - name: managed_access
       value: boolean
+      description: Whether this schema is a managed access schema that centralizes privilege management with the schema owner.
     - name: data_retention_time_in_days
       value: integer
+      description: Number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the schema, as well as specifying the default Time Travel retention time for all tables created in the schema
     - name: default_ddl_collation
       value: string
+      description: Specifies a default collation specification for all tables added to the schema. You an override the default at the schema and individual table levels.
     - name: log_level
       value: string
+      description: Severity level of messages that should be ingested and made available in the active event table. Currently, Snowflake supports only `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL` and `OFF`.
     - name: pipe_execution_paused
       value: boolean
+      description: Whether pipe execution is paused.
     - name: max_data_extension_time_in_days
       value: integer
+      description: Maximum number of days for which Snowflake can extend the data retention period for tables in the schema to prevent streams on the tables from becoming stale.
     - name: suspend_task_after_num_failures
       value: integer
+      description: Specifies the number of consecutive failed task runs after which the current task is suspended automatically.
     - name: trace_level
       value: string
+      description: How trace events are ingested into the event table. Currently, Snowflake supports only `ALWAYS`, `ON_EVENT`, and `OFF`.
     - name: user_task_managed_initial_warehouse_size
       value: string
+      description: Size of the compute resources to provision for the first run of the serverless task, before a task history is available for Snowflake to determine an ideal size.
     - name: serverless_task_min_statement_size
       value: string
+      description: Specifies the minimum allowed warehouse size for the serverless task. Minimum XSMALL, Maximum XXLARGE.
     - name: serverless_task_max_statement_size
       value: string
+      description: Specifies the maximum allowed warehouse size for the serverless task. Minimum XSMALL, Maximum XXLARGE.
     - name: user_task_timeout_ms
       value: integer
+      description: Time limit, in milliseconds, for a single run of the task before it times out.
 
 ```
 </TabItem>

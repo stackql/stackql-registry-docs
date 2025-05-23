@@ -140,8 +140,10 @@ SELECT
       value: string
     - name: name
       value: string
+      description: Name of the role.
     - name: comment
       value: string
+      description: Comment of the role.
 
 ```
 </TabItem>
