@@ -231,7 +231,9 @@ SELECT
       description: The warehouse the alert runs in
     - name: condition
       value: string
-      description: The SQL statement that must be evaluated to determine whether to trigger the alert
+      description: >-
+        The SQL statement that must be evaluated to determine whether to trigger
+        the alert
     - name: action
       value: string
       description: The SQL statement to execute when the alert is triggered

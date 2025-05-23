@@ -330,7 +330,9 @@ SELECT
       description: Email address
     - name: must_change_password
       value: boolean
-      description: Does this user need to change their password (e.g., after assigning a temp password)
+      description: >-
+        Does this user need to change their password (e.g., after assigning a
+        temp password)
     - name: disabled
       value: boolean
       description: Has this user been disabled from the system
@@ -339,7 +341,9 @@ SELECT
       description: How many days until this user expires
     - name: mins_to_unlock
       value: integer
-      description: How many minutes until the account is unlocked after multiple failed logins
+      description: >-
+        How many minutes until the account is unlocked after multiple failed
+        logins
     - name: default_warehouse
       value: string
       description: The default warehouse to use when this user starts a session
@@ -351,7 +355,9 @@ SELECT
       description: The default role to use when this user starts a session
     - name: default_secondary_roles
       value: string
-      description: The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR.
+      description: >-
+        The default secondary roles of this user to use when starting a session.
+        Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR.
     - name: mins_to_bypass_mfa
       value: integer
       description: How many minutes until MFA is required again
@@ -372,7 +378,9 @@ SELECT
       description: Whether to show unredacted query syntax errors in the query history.
     - name: network_policy
       value: string
-      description: Specifies an existing network policy is active for the user. Otherwise, use account default.
+      description: >-
+        Specifies an existing network policy is active for the user. Otherwise,
+        use account default.
 
 ```
 </TabItem>

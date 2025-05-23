@@ -155,7 +155,10 @@ SELECT
       value: string
     - name: name
       value: string
-      description: A Snowflake object identifier. If the identifier contains spaces or special characters, the entire string must be enclosed in double quotes. Identifiers enclosed in double quotes are also case-sensitive.
+      description: >-
+        A Snowflake object identifier. If the identifier contains spaces or
+        special characters, the entire string must be enclosed in double quotes.
+        Identifiers enclosed in double quotes are also case-sensitive.
     - name: comment
       value: string
       description: Optional comment in which to store information related to the account.

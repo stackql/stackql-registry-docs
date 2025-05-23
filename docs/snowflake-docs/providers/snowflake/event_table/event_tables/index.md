@@ -237,13 +237,19 @@ SELECT
       description: number of days to retain the old version of deleted/updated data
     - name: max_data_extension_time_in_days
       value: integer
-      description: Maximum number of days to extend data retention beyond the retention period to prevent a stream becoming stale.
+      description: >-
+        Maximum number of days to extend data retention beyond the retention
+        period to prevent a stream becoming stale.
     - name: change_tracking
       value: boolean
-      description: True if change tracking is enabled, allowing streams and CHANGES to be used on the entity.
+      description: >-
+        True if change tracking is enabled, allowing streams and CHANGES to be
+        used on the entity.
     - name: default_ddl_collation
       value: string
-      description: Collation that is used for all the new columns created by the DDL statements (if not specified)
+      description: >-
+        Collation that is used for all the new columns created by the DDL
+        statements (if not specified)
     - name: comment
       value: string
       description: user comment associated to an object in the dictionary

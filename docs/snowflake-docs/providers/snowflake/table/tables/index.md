@@ -272,13 +272,17 @@ SELECT
       value: string
     - name: name
       value: string
-      description: Specifies the name for the table, must be unique for the schema in which the table is created
+      description: >-
+        Specifies the name for the table, must be unique for the schema in which
+        the table is created
     - name: kind
       value: string
       description: Table type - permanent, transient, or temporary
     - name: cluster_by
       value: array
-      description: Specifies one or more columns or column expressions in the table as the clustering key
+      description: >-
+        Specifies one or more columns or column expressions in the table as the
+        clustering key
     - name: enable_schema_evolution
       value: boolean
       description: Table has schema evolution enabled or disabled
@@ -287,13 +291,19 @@ SELECT
       description: Change tracking is enabled or disabled
     - name: data_retention_time_in_days
       value: integer
-      description: Specifies the retention period for the table so that Time Travel actions SELECT, CLONE, UNDROP can be performed on historical data in the table
+      description: >-
+        Specifies the retention period for the table so that Time Travel actions
+        SELECT, CLONE, UNDROP can be performed on historical data in the table
     - name: max_data_extension_time_in_days
       value: integer
-      description: Specifies the retention period for the table so that Time Travel actions SELECT, CLONE, UNDROP can be performed on historical data in the table
+      description: >-
+        Specifies the retention period for the table so that Time Travel actions
+        SELECT, CLONE, UNDROP can be performed on historical data in the table
     - name: default_ddl_collation
       value: string
-      description: Specifies a default collation specification for the columns in the table, including columns added to the table in the future
+      description: >-
+        Specifies a default collation specification for the columns in the
+        table, including columns added to the table in the future
     - name: columns
       value:
         - name: name
@@ -307,10 +317,15 @@ SELECT
           description: Specifies that the column does allow NULL values or not.
         - name: collate
           value: string
-          description: Specifies the collation to use for column operations such as string comparison
+          description: >-
+            Specifies the collation to use for column operations such as string
+            comparison
         - name: default
           value: string
-          description: Specifies whether a default value is automatically inserted in the column if a value is not explicitly specified via an INSERT or CREATE TABLE AS SELECT statement
+          description: >-
+            Specifies whether a default value is automatically inserted in the
+            column if a value is not explicitly specified via an INSERT or
+            CREATE TABLE AS SELECT statement
         - name: autoincrement
           value: boolean
         - name: autoincrement_start
@@ -318,7 +333,9 @@ SELECT
           description: The default value for the column starts with the specified number
         - name: autoincrement_increment
           value: integer
-          description: Each successive value for the column automatically increments by the specified amount
+          description: >-
+            Each successive value for the column automatically increments by the
+            specified amount
         - name: constraints
           value:
             - name: name
