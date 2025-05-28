@@ -137,7 +137,7 @@ SELECT
 '{{ api_hook }}',
 '{{ api_allowed_prefixes }}',
 '{{ api_blocked_prefixes }}',
-'{{ enabled }}',
+{{ enabled }},
 '{{ comment }}',
 '{{ endpoint }}'
 ;
@@ -159,7 +159,7 @@ SELECT
 '{{ name }}',
 '{{ api_hook }}',
 '{{ api_allowed_prefixes }}',
-'{{ enabled }}',
+{{ enabled }},
 '{{ endpoint }}'
 ;
 ```
@@ -221,7 +221,7 @@ name = '{{ name }}',
 api_hook = '{{ api_hook }}',
 api_allowed_prefixes = '{{ api_allowed_prefixes }}',
 api_blocked_prefixes = '{{ api_blocked_prefixes }}',
-enabled = true|false,
+enabled = {{ enabled }},
 comment = '{{ comment }}'
 WHERE 
 name = '{{ name }}'

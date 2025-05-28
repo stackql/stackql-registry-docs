@@ -160,9 +160,9 @@ endpoint
 )
 SELECT 
 '{{ name }}',
-'{{ secure }}',
+{{ secure }},
 '{{ kind }}',
-'{{ recursive }}',
+{{ recursive }},
 '{{ columns }}',
 '{{ comment }}',
 '{{ query }}',

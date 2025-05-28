@@ -182,9 +182,9 @@ endpoint
 SELECT 
 '{{ name }}',
 '{{ cluster_by }}',
-'{{ data_retention_time_in_days }}',
-'{{ max_data_extension_time_in_days }}',
-'{{ change_tracking }}',
+{{ data_retention_time_in_days }},
+{{ max_data_extension_time_in_days }},
+{{ change_tracking }},
 '{{ default_ddl_collation }}',
 '{{ comment }}',
 '{{ database_name }}',

@@ -137,7 +137,7 @@ SELECT
 '{{ name }}',
 '{{ catalog }}',
 '{{ table_format }}',
-'{{ enabled }}',
+{{ enabled }},
 '{{ comment }}',
 '{{ endpoint }}'
 ;
@@ -159,7 +159,7 @@ SELECT
 '{{ name }}',
 '{{ catalog }}',
 '{{ table_format }}',
-'{{ enabled }}',
+{{ enabled }},
 '{{ endpoint }}'
 ;
 ```

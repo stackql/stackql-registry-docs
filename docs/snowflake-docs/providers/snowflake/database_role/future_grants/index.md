@@ -107,7 +107,7 @@ SELECT
 '{{ securable }}',
 '{{ containing_scope }}',
 '{{ securable_type }}',
-'{{ grant_option }}',
+{{ grant_option }},
 '{{ privileges }}',
 '{{ database_name }}',
 '{{ name }}',

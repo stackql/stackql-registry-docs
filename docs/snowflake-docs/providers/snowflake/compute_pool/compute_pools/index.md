@@ -187,12 +187,12 @@ endpoint
 )
 SELECT 
 '{{ name }}',
-'{{ min_nodes }}',
-'{{ max_nodes }}',
+{{ min_nodes }},
+{{ max_nodes }},
 '{{ instance_family }}',
-'{{ auto_resume }}',
+{{ auto_resume }},
 '{{ comment }}',
-'{{ auto_suspend_secs }}',
+{{ auto_suspend_secs }},
 '{{ endpoint }}'
 ;
 ```
@@ -212,8 +212,8 @@ endpoint
 SELECT 
 '{{ name }}',
 '{{ instance_family }}',
-'{{ min_nodes }}',
-'{{ max_nodes }}',
+{{ min_nodes }},
+{{ max_nodes }},
 '{{ endpoint }}'
 ;
 ```
@@ -274,12 +274,12 @@ Replaces all fields in the specified <code>compute_pools</code> resource.
 REPLACE snowflake.compute_pool.compute_pools
 SET 
 name = '{{ name }}',
-min_nodes = '{{ min_nodes }}',
-max_nodes = '{{ max_nodes }}',
+min_nodes = {{ min_nodes }},
+max_nodes = {{ max_nodes }},
 instance_family = '{{ instance_family }}',
-auto_resume = true|false,
+auto_resume = {{ auto_resume }},
 comment = '{{ comment }}',
-auto_suspend_secs = '{{ auto_suspend_secs }}'
+auto_suspend_secs = {{ auto_suspend_secs }}
 WHERE 
 name = '{{ name }}'
 AND data__instance_family = '{{ data__instance_family }}'
