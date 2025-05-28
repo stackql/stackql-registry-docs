@@ -184,10 +184,10 @@ endpoint
 )
 SELECT 
 '{{ name }}',
-'{{ is_temporary }}',
-'{{ is_aggregate }}',
-'{{ is_memoizable }}',
-'{{ is_secure }}',
+{{ is_temporary }},
+{{ is_aggregate }},
+{{ is_memoizable }},
+{{ is_secure }},
 '{{ arguments }}',
 '{{ return_type }}',
 '{{ language_config }}',

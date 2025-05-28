@@ -171,7 +171,7 @@ endpoint
 SELECT 
 '{{ name }}',
 '{{ execute_as }}',
-'{{ is_secure }}',
+{{ is_secure }},
 '{{ arguments }}',
 '{{ return_type }}',
 '{{ language_config }}',

@@ -133,7 +133,7 @@ endpoint
 SELECT 
 '{{ name }}',
 '{{ storage_locations }}',
-'{{ allow_writes }}',
+{{ allow_writes }},
 '{{ comment }}',
 '{{ endpoint }}'
 ;

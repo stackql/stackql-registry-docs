@@ -85,7 +85,7 @@ endpoint
 )
 SELECT 
 '{{ privileges }}',
-'{{ grant_option }}',
+{{ grant_option }},
 '{{ created_on }}',
 '{{ grantee_type }}',
 '{{ grantee_name }}',

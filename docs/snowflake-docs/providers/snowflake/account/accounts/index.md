@@ -186,8 +186,8 @@ SELECT
 '{{ first_name }}',
 '{{ last_name }}',
 '{{ email }}',
-'{{ must_change_password }}',
-'{{ polaris }}',
+{{ must_change_password }},
+{{ polaris }},
 '{{ endpoint }}'
 ;
 ```

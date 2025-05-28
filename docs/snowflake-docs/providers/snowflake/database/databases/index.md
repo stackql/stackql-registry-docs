@@ -209,16 +209,16 @@ SELECT
 '{{ name }}',
 '{{ kind }}',
 '{{ comment }}',
-'{{ data_retention_time_in_days }}',
+{{ data_retention_time_in_days }},
 '{{ default_ddl_collation }}',
 '{{ log_level }}',
-'{{ max_data_extension_time_in_days }}',
-'{{ suspend_task_after_num_failures }}',
+{{ max_data_extension_time_in_days }},
+{{ suspend_task_after_num_failures }},
 '{{ trace_level }}',
 '{{ user_task_managed_initial_warehouse_size }}',
 '{{ serverless_task_min_statement_size }}',
 '{{ serverless_task_max_statement_size }}',
-'{{ user_task_timeout_ms }}',
+{{ user_task_timeout_ms }},
 '{{ endpoint }}'
 ;
 ```
@@ -332,16 +332,16 @@ SET
 name = '{{ name }}',
 kind = '{{ kind }}',
 comment = '{{ comment }}',
-data_retention_time_in_days = '{{ data_retention_time_in_days }}',
+data_retention_time_in_days = {{ data_retention_time_in_days }},
 default_ddl_collation = '{{ default_ddl_collation }}',
 log_level = '{{ log_level }}',
-max_data_extension_time_in_days = '{{ max_data_extension_time_in_days }}',
-suspend_task_after_num_failures = '{{ suspend_task_after_num_failures }}',
+max_data_extension_time_in_days = {{ max_data_extension_time_in_days }},
+suspend_task_after_num_failures = {{ suspend_task_after_num_failures }},
 trace_level = '{{ trace_level }}',
 user_task_managed_initial_warehouse_size = '{{ user_task_managed_initial_warehouse_size }}',
 serverless_task_min_statement_size = '{{ serverless_task_min_statement_size }}',
 serverless_task_max_statement_size = '{{ serverless_task_max_statement_size }}',
-user_task_timeout_ms = '{{ user_task_timeout_ms }}'
+user_task_timeout_ms = {{ user_task_timeout_ms }}
 WHERE 
 name = '{{ name }}'
 AND data__name = '{{ data__name }}'

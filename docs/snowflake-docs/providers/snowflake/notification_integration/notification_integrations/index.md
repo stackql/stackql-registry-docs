@@ -125,7 +125,7 @@ endpoint
 )
 SELECT 
 '{{ name }}',
-'{{ enabled }}',
+{{ enabled }},
 '{{ comment }}',
 '{{ notification_hook }}',
 '{{ endpoint }}'

@@ -152,7 +152,7 @@ SELECT
 '{{ name }}',
 '{{ arguments }}',
 '{{ returns }}',
-'{{ max_batch_rows }}',
+{{ max_batch_rows }},
 '{{ created_on }}',
 '{{ signature }}',
 '{{ language }}',

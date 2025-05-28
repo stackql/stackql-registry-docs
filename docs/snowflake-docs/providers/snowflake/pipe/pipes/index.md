@@ -168,7 +168,7 @@ endpoint
 SELECT 
 '{{ name }}',
 '{{ comment }}',
-'{{ auto_ingest }}',
+{{ auto_ingest }},
 '{{ error_integration }}',
 '{{ aws_sns_topic }}',
 '{{ integration }}',
