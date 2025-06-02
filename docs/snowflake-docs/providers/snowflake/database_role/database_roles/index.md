@@ -138,10 +138,10 @@ SELECT
   props:
     - name: database_name
       value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the database_roles resource.
     - name: endpoint
       value: string
+      description: Required parameter for the database_roles resource.
     - name: name
       value: string
       description: Name of the database role

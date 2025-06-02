@@ -169,10 +169,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: network_policies
   props:
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the network_policies resource.
     - name: name
       value: string
       description: Name of the network policy

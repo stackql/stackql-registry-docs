@@ -170,12 +170,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the image_repositories resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the image_repositories resource.
     - name: endpoint
       value: string
+      description: Required parameter for the image_repositories resource.
     - name: name
       value: string
       description: >-

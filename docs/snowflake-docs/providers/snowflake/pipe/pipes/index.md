@@ -209,14 +209,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the pipes resource.
     - name: schema_name
       value: string
-    - name: data__copy_statement
-      value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the pipes resource.
     - name: endpoint
       value: string
+      description: Required parameter for the pipes resource.
     - name: name
       value: string
       description: Name of the pipe

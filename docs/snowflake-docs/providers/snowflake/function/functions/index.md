@@ -193,16 +193,16 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the functions resource.
     - name: schema_name
       value: string
-    - name: data__arguments
-      value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the functions resource.
     - name: endpoint
       value: string
+      description: Required parameter for the functions resource.
     - name: function_type
       value: string
+      default: service-function
     - name: name
       value: string
       description: >-
@@ -215,13 +215,21 @@ SELECT
           description: Argument's name
         - name: datatype
           value: string
-          description: Argument's type
+          description: >-
+            Argument's type (valid values: 'FIXED', 'INT', 'REAL', 'NUMBER',
+            'TEXT', 'BOOLEAN', 'DATE', 'TIME', 'TIMESTAMP_TZ', 'TIMESTAMP_LTZ',
+            'TIMESTAMP_NTZ')
+          default: TEXT
         - name: value
           value: string
           description: Argument's value
     - name: returns
       value: string
-      description: Specifies the type for the function return value.
+      description: >-
+        Specifies the type for the function return value. (valid values:
+        'FIXED', 'INT', 'REAL', 'NUMBER', 'TEXT', 'BOOLEAN', 'DATE', 'TIME',
+        'TIMESTAMP_TZ', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ')
+      default: TEXT
     - name: max_batch_rows
       value: integer
       description: Specifies the max rows for batch operation.

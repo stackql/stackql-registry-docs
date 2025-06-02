@@ -138,10 +138,10 @@ SELECT
   props:
     - name: name
       value: string
-    - name: data__securable_type
-      value: string
+      description: Required parameter for the grants resource.
     - name: endpoint
       value: string
+      description: Required parameter for the grants resource.
     - name: securable
       value:
         - name: database

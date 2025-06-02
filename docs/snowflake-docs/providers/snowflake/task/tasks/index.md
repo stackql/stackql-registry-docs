@@ -282,14 +282,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the tasks resource.
     - name: schema_name
       value: string
-    - name: data__definition
-      value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the tasks resource.
     - name: endpoint
       value: string
+      description: Required parameter for the tasks resource.
     - name: name
       value: string
       description: >-

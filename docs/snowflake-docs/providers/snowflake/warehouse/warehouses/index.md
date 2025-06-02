@@ -295,10 +295,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: warehouses
   props:
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the warehouses resource.
     - name: name
       value: string
       description: >-
@@ -318,7 +317,7 @@ SELECT
       description: >-
         When resizing a warehouse, you can use this parameter to block the
         return of the ALTER WAREHOUSE command until the resize has finished
-        provisioning all its compute resources
+        provisioning all its compute resources (valid values: 'true', 'false')
     - name: max_cluster_count
       value: integer
       description: Specifies the maximum number of clusters for a multi-cluster warehouse
@@ -337,12 +336,12 @@ SELECT
       value: string
       description: >-
         Specifies whether to automatically resume a warehouse when a SQL
-        statement is submitted to it
+        statement is submitted to it (valid values: 'true', 'false')
     - name: initially_suspended
       value: string
       description: >-
         Specifies whether the warehouse is created initially in the Suspended
-        state
+        state (valid values: 'true', 'false')
     - name: resource_monitor
       value: string
       description: >-
@@ -356,7 +355,8 @@ SELECT
       value: string
       description: >-
         Specifies whether to enable the query acceleration service for queries
-        that rely on this warehouse for compute resources
+        that rely on this warehouse for compute resources (valid values: 'true',
+        'false')
     - name: query_acceleration_max_scale_factor
       value: integer
       description: >-

@@ -256,18 +256,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the dynamic_tables resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
-    - name: data__query
-      value: string
-    - name: data__target_lag
-      value: string
-    - name: data__warehouse
-      value: string
+      description: Required parameter for the dynamic_tables resource.
     - name: endpoint
       value: string
+      description: Required parameter for the dynamic_tables resource.
     - name: name
       value: string
       description: >-
@@ -275,7 +270,10 @@ SELECT
         in which the dynamic table is created
     - name: kind
       value: string
-      description: Specifies the dynamic table type, permanent (default) or transient.
+      description: >-
+        Specifies the dynamic table type, permanent (default) or transient.
+        (valid values: 'PERMANENT', 'TRANSIENT')
+      default: PERMANENT
     - name: columns
       value:
         - name: name
@@ -295,10 +293,14 @@ SELECT
       description: Specifies the schedule for periodically refreshing the dynamic table.
     - name: refresh_mode
       value: string
-      description: Specifies the refresh type for the dynamic table
+      description: >-
+        Specifies the refresh type for the dynamic table (valid values: 'AUTO',
+        'FULL', 'INCREMENTAL')
     - name: initialize
       value: string
-      description: Specifies the behavior of the initial refresh of the dynamic table
+      description: >-
+        Specifies the behavior of the initial refresh of the dynamic table
+        (valid values: 'ON_CREATE', 'ON_SCHEDULE')
     - name: warehouse
       value: string
       description: >-

@@ -143,12 +143,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the future_grants resource.
     - name: name
       value: string
-    - name: data__securable_type
-      value: string
+      description: Required parameter for the future_grants resource.
     - name: endpoint
       value: string
+      description: Required parameter for the future_grants resource.
     - name: securable
       value:
         - name: database

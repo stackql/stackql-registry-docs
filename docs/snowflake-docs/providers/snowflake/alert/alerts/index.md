@@ -204,18 +204,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the alerts resource.
     - name: schema_name
       value: string
-    - name: data__action
-      value: string
-    - name: data__condition
-      value: string
-    - name: data__name
-      value: string
-    - name: data__schedule
-      value: string
+      description: Required parameter for the alerts resource.
     - name: endpoint
       value: string
+      description: Required parameter for the alerts resource.
     - name: name
       value: string
       description: Name of the alert
