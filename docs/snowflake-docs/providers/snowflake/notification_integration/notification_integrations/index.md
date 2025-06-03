@@ -161,7 +161,9 @@ SELECT
       description: Required parameter for the notification_integrations resource.
     - name: name
       value: string
-      description: Name of the notification.
+      description: >-
+        Name of the notification. (Required parameter for the
+        notification_integrations resource.)
     - name: enabled
       value: boolean
       description: Whether the notification integration is enabled.
@@ -177,6 +179,7 @@ SELECT
             values: 'EMAIL', 'WEBHOOK', 'QUEUE_AWS_SNS_OUTBOUND',
             'QUEUE_AZURE_EVENT_GRID_OUTBOUND', 'QUEUE_GCP_PUBSUB_OUTBOUND',
             'QUEUE_AZURE_EVENT_GRID_INBOUND', 'QUEUE_GCP_PUBSUB_INBOUND')
+      description: Required parameter for the notification_integrations resource.
 ```
 </TabItem>
 </Tabs>

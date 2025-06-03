@@ -170,7 +170,8 @@ SELECT
       value: string
       description: >-
         String that specifies the identifier (the name) for the external volume;
-        must be unique in your account.
+        must be unique in your account. (Required parameter for the
+        external_volumes resource.)
     - name: storage_locations
       value:
         - name: name
@@ -182,7 +183,8 @@ SELECT
             (valid values: 'S3', 'S3GOV', 'GCS', 'AZURE')
       description: >-
         Set of named cloud storage locations in different regions and,
-        optionally, cloud platforms.
+        optionally, cloud platforms. (Required parameter for the
+        external_volumes resource.)
     - name: allow_writes
       value: boolean
       description: >-

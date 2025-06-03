@@ -174,7 +174,9 @@ SELECT
       description: Required parameter for the network_policies resource.
     - name: name
       value: string
-      description: Name of the network policy
+      description: >-
+        Name of the network policy (Required parameter for the network_policies
+        resource.)
     - name: allowed_network_rule_list
       value: array
       description: List of names of allowed network rules in a network policy

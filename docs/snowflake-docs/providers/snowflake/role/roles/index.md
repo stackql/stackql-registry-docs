@@ -140,7 +140,7 @@ SELECT
       description: Required parameter for the roles resource.
     - name: name
       value: string
-      description: Name of the role.
+      description: Name of the role. (Required parameter for the roles resource.)
     - name: comment
       value: string
       description: Comment of the role.

@@ -276,7 +276,7 @@ SELECT
       value: string
       description: >-
         Specifies the name for the table, must be unique for the schema in which
-        the table is created
+        the table is created (Required parameter for the tables resource.)
     - name: kind
       value: string
       description: >-

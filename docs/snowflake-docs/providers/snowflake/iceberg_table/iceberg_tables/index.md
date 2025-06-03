@@ -283,7 +283,9 @@ SELECT
       description: Required parameter for the iceberg_tables resource.
     - name: name
       value: string
-      description: Name of the iceberg table
+      description: >-
+        Name of the iceberg table (Required parameter for the iceberg_tables
+        resource.)
     - name: comment
       value: string
       description: user comment associated to an object in the dictionary

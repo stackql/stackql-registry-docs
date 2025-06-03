@@ -233,16 +233,23 @@ SELECT
       description: >-
         A Snowflake object identifier. If the identifier contains spaces or
         special characters, the entire string must be enclosed in double quotes.
-        Identifiers enclosed in double quotes are also case-sensitive.
+        Identifiers enclosed in double quotes are also case-sensitive. (Required
+        parameter for the compute_pools resource.)
     - name: min_nodes
       value: integer
-      description: Minimum number of nodes for the compute pool.
+      description: >-
+        Minimum number of nodes for the compute pool. (Required parameter for
+        the compute_pools resource.)
     - name: max_nodes
       value: integer
-      description: Maximum number of nodes for the compute pool.
+      description: >-
+        Maximum number of nodes for the compute pool. (Required parameter for
+        the compute_pools resource.)
     - name: instance_family
       value: string
-      description: Instance family for the compute pool.
+      description: >-
+        Instance family for the compute pool. (Required parameter for the
+        compute_pools resource.)
     - name: auto_resume
       value: boolean
       description: >-

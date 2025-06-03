@@ -263,7 +263,7 @@ SELECT
       description: Required parameter for the notebooks resource.
     - name: name
       value: string
-      description: Name of the notebook
+      description: Name of the notebook (Required parameter for the notebooks resource.)
     - name: version
       value: string
       description: User specified version alias
