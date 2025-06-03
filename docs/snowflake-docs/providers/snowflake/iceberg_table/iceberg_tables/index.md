@@ -274,12 +274,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the iceberg_tables resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the iceberg_tables resource.
     - name: endpoint
       value: string
+      description: Required parameter for the iceberg_tables resource.
     - name: name
       value: string
       description: Name of the iceberg table
@@ -314,7 +315,8 @@ SELECT
       value: string
       description: >-
         Storage serialization policy used for managed Iceberg table. This
-        include encodings and compressions
+        include encodings and compressions (valid values: 'COMPATIBLE',
+        'OPTIMIZED')
     - name: catalog_table_name
       value: string
       description: Name of the table as recognized by the catalog.

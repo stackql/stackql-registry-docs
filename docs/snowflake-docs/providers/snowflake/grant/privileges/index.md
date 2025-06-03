@@ -131,14 +131,19 @@ SELECT
   props:
     - name: granteeName
       value: string
+      description: Required parameter for the privileges resource.
     - name: granteeType
       value: string
+      description: Required parameter for the privileges resource.
     - name: securableName
       value: string
+      description: Required parameter for the privileges resource.
     - name: securableType
       value: string
+      description: Required parameter for the privileges resource.
     - name: endpoint
       value: string
+      description: Required parameter for the privileges resource.
     - name: privileges
       value: array
       description: Privilege type

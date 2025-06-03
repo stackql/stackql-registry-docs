@@ -254,12 +254,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the notebooks resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the notebooks resource.
     - name: endpoint
       value: string
+      description: Required parameter for the notebooks resource.
     - name: name
       value: string
       description: Name of the notebook

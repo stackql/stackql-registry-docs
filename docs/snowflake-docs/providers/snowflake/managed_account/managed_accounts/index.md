@@ -144,16 +144,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: managed_accounts
   props:
-    - name: data__account_type
-      value: string
-    - name: data__admin_name
-      value: string
-    - name: data__admin_password
-      value: string
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the managed_accounts resource.
     - name: name
       value: string
       description: >-
@@ -171,7 +164,8 @@ SELECT
       description: Password for the account administrator.
     - name: account_type
       value: string
-      description: Type of the account.
+      description: 'Type of the account. (valid values: ''READER'')'
+      default: READER
 ```
 </TabItem>
 </Tabs>

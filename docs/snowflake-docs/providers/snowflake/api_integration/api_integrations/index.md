@@ -171,16 +171,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: api_integrations
   props:
-    - name: data__api_allowed_prefixes
-      value: string
-    - name: data__api_hook
-      value: string
-    - name: data__enabled
-      value: string
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the api_integrations resource.
     - name: name
       value: string
       description: Name of the API integration.
@@ -188,7 +181,9 @@ SELECT
       value:
         - name: type
           value: string
-          description: Type of ApiHook, can be AWS, AZURE, GC or GIT.
+          description: >-
+            Type of ApiHook, can be AWS, AZURE, GC or GIT. (valid values: 'AWS',
+            'AZURE', 'GC', 'GIT')
     - name: api_allowed_prefixes
       value: array
       description: >-

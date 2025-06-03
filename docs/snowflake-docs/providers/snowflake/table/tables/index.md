@@ -265,12 +265,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the tables resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
+      description: Required parameter for the tables resource.
     - name: endpoint
       value: string
+      description: Required parameter for the tables resource.
     - name: name
       value: string
       description: >-
@@ -278,7 +279,10 @@ SELECT
         the table is created
     - name: kind
       value: string
-      description: Table type - permanent, transient, or temporary
+      description: >-
+        Table type - permanent, transient, or temporary (valid values:
+        'PERMANENT', 'TRANSIENT', 'TEMPORARY', '', 'transient', 'temporary')
+      default: PERMANENT
     - name: cluster_by
       value: array
       description: >-
@@ -316,6 +320,7 @@ SELECT
         - name: nullable
           value: boolean
           description: Specifies that the column does allow NULL values or not.
+          default: true
         - name: collate
           value: string
           description: >-

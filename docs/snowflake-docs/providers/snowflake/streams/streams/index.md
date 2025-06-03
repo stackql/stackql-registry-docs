@@ -200,14 +200,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the streams resource.
     - name: schema_name
       value: string
-    - name: data__name
-      value: string
-    - name: data__stream_source
-      value: string
+      description: Required parameter for the streams resource.
     - name: endpoint
       value: string
+      description: Required parameter for the streams resource.
     - name: name
       value: string
       description: Name of the stream

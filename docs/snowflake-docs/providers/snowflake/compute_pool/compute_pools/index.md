@@ -225,16 +225,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: compute_pools
   props:
-    - name: data__instance_family
-      value: string
-    - name: data__max_nodes
-      value: string
-    - name: data__min_nodes
-      value: string
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the compute_pools resource.
     - name: name
       value: string
       description: >-

@@ -219,26 +219,21 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the procedures resource.
     - name: schema_name
       value: string
-    - name: data__arguments
-      value: string
-    - name: data__body
-      value: string
-    - name: data__language_config
-      value: string
-    - name: data__name
-      value: string
-    - name: data__return_type
-      value: string
+      description: Required parameter for the procedures resource.
     - name: endpoint
       value: string
+      description: Required parameter for the procedures resource.
     - name: name
       value: string
       description: Name of the procedure
     - name: execute_as
       value: string
-      description: What permissions should the procedure execution be called with
+      description: >-
+        What permissions should the procedure execution be called with (valid
+        values: 'CALLER', 'OWNER')
     - name: is_secure
       value: boolean
       description: Specifies whether the function/procedure is secure or not
@@ -249,7 +244,14 @@ SELECT
           description: Argument name
         - name: datatype
           value: string
-          description: Argument data type
+          description: >-
+            Argument data type (valid values: 'ARRAY', 'BIGINT', 'BINARY',
+            'BOOLEAN', 'BYTEINT', 'CHAR', 'CHARACTER', 'DATE', 'DATETIME',
+            'DECIMAL', 'DOUBLE', 'DOUBLE PRECISION', 'FLOAT', 'FLOAT4',
+            'FLOAT8', 'GEOGRAPHY', 'GEOMETRY', 'INT', 'INTEGER', 'NUMBER',
+            'NUMERIC', 'OBJECT', 'REAL', 'STRING', 'SMALLINT', 'TEXT', 'TIME',
+            'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'TINYINT',
+            'VARBINARY', 'VARCHAR', 'VARIANT', 'VECTOR')
         - name: default_value
           value: string
           description: Default value of the argument

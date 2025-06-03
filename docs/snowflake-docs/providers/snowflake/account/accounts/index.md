@@ -220,16 +220,9 @@ SELECT
 # Description fields below are for documentation purposes only and are not required in the manifest
 - name: accounts
   props:
-    - name: data__admin_name
-      value: string
-    - name: data__edition
-      value: string
-    - name: data__email
-      value: string
-    - name: data__name
-      value: string
     - name: endpoint
       value: string
+      description: Required parameter for the accounts resource.
     - name: name
       value: string
       description: >-
@@ -250,7 +243,9 @@ SELECT
         or single-tenant (for a Virtual Private Snowflake account).
     - name: edition
       value: string
-      description: Snowflake Edition of the account.
+      description: >-
+        Snowflake Edition of the account. (valid values: 'STANDARD',
+        'ENTERPRISE', 'BUSINESS_CRITICAL')
     - name: comment
       value: string
       description: Optional comment in which to store information related to the account.
@@ -280,9 +275,11 @@ SELECT
       description: >-
         Indicates whether the account administrator must change the password at
         the next login.
+      default: false
     - name: polaris
       value: boolean
       description: Indicates whether the account is a Polaris account.
+      default: false
 ```
 </TabItem>
 </Tabs>

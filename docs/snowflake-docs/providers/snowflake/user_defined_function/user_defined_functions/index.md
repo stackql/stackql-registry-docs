@@ -233,18 +233,13 @@ SELECT
   props:
     - name: database_name
       value: string
+      description: Required parameter for the user_defined_functions resource.
     - name: schema_name
       value: string
-    - name: data__arguments
-      value: string
-    - name: data__language_config
-      value: string
-    - name: data__name
-      value: string
-    - name: data__return_type
-      value: string
+      description: Required parameter for the user_defined_functions resource.
     - name: endpoint
       value: string
+      description: Required parameter for the user_defined_functions resource.
     - name: name
       value: string
       description: The name of the UDF
@@ -271,7 +266,14 @@ SELECT
           description: Argument name
         - name: datatype
           value: string
-          description: Argument data type
+          description: >-
+            Argument data type (valid values: 'ARRAY', 'BIGINT', 'BINARY',
+            'BOOLEAN', 'BYTEINT', 'CHAR', 'CHARACTER', 'DATE', 'DATETIME',
+            'DECIMAL', 'DOUBLE', 'DOUBLE PRECISION', 'FLOAT', 'FLOAT4',
+            'FLOAT8', 'GEOGRAPHY', 'GEOMETRY', 'INT', 'INTEGER', 'NUMBER',
+            'NUMERIC', 'OBJECT', 'REAL', 'STRING', 'SMALLINT', 'TEXT', 'TIME',
+            'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'TINYINT',
+            'VARBINARY', 'VARCHAR', 'VARIANT', 'VECTOR')
         - name: default_value
           value: string
           description: Default value of the argument
