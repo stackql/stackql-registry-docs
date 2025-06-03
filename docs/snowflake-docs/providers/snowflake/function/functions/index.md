@@ -207,7 +207,8 @@ SELECT
       value: string
       description: >-
         Specifies the name for the function, must be unique for the schema in
-        which the function is created
+        which the function is created (Required parameter for the functions
+        resource.)
     - name: arguments
       value:
         - name: name
@@ -223,6 +224,7 @@ SELECT
         - name: value
           value: string
           description: Argument's value
+      description: Required parameter for the functions resource.
     - name: returns
       value: string
       description: >-

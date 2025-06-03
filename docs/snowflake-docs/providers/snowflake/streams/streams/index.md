@@ -209,7 +209,7 @@ SELECT
       description: Required parameter for the streams resource.
     - name: name
       value: string
-      description: Name of the stream
+      description: Name of the stream (Required parameter for the streams resource.)
     - name: stream_source
       value:
         - name: src_type
@@ -228,6 +228,7 @@ SELECT
           description: >-
             Schema name to which stream source type belongs. If not provided,
             schema name provided in the path param will be used.
+      description: Required parameter for the streams resource.
     - name: comment
       value: string
       description: user comment associated to an object in the dictionary

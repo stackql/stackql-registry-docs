@@ -242,7 +242,9 @@ SELECT
       description: Required parameter for the user_defined_functions resource.
     - name: name
       value: string
-      description: The name of the UDF
+      description: >-
+        The name of the UDF (Required parameter for the user_defined_functions
+        resource.)
     - name: is_temporary
       value: boolean
       description: Specifies whether the UDF is temporary or not
@@ -277,12 +279,15 @@ SELECT
         - name: default_value
           value: string
           description: Default value of the argument
-      description: List of arguments for the function/procedure
+      description: >-
+        List of arguments for the function/procedure (Required parameter for the
+        user_defined_functions resource.)
     - name: return_type
       value:
         - name: type
           value: string
           description: Type of the return, can be either DATATYPE or TABLE
+      description: Required parameter for the user_defined_functions resource.
     - name: language_config
       value:
         - name: language
@@ -304,6 +309,7 @@ SELECT
             result. This guarantee is not checked. Specifying IMMUTABLE for a
             UDF that returns different values for the same input will result in
             undefined behavior.
+      description: Required parameter for the user_defined_functions resource.
     - name: comment
       value: string
       description: Specifies a comment for the function/procedure

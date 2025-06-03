@@ -144,7 +144,9 @@ SELECT
       description: Required parameter for the database_roles resource.
     - name: name
       value: string
-      description: Name of the database role
+      description: >-
+        Name of the database role (Required parameter for the database_roles
+        resource.)
     - name: comment
       value: string
       description: User comment associated to an object in the dictionary

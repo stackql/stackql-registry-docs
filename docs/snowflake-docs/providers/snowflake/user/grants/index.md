@@ -158,7 +158,9 @@ SELECT
           description: Schema name of the securable scope if applicable.
     - name: securable_type
       value: string
-      description: Type of the securable to be granted. Only ROLE is supported
+      description: >-
+        Type of the securable to be granted. Only ROLE is supported (Required
+        parameter for the grants resource.)
     - name: privileges
       value: array
       description: List of privileges to be granted.

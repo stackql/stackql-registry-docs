@@ -176,7 +176,9 @@ SELECT
       description: Required parameter for the api_integrations resource.
     - name: name
       value: string
-      description: Name of the API integration.
+      description: >-
+        Name of the API integration. (Required parameter for the
+        api_integrations resource.)
     - name: api_hook
       value:
         - name: type
@@ -184,11 +186,12 @@ SELECT
           description: >-
             Type of ApiHook, can be AWS, AZURE, GC or GIT. (valid values: 'AWS',
             'AZURE', 'GC', 'GIT')
+      description: Required parameter for the api_integrations resource.
     - name: api_allowed_prefixes
       value: array
       description: >-
         A comma-separated list of endpoints and resources that Snowflake can
-        access.
+        access. (Required parameter for the api_integrations resource.)
     - name: api_blocked_prefixes
       value: array
       description: >-
@@ -196,7 +199,9 @@ SELECT
         to be called from Snowflake.
     - name: enabled
       value: boolean
-      description: Whether the API integration is enabled.
+      description: >-
+        Whether the API integration is enabled. (Required parameter for the
+        api_integrations resource.)
     - name: comment
       value: string
       description: Comment for the API integration.

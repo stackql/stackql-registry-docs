@@ -213,7 +213,7 @@ SELECT
       description: Required parameter for the alerts resource.
     - name: name
       value: string
-      description: Name of the alert
+      description: Name of the alert (Required parameter for the alerts resource.)
     - name: comment
       value: string
       description: user comment associated to an object in the dictionary
@@ -222,6 +222,7 @@ SELECT
         - name: schedule_type
           value: string
           description: Type of the schedule, can be either CRON_TYPE or MINUTES_TYPE
+      description: Required parameter for the alerts resource.
     - name: warehouse
       value: string
       description: The warehouse the alert runs in
@@ -229,10 +230,12 @@ SELECT
       value: string
       description: >-
         The SQL statement that must be evaluated to determine whether to trigger
-        the alert
+        the alert (Required parameter for the alerts resource.)
     - name: action
       value: string
-      description: The SQL statement to execute when the alert is triggered
+      description: >-
+        The SQL statement to execute when the alert is triggered (Required
+        parameter for the alerts resource.)
 ```
 </TabItem>
 </Tabs>

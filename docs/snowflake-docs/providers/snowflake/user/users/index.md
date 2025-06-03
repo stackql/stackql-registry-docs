@@ -306,7 +306,7 @@ SELECT
       description: Required parameter for the users resource.
     - name: name
       value: string
-      description: User name
+      description: User name (Required parameter for the users resource.)
     - name: password
       value: string
       description: Password

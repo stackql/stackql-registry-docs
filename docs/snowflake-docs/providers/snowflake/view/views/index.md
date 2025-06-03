@@ -213,7 +213,7 @@ SELECT
       description: Required parameter for the views resource.
     - name: name
       value: string
-      description: Name of the view
+      description: Name of the view (Required parameter for the views resource.)
     - name: secure
       value: boolean
       description: Whether or not this view is secure
@@ -235,13 +235,15 @@ SELECT
         - name: comment
           value: string
           description: Specifies a comment for the column
-      description: The columns of the view
+      description: The columns of the view (Required parameter for the views resource.)
     - name: comment
       value: string
       description: user comment associated to an object in the dictionary
     - name: query
       value: string
-      description: Query used to create the view
+      description: >-
+        Query used to create the view (Required parameter for the views
+        resource.)
 ```
 </TabItem>
 </Tabs>

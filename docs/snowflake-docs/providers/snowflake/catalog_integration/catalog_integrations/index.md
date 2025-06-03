@@ -176,7 +176,9 @@ SELECT
       description: Required parameter for the catalog_integrations resource.
     - name: name
       value: string
-      description: Name of the catalog integration.
+      description: >-
+        Name of the catalog integration. (Required parameter for the
+        catalog_integrations resource.)
     - name: catalog
       value:
         - name: catalog_source
@@ -184,12 +186,17 @@ SELECT
           description: >-
             Type of external catalog (valid values: 'GLUE', 'OBJECT_STORE',
             'POLARIS')
+      description: Required parameter for the catalog_integrations resource.
     - name: table_format
       value: string
-      description: 'Table format of the catalog. (valid values: ''ICEBERG'')'
+      description: >-
+        Table format of the catalog. (valid values: 'ICEBERG') (Required
+        parameter for the catalog_integrations resource.)
     - name: enabled
       value: boolean
-      description: whether this catalog integration is available to use for Iceberg tables.
+      description: >-
+        whether this catalog integration is available to use for Iceberg tables.
+        (Required parameter for the catalog_integrations resource.)
     - name: comment
       value: string
       description: Comment.

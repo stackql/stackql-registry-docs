@@ -228,7 +228,7 @@ SELECT
       description: Required parameter for the procedures resource.
     - name: name
       value: string
-      description: Name of the procedure
+      description: Name of the procedure (Required parameter for the procedures resource.)
     - name: execute_as
       value: string
       description: >-
@@ -255,12 +255,15 @@ SELECT
         - name: default_value
           value: string
           description: Default value of the argument
-      description: List of arguments for the function/procedure
+      description: >-
+        List of arguments for the function/procedure (Required parameter for the
+        procedures resource.)
     - name: return_type
       value:
         - name: type
           value: string
           description: Type of the return, can be either DATATYPE or TABLE
+      description: Required parameter for the procedures resource.
     - name: language_config
       value:
         - name: language
@@ -271,12 +274,15 @@ SELECT
         - name: called_on_null_input
           value: boolean
           description: Decide if the function/procedure can receive null input
+      description: Required parameter for the procedures resource.
     - name: comment
       value: string
       description: Specifies a comment for the function/procedure
     - name: body
       value: string
-      description: Function/procedure definition
+      description: >-
+        Function/procedure definition (Required parameter for the procedures
+        resource.)
 ```
 </TabItem>
 </Tabs>

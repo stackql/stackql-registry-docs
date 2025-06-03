@@ -230,7 +230,9 @@ SELECT
       description: Required parameter for the event_tables resource.
     - name: name
       value: string
-      description: Name of the event table
+      description: >-
+        Name of the event table (Required parameter for the event_tables
+        resource.)
     - name: cluster_by
       value: array
       description: Cluster key column(s) or expression

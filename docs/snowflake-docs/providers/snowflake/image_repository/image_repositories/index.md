@@ -182,7 +182,8 @@ SELECT
       description: >-
         A Snowflake object identifier. If the identifier contains spaces or
         special characters, the entire string must be enclosed in double quotes.
-        Identifiers enclosed in double quotes are also case-sensitive.
+        Identifiers enclosed in double quotes are also case-sensitive. (Required
+        parameter for the image_repositories resource.)
     - name: database_name
       value: string
       description: >-

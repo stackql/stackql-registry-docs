@@ -267,7 +267,8 @@ SELECT
       value: string
       description: >-
         Specifies the name for the dynamic table, must be unique for the schema
-        in which the dynamic table is created
+        in which the dynamic table is created (Required parameter for the
+        dynamic_tables resource.)
     - name: kind
       value: string
       description: >-
@@ -290,7 +291,9 @@ SELECT
         - name: type
           value: string
           description: Type of lag, can be either USER_DEFINED or DOWNSTREAM.
-      description: Specifies the schedule for periodically refreshing the dynamic table.
+      description: >-
+        Specifies the schedule for periodically refreshing the dynamic table.
+        (Required parameter for the dynamic_tables resource.)
     - name: refresh_mode
       value: string
       description: >-
@@ -305,7 +308,8 @@ SELECT
       value: string
       description: >-
         Specifies the name of the warehouse that provides the compute resources
-        for refreshing the dynamic table
+        for refreshing the dynamic table (Required parameter for the
+        dynamic_tables resource.)
     - name: cluster_by
       value: array
       description: >-
@@ -313,7 +317,9 @@ SELECT
         as the clustering key
     - name: query
       value: string
-      description: Specifies the query whose results the dynamic table should contain
+      description: >-
+        Specifies the query whose results the dynamic table should contain
+        (Required parameter for the dynamic_tables resource.)
     - name: data_retention_time_in_days
       value: integer
       description: >-
