@@ -212,22 +212,10 @@ SELECT
       description: Name of the stream (Required parameter for the streams resource.)
     - name: stream_source
       value:
-        - name: src_type
-          value: string
-          description: 'Type of the source. Possible values include: stream, table, view'
-        - name: name
-          value: string
-          description: Name of the source whose changes are tracked by the stream
-        - name: database_name
-          value: string
-          description: >-
-            Database name to which stream source type belongs. If not provided,
-            database name provided in the path param will be used.
-        - name: schema_name
-          value: string
-          description: >-
-            Schema name to which stream source type belongs. If not provided,
-            schema name provided in the path param will be used.
+        src_type: string
+        name: string
+        database_name: string
+        schema_name: string
       description: Required parameter for the streams resource.
     - name: comment
       value: string

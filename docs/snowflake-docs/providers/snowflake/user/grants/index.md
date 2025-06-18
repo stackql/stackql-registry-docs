@@ -139,23 +139,13 @@ SELECT
       description: Required parameter for the grants resource.
     - name: securable
       value:
-        - name: database
-          value: string
-          description: Database name of the securable if applicable.
-        - name: schema
-          value: string
-          description: Schema name of the securable if applicable.
-        - name: name
-          value: string
-          description: Name of the securable if applicable.
+        database: string
+        schema: string
+        name: string
     - name: containing_scope
       value:
-        - name: database
-          value: string
-          description: Database name of the securable scope if applicable.
-        - name: schema
-          value: string
-          description: Schema name of the securable scope if applicable.
+        database: string
+        schema: string
     - name: securable_type
       value: string
       description: >-

@@ -172,13 +172,7 @@ SELECT
       description: Comment for the notification integration.
     - name: notification_hook
       value:
-        - name: type
-          value: string
-          description: >-
-            Type of NotificationHook, can be QUEUE, EMAIL or WEBHOOK (valid
-            values: 'EMAIL', 'WEBHOOK', 'QUEUE_AWS_SNS_OUTBOUND',
-            'QUEUE_AZURE_EVENT_GRID_OUTBOUND', 'QUEUE_GCP_PUBSUB_OUTBOUND',
-            'QUEUE_AZURE_EVENT_GRID_INBOUND', 'QUEUE_GCP_PUBSUB_INBOUND')
+        type: string
       description: Required parameter for the notification_integrations resource.
 ```
 </TabItem>

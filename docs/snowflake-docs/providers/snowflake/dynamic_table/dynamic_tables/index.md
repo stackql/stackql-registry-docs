@@ -288,9 +288,7 @@ SELECT
           description: Specifies a comment for the column
     - name: target_lag
       value:
-        - name: type
-          value: string
-          description: Type of lag, can be either USER_DEFINED or DOWNSTREAM.
+        type: string
       description: >-
         Specifies the schedule for periodically refreshing the dynamic table.
         (Required parameter for the dynamic_tables resource.)

@@ -304,9 +304,7 @@ SELECT
         Identifiers enclosed in double quotes are also case-sensitive.
     - name: schedule
       value:
-        - name: schedule_type
-          value: string
-          description: Type of the schedule, can be either CRON_TYPE or MINUTES_TYPE.
+        schedule_type: string
       description: Specifies the schedule for periodically running the task.
     - name: comment
       value: string
@@ -344,9 +342,7 @@ SELECT
         run of the task. This parameter only applies to serverless tasks.
     - name: target_completion_interval
       value:
-        - name: schedule_type
-          value: string
-          description: Type of the schedule, can be either CRON_TYPE or MINUTES_TYPE.
+        schedule_type: string
       description: Specifies the schedule for periodically running the task.
     - name: serverless_task_min_statement_size
       value: string

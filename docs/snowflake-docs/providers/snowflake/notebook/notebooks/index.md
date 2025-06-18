@@ -285,10 +285,10 @@ SELECT
         Warehouse against which the queries issued by the Streamlit app are run
         against
     - name: default_version_details
-      value: []
+      value: {}
       description: The version details of a file based entity
     - name: last_version_details
-      value: []
+      value: {}
       description: The version details of a file based entity
 ```
 </TabItem>
