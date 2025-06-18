@@ -389,7 +389,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>users</code> resource.
+Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object.
 
 ```sql
 /*+ update */

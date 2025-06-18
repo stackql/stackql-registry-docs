@@ -267,7 +267,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>compute_pools</code> resource.
+Create a (or alter an existing) compute pool. Even if the operation is just an alter, the full property set must be provided.
 
 ```sql
 /*+ update */

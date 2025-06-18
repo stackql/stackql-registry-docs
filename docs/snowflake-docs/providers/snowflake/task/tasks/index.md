@@ -387,7 +387,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>tasks</code> resource.
+Create a (or alter an existing) task. Even if the operation is just an alter, the full property set must be provided.
 
 ```sql
 /*+ update */
