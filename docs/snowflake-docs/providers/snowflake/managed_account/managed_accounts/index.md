@@ -84,7 +84,7 @@ WHERE endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>managed_accounts</code> resource.
+Creates a managed account. You must provide the full managed account definition when creating a managed account.
 
 <Tabs
     defaultValue="all"
@@ -179,7 +179,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>managed_accounts</code> resource.
+Removes a managed account, including all objects created in the account, and immediately restricts access to the account. Currently used by data providers to create reader accounts for their consumers. For more details, see Manage reader accounts.
 
 ```sql
 /*+ delete */

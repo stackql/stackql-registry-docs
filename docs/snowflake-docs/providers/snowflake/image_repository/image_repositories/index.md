@@ -112,7 +112,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>image_repositories</code> resource.
+Creates an image repository in the specified database, schema, and create mode. The `createMode` query parameter specifies what action to take based on whether the repository already exists. See the ImageRepository component definition for what is required to be provided in the request body.
 
 <Tabs
     defaultValue="all"
@@ -202,7 +202,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>image_repositories</code> resource.
+Deletes an image repository with the given name. If you enable the `ifExists` query parameter, the operation succeeds even if the object does not exist. Otherwise, a 404 failure is returned if the object does not exist.
 
 ```sql
 /*+ delete */

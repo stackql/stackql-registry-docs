@@ -211,7 +211,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>users</code> resource.
+Create a user according to the parameters given
 
 <Tabs
     defaultValue="all"
@@ -426,7 +426,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>users</code> resource.
+Delete a user with the given name.
 
 ```sql
 /*+ delete */

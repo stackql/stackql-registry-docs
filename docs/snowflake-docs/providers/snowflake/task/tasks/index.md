@@ -188,7 +188,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>tasks</code> resource.
+Create a task, with standard create modifiers as query parameters. See the Task component definition for what is required to be provided in the request body.
 
 <Tabs
     defaultValue="all"
@@ -423,7 +423,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>tasks</code> resource.
+Delete a task with the task name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful.
 
 ```sql
 /*+ delete */

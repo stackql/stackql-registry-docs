@@ -109,7 +109,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>external_volumes</code> resource.
+Create an external volume
 
 <Tabs
     defaultValue="all"
@@ -200,7 +200,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>external_volumes</code> resource.
+Delete an external volume
 
 ```sql
 /*+ delete */

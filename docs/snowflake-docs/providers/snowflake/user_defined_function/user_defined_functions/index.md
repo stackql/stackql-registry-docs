@@ -153,7 +153,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>user_defined_functions</code> resource.
+Create a UDF
 
 <Tabs
     defaultValue="all"
@@ -304,7 +304,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>user_defined_functions</code> resource.
+Delete a UDF
 
 ```sql
 /*+ delete */

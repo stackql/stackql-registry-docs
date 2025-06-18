@@ -153,7 +153,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>event_tables</code> resource.
+Create an event table
 
 <Tabs
     defaultValue="all"
@@ -263,7 +263,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>event_tables</code> resource.
+Delete an event table
 
 ```sql
 /*+ delete */

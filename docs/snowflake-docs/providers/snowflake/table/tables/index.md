@@ -189,7 +189,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>tables</code> resource.
+Create a table.
 
 <Tabs
     defaultValue="all"
@@ -401,7 +401,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>tables</code> resource.
+Delete a table with the given name.
 
 ```sql
 /*+ delete */

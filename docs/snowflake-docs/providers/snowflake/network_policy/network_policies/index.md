@@ -113,7 +113,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>network_policies</code> resource.
+Create a network policy
 
 <Tabs
     defaultValue="all"
@@ -198,7 +198,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>network_policies</code> resource.
+Delete a network policy
 
 ```sql
 /*+ delete */

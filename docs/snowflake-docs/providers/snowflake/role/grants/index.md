@@ -78,7 +78,7 @@ AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>grants</code> resource.
+Grant privileges to the role
 
 <Tabs
     defaultValue="all"
@@ -171,7 +171,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>grants</code> resource.
+Revoke grants from the role
 
 ```sql
 /*+ delete */

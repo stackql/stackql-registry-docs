@@ -186,7 +186,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>iceberg_tables</code> resource.
+Create a snowflake managed iceberg table (clone and undrop are separate subresources)
 
 <Tabs
     defaultValue="all"
@@ -380,7 +380,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>iceberg_tables</code> resource.
+Drop an iceberg table
 
 ```sql
 /*+ delete */

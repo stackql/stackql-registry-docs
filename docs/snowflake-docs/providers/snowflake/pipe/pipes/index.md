@@ -139,7 +139,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>pipes</code> resource.
+Create a pipe
 
 <Tabs
     defaultValue="all"
@@ -255,7 +255,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>pipes</code> resource.
+Delete a pipe
 
 ```sql
 /*+ delete */

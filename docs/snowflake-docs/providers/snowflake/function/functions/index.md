@@ -119,7 +119,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>functions</code> resource.
+Create a function.
 
 <Tabs
     defaultValue="all"
@@ -253,7 +253,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>functions</code> resource.
+Delete a function with the given name and args.
 
 ```sql
 /*+ delete */

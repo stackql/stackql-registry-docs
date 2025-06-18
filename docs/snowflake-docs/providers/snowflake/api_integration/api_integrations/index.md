@@ -109,7 +109,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>api_integrations</code> resource.
+Create an API integration
 
 <Tabs
     defaultValue="all"
@@ -230,7 +230,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>api_integrations</code> resource.
+Delete an API integration
 
 ```sql
 /*+ delete */

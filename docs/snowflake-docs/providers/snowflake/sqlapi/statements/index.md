@@ -72,7 +72,7 @@ AND endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>statements</code> resource.
+Submits one or more statements for execution. You can specify that the statement should be executed asynchronously.
 
 <Tabs
     defaultValue="all"
@@ -200,7 +200,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>statements</code> resource.
+Cancels the execution of the statement with the specified statement handle.
 
 ```sql
 /*+ delete */

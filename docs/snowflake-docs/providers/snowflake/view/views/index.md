@@ -132,7 +132,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>views</code> resource.
+Create a view
 
 <Tabs
     defaultValue="all"
@@ -250,7 +250,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>views</code> resource.
+Delete a view
 
 ```sql
 /*+ delete */
