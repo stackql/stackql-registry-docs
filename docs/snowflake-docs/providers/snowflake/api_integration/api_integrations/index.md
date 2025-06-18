@@ -207,7 +207,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>api_integrations</code> resource.
+Create an (or alter an existing) API integration. Note that API_KEY is not currently altered by this operation and is supported for a newly-created object only. Unsetting API_BLOCKED_PREFIXES is also unsupported.
 
 ```sql
 /*+ update */

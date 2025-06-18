@@ -403,7 +403,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>warehouses</code> resource.
+Create a (or alter an existing) warehouse. Even if the operation is just an alter, the full property set must be provided.
 
 ```sql
 /*+ update */

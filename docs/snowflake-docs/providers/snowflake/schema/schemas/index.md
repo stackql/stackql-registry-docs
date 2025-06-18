@@ -344,7 +344,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>schemas</code> resource.
+Creates a new, or alters an existing, schema. You must provide the full schema definition even when altering an existing schema.
 
 ```sql
 /*+ update */

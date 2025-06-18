@@ -326,7 +326,7 @@ SELECT
 
 ## `REPLACE` example
 
-Replaces all fields in the specified <code>databases</code> resource.
+Creates a new, or alters an existing, database. You must provide the full database definition even when altering an existing database.
 
 ```sql
 /*+ update */
