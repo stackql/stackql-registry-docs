@@ -87,7 +87,7 @@ WHERE endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>roles</code> resource.
+Create a role
 
 <Tabs
     defaultValue="all"
@@ -150,7 +150,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>roles</code> resource.
+Delete a role
 
 ```sql
 /*+ delete */

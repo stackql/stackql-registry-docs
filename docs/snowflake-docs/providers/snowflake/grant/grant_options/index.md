@@ -51,7 +51,7 @@ Creates, updates, deletes, gets or lists a <code>grant_options</code> resource.
 
 ## `DELETE` example
 
-Deletes the specified <code>grant_options</code> resource.
+Endpoint to indicate that the grant option for the privilege listed in the path should be revoked.
 
 ```sql
 /*+ delete */

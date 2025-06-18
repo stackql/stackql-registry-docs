@@ -172,7 +172,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>dynamic_tables</code> resource.
+Create a dynamic table, with standard create modifiers as query parameters. See the Dynamic Table component definition for what is required to be provided in the request body.
 
 <Tabs
     defaultValue="all"
@@ -339,7 +339,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>dynamic_tables</code> resource.
+Delete a dynamic table with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful.
 
 ```sql
 /*+ delete */

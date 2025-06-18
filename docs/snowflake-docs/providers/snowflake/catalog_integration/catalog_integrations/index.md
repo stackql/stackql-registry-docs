@@ -111,7 +111,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>catalog_integrations</code> resource.
+Create a catalog integration.
 
 <Tabs
     defaultValue="all"
@@ -202,7 +202,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>catalog_integrations</code> resource.
+Delete a catalog integration.
 
 ```sql
 /*+ delete */

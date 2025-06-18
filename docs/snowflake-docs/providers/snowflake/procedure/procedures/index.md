@@ -141,7 +141,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>procedures</code> resource.
+Create a procedure
 
 <Tabs
     defaultValue="all"
@@ -281,7 +281,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>procedures</code> resource.
+Delete a procedure
 
 ```sql
 /*+ delete */

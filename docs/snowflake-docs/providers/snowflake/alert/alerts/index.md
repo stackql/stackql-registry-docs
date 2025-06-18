@@ -132,7 +132,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>alerts</code> resource.
+Create an alert
 
 <Tabs
     defaultValue="all"
@@ -240,7 +240,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>alerts</code> resource.
+Delete an alert
 
 ```sql
 /*+ delete */

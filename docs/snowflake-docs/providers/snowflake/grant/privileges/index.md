@@ -53,7 +53,7 @@ Creates, updates, deletes, gets or lists a <code>privileges</code> resource.
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>privileges</code> resource.
+Endpoint to indicate that the privileges listed in the request body should be granted.
 
 <Tabs
     defaultValue="all"
@@ -176,7 +176,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>privileges</code> resource.
+Endpoint to indicate that the privilege listed in the path should be revoked.
 
 ```sql
 /*+ delete */

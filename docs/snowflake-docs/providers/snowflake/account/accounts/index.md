@@ -142,7 +142,7 @@ WHERE endpoint = '{{ endpoint }}';
 ```
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>accounts</code> resource.
+Creates a account. You must provide the full account definition when creating a account.
 
 <Tabs
     defaultValue="all"
@@ -292,7 +292,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>accounts</code> resource.
+Deletes the specified account. If you enable the `ifExists` parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful.
 
 ```sql
 /*+ delete */

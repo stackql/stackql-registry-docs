@@ -182,7 +182,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>notebooks</code> resource.
+Create a notebook
 
 <Tabs
     defaultValue="all"
@@ -296,7 +296,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>notebooks</code> resource.
+Delete a notebook
 
 ```sql
 /*+ delete */

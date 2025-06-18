@@ -102,7 +102,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>notification_integrations</code> resource.
+Create a notification integration
 
 <Tabs
     defaultValue="all"
@@ -180,7 +180,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>notification_integrations</code> resource.
+Delete a notification integration
 
 ```sql
 /*+ delete */

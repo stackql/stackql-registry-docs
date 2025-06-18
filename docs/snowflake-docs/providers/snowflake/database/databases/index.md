@@ -175,7 +175,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>databases</code> resource.
+Creates a database, with modifiers as query parameters. You must provide the full database definition when creating a database.
 
 <Tabs
     defaultValue="all"
@@ -353,7 +353,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `DELETE` example
 
-Deletes the specified <code>databases</code> resource.
+Deletes the specified database. If you enable the `ifExists` parameter, the operation succeeds even if the database does not exist. Otherwise, a 404 failure is returned if the database does not exist. if the drop is unsuccessful.
 
 ```sql
 /*+ delete */

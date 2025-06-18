@@ -139,7 +139,7 @@ AND endpoint = '{{ endpoint }}';
 
 ## `INSERT` example
 
-Use the following StackQL query and manifest file to create a new <code>stages</code> resource.
+Create a stage, with standard create modifiers as query parameters. See the Stage component definition for what is required to be provided in the request body.
 
 <Tabs
     defaultValue="all"
@@ -270,7 +270,7 @@ SELECT
 
 ## `DELETE` example
 
-Deletes the specified <code>stages</code> resource.
+Delete a stage with the stage name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful.
 
 ```sql
 /*+ delete */
