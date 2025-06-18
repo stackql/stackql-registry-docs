@@ -260,20 +260,12 @@ SELECT
         procedures resource.)
     - name: return_type
       value:
-        - name: type
-          value: string
-          description: Type of the return, can be either DATATYPE or TABLE
+        type: string
       description: Required parameter for the procedures resource.
     - name: language_config
       value:
-        - name: language
-          value: string
-          description: >-
-            Language that the function/procedure is written in. Possible values
-            include: JAVA, JAVASCRIPT, PYTHON, SCALA, SQL
-        - name: called_on_null_input
-          value: boolean
-          description: Decide if the function/procedure can receive null input
+        language: string
+        called_on_null_input: boolean
       description: Required parameter for the procedures resource.
     - name: comment
       value: string

@@ -284,31 +284,13 @@ SELECT
         user_defined_functions resource.)
     - name: return_type
       value:
-        - name: type
-          value: string
-          description: Type of the return, can be either DATATYPE or TABLE
+        type: string
       description: Required parameter for the user_defined_functions resource.
     - name: language_config
       value:
-        - name: language
-          value: string
-          description: >-
-            Language that the function/procedure is written in. Possible values
-            include: JAVA, JAVASCRIPT, PYTHON, SCALA, SQL
-        - name: called_on_null_input
-          value: boolean
-          description: Decide if the function/procedure can receive null input
-        - name: is_volatile
-          value: boolean
-          description: >-
-            Specifies the behavior of the UDF when returning results. This Field
-            is deprecated for Procedure. If true, UDF might return different
-            values for different rows, even for the same input. This field is
-            deprecated for Procedure. If false, UDF assumes that the function,
-            when called with the same inputs, will always return the same
-            result. This guarantee is not checked. Specifying IMMUTABLE for a
-            UDF that returns different values for the same input will result in
-            undefined behavior.
+        language: string
+        called_on_null_input: boolean
+        is_volatile: boolean
       description: Required parameter for the user_defined_functions resource.
     - name: comment
       value: string

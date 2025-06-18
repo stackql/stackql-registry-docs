@@ -219,9 +219,7 @@ SELECT
       description: user comment associated to an object in the dictionary
     - name: schedule
       value:
-        - name: schedule_type
-          value: string
-          description: Type of the schedule, can be either CRON_TYPE or MINUTES_TYPE
+        schedule_type: string
       description: Required parameter for the alerts resource.
     - name: warehouse
       value: string

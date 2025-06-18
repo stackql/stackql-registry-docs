@@ -181,11 +181,7 @@ SELECT
         catalog_integrations resource.)
     - name: catalog
       value:
-        - name: catalog_source
-          value: string
-          description: >-
-            Type of external catalog (valid values: 'GLUE', 'OBJECT_STORE',
-            'POLARIS')
+        catalog_source: string
       description: Required parameter for the catalog_integrations resource.
     - name: table_format
       value: string

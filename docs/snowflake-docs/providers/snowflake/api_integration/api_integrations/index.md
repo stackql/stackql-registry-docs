@@ -181,11 +181,7 @@ SELECT
         api_integrations resource.)
     - name: api_hook
       value:
-        - name: type
-          value: string
-          description: >-
-            Type of ApiHook, can be AWS, AZURE, GC or GIT. (valid values: 'AWS',
-            'AZURE', 'GC', 'GIT')
+        type: string
       description: Required parameter for the api_integrations resource.
     - name: api_allowed_prefixes
       value: array

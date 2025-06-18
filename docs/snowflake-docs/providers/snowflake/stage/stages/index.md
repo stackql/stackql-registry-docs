@@ -249,57 +249,20 @@ SELECT
       description: Specifies a comment for the stage.
     - name: credentials
       value:
-        - name: credential_type
-          value: string
-          description: Type of the credential, can be either AWS or AZURE.
+        credential_type: string
       description: Specifies the credentials of the stage.
     - name: encryption
       value:
-        - name: type
-          value: string
-          description: >-
-            Specifies the encryption type used. (valid values: 'SNOWFLAKE_FULL',
-            'SNOWFLAKE_SSE', 'AWS_CSE', 'AWS_SSE_S3', 'AWS_SSE_KMS',
-            'GCS_SSE_KMS', 'AZURE_CSE', 'NONE')
-        - name: master_key
-          value: string
-          description: >-
-            Specifies the client-side master key used to encrypt the files in
-            the bucket. The master key must be a 128-bit or 256-bit key in
-            Base64-encoded form.
-        - name: kms_key_id
-          value: string
-          description: >-
-            Optionally specifies the ID for the KMS-managed key used to encrypt
-            files unloaded into the bucket.
+        type: string
+        master_key: string
+        kms_key_id: string
       description: Encryption parameters of the stage.
     - name: directory_table
       value:
-        - name: enable
-          value: boolean
-          description: >-
-            Specifies whether to add a directory table to the stage. When the
-            value is TRUE, a directory table is created with the stage.
-          default: false
-        - name: refresh_on_create
-          value: boolean
-          description: >-
-            Specifies whether to automatically refresh the directory table
-            metadata once, immediately after the stage is created.
-          default: true
-        - name: auto_refresh
-          value: boolean
-          description: >-
-            Specifies whether Snowflake should enable triggering automatic
-            refreshes of the directory table metadata when new or updated data
-            files are available in the named external stage specified in the URL
-            value.
-          default: false
-        - name: notification_integration
-          value: string
-          description: >-
-            Specifies the name of the notification integration used to
-            automatically refresh the directory table metadata.
+        enable: boolean
+        refresh_on_create: boolean
+        auto_refresh: boolean
+        notification_integration: string
       description: Directory table parameters of the stage.
 ```
 </TabItem>
