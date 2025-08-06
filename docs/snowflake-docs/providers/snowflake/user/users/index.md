@@ -1,4 +1,4 @@
----
+--- 
 title: users
 hide_title: false
 hide_table_of_contents: false
@@ -28,74 +28,556 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | User name |
-| <CopyableCode code="comment" /> | `string` | Comment about the user. |
-| <CopyableCode code="created_on" /> | `string` |  |
-| <CopyableCode code="custom_landing_page_url" /> | `string` |  |
-| <CopyableCode code="custom_landing_page_url_flush_next_ui_load" /> | `boolean` | Whether or not to flush the custom landing page of the user on next UI load |
-| <CopyableCode code="days_to_expiry" /> | `integer` | How many days until this user expires |
-| <CopyableCode code="default_namespace" /> | `string` | The default namespace to use when this user starts a session |
-| <CopyableCode code="default_role" /> | `string` | The default role to use when this user starts a session |
-| <CopyableCode code="default_secondary_roles" /> | `string` | The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR. |
-| <CopyableCode code="default_warehouse" /> | `string` | The default warehouse to use when this user starts a session |
-| <CopyableCode code="disabled" /> | `boolean` | Has this user been disabled from the system |
-| <CopyableCode code="display_name" /> | `string` | Display name |
-| <CopyableCode code="email" /> | `string` | Email address |
-| <CopyableCode code="enable_unredacted_query_syntax_error" /> | `boolean` | Whether to show unredacted query syntax errors in the query history. |
-| <CopyableCode code="expires_at" /> | `string` |  |
-| <CopyableCode code="ext_authn_duo" /> | `boolean` |  |
-| <CopyableCode code="ext_authn_uid" /> | `string` |  |
-| <CopyableCode code="first_name" /> | `string` | First name |
-| <CopyableCode code="has_password" /> | `boolean` |  |
-| <CopyableCode code="has_rsa_public_key" /> | `boolean` |  |
-| <CopyableCode code="last_name" /> | `string` | Last name |
-| <CopyableCode code="last_successful_login" /> | `string` |  |
-| <CopyableCode code="locked_until" /> | `string` |  |
-| <CopyableCode code="login_name" /> | `string` | Login name |
-| <CopyableCode code="middle_name" /> | `string` | Middle name |
-| <CopyableCode code="mins_to_bypass_mfa" /> | `integer` | How many minutes until MFA is required again |
-| <CopyableCode code="mins_to_bypass_network_policy" /> | `integer` | Temporary bypass network policy on the user for a specified number of minutes |
-| <CopyableCode code="mins_to_unlock" /> | `integer` | How many minutes until the account is unlocked after multiple failed logins |
-| <CopyableCode code="must_change_password" /> | `boolean` | Does this user need to change their password (e.g., after assigning a temp password) |
-| <CopyableCode code="network_policy" /> | `string` | Specifies an existing network policy is active for the user. Otherwise, use account default. |
-| <CopyableCode code="owner" /> | `string` |  |
-| <CopyableCode code="password" /> | `string` | Password |
-| <CopyableCode code="password_last_set" /> | `string` |  |
-| <CopyableCode code="rsa_public_key" /> | `string` | RSA public key of the user |
-| <CopyableCode code="rsa_public_key_2" /> | `string` | Second RSA public key of the user |
-| <CopyableCode code="rsa_public_key_2_fp" /> | `string` | Fingerprint of the user's second RSA public key |
-| <CopyableCode code="rsa_public_key_fp" /> | `string` | Fingerprint of the user's RSA public key |
-| <CopyableCode code="snowflake_lock" /> | `boolean` | Whether the user, account, or organization is locked by Snowflake. |
-| <CopyableCode code="snowflake_support" /> | `boolean` | Whether Snowflake Support is allowed to use the user or account |
-| <CopyableCode code="type" /> | `string` | Indicates the type of user (PERSON \| SERVICE \| LEGACY_SERVICE) |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_users"
+    values={[
+        { label: 'list_users', value: 'list_users' },
+        { label: 'fetch_user', value: 'fetch_user' }
+    ]}
+>
+<TabItem value="list_users">
+
+Properties of user.
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>User name (example: jackpatel)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="display_name" /></td>
+    <td><code>string</code></td>
+    <td>Display name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="first_name" /></td>
+    <td><code>string</code></td>
+    <td>First name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="last_name" /></td>
+    <td><code>string</code></td>
+    <td>Last name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="login_name" /></td>
+    <td><code>string</code></td>
+    <td>Login name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="middle_name" /></td>
+    <td><code>string</code></td>
+    <td>Middle name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>Comment about the user. (example: A distinguished user)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="custom_landing_page_url" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="custom_landing_page_url_flush_next_ui_load" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not to flush the custom landing page of the user on next UI load</td>
+</tr>
+<tr>
+    <td><CopyableCode code="days_to_expiry" /></td>
+    <td><code>integer</code></td>
+    <td>How many days until this user expires</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_namespace" /></td>
+    <td><code>string</code></td>
+    <td>The default namespace to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_role" /></td>
+    <td><code>string</code></td>
+    <td>The default role to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_secondary_roles" /></td>
+    <td><code>string</code></td>
+    <td>The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR. (default: ALL)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_warehouse" /></td>
+    <td><code>string</code></td>
+    <td>The default warehouse to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="disabled" /></td>
+    <td><code>boolean</code></td>
+    <td>Has this user been disabled from the system</td>
+</tr>
+<tr>
+    <td><CopyableCode code="email" /></td>
+    <td><code>string</code></td>
+    <td>Email address</td>
+</tr>
+<tr>
+    <td><CopyableCode code="enable_unredacted_query_syntax_error" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether to show unredacted query syntax errors in the query history.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="expires_at" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="ext_authn_duo" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="ext_authn_uid" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="has_password" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="has_rsa_public_key" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="last_successful_login" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="locked_until" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_bypass_mfa" /></td>
+    <td><code>integer</code></td>
+    <td>How many minutes until MFA is required again</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_bypass_network_policy" /></td>
+    <td><code>integer</code></td>
+    <td>Temporary bypass network policy on the user for a specified number of minutes</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_unlock" /></td>
+    <td><code>integer</code></td>
+    <td>How many minutes until the account is unlocked after multiple failed logins</td>
+</tr>
+<tr>
+    <td><CopyableCode code="must_change_password" /></td>
+    <td><code>boolean</code></td>
+    <td>Does this user need to change their password (e.g., after assigning a temp password)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="network_policy" /></td>
+    <td><code>string</code></td>
+    <td>Specifies an existing network policy is active for the user. Otherwise, use account default.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="password" /></td>
+    <td><code>string (password)</code></td>
+    <td>Password</td>
+</tr>
+<tr>
+    <td><CopyableCode code="password_last_set" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key" /></td>
+    <td><code>string</code></td>
+    <td>RSA public key of the user</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_2" /></td>
+    <td><code>string</code></td>
+    <td>Second RSA public key of the user</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_2_fp" /></td>
+    <td><code>string</code></td>
+    <td>Fingerprint of the user&#039;s second RSA public key</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_fp" /></td>
+    <td><code>string</code></td>
+    <td>Fingerprint of the user&#039;s RSA public key</td>
+</tr>
+<tr>
+    <td><CopyableCode code="snowflake_lock" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether the user, account, or organization is locked by Snowflake.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="snowflake_support" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether Snowflake Support is allowed to use the user or account</td>
+</tr>
+<tr>
+    <td><CopyableCode code="type" /></td>
+    <td><code>string</code></td>
+    <td>Indicates the type of user (PERSON | SERVICE | LEGACY_SERVICE)</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_user">
+
+Properties of user.
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>User name (example: jackpatel)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="display_name" /></td>
+    <td><code>string</code></td>
+    <td>Display name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="first_name" /></td>
+    <td><code>string</code></td>
+    <td>First name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="last_name" /></td>
+    <td><code>string</code></td>
+    <td>Last name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="login_name" /></td>
+    <td><code>string</code></td>
+    <td>Login name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="middle_name" /></td>
+    <td><code>string</code></td>
+    <td>Middle name</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>Comment about the user. (example: A distinguished user)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="custom_landing_page_url" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="custom_landing_page_url_flush_next_ui_load" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not to flush the custom landing page of the user on next UI load</td>
+</tr>
+<tr>
+    <td><CopyableCode code="days_to_expiry" /></td>
+    <td><code>integer</code></td>
+    <td>How many days until this user expires</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_namespace" /></td>
+    <td><code>string</code></td>
+    <td>The default namespace to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_role" /></td>
+    <td><code>string</code></td>
+    <td>The default role to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_secondary_roles" /></td>
+    <td><code>string</code></td>
+    <td>The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR. (default: ALL)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="default_warehouse" /></td>
+    <td><code>string</code></td>
+    <td>The default warehouse to use when this user starts a session</td>
+</tr>
+<tr>
+    <td><CopyableCode code="disabled" /></td>
+    <td><code>boolean</code></td>
+    <td>Has this user been disabled from the system</td>
+</tr>
+<tr>
+    <td><CopyableCode code="email" /></td>
+    <td><code>string</code></td>
+    <td>Email address</td>
+</tr>
+<tr>
+    <td><CopyableCode code="enable_unredacted_query_syntax_error" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether to show unredacted query syntax errors in the query history.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="expires_at" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="ext_authn_duo" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="ext_authn_uid" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="has_password" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="has_rsa_public_key" /></td>
+    <td><code>boolean</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="last_successful_login" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="locked_until" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_bypass_mfa" /></td>
+    <td><code>integer</code></td>
+    <td>How many minutes until MFA is required again</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_bypass_network_policy" /></td>
+    <td><code>integer</code></td>
+    <td>Temporary bypass network policy on the user for a specified number of minutes</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mins_to_unlock" /></td>
+    <td><code>integer</code></td>
+    <td>How many minutes until the account is unlocked after multiple failed logins</td>
+</tr>
+<tr>
+    <td><CopyableCode code="must_change_password" /></td>
+    <td><code>boolean</code></td>
+    <td>Does this user need to change their password (e.g., after assigning a temp password)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="network_policy" /></td>
+    <td><code>string</code></td>
+    <td>Specifies an existing network policy is active for the user. Otherwise, use account default.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="password" /></td>
+    <td><code>string (password)</code></td>
+    <td>Password</td>
+</tr>
+<tr>
+    <td><CopyableCode code="password_last_set" /></td>
+    <td><code>string (date-time)</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key" /></td>
+    <td><code>string</code></td>
+    <td>RSA public key of the user</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_2" /></td>
+    <td><code>string</code></td>
+    <td>Second RSA public key of the user</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_2_fp" /></td>
+    <td><code>string</code></td>
+    <td>Fingerprint of the user&#039;s second RSA public key</td>
+</tr>
+<tr>
+    <td><CopyableCode code="rsa_public_key_fp" /></td>
+    <td><code>string</code></td>
+    <td>Fingerprint of the user&#039;s RSA public key</td>
+</tr>
+<tr>
+    <td><CopyableCode code="snowflake_lock" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether the user, account, or organization is locked by Snowflake.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="snowflake_support" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether Snowflake Support is allowed to use the user or account</td>
+</tr>
+<tr>
+    <td><CopyableCode code="type" /></td>
+    <td><code>string</code></td>
+    <td>Indicates the type of user (PERSON | SERVICE | LEGACY_SERVICE)</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_user" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | - | Fetch user information using the result of the DESCRIBE command |
-| <CopyableCode code="list_users" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | Lists the users in the system. |
-| <CopyableCode code="create_user" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a user according to the parameters given |
-| <CopyableCode code="delete_user" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a user with the given name. |
-| <CopyableCode code="create_or_alter_user" /> | `REPLACE` | <CopyableCode code="name, data__name, endpoint" /> | - | Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object. |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_users"><CopyableCode code="list_users" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td>Lists the users in the system.</td>
+</tr>
+<tr>
+    <td><a href="#fetch_user"><CopyableCode code="fetch_user" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch user information using the result of the DESCRIBE command</td>
+</tr>
+<tr>
+    <td><a href="#create_user"><CopyableCode code="create_user" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create a user according to the parameters given</td>
+</tr>
+<tr>
+    <td><a href="#create_or_alter_user"><CopyableCode code="create_or_alter_user" /></a></td>
+    <td><CopyableCode code="replace" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object.</td>
+</tr>
+<tr>
+    <td><a href="#delete_user"><CopyableCode code="delete_user" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a user with the given name.</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-startsWith">
+    <td><CopyableCode code="startsWith" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -104,8 +586,8 @@ Creates, updates, deletes, gets or lists a <code>users</code> resource.
     values={[
         { label: 'list_users', value: 'list_users' },
         { label: 'fetch_user', value: 'fetch_user' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_users">
 
 Lists the users in the system.
@@ -113,6 +595,11 @@ Lists the users in the system.
 ```sql
 SELECT
 name,
+display_name,
+first_name,
+last_name,
+login_name,
+middle_name,
 comment,
 created_on,
 custom_landing_page_url,
@@ -123,20 +610,15 @@ default_role,
 default_secondary_roles,
 default_warehouse,
 disabled,
-display_name,
 email,
 enable_unredacted_query_syntax_error,
 expires_at,
 ext_authn_duo,
 ext_authn_uid,
-first_name,
 has_password,
 has_rsa_public_key,
-last_name,
 last_successful_login,
 locked_until,
-login_name,
-middle_name,
 mins_to_bypass_mfa,
 mins_to_bypass_network_policy,
 mins_to_unlock,
@@ -153,7 +635,11 @@ snowflake_lock,
 snowflake_support,
 type
 FROM snowflake.user.users
-WHERE endpoint = '{{ endpoint }}';
+WHERE endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}'
+AND startsWith = '{{ startsWith }}'
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}';
 ```
 </TabItem>
 <TabItem value="fetch_user">
@@ -163,6 +649,11 @@ Fetch user information using the result of the DESCRIBE command
 ```sql
 SELECT
 name,
+display_name,
+first_name,
+last_name,
+login_name,
+middle_name,
 comment,
 created_on,
 custom_landing_page_url,
@@ -173,20 +664,15 @@ default_role,
 default_secondary_roles,
 default_warehouse,
 disabled,
-display_name,
 email,
 enable_unredacted_query_syntax_error,
 expires_at,
 ext_authn_duo,
 ext_authn_uid,
-first_name,
 has_password,
 has_rsa_public_key,
-last_name,
 last_successful_login,
 locked_until,
-login_name,
-middle_name,
 mins_to_bypass_mfa,
 mins_to_bypass_network_policy,
 mins_to_unlock,
@@ -203,28 +689,27 @@ snowflake_lock,
 snowflake_support,
 type
 FROM snowflake.user.users
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_user"
+    values={[
+        { label: 'create_user', value: 'create_user' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_user">
 
 Create a user according to the parameters given
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.user.users (
 data__name,
 data__password,
@@ -249,7 +734,8 @@ data__comment,
 data__type,
 data__enable_unredacted_query_syntax_error,
 data__network_policy,
-endpoint
+endpoint,
+createMode
 )
 SELECT 
 '{{ name }}',
@@ -275,30 +761,15 @@ SELECT
 '{{ type }}',
 {{ enable_unredacted_query_syntax_error }},
 '{{ network_policy }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.user.users (
-data__name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: users
   props:
     - name: endpoint
@@ -306,131 +777,193 @@ SELECT
       description: Required parameter for the users resource.
     - name: name
       value: string
-      description: User name (Required parameter for the users resource.)
+      description: >
+        User name
+        
     - name: password
       value: string
-      description: Password
+      description: >
+        Password
+        
     - name: login_name
       value: string
-      description: Login name
+      description: >
+        Login name
+        
     - name: display_name
       value: string
-      description: Display name
+      description: >
+        Display name
+        
     - name: first_name
       value: string
-      description: First name
+      description: >
+        First name
+        
     - name: middle_name
       value: string
-      description: Middle name
+      description: >
+        Middle name
+        
     - name: last_name
       value: string
-      description: Last name
+      description: >
+        Last name
+        
     - name: email
       value: string
-      description: Email address
+      description: >
+        Email address
+        
     - name: must_change_password
       value: boolean
-      description: >-
-        Does this user need to change their password (e.g., after assigning a
-        temp password)
+      description: >
+        Does this user need to change their password (e.g., after assigning a temp password)
+        
     - name: disabled
       value: boolean
-      description: Has this user been disabled from the system
+      description: >
+        Has this user been disabled from the system
+        
     - name: days_to_expiry
       value: integer
-      description: How many days until this user expires
+      description: >
+        How many days until this user expires
+        
     - name: mins_to_unlock
       value: integer
-      description: >-
-        How many minutes until the account is unlocked after multiple failed
-        logins
+      description: >
+        How many minutes until the account is unlocked after multiple failed logins
+        
     - name: default_warehouse
       value: string
-      description: The default warehouse to use when this user starts a session
+      description: >
+        The default warehouse to use when this user starts a session
+        
     - name: default_namespace
       value: string
-      description: The default namespace to use when this user starts a session
+      description: >
+        The default namespace to use when this user starts a session
+        
     - name: default_role
       value: string
-      description: The default role to use when this user starts a session
+      description: >
+        The default role to use when this user starts a session
+        
     - name: default_secondary_roles
       value: string
-      description: >-
-        The default secondary roles of this user to use when starting a session.
-        Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR.
-        (valid values: 'ALL', 'NONE')
+      description: >
+        The default secondary roles of this user to use when starting a session. Only valid set values are ALL or NONE. Default is ALL after 2024-07 BCR.
+        
+      valid_values: ['ALL', 'NONE']
       default: ALL
     - name: mins_to_bypass_mfa
       value: integer
-      description: How many minutes until MFA is required again
+      description: >
+        How many minutes until MFA is required again
+        
     - name: rsa_public_key
       value: string
-      description: RSA public key of the user
+      description: >
+        RSA public key of the user
+        
     - name: rsa_public_key_2
       value: string
-      description: Second RSA public key of the user
+      description: >
+        Second RSA public key of the user
+        
     - name: comment
       value: string
-      description: Comment about the user.
+      description: >
+        Comment about the user.
+        
     - name: type
       value: string
-      description: Indicates the type of user (PERSON \| SERVICE \| LEGACY_SERVICE)
+      description: >
+        Indicates the type of user (PERSON | SERVICE | LEGACY_SERVICE)
+        
     - name: enable_unredacted_query_syntax_error
       value: boolean
-      description: Whether to show unredacted query syntax errors in the query history.
+      description: >
+        Whether to show unredacted query syntax errors in the query history.
+        
     - name: network_policy
       value: string
-      description: >-
-        Specifies an existing network policy is active for the user. Otherwise,
-        use account default.
+      description: >
+        Specifies an existing network policy is active for the user. Otherwise, use account default.
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
 ```
 </TabItem>
 </Tabs>
 
-## `REPLACE` example
+
+## `REPLACE` examples
+
+<Tabs
+    defaultValue="create_or_alter_user"
+    values={[
+        { label: 'create_or_alter_user', value: 'create_or_alter_user' }
+    ]}
+>
+<TabItem value="create_or_alter_user">
 
 Create a (or alter an existing) user. Even if the operation is just an alter, the full property set must be provided. Note that password is not currently altered by this operation but is supported for a newly-created object.
 
 ```sql
-/*+ update */
 REPLACE snowflake.user.users
 SET 
-name = '{{ name }}',
-password = '{{ password }}',
-login_name = '{{ login_name }}',
-display_name = '{{ display_name }}',
-first_name = '{{ first_name }}',
-middle_name = '{{ middle_name }}',
-last_name = '{{ last_name }}',
-email = '{{ email }}',
-must_change_password = {{ must_change_password }},
-disabled = {{ disabled }},
-days_to_expiry = {{ days_to_expiry }},
-mins_to_unlock = {{ mins_to_unlock }},
-default_warehouse = '{{ default_warehouse }}',
-default_namespace = '{{ default_namespace }}',
-default_role = '{{ default_role }}',
-default_secondary_roles = '{{ default_secondary_roles }}',
-mins_to_bypass_mfa = {{ mins_to_bypass_mfa }},
-rsa_public_key = '{{ rsa_public_key }}',
-rsa_public_key_2 = '{{ rsa_public_key_2 }}',
-comment = '{{ comment }}',
-type = '{{ type }}',
-enable_unredacted_query_syntax_error = {{ enable_unredacted_query_syntax_error }},
-network_policy = '{{ network_policy }}'
+data__name = '{{ name }}',
+data__password = '{{ password }}',
+data__login_name = '{{ login_name }}',
+data__display_name = '{{ display_name }}',
+data__first_name = '{{ first_name }}',
+data__middle_name = '{{ middle_name }}',
+data__last_name = '{{ last_name }}',
+data__email = '{{ email }}',
+data__must_change_password = {{ must_change_password }},
+data__disabled = {{ disabled }},
+data__days_to_expiry = {{ days_to_expiry }},
+data__mins_to_unlock = {{ mins_to_unlock }},
+data__default_warehouse = '{{ default_warehouse }}',
+data__default_namespace = '{{ default_namespace }}',
+data__default_role = '{{ default_role }}',
+data__default_secondary_roles = '{{ default_secondary_roles }}',
+data__mins_to_bypass_mfa = {{ mins_to_bypass_mfa }},
+data__rsa_public_key = '{{ rsa_public_key }}',
+data__rsa_public_key_2 = '{{ rsa_public_key_2 }}',
+data__comment = '{{ comment }}',
+data__type = '{{ type }}',
+data__enable_unredacted_query_syntax_error = {{ enable_unredacted_query_syntax_error }},
+data__network_policy = '{{ network_policy }}'
 WHERE 
-name = '{{ name }}'
-AND data__name = '{{ data__name }}'
-AND endpoint = '{{ endpoint }}';
+name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND data__name = '{{ name }}' --required;
 ```
+</TabItem>
+</Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_user"
+    values={[
+        { label: 'delete_user', value: 'delete_user' }
+    ]}
+>
+<TabItem value="delete_user">
 
 Delete a user with the given name.
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.user.users
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>

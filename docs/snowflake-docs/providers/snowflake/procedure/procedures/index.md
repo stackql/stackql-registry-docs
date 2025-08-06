@@ -1,4 +1,4 @@
----
+--- 
 title: procedures
 hide_title: false
 hide_table_of_contents: false
@@ -28,48 +28,316 @@ Creates, updates, deletes, gets or lists a <code>procedures</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the procedure |
-| <CopyableCode code="arguments" /> | `array` | List of arguments for the function/procedure |
-| <CopyableCode code="body" /> | `string` | Function/procedure definition |
-| <CopyableCode code="comment" /> | `string` | Specifies a comment for the function/procedure |
-| <CopyableCode code="created_on" /> | `string` | The date and time when the function/procedure was created |
-| <CopyableCode code="database_name" /> | `string` | The name of the database in which the function/procedure exists. |
-| <CopyableCode code="execute_as" /> | `string` | What permissions should the procedure execution be called with |
-| <CopyableCode code="is_builtin" /> | `boolean` | If the function/procedure is built-in or not (user-defined) |
-| <CopyableCode code="is_secure" /> | `boolean` | Specifies whether the function/procedure is secure or not |
-| <CopyableCode code="language_config" /> | `object` |  |
-| <CopyableCode code="max_num_arguments" /> | `integer` | The maximum number of arguments |
-| <CopyableCode code="min_num_arguments" /> | `integer` | The minimum number of arguments |
-| <CopyableCode code="owner" /> | `string` | Role that owns the function/procedure |
-| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the function/procedure |
-| <CopyableCode code="return_type" /> | `object` |  |
-| <CopyableCode code="schema_name" /> | `string` | The name of the schema in which the function/procedure exists. |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_procedures"
+    values={[
+        { label: 'list_procedures', value: 'list_procedures' },
+        { label: 'fetch_procedure', value: 'fetch_procedure' }
+    ]}
+>
+<TabItem value="list_procedures">
+
+A Snowflake procedure
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the procedure (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the database in which the function/procedure exists. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the schema in which the function/procedure exists. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="arguments" /></td>
+    <td><code>array</code></td>
+    <td>List of arguments for the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="body" /></td>
+    <td><code>string</code></td>
+    <td>Function/procedure definition</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>Specifies a comment for the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>The date and time when the function/procedure was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="execute_as" /></td>
+    <td><code>string</code></td>
+    <td>What permissions should the procedure execution be called with</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_builtin" /></td>
+    <td><code>boolean</code></td>
+    <td>If the function/procedure is built-in or not (user-defined)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_secure" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the function/procedure is secure or not</td>
+</tr>
+<tr>
+    <td><CopyableCode code="language_config" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="max_num_arguments" /></td>
+    <td><code>integer</code></td>
+    <td>The maximum number of arguments</td>
+</tr>
+<tr>
+    <td><CopyableCode code="min_num_arguments" /></td>
+    <td><code>integer</code></td>
+    <td>The minimum number of arguments</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="return_type" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_procedure">
+
+A Snowflake procedure
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the procedure (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the database in which the function/procedure exists. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the schema in which the function/procedure exists. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="arguments" /></td>
+    <td><code>array</code></td>
+    <td>List of arguments for the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="body" /></td>
+    <td><code>string</code></td>
+    <td>Function/procedure definition</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>Specifies a comment for the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>The date and time when the function/procedure was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="execute_as" /></td>
+    <td><code>string</code></td>
+    <td>What permissions should the procedure execution be called with</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_builtin" /></td>
+    <td><code>boolean</code></td>
+    <td>If the function/procedure is built-in or not (user-defined)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_secure" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the function/procedure is secure or not</td>
+</tr>
+<tr>
+    <td><CopyableCode code="language_config" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="max_num_arguments" /></td>
+    <td><code>integer</code></td>
+    <td>The maximum number of arguments</td>
+</tr>
+<tr>
+    <td><CopyableCode code="min_num_arguments" /></td>
+    <td><code>integer</code></td>
+    <td>The minimum number of arguments</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the function/procedure</td>
+</tr>
+<tr>
+    <td><CopyableCode code="return_type" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_procedure" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | - | Fetch a procedure |
-| <CopyableCode code="list_procedures" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | List procedures |
-| <CopyableCode code="create_procedure" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__body, data__language_config, data__name, data__return_type, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a procedure |
-| <CopyableCode code="delete_procedure" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a procedure |
-| <CopyableCode code="call_procedure" /> | `EXEC` | <CopyableCode code="database_name, nameWithArgs, schema_name, data__call_arguments, endpoint" /> | - | Call a procedure |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_procedures"><CopyableCode code="list_procedures" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a></td>
+    <td>List procedures</td>
+</tr>
+<tr>
+    <td><a href="#fetch_procedure"><CopyableCode code="fetch_procedure" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch a procedure</td>
+</tr>
+<tr>
+    <td><a href="#create_procedure"><CopyableCode code="create_procedure" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td>Create a procedure</td>
+</tr>
+<tr>
+    <td><a href="#delete_procedure"><CopyableCode code="delete_procedure" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a procedure</td>
+</tr>
+<tr>
+    <td><a href="#call_procedure"><CopyableCode code="call_procedure" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Call a procedure</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-nameWithArgs">
+    <td><CopyableCode code="nameWithArgs" /></td>
+    <td><code>string</code></td>
+    <td>Function's name with Args (example: foo(a number, b number))</td>
+</tr>
+<tr id="parameter-schema_name">
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-copyGrants">
+    <td><CopyableCode code="copyGrants" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter to enable copy grants when creating the object. (example: false, default: false)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -78,8 +346,8 @@ Creates, updates, deletes, gets or lists a <code>procedures</code> resource.
     values={[
         { label: 'list_procedures', value: 'list_procedures' },
         { label: 'fetch_procedure', value: 'fetch_procedure' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_procedures">
 
 List procedures
@@ -87,11 +355,12 @@ List procedures
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 arguments,
 body,
 comment,
 created_on,
-database_name,
 execute_as,
 is_builtin,
 is_secure,
@@ -100,12 +369,12 @@ max_num_arguments,
 min_num_arguments,
 owner,
 owner_role_type,
-return_type,
-schema_name
+return_type
 FROM snowflake.procedure.procedures
-WHERE database_name = '{{ database_name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}';
 ```
 </TabItem>
 <TabItem value="fetch_procedure">
@@ -115,11 +384,12 @@ Fetch a procedure
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 arguments,
 body,
 comment,
 created_on,
-database_name,
 execute_as,
 is_builtin,
 is_secure,
@@ -128,33 +398,31 @@ max_num_arguments,
 min_num_arguments,
 owner,
 owner_role_type,
-return_type,
-schema_name
+return_type
 FROM snowflake.procedure.procedures
-WHERE database_name = '{{ database_name }}'
-AND nameWithArgs = '{{ nameWithArgs }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND nameWithArgs = '{{ nameWithArgs }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_procedure"
+    values={[
+        { label: 'create_procedure', value: 'create_procedure' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_procedure">
 
 Create a procedure
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.procedure.procedures (
 data__name,
 data__execute_as,
@@ -166,7 +434,9 @@ data__comment,
 data__body,
 database_name,
 schema_name,
-endpoint
+endpoint,
+createMode,
+copyGrants
 )
 SELECT 
 '{{ name }}',
@@ -179,42 +449,16 @@ SELECT
 '{{ body }}',
 '{{ database_name }}',
 '{{ schema_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}',
+'{{ copyGrants }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.procedure.procedures (
-data__name,
-data__arguments,
-data__return_type,
-data__language_config,
-data__body,
-database_name,
-schema_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ arguments }}',
-'{{ return_type }}',
-'{{ language_config }}',
-'{{ body }}',
-'{{ database_name }}',
-'{{ schema_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: procedures
   props:
     - name: database_name
@@ -228,66 +472,96 @@ SELECT
       description: Required parameter for the procedures resource.
     - name: name
       value: string
-      description: Name of the procedure (Required parameter for the procedures resource.)
+      description: >
+        Name of the procedure
+        
     - name: execute_as
       value: string
-      description: >-
-        What permissions should the procedure execution be called with (valid
-        values: 'CALLER', 'OWNER')
+      description: >
+        What permissions should the procedure execution be called with
+        
+      valid_values: ['CALLER', 'OWNER']
     - name: is_secure
       value: boolean
-      description: Specifies whether the function/procedure is secure or not
+      description: >
+        Specifies whether the function/procedure is secure or not
+        
     - name: arguments
-      value:
-        - name: name
-          value: string
-          description: Argument name
-        - name: datatype
-          value: string
-          description: >-
-            Argument data type (valid values: 'ARRAY', 'BIGINT', 'BINARY',
-            'BOOLEAN', 'BYTEINT', 'CHAR', 'CHARACTER', 'DATE', 'DATETIME',
-            'DECIMAL', 'DOUBLE', 'DOUBLE PRECISION', 'FLOAT', 'FLOAT4',
-            'FLOAT8', 'GEOGRAPHY', 'GEOMETRY', 'INT', 'INTEGER', 'NUMBER',
-            'NUMERIC', 'OBJECT', 'REAL', 'STRING', 'SMALLINT', 'TEXT', 'TIME',
-            'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'TINYINT',
-            'VARBINARY', 'VARCHAR', 'VARIANT', 'VECTOR')
-        - name: default_value
-          value: string
-          description: Default value of the argument
-      description: >-
-        List of arguments for the function/procedure (Required parameter for the
-        procedures resource.)
+      value: array
+      description: >
+        List of arguments for the function/procedure
+        
     - name: return_type
-      value:
-        type: string
-      description: Required parameter for the procedures resource.
+      value: object
     - name: language_config
-      value:
-        language: string
-        called_on_null_input: boolean
-      description: Required parameter for the procedures resource.
+      value: object
     - name: comment
       value: string
-      description: Specifies a comment for the function/procedure
+      description: >
+        Specifies a comment for the function/procedure
+        
     - name: body
       value: string
-      description: >-
-        Function/procedure definition (Required parameter for the procedures
-        resource.)
+      description: >
+        Function/procedure definition
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+    - name: copyGrants
+      value: boolean
+      description: Query parameter to enable copy grants when creating the object. (example: false, default: false)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_procedure"
+    values={[
+        { label: 'delete_procedure', value: 'delete_procedure' }
+    ]}
+>
+<TabItem value="delete_procedure">
 
 Delete a procedure
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.procedure.procedures
-WHERE database_name = '{{ database_name }}'
-AND nameWithArgs = '{{ nameWithArgs }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND schema_name = '{{ schema_name }}' --required
+AND nameWithArgs = '{{ nameWithArgs }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
+
+
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="call_procedure"
+    values={[
+        { label: 'call_procedure', value: 'call_procedure' }
+    ]}
+>
+<TabItem value="call_procedure">
+
+Call a procedure
+
+```sql
+EXEC snowflake.procedure.procedures.call_procedure 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@nameWithArgs='{{ nameWithArgs }}' --required, 
+@endpoint='{{ endpoint }}' --required 
+@@json=
+'{
+"call_arguments": "{{ call_arguments }}"
+}';
+```
+</TabItem>
+</Tabs>

@@ -1,4 +1,4 @@
----
+--- 
 title: grants
 hide_title: false
 hide_table_of_contents: false
@@ -28,38 +28,142 @@ Creates, updates, deletes, gets or lists a <code>grants</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="containing_scope" /> | `object` |  |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the grant was created |
-| <CopyableCode code="granted_by" /> | `string` | The role that granted this privilege to this grantee |
-| <CopyableCode code="privileges" /> | `array` | List of privileges to be granted. |
-| <CopyableCode code="securable" /> | `object` |  |
-| <CopyableCode code="securable_type" /> | `string` | Type of the securable to be granted. Only ROLE is supported |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_grants"
+    values={[
+        { label: 'list_grants', value: 'list_grants' }
+    ]}
+>
+<TabItem value="list_grants">
+
+successful
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="containing_scope" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the grant was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_by" /></td>
+    <td><code>string</code></td>
+    <td>The role that granted this privilege to this grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="privileges" /></td>
+    <td><code>array</code></td>
+    <td>List of privileges to be granted.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="securable" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="securable_type" /></td>
+    <td><code>string</code></td>
+    <td>Type of the securable to be granted. Only ROLE is supported</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_grants" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants to the user |
-| <CopyableCode code="grant" /> | `INSERT` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Grant a role to the user |
-| <CopyableCode code="revoke_grants" /> | `DELETE` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Revoke grants from the user |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_grants"><CopyableCode code="list_grants" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-showLimit">showLimit</a></td>
+    <td>List all grants to the user</td>
+</tr>
+<tr>
+    <td><a href="#grant"><CopyableCode code="grant" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Grant a role to the user</td>
+</tr>
+<tr>
+    <td><a href="#revoke_grants"><CopyableCode code="revoke_grants" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Revoke grants from the user</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
-List all grants to the user
+<Tabs
+    defaultValue="list_grants"
+    values={[
+        { label: 'list_grants', value: 'list_grants' }
+    ]}
+>
+<TabItem value="list_grants">
 
+List all grants to the user
 
 ```sql
 SELECT
@@ -70,25 +174,28 @@ privileges,
 securable,
 securable_type
 FROM snowflake.user.grants
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND showLimit = '{{ showLimit }}';
 ```
-## `INSERT` example
+</TabItem>
+</Tabs>
+
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="grant"
+    values={[
+        { label: 'grant', value: 'grant' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="grant">
 
 Grant a role to the user
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.user.grants (
 data__securable,
 data__containing_scope,
@@ -107,28 +214,10 @@ SELECT
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.user.grants (
-data__securable_type,
-name,
-endpoint
-)
-SELECT 
-'{{ securable_type }}',
-'{{ name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: grants
   props:
     - name: name
@@ -138,34 +227,40 @@ SELECT
       value: string
       description: Required parameter for the grants resource.
     - name: securable
-      value:
-        database: string
-        schema: string
-        name: string
+      value: object
     - name: containing_scope
-      value:
-        database: string
-        schema: string
+      value: object
     - name: securable_type
       value: string
-      description: >-
-        Type of the securable to be granted. Only ROLE is supported (Required
-        parameter for the grants resource.)
+      description: >
+        Type of the securable to be granted. Only ROLE is supported
+        
     - name: privileges
       value: array
-      description: List of privileges to be granted.
+      description: >
+        List of privileges to be granted.
+        
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="revoke_grants"
+    values={[
+        { label: 'revoke_grants', value: 'revoke_grants' }
+    ]}
+>
+<TabItem value="revoke_grants">
 
 Revoke grants from the user
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.user.grants
-WHERE name = '{{ name }}'
-AND data__securable_type = '{{ data__securable_type }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required;
 ```
+</TabItem>
+</Tabs>

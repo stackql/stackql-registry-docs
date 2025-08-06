@@ -1,4 +1,4 @@
----
+--- 
 title: database_roles
 hide_title: false
 hide_table_of_contents: false
@@ -28,45 +28,184 @@ Creates, updates, deletes, gets or lists a <code>database_roles</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the database role |
-| <CopyableCode code="comment" /> | `string` | User comment associated to an object in the dictionary |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the database role was created |
-| <CopyableCode code="granted_database_roles" /> | `integer` | How many database roles this database role has been granted |
-| <CopyableCode code="granted_to_database_roles" /> | `integer` | How many database roles this database role has been granted to |
-| <CopyableCode code="granted_to_roles" /> | `integer` | How many roles this database role has been granted to |
-| <CopyableCode code="owner" /> | `string` | Role that owns the database role |
-| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the database role |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_database_roles"
+    values={[
+        { label: 'list_database_roles', value: 'list_database_roles' }
+    ]}
+>
+<TabItem value="list_database_roles">
+
+A Snowflake database role
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the database role (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>User comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the database role was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_database_roles" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>How many database roles this database role has been granted</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_to_database_roles" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>How many database roles this database role has been granted to</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_to_roles" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>How many roles this database role has been granted to</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the database role (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the database role (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_database_roles" /> | `SELECT` | <CopyableCode code="database_name, endpoint" /> | <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List database roles |
-| <CopyableCode code="create_database_role" /> | `INSERT` | <CopyableCode code="database_name, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a database role |
-| <CopyableCode code="delete_database_role" /> | `DELETE` | <CopyableCode code="database_name, name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a database role |
-| <CopyableCode code="clone_database_role" /> | `EXEC` | <CopyableCode code="database_name, name, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="targetDatabase" /> | Create a new database role by cloning from the specified resource |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_database_roles"><CopyableCode code="list_database_roles" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td>List database roles</td>
+</tr>
+<tr>
+    <td><a href="#create_database_role"><CopyableCode code="create_database_role" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create a database role</td>
+</tr>
+<tr>
+    <td><a href="#delete_database_role"><CopyableCode code="delete_database_role" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a database role</td>
+</tr>
+<tr>
+    <td><a href="#clone_database_role"><CopyableCode code="clone_database_role" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-targetDatabase">targetDatabase</a></td>
+    <td>Create a new database role by cloning from the specified resource</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="targetDatabase" /> | Database of the target resource. Defaults to the source's database | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-targetDatabase">
+    <td><CopyableCode code="targetDatabase" /></td>
+    <td><code>string</code></td>
+    <td>Database of the target resource. Defaults to the source's database (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
-List database roles
+<Tabs
+    defaultValue="list_database_roles"
+    values={[
+        { label: 'list_database_roles', value: 'list_database_roles' }
+    ]}
+>
+<TabItem value="list_database_roles">
 
+List database roles
 
 ```sql
 SELECT
@@ -79,61 +218,49 @@ granted_to_roles,
 owner,
 owner_role_type
 FROM snowflake.database_role.database_roles
-WHERE database_name = '{{ database_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}';
 ```
-## `INSERT` example
+</TabItem>
+</Tabs>
+
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_database_role"
+    values={[
+        { label: 'create_database_role', value: 'create_database_role' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_database_role">
 
 Create a database role
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.database_role.database_roles (
 data__name,
 data__comment,
 database_name,
-endpoint
+endpoint,
+createMode
 )
 SELECT 
 '{{ name }}',
 '{{ comment }}',
 '{{ database_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.database_role.database_roles (
-data__name,
-database_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ database_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: database_roles
   props:
     - name: database_name
@@ -144,24 +271,68 @@ SELECT
       description: Required parameter for the database_roles resource.
     - name: name
       value: string
-      description: >-
-        Name of the database role (Required parameter for the database_roles
-        resource.)
+      description: >
+        Name of the database role
+        
     - name: comment
       value: string
-      description: User comment associated to an object in the dictionary
+      description: >
+        User comment associated to an object in the dictionary
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_database_role"
+    values={[
+        { label: 'delete_database_role', value: 'delete_database_role' }
+    ]}
+>
+<TabItem value="delete_database_role">
 
 Delete a database role
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.database_role.database_roles
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
+
+
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="clone_database_role"
+    values={[
+        { label: 'clone_database_role', value: 'clone_database_role' }
+    ]}
+>
+<TabItem value="clone_database_role">
+
+Create a new database role by cloning from the specified resource
+
+```sql
+EXEC snowflake.database_role.database_roles.clone_database_role 
+@database_name='{{ database_name }}' --required, 
+@name='{{ name }}' --required, 
+@endpoint='{{ endpoint }}' --required, 
+@createMode='{{ createMode }}', 
+@targetDatabase='{{ targetDatabase }}' 
+@@json=
+'{
+"name": "{{ name }}"
+}';
+```
+</TabItem>
+</Tabs>

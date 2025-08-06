@@ -1,4 +1,4 @@
----
+--- 
 title: roles
 hide_title: false
 hide_table_of_contents: false
@@ -28,47 +28,187 @@ Creates, updates, deletes, gets or lists a <code>roles</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the role. |
-| <CopyableCode code="assigned_to_users" /> | `integer` | The number of users to whom this role has been assigned. |
-| <CopyableCode code="comment" /> | `string` | Comment of the role. |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the role was created. |
-| <CopyableCode code="granted_roles" /> | `integer` | The number of roles that have been granted to this role. |
-| <CopyableCode code="granted_to_roles" /> | `integer` | The number of roles to which this role has been granted. |
-| <CopyableCode code="is_current" /> | `boolean` | Specifies whether the role being fetched is the user's current role. |
-| <CopyableCode code="is_default" /> | `boolean` | Specifies whether the role being fetched is the user's default role. |
-| <CopyableCode code="is_inherited" /> | `boolean` | Specifies whether the role used to run the command inherits the specified role. |
-| <CopyableCode code="owner" /> | `string` | Specifies the role that owns this role. |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_roles"
+    values={[
+        { label: 'list_roles', value: 'list_roles' }
+    ]}
+>
+<TabItem value="list_roles">
+
+A Snowflake role
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the role. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="assigned_to_users" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>The number of users to whom this role has been assigned.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>Comment of the role.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the role was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_roles" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>The number of roles that have been granted to this role.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_to_roles" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>The number of roles to which this role has been granted.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_current" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the role being fetched is the user&#039;s current role.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_default" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the role being fetched is the user&#039;s default role.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="is_inherited" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the role used to run the command inherits the specified role.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Specifies the role that owns this role. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_roles" /> | `SELECT` | <CopyableCode code="endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List roles |
-| <CopyableCode code="create_role" /> | `INSERT` | <CopyableCode code="data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a role |
-| <CopyableCode code="delete_role" /> | `DELETE` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a role |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_roles"><CopyableCode code="list_roles" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td>List roles</td>
+</tr>
+<tr>
+    <td><a href="#create_role"><CopyableCode code="create_role" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create a role</td>
+</tr>
+<tr>
+    <td><a href="#delete_role"><CopyableCode code="delete_role" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a role</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-startsWith">
+    <td><CopyableCode code="startsWith" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
-List roles
+<Tabs
+    defaultValue="list_roles"
+    values={[
+        { label: 'list_roles', value: 'list_roles' }
+    ]}
+>
+<TabItem value="list_roles">
 
+List roles
 
 ```sql
 SELECT
@@ -83,56 +223,48 @@ is_default,
 is_inherited,
 owner
 FROM snowflake.role.roles
-WHERE endpoint = '{{ endpoint }}';
+WHERE endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}'
+AND startsWith = '{{ startsWith }}'
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}';
 ```
-## `INSERT` example
+</TabItem>
+</Tabs>
+
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_role"
+    values={[
+        { label: 'create_role', value: 'create_role' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_role">
 
 Create a role
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.role.roles (
 data__name,
 data__comment,
-endpoint
+endpoint,
+createMode
 )
 SELECT 
 '{{ name }}',
 '{{ comment }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.role.roles (
-data__name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: roles
   props:
     - name: endpoint
@@ -140,21 +272,39 @@ SELECT
       description: Required parameter for the roles resource.
     - name: name
       value: string
-      description: Name of the role. (Required parameter for the roles resource.)
+      description: >
+        Name of the role.
+        
     - name: comment
       value: string
-      description: Comment of the role.
+      description: >
+        Comment of the role.
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_role"
+    values={[
+        { label: 'delete_role', value: 'delete_role' }
+    ]}
+>
+<TabItem value="delete_role">
 
 Delete a role
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.role.roles
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
