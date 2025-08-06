@@ -470,7 +470,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-ignore_edition_check">
     <td><CopyableCode code="ignore_edition_check" /></td>
     <td><code>boolean</code></td>
-    <td>Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the <a href=https://docs.snowflake.com/en/sql-reference/sql/alter-database> ALTER DATABASE</a> reference.</td>
+    <td>Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the <a href="https://docs.snowflake.com/en/sql-reference/sql/alter-database"> ALTER DATABASE</a> reference.</td>
 </tr>
 <tr id="parameter-kind">
     <td><CopyableCode code="kind" /></td>
