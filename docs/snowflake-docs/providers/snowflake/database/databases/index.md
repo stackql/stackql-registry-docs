@@ -470,7 +470,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-ignore_edition_check">
     <td><CopyableCode code="ignore_edition_check" /></td>
     <td><code>boolean</code></td>
-    <td>Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the <a href="https://docs.snowflake.com/en/sql-reference/sql/alter-database"> ALTER DATABASE</a> reference.</td>
+    <td>Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the <a> ALTER DATABASE</a> reference.</td>
 </tr>
 <tr id="parameter-kind">
     <td><CopyableCode code="kind" /></td>
@@ -490,7 +490,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-share">
     <td><CopyableCode code="share" /></td>
     <td><code>string</code></td>
-    <td>ID of the share from which to create the database, in the form &quot;<provider_account>.<share_name>&quot;.</td>
+    <td>ID of the share from which to create the database, in the form &quot;{provider_account}.{share_name}&quot;.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
