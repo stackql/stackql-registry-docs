@@ -445,7 +445,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
 </tr>
 <tr id="parameter-createMode">
     <td><CopyableCode code="createMode" /></td>
@@ -490,7 +490,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-share">
     <td><CopyableCode code="share" /></td>
     <td><code>string</code></td>
-    <td>ID of the share from which to create the database, in the form "<provider_account>.<share_name>".</td>
+    <td>ID of the share from which to create the database, in the form &quot;<provider_account>.<share_name>&quot;.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
