@@ -1,4 +1,4 @@
----
+--- 
 title: functions
 hide_title: false
 hide_table_of_contents: false
@@ -28,40 +28,246 @@ Creates, updates, deletes, gets or lists a <code>functions</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Specifies the name for the function, must be unique for the schema in which the function is created |
-| <CopyableCode code="arguments" /> | `array` |  |
-| <CopyableCode code="body" /> | `string` | Function's body. |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the function was created. |
-| <CopyableCode code="function_type" /> | `string` |  |
-| <CopyableCode code="language" /> | `string` | Function's language. |
-| <CopyableCode code="max_batch_rows" /> | `integer` | Specifies the max rows for batch operation. |
-| <CopyableCode code="returns" /> | `string` | Specifies the type for the function return value. |
-| <CopyableCode code="signature" /> | `string` | Function's arguments. |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_functions"
+    values={[
+        { label: 'list_functions', value: 'list_functions' },
+        { label: 'fetch_function', value: 'fetch_function' }
+    ]}
+>
+<TabItem value="list_functions">
+
+A Snowflake function
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Specifies the name for the function, must be unique for the schema in which the function is created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="arguments" /></td>
+    <td><code>array</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="body" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s body.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the function was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="function_type" /></td>
+    <td><code>string</code></td>
+    <td> (default: service-function)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="language" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s language.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="max_batch_rows" /></td>
+    <td><code>integer</code></td>
+    <td>Specifies the max rows for batch operation.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="returns" /></td>
+    <td><code>string</code></td>
+    <td>Specifies the type for the function return value. (default: TEXT)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="signature" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s arguments.</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_function">
+
+A Snowflake function
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Specifies the name for the function, must be unique for the schema in which the function is created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="arguments" /></td>
+    <td><code>array</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="body" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s body.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the function was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="function_type" /></td>
+    <td><code>string</code></td>
+    <td> (default: service-function)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="language" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s language.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="max_batch_rows" /></td>
+    <td><code>integer</code></td>
+    <td>Specifies the max rows for batch operation.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="returns" /></td>
+    <td><code>string</code></td>
+    <td>Specifies the type for the function return value. (default: TEXT)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="signature" /></td>
+    <td><code>string</code></td>
+    <td>Function&#039;s arguments.</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_function" /> | `SELECT` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | - | Fetch a Function using the describe command output. |
-| <CopyableCode code="list_functions" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" /> | Lists the user functions under the database and schema. |
-| <CopyableCode code="create_function" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__arguments, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a function. |
-| <CopyableCode code="delete_function" /> | `DELETE` | <CopyableCode code="database_name, nameWithArgs, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a function with the given name and args. |
-| <CopyableCode code="execute_function" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute a Function. |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_functions"><CopyableCode code="list_functions" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a></td>
+    <td>Lists the user functions under the database and schema.</td>
+</tr>
+<tr>
+    <td><a href="#fetch_function"><CopyableCode code="fetch_function" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch a Function using the describe command output.</td>
+</tr>
+<tr>
+    <td><a href="#create_function"><CopyableCode code="create_function" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create a function.</td>
+</tr>
+<tr>
+    <td><a href="#delete_function"><CopyableCode code="delete_function" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a function with the given name and args.</td>
+</tr>
+<tr>
+    <td><a href="#execute_function"><CopyableCode code="execute_function" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Execute a Function.</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-nameWithArgs">
+    <td><CopyableCode code="nameWithArgs" /></td>
+    <td><code>string</code></td>
+    <td>Function's name with Args (example: foo(a number, b number))</td>
+</tr>
+<tr id="parameter-schema_name">
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -70,8 +276,8 @@ Creates, updates, deletes, gets or lists a <code>functions</code> resource.
     values={[
         { label: 'list_functions', value: 'list_functions' },
         { label: 'fetch_function', value: 'fetch_function' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_functions">
 
 Lists the user functions under the database and schema.
@@ -88,9 +294,10 @@ max_batch_rows,
 returns,
 signature
 FROM snowflake.function.functions
-WHERE database_name = '{{ database_name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}';
 ```
 </TabItem>
 <TabItem value="fetch_function">
@@ -109,30 +316,29 @@ max_batch_rows,
 returns,
 signature
 FROM snowflake.function.functions
-WHERE database_name = '{{ database_name }}'
-AND nameWithArgs = '{{ nameWithArgs }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND nameWithArgs = '{{ nameWithArgs }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_function"
+    values={[
+        { label: 'create_function', value: 'create_function' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_function">
 
 Create a function.
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.function.functions (
 data__function_type,
 data__name,
@@ -145,7 +351,8 @@ data__language,
 data__body,
 database_name,
 schema_name,
-endpoint
+endpoint,
+createMode
 )
 SELECT 
 '{{ function_type }}',
@@ -159,36 +366,15 @@ SELECT
 '{{ body }}',
 '{{ database_name }}',
 '{{ schema_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.function.functions (
-data__name,
-data__arguments,
-database_name,
-schema_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ arguments }}',
-'{{ database_name }}',
-'{{ schema_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: functions
   props:
     - name: database_name
@@ -205,61 +391,93 @@ SELECT
       default: service-function
     - name: name
       value: string
-      description: >-
-        Specifies the name for the function, must be unique for the schema in
-        which the function is created (Required parameter for the functions
-        resource.)
+      description: >
+        Specifies the name for the function, must be unique for the schema in which the function is created
+        
     - name: arguments
-      value:
-        - name: name
-          value: string
-          description: Argument's name
-        - name: datatype
-          value: string
-          description: >-
-            Argument's type (valid values: 'FIXED', 'INT', 'REAL', 'NUMBER',
-            'TEXT', 'BOOLEAN', 'DATE', 'TIME', 'TIMESTAMP_TZ', 'TIMESTAMP_LTZ',
-            'TIMESTAMP_NTZ')
-          default: TEXT
-        - name: value
-          value: string
-          description: Argument's value
-      description: Required parameter for the functions resource.
+      value: array
     - name: returns
       value: string
-      description: >-
-        Specifies the type for the function return value. (valid values:
-        'FIXED', 'INT', 'REAL', 'NUMBER', 'TEXT', 'BOOLEAN', 'DATE', 'TIME',
-        'TIMESTAMP_TZ', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ')
+      description: >
+        Specifies the type for the function return value.
+        
+      valid_values: ['FIXED', 'INT', 'REAL', 'NUMBER', 'TEXT', 'BOOLEAN', 'DATE', 'TIME', 'TIMESTAMP_TZ', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ']
       default: TEXT
     - name: max_batch_rows
       value: integer
-      description: Specifies the max rows for batch operation.
+      description: >
+        Specifies the max rows for batch operation.
+        
     - name: created_on
       value: string
-      description: Date and time when the function was created.
+      description: >
+        Date and time when the function was created.
+        
     - name: signature
       value: string
-      description: Function's arguments.
+      description: >
+        Function's arguments.
+        
     - name: language
       value: string
-      description: Function's language.
+      description: >
+        Function's language.
+        
     - name: body
       value: string
-      description: Function's body.
+      description: >
+        Function's body.
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_function"
+    values={[
+        { label: 'delete_function', value: 'delete_function' }
+    ]}
+>
+<TabItem value="delete_function">
 
 Delete a function with the given name and args.
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.function.functions
-WHERE database_name = '{{ database_name }}'
-AND nameWithArgs = '{{ nameWithArgs }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND schema_name = '{{ schema_name }}' --required
+AND nameWithArgs = '{{ nameWithArgs }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
+
+
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="execute_function"
+    values={[
+        { label: 'execute_function', value: 'execute_function' }
+    ]}
+>
+<TabItem value="execute_function">
+
+Execute a Function.
+
+```sql
+EXEC snowflake.function.functions.execute_function 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@name='{{ name }}' --required, 
+@endpoint='{{ endpoint }}' --required;
+```
+</TabItem>
+</Tabs>

@@ -1,4 +1,4 @@
----
+--- 
 title: streams
 hide_title: false
 hide_table_of_contents: false
@@ -28,49 +28,321 @@ Creates, updates, deletes, gets or lists a <code>streams</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the stream |
-| <CopyableCode code="comment" /> | `string` | user comment associated to an object in the dictionary |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the stream was created. |
-| <CopyableCode code="database_name" /> | `string` | Database in which the stream is stored |
-| <CopyableCode code="invalid_reason" /> | `string` | Reason why the stream cannot be queried successfully. This column supports future functionality. Currently, the only value returned is N/A. |
-| <CopyableCode code="mode" /> | `string` | Mode of the stream. Possible values include: APPEND_ONLY, INSERT_ONLY. For streams on tables, the column displays DEFAULT. |
-| <CopyableCode code="owner" /> | `string` | Role that owns the stream |
-| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the stream |
-| <CopyableCode code="schema_name" /> | `string` | Schema in which the stream is stored |
-| <CopyableCode code="stale" /> | `boolean` | Specifies whether the stream is stale or not |
-| <CopyableCode code="stale_after" /> | `string` | Timestamp when the stream became stale or may become stale if not consumed. |
-| <CopyableCode code="stream_source" /> | `object` |  |
-| <CopyableCode code="table_name" /> | `string` | Table name whose changes are tracked by the stream |
-| <CopyableCode code="type" /> | `string` | Type of the stream; currently DELTA only. |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_streams"
+    values={[
+        { label: 'list_streams', value: 'list_streams' },
+        { label: 'fetch_stream', value: 'fetch_stream' }
+    ]}
+>
+<TabItem value="list_streams">
+
+A Snowflake stream
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the stream is stored (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the stream is stored (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="table_name" /></td>
+    <td><code>string</code></td>
+    <td>Table name whose changes are tracked by the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the stream was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="invalid_reason" /></td>
+    <td><code>string</code></td>
+    <td>Reason why the stream cannot be queried successfully. This column supports future functionality. Currently, the only value returned is N/A.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mode" /></td>
+    <td><code>string</code></td>
+    <td>Mode of the stream. Possible values include: APPEND_ONLY, INSERT_ONLY. For streams on tables, the column displays DEFAULT.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="stale" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the stream is stale or not</td>
+</tr>
+<tr>
+    <td><CopyableCode code="stale_after" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Timestamp when the stream became stale or may become stale if not consumed. </td>
+</tr>
+<tr>
+    <td><CopyableCode code="stream_source" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="type" /></td>
+    <td><code>string</code></td>
+    <td>Type of the stream; currently DELTA only.</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_stream">
+
+A Snowflake stream
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the stream is stored (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the stream is stored (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="table_name" /></td>
+    <td><code>string</code></td>
+    <td>Table name whose changes are tracked by the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the stream was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="invalid_reason" /></td>
+    <td><code>string</code></td>
+    <td>Reason why the stream cannot be queried successfully. This column supports future functionality. Currently, the only value returned is N/A.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="mode" /></td>
+    <td><code>string</code></td>
+    <td>Mode of the stream. Possible values include: APPEND_ONLY, INSERT_ONLY. For streams on tables, the column displays DEFAULT.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the stream (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="stale" /></td>
+    <td><code>boolean</code></td>
+    <td>Specifies whether the stream is stale or not</td>
+</tr>
+<tr>
+    <td><CopyableCode code="stale_after" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Timestamp when the stream became stale or may become stale if not consumed. </td>
+</tr>
+<tr>
+    <td><CopyableCode code="stream_source" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="type" /></td>
+    <td><code>string</code></td>
+    <td>Type of the stream; currently DELTA only.</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_stream" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a stream |
-| <CopyableCode code="list_streams" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List streams |
-| <CopyableCode code="create_stream" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__name, data__stream_source, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a stream |
-| <CopyableCode code="delete_stream" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a stream |
-| <CopyableCode code="clone_stream" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Clone a stream |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_streams"><CopyableCode code="list_streams" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td>List streams</td>
+</tr>
+<tr>
+    <td><a href="#fetch_stream"><CopyableCode code="fetch_stream" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch a stream</td>
+</tr>
+<tr>
+    <td><a href="#create_stream"><CopyableCode code="create_stream" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td>Create a stream</td>
+</tr>
+<tr>
+    <td><a href="#delete_stream"><CopyableCode code="delete_stream" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a stream</td>
+</tr>
+<tr>
+    <td><a href="#clone_stream"><CopyableCode code="clone_stream" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-targetDatabase">targetDatabase</a>, <a href="#parameter-targetSchema">targetSchema</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td>Clone a stream</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-schema_name">
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-targetDatabase">
+    <td><CopyableCode code="targetDatabase" /></td>
+    <td><code>string</code></td>
+    <td>Database of the target resource. Defaults to the source's database (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr id="parameter-targetSchema">
+    <td><CopyableCode code="targetSchema" /></td>
+    <td><code>string</code></td>
+    <td>Schema of the target resource. Defaults to the source's schema (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+</tr>
+<tr id="parameter-copyGrants">
+    <td><CopyableCode code="copyGrants" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter to enable copy grants when creating the object. (example: false, default: false)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-startsWith">
+    <td><CopyableCode code="startsWith" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -79,8 +351,8 @@ Creates, updates, deletes, gets or lists a <code>streams</code> resource.
     values={[
         { label: 'list_streams', value: 'list_streams' },
         { label: 'fetch_stream', value: 'fetch_stream' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_streams">
 
 List streams
@@ -88,23 +360,27 @@ List streams
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
+table_name,
 comment,
 created_on,
-database_name,
 invalid_reason,
 mode,
 owner,
 owner_role_type,
-schema_name,
 stale,
 stale_after,
 stream_source,
-table_name,
 type
 FROM snowflake.streams.streams
-WHERE database_name = '{{ database_name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}'
+AND startsWith = '{{ startsWith }}'
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}';
 ```
 </TabItem>
 <TabItem value="fetch_stream">
@@ -114,51 +390,52 @@ Fetch a stream
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
+table_name,
 comment,
 created_on,
-database_name,
 invalid_reason,
 mode,
 owner,
 owner_role_type,
-schema_name,
 stale,
 stale_after,
 stream_source,
-table_name,
 type
 FROM snowflake.streams.streams
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_stream"
+    values={[
+        { label: 'create_stream', value: 'create_stream' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_stream">
 
 Create a stream
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.streams.streams (
 data__name,
 data__stream_source,
 data__comment,
 database_name,
 schema_name,
-endpoint
+endpoint,
+createMode,
+copyGrants
 )
 SELECT 
 '{{ name }}',
@@ -166,36 +443,16 @@ SELECT
 '{{ comment }}',
 '{{ database_name }}',
 '{{ schema_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}',
+'{{ copyGrants }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.streams.streams (
-data__name,
-data__stream_source,
-database_name,
-schema_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ stream_source }}',
-'{{ database_name }}',
-'{{ schema_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: streams
   props:
     - name: database_name
@@ -209,30 +466,78 @@ SELECT
       description: Required parameter for the streams resource.
     - name: name
       value: string
-      description: Name of the stream (Required parameter for the streams resource.)
+      description: >
+        Name of the stream
+        
     - name: stream_source
-      value:
-        src_type: string
-        name: string
-        database_name: string
-        schema_name: string
-      description: Required parameter for the streams resource.
+      value: object
     - name: comment
       value: string
-      description: user comment associated to an object in the dictionary
+      description: >
+        user comment associated to an object in the dictionary
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+    - name: copyGrants
+      value: boolean
+      description: Query parameter to enable copy grants when creating the object. (example: false, default: false)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_stream"
+    values={[
+        { label: 'delete_stream', value: 'delete_stream' }
+    ]}
+>
+<TabItem value="delete_stream">
 
 Delete a stream
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.streams.streams
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND schema_name = '{{ schema_name }}' --required
+AND name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
+
+
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="clone_stream"
+    values={[
+        { label: 'clone_stream', value: 'clone_stream' }
+    ]}
+>
+<TabItem value="clone_stream">
+
+Clone a stream
+
+```sql
+EXEC snowflake.streams.streams.clone_stream 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@name='{{ name }}' --required, 
+@targetDatabase='{{ targetDatabase }}' --required, 
+@targetSchema='{{ targetSchema }}' --required, 
+@endpoint='{{ endpoint }}' --required, 
+@createMode='{{ createMode }}', 
+@copyGrants={{ copyGrants }} 
+@@json=
+'{
+"name": "{{ name }}", 
+"comment": "{{ comment }}"
+}';
+```
+</TabItem>
+</Tabs>

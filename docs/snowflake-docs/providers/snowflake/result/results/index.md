@@ -1,4 +1,4 @@
----
+--- 
 title: results
 hide_title: false
 hide_table_of_contents: false
@@ -28,22 +28,83 @@ Creates, updates, deletes, gets or lists a <code>results</code> resource.
 </tbody></table>
 
 ## Fields
+
+The following fields are returned by `SELECT` queries:
+
 `SELECT` not supported for this resource, use `SHOW METHODS` to view available operations for the resource.
 
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_result" /> | `EXEC` | <CopyableCode code="result_handler, endpoint" /> | <CopyableCode code="page" /> | Get result status or the result when it is ready. |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#fetch_result"><CopyableCode code="fetch_result" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-result_handler">result_handler</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-page">page</a></td>
+    <td>Get result status or the result when it is ready.</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="page" /> | Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. | `integer` | `0` |
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-result_handler">
+    <td><CopyableCode code="result_handler" /></td>
+    <td><code>string</code></td>
+    <td>The opaque result id.</td>
+</tr>
+<tr id="parameter-page">
+    <td><CopyableCode code="page" /></td>
+    <td><code>integer (int64)</code></td>
+    <td>Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. (minimum: 0, default: 0)</td>
+</tr>
+</tbody>
+</table>
 
-</details>
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="fetch_result"
+    values={[
+        { label: 'fetch_result', value: 'fetch_result' }
+    ]}
+>
+<TabItem value="fetch_result">
+
+Get result status or the result when it is ready.
+
+```sql
+EXEC snowflake.result.results.fetch_result 
+@result_handler='{{ result_handler }}' --required, 
+@endpoint='{{ endpoint }}' --required, 
+@page='{{ page }}';
+```
+</TabItem>
+</Tabs>

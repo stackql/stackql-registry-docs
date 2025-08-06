@@ -1,4 +1,4 @@
----
+--- 
 title: future_grants
 hide_title: false
 hide_table_of_contents: false
@@ -28,40 +28,152 @@ Creates, updates, deletes, gets or lists a <code>future_grants</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="containing_scope" /> | `object` |  |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the grant was created |
-| <CopyableCode code="grant_option" /> | `boolean` | If true, allows the recipient role to grant the privileges to other roles. |
-| <CopyableCode code="granted_by" /> | `string` | The role that granted this privilege to this grantee |
-| <CopyableCode code="privileges" /> | `array` | List of privileges to be granted. |
-| <CopyableCode code="securable" /> | `object` |  |
-| <CopyableCode code="securable_type" /> | `string` | Type of the securable to be granted. |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_future_grants"
+    values={[
+        { label: 'list_future_grants', value: 'list_future_grants' }
+    ]}
+>
+<TabItem value="list_future_grants">
+
+successful
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="containing_scope" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the grant was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="grant_option" /></td>
+    <td><code>boolean</code></td>
+    <td>If true, allows the recipient role to grant the privileges to other roles.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_by" /></td>
+    <td><code>string</code></td>
+    <td>The role that granted this privilege to this grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="privileges" /></td>
+    <td><code>array</code></td>
+    <td>List of privileges to be granted.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="securable" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="securable_type" /></td>
+    <td><code>string</code></td>
+    <td>Type of the securable to be granted.</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_future_grants" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all future grants to the role |
-| <CopyableCode code="grant_future_privileges" /> | `INSERT` | <CopyableCode code="name, data__securable_type, endpoint" /> | - | Grant future privileges to the role |
-| <CopyableCode code="revoke_future_grants" /> | `DELETE` | <CopyableCode code="name, data__securable_type, endpoint" /> | <CopyableCode code="mode" /> | Revoke future grants from the role |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_future_grants"><CopyableCode code="list_future_grants" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-showLimit">showLimit</a></td>
+    <td>List all future grants to the role</td>
+</tr>
+<tr>
+    <td><a href="#grant_future_privileges"><CopyableCode code="grant_future_privileges" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Grant future privileges to the role</td>
+</tr>
+<tr>
+    <td><a href="#revoke_future_grants"><CopyableCode code="revoke_future_grants" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-mode">mode</a></td>
+    <td>Revoke future grants from the role</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="mode" /> | Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role. - restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails. - cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-mode">
+    <td><CopyableCode code="mode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role. - restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails. - cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege. (enum: [restrict, cascade], example: restrict)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
-List all future grants to the role
+<Tabs
+    defaultValue="list_future_grants"
+    values={[
+        { label: 'list_future_grants', value: 'list_future_grants' }
+    ]}
+>
+<TabItem value="list_future_grants">
 
+List all future grants to the role
 
 ```sql
 SELECT
@@ -73,25 +185,28 @@ privileges,
 securable,
 securable_type
 FROM snowflake.role.future_grants
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND showLimit = '{{ showLimit }}';
 ```
-## `INSERT` example
+</TabItem>
+</Tabs>
+
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="grant_future_privileges"
+    values={[
+        { label: 'grant_future_privileges', value: 'grant_future_privileges' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="grant_future_privileges">
 
 Grant future privileges to the role
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.role.future_grants (
 data__securable,
 data__containing_scope,
@@ -112,28 +227,10 @@ SELECT
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.role.future_grants (
-data__securable_type,
-name,
-endpoint
-)
-SELECT 
-'{{ securable_type }}',
-'{{ name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: future_grants
   props:
     - name: name
@@ -143,40 +240,46 @@ SELECT
       value: string
       description: Required parameter for the future_grants resource.
     - name: securable
-      value:
-        database: string
-        schema: string
-        service: string
-        name: string
+      value: object
     - name: containing_scope
-      value:
-        database: string
-        schema: string
+      value: object
     - name: securable_type
       value: string
-      description: >-
-        Type of the securable to be granted. (Required parameter for the
-        future_grants resource.)
+      description: >
+        Type of the securable to be granted.
+        
     - name: grant_option
       value: boolean
-      description: >-
-        If true, allows the recipient role to grant the privileges to other
-        roles.
+      description: >
+        If true, allows the recipient role to grant the privileges to other roles.
+        
     - name: privileges
       value: array
-      description: List of privileges to be granted.
+      description: >
+        List of privileges to be granted.
+        
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="revoke_future_grants"
+    values={[
+        { label: 'revoke_future_grants', value: 'revoke_future_grants' }
+    ]}
+>
+<TabItem value="revoke_future_grants">
 
 Revoke future grants from the role
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.role.future_grants
-WHERE name = '{{ name }}'
-AND data__securable_type = '{{ data__securable_type }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND mode = '{{ mode }}';
 ```
+</TabItem>
+</Tabs>

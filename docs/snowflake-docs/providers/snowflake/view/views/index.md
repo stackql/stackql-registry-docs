@@ -1,4 +1,4 @@
----
+--- 
 title: views
 hide_title: false
 hide_table_of_contents: false
@@ -28,47 +28,289 @@ Creates, updates, deletes, gets or lists a <code>views</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the view |
-| <CopyableCode code="columns" /> | `array` | The columns of the view |
-| <CopyableCode code="comment" /> | `string` | user comment associated to an object in the dictionary |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the view was created. |
-| <CopyableCode code="database_name" /> | `string` | Database in which the view is stored |
-| <CopyableCode code="kind" /> | `string` | Kind of the view, permanent (default) or temporary |
-| <CopyableCode code="owner" /> | `string` | Role that owns the view |
-| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the view |
-| <CopyableCode code="query" /> | `string` | Query used to create the view |
-| <CopyableCode code="recursive" /> | `boolean` | Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression) |
-| <CopyableCode code="schema_name" /> | `string` | Schema in which the view is stored |
-| <CopyableCode code="secure" /> | `boolean` | Whether or not this view is secure |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_views"
+    values={[
+        { label: 'list_views', value: 'list_views' },
+        { label: 'fetch_view', value: 'fetch_view' }
+    ]}
+>
+<TabItem value="list_views">
+
+A Snowflake view
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the view is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the view is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="columns" /></td>
+    <td><code>array</code></td>
+    <td>The columns of the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the view was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="kind" /></td>
+    <td><code>string</code></td>
+    <td>Kind of the view, permanent (default) or temporary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="query" /></td>
+    <td><code>string</code></td>
+    <td>Query used to create the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="recursive" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="secure" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not this view is secure</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_view">
+
+A Snowflake view
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the view is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the view is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="columns" /></td>
+    <td><code>array</code></td>
+    <td>The columns of the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the view was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="kind" /></td>
+    <td><code>string</code></td>
+    <td>Kind of the view, permanent (default) or temporary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="query" /></td>
+    <td><code>string</code></td>
+    <td>Query used to create the view</td>
+</tr>
+<tr>
+    <td><CopyableCode code="recursive" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression)</td>
+</tr>
+<tr>
+    <td><CopyableCode code="secure" /></td>
+    <td><code>boolean</code></td>
+    <td>Whether or not this view is secure</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_view" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch a view |
-| <CopyableCode code="list_views" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" />, <CopyableCode code="deep" /> | List views |
-| <CopyableCode code="create_view" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__columns, data__name, data__query, endpoint" /> | <CopyableCode code="createMode" />, <CopyableCode code="copyGrants" /> | Create a view |
-| <CopyableCode code="delete_view" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete a view |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_views"><CopyableCode code="list_views" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a>, <a href="#parameter-deep">deep</a></td>
+    <td>List views</td>
+</tr>
+<tr>
+    <td><a href="#fetch_view"><CopyableCode code="fetch_view" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch a view</td>
+</tr>
+<tr>
+    <td><a href="#create_view"><CopyableCode code="create_view" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td>Create a view</td>
+</tr>
+<tr>
+    <td><a href="#delete_view"><CopyableCode code="delete_view" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete a view</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="copyGrants" /> | Query parameter to enable copy grants when creating the object. | `boolean` | `false` |
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="deep" /> | Optionally includes dependency information of the view. | `boolean` | `-` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-schema_name">
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-copyGrants">
+    <td><CopyableCode code="copyGrants" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter to enable copy grants when creating the object. (example: false, default: false)</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-deep">
+    <td><CopyableCode code="deep" /></td>
+    <td><code>boolean</code></td>
+    <td>Optionally includes dependency information of the view.</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-startsWith">
+    <td><CopyableCode code="startsWith" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -77,8 +319,8 @@ Creates, updates, deletes, gets or lists a <code>views</code> resource.
     values={[
         { label: 'list_views', value: 'list_views' },
         { label: 'fetch_view', value: 'fetch_view' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_views">
 
 List views
@@ -86,21 +328,26 @@ List views
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 columns,
 comment,
 created_on,
-database_name,
 kind,
 owner,
 owner_role_type,
 query,
 recursive,
-schema_name,
 secure
 FROM snowflake.view.views
-WHERE database_name = '{{ database_name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}'
+AND startsWith = '{{ startsWith }}'
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}'
+AND deep = '{{ deep }}';
 ```
 </TabItem>
 <TabItem value="fetch_view">
@@ -110,42 +357,41 @@ Fetch a view
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 columns,
 comment,
 created_on,
-database_name,
 kind,
 owner,
 owner_role_type,
 query,
 recursive,
-schema_name,
 secure
 FROM snowflake.view.views
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_view"
+    values={[
+        { label: 'create_view', value: 'create_view' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_view">
 
 Create a view
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.view.views (
 data__name,
 data__secure,
@@ -156,7 +402,9 @@ data__comment,
 data__query,
 database_name,
 schema_name,
-endpoint
+endpoint,
+createMode,
+copyGrants
 )
 SELECT 
 '{{ name }}',
@@ -168,38 +416,16 @@ SELECT
 '{{ query }}',
 '{{ database_name }}',
 '{{ schema_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}',
+'{{ copyGrants }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.view.views (
-data__name,
-data__columns,
-data__query,
-database_name,
-schema_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ columns }}',
-'{{ query }}',
-'{{ database_name }}',
-'{{ schema_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: views
   props:
     - name: database_name
@@ -213,50 +439,70 @@ SELECT
       description: Required parameter for the views resource.
     - name: name
       value: string
-      description: Name of the view (Required parameter for the views resource.)
+      description: >
+        Name of the view
+        
     - name: secure
       value: boolean
-      description: Whether or not this view is secure
+      description: >
+        Whether or not this view is secure
+        
     - name: kind
       value: string
-      description: >-
-        Kind of the view, permanent (default) or temporary (valid values:
-        'PERMANENT', 'TEMPORARY')
+      description: >
+        Kind of the view, permanent (default) or temporary
+        
+      valid_values: ['PERMANENT', 'TEMPORARY']
     - name: recursive
       value: boolean
-      description: >-
-        Whether or not this view can refer to itself using recursive syntax
-        withot requiring a CTE (common table expression)
+      description: >
+        Whether or not this view can refer to itself using recursive syntax withot requiring a CTE (common table expression)
+        
     - name: columns
-      value:
-        - name: name
-          value: string
-          description: Column name
-        - name: comment
-          value: string
-          description: Specifies a comment for the column
-      description: The columns of the view (Required parameter for the views resource.)
+      value: array
+      description: >
+        The columns of the view
+        
     - name: comment
       value: string
-      description: user comment associated to an object in the dictionary
+      description: >
+        user comment associated to an object in the dictionary
+        
     - name: query
       value: string
-      description: >-
-        Query used to create the view (Required parameter for the views
-        resource.)
+      description: >
+        Query used to create the view
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+    - name: copyGrants
+      value: boolean
+      description: Query parameter to enable copy grants when creating the object. (example: false, default: false)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_view"
+    values={[
+        { label: 'delete_view', value: 'delete_view' }
+    ]}
+>
+<TabItem value="delete_view">
 
 Delete a view
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.view.views
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND schema_name = '{{ schema_name }}' --required
+AND name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>

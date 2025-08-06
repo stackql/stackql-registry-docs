@@ -1,4 +1,4 @@
----
+--- 
 title: alerts
 hide_title: false
 hide_table_of_contents: false
@@ -18,7 +18,7 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
+Creates, updates, deletes, gets or lists an <code>alerts</code> resource.
 
 ## Overview
 <table><tbody>
@@ -28,47 +28,303 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | Name of the alert |
-| <CopyableCode code="action" /> | `string` | The SQL statement to execute when the alert is triggered |
-| <CopyableCode code="comment" /> | `string` | user comment associated to an object in the dictionary |
-| <CopyableCode code="condition" /> | `string` | The SQL statement that must be evaluated to determine whether to trigger the alert |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the alert was created. |
-| <CopyableCode code="database_name" /> | `string` | Database in which the alert is stored |
-| <CopyableCode code="owner" /> | `string` | Role that owns the alert |
-| <CopyableCode code="owner_role_type" /> | `string` | The type of role that owns the alert |
-| <CopyableCode code="schedule" /> | `object` |  |
-| <CopyableCode code="schema_name" /> | `string` | Schema in which the alert is stored |
-| <CopyableCode code="state" /> | `string` | The current state of the alert |
-| <CopyableCode code="warehouse" /> | `string` | The warehouse the alert runs in |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_alerts"
+    values={[
+        { label: 'list_alerts', value: 'list_alerts' },
+        { label: 'fetch_alert', value: 'fetch_alert' }
+    ]}
+>
+<TabItem value="list_alerts">
+
+A Snowflake alert
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the alert is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the alert is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="action" /></td>
+    <td><code>string</code></td>
+    <td>The SQL statement to execute when the alert is triggered</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="condition" /></td>
+    <td><code>string</code></td>
+    <td>The SQL statement that must be evaluated to determine whether to trigger the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the alert was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schedule" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="state" /></td>
+    <td><code>string</code></td>
+    <td>The current state of the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="warehouse" /></td>
+    <td><code>string</code></td>
+    <td>The warehouse the alert runs in</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+<TabItem value="fetch_alert">
+
+A Snowflake alert
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Name of the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Database in which the alert is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Schema in which the alert is stored</td>
+</tr>
+<tr>
+    <td><CopyableCode code="action" /></td>
+    <td><code>string</code></td>
+    <td>The SQL statement to execute when the alert is triggered</td>
+</tr>
+<tr>
+    <td><CopyableCode code="comment" /></td>
+    <td><code>string</code></td>
+    <td>user comment associated to an object in the dictionary</td>
+</tr>
+<tr>
+    <td><CopyableCode code="condition" /></td>
+    <td><code>string</code></td>
+    <td>The SQL statement that must be evaluated to determine whether to trigger the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the alert was created.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner" /></td>
+    <td><code>string</code></td>
+    <td>Role that owns the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="owner_role_type" /></td>
+    <td><code>string</code></td>
+    <td>The type of role that owns the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="schedule" /></td>
+    <td><code>object</code></td>
+    <td></td>
+</tr>
+<tr>
+    <td><CopyableCode code="state" /></td>
+    <td><code>string</code></td>
+    <td>The current state of the alert</td>
+</tr>
+<tr>
+    <td><CopyableCode code="warehouse" /></td>
+    <td><code>string</code></td>
+    <td>The warehouse the alert runs in</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="fetch_alert" /> | `SELECT` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Fetch an alert |
-| <CopyableCode code="list_alerts" /> | `SELECT` | <CopyableCode code="database_name, schema_name, endpoint" /> | <CopyableCode code="like" />, <CopyableCode code="startsWith" />, <CopyableCode code="showLimit" />, <CopyableCode code="fromName" /> | List alerts |
-| <CopyableCode code="create_alert" /> | `INSERT` | <CopyableCode code="database_name, schema_name, data__action, data__condition, data__name, data__schedule, endpoint" /> | <CopyableCode code="createMode" /> | Create an alert |
-| <CopyableCode code="delete_alert" /> | `DELETE` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | <CopyableCode code="ifExists" /> | Delete an alert |
-| <CopyableCode code="clone_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, targetDatabase, targetSchema, data__name, endpoint" /> | <CopyableCode code="createMode" /> | Create a new alert by cloning from the specified resource |
-| <CopyableCode code="execute_alert" /> | `EXEC` | <CopyableCode code="database_name, name, schema_name, endpoint" /> | - | Execute an alert |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_alerts"><CopyableCode code="list_alerts" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td>List alerts</td>
+</tr>
+<tr>
+    <td><a href="#fetch_alert"><CopyableCode code="fetch_alert" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Fetch an alert</td>
+</tr>
+<tr>
+    <td><a href="#create_alert"><CopyableCode code="create_alert" /></a></td>
+    <td><CopyableCode code="insert" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create an alert</td>
+</tr>
+<tr>
+    <td><a href="#delete_alert"><CopyableCode code="delete_alert" /></a></td>
+    <td><CopyableCode code="delete" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td>Delete an alert</td>
+</tr>
+<tr>
+    <td><a href="#clone_alert"><CopyableCode code="clone_alert" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-targetDatabase">targetDatabase</a>, <a href="#parameter-targetSchema">targetSchema</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-createMode">createMode</a></td>
+    <td>Create a new alert by cloning from the specified resource</td>
+</tr>
+<tr>
+    <td><a href="#execute_alert"><CopyableCode code="execute_alert" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td></td>
+    <td>Execute an alert</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="createMode" /> | Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. | `string` | `errorIfExists` |
-| <CopyableCode code="fromName" /> | Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. | `string` | `-` |
-| <CopyableCode code="ifExists" /> | Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. | `boolean` | `false` |
-| <CopyableCode code="like" /> | Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. | `string` | `-` |
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-| <CopyableCode code="startsWith" /> | Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. | `string` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-database_name">
+    <td><CopyableCode code="database_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-schema_name">
+    <td><CopyableCode code="schema_name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-targetDatabase">
+    <td><CopyableCode code="targetDatabase" /></td>
+    <td><code>string</code></td>
+    <td>Database of the newly created resource. Defaults to the source's database</td>
+</tr>
+<tr id="parameter-targetSchema">
+    <td><CopyableCode code="targetSchema" /></td>
+    <td><code>string</code></td>
+    <td>Schema of the newly created resource. Defaults to the source's schema</td>
+</tr>
+<tr id="parameter-createMode">
+    <td><CopyableCode code="createMode" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+</tr>
+<tr id="parameter-fromName">
+    <td><CopyableCode code="fromName" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+</tr>
+<tr id="parameter-ifExists">
+    <td><CopyableCode code="ifExists" /></td>
+    <td><code>boolean</code></td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+</tr>
+<tr id="parameter-like">
+    <td><CopyableCode code="like" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+<tr id="parameter-startsWith">
+    <td><CopyableCode code="startsWith" /></td>
+    <td><code>string</code></td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
@@ -77,8 +333,8 @@ Creates, updates, deletes, gets or lists a <code>alerts</code> resource.
     values={[
         { label: 'list_alerts', value: 'list_alerts' },
         { label: 'fetch_alert', value: 'fetch_alert' }
-    ]
-}>
+    ]}
+>
 <TabItem value="list_alerts">
 
 List alerts
@@ -86,21 +342,25 @@ List alerts
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 action,
 comment,
 condition,
 created_on,
-database_name,
 owner,
 owner_role_type,
 schedule,
-schema_name,
 state,
 warehouse
 FROM snowflake.alert.alerts
-WHERE database_name = '{{ database_name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND like = '{{ like }}'
+AND startsWith = '{{ startsWith }}'
+AND showLimit = '{{ showLimit }}'
+AND fromName = '{{ fromName }}';
 ```
 </TabItem>
 <TabItem value="fetch_alert">
@@ -110,42 +370,41 @@ Fetch an alert
 ```sql
 SELECT
 name,
+database_name,
+schema_name,
 action,
 comment,
 condition,
 created_on,
-database_name,
 owner,
 owner_role_type,
 schedule,
-schema_name,
 state,
 warehouse
 FROM snowflake.alert.alerts
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' -- required
+AND schema_name = '{{ schema_name }}' -- required
+AND name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
 </Tabs>
 
-## `INSERT` example
+
+## `INSERT` examples
+
+<Tabs
+    defaultValue="create_alert"
+    values={[
+        { label: 'create_alert', value: 'create_alert' },
+        { label: 'Manifest', value: 'manifest' }
+    ]}
+>
+<TabItem value="create_alert">
 
 Create an alert
 
-<Tabs
-    defaultValue="all"
-    values={[
-        { label: 'Required Properties', value: 'required' },
-        { label: 'All Properties', value: 'all', },
-        { label: 'Manifest', value: 'manifest', },
-    ]
-}>
-<TabItem value="all">
-
 ```sql
-/*+ create */
 INSERT INTO snowflake.alert.alerts (
 data__name,
 data__comment,
@@ -155,7 +414,8 @@ data__condition,
 data__action,
 database_name,
 schema_name,
-endpoint
+endpoint,
+createMode
 )
 SELECT 
 '{{ name }}',
@@ -166,40 +426,15 @@ SELECT
 '{{ action }}',
 '{{ database_name }}',
 '{{ schema_name }}',
-'{{ endpoint }}'
+'{{ endpoint }}',
+'{{ createMode }}'
 ;
 ```
 </TabItem>
-
-<TabItem value="required">
-
-```sql
-/*+ create */
-INSERT INTO snowflake.alert.alerts (
-data__name,
-data__schedule,
-data__condition,
-data__action,
-database_name,
-schema_name,
-endpoint
-)
-SELECT 
-'{{ name }}',
-'{{ schedule }}',
-'{{ condition }}',
-'{{ action }}',
-'{{ database_name }}',
-'{{ schema_name }}',
-'{{ endpoint }}'
-;
-```
-</TabItem>
-
 <TabItem value="manifest">
 
 ```yaml
-# Description fields below are for documentation purposes only and are not required in the manifest
+# Description fields are for documentation purposes
 - name: alerts
   props:
     - name: database_name
@@ -213,40 +448,102 @@ SELECT
       description: Required parameter for the alerts resource.
     - name: name
       value: string
-      description: Name of the alert (Required parameter for the alerts resource.)
+      description: >
+        Name of the alert
+        
     - name: comment
       value: string
-      description: user comment associated to an object in the dictionary
+      description: >
+        user comment associated to an object in the dictionary
+        
     - name: schedule
-      value:
-        schedule_type: string
-      description: Required parameter for the alerts resource.
+      value: object
     - name: warehouse
       value: string
-      description: The warehouse the alert runs in
+      description: >
+        The warehouse the alert runs in
+        
     - name: condition
       value: string
-      description: >-
-        The SQL statement that must be evaluated to determine whether to trigger
-        the alert (Required parameter for the alerts resource.)
+      description: >
+        The SQL statement that must be evaluated to determine whether to trigger the alert
+        
     - name: action
       value: string
-      description: >-
-        The SQL statement to execute when the alert is triggered (Required
-        parameter for the alerts resource.)
+      description: >
+        The SQL statement to execute when the alert is triggered
+        
+    - name: createMode
+      value: string
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
 ```
 </TabItem>
 </Tabs>
 
-## `DELETE` example
+
+## `DELETE` examples
+
+<Tabs
+    defaultValue="delete_alert"
+    values={[
+        { label: 'delete_alert', value: 'delete_alert' }
+    ]}
+>
+<TabItem value="delete_alert">
 
 Delete an alert
 
 ```sql
-/*+ delete */
 DELETE FROM snowflake.alert.alerts
-WHERE database_name = '{{ database_name }}'
-AND name = '{{ name }}'
-AND schema_name = '{{ schema_name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE database_name = '{{ database_name }}' --required
+AND schema_name = '{{ schema_name }}' --required
+AND name = '{{ name }}' --required
+AND endpoint = '{{ endpoint }}' --required
+AND ifExists = '{{ ifExists }}';
 ```
+</TabItem>
+</Tabs>
+
+
+## Lifecycle Methods
+
+<Tabs
+    defaultValue="clone_alert"
+    values={[
+        { label: 'clone_alert', value: 'clone_alert' },
+        { label: 'execute_alert', value: 'execute_alert' }
+    ]}
+>
+<TabItem value="clone_alert">
+
+Create a new alert by cloning from the specified resource
+
+```sql
+EXEC snowflake.alert.alerts.clone_alert 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@name='{{ name }}' --required, 
+@targetDatabase='{{ targetDatabase }}' --required, 
+@targetSchema='{{ targetSchema }}' --required, 
+@endpoint='{{ endpoint }}' --required, 
+@createMode='{{ createMode }}' 
+@@json=
+'{
+"name": "{{ name }}", 
+"point_of_time": "{{ point_of_time }}"
+}';
+```
+</TabItem>
+<TabItem value="execute_alert">
+
+Execute an alert
+
+```sql
+EXEC snowflake.alert.alerts.execute_alert 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@name='{{ name }}' --required, 
+@endpoint='{{ endpoint }}' --required;
+```
+</TabItem>
+</Tabs>

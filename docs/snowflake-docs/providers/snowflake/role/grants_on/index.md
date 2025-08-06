@@ -1,4 +1,4 @@
----
+--- 
 title: grants_on
 hide_title: false
 hide_table_of_contents: false
@@ -28,52 +28,159 @@ Creates, updates, deletes, gets or lists a <code>grants_on</code> resource.
 </tbody></table>
 
 ## Fields
-| Name | Datatype | Description |
-|:-----|:---------|:------------|
-| <CopyableCode code="name" /> | `string` | The name of the role |
-| <CopyableCode code="created_on" /> | `string` | Date and time when the grant was created |
-| <CopyableCode code="grant_option" /> | `string` | If true, allows the recipient role to grant the privileges to other roles. |
-| <CopyableCode code="granted_by" /> | `string` | The role that granted this privilege to this grantee |
-| <CopyableCode code="granted_by_role_type" /> | `string` | Type of the role that granted this privilege to this grantee |
-| <CopyableCode code="granted_on" /> | `string` | The type of of the role |
-| <CopyableCode code="granted_to" /> | `string` | The type of the grantee |
-| <CopyableCode code="grantee_name" /> | `string` | The name of the grantee |
-| <CopyableCode code="privilege" /> | `string` | The name of the privilege |
+
+The following fields are returned by `SELECT` queries:
+
+<Tabs
+    defaultValue="list_grants_on"
+    values={[
+        { label: 'list_grants_on', value: 'list_grants_on' }
+    ]}
+>
+<TabItem value="list_grants_on">
+
+successful
+
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the role</td>
+</tr>
+<tr>
+    <td><CopyableCode code="grantee_name" /></td>
+    <td><code>string</code></td>
+    <td>The name of the grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="created_on" /></td>
+    <td><code>string (date-time)</code></td>
+    <td>Date and time when the grant was created</td>
+</tr>
+<tr>
+    <td><CopyableCode code="grant_option" /></td>
+    <td><code>string</code></td>
+    <td>If true, allows the recipient role to grant the privileges to other roles.</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_by" /></td>
+    <td><code>string</code></td>
+    <td>The role that granted this privilege to this grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_by_role_type" /></td>
+    <td><code>string</code></td>
+    <td>Type of the role that granted this privilege to this grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_on" /></td>
+    <td><code>string</code></td>
+    <td>The type of of the role</td>
+</tr>
+<tr>
+    <td><CopyableCode code="granted_to" /></td>
+    <td><code>string</code></td>
+    <td>The type of the grantee</td>
+</tr>
+<tr>
+    <td><CopyableCode code="privilege" /></td>
+    <td><code>string</code></td>
+    <td>The name of the privilege</td>
+</tr>
+</tbody>
+</table>
+</TabItem>
+</Tabs>
 
 ## Methods
-| Name | Accessible by | Required Params | Optional Params | Description |
-|:-----|:--------------|:----------------|:----------------|:------------|
-| <CopyableCode code="list_grants_on" /> | `SELECT` | <CopyableCode code="name, endpoint" /> | <CopyableCode code="showLimit" /> | List all grants on the role |
 
-<br />
+The following methods are available for this resource:
 
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Accessible by</th>
+    <th>Required Params</th>
+    <th>Optional Params</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr>
+    <td><a href="#list_grants_on"><CopyableCode code="list_grants_on" /></a></td>
+    <td><CopyableCode code="select" /></td>
+    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-showLimit">showLimit</a></td>
+    <td>List all grants on the role</td>
+</tr>
+</tbody>
+</table>## Parameters
 
-<details>
-<summary>Optional Parameter Details</summary>
+Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| <CopyableCode code="showLimit" /> | Query parameter to limit the maximum number of rows returned by a command. | `integer` | `-` |
-
-</details>
+<table>
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>Datatype</th>
+    <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+<tr id="parameter-endpoint">
+    <td><CopyableCode code="endpoint" /></td>
+    <td><code>string</code></td>
+    <td>Organization and Account Name (default: orgid-acctid)</td>
+</tr>
+<tr id="parameter-name">
+    <td><CopyableCode code="name" /></td>
+    <td><code>string</code></td>
+    <td>Identifier (i.e. name) for the resource. (pattern: ^"([^"]|"")+"|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+</tr>
+<tr id="parameter-showLimit">
+    <td><CopyableCode code="showLimit" /></td>
+    <td><code>integer</code></td>
+    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+</tr>
+</tbody>
+</table>
 
 ## `SELECT` examples
 
-List all grants on the role
+<Tabs
+    defaultValue="list_grants_on"
+    values={[
+        { label: 'list_grants_on', value: 'list_grants_on' }
+    ]}
+>
+<TabItem value="list_grants_on">
 
+List all grants on the role
 
 ```sql
 SELECT
 name,
+grantee_name,
 created_on,
 grant_option,
 granted_by,
 granted_by_role_type,
 granted_on,
 granted_to,
-grantee_name,
 privilege
 FROM snowflake.role.grants_on
-WHERE name = '{{ name }}'
-AND endpoint = '{{ endpoint }}';
+WHERE name = '{{ name }}' -- required
+AND endpoint = '{{ endpoint }}' -- required
+AND showLimit = '{{ showLimit }}';
 ```
+</TabItem>
+</Tabs>
