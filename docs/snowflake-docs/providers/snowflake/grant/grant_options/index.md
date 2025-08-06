@@ -125,12 +125,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-securableTypePlural">
     <td><CopyableCode code="securableTypePlural" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the plural of the type of resource that is being secured by an ALL/FUTURE privilege. Must be either "schemas" or any plural object type that can nest under a schema such as "tables" (example: tables)</td>
+    <td>String that specifies the plural of the type of resource that is being secured by an ALL/FUTURE privilege. Must be either &quot;schemas&quot; or any plural object type that can nest under a schema such as &quot;tables&quot; (example: tables)</td>
 </tr>
 <tr id="parameter-deleteMode">
     <td><CopyableCode code="deleteMode" /></td>
     <td><code>string</code></td>
-    <td>If "cascade", recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are "restrict" or "cascade". (example: restrict)</td>
+    <td>If &quot;cascade&quot;, recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are &quot;restrict&quot; or &quot;cascade&quot;. (example: restrict)</td>
 </tr>
 </tbody>
 </table>
