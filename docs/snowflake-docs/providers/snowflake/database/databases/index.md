@@ -490,7 +490,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-share">
     <td><CopyableCode code="share" /></td>
     <td><code>string</code></td>
-    <td>ID of the share from which to create the database, in the form &quot;{provider_account}.{share_name}&quot;.</td>
+    <td>ID of the share from which to create the database, in the form &quot;&lt;provider_account&gt;.&lt;share_name&gt;&quot;.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
