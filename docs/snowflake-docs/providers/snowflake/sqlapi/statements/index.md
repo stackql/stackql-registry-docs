@@ -225,6 +225,16 @@ SELECT
 '{{ bindings }}',
 '{{ parameters }}',
 '{{ endpoint }}'
+RETURNING
+code,
+createdOn,
+data,
+message,
+resultSetMetaData,
+sqlState,
+statementHandle,
+statementStatusUrl,
+stats
 ;
 ```
 </TabItem>
