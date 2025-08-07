@@ -118,26 +118,28 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#get_statement_status"><CopyableCode code="get_statement_status" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Checks the status of the execution of the statement with the specified statement handle. If the statement was executed successfully, the operation returns the requested partition of the result set.</td>
 </tr>
 <tr>
     <td><a href="#submit_statement"><CopyableCode code="submit_statement" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Submits one or more statements for execution. You can specify that the statement should be executed asynchronously.</td>
 </tr>
 <tr>
     <td><a href="#cancel_statement"><CopyableCode code="cancel_statement" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Cancels the execution of the statement with the specified statement handle.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 

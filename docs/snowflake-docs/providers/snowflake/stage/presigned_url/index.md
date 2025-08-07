@@ -78,12 +78,14 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#get_presigned_url"><CopyableCode code="get_presigned_url" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-filePath">filePath</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-filePath"><code>filePath</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Generate a presigned url and optionally encryption materials for uploading and downloading files.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -99,7 +101,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-database_name">
     <td><CopyableCode code="database_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the <code>/api/v2/databases</code> GET request to get a list of available databases.</td>
 </tr>
 <tr id="parameter-endpoint">
     <td><CopyableCode code="endpoint" /></td>
@@ -114,12 +116,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-schema_name">
     <td><CopyableCode code="schema_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the <code>/api/v2/databases/&#123;database&#125;/schemas</code> GET request to get a list of available schemas for the specified database.</td>
 </tr>
 </tbody>
 </table>

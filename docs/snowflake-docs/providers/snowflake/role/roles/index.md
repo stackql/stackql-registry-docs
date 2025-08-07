@@ -123,26 +123,28 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_roles"><CopyableCode code="list_roles" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a>, <a href="#parameter-startsWith"><code>startsWith</code></a>, <a href="#parameter-showLimit"><code>showLimit</code></a>, <a href="#parameter-fromName"><code>fromName</code></a></td>
     <td>List roles</td>
 </tr>
 <tr>
     <td><a href="#create_role"><CopyableCode code="create_role" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a></td>
     <td>Create a role</td>
 </tr>
 <tr>
     <td><a href="#delete_role"><CopyableCode code="delete_role" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Delete a role</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -163,37 +165,37 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-createMode">
     <td><CopyableCode code="createMode" /></td>
     <td><code>string</code></td>
-    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - <code>errorIfExists</code>: Throws an error if you try to create a resource that already exists. - <code>orReplace</code>: Automatically replaces the existing resource with the current one. - <code>ifNotExists</code>: Creates a new resource when an alter is requested for a non-existent resource.</td>
 </tr>
 <tr id="parameter-fromName">
     <td><CopyableCode code="fromName" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name.</td>
 </tr>
 <tr id="parameter-ifExists">
     <td><CopyableCode code="ifExists" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - <code>true</code>: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - <code>false</code>: The endpoint throws an error if the resource doesn't exist.</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 <tr id="parameter-startsWith">
     <td><CopyableCode code="startsWith" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching.</td>
 </tr>
 </tbody>
 </table>
@@ -282,7 +284,7 @@ SELECT
         
     - name: createMode
       value: string
-      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource.
 ```
 </TabItem>
 </Tabs>

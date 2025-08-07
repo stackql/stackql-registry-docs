@@ -263,33 +263,35 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_accounts"><CopyableCode code="list_accounts" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-history">history</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a>, <a href="#parameter-showLimit"><code>showLimit</code></a>, <a href="#parameter-history"><code>history</code></a></td>
     <td>Lists the accessible accounts.</td>
 </tr>
 <tr>
     <td><a href="#create_account"><CopyableCode code="create_account" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Creates a account. You must provide the full account definition when creating a account.</td>
 </tr>
 <tr>
     <td><a href="#delete_account"><CopyableCode code="delete_account" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-gracePeriodInDays">gracePeriodInDays</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
-    <td>Deletes the specified account. If you enable the `ifExists` parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful.</td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-gracePeriodInDays"><code>gracePeriodInDays</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
+    <td>Deletes the specified account. If you enable the <code>ifExists</code> parameter, the operation succeeds even if the account does not exist. Otherwise, a 404 failure is returned if the account does not exist. if the drop is unsuccessful.</td>
 </tr>
 <tr>
     <td><a href="#undrop_account"><CopyableCode code="undrop_account" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Restores a dropped account that has not yet been permanently deleted (a dropped account that is within its grace period).</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -315,7 +317,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-history">
     <td><CopyableCode code="history" /></td>
@@ -325,17 +327,17 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-ifExists">
     <td><CopyableCode code="ifExists" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - <code>true</code>: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - <code>false</code>: The endpoint throws an error if the resource doesn't exist.</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 </tbody>
 </table>
