@@ -320,84 +320,84 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_databases"><CopyableCode code="list_databases" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a>, <a href="#parameter-history">history</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a>, <a href="#parameter-startsWith"><code>startsWith</code></a>, <a href="#parameter-showLimit"><code>showLimit</code></a>, <a href="#parameter-fromName"><code>fromName</code></a>, <a href="#parameter-history"><code>history</code></a></td>
     <td>Lists the accessible databases.</td>
 </tr>
 <tr>
     <td><a href="#fetch_database"><CopyableCode code="fetch_database" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Fetches a database.</td>
 </tr>
 <tr>
     <td><a href="#create_database"><CopyableCode code="create_database" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-kind">kind</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-kind"><code>kind</code></a></td>
     <td>Creates a database, with modifiers as query parameters. You must provide the full database definition when creating a database.</td>
 </tr>
 <tr>
     <td><a href="#create_or_alter_database"><CopyableCode code="create_or_alter_database" /></a></td>
     <td><CopyableCode code="replace" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Creates a new, or alters an existing, database. You must provide the full database definition even when altering an existing database.</td>
 </tr>
 <tr>
     <td><a href="#delete_database"><CopyableCode code="delete_database" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a>, <a href="#parameter-restrict">restrict</a></td>
-    <td>Deletes the specified database. If you enable the `ifExists` parameter, the operation succeeds even if the database does not exist. Otherwise, a 404 failure is returned if the database does not exist. if the drop is unsuccessful.</td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a>, <a href="#parameter-restrict"><code>restrict</code></a></td>
+    <td>Deletes the specified database. If you enable the <code>ifExists</code> parameter, the operation succeeds even if the database does not exist. Otherwise, a 404 failure is returned if the database does not exist. if the drop is unsuccessful.</td>
 </tr>
 <tr>
     <td><a href="#create_database_from_share"><CopyableCode code="create_database_from_share" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-share">share</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-share"><code>share</code></a></td>
     <td>Creates a database from a given share.</td>
 </tr>
 <tr>
     <td><a href="#create_database_from_share_deprecated"><CopyableCode code="create_database_from_share_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-share">share</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-share"><code>share</code></a></td>
     <td>Creates a database from a given share.</td>
 </tr>
 <tr>
     <td><a href="#clone_database"><CopyableCode code="clone_database" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-kind">kind</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-kind"><code>kind</code></a></td>
     <td>Clones an existing database, with modifiers as query parameters. You must provide the full database definition when cloning an existing database.</td>
 </tr>
 <tr>
     <td><a href="#undrop_database"><CopyableCode code="undrop_database" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Undrops database.</td>
 </tr>
 <tr>
     <td><a href="#enable_database_replication"><CopyableCode code="enable_database_replication" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ignore_edition_check">ignore_edition_check</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ignore_edition_check"><code>ignore_edition_check</code></a></td>
     <td>Promotes a local database to serve as a primary database for replication. A primary database can be replicated in one or more accounts, allowing users in those accounts to query objects in each secondary (i.e. replica) database.</td>
 </tr>
 <tr>
     <td><a href="#disable_database_replication"><CopyableCode code="disable_database_replication" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Disables replication for this primary database, meaning no replica of this database (i.e. secondary database) in another account can be refreshed. Any secondary databases remain linked to the primary database, but requests to refresh a secondary database are denied.</td>
 </tr>
 <tr>
     <td><a href="#refresh_database_replication"><CopyableCode code="refresh_database_replication" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Refreshes a secondary database from a snapshot of its primary database. A snapshot includes changes to the objects and data.
 If you call this endpoint while another refresh for the same replica database is running, it fails and returns an error. Snowflake ensures only one refresh is executed at any given time.</td>
@@ -405,26 +405,28 @@ If you call this endpoint while another refresh for the same replica database is
 <tr>
     <td><a href="#enable_database_failover"><CopyableCode code="enable_database_failover" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Specifies a comma-separated list of accounts in your organization where a replica of this primary database can be promoted to serve as the primary database.</td>
 </tr>
 <tr>
     <td><a href="#disable_database_failover"><CopyableCode code="disable_database_failover" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Disables failover for this primary database, meaning no replica of this database (i.e. secondary database) can be promoted to serve as the primary database.</td>
 </tr>
 <tr>
     <td><a href="#primary_database_failover"><CopyableCode code="primary_database_failover" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Promotes the specified secondary (replica) database to serve as the primary database. When promoted, the database becomes writeable. At the same time, the previous primary database becomes a read-only secondary database.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -445,17 +447,17 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-createMode">
     <td><CopyableCode code="createMode" /></td>
     <td><code>string</code></td>
-    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - <code>errorIfExists</code>: Throws an error if you try to create a resource that already exists. - <code>orReplace</code>: Automatically replaces the existing resource with the current one. - <code>ifNotExists</code>: Creates a new resource when an alter is requested for a non-existent resource.</td>
 </tr>
 <tr id="parameter-fromName">
     <td><CopyableCode code="fromName" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name.</td>
 </tr>
 <tr id="parameter-history">
     <td><CopyableCode code="history" /></td>
@@ -465,27 +467,27 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-ifExists">
     <td><CopyableCode code="ifExists" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - <code>true</code>: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - <code>false</code>: The endpoint throws an error if the resource doesn't exist.</td>
 </tr>
 <tr id="parameter-ignore_edition_check">
     <td><CopyableCode code="ignore_edition_check" /></td>
     <td><code>boolean</code></td>
-    <td>Whether to allow replicating data to accounts on lower editions. Default: `true`. For more information, see the <a> ALTER DATABASE</a> reference.</td>
+    <td>Whether to allow replicating data to accounts on lower editions. Default: <code>true</code>. For more information, see the <a href="https://docs.snowflake.com/en/sql-reference/sql/alter-database"> ALTER DATABASE</a> reference.</td>
 </tr>
 <tr id="parameter-kind">
     <td><CopyableCode code="kind" /></td>
     <td><code>string</code></td>
-    <td>Type of database to create. Currently, Snowflake supports only `transient` and `permanent` (also represented by the empty string).</td>
+    <td>Type of database to create. Currently, Snowflake supports only <code>transient</code> and <code>permanent</code> (also represented by the empty string).</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 <tr id="parameter-restrict">
     <td><CopyableCode code="restrict" /></td>
     <td><code>boolean</code></td>
-    <td>Whether to drop the database if foreign keys exist that reference any tables in the database. - `true`: Return a warning about existing foreign key references and don't drop the database. - `false`: Drop the database and all objects in the database, including tables with primary or unique keys that are referenced by foreign keys in other tables. (default: false)</td>
+    <td>Whether to drop the database if foreign keys exist that reference any tables in the database. - <code>true</code>: Return a warning about existing foreign key references and don't drop the database. - <code>false</code>: Drop the database and all objects in the database, including tables with primary or unique keys that are referenced by foreign keys in other tables.</td>
 </tr>
 <tr id="parameter-share">
     <td><CopyableCode code="share" /></td>
@@ -495,12 +497,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 <tr id="parameter-startsWith">
     <td><CopyableCode code="startsWith" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching.</td>
 </tr>
 </tbody>
 </table>
@@ -719,7 +721,7 @@ SELECT
         
     - name: createMode
       value: string
-      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource.
     - name: kind
       value: string
       description: Type of database to create. Currently, Snowflake supports only `transient` and `permanent` (also represented by the empty string).

@@ -290,40 +290,42 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_user_defined_functions"><CopyableCode code="list_user_defined_functions" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a></td>
     <td>List UDFs</td>
 </tr>
 <tr>
     <td><a href="#fetch_user_defined_function"><CopyableCode code="fetch_user_defined_function" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-nameWithArgs"><code>nameWithArgs</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Fetch a UDF</td>
 </tr>
 <tr>
     <td><a href="#create_user_defined_function"><CopyableCode code="create_user_defined_function" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a UDF</td>
 </tr>
 <tr>
     <td><a href="#delete_user_defined_function"><CopyableCode code="delete_user_defined_function" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-nameWithArgs"><code>nameWithArgs</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Delete a UDF</td>
 </tr>
 <tr>
     <td><a href="#rename_user_defined_function"><CopyableCode code="rename_user_defined_function" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-nameWithArgs">nameWithArgs</a>, <a href="#parameter-targetDatabase">targetDatabase</a>, <a href="#parameter-targetSchema">targetSchema</a>, <a href="#parameter-targetName">targetName</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-nameWithArgs"><code>nameWithArgs</code></a>, <a href="#parameter-targetDatabase"><code>targetDatabase</code></a>, <a href="#parameter-targetSchema"><code>targetSchema</code></a>, <a href="#parameter-targetName"><code>targetName</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Rename a UDF</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -339,7 +341,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-database_name">
     <td><CopyableCode code="database_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the <code>/api/v2/databases</code> GET request to get a list of available databases.</td>
 </tr>
 <tr id="parameter-endpoint">
     <td><CopyableCode code="endpoint" /></td>
@@ -349,47 +351,47 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-nameWithArgs">
     <td><CopyableCode code="nameWithArgs" /></td>
     <td><code>string</code></td>
-    <td>Function's name with Args (example: foo(a number, b number))</td>
+    <td>Function's name with Args</td>
 </tr>
 <tr id="parameter-schema_name">
     <td><CopyableCode code="schema_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the <code>/api/v2/databases/&#123;database&#125;/schemas</code> GET request to get a list of available schemas for the specified database.</td>
 </tr>
 <tr id="parameter-targetDatabase">
     <td><CopyableCode code="targetDatabase" /></td>
     <td><code>string</code></td>
-    <td>Database of the target resource. Defaults to the source's database (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+    <td>Database of the target resource. Defaults to the source's database</td>
 </tr>
 <tr id="parameter-targetName">
     <td><CopyableCode code="targetName" /></td>
     <td><code>string</code></td>
-    <td>Name of the target resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+    <td>Name of the target resource.</td>
 </tr>
 <tr id="parameter-targetSchema">
     <td><CopyableCode code="targetSchema" /></td>
     <td><code>string</code></td>
-    <td>Schema of the target resource. Defaults to the source's schema (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$)</td>
+    <td>Schema of the target resource. Defaults to the source's schema</td>
 </tr>
 <tr id="parameter-copyGrants">
     <td><CopyableCode code="copyGrants" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter to enable copy grants when creating the object. (example: false, default: false)</td>
+    <td>Query parameter to enable copy grants when creating the object.</td>
 </tr>
 <tr id="parameter-createMode">
     <td><CopyableCode code="createMode" /></td>
     <td><code>string</code></td>
-    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - <code>errorIfExists</code>: Throws an error if you try to create a resource that already exists. - <code>orReplace</code>: Automatically replaces the existing resource with the current one. - <code>ifNotExists</code>: Creates a new resource when an alter is requested for a non-existent resource.</td>
 </tr>
 <tr id="parameter-ifExists">
     <td><CopyableCode code="ifExists" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - <code>true</code>: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - <code>false</code>: The endpoint throws an error if the resource doesn't exist.</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 </tbody>
 </table>
@@ -583,10 +585,10 @@ SELECT
         
     - name: createMode
       value: string
-      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource.
     - name: copyGrants
       value: boolean
-      description: Query parameter to enable copy grants when creating the object. (example: false, default: false)
+      description: Query parameter to enable copy grants when creating the object.
 ```
 </TabItem>
 </Tabs>

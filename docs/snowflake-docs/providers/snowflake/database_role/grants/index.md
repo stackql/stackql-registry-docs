@@ -108,26 +108,28 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_grants"><CopyableCode code="list_grants" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-showLimit">showLimit</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-showLimit"><code>showLimit</code></a></td>
     <td>List all grants to the role</td>
 </tr>
 <tr>
     <td><a href="#grant_privileges"><CopyableCode code="grant_privileges" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Grant privileges to the role</td>
 </tr>
 <tr>
     <td><a href="#revoke_grants"><CopyableCode code="revoke_grants" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-mode">mode</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-mode"><code>mode</code></a></td>
     <td>Revoke grants from the role</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -143,7 +145,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-database_name">
     <td><CopyableCode code="database_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the <code>/api/v2/databases</code> GET request to get a list of available databases.</td>
 </tr>
 <tr id="parameter-endpoint">
     <td><CopyableCode code="endpoint" /></td>
@@ -153,17 +155,17 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-mode">
     <td><CopyableCode code="mode" /></td>
     <td><code>string</code></td>
-    <td>Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role. - restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails. - cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege. (enum: [restrict, cascade], example: restrict)</td>
+    <td>Query parameter determines whether the revoke operation succeeds or fails for the privileges, based on the whether the privileges had been re-granted to another role. - restrict: If the privilege being revoked has been re-granted to another role, the REVOKE command fails. - cascade: If the privilege being revoked has been re-granted, the REVOKE command recursively revokes these dependent grants. If the same privilege on an object has been granted to the target role by a different grantor (parallel grant), that grant is not affected and the target role retains the privilege.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 </tbody>
 </table>

@@ -52,19 +52,21 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#revoke_privilege_grant_option"><CopyableCode code="revoke_privilege_grant_option" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-granteeType">granteeType</a>, <a href="#parameter-granteeName">granteeName</a>, <a href="#parameter-securableType">securableType</a>, <a href="#parameter-securableName">securableName</a>, <a href="#parameter-privilege">privilege</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-deleteMode">deleteMode</a></td>
+    <td><a href="#parameter-granteeType"><code>granteeType</code></a>, <a href="#parameter-granteeName"><code>granteeName</code></a>, <a href="#parameter-securableType"><code>securableType</code></a>, <a href="#parameter-securableName"><code>securableName</code></a>, <a href="#parameter-privilege"><code>privilege</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-deleteMode"><code>deleteMode</code></a></td>
     <td>Endpoint to indicate that the grant option for the privilege listed in the path should be revoked.</td>
 </tr>
 <tr>
     <td><a href="#revoke_group_privilege_grant_option"><CopyableCode code="revoke_group_privilege_grant_option" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-granteeType">granteeType</a>, <a href="#parameter-granteeName">granteeName</a>, <a href="#parameter-bulkGrantType">bulkGrantType</a>, <a href="#parameter-securableTypePlural">securableTypePlural</a>, <a href="#parameter-scopeType">scopeType</a>, <a href="#parameter-scopeName">scopeName</a>, <a href="#parameter-privilege">privilege</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-deleteMode">deleteMode</a></td>
+    <td><a href="#parameter-granteeType"><code>granteeType</code></a>, <a href="#parameter-granteeName"><code>granteeName</code></a>, <a href="#parameter-bulkGrantType"><code>bulkGrantType</code></a>, <a href="#parameter-securableTypePlural"><code>securableTypePlural</code></a>, <a href="#parameter-scopeType"><code>scopeType</code></a>, <a href="#parameter-scopeName"><code>scopeName</code></a>, <a href="#parameter-privilege"><code>privilege</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-deleteMode"><code>deleteMode</code></a></td>
     <td>Endpoint to indicate that the grant option for the privilege listed on the group securable in the given scope should be revoked.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -80,7 +82,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-bulkGrantType">
     <td><CopyableCode code="bulkGrantType" /></td>
     <td><code>string</code></td>
-    <td>String that species whether this group privilege should be on ALL or FUTURE resources of the specified plural type (example: all, enum: [all, future])</td>
+    <td>String that species whether this group privilege should be on ALL or FUTURE resources of the specified plural type</td>
 </tr>
 <tr id="parameter-endpoint">
     <td><CopyableCode code="endpoint" /></td>
@@ -90,47 +92,47 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-granteeName">
     <td><CopyableCode code="granteeName" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the name of the privilege grantee. (example: SYSADMIN)</td>
+    <td>String that specifies the name of the privilege grantee.</td>
 </tr>
 <tr id="parameter-granteeType">
     <td><CopyableCode code="granteeType" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the type of resource that is the privilege grantee. (example: role, enum: [user, role, application-role, database-role, share])</td>
+    <td>String that specifies the type of resource that is the privilege grantee.</td>
 </tr>
 <tr id="parameter-privilege">
     <td><CopyableCode code="privilege" /></td>
     <td><code>string</code></td>
-    <td>String that specifies a privilege to be revoked (example: SELECT)</td>
+    <td>String that specifies a privilege to be revoked</td>
 </tr>
 <tr id="parameter-scopeName">
     <td><CopyableCode code="scopeName" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the name of resource that is the scope of an ALL/FUTURE privilege (example: MY_DB.MY_SC)</td>
+    <td>String that specifies the name of resource that is the scope of an ALL/FUTURE privilege</td>
 </tr>
 <tr id="parameter-scopeType">
     <td><CopyableCode code="scopeType" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the type of resource that is the scope of an ALL/FUTURE privilege. Can only be DATABASE or SCHEMA (example: schema, enum: [database, schema])</td>
+    <td>String that specifies the type of resource that is the scope of an ALL/FUTURE privilege. Can only be DATABASE or SCHEMA</td>
 </tr>
 <tr id="parameter-securableName">
     <td><CopyableCode code="securableName" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the name of resource that is being secured by a privilege. (example: MY_DB)</td>
+    <td>String that specifies the name of resource that is being secured by a privilege.</td>
 </tr>
 <tr id="parameter-securableType">
     <td><CopyableCode code="securableType" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the type of resource that is being secured by a privilege. (example: DATABASE)</td>
+    <td>String that specifies the type of resource that is being secured by a privilege.</td>
 </tr>
 <tr id="parameter-securableTypePlural">
     <td><CopyableCode code="securableTypePlural" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the plural of the type of resource that is being secured by an ALL/FUTURE privilege. Must be either &quot;schemas&quot; or any plural object type that can nest under a schema such as &quot;tables&quot; (example: tables)</td>
+    <td>String that specifies the plural of the type of resource that is being secured by an ALL/FUTURE privilege. Must be either &quot;schemas&quot; or any plural object type that can nest under a schema such as &quot;tables&quot;</td>
 </tr>
 <tr id="parameter-deleteMode">
     <td><CopyableCode code="deleteMode" /></td>
     <td><code>string</code></td>
-    <td>If &quot;cascade&quot;, recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are &quot;restrict&quot; or &quot;cascade&quot;. (example: restrict)</td>
+    <td>If &quot;cascade&quot;, recursively revoke the grant from sub-grantees to which this privilege was re-granted. Acceptable values are &quot;restrict&quot; or &quot;cascade&quot;.</td>
 </tr>
 </tbody>
 </table>

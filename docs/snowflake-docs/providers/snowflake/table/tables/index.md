@@ -340,138 +340,140 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_tables"><CopyableCode code="list_tables" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a>, <a href="#parameter-startsWith">startsWith</a>, <a href="#parameter-showLimit">showLimit</a>, <a href="#parameter-fromName">fromName</a>, <a href="#parameter-history">history</a>, <a href="#parameter-deep">deep</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a>, <a href="#parameter-startsWith"><code>startsWith</code></a>, <a href="#parameter-showLimit"><code>showLimit</code></a>, <a href="#parameter-fromName"><code>fromName</code></a>, <a href="#parameter-history"><code>history</code></a>, <a href="#parameter-deep"><code>deep</code></a></td>
     <td>Lists the tables under the database and schema.</td>
 </tr>
 <tr>
     <td><a href="#fetch_table"><CopyableCode code="fetch_table" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Fetch a Table using the describe command output.</td>
 </tr>
 <tr>
     <td><a href="#create_table"><CopyableCode code="create_table" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a table.</td>
 </tr>
 <tr>
     <td><a href="#create_or_alter_table"><CopyableCode code="create_or_alter_table" /></a></td>
     <td><CopyableCode code="replace" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Create a (or alter an existing) table. Even if the operation is just an alter, the full property set must be provided.</td>
 </tr>
 <tr>
     <td><a href="#delete_table"><CopyableCode code="delete_table" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Delete a table with the given name.</td>
 </tr>
 <tr>
     <td><a href="#create_table_as_select_deprecated"><CopyableCode code="create_table_as_select_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-query">query</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-query"><code>query</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a table as select.</td>
 </tr>
 <tr>
     <td><a href="#create_table_as_select"><CopyableCode code="create_table_as_select" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-query">query</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-query"><code>query</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a table as select.</td>
 </tr>
 <tr>
     <td><a href="#create_table_using_template_deprecated"><CopyableCode code="create_table_using_template_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-query">query</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-query"><code>query</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a table using template.</td>
 </tr>
 <tr>
     <td><a href="#create_table_using_template"><CopyableCode code="create_table_using_template" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-query">query</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-query"><code>query</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a table using template.</td>
 </tr>
 <tr>
     <td><a href="#clone_table"><CopyableCode code="clone_table" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a>, <a href="#parameter-targetDatabase">targetDatabase</a>, <a href="#parameter-targetSchema">targetSchema</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a>, <a href="#parameter-targetDatabase"><code>targetDatabase</code></a>, <a href="#parameter-targetSchema"><code>targetSchema</code></a></td>
     <td>Create a new table by cloning from the specified resource</td>
 </tr>
 <tr>
     <td><a href="#create_table_like_deprecated"><CopyableCode code="create_table_like_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-newTableName">newTableName</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-newTableName"><code>newTableName</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a new table like the specified resource, but empty</td>
 </tr>
 <tr>
     <td><a href="#create_table_like"><CopyableCode code="create_table_like" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-createMode">createMode</a>, <a href="#parameter-copyGrants">copyGrants</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-createMode"><code>createMode</code></a>, <a href="#parameter-copyGrants"><code>copyGrants</code></a></td>
     <td>Create a new table like the specified resource, but empty</td>
 </tr>
 <tr>
     <td><a href="#undrop_table"><CopyableCode code="undrop_table" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Undrop specified table</td>
 </tr>
 <tr>
     <td><a href="#suspend_recluster_table_deprecated"><CopyableCode code="suspend_recluster_table_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Suspend recluster of a table</td>
 </tr>
 <tr>
     <td><a href="#suspend_recluster_table"><CopyableCode code="suspend_recluster_table" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Suspend recluster of a table</td>
 </tr>
 <tr>
     <td><a href="#resume_recluster_table_deprecated"><CopyableCode code="resume_recluster_table_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Resume recluster of a table</td>
 </tr>
 <tr>
     <td><a href="#resume_recluster_table"><CopyableCode code="resume_recluster_table" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Resume recluster of a table</td>
 </tr>
 <tr>
     <td><a href="#swap_with_table_deprecated"><CopyableCode code="swap_with_table_deprecated" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-targetTableName">targetTableName</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-targetTableName"><code>targetTableName</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Swap with another table</td>
 </tr>
 <tr>
     <td><a href="#swap_with_table"><CopyableCode code="swap_with_table" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-database_name">database_name</a>, <a href="#parameter-schema_name">schema_name</a>, <a href="#parameter-name">name</a>, <a href="#parameter-targetName">targetName</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-ifExists">ifExists</a>, <a href="#parameter-targetDatabase">targetDatabase</a>, <a href="#parameter-targetSchema">targetSchema</a></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-targetName"><code>targetName</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-ifExists"><code>ifExists</code></a>, <a href="#parameter-targetDatabase"><code>targetDatabase</code></a>, <a href="#parameter-targetSchema"><code>targetSchema</code></a></td>
     <td>Swap with another table</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -487,7 +489,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-database_name">
     <td><CopyableCode code="database_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the `/api/v2/databases` GET request to get a list of available databases. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the database to which the resource belongs. You can use the <code>/api/v2/databases</code> GET request to get a list of available databases.</td>
 </tr>
 <tr id="parameter-endpoint">
     <td><CopyableCode code="endpoint" /></td>
@@ -497,7 +499,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-newTableName">
     <td><CopyableCode code="newTableName" /></td>
@@ -512,12 +514,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-schema_name">
     <td><CopyableCode code="schema_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the `/api/v2/databases/{database}/schemas` GET request to get a list of available schemas for the specified database. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the <code>/api/v2/databases/&#123;database&#125;/schemas</code> GET request to get a list of available schemas for the specified database.</td>
 </tr>
 <tr id="parameter-targetName">
     <td><CopyableCode code="targetName" /></td>
     <td><code>string</code></td>
-    <td>The name of the target table to be swapped with. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>The name of the target table to be swapped with.</td>
 </tr>
 <tr id="parameter-targetTableName">
     <td><CopyableCode code="targetTableName" /></td>
@@ -527,12 +529,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-copyGrants">
     <td><CopyableCode code="copyGrants" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter to enable copy grants when creating the object. (example: false, default: false)</td>
+    <td>Query parameter to enable copy grants when creating the object.</td>
 </tr>
 <tr id="parameter-createMode">
     <td><CopyableCode code="createMode" /></td>
     <td><code>string</code></td>
-    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)</td>
+    <td>Query parameter allowing support for different modes of resource creation. Possible values include: - <code>errorIfExists</code>: Throws an error if you try to create a resource that already exists. - <code>orReplace</code>: Automatically replaces the existing resource with the current one. - <code>ifNotExists</code>: Creates a new resource when an alter is requested for a non-existent resource.</td>
 </tr>
 <tr id="parameter-deep">
     <td><CopyableCode code="deep" /></td>
@@ -542,7 +544,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-fromName">
     <td><CopyableCode code="fromName" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name. (example: from_test)</td>
+    <td>Query parameter to enable fetching rows only following the first row whose object name matches the specified string. Case-sensitive and does not have to be the full name.</td>
 </tr>
 <tr id="parameter-history">
     <td><CopyableCode code="history" /></td>
@@ -552,32 +554,32 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-ifExists">
     <td><CopyableCode code="ifExists" /></td>
     <td><code>boolean</code></td>
-    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - `true`: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - `false`: The endpoint throws an error if the resource doesn't exist. (example: true, default: false)</td>
+    <td>Query parameter that specifies how to handle the request for a resource that does not exist: - <code>true</code>: The endpoint does not throw an error if the resource does not exist. It returns a 200 success response, but does not take any action on the resource. - <code>false</code>: The endpoint throws an error if the resource doesn't exist.</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 <tr id="parameter-startsWith">
     <td><CopyableCode code="startsWith" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching. (example: test)</td>
+    <td>Query parameter to filter the command output based on the string of characters that appear at the beginning of the object name. Uses case-sensitive pattern matching.</td>
 </tr>
 <tr id="parameter-targetDatabase">
     <td><CopyableCode code="targetDatabase" /></td>
     <td><code>string</code></td>
-    <td>Database of the target table. Defaults to the source table's database. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Database of the target table. Defaults to the source table's database.</td>
 </tr>
 <tr id="parameter-targetSchema">
     <td><CopyableCode code="targetSchema" /></td>
     <td><code>string</code></td>
-    <td>Schema of the target table. Defaults to the source table's schema. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Schema of the target table. Defaults to the source table's schema.</td>
 </tr>
 </tbody>
 </table>
@@ -795,10 +797,10 @@ SELECT
         
     - name: createMode
       value: string
-      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource. (enum: [errorIfExists, orReplace, ifNotExists], example: ifNotExists, default: errorIfExists)
+      description: Query parameter allowing support for different modes of resource creation. Possible values include: - `errorIfExists`: Throws an error if you try to create a resource that already exists. - `orReplace`: Automatically replaces the existing resource with the current one. - `ifNotExists`: Creates a new resource when an alter is requested for a non-existent resource.
     - name: copyGrants
       value: boolean
-      description: Query parameter to enable copy grants when creating the object. (example: false, default: false)
+      description: Query parameter to enable copy grants when creating the object.
 ```
 </TabItem>
 </Tabs>

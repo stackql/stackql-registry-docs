@@ -118,12 +118,14 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_grants_to"><CopyableCode code="list_grants_to" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-granteeType">granteeType</a>, <a href="#parameter-granteeName">granteeName</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-showLimit">showLimit</a></td>
+    <td><a href="#parameter-granteeType"><code>granteeType</code></a>, <a href="#parameter-granteeName"><code>granteeName</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-showLimit"><code>showLimit</code></a></td>
     <td>List the roles and privileges granted to the specified grantee using the output of SHOW GRANTS TO</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -144,17 +146,17 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-granteeName">
     <td><CopyableCode code="granteeName" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the name of the privilege grantee. (example: SYSADMIN)</td>
+    <td>String that specifies the name of the privilege grantee.</td>
 </tr>
 <tr id="parameter-granteeType">
     <td><CopyableCode code="granteeType" /></td>
     <td><code>string</code></td>
-    <td>String that specifies the type of resource that is the privilege grantee. (example: role, enum: [user, role, application-role, database-role, share])</td>
+    <td>String that specifies the type of resource that is the privilege grantee.</td>
 </tr>
 <tr id="parameter-showLimit">
     <td><CopyableCode code="showLimit" /></td>
     <td><code>integer</code></td>
-    <td>Query parameter to limit the maximum number of rows returned by a command. (example: 10, minimum: 1, maximum: 10000)</td>
+    <td>Query parameter to limit the maximum number of rows returned by a command.</td>
 </tr>
 </tbody>
 </table>

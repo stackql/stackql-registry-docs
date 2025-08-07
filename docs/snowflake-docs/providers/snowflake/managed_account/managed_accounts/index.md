@@ -128,26 +128,28 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#list_managed_accounts"><CopyableCode code="list_managed_accounts" /></a></td>
     <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-like">like</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-like"><code>like</code></a></td>
     <td>Lists the accessible managed accounts.</td>
 </tr>
 <tr>
     <td><a href="#create_managed_account"><CopyableCode code="create_managed_account" /></a></td>
     <td><CopyableCode code="insert" /></td>
-    <td><a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Creates a managed account. You must provide the full managed account definition when creating a managed account.</td>
 </tr>
 <tr>
     <td><a href="#delete_managed_account"><CopyableCode code="delete_managed_account" /></a></td>
     <td><CopyableCode code="delete" /></td>
-    <td><a href="#parameter-name">name</a>, <a href="#parameter-endpoint">endpoint</a></td>
+    <td><a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td></td>
     <td>Removes a managed account, including all objects created in the account, and immediately restricts access to the account. Currently used by data providers to create reader accounts for their consumers. For more details, see Manage reader accounts.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -168,12 +170,12 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-name">
     <td><CopyableCode code="name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the resource. (pattern: ^&quot;([^&quot;]|&quot;&quot;)+&quot;|[a-zA-Z_][a-zA-Z0-9_$]*$, example: TEST_NAME)</td>
+    <td>Identifier (i.e. name) for the resource.</td>
 </tr>
 <tr id="parameter-like">
     <td><CopyableCode code="like" /></td>
     <td><code>string</code></td>
-    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters. (example: test_%)</td>
+    <td>Query parameter to filter the command output by resource name. Uses case-insensitive pattern matching, with support for SQL wildcard characters.</td>
 </tr>
 </tbody>
 </table>

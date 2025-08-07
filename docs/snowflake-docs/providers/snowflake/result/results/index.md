@@ -52,12 +52,14 @@ The following methods are available for this resource:
 <tr>
     <td><a href="#fetch_result"><CopyableCode code="fetch_result" /></a></td>
     <td><CopyableCode code="exec" /></td>
-    <td><a href="#parameter-result_handler">result_handler</a>, <a href="#parameter-endpoint">endpoint</a></td>
-    <td><a href="#parameter-page">page</a></td>
+    <td><a href="#parameter-result_handler"><code>result_handler</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td><a href="#parameter-page"><code>page</code></a></td>
     <td>Get result status or the result when it is ready.</td>
 </tr>
 </tbody>
-</table>## Parameters
+</table>
+
+## Parameters
 
 Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#methods) section to see which parameters are required or optional for each operation.
 
@@ -83,7 +85,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-page">
     <td><CopyableCode code="page" /></td>
     <td><code>integer (int64)</code></td>
-    <td>Number of the page of results to return. The number can range from 0 to the total number of pages minus 1. (minimum: 0, default: 0)</td>
+    <td>Number of the page of results to return. The number can range from 0 to the total number of pages minus 1.</td>
 </tr>
 </tbody>
 </table>
