@@ -105,7 +105,7 @@ const config = {
     navbar: {
       logo: {
         alt: 'StackQL',
-        href: '/home',
+        href: '/providers',
         src: 'img/logo-original.svg',
         srcDark: 'img/logo-white.svg',
       },
@@ -121,12 +121,12 @@ const config = {
           position: 'left',
         },
         {
-          to: '/downloads',
-          label: 'Downloads',
+          to: '/install',
+          label: 'Install',
           position: 'left',
         },        
         {
-          to: '/',
+          to: '/providers',
           label: 'Providers',
           position: 'left',
         },  
@@ -150,9 +150,9 @@ const config = {
               activeBasePath: 'blog',
             },
             {
-              to: '/cookbooks',
-              label: 'Cookbooks',
-              activeBasePath: 'cookbooks',
+              to: '/tutorials',
+              label: 'Tutorials',
+              activeBasePath: 'tutorials',
             },
           ],
         },        
@@ -173,7 +173,7 @@ const config = {
       style: 'dark',
       logo: {
         alt: 'StackQL',
-        href: 'https://stackql.io/',
+        href: '/providers',
         src: 'img/logo-original.svg',
         srcDark: 'img/logo-white.svg',
       },
@@ -185,10 +185,10 @@ const config = {
               label: 'Home',
               to: '/home',
             },
-            {
-              label: 'Features',
-              to: '/features',
-            },
+            // {
+            //   label: 'Features',
+            //   to: '/features',
+            // },
             {
               label: 'Downloads',
               to: '/downloads',
@@ -208,7 +208,7 @@ const config = {
             },
             {
               label: 'Providers',
-              to: '/',
+              to: '/providers',
             },
             {
               label: 'Blog',
