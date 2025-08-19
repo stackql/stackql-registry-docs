@@ -31,5 +31,12 @@ export const providers = [
 
 export const getProviderSiteUrl = (name: string) =>{
     const registry = siteConfig.customFields?.registry
-    return registry === name? `/providers/${name}`: `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
+    if(registry === name){
+        return `/providers/${name}`
+    } else if (['snowflake'].includes(name)) {
+        return `https://${name}-provider.stackql.io/`
+    } else {
+        return `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
+    }
+    // return registry === name ? `/providers/${name}`: `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
 }
