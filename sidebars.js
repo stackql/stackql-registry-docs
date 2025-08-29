@@ -43,7 +43,18 @@ const providers = [
 ]
 
 const getProviderSiteUrl = (name) =>{
-    return `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
+  if (
+        [
+        'snowflake',
+        'google',
+        'googleadmin',
+        'googleworkspace',
+        'firebase',
+    ].includes(name)) {
+        return `https://${name}-provider.stackql.io/`
+    } else {
+        return `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
+    }  
 }
 
 const providerDocItems = providers.map(provider =>{

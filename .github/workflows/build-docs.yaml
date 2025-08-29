@@ -89,15 +89,12 @@ jobs:
              azure-isv 
              azure-stack 
              digitalocean 
-             firebase 
              confluent 
              databricks-account 
              databricks-workspace 
              github 
              openai 
              anthropic 
-             google 
-             googleadmin 
              k8s 
              linode 
              netlify 
@@ -108,7 +105,6 @@ jobs:
              pagerduty 
              homebrew 
              datadog 
-             snowflake 
              )
             for i in "${array[@]}"
             do

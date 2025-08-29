@@ -13,15 +13,15 @@ const allProviders = [
     'azure_isv',
     'azure_stack',
     'digitalocean',
-    'firebase', 
+    // 'firebase', 
     'github',
     'confluent',
     'databricks_account',
     'databricks_workspace',
     'openai', 
     'anthropic',
-    'google', 
-    'googleadmin',
+    // 'google', 
+    // 'googleadmin',
     'k8s',
     'linode', 
     'netlify', 
@@ -32,7 +32,7 @@ const allProviders = [
     'pagerduty',
     'datadog',
     'homebrew',
-    'snowflake',
+    // 'snowflake',
     rootName];
        
 const appendToOutput = (providers) => {
