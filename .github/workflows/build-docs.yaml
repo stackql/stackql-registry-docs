@@ -90,8 +90,6 @@ jobs:
              azure-stack 
              digitalocean 
              confluent 
-             databricks-account 
-             databricks-workspace 
              github 
              openai 
              anthropic 
