@@ -50,8 +50,10 @@ const getProviderSiteUrl = (name) =>{
         'googleadmin',
         'googleworkspace',
         'firebase',
+        'databricks_workspace',
+        'databricks_account',
     ].includes(name)) {
-        return `https://${name}-provider.stackql.io/`
+        return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
         return `https://${name.replace('_', '-')}.stackql.io/providers/${name}`
     }  
