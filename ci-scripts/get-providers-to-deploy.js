@@ -25,7 +25,7 @@ const allProviders = [
     'k8s',
     'linode', 
     'netlify', 
-    'okta', 
+    // 'okta', 
     'sumologic', 
     'vercel', 
     'godaddy',

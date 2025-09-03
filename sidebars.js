@@ -45,6 +45,7 @@ const providers = [
 const getProviderSiteUrl = (name) =>{
   if (
         [
+        'okta',
         'snowflake',
         'google',
         'googleadmin',
