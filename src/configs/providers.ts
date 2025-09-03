@@ -35,6 +35,7 @@ export const getProviderSiteUrl = (name: string) =>{
         return `/providers/${name}`
     } else if (
         [
+        'okta',
         'snowflake',
         'google',
         'googleadmin',
