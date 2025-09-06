@@ -88,7 +88,6 @@ jobs:
              azure-extras 
              azure-isv 
              azure-stack 
-             digitalocean 
              confluent 
              github 
              openai 
