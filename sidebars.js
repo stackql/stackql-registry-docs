@@ -53,6 +53,7 @@ const getProviderSiteUrl = (name) =>{
         'firebase',
         'databricks_workspace',
         'databricks_account',
+        'digitalocean',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {

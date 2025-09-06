@@ -12,7 +12,7 @@ const allProviders = [
     'azure_extras',
     'azure_isv',
     'azure_stack',
-    'digitalocean',
+    // 'digitalocean',
     // 'firebase', 
     'github',
     'confluent',
