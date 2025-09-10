@@ -23,7 +23,7 @@ const allProviders = [
     // 'google', 
     // 'googleadmin',
     'k8s',
-    'linode', 
+    // 'linode', 
     'netlify', 
     // 'okta', 
     'sumologic', 
