@@ -93,7 +93,6 @@ jobs:
              openai 
              anthropic 
              k8s 
-             linode 
              netlify 
              sumologic 
              vercel 

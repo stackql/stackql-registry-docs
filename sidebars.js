@@ -54,6 +54,7 @@ const getProviderSiteUrl = (name) =>{
         'databricks_workspace',
         'databricks_account',
         'digitalocean',
+        'linode',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
