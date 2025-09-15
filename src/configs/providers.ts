@@ -45,6 +45,7 @@ export const getProviderSiteUrl = (name: string) =>{
         'databricks_account',
         'digitalocean',
         'linode',
+        'datadog',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {

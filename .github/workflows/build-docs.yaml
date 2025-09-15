@@ -99,7 +99,6 @@ jobs:
              godaddy 
              pagerduty 
              homebrew 
-             datadog 
              )
             for i in "${array[@]}"
             do
