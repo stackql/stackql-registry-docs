@@ -30,7 +30,7 @@ const allProviders = [
     'vercel', 
     'godaddy',
     'pagerduty',
-    'datadog',
+    // 'datadog',
     'homebrew',
     // 'snowflake',
     rootName];
