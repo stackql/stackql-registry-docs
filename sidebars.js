@@ -57,6 +57,7 @@ const getProviderSiteUrl = (name) =>{
         'linode',
         'datadog',
         'godaddy', 
+        'netlify',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
