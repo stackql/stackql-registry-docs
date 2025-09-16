@@ -46,6 +46,7 @@ export const getProviderSiteUrl = (name: string) =>{
         'digitalocean',
         'linode',
         'datadog',
+        'godaddy',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {

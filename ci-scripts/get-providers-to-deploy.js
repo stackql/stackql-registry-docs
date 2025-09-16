@@ -28,7 +28,7 @@ const allProviders = [
     // 'okta', 
     'sumologic', 
     'vercel', 
-    'godaddy',
+    // 'godaddy',
     'pagerduty',
     // 'datadog',
     'homebrew',
