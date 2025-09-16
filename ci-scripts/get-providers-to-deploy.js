@@ -24,7 +24,7 @@ const allProviders = [
     // 'googleadmin',
     'k8s',
     // 'linode', 
-    'netlify', 
+    // 'netlify', 
     // 'okta', 
     'sumologic', 
     'vercel', 

@@ -93,7 +93,6 @@ jobs:
              openai 
              anthropic 
              k8s 
-             netlify 
              sumologic 
              vercel 
              pagerduty 
