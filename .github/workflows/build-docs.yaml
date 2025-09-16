@@ -96,7 +96,6 @@ jobs:
              netlify 
              sumologic 
              vercel 
-             godaddy 
              pagerduty 
              homebrew 
              )
