@@ -48,6 +48,11 @@ export const getProviderSiteUrl = (name: string) =>{
         'datadog',
         'godaddy',
         'netlify',
+        'pagerduty',
+        'azure',
+        'azure_extras',
+        'azure_isv',
+        'azure_stack'        
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {

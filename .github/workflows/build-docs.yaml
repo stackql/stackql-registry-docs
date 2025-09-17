@@ -84,10 +84,6 @@ jobs:
             touch ./build/_redirects
             array=( 
              aws 
-             azure 
-             azure-extras 
-             azure-isv 
-             azure-stack 
              confluent 
              github 
              openai 
@@ -95,7 +91,6 @@ jobs:
              k8s 
              sumologic 
              vercel 
-             pagerduty 
              homebrew 
              )
             for i in "${array[@]}"

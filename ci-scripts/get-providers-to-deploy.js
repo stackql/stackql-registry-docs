@@ -8,10 +8,10 @@ const isMatchRegex = (path) => regex.test(path);
 const rootName = 'root'
 const allProviders = [
     'aws', 
-    'azure', 
-    'azure_extras',
-    'azure_isv',
-    'azure_stack',
+    // 'azure', 
+    // 'azure_extras',
+    // 'azure_isv',
+    // 'azure_stack',
     // 'digitalocean',
     // 'firebase', 
     'github',
@@ -29,7 +29,7 @@ const allProviders = [
     'sumologic', 
     'vercel', 
     // 'godaddy',
-    'pagerduty',
+    // 'pagerduty',
     // 'datadog',
     'homebrew',
     // 'snowflake',
