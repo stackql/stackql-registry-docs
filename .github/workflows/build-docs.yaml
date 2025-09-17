@@ -83,7 +83,6 @@ jobs:
             echo "adding vanity url redirects to _redirects file.."
             touch ./build/_redirects
             array=( 
-             aws 
              confluent 
              github 
              openai 

@@ -7,7 +7,7 @@ const regex = /^docs\/[a-zA-Z0-9_-]+-docs\/*/;;
 const isMatchRegex = (path) => regex.test(path);
 const rootName = 'root'
 const allProviders = [
-    'aws', 
+    // 'aws', 
     // 'azure', 
     // 'azure_extras',
     // 'azure_isv',

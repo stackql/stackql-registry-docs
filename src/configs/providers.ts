@@ -52,7 +52,8 @@ export const getProviderSiteUrl = (name: string) =>{
         'azure',
         'azure_extras',
         'azure_isv',
-        'azure_stack'        
+        'azure_stack',
+        'aws',        
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
