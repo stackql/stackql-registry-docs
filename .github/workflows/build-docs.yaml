@@ -85,8 +85,6 @@ jobs:
             array=( 
              confluent 
              github 
-             openai 
-             anthropic 
              )
             for i in "${array[@]}"
             do
