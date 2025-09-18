@@ -5,11 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "start:github": "export REGISTRY=github && docusaurus start",
-    "start:confluent": "export REGISTRY=confluent && docusaurus start",
     "build:root": "docusaurus build",
-    "build:github": "export REGISTRY=github && docusaurus build",
-    "build:confluent": "export REGISTRY=confluent && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
