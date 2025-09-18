@@ -63,7 +63,9 @@ const getProviderSiteUrl = (name) =>{
         'azure_extras',
         'azure_isv',
         'azure_stack',
-        'aws'
+        'aws',
+        'sumologic',
+        'vercel',
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {

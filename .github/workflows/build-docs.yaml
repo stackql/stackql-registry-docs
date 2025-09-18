@@ -88,8 +88,6 @@ jobs:
              openai 
              anthropic 
              k8s 
-             sumologic 
-             vercel 
              homebrew 
              )
             for i in "${array[@]}"
