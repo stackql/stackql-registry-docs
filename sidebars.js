@@ -67,7 +67,9 @@ const getProviderSiteUrl = (name) =>{
         'sumologic',
         'vercel',
         'k8s',
-        'homebrew',        
+        'homebrew',
+        'openai',
+        'anthropic'                
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
