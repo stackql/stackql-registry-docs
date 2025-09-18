@@ -22,7 +22,7 @@ const allProviders = [
     'anthropic',
     // 'google', 
     // 'googleadmin',
-    'k8s',
+    // 'k8s',
     // 'linode', 
     // 'netlify', 
     // 'okta', 
@@ -31,7 +31,7 @@ const allProviders = [
     // 'godaddy',
     // 'pagerduty',
     // 'datadog',
-    'homebrew',
+    // 'homebrew',
     // 'snowflake',
     rootName];
        

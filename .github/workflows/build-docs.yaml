@@ -87,8 +87,6 @@ jobs:
              github 
              openai 
              anthropic 
-             k8s 
-             homebrew 
              )
             for i in "${array[@]}"
             do

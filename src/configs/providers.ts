@@ -55,7 +55,9 @@ export const getProviderSiteUrl = (name: string) =>{
         'azure_stack',
         'aws',     
         'sumologic',
-        'vercel',           
+        'vercel',
+        'k8s',
+        'homebrew',   
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
