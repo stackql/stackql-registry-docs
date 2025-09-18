@@ -8,8 +8,6 @@ This repository contains documentation for StackQL providers, which is published
 | --- | --- | -- |
 | GitHub Actions Build | [![GitHub Actions](https://github.com/stackql/stackql-registry-docs/actions/workflows/build-docs.yaml/badge.svg?branch=main)](https://github.com/stackql/stackql-registry-docs/actions/workflows/build-docs.yaml) | [stackql-registry-docs/actions](https://github.com/stackql/stackql-registry-docs/actions) |
 | Netlify Deploy Base | [![Netlify Status](https://api.netlify.com/api/v1/badges/75f838a9-79ea-41dc-96f9-a40dff50cfca/deploy-status)](https://app.netlify.com/sites/stackql-registry-docs/deploys) | [registry.stackql.io](https://registry.stackql.io) |
-| Netlify Deploy GitHub | [![Netlify Status](https://api.netlify.com/api/v1/badges/625d7d38-37a9-4224-a9c8-6ee58141b109/deploy-status)](https://app.netlify.com/sites/stackql-github-docs/deploys) | [github-docs.stackql.io](https://github-docs.stackql.io)<br/>[github.stackql.io](https://github.stackql.io) |
-| Netlify Deploy Confluent | [![Netlify Status](https://api.netlify.com/api/v1/badges/63149c2f-6c3d-43f1-be38-80c55c223ac0/deploy-status)](https://app.netlify.com/sites/stackql-confluent-docs/deploys) | [confluent-docs.stackql.io](https://confluent-docs.stackql.io)<br/>[confluent.stackql.io](https://confluent.stackql.io) |
 
 ## Adding Docs for a New Provider
 

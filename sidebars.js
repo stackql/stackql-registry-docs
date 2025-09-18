@@ -69,7 +69,9 @@ const getProviderSiteUrl = (name) =>{
         'k8s',
         'homebrew',
         'openai',
-        'anthropic'                
+        'anthropic',
+        'confluent',
+        'github'                
     ].includes(name)) {
         return `https://${name.replace('_', '-')}-provider.stackql.io/`
     } else {
